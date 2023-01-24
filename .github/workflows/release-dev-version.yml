@@ -13,11 +13,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -31,11 +35,6 @@ jobs:
         env:
           CI: true
 
-      - name: Test
-        run: npm run test:unit
-        env:
-          CI: true
-        
       - name: Build
         run: npm run build
         env:
