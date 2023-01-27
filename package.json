@@ -5,21 +5,24 @@
   "type": "module",
   "license": "Apache-2.0",
   "files": [
-    "dist"
+    "dist",
+    "dist_types"
   ],
   "main": "./dist/bcc-vue-components.umd.js",
   "module": "./dist/bcc-vue-components.js",
+  "typings": "./dist_types/index.d.ts",
   "exports": {
     "import": "./dist/bcc-vue-components.js",
     "require": "./dist/bcc-vue-components.umd.js"
   },
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-only",
+    "build": "run-p type-check build-types build-only",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "build-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.compile.json",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
