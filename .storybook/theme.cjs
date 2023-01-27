@@ -1,7 +1,6 @@
 import { create } from '@storybook/theming';
 
 export default create({
-  base: 'light',
-  brandTitle: 'BCC',
+  brandTitle: 'BCC Vue Components',
   brandImage: 'https://design.bcc.no/logos/bcc_logo_primary.svg',
 });
