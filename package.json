@@ -10,7 +10,7 @@
   ],
   "main": "./dist/bcc-vue-components.umd.js",
   "module": "./dist/bcc-vue-components.js",
-  "typings": "./dist_types/index.d.ts",
+  "types": "./dist_types/index.d.ts",
   "exports": {
     "import": "./dist/bcc-vue-components.js",
     "require": "./dist/bcc-vue-components.umd.js"
