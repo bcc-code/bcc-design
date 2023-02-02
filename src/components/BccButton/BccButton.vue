@@ -1,17 +1,51 @@
 <script setup lang="ts">
-export interface Props {
+import { cva, type VariantProps } from "class-variance-authority";
+
+const classVariants = cva("font-semibold", {
+  variants: {
+    kind: {
+      primary:
+        "bg-primary-dark-green-600 text-neutral-50 hover:bg-primary-dark-green-500 active:bg-primary-dark-green-400 active:text-white",
+      secondary:
+        "border-2 border-primary-dark-green-600 bg-transparent text-primary-dark-green-600 hover:bg-primary-dark-green-100 active:border-primary-dark-green-500 active:text-primary-dark-green-500",
+      tertiary:
+        "text-primary-dark-green-600 hover:bg-primary-dark-green-100 active:text-primary-dark-green-500",
+    },
+    size: {
+      xs: "text-xs py-1.5 px-3",
+      sm: "text-sm py-2 px-3",
+      base: "text-sm py-2.5 px-5",
+      lg: "text-base py-3 px-5",
+      xl: "text-base py-4 px-6",
+    },
+    look: {
+      regular: "rounded",
+      rounded: "rounded-lg",
+    },
+  },
+  defaultVariants: {
+    kind: "primary",
+    size: "base",
+    look: "regular",
+  },
+});
+
+type ButtonVariants = VariantProps<typeof classVariants>;
+
+type Props = {
   type?: "button" | "submit" | "reset";
-  variant?: "primary" | "secondary" | "tertiary";
-  size?: "xs" | "sm" | "base" | "lg" | "xl";
-  style?: "regular" | "rounded";
-  disabled?: boolean; // TODO define in design system
-}
+  kind?: ButtonVariants["kind"];
+  size?: ButtonVariants["size"];
+  look?: ButtonVariants["look"];
+  disabled: boolean; // TODO define in design system
+};
 
 withDefaults(defineProps<Props>(), {
   type: "button",
-  variant: "primary",
+  kind: "primary",
   size: "base",
-  style: "regular",
+  look: "regular",
+  disabled: false,
 });
 </script>
 
@@ -19,7 +53,7 @@ withDefaults(defineProps<Props>(), {
   <button
     :type="type"
     :disabled="disabled"
-    class="rounded bg-primary-dark-green-600 py-2.5 px-5 text-sm font-semibold text-neutral-50 hover:bg-primary-dark-green-500"
+    :class="classVariants({ kind, size, look })"
   >
     <slot></slot>
   </button>
