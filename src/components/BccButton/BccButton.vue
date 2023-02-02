@@ -7,7 +7,7 @@ const classVariants = cva("font-semibold", {
       primary:
         "bg-primary-dark-green-600 text-neutral-50 hover:bg-primary-dark-green-500 active:bg-primary-dark-green-400 active:text-white",
       secondary:
-        "border-2 border-primary-dark-green-600 bg-transparent text-primary-dark-green-600 hover:bg-primary-dark-green-100 active:border-primary-dark-green-500 active:text-primary-dark-green-500",
+        "outline outline-offset-[-2px] outline-2 outline-primary-dark-green-600 bg-transparent text-primary-dark-green-600 hover:bg-primary-dark-green-100 active:outline-primary-dark-green-500 active:text-primary-dark-green-500",
       tertiary:
         "text-primary-dark-green-600 hover:bg-primary-dark-green-100 active:text-primary-dark-green-500",
     },
