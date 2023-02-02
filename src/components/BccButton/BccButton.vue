@@ -37,7 +37,7 @@ type Props = {
   kind?: ButtonVariants["kind"];
   size?: ButtonVariants["size"];
   look?: ButtonVariants["look"];
-  disabled: boolean; // TODO define in design system
+  disabled?: boolean; // TODO define in design system
 };
 
 withDefaults(defineProps<Props>(), {

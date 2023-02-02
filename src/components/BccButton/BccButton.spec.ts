@@ -4,8 +4,8 @@ import { mount } from "@vue/test-utils";
 import BccButton from "./BccButton.vue";
 
 describe("BccButton", () => {
-  it("renders properly", () => {
-    const wrapper = mount(BccButton, { props: { msg: "Hello Vitest" } });
-    expect(wrapper.text()).toContain("Hello Vitest");
+  it("renders a text from the default slot", () => {
+    const wrapper = mount(BccButton, { slots: { default: "Test Button" } });
+    expect(wrapper.text()).toContain("Test Button");
   });
 });
