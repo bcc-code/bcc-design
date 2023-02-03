@@ -84,3 +84,12 @@ export const Tertiary: StoryFn<typeof BccButton> = () => ({
     <BccButton kind="tertiary" size="xl" class="mr-2">Tertiary (xl)</BccButton>
   `,
 });
+
+export const Disabled: StoryFn<typeof BccButton> = () => ({
+  components: { BccButton },
+  template: `
+    <BccButton kind="primary" :disabled="true" class="mr-2">Primary disabled</BccButton>
+    <BccButton kind="secondary" :disabled="true" class="mr-2">Secondary disabled</BccButton>
+    <BccButton kind="tertiary" :disabled="true" class="mr-2">Tertiary disabled</BccButton>
+  `,
+});
