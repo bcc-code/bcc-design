@@ -1,8 +1,13 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{vue,ts}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Archivo", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         neutral: {
           0: "#ffffff",
