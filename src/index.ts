@@ -1,1 +1,1 @@
-export { default as HelloWorld } from "./components/HelloWorld.vue";
+export { default as BccButton } from "./components/BccButton/BccButton.vue";
