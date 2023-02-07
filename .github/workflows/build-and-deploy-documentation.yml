@@ -30,7 +30,6 @@ jobs:
         with:
           title: BCC Vue Component Library
           description: A library of Vue components implementing the BCC Design System
-          auto-register-components: true
         
   deploy:
     environment:
