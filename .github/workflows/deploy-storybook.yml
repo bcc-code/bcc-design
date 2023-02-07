@@ -8,6 +8,8 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+  paths:
+    - src/components/**
 
 jobs:
   build_and_deploy:
