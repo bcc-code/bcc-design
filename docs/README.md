@@ -2,6 +2,8 @@
 
 This library is a collection of components that conform to the BCC Design System, implemented in [Vue.js](https://vuejs.org/) and styled with [Tailwind](https://tailwindcss.com).
 
+View the components with [Storybook](https://vue-components-storybook.developer.bcc.no)
+
 ## Quick installation
 Install the `dev` version which points to the latest commit on the `main` branch:
 ```sh
