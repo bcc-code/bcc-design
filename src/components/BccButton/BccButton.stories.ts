@@ -33,6 +33,14 @@ export default {
       options: ["left", "right"],
       control: { type: "radio" },
     },
+    element: {
+      description: "The actual underlying HTML element to use for the button",
+      options: ["button", "a"],
+      control: { type: "radio" },
+    },
+    href: {
+      description: "The href attribute for when the button is an `a` element",
+    },
     slotDefault: {
       name: "default slot",
       description: "The button text",
@@ -65,6 +73,7 @@ Example.args = {
   type: "button",
   iconPosition: "left",
   disabled: false,
+  element: "button",
   slotDefault: "Example Button",
 };
 

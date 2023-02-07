@@ -80,15 +80,19 @@ const iconClassVariants = cva("", {
 });
 
 type Props = {
+  element?: "button" | "a";
   type?: "button" | "submit" | "reset";
   kind?: ButtonVariants["kind"];
   size?: ButtonVariants["size"];
   look?: ButtonVariants["look"];
   iconPosition?: ButtonVariants["iconPosition"];
   disabled?: boolean;
+  href?: string;
+  target?: "_blank" | "_self" | "_parent" | "_top";
 };
 
 withDefaults(defineProps<Props>(), {
+  element: "button",
   type: "button",
   kind: "primary",
   size: "base",
@@ -99,9 +103,12 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <button
-    :type="type"
-    :disabled="disabled"
+  <component
+    :is="element"
+    :type="element === 'button' ? type : null"
+    :disabled="element === 'button' ? disabled : null"
+    :href="element === 'a' ? href : null"
+    :target="element === 'a' ? target : null"
     :class="buttonClassVariants({ kind, size, look, iconPosition, disabled })"
   >
     <span :class="iconClassVariants({ size })" v-if="$slots.icon">
@@ -110,5 +117,5 @@ withDefaults(defineProps<Props>(), {
     <span>
       <slot></slot>
     </span>
-  </button>
+  </component>
 </template>
