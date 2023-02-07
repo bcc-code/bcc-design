@@ -43,19 +43,19 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       kind: "primary",
       disabled: false,
       class:
-        "bg-primary-dark-green-600 text-neutral-50 fill-neutral-50 hover:bg-primary-dark-green-500 active:bg-primary-dark-green-400 active:text-white active:fill-white",
+        "bg-primary-dark-green-600 text-neutral-50 fill-neutral-50 hover:bg-primary-dark-green-500 active:bg-primary-dark-green-400 active:text-white active:fill-white focus:outline-none focus:ring focus:ring-primary-dark-green-300",
     },
     {
       kind: "secondary",
       disabled: false,
       class:
-        "outline-primary-dark-green-600 bg-transparent text-primary-dark-green-600 fill-primary-dark-green-600 hover:bg-primary-dark-green-100 active:outline-primary-dark-green-500 active:text-primary-dark-green-500 active:fill-primary-dark-green-500",
+        "outline-primary-dark-green-600 bg-transparent text-primary-dark-green-600 fill-primary-dark-green-600 hover:bg-primary-dark-green-100 active:outline-primary-dark-green-500 active:text-primary-dark-green-500 active:fill-primary-dark-green-500 focus:ring focus:ring-primary-dark-green-300",
     },
     {
       kind: "tertiary",
       disabled: false,
       class:
-        "text-primary-dark-green-600 fill-primary-dark-green-600 hover:bg-primary-dark-green-100 active:text-primary-dark-green-500 active:fill-primary-dark-green-500",
+        "text-primary-dark-green-600 fill-primary-dark-green-600 hover:bg-primary-dark-green-100 hover:underline active:text-primary-dark-green-500 active:fill-primary-dark-green-500 active:underline focus:outline-none focus:ring focus:ring-primary-dark-green-300 focus:underline",
     },
   ],
   defaultVariants: {
