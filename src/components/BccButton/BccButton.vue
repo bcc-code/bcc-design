@@ -23,9 +23,9 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       true: "text-neutral-500 fill-neutral-500 cursor-not-allowed",
       false: "cursor-pointer",
     },
-    iconPosition: {
-      left: "",
-      right: "flex-row-reverse space-x-reverse",
+    iconRight: {
+      false: "",
+      true: "flex-row-reverse space-x-reverse",
     },
   },
   compoundVariants: [
@@ -60,8 +60,7 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
   ],
   defaultVariants: {
     kind: "primary",
-    size: "base",
-    rounded: false,
+    size: "base"
   },
 });
 
@@ -83,17 +82,17 @@ type Props = {
   is?: string;
   disabled: boolean;
   rounded?: boolean;
+  iconRight?: boolean;
   kind?: ButtonVariants["kind"];
   size?: ButtonVariants["size"];
-  iconPosition?: ButtonVariants["iconPosition"];
 };
 
 withDefaults(defineProps<Props>(), {
   element: "button",
   kind: "primary",
   size: "base",
-  look: "regular",
-  iconPosition: "left",
+  iconRight: false,
+  rounded: false,
   disabled: false,
 });
 </script>
@@ -101,7 +100,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <component
     v-bind="$attrs"
-    :class="buttonClassVariants({ kind, size, look, iconPosition, disabled })"
+    :class="buttonClassVariants({ kind, size, rounded, iconRight, disabled })"
   >
     <span :class="iconClassVariants({ size })" v-if="$slots.icon">
       <slot name="icon"></slot>
