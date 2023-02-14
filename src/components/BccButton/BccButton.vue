@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonClassVariants = cva("font-semibold inline-flex items-center", {
   variants: {
-    kind: {
+    variant: {
       primary: "",
       secondary: "outline outline-offset-[-2px] outline-2",
       tertiary: "",
@@ -30,36 +30,36 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
   },
   compoundVariants: [
     {
-      kind: "primary",
+      variant: "primary",
       disabled: true,
       class: "bg-neutral-300",
     },
     {
-      kind: "secondary",
+      variant: "secondary",
       disabled: true,
       class: "outline-neutral-300",
     },
     {
-      kind: "primary",
+      variant: "primary",
       disabled: false,
       class:
         "bg-primary-dark-green-600 text-neutral-50 fill-neutral-50 hover:bg-primary-dark-green-500 active:bg-primary-dark-green-400 active:text-white active:fill-white focus:outline-none focus:ring focus:ring-primary-dark-green-300",
     },
     {
-      kind: "secondary",
+      variant: "secondary",
       disabled: false,
       class:
         "outline-primary-dark-green-600 bg-transparent text-primary-dark-green-600 fill-primary-dark-green-600 hover:bg-primary-dark-green-100 active:outline-primary-dark-green-500 active:text-primary-dark-green-500 active:fill-primary-dark-green-500 focus:ring focus:ring-primary-dark-green-300",
     },
     {
-      kind: "tertiary",
+      variant: "tertiary",
       disabled: false,
       class:
         "text-primary-dark-green-600 fill-primary-dark-green-600 hover:bg-primary-dark-green-100 hover:underline active:text-primary-dark-green-500 active:fill-primary-dark-green-500 active:underline focus:outline-none focus:ring focus:ring-primary-dark-green-300 focus:underline",
     },
   ],
   defaultVariants: {
-    kind: "primary",
+    variant: "primary",
     size: "base",
     look: "regular",
   },
@@ -80,9 +80,9 @@ const iconClassVariants = cva("", {
 });
 
 type Props = {
-  element?: "button" | "a";
+  is?: "button" | "a";
   type?: "button" | "submit" | "reset";
-  kind?: ButtonVariants["kind"];
+  variant?: ButtonVariants["variant"];
   size?: ButtonVariants["size"];
   look?: ButtonVariants["look"];
   iconPosition?: ButtonVariants["iconPosition"];
@@ -92,9 +92,9 @@ type Props = {
 };
 
 withDefaults(defineProps<Props>(), {
-  element: "button",
+  is: "button",
   type: "button",
-  kind: "primary",
+  variant: "primary",
   size: "base",
   look: "regular",
   iconPosition: "left",
@@ -104,12 +104,14 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <component
-    :is="element"
-    :type="element === 'button' ? type : null"
-    :disabled="element === 'button' ? disabled : null"
-    :href="element === 'a' ? href : null"
-    :target="element === 'a' ? target : null"
-    :class="buttonClassVariants({ kind, size, look, iconPosition, disabled })"
+    :is="is"
+    :type="is === 'button' ? type : null"
+    :disabled="is === 'button' ? disabled : null"
+    :href="is === 'a' ? href : null"
+    :target="is === 'a' ? target : null"
+    :class="
+      buttonClassVariants({ variant, size, look, iconPosition, disabled })
+    "
   >
     <span :class="iconClassVariants({ size })" v-if="$slots.icon">
       <slot name="icon"></slot>

@@ -7,7 +7,7 @@ export default {
   title: "Components/Button",
   component: BccButton,
   argTypes: {
-    kind: {
+    variant: {
       description: "The global style of the button",
       options: ["primary", "secondary", "tertiary"],
       control: { type: "radio" },
@@ -33,13 +33,18 @@ export default {
       options: ["left", "right"],
       control: { type: "radio" },
     },
-    element: {
+    is: {
       description: "The actual underlying HTML element to use for the button",
       options: ["button", "a"],
       control: { type: "radio" },
     },
     href: {
       description: "The href attribute for when the button is an `a` element",
+    },
+    target: {
+      description: "The target attribute for when the button is an `a` element",
+      options: ["_blank", "_self", "_parent", "_top"],
+      control: { type: "radio" },
     },
     slotDefault: {
       name: "default slot",
@@ -70,13 +75,13 @@ Example.parameters = {
   viewMode: "docs",
 };
 Example.args = {
-  kind: "primary",
+  variant: "primary",
   size: "base",
   look: "regular",
   type: "button",
   iconPosition: "left",
   disabled: false,
-  element: "button",
+  is: "button",
   slotDefault: "Example Button",
 };
 
@@ -97,11 +102,11 @@ export const Secondary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
     <div class="flex items-center space-x-2">
-      <BccButton kind="secondary" size="xs">Secondary (xs)</BccButton>
-      <BccButton kind="secondary" size="sm">Secondary (sm)</BccButton>
-      <BccButton kind="secondary" size="base">Secondary (base)</BccButton>
-      <BccButton kind="secondary" size="lg">Secondary (lg)</BccButton>
-      <BccButton kind="secondary" size="xl">Secondary (xl)</BccButton>
+      <BccButton variant="secondary" size="xs">Secondary (xs)</BccButton>
+      <BccButton variant="secondary" size="sm">Secondary (sm)</BccButton>
+      <BccButton variant="secondary" size="base">Secondary (base)</BccButton>
+      <BccButton variant="secondary" size="lg">Secondary (lg)</BccButton>
+      <BccButton variant="secondary" size="xl">Secondary (xl)</BccButton>
     </div>
   `,
 });
@@ -110,11 +115,11 @@ export const Tertiary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
     <div class="flex items-center space-x-2">
-      <BccButton kind="tertiary" size="xs">Tertiary (xs)</BccButton>
-      <BccButton kind="tertiary" size="sm">Tertiary (sm)</BccButton>
-      <BccButton kind="tertiary" size="base">Tertiary (base)</BccButton>
-      <BccButton kind="tertiary" size="lg">Tertiary (lg)</BccButton>
-      <BccButton kind="tertiary" size="xl">Tertiary (xl)</BccButton>
+      <BccButton variant="tertiary" size="xs">Tertiary (xs)</BccButton>
+      <BccButton variant="tertiary" size="sm">Tertiary (sm)</BccButton>
+      <BccButton variant="tertiary" size="base">Tertiary (base)</BccButton>
+      <BccButton variant="tertiary" size="lg">Tertiary (lg)</BccButton>
+      <BccButton variant="tertiary" size="xl">Tertiary (xl)</BccButton>
     </div>
   `,
 });
@@ -123,9 +128,9 @@ export const Disabled: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
     <div class="flex items-center space-x-2">
-      <BccButton kind="primary" :disabled="true">Primary disabled</BccButton>
-      <BccButton kind="secondary" :disabled="true">Secondary disabled</BccButton>
-      <BccButton kind="tertiary" :disabled="true">Tertiary disabled</BccButton>
+      <BccButton variant="primary" :disabled="true">Primary disabled</BccButton>
+      <BccButton variant="secondary" :disabled="true">Secondary disabled</BccButton>
+      <BccButton variant="tertiary" :disabled="true">Tertiary disabled</BccButton>
     </div>
   `,
 });
@@ -146,7 +151,7 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
           <Search />
         </template>
       </BccButton>
-      <BccButton kind="secondary">
+      <BccButton variant="secondary">
         <template #icon>
           <Search />
         </template>
