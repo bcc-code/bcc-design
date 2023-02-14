@@ -24,7 +24,18 @@ Figma designs are generally based on [Flowbite](https://flowbite.com/docs/gettin
 Props should be (if possible) be named like they are named in Figma. Usually designers will create a component in Figma that has properties as well. By keeping these as close as possible it's easier to compare different variants between design and code.
 
 ### Don't include all attributes as props
-When building a wrapper around a native HTML element such as `input`, don't include all the attributes of this element as props on the component. Instead, bind the Vue `$attrs` property to the root element, like so
+When building a wrapper around a native HTML element such as `input`, don't include all the attributes of this element as props on the component. Vue will automatically [pass them through](https://vuejs.org/guide/components/attrs.html). If the element is not the top level element in your component (for example because it is wrapped in a `span`), bind the Vue `$attrs` property to the appropriate element.
+
+First disable the default attribute inheritance with a non-`setup` script tag:
+```vue
+<script lang="ts">
+    export default {
+        inheritAttrs: false,
+    };
+</script>
+```
+
+And then bind the `$attrs` to the element:
 
 ```vue
 <input v-bind="$attrs" />

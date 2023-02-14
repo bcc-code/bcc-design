@@ -106,7 +106,6 @@ withDefaults(defineProps<Props>(), {
     :class="
       buttonClassVariants({ variant, size, look, iconPosition, disabled })
     "
-    v-bind="$attrs"
   >
     <span :class="iconClassVariants({ size })" v-if="$slots.icon">
       <slot name="icon"></slot>
