@@ -18,3 +18,22 @@ This documentation is rudimentary and needs to be expanded.
 :::
 
 Figma designs are generally based on [Flowbite](https://flowbite.com/docs/getting-started/introduction/). This means that the Flowbite markup can be used as a base, but will generally need customization both in terms of styling and additions such as accessibility. We do not use Flowbite's Vue library, but instead build our own Vue components. This gives us full control over the markup.
+
+## Do's and Don'ts
+### Follow Figma naming for props
+Props should be (if possible) be named like they are named in Figma. Usually designers will create a component in Figma that has properties as well. By keeping these as close as possible it's easier to compare different variants between design and code.
+
+### Don't include all attributes as props
+When building a wrapper around a native HTML element such as `input`, don't include all the attributes of this element as props on the component. Instead, bind the Vue `$attrs` property to the root element, like so
+
+```vue
+<input v-bind="$attrs" />
+```
+
+From the [Vue documentation](https://vuejs.org/guide/components/attrs.html#disabling-attribute-inheritance):
+> The `$attrs` object includes all attributes that are not declared by the component's `props` or `emits` options
+
+### Don't use `<style>` in an SFC
+Commonly, a Vue Single File Component (SFC) includes a `script`, `template`, and `style` tag. The use of a `style` tag should be avoided, for two reasons:
+1. Adding classes this way will generate a CSS file in the output. We don't want consumers of this Vue component library having to include a separate CSS file
+2. Since we're using Tailwind, it's not needed to write any CSS. By ruling out the possiblity of using custom classes, even when they're `scoped`, it's clear where CSS styling comes from: Tailwind
