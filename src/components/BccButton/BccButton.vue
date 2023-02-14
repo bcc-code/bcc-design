@@ -81,14 +81,11 @@ const iconClassVariants = cva("", {
 
 type Props = {
   is?: "button" | "a";
-  type?: "button" | "submit" | "reset";
   variant?: ButtonVariants["variant"];
   size?: ButtonVariants["size"];
   look?: ButtonVariants["look"];
   iconPosition?: ButtonVariants["iconPosition"];
   disabled?: boolean;
-  href?: string;
-  target?: "_blank" | "_self" | "_parent" | "_top";
 };
 
 withDefaults(defineProps<Props>(), {
@@ -105,13 +102,11 @@ withDefaults(defineProps<Props>(), {
 <template>
   <component
     :is="is"
-    :type="is === 'button' ? type : null"
     :disabled="is === 'button' ? disabled : null"
-    :href="is === 'a' ? href : null"
-    :target="is === 'a' ? target : null"
     :class="
       buttonClassVariants({ variant, size, look, iconPosition, disabled })
     "
+    v-bind="$attrs"
   >
     <span :class="iconClassVariants({ size })" v-if="$slots.icon">
       <slot name="icon"></slot>
