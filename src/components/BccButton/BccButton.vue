@@ -15,9 +15,9 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       lg: "text-base py-3 px-5 space-x-2.5",
       xl: "text-base py-4 px-6 space-x-2.5",
     },
-    look: {
-      regular: "rounded",
-      rounded: "rounded-lg",
+    rounded: {
+      false: "rounded",
+      true: "rounded-lg",
     },
     disabled: {
       true: "text-neutral-500 fill-neutral-500 cursor-not-allowed",
@@ -61,7 +61,7 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
   defaultVariants: {
     kind: "primary",
     size: "base",
-    look: "regular",
+    rounded: false,
   },
 });
 
@@ -82,9 +82,9 @@ const iconClassVariants = cva("", {
 type Props = {
   is?: string;
   disabled: boolean;
+  rounded?: boolean;
   kind?: ButtonVariants["kind"];
   size?: ButtonVariants["size"];
-  look?: ButtonVariants["look"];
   iconPosition?: ButtonVariants["iconPosition"];
 };
 
