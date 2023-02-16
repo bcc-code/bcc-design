@@ -13,27 +13,21 @@ describe("BccButton", () => {
     let wrapper = mount(BccButton);
     expect(wrapper.html()).toContain("<button");
 
-    wrapper = mount(BccButton, { props: { element: "a" } });
+    wrapper = mount(BccButton, { props: { is: "a" } });
     expect(wrapper.html()).toContain("<a");
   });
 
-  it("renders only anchor elements for an anchor", () => {
+  it("passes through non-prop attributes", () => {
     const wrapper = mount(BccButton, {
-      props: { element: "a", target: "_blank", href: "#", disabled: true },
+      props: { is: "a", target: "_blank", href: "#", disabled: true },
     });
     expect(wrapper.html()).toContain("href");
     expect(wrapper.html()).toContain('target="_blank"');
-    expect(wrapper.html()).not.toContain('type="button"');
     expect(wrapper.html()).not.toContain("disabled");
   });
 
-  it("renders only button elements for an button", () => {
-    const wrapper = mount(BccButton, {
-      props: { element: "button", target: "_blank", href: "#", disabled: true },
-    });
-    expect(wrapper.html()).not.toContain("href");
-    expect(wrapper.html()).not.toContain('target="_blank"');
-    expect(wrapper.html()).toContain('type="button"');
-    expect(wrapper.html()).toContain("disabled");
+  it("ignores the disabled attribute for anchors", () => {
+    const wrapper = mount(BccButton, { props: { is: "a", disabled: true } });
+    expect(wrapper.html()).not.toContain("disabled");
   });
 });

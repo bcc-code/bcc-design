@@ -22,11 +22,6 @@ export default {
       options: ["regular", "rounded"],
       control: { type: "radio" },
     },
-    type: {
-      description: "Set the HTML button type",
-      options: ["button", "submit", "reset"],
-      control: { type: "radio" },
-    },
     iconPosition: {
       description:
         "On which side of the button to put the contents of the icon slot",
@@ -36,14 +31,6 @@ export default {
     is: {
       description: "The actual underlying HTML element to use for the button",
       options: ["button", "a"],
-      control: { type: "radio" },
-    },
-    href: {
-      description: "The href attribute for when the button is an `a` element",
-    },
-    target: {
-      description: "The target attribute for when the button is an `a` element",
-      options: ["_blank", "_self", "_parent", "_top"],
       control: { type: "radio" },
     },
     slotDefault: {
