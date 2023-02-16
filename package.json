@@ -17,13 +17,13 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-types build-only build-icons",
+    "build": "run-p type-check build-types build-only && npm run build-icons",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "build-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.compile.json",
-    "build-icons": "cp -r ./icons ./dist/icons",
+    "build-icons": "mkdir ./dist/icons && cp -r ./icons/* ./dist/icons",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
