@@ -144,7 +144,7 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
         </template>
         Secondary with icon
       </BccButton>
-      <BccButton kind="tertiary">
+      <BccButton variant="tertiary">
         <template #icon>
           <Search />
         </template>

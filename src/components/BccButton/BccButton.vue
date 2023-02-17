@@ -37,25 +37,25 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
     {
       variant: "secondary",
       disabled: true,
-      class: "outline-neutral-300",
+      class: "outline-neutral-300 bg-neutral-50",
     },
     {
       variant: "primary",
       disabled: false,
       class:
-        "bg-primary-dark-green-600 text-neutral-50 fill-neutral-50 hover:bg-primary-dark-green-500 active:bg-primary-dark-green-400 active:text-white active:fill-white focus:outline-none focus:ring focus:ring-primary-dark-green-300",
+        "bg-tree-green-600 text-neutral-50 fill-neutral-50 hover:bg-tree-green-700 active:bg-tree-green-500 active:text-white active:fill-white focus:outline-none focus:ring focus:bg-tree-green-600 focus:ring-tree-green-100",
     },
     {
       variant: "secondary",
       disabled: false,
       class:
-        "outline-primary-dark-green-600 bg-transparent text-primary-dark-green-600 fill-primary-dark-green-600 hover:bg-primary-dark-green-100 active:outline-primary-dark-green-500 active:text-primary-dark-green-500 active:fill-primary-dark-green-500 focus:ring focus:ring-primary-dark-green-300",
+        "outline-tree-green-600 bg-transparent text-tree-green-600 fill-tree-green-600 hover:outline-tree-green-700 hover:text-tree-green-700 hover:fill-tree-green-700 hover:bg-tree-green-50 active:outline-tree-green-500 active:text-tree-green-500 active:fill-tree-green-500 focus:ring focus:ring-tree-green-100",
     },
     {
       variant: "tertiary",
       disabled: false,
       class:
-        "text-primary-dark-green-600 fill-primary-dark-green-600 hover:bg-primary-dark-green-100 hover:underline active:text-primary-dark-green-500 active:fill-primary-dark-green-500 active:underline focus:outline-none focus:ring focus:ring-primary-dark-green-300 focus:underline",
+        "text-tree-green-600 fill-tree-green-600 hover:bg-tree-green-50 hover:underline active:text-tree-green-500 active:fill-tree-green-500 active:underline focus:outline-none focus:ring focus:ring-tree-green-100 focus:underline",
     },
   ],
   defaultVariants: {
