@@ -89,7 +89,6 @@ type Props = {
 
 withDefaults(defineProps<Props>(), {
   is: "button",
-  type: "button",
   variant: "primary",
   size: "base",
   iconPosition: "left",

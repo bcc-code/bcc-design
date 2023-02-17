@@ -60,7 +60,6 @@ Example.args = {
   variant: "primary",
   size: "base",
   rounded: false,
-  type: "button",
   iconPosition: "left",
   disabled: false,
   is: "button",
