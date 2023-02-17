@@ -17,11 +17,6 @@ export default {
       options: ["xs", "sm", "base", "lg", "xl"],
       control: { type: "radio" },
     },
-    look: {
-      description: "How rounded the corners of the button should be",
-      options: ["regular", "rounded"],
-      control: { type: "radio" },
-    },
     iconPosition: {
       description:
         "On which side of the button to put the contents of the icon slot",
@@ -64,7 +59,7 @@ Example.parameters = {
 Example.args = {
   variant: "primary",
   size: "base",
-  look: "regular",
+  rounded: false,
   type: "button",
   iconPosition: "left",
   disabled: false,
