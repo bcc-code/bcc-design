@@ -15,9 +15,9 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       lg: "text-base py-3 px-5 space-x-2.5",
       xl: "text-base py-4 px-6 space-x-2.5",
     },
-    look: {
-      regular: "rounded",
-      rounded: "rounded-lg",
+    rounded: {
+      true: "rounded-lg",
+      false: "rounded",
     },
     disabled: {
       true: "text-neutral-500 fill-neutral-500 cursor-not-allowed",
@@ -61,7 +61,6 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
   defaultVariants: {
     variant: "primary",
     size: "base",
-    look: "regular",
   },
 });
 
@@ -83,18 +82,17 @@ type Props = {
   is?: "button" | "a";
   variant?: ButtonVariants["variant"];
   size?: ButtonVariants["size"];
-  look?: ButtonVariants["look"];
   iconPosition?: ButtonVariants["iconPosition"];
+  rounded?: boolean;
   disabled?: boolean;
 };
 
 withDefaults(defineProps<Props>(), {
   is: "button",
-  type: "button",
   variant: "primary",
   size: "base",
-  look: "regular",
   iconPosition: "left",
+  rounded: false,
   disabled: false,
 });
 </script>
@@ -104,7 +102,7 @@ withDefaults(defineProps<Props>(), {
     :is="is"
     :disabled="is === 'button' ? disabled : null"
     :class="
-      buttonClassVariants({ variant, size, look, iconPosition, disabled })
+      buttonClassVariants({ variant, size, rounded, iconPosition, disabled })
     "
   >
     <span :class="iconClassVariants({ size })" v-if="$slots.icon">
