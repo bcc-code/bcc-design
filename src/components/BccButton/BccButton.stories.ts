@@ -69,7 +69,7 @@ Example.args = {
 export const Primary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
-    <div class="flex items-center space-x-2">
+    <div class="flex items-start space-x-2">
       <BccButton size="xs">Primary (xs)</BccButton>
       <BccButton size="sm">Primary (sm)</BccButton>
       <BccButton size="base">Primary (base)</BccButton>
@@ -82,7 +82,7 @@ export const Primary: StoryFn<typeof BccButton> = () => ({
 export const Secondary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
-    <div class="flex items-center space-x-2">
+    <div class="flex items-start space-x-2">
       <BccButton variant="secondary" size="xs">Secondary (xs)</BccButton>
       <BccButton variant="secondary" size="sm">Secondary (sm)</BccButton>
       <BccButton variant="secondary" size="base">Secondary (base)</BccButton>
@@ -108,7 +108,7 @@ export const Tertiary: StoryFn<typeof BccButton> = () => ({
 export const Disabled: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
-    <div class="flex items-center space-x-2">
+    <div class="flex items-start space-x-2">
       <BccButton variant="primary" :disabled="true">Primary disabled</BccButton>
       <BccButton variant="secondary" :disabled="true">Secondary disabled</BccButton>
       <BccButton variant="tertiary" :disabled="true">Tertiary disabled</BccButton>
@@ -119,7 +119,7 @@ export const Disabled: StoryFn<typeof BccButton> = () => ({
 export const WithIcon: StoryFn<typeof BccButton> = () => ({
   components: { BccButton, Search },
   template: `
-    <div class="flex items-center space-x-2">
+    <div class="flex items-start space-x-2">
       <BccButton>
         <template #icon>
           <Search />
@@ -151,7 +151,7 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
         Disabled with icon
       </BccButton>
     </div>
-    <div class="flex items-center space-x-2 mt-4">
+    <div class="flex items-start space-x-2 mt-4">
       <BccButton size="xs">
         <template #icon>
           <Search />
