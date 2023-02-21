@@ -12,6 +12,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
+env:
+  CI: true
+
 jobs:
   test:
     uses: ./.github/workflows/test.yml
@@ -33,13 +36,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        env:
-          CI: true
 
       - name: Build
         run: npm run build
-        env:
-          CI: true
 
       - name: Resolve version
         id: vars
@@ -51,5 +50,4 @@ jobs:
       - name: Publish
         run: npm publish --tag dev
         env:
-          CI: true
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
