@@ -35,3 +35,23 @@ $ npm login --scope=@bcc-code --auth-type=legacy --registry=https://npm.pkg.gith
 ```
 
 4. Run `npm install` with the desired package version.
+
+### Using the package in CI
+With the above steps you've authenticated to fetch the package locally, but some more configuration is needed to get it working in GitHub Actions.
+
+1. Add permission to read packages to the `GITHUB_TOKEN`. Be sure to also add the default permission `contents: read`, otherwise the token will lose the ability to read the repository.
+```yml
+permissions:
+  contents: read
+  packages: read
+```
+
+2. Pass the token along as `NODE_AUTH_TOKEN` in steps where you're talking to the npm registry, typically when installing dependencies:
+```yml
+- name: Install dependencies
+  run: npm ci
+  env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+3. Add or ask an admin to add your repository to the [package settings](https://github.com/orgs/bcc-code/packages/npm/bcc-vue-components/settings) on GitHub. This is currently also needed for repositories in `bcc-code`.
