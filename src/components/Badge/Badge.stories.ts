@@ -1,5 +1,5 @@
 import Badge from "./Badge.vue";
-import Clock from "@icons/timer.svg";
+import Clock from "@icons/radio_button_unchecked.svg";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -9,7 +9,7 @@ export default {
   argTypes: {
     type: {
       description: "Determines the styling of the badge",
-      options: ["neutral", "error", "warning", "success", "info", "purple", "pink"],
+      options: ["neutral", "error", "warning", "success", "info"],
       control: { type: "radio" },
     },
     size: {

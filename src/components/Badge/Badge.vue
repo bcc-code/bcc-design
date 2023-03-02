@@ -9,8 +9,6 @@ const badgeClassVariants = cva("py-0.5 rounded space-x-1 inline-flex items-cente
       warning: "bg-yellow-50 text-yellow-900 dark:bg-yellow-900 dark:text-yellow-300",
       success: "bg-green-50 text-green-900 dark:bg-green-900 dark:text-green-300",
       info: "bg-blue-50 text-blue-900 dark:bg-blue-900 dark:text-blue-300",
-      purple: "bg-purple-50 text-purple-900 dark:bg-purple-900 dark:text-purple-300",
-      pink: "bg-pink-50 text-pink-900 dark:bg-pink-900 dark:text-pink-300",
     },
     size: {
       "base": "text-xs px-2.5",
@@ -33,8 +31,6 @@ const iconClassVariants = cva("inline-block", {
       warning: "fill-yellow-800",
       success: "fill-green-800",
       info: "fill-blue-800",
-      purple: "fill-purple-800",
-      pink: "fill-pink-800",
     },
     size: {
       "base": "w-2.5 h-2.5",
