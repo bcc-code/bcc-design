@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { cva, type VariantProps } from "class-variance-authority";
 
-const badgeClassVariants = cva("py-0.5 rounded space-x-1 inline-flex items-center", {
+const badgeClassVariants = cva("py-0.5 rounded-md space-x-1 inline-flex items-center", {
   variants: {
     type: {
       neutral: "bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-300",
