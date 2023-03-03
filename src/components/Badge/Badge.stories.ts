@@ -9,7 +9,7 @@ export default {
   argTypes: {
     type: {
       description: "Determines the styling of the badge",
-      options: ["neutral", "error", "warning", "success", "info"],
+      options: ["neutral", "error", "warning", "success", "info", "systemInfo"],
       control: { type: "radio" },
     },
     size: {
