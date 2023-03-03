@@ -1,11 +1,11 @@
 # Release new version
 To release a new version of `@bcc-code/vue-components`, first create a Git tag and update the `package.json`. The easiest way is to use `npm version`:
-```ssh
+```sh
 npm version 0.1.0
 ```
 
 Then push this tag to GitHub:
-```ssh
+```sh
 git push --follow-tags
 ```
 
