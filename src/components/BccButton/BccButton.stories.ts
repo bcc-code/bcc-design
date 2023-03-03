@@ -1,5 +1,5 @@
 import BccButton from "./BccButton.vue";
-import Search from "@icons/search.svg";
+import { SearchIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -36,14 +36,14 @@ export default {
 } as Meta<typeof BccButton>;
 
 const Template: StoryFn<typeof BccButton> = (args) => ({
-  components: { BccButton, Search },
+  components: { BccButton, SearchIcon },
   setup() {
     return { args };
   },
   template: `
     <BccButton v-bind="args">
       <template #icon>
-        <Search />
+        <SearchIcon />
       </template>
       <template #default>
         {{ args.slotDefault }}
@@ -117,36 +117,36 @@ export const Disabled: StoryFn<typeof BccButton> = () => ({
 });
 
 export const WithIcon: StoryFn<typeof BccButton> = () => ({
-  components: { BccButton, Search },
+  components: { BccButton, SearchIcon },
   template: `
     <div class="flex items-start space-x-2">
       <BccButton>
         <template #icon>
-          <Search />
+          <SearchIcon />
         </template>
         With left icon
       </BccButton>
       <BccButton icon-position="right">
         With right icon
         <template #icon>
-          <Search />
+          <SearchIcon />
         </template>
       </BccButton>
       <BccButton variant="secondary">
         <template #icon>
-          <Search />
+          <SearchIcon />
         </template>
         Secondary with icon
       </BccButton>
       <BccButton variant="tertiary">
         <template #icon>
-          <Search />
+          <SearchIcon />
         </template>
         Tertiary with icon
       </BccButton>
       <BccButton :disabled="true">
         <template #icon>
-          <Search />
+          <SearchIcon />
         </template>
         Disabled with icon
       </BccButton>
@@ -154,31 +154,31 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
     <div class="flex items-start space-x-2 mt-4">
       <BccButton size="xs">
         <template #icon>
-          <Search />
+          <SearchIcon />
         </template>
         xs button
       </BccButton>
       <BccButton size="sm">
         <template #icon>
-          <Search />
+          <SearchIcon />
         </template>
         sm button
       </BccButton>
       <BccButton size="base">
         <template #icon>
-          <Search />
+          <SearchIcon />
         </template>
         base button
       </BccButton>
       <BccButton size="lg">
         <template #icon>
-          <Search />
+          <SearchIcon />
         </template>
         lg button
       </BccButton>
       <BccButton size="xl">
         <template #icon>
-          <Search />
+          <SearchIcon />
         </template>
         xl button
       </BccButton>
