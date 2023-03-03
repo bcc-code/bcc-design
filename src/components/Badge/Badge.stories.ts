@@ -1,5 +1,5 @@
 import Badge from "./Badge.vue";
-import UncheckedRadio from "@icons/radio_button_unchecked.svg";
+import { RadioButtonUncheckedIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -31,14 +31,14 @@ export default {
 } as Meta<typeof Badge>;
 
 const Template: StoryFn<typeof Badge> = (args) => ({
-  components: { Badge, UncheckedRadio },
+  components: { Badge, RadioButtonUncheckedIcon },
   setup() {
     return { args };
   },
   template: `
     <Badge v-bind="args">
       <template #icon>
-        <UncheckedRadio />
+        <RadioButtonUncheckedIcon />
       </template>
       <template #default>
         {{ args.slotDefault }}
@@ -72,30 +72,30 @@ export const Types: StoryFn<typeof Badge> = () => ({
 });
 
 export const WithIcon: StoryFn<typeof Badge> = () => ({
-  components: { Badge, UncheckedRadio },
+  components: { Badge, RadioButtonUncheckedIcon },
   template: `
     <div class="flex items-start space-x-2">
       <Badge type="error" size="base">
         <template #icon>
-          <UncheckedRadio />
+          <RadioButtonUncheckedIcon />
         </template>
         base, icon left
       </Badge>
       <Badge type="error" size="base" iconPosition="right">
         <template #icon>
-          <UncheckedRadio />
+          <RadioButtonUncheckedIcon />
         </template>
         base, icon right
       </Badge>
       <Badge type="success" size="lg">
         <template #icon>
-          <UncheckedRadio />
+          <RadioButtonUncheckedIcon />
         </template>
         lg, icon left
       </Badge>
       <Badge type="success" size="lg" iconPosition="right">
         <template #icon>
-          <UncheckedRadio />
+          <RadioButtonUncheckedIcon />
         </template>
         lg, icon right
       </Badge>
