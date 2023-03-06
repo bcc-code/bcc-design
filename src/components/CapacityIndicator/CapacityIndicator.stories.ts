@@ -14,7 +14,7 @@ const Template: StoryFn<typeof CapacityIndicator> = (args) => ({
     return { args };
   },
   template: `
-    <CapacityIndicator v-bind="args">
+    <CapacityIndicator v-bind="args" />
   `,
 });
 
