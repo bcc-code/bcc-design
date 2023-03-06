@@ -26,7 +26,8 @@
     "build-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.compile.json",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "create-component": "./scripts/create-component.sh"
   },
   "peerDependencies": {
     "tailwindcss": "^3.2.4",
