@@ -25,7 +25,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "build-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.compile.json",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
     "create-component": "./scripts/create-component.sh"
   },
@@ -35,8 +35,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
-    "@bcc-code/design-system-tokens": "dev",
-    "@bcc-code/icons-vue": "^0.1.1",
+    "@bcc-code/design-system-tokens": "^0.0.0-dev.5ffe680",
+    "@bcc-code/icons-vue": "^0.2.0",
     "@rushstack/eslint-patch": "^1.1.4",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",

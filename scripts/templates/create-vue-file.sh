@@ -1,4 +1,4 @@
-echo "<script setup lang="ts">
+echo "<script setup lang=\"ts\">
 type Props = {
 
 };
