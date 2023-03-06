@@ -23,6 +23,9 @@ Figma designs are generally based on [Flowbite](https://flowbite.com/docs/gettin
 ### Follow Figma naming for props
 Props should be (if possible) be named like they are named in Figma. Usually designers will create a component in Figma that has properties as well. By keeping these as close as possible it's easier to compare different variants between design and code.
 
+### Don't abbreviate props
+Props should have a clear name that indicates what it is for, without the need to look up documentation. Abbreviations make this harder, especially for non-native speakers. Instead of trying to save on keystrokes (and modern editors will probably autocomplete props anyways), we'll save on potential user frustration.
+
 ### Don't include all attributes as props
 When building a wrapper around a native HTML element such as `input`, don't include all the attributes of this element as props on the component. Vue will automatically [pass them through](https://vuejs.org/guide/components/attrs.html). If the element is not the top level element in your component (for example because it is wrapped in a `span`), bind the Vue `$attrs` property to the appropriate element.
 
@@ -47,4 +50,4 @@ From the [Vue documentation](https://vuejs.org/guide/components/attrs.html#disab
 ### Don't use `<style>` in an SFC
 Commonly, a Vue Single File Component (SFC) includes a `script`, `template`, and `style` tag. The use of a `style` tag should be avoided, for two reasons:
 1. Adding classes this way will generate a CSS file in the output. We don't want consumers of this Vue component library having to include a separate CSS file
-2. Since we're using Tailwind, it's not needed to write any CSS. By ruling out the possiblity of using custom classes, even when they're `scoped`, it's clear where CSS styling comes from: Tailwind
+2. Since we're using Tailwind, it's not needed to write any CSS. By ruling out the possibility of using custom classes, even when they're `scoped`, it's clear where CSS styling comes from: Tailwind

@@ -4,18 +4,16 @@ import { ref } from "vue";
 
 type Props = {
   capacity?: number;
-  left?: number;
+  used?: number;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   capacity: Infinity,
-  left: 0,
+  used: 0,
 });
 
 const size = 40;
-const progress = ref(
-  props.capacity === Infinity ? 100 : ((props.capacity - props.left) / props.capacity) * 100
-);
+const progress = ref(props.capacity === Infinity ? 100 : (props.used / props.capacity) * 100);
 const trackWidth = 2;
 
 const center = size / 2;
@@ -39,7 +37,7 @@ const dashOffset = dashArray * ((100 - progress.value) / 100);
           'text-red-900': progress >= 100,
         }"
       >
-        {{ left }}
+        {{ capacity - used }}
       </span>
     </div>
 

@@ -24,17 +24,17 @@ Example.parameters = {
 };
 Example.args = {
   capacity: 20,
-  left: 14,
+  used: 14,
 };
 
 export const State: StoryFn<typeof CapacityIndicator> = () => ({
   components: { CapacityIndicator },
   template: `
     <div class="flex items-center space-x-4">
-      <CapacityIndicator :capacity="200" :left="199" />
-      <CapacityIndicator :capacity="20" :left="14" />
-      <CapacityIndicator :capacity="20" :left="2" />
-      <CapacityIndicator :capacity="20" :left="0" />
+      <CapacityIndicator :capacity="200" :used="1" />
+      <CapacityIndicator :capacity="20" :used="6" />
+      <CapacityIndicator :capacity="20" :used="18" />
+      <CapacityIndicator :capacity="20" :used="20" />
       <CapacityIndicator :capacity="Infinity" />
     </div>
   `,
