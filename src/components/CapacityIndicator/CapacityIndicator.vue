@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
 const progress = ref(
   props.capacity === Infinity ? 100 : ((props.capacity - props.left) / props.capacity) * 100
 );
-const trackWidth = 4;
+const trackWidth = 2;
 
 const center = props.size / 2;
 const radius = center - trackWidth;
