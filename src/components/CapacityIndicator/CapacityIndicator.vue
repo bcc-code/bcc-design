@@ -5,21 +5,20 @@ import { ref } from "vue";
 type Props = {
   capacity?: number;
   left?: number;
-  size?: number;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   capacity: Infinity,
   left: 0,
-  size: 40,
 });
 
+const size = 40;
 const progress = ref(
   props.capacity === Infinity ? 100 : ((props.capacity - props.left) / props.capacity) * 100
 );
 const trackWidth = 2;
 
-const center = props.size / 2;
+const center = size / 2;
 const radius = center - trackWidth;
 const dashArray = 2 * Math.PI * radius;
 const dashOffset = dashArray * ((100 - progress.value) / 100);

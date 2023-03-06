@@ -25,7 +25,6 @@ Example.parameters = {
 Example.args = {
   capacity: 20,
   left: 14,
-  size: 40,
 };
 
 export const State: StoryFn<typeof CapacityIndicator> = () => ({
