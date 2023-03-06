@@ -101,9 +101,7 @@ withDefaults(defineProps<Props>(), {
   <component
     :is="is"
     :disabled="is === 'button' ? disabled : null"
-    :class="
-      buttonClassVariants({ variant, size, rounded, iconPosition, disabled })
-    "
+    :class="buttonClassVariants({ variant, size, rounded, iconPosition, disabled })"
   >
     <span :class="iconClassVariants({ size })" v-if="$slots.icon">
       <slot name="icon"></slot>

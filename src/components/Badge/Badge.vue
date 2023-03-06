@@ -12,8 +12,8 @@ const badgeClassVariants = cva("py-0.5 rounded-md space-x-1 inline-flex items-ce
       systemInfo: "bg-teal-50 text-teal-900 dark:bg-teal-900 dark:text-teal-300",
     },
     size: {
-      "base": "text-xs px-2.5",
-      "lg": "text-sm px-3 leading-5",
+      base: "text-xs px-2.5",
+      lg: "text-sm px-3 leading-5",
     },
     iconPosition: {
       left: "",
@@ -35,8 +35,8 @@ const iconClassVariants = cva("inline-block", {
       systemInfo: "fill-teal-800",
     },
     size: {
-      "base": "w-2.5 h-2.5",
-      "lg": "w-4 h-4",
+      base: "w-2.5 h-2.5",
+      lg: "w-4 h-4",
     },
   },
 });

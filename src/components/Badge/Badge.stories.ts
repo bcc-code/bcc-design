@@ -18,8 +18,7 @@ export default {
       control: { type: "radio" },
     },
     iconPosition: {
-      description:
-        "On which side the contents of the icon slot are rendered",
+      description: "On which side the contents of the icon slot are rendered",
       options: ["left", "right"],
       control: { type: "radio" },
     },
@@ -58,7 +57,7 @@ Example.args = {
   slotDefault: "Example Badge",
 };
 
-export const Types: StoryFn<typeof Badge> = () => ({
+export const Type: StoryFn<typeof Badge> = () => ({
   components: { Badge },
   template: `
     <div class="flex items-start space-x-2">

@@ -18,8 +18,7 @@ export default {
       control: { type: "radio" },
     },
     iconPosition: {
-      description:
-        "On which side of the button to put the contents of the icon slot",
+      description: "On which side of the button to put the contents of the icon slot",
       options: ["left", "right"],
       control: { type: "radio" },
     },
