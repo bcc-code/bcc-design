@@ -36,7 +36,7 @@ const dashOffset = dashArray * ((100 - progress.value) / 100);
         class="text-sm font-bold"
         :class="{
           'text-neutral-900': progress < 50,
-          'text-sand-brown-600': progress >= 50 && progress < 100,
+          'text-muddy-waters-600': progress >= 50 && progress < 100,
           'text-red-900': progress >= 100,
         }"
       >
@@ -54,7 +54,7 @@ const dashOffset = dashArray * ((100 - progress.value) / 100);
         :class="{
           'stroke-neutral-200': capacity === Infinity,
           'stroke-neutral-300': capacity !== Infinity && progress < 50,
-          'stroke-sand-brown-100': capacity !== Infinity && progress >= 50,
+          'stroke-muddy-waters-100': capacity !== Infinity && progress >= 50,
         }"
       />
       <circle
@@ -68,7 +68,7 @@ const dashOffset = dashArray * ((100 - progress.value) / 100);
         fill="transparent"
         :class="{
           'stroke-neutral-500': progress < 50,
-          'stroke-sand-brown-500': progress >= 50 && progress < 100,
+          'stroke-muddy-waters-500': progress >= 50 && progress < 100,
           'stroke-red-900': progress >= 100,
         }"
       />

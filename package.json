@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
-    "@bcc-code/design-system-tokens": "dev",
+    "@bcc-code/design-system-tokens": "^0.0.0-dev.5ffe680",
     "@bcc-code/icons-vue": "^0.1.1",
     "@rushstack/eslint-patch": "^1.1.4",
     "@storybook/addon-actions": "^6.5.16",
