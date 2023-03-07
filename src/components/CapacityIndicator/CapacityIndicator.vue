@@ -31,7 +31,7 @@ const dashArray = Math.PI * 18 * 2;
       fill="none"
       stroke-width="2"
       stroke="currentColor"
-      stroke-opacity="0.5"
+      stroke-opacity="0.2"
     />
     <circle
       v-if="progress > -1"
@@ -43,7 +43,7 @@ const dashArray = Math.PI * 18 * 2;
       :stroke-dasharray="dashArray"
       :stroke-dashoffset="dashArray * ((100 - progress) / 100)"
       stroke="currentColor"
-      stroke-opacity="0.5"
+      stroke-opacity="0.6"
       transform="rotate(-90 20 20)"
     />
     <text v-if="progress > -1" text-anchor="middle" x="20" y="25" font-size="14" font-weight="600" fill="currentColor">{{  progress < 100 ? total - used : 0 }}</text>
