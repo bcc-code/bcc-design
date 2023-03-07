@@ -1,4 +1,4 @@
-const themes = require("@bcc-code/design-system-tokens");
+const themes = require("@bcc-code/design-tokens");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
