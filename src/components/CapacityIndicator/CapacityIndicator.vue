@@ -23,8 +23,8 @@ const dashArray = Math.PI * 18 * 2;
 
 <template>
   <svg
-    width="3em"
-    height="3em"
+    width="2.5em"
+    height="2.5em"
     viewBox="0 0 40 40"
     :class="{
       'stroke-neutral-200': total === Infinity,
