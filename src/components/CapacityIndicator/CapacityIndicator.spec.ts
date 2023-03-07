@@ -6,12 +6,12 @@ import CapacityIndicator from "./CapacityIndicator.vue";
 
 describe("CapacityIndicator", () => {
   it("shows the remaining capacity", () => {
-    const wrapper = mount(CapacityIndicator, { props: { capacity: 20, used: 14 } });
+    const wrapper = mount(CapacityIndicator, { props: { total: 20, used: 14 } });
     expect(wrapper.text()).toBe("6");
   });
 
-  it("shows an icon if the capacity is infinite", () => {
-    const wrapper = mount(CapacityIndicator, { props: { capacity: Infinity, used: 14 } });
+  it("shows an icon if the total capacity is infinite", () => {
+    const wrapper = mount(CapacityIndicator, { props: { total: Infinity, used: 14 } });
     expect(wrapper.findComponent(AllInclusiveIcon).isVisible()).toBe(true);
   });
 });

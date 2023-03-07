@@ -5,7 +5,14 @@ import type { Meta, StoryFn } from "@storybook/vue3";
 export default {
   title: "Components/CapacityIndicator",
   component: CapacityIndicator,
-  argTypes: {},
+  argTypes: {
+    total: {
+      description: "The total available capacity",
+    },
+    used: {
+      description: "How much from the total capacity is not available",
+    },
+  },
 } as Meta<typeof CapacityIndicator>;
 
 const Template: StoryFn<typeof CapacityIndicator> = (args) => ({
@@ -23,7 +30,7 @@ Example.parameters = {
   viewMode: "docs",
 };
 Example.args = {
-  capacity: 20,
+  total: 20,
   used: 14,
 };
 
@@ -31,11 +38,11 @@ export const State: StoryFn<typeof CapacityIndicator> = () => ({
   components: { CapacityIndicator },
   template: `
     <div class="flex items-center space-x-4">
-      <CapacityIndicator :capacity="200" :used="1" />
-      <CapacityIndicator :capacity="20" :used="6" />
-      <CapacityIndicator :capacity="20" :used="18" />
-      <CapacityIndicator :capacity="20" :used="20" />
-      <CapacityIndicator :capacity="Infinity" />
+      <CapacityIndicator :total="200" :used="1" />
+      <CapacityIndicator :total="20" :used="6" />
+      <CapacityIndicator :total="20" :used="18" />
+      <CapacityIndicator :total="20" :used="20" />
+      <CapacityIndicator :total="Infinity" />
     </div>
   `,
 });

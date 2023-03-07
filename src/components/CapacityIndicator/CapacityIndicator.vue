@@ -3,17 +3,17 @@ import { AllInclusiveIcon } from "@bcc-code/icons-vue";
 import { ref } from "vue";
 
 type Props = {
-  capacity?: number;
+  total: number;
   used?: number;
 };
 
 const props = withDefaults(defineProps<Props>(), {
-  capacity: Infinity,
+  total: Infinity,
   used: 0,
 });
 
 const size = 40;
-const progress = ref(props.capacity === Infinity ? 100 : (props.used / props.capacity) * 100);
+const progress = ref(props.total === Infinity ? 100 : (props.used / props.total) * 100);
 const trackWidth = 2;
 
 const center = size / 2;
@@ -25,7 +25,7 @@ const dashOffset = dashArray * ((100 - progress.value) / 100);
 <template>
   <div class="relative inline-block">
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-      <span v-if="capacity === Infinity">
+      <span v-if="total === Infinity">
         <AllInclusiveIcon class="h-4 w-4 text-neutral-900" />
       </span>
       <span
@@ -37,7 +37,7 @@ const dashOffset = dashArray * ((100 - progress.value) / 100);
           'text-red-900': progress >= 100,
         }"
       >
-        {{ capacity - used }}
+        {{ total - used }}
       </span>
     </div>
 
@@ -49,13 +49,13 @@ const dashOffset = dashArray * ((100 - progress.value) / 100);
         :stroke-width="trackWidth"
         fill="transparent"
         :class="{
-          'stroke-neutral-200': capacity === Infinity,
-          'stroke-neutral-300': capacity !== Infinity && progress < 50,
-          'stroke-muddy-waters-100': capacity !== Infinity && progress >= 50,
+          'stroke-neutral-200': total === Infinity,
+          'stroke-neutral-300': total !== Infinity && progress < 50,
+          'stroke-muddy-waters-100': total !== Infinity && progress >= 50,
         }"
       />
       <circle
-        v-if="capacity !== Infinity"
+        v-if="total !== Infinity"
         :cx="center"
         :cy="center"
         :r="radius"
