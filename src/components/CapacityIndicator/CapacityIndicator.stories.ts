@@ -38,11 +38,12 @@ export const State: StoryFn<typeof CapacityIndicator> = () => ({
   components: { CapacityIndicator },
   template: `
     <div class="flex items-center space-x-4">
+      <CapacityIndicator :total="42" />
       <CapacityIndicator :total="200" :used="1" />
       <CapacityIndicator :total="20" :used="6" />
       <CapacityIndicator :total="20" :used="18" />
       <CapacityIndicator :total="20" :used="20" />
-      <CapacityIndicator :total="Infinity" />
+      <CapacityIndicator :total="-1" />
     </div>
   `,
 });

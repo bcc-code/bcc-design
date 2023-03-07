@@ -2,17 +2,16 @@
 import { computed } from "vue";
 
 type Props = {
+  // Infinite capacity = -1
   total: number;
   used?: number;
 };
 
-const props = withDefaults(defineProps<Props>(), {
-  total: Infinity,
-  used: 0,
-});
+const props = defineProps<Props>();
 
 const progress = computed(() => {
-  if (props.total === Infinity) return -1;
+  if (props.total === -1) return -1;
+  if (!props.used) return 0;
   if (props.used > props.total) return 100;
   if (props.total > 0) return (props.used / props.total) * 100;
   return 0;
@@ -30,10 +29,10 @@ const dashArray = Math.PI * 18 * 2;
       fill="none"
       stroke-width="2"
       :class="{
-        'stroke-neutral-200': total === Infinity,
+        'stroke-neutral-200': progress <= -1,
         'stroke-neutral-300': progress >= 0 && progress < 50,
         'stroke-muddy-waters-100': progress >= 50 && progress < 100,
-        'stroke-red-900': progress >= 100,
+        'stroke-red-800': progress >= 100,
       }"
     />
     <circle
@@ -49,7 +48,7 @@ const dashArray = Math.PI * 18 * 2;
       :class="{
         'stroke-neutral-500': progress >= 0 && progress < 50,
         'stroke-muddy-waters-400': progress >= 50 && progress < 100,
-        'stroke-red-900': progress >= 100,
+        'stroke-red-800': progress >= 100,
       }"
     />
     <text
@@ -63,10 +62,10 @@ const dashArray = Math.PI * 18 * 2;
       :class="{
         'text-neutral-900': progress >= 0 && progress < 50,
         'text-muddy-waters-600': progress >= 50 && progress < 100,
-        'text-red-900': progress >= 100,
+        'text-red-800': progress >= 100,
       }"
     >
-      {{ progress < 100 ? total - used : 0 }}
+      {{ progress < 100 ? total - (used ?? 0) : 0 }}
     </text>
     <path
       v-else
