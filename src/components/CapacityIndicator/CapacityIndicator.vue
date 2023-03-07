@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
 
 const props = defineProps<{
   // -1 = Infinity
@@ -25,7 +25,7 @@ const dashArray = Math.PI * 18 * 2;
     :class="{
       'stroke-neutral-200': total === Infinity,
       'text-neutral-600': progress >= 0 && progress < 50,
-      'text-rust-500': progress >= 50 && progress < 100,
+      'text-muddy-waters-500': progress >= 50 && progress < 100,
       'text-red-600': progress >= 100,
     }"
   >
