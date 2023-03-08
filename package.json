@@ -31,7 +31,8 @@
   },
   "peerDependencies": {
     "tailwindcss": "^3.2.4",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "@bcc-code/design-tokens": "^0.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
