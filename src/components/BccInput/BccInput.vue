@@ -7,36 +7,32 @@ export default {
 <script setup lang="ts">
 import { cva, type VariantProps } from "class-variance-authority";
 
-const inputClassVariants = cva(
-  "px-4 py-3 text-sm rounded border focus:outline-2",
-  {
-    variants: {
-      state: {
-        default: "focus:outline-primary-dark-green-600 border-neutral-300",
-        error: "border-red-500 bg-red-50 text-red-700 focus:outline-red-600",
-        success:
-          "border-green-500 bg-green-50 text-green-700 focus:outline-green-600",
-      },
-      disabled: {
-        true: "cursor-not-allowed",
-        false: "",
-      },
+const inputClassVariants = cva("px-4 py-3 text-sm rounded border focus:outline-2", {
+  variants: {
+    state: {
+      default: "focus:outline-primary-dark-green-600 border-neutral-300",
+      error: "border-red-500 bg-red-50 text-red-700 focus:outline-red-600",
+      success: "border-green-500 bg-green-50 text-green-700 focus:outline-green-600",
     },
-    compoundVariants: [
-      {
-        state: "default",
-        disabled: false,
-        class: "text-gray-900",
-      },
-      {
-        state: "default",
-        disabled: true,
-        class: "bg-neutral-100 text-neutral-400",
-      },
-    ],
-    defaultVariants: {},
-  }
-);
+    disabled: {
+      true: "cursor-not-allowed",
+      false: "",
+    },
+  },
+  compoundVariants: [
+    {
+      state: "default",
+      disabled: false,
+      class: "text-gray-900",
+    },
+    {
+      state: "default",
+      disabled: true,
+      class: "bg-neutral-100 text-neutral-400",
+    },
+  ],
+  defaultVariants: {},
+});
 
 const messageClassVariants = cva("text-sm", {
   variants: {
@@ -65,11 +61,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <span class="inline-flex flex-col space-y-2">
-    <input
-      :disabled="disabled"
-      :class="inputClassVariants({ state, disabled })"
-      v-bind="$attrs"
-    />
+    <input :disabled="disabled" :class="inputClassVariants({ state, disabled })" v-bind="$attrs" />
     <span v-if="$slots.default" :class="messageClassVariants({ state })">
       <slot></slot>
     </span>
