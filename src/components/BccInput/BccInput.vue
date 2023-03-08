@@ -7,7 +7,7 @@ export default {
 <script setup lang="ts">
 import { cva, type VariantProps } from "class-variance-authority";
 
-const inputClassVariants = cva("px-4 py-3 text-sm rounded border focus:outline-2", {
+const inputClassVariants = cva("px-4 py-3 text-sm rounded-lg border focus:outline-2", {
   variants: {
     state: {
       default: "focus:outline-primary-dark-green-600 border-neutral-300",
