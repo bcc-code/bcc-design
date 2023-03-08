@@ -4,7 +4,7 @@ This library is a collection of components that conform to the BCC Design System
 [![version](https://img.shields.io/npm/v/@bcc-code/vue-components)](https://github.com/bcc-code/bcc-vue-components/releases) [![license](https://img.shields.io/npm/l/@bcc-code/vue-components)](https://github.com/bcc-code/bcc-vue-components/blob/main/LICENSE)
 
 ## Installation & Usage
-Refer to the [documentation](https://developer.bcc.no/bcc-vue-components) for installation instructions and to [Storybook](https://vue-components-storybook.developer.bcc.no) for interactive example of the components and their variants.
+Refer to the [documentation](https://developer.bcc.no/bcc-design/vue-components/) for installation instructions and to [Storybook](https://vue-components-storybook.developer.bcc.no) for interactive example of the components and their variants.
 
 ## Developing the package locally
 ### Recommended IDE Setup
