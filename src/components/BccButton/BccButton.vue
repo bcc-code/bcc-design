@@ -16,8 +16,8 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       xl: "text-base py-4 px-6 space-x-2.5",
     },
     rounded: {
-      true: "rounded-lg",
-      false: "rounded",
+      true: "rounded-full",
+      false: "",
     },
     disabled: {
       true: "text-neutral-500 fill-neutral-500 cursor-not-allowed",
@@ -29,6 +29,16 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
     },
   },
   compoundVariants: [
+    {
+      size: ["xs", "sm"],
+      rounded: false,
+      class: "rounded-md",
+    },
+    {
+      size: ["base", "lg", "xl"],
+      rounded: false,
+      class: "rounded-lg",
+    },
     {
       variant: "primary",
       disabled: true,
