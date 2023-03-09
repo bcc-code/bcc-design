@@ -4,5 +4,5 @@ const themes = require("@bcc-code/design-tokens");
 module.exports = {
   content: ["./src/**/*.{vue,ts}"],
   theme: themes.bccForbundetTheme,
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
