@@ -2,12 +2,19 @@
 import { computed, toRefs } from "vue";
 import { Switch } from "@headlessui/vue";
 
-const props = defineProps<{
-  modelValue: boolean;
-  wasToggled: boolean;
-  disabled: boolean;
-  loading: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    modelValue: boolean;
+    wasToggled?: boolean;
+    disabled?: boolean;
+    loading?: boolean;
+  }>(),
+  {
+    wasToggled: false,
+    disabled: false,
+    loading: false,
+  }
+);
 
 const { modelValue, wasToggled, disabled, loading } = toRefs(props);
 
