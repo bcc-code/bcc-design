@@ -116,6 +116,17 @@ export const Disabled: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
+export const Rounded: StoryFn<typeof BccButton> = () => ({
+  components: { BccButton },
+  template: `
+    <div class="flex items-start space-x-2">
+      <BccButton variant="primary" :rounded="true">Primary rounded</BccButton>
+      <BccButton variant="secondary" :rounded="true">Secondary rounded</BccButton>
+      <BccButton variant="tertiary" :rounded="true">Tertiary rounded</BccButton>
+    </div>
+  `,
+});
+
 export const WithIcon: StoryFn<typeof BccButton> = () => ({
   components: { BccButton, SearchIcon },
   template: `
