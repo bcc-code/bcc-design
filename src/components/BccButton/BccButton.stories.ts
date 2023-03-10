@@ -1,5 +1,5 @@
 import BccButton from "./BccButton.vue";
-import { SearchIcon } from "@bcc-code/icons-vue";
+import { SearchIcon, ChevronRightIcon, ChevronLeftIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -21,6 +21,9 @@ export default {
       description: "On which side of the button to put the contents of the icon slot",
       options: ["left", "right"],
       control: { type: "radio" },
+    },
+    center: {
+      description: "Whether text and icon are centered or at the opposing sides of the button",
     },
     is: {
       description: "The actual underlying HTML element to use for the button",
@@ -60,6 +63,7 @@ Example.args = {
   size: "base",
   rounded: false,
   iconPosition: "left",
+  center: true,
   disabled: false,
   is: "button",
   slotDefault: "Example Button",
@@ -111,6 +115,17 @@ export const Disabled: StoryFn<typeof BccButton> = () => ({
       <BccButton variant="primary" :disabled="true">Primary disabled</BccButton>
       <BccButton variant="secondary" :disabled="true">Secondary disabled</BccButton>
       <BccButton variant="tertiary" :disabled="true">Tertiary disabled</BccButton>
+    </div>
+  `,
+});
+
+export const Rounded: StoryFn<typeof BccButton> = () => ({
+  components: { BccButton },
+  template: `
+    <div class="flex items-start space-x-2">
+      <BccButton variant="primary" :rounded="true">Primary rounded</BccButton>
+      <BccButton variant="secondary" :rounded="true">Secondary rounded</BccButton>
+      <BccButton variant="tertiary" :rounded="true">Tertiary rounded</BccButton>
     </div>
   `,
 });
@@ -180,6 +195,45 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
           <SearchIcon />
         </template>
         xl button
+      </BccButton>
+    </div>
+  `,
+});
+
+export const ContentPosition: StoryFn<typeof BccButton> = () => ({
+  components: { BccButton, ChevronRightIcon, ChevronLeftIcon },
+  template: `
+    <div class="space-y-4">
+      <BccButton variant="primary" class="w-full">
+        Default text
+      </BccButton>
+      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true">
+        <template #icon>
+          <ChevronLeftIcon />
+        </template>
+        Default text, icon left
+      </BccButton>
+      <BccButton class="w-full" size="lg" variant="secondary" icon-position="right">
+        <template #icon>
+          <ChevronRightIcon />
+        </template>
+        Default text, icon right
+      </BccButton>
+      
+      <BccButton variant="primary" class="w-full" :center="false">
+        Non-centered text
+      </BccButton>
+      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true" :center="false">
+        <template #icon>
+          <ChevronLeftIcon />
+        </template>
+        Non-centered text, icon left
+      </BccButton>
+      <BccButton class="w-full" size="lg" variant="secondary" icon-position="right" :center="false">
+        <template #icon>
+          <ChevronRightIcon />
+        </template>
+        Non-centered text, icon right
       </BccButton>
     </div>
   `,
