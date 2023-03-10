@@ -1,11 +1,11 @@
-import Badge from "./Badge.vue";
+import BccBadge from "./BccBadge.vue";
 import { RadioButtonUncheckedIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/Badge",
-  component: Badge,
+  title: "Components/BccBadge",
+  component: BccBadge,
   argTypes: {
     type: {
       description: "Determines the styling of the badge",
@@ -27,22 +27,22 @@ export default {
       description: "The badge text",
     },
   },
-} as Meta<typeof Badge>;
+} as Meta<typeof BccBadge>;
 
-const Template: StoryFn<typeof Badge> = (args) => ({
-  components: { Badge, RadioButtonUncheckedIcon },
+const Template: StoryFn<typeof BccBadge> = (args) => ({
+  components: { BccBadge, RadioButtonUncheckedIcon },
   setup() {
     return { args };
   },
   template: `
-    <Badge v-bind="args">
+    <BccBadge v-bind="args">
       <template #icon>
         <RadioButtonUncheckedIcon />
       </template>
       <template #default>
         {{ args.slotDefault }}
       </template>
-    </Badge>
+    </BccBadge>
   `,
 });
 
@@ -57,47 +57,47 @@ Example.args = {
   slotDefault: "Example Badge",
 };
 
-export const Type: StoryFn<typeof Badge> = () => ({
-  components: { Badge },
+export const Type: StoryFn<typeof BccBadge> = () => ({
+  components: { BccBadge },
   template: `
     <div class="flex items-start space-x-2">
-      <Badge type="neutral">neutral</Badge>
-      <Badge type="error">error</Badge>
-      <Badge type="warning">warning</Badge>
-      <Badge type="success">success</Badge>
-      <Badge type="info">info</Badge>
+      <BccBadge type="neutral">neutral</BccBadge>
+      <BccBadge type="error">error</BccBadge>
+      <BccBadge type="warning">warning</BccBadge>
+      <BccBadge type="success">success</BccBadge>
+      <BccBadge type="info">info</BccBadge>
     </div>
   `,
 });
 
-export const WithIcon: StoryFn<typeof Badge> = () => ({
-  components: { Badge, RadioButtonUncheckedIcon },
+export const WithIcon: StoryFn<typeof BccBadge> = () => ({
+  components: { BccBadge, RadioButtonUncheckedIcon },
   template: `
     <div class="flex items-start space-x-2">
-      <Badge type="error" size="base">
+      <BccBadge type="error" size="base">
         <template #icon>
           <RadioButtonUncheckedIcon />
         </template>
         base, icon left
-      </Badge>
-      <Badge type="error" size="base" iconPosition="right">
+      </BccBadge>
+      <BccBadge type="error" size="base" iconPosition="right">
         <template #icon>
           <RadioButtonUncheckedIcon />
         </template>
         base, icon right
-      </Badge>
-      <Badge type="success" size="lg">
+      </BccBadge>
+      <BccBadge type="success" size="lg">
         <template #icon>
           <RadioButtonUncheckedIcon />
         </template>
         lg, icon left
-      </Badge>
-      <Badge type="success" size="lg" iconPosition="right">
+      </BccBadge>
+      <BccBadge type="success" size="lg" iconPosition="right">
         <template #icon>
           <RadioButtonUncheckedIcon />
         </template>
         lg, icon right
-      </Badge>
+      </BccBadge>
     </div>
   `,
 });
