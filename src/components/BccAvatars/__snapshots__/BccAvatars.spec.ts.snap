@@ -1,0 +1,49 @@
+// Vitest Snapshot v1
+
+exports[`BccAvatars > mount component 1`] = `
+"<div data-headlessui-state=\\"\\" class=\\"relative\\"><button class=\\"relative z-0 flex items-center outline-none\\" id=\\"headlessui-popover-button-1\\" type=\\"button\\" aria-expanded=\\"false\\" data-headlessui-state=\\"\\">
+    <div class=\\"avatars-avatar rounded-full text-center font-semibold -ml-[0.571em] shrink-0\\" style=\\"z-index: 0;\\">Jo</div>
+    <div class=\\"avatars-avatar rounded-full text-center font-semibold bg-neutral-100 text-neutral-900 -ml-[0.571em] shrink-0\\" style=\\"z-index: -2;\\">+4</div>
+  </button>
+  <!---->
+  <transition-stub name=\\"fade\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\">
+    <!--v-if-->
+  </transition-stub>
+</div>"
+`;
+
+exports[`BccAvatars > mount component 2`] = `
+"<div data-headlessui-state=\\"open\\" class=\\"relative\\"><button class=\\"relative z-0 flex items-center outline-none\\" id=\\"headlessui-popover-button-1\\" type=\\"button\\" aria-expanded=\\"true\\" data-headlessui-state=\\"open\\" aria-controls=\\"headlessui-popover-panel-3\\">
+    <div class=\\"avatars-avatar rounded-full text-center font-semibold -ml-[0.571em] shrink-0\\" style=\\"z-index: 0; z-index: 0; z-index: 0; z-index: 0;\\">Jo</div>
+    <div class=\\"avatars-avatar rounded-full text-center font-semibold bg-neutral-100 text-neutral-900 -ml-[0.571em] shrink-0\\" style=\\"z-index: -2;\\">+4</div>
+  </button><button aria-hidden=\\"true\\" style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" id=\\"headlessui-focus-sentinel-2\\" data-headlessui-focus-guard=\\"true\\" type=\\"button\\"></button>
+  <transition-stub name=\\"fade\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\">
+    <div class=\\"absolute z-10 top-full mt-2 left-0\\" id=\\"headlessui-popover-panel-3\\" tabindex=\\"-1\\" data-headlessui-state=\\"open\\"><button aria-hidden=\\"true\\" style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" id=\\"headlessui-focus-sentinel-before-4\\" data-headlessui-focus-guard=\\"true\\" type=\\"button\\"></button>
+      <div class=\\"w-48 rounded-lg bg-white shadow-lg\\">
+        <ul class=\\"p-2 text-base\\">
+          <li class=\\"flex items-center py-1\\">
+            <div class=\\"avatars-avatar rounded-full text-center font-semibold mr-2 shrink-0\\">Jo</div>
+            <p>John Doe <span class=\\"text-sm opacity-50\\">32</span></p>
+          </li>
+          <li class=\\"flex items-center py-1\\">
+            <div class=\\"avatars-avatar rounded-full text-center font-semibold mr-2 shrink-0\\">Ja</div>
+            <p>Jane Doe <span class=\\"text-sm opacity-50\\">32</span></p>
+          </li>
+          <li class=\\"flex items-center py-1\\">
+            <div class=\\"avatars-avatar rounded-full text-center font-semibold mr-2 shrink-0\\">Ja</div>
+            <p>Jack Doe <span class=\\"text-sm opacity-50\\">12</span></p>
+          </li>
+          <li class=\\"flex items-center py-1\\">
+            <div class=\\"avatars-avatar rounded-full text-center font-semibold mr-2 shrink-0\\">Ji</div>
+            <p>Jill Doe <span class=\\"text-sm opacity-50\\">3</span></p>
+          </li>
+          <li class=\\"flex items-center py-1\\">
+            <div class=\\"avatars-avatar rounded-full text-center font-semibold mr-2 shrink-0\\">Je</div>
+            <p>Jenny Doe <span class=\\"text-sm opacity-50\\">1</span></p>
+          </li>
+        </ul>
+      </div><button aria-hidden=\\"true\\" style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" id=\\"headlessui-focus-sentinel-after-5\\" data-headlessui-focus-guard=\\"true\\" type=\\"button\\"></button>
+    </div>
+  </transition-stub>
+</div>"
+`;
