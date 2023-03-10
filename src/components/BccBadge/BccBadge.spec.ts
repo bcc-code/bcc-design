@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest";
 
 import { mount } from "@vue/test-utils";
-import Badge from "./Badge.vue";
+import BccBadge from "./BccBadge.vue";
 
-describe("Badge", () => {
+describe("BccBadge", () => {
   it("renders a text from the default slot", () => {
-    const wrapper = mount(Badge, { slots: { default: "Test Badge" } });
+    const wrapper = mount(BccBadge, { slots: { default: "Test Badge" } });
     expect(wrapper.text()).toBe("Test Badge");
   });
 });

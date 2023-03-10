@@ -3,7 +3,7 @@ import BccInput from "./BccInput.vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/Input",
+  title: "Components/BccInput",
   component: BccInput,
   argTypes: {
     state: {
