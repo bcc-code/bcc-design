@@ -9,12 +9,12 @@
     "dist",
     "dist_types"
   ],
-  "main": "./dist/bcc-vue-components.umd.js",
-  "module": "./dist/bcc-vue-components.js",
+  "main": "./dist/vue-components.umd.js",
+  "module": "./dist/vue-components.js",
   "types": "./dist_types/index.d.ts",
   "exports": {
-    "import": "./dist/bcc-vue-components.js",
-    "require": "./dist/bcc-vue-components.umd.js"
+    "import": "./dist/vue-components.js",
+    "require": "./dist/vue-components.umd.js"
   },
   "scripts": {
     "dev": "vite",
