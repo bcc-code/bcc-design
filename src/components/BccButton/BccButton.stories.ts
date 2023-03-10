@@ -22,6 +22,9 @@ export default {
       options: ["left", "right"],
       control: { type: "radio" },
     },
+    center: {
+      description: "Whether text and icon are centered or at the opposing sides of the button",
+    },
     is: {
       description: "The actual underlying HTML element to use for the button",
       options: ["button", "a"],
@@ -60,7 +63,7 @@ Example.args = {
   size: "base",
   rounded: false,
   iconPosition: "left",
-  textPosition: "default",
+  center: true,
   disabled: false,
   is: "button",
   slotDefault: "Example Button",
@@ -197,7 +200,7 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
-export const TextPosition: StoryFn<typeof BccButton> = () => ({
+export const ContentPosition: StoryFn<typeof BccButton> = () => ({
   components: { BccButton, ChevronRightIcon, ChevronLeftIcon },
   template: `
     <div class="space-y-4">
@@ -217,20 +220,20 @@ export const TextPosition: StoryFn<typeof BccButton> = () => ({
         Default text, icon right
       </BccButton>
       
-      <BccButton variant="primary" class="w-full" text-position="justified">
-        Justified text
+      <BccButton variant="primary" class="w-full" :center="false">
+        Non-centered text
       </BccButton>
-      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true" text-position="justified">
+      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true" :center="false">
         <template #icon>
           <ChevronLeftIcon />
         </template>
-        Justified text, icon left
+        Non-centered text, icon left
       </BccButton>
-      <BccButton class="w-full" size="lg" variant="secondary" icon-position="right" text-position="justified">
+      <BccButton class="w-full" size="lg" variant="secondary" icon-position="right" :center="false">
         <template #icon>
           <ChevronRightIcon />
         </template>
-        Justified text, icon right
+        Non-centered text, icon right
       </BccButton>
     </div>
   `,
