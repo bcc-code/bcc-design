@@ -27,6 +27,10 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       left: "",
       right: "flex-row-reverse space-x-reverse",
     },
+    textPosition: {
+      default: "justify-center",
+      justified: "justify-between",
+    },
   },
   compoundVariants: [
     {
@@ -93,6 +97,7 @@ type Props = {
   variant?: ButtonVariants["variant"];
   size?: ButtonVariants["size"];
   iconPosition?: ButtonVariants["iconPosition"];
+  textPosition?: ButtonVariants["textPosition"];
   rounded?: boolean;
   disabled?: boolean;
 };
@@ -102,6 +107,7 @@ withDefaults(defineProps<Props>(), {
   variant: "primary",
   size: "base",
   iconPosition: "left",
+  textPosition: "default",
   rounded: false,
   disabled: false,
 });
@@ -111,7 +117,7 @@ withDefaults(defineProps<Props>(), {
   <component
     :is="is"
     :disabled="is === 'button' ? disabled : null"
-    :class="buttonClassVariants({ variant, size, rounded, iconPosition, disabled })"
+    :class="buttonClassVariants({ variant, size, rounded, iconPosition, textPosition, disabled })"
   >
     <span :class="iconClassVariants({ size })" v-if="$slots.icon">
       <slot name="icon"></slot>

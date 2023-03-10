@@ -1,5 +1,5 @@
 import BccButton from "./BccButton.vue";
-import { SearchIcon } from "@bcc-code/icons-vue";
+import { SearchIcon, ChevronRightIcon, ChevronLeftIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -60,6 +60,7 @@ Example.args = {
   size: "base",
   rounded: false,
   iconPosition: "left",
+  textPosition: "default",
   disabled: false,
   is: "button",
   slotDefault: "Example Button",
@@ -180,6 +181,45 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
           <SearchIcon />
         </template>
         xl button
+      </BccButton>
+    </div>
+  `,
+});
+
+export const TextPosition: StoryFn<typeof BccButton> = () => ({
+  components: { BccButton, ChevronRightIcon, ChevronLeftIcon },
+  template: `
+    <div class="space-y-4">
+      <BccButton variant="primary" class="w-full">
+        Default text
+      </BccButton>
+      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true">
+        <template #icon>
+          <ChevronLeftIcon />
+        </template>
+        Default text, icon left
+      </BccButton>
+      <BccButton class="w-full" size="lg" variant="secondary" icon-position="right">
+        <template #icon>
+          <ChevronRightIcon />
+        </template>
+        Default text, icon right
+      </BccButton>
+      
+      <BccButton variant="primary" class="w-full" text-position="justified">
+        Justified text
+      </BccButton>
+      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true" text-position="justified">
+        <template #icon>
+          <ChevronLeftIcon />
+        </template>
+        Justified text, icon left
+      </BccButton>
+      <BccButton class="w-full" size="lg" variant="secondary" icon-position="right" text-position="justified">
+        <template #icon>
+          <ChevronRightIcon />
+        </template>
+        Justified text, icon right
       </BccButton>
     </div>
   `,
