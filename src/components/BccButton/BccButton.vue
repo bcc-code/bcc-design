@@ -20,7 +20,7 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       false: "",
     },
     disabled: {
-      true: "text-neutral-500 fill-neutral-500 cursor-not-allowed",
+      true: "disabled:fill-neutral-500 disabled:cursor-not-allowed disabled:pointer-events-none",
       false: "cursor-pointer",
     },
     iconPosition: {
@@ -45,31 +45,26 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
     },
     {
       variant: "primary",
-      disabled: true,
-      class: "bg-neutral-300",
-    },
-    {
-      variant: "secondary",
-      disabled: true,
-      class: "outline-neutral-300 bg-neutral-50",
-    },
-    {
-      variant: "primary",
-      disabled: false,
-      class:
+      class: [
         "bg-tree-green-600 text-neutral-50 hover:bg-tree-green-700 active:bg-tree-green-500 active:text-white focus:outline-none focus:ring focus:bg-tree-green-600 focus:ring-primary-dark-green-700 focus:ring-offset-2",
+        "disabled:text-neutral-500 disabled:bg-neutral-300"
+      ],
     },
     {
       variant: "secondary",
-      disabled: false,
-      class:
+      class: [
         "outline-tree-green-600 bg-transparent text-tree-green-600 hover:outline-tree-green-700 hover:text-tree-green-700 hover:bg-tree-green-50 active:outline-tree-green-500 active:text-tree-green-500 focus:ring focus:ring-primary-dark-green-700 focus:ring-offset-2",
+        "dark:outline-tree-green-400 dark:text-tree-green-400 dark:hover:outline-tree-green-200 dark:hover:text-tree-green-200 dark:hover:bg-tree-green-900",
+        "dark:disabled:text-neutral-400 disabled:outline-neutral-500"
+      ],
     },
     {
       variant: "tertiary",
-      disabled: false,
-      class:
+      class: [
         "text-tree-green-600 hover:bg-tree-green-50 hover:underline active:text-tree-green-500 active:underline focus:outline-none focus:ring focus:ring-primary-dark-green-700 focus:ring-offset-2 focus:underline",
+        "dark:text-tree-green-300 dark:hover:text-tree-green-200 dark:hover:bg-tree-green-900",
+        "dark:disabled:text-neutral-400"
+      ],
     },
   ],
   defaultVariants: {
@@ -116,7 +111,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <component
     :is="is"
-    :disabled="is === 'button' ? disabled : null"
+    :disabled="disabled"
     :class="buttonClassVariants({ variant, size, rounded, iconPosition, center, disabled })"
   >
     <span :class="iconClassVariants({ size })" v-if="$slots.icon">
