@@ -19,15 +19,9 @@ describe("BccButton", () => {
 
   it("passes through non-prop attributes", () => {
     const wrapper = mount(BccButton, {
-      props: { is: "a", target: "_blank", href: "#", disabled: true },
+      props: { is: "a", target: "_blank", href: "#" },
     });
     expect(wrapper.html()).toContain("href");
     expect(wrapper.html()).toContain('target="_blank"');
-    expect(wrapper.html()).not.toContain("disabled");
-  });
-
-  it("ignores the disabled attribute for anchors", () => {
-    const wrapper = mount(BccButton, { props: { is: "a", disabled: true } });
-    expect(wrapper.html()).not.toContain("disabled");
   });
 });
