@@ -238,3 +238,17 @@ export const ContentPosition: StoryFn<typeof BccButton> = () => ({
     </div>
   `,
 });
+
+export const Anchor: StoryFn<typeof BccButton> = () => ({
+  components: { BccButton },
+  template: `
+    <div class="flex items-start space-x-2">
+      <BccButton is="a" variant="primary">Primary</BccButton>
+      <BccButton is="a" variant="primary" :disabled="true">Primary disabled</BccButton>
+      <BccButton is="a" variant="secondary">Secondary</BccButton>
+      <BccButton is="a" variant="secondary" :disabled="true">Secondary disabled</BccButton>
+      <BccButton is="a" variant="tertiary">Tertiary</BccButton>
+      <BccButton is="a" variant="tertiary" :disabled="true">Tertiary disabled</BccButton>
+    </div>
+  `,
+});
