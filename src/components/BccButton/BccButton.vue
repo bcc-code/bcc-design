@@ -46,12 +46,12 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
     {
       variant: "primary",
       disabled: true,
-      class: "bg-neutral-300",
+      class: "bg-neutral-300 dark:bg-gray-800",
     },
     {
       variant: "secondary",
       disabled: true,
-      class: "outline-neutral-300 bg-neutral-50",
+      class: "outline-neutral-300 bg-neutral-50 dark:bg-neutral-900",
     },
     {
       variant: "primary",

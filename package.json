@@ -17,7 +17,7 @@
     "require": "./dist/vue-components.umd.js"
   },
   "scripts": {
-    "dev": "npm run storybook",
+    "start": "npm run storybook",
     "build": "run-p type-check build-types build-only",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
