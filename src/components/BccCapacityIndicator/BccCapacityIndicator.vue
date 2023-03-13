@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, toRef } from "vue";
+import useAnimatedNumber from "../../composables/animatedNumber";
 
 const props = withDefaults(
   defineProps<{
@@ -12,12 +13,14 @@ const props = withDefaults(
   }
 );
 
-const progress = computed(() => {
+const { value: valueUsed } = useAnimatedNumber(toRef(props, 'used'))
+
+const { value: progress } = useAnimatedNumber(computed(() => {
   if (props.total === -1) return -1;
   if (props.used > props.total) return 100;
   if (props.total > 0) return (props.used / props.total) * 100;
   return 0;
-});
+}))
 
 const dashArray = Math.PI * 18 * 2;
 </script>
@@ -65,7 +68,7 @@ const dashArray = Math.PI * 18 * 2;
       font-weight="600"
       fill="currentColor"
     >
-      {{ progress < 100 ? total - used : 0 }}
+      {{ progress < 100 ? total - valueUsed : 0 }}
     </text>
     <path
       v-else
