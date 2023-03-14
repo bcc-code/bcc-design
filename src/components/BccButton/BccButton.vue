@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { cva, type VariantProps } from "class-variance-authority";
+import type { Component } from "vue";
 
 const buttonClassVariants = cva("font-semibold inline-flex items-center", {
   variants: {
@@ -98,7 +99,7 @@ const iconClassVariants = cva("", {
 });
 
 type Props = {
-  is?: any;
+  is?: "button" | "a" | string | Component;
   variant?: ButtonVariants["variant"];
   size?: ButtonVariants["size"];
   iconPosition?: ButtonVariants["iconPosition"];

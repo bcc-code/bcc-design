@@ -53,7 +53,7 @@ Example.parameters = {
 Example.args = {
   variant: "neutral",
   size: "sm",
-  iconRight: "left",
+  iconRight: false,
   slotDefault: "Example Badge",
 };
 

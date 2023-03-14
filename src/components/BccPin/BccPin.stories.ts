@@ -38,6 +38,8 @@ Example.parameters = {
   viewMode: "docs",
 };
 Example.args = {
+  variant: "neutral",
+  size: "sm",
 };
 
 export const Variants: StoryFn<typeof BccPin> = () => ({

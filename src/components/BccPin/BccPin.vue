@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import type { Component } from 'vue';
 import { sizeVariants, variants } from '../../composables/variants';
 
 withDefaults(defineProps<{
-  icon?: any
+  icon?: string | Component
   size?: keyof typeof sizeVariants
   variant?: keyof typeof variants
 }>(), {
-  icon: null,
   size: 'xs',
   variant: 'neutral',
 })
