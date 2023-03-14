@@ -57,15 +57,16 @@ Example.args = {
   slotDefault: "Example Badge",
 };
 
-export const Variant: StoryFn<typeof BccBadge> = () => ({
+export const Variant: StoryFn<typeof BccBadge> = ({ size }) => ({
   components: { BccBadge },
+  setup() { return { size }},
   template: `
     <div class="flex items-start space-x-2">
-      <BccBadge variant="neutral">neutral</BccBadge>
-      <BccBadge variant="error">error</BccBadge>
-      <BccBadge variant="warning">warning</BccBadge>
-      <BccBadge variant="success">success</BccBadge>
-      <BccBadge variant="info">info</BccBadge>
+      <BccBadge :size="size" variant="neutral">neutral</BccBadge>
+      <BccBadge :size="size" variant="error">error</BccBadge>
+      <BccBadge :size="size" variant="warning">warning</BccBadge>
+      <BccBadge :size="size" variant="success">success</BccBadge>
+      <BccBadge :size="size" variant="info">info</BccBadge>
     </div>
   `,
 });
