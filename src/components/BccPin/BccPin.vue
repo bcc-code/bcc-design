@@ -13,7 +13,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <div class="p-[.3em] rounded-full inline-block" :class="[
+  <div class="p-[.3em] rounded-full inline-block shadow-md" :class="[
     variants[variant],
     sizeVariants[size] ?? size
   ]">
