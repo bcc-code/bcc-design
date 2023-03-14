@@ -98,7 +98,7 @@ const iconClassVariants = cva("", {
 });
 
 type Props = {
-  is?: "button" | "a";
+  is?: any;
   variant?: ButtonVariants["variant"];
   size?: ButtonVariants["size"];
   iconPosition?: ButtonVariants["iconPosition"];
