@@ -1,26 +1,29 @@
 import BccBadge from "./BccBadge.vue";
-import { RadioButtonUncheckedIcon } from "@bcc-code/icons-vue";
+import { CheckCircleIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
+
+// Workaround for storybook not working nicely with components passed as props
+import { app } from "@storybook/vue3";
+app.component('CheckCircleIcon');
 
 export default {
   title: "Components/BccBadge",
   component: BccBadge,
   argTypes: {
-    type: {
+    variant: {
       description: "Determines the styling of the badge",
       options: ["neutral", "error", "warning", "success", "info", "systemInfo"],
       control: { type: "radio" },
     },
     size: {
       description: "Size of the badge",
-      options: ["base", "lg"],
+      options: ["sm", "md", "lg"],
       control: { type: "radio" },
     },
-    iconPosition: {
-      description: "On which side the contents of the icon slot are rendered",
-      options: ["left", "right"],
-      control: { type: "radio" },
+    iconRight: {
+      description: "Pull icon to right side of the contents",
+      control: { type: "boolean" },
     },
     slotDefault: {
       name: "default slot",
@@ -30,15 +33,12 @@ export default {
 } as Meta<typeof BccBadge>;
 
 const Template: StoryFn<typeof BccBadge> = (args) => ({
-  components: { BccBadge, RadioButtonUncheckedIcon },
+  components: { BccBadge },
   setup() {
     return { args };
   },
   template: `
-    <BccBadge v-bind="args">
-      <template #icon>
-        <RadioButtonUncheckedIcon />
-      </template>
+    <BccBadge v-bind="args" icon="CheckCircleIcon">
       <template #default>
         {{ args.slotDefault }}
       </template>
@@ -51,51 +51,39 @@ Example.parameters = {
   viewMode: "docs",
 };
 Example.args = {
-  type: "neutral",
-  size: "base",
-  iconPosition: "left",
+  variant: "neutral",
+  size: "sm",
+  iconRight: false,
   slotDefault: "Example Badge",
 };
 
-export const Type: StoryFn<typeof BccBadge> = () => ({
+export const Variant: StoryFn<typeof BccBadge> = () => ({
   components: { BccBadge },
   template: `
     <div class="flex items-start space-x-2">
-      <BccBadge type="neutral">neutral</BccBadge>
-      <BccBadge type="error">error</BccBadge>
-      <BccBadge type="warning">warning</BccBadge>
-      <BccBadge type="success">success</BccBadge>
-      <BccBadge type="info">info</BccBadge>
+      <BccBadge variant="neutral">neutral</BccBadge>
+      <BccBadge variant="error">error</BccBadge>
+      <BccBadge variant="warning">warning</BccBadge>
+      <BccBadge variant="success">success</BccBadge>
+      <BccBadge variant="info">info</BccBadge>
     </div>
   `,
 });
 
 export const WithIcon: StoryFn<typeof BccBadge> = () => ({
-  components: { BccBadge, RadioButtonUncheckedIcon },
+  components: { BccBadge },
   template: `
     <div class="flex items-start space-x-2">
-      <BccBadge type="error" size="base">
-        <template #icon>
-          <RadioButtonUncheckedIcon />
-        </template>
+      <BccBadge variant="error" size="base" icon="CheckCircleIcon">
         base, icon left
       </BccBadge>
-      <BccBadge type="error" size="base" iconPosition="right">
-        <template #icon>
-          <RadioButtonUncheckedIcon />
-        </template>
+      <BccBadge variant="error" size="base" icon-right icon="CheckCircleIcon">
         base, icon right
       </BccBadge>
-      <BccBadge type="success" size="lg">
-        <template #icon>
-          <RadioButtonUncheckedIcon />
-        </template>
+      <BccBadge variant="success" size="lg" icon="CheckCircleIcon">
         lg, icon left
       </BccBadge>
-      <BccBadge type="success" size="lg" iconPosition="right">
-        <template #icon>
-          <RadioButtonUncheckedIcon />
-        </template>
+      <BccBadge variant="success" size="lg" icon-right icon="CheckCircleIcon">
         lg, icon right
       </BccBadge>
     </div>
