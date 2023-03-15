@@ -58,23 +58,23 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       variant: "primary",
       disabled: false,
       class: [
-        "bg-tree-green-600 text-neutral-50 hover:bg-tree-green-700 active:bg-tree-green-500 active:text-white focus:outline-none focus:ring focus:bg-tree-green-600 focus:ring-primary-dark-green-700 focus:ring-offset-2",
+        "bg-silver-tree-600 text-neutral-50 hover:bg-silver-tree-700 active:bg-silver-tree-500 active:text-white focus:outline-none focus:ring focus:bg-silver-tree-600 focus:ring-silver-tree-700 focus:ring-offset-2",
       ],
     },
     {
       variant: "secondary",
       disabled: false,
       class: [
-        "outline-tree-green-600 bg-transparent text-tree-green-600 hover:outline-tree-green-700 hover:text-tree-green-700 hover:bg-tree-green-50 active:outline-tree-green-500 active:text-tree-green-500 focus:ring focus:ring-primary-dark-green-700 focus:ring-offset-2",
-        "dark:outline-tree-green-400 dark:text-tree-green-400 dark:hover:outline-tree-green-200 dark:hover:text-tree-green-200 dark:hover:bg-tree-green-900",
+        "outline-silver-tree-600 bg-transparent text-silver-tree-600 hover:outline-silver-tree-700 hover:text-silver-tree-700 hover:bg-silver-tree-50 active:outline-silver-tree-500 active:text-silver-tree-500 focus:ring focus:ring-silver-tree-700 focus:ring-offset-2",
+        "dark:outline-silver-tree-400 dark:text-silver-tree-400 dark:hover:outline-silver-tree-200 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900",
       ],
     },
     {
       variant: "tertiary",
       disabled: false,
       class: [
-        "text-tree-green-600 hover:bg-tree-green-50 hover:underline active:text-tree-green-500 active:underline focus:outline-none focus:ring focus:ring-primary-dark-green-700 focus:ring-offset-2 focus:underline",
-        "dark:text-tree-green-300 dark:hover:text-tree-green-200 dark:hover:bg-tree-green-900",
+        "text-silver-tree-600 hover:bg-silver-tree-50 hover:underline active:text-silver-tree-500 active:underline focus:outline-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
+        "dark:text-silver-tree-300 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900",
       ],
     },
   ],
