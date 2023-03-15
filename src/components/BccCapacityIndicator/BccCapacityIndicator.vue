@@ -13,14 +13,16 @@ const props = withDefaults(
   }
 );
 
-const { value: valueUsed } = useAnimatedNumber(toRef(props, 'used'))
+const { value: valueUsed } = useAnimatedNumber(toRef(props, "used"));
 
-const { value: progress } = useAnimatedNumber(computed(() => {
-  if (props.total === -1) return -1;
-  if (props.used > props.total) return 100;
-  if (props.total > 0) return (props.used / props.total) * 100;
-  return 0;
-}))
+const { value: progress } = useAnimatedNumber(
+  computed(() => {
+    if (props.total === -1) return -1;
+    if (props.used > props.total) return 100;
+    if (props.total > 0) return (props.used / props.total) * 100;
+    return 0;
+  })
+);
 
 const dashArray = Math.PI * 18 * 2;
 </script>
