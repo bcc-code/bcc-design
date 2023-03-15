@@ -30,10 +30,7 @@ const childColors = {
 <template>
   <div
     class="h-[2.2857em] w-[2.2857em] rounded-full text-center font-semibold leading-[2.2857em] shadow-[0_0.071em_0.142em_rgba(0,0,0,0.05)]"
-    :class="[
-      sizeVariants[size] ?? size,
-      child ? childColors[gender] : colors[gender]
-    ]"
+    :class="[sizeVariants[size] ?? size, child ? childColors[gender] : colors[gender]]"
   >
     {{ initials.slice(0, 2) }}
   </div>
