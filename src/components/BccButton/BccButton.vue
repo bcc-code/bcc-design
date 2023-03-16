@@ -1,110 +1,16 @@
 <script setup lang="ts">
-import { cva, type VariantProps } from "class-variance-authority";
 import type { Component } from "vue";
-
-const buttonClassVariants = cva("font-semibold inline-flex items-center", {
-  variants: {
-    variant: {
-      primary: "",
-      secondary: "outline outline-offset-[-2px] outline-2",
-      tertiary: "",
-    },
-    size: {
-      xs: "text-xs py-1.5 px-3 space-x-1.5",
-      sm: "text-sm py-2 px-3 space-x-1.5",
-      base: "text-sm py-2.5 px-5 space-x-2",
-      lg: "text-base py-3 px-5 space-x-2.5",
-      xl: "text-base py-4 px-6 space-x-2.5",
-    },
-    rounded: {
-      true: "rounded-full",
-      false: "",
-    },
-    disabled: {
-      true: "text-neutral-500 fill-neutral-500 cursor-not-allowed pointer-events-none",
-      false: "cursor-pointer",
-    },
-    iconPosition: {
-      left: "",
-      right: "flex-row-reverse space-x-reverse",
-    },
-    center: {
-      true: "justify-center",
-      false: "justify-between",
-    },
-  },
-  compoundVariants: [
-    {
-      size: ["xs", "sm"],
-      rounded: false,
-      class: "rounded-md",
-    },
-    {
-      size: ["base", "lg", "xl"],
-      rounded: false,
-      class: "rounded-lg",
-    },
-    {
-      variant: "primary",
-      disabled: true,
-      class: "bg-neutral-300 dark:bg-gray-800",
-    },
-    {
-      variant: "secondary",
-      disabled: true,
-      class: "outline-neutral-300 bg-neutral-50 dark:bg-neutral-900",
-    },
-    {
-      variant: "primary",
-      disabled: false,
-      class: [
-        "bg-tree-green-600 text-neutral-50 hover:bg-tree-green-700 active:bg-tree-green-500 active:text-white focus:outline-none focus:ring focus:bg-tree-green-600 focus:ring-primary-dark-green-700 focus:ring-offset-2",
-      ],
-    },
-    {
-      variant: "secondary",
-      disabled: false,
-      class: [
-        "outline-tree-green-600 bg-transparent text-tree-green-600 hover:outline-tree-green-700 hover:text-tree-green-700 hover:bg-tree-green-50 active:outline-tree-green-500 active:text-tree-green-500 focus:ring focus:ring-primary-dark-green-700 focus:ring-offset-2",
-        "dark:outline-tree-green-400 dark:text-tree-green-400 dark:hover:outline-tree-green-200 dark:hover:text-tree-green-200 dark:hover:bg-tree-green-900",
-      ],
-    },
-    {
-      variant: "tertiary",
-      disabled: false,
-      class: [
-        "text-tree-green-600 hover:bg-tree-green-50 hover:underline active:text-tree-green-500 active:underline focus:outline-none focus:ring focus:ring-primary-dark-green-700 focus:ring-offset-2 focus:underline",
-        "dark:text-tree-green-300 dark:hover:text-tree-green-200 dark:hover:bg-tree-green-900",
-      ],
-    },
-  ],
-  defaultVariants: {
-    variant: "primary",
-    size: "base",
-  },
-});
-
-type ButtonVariants = VariantProps<typeof buttonClassVariants>;
-
-const iconClassVariants = cva("", {
-  variants: {
-    size: {
-      xs: "w-4 h-4",
-      sm: "w-4 h-4",
-      base: "w-5 h-5",
-      lg: "w-6 h-6",
-      xl: "w-6 h-6",
-    },
-  },
-});
 
 type Props = {
   is?: "button" | "a" | string | Component;
-  variant?: ButtonVariants["variant"];
-  size?: ButtonVariants["size"];
-  iconPosition?: ButtonVariants["iconPosition"];
+  variant?: 'primary' | 'danger' | 'info';
+  size?: keyof typeof sizes;
+  icon?: string | Component,
+  iconRight?: boolean,
   center?: boolean;
   rounded?: boolean;
+  outlined?: boolean,
+  flat?: boolean,
   disabled?: boolean;
 };
 
@@ -112,9 +18,11 @@ withDefaults(defineProps<Props>(), {
   is: "button",
   variant: "primary",
   size: "base",
-  iconPosition: "left",
+  iconRight: false,
   center: true,
   rounded: false,
+  outlined: false,
+  flat: false,
   disabled: false,
 });
 </script>
@@ -123,13 +31,190 @@ withDefaults(defineProps<Props>(), {
   <component
     :is="is"
     :disabled="disabled"
-    :class="buttonClassVariants({ variant, size, rounded, iconPosition, center, disabled })"
+    class="bcc-button default"
+    :class="[size, disabled, `theme-${variant}`, {
+      'variant-rounded': rounded,
+      'variant-flat': flat,
+      'variant-outlined': outlined,
+    }]"
   >
-    <span :class="iconClassVariants({ size })" v-if="$slots.icon">
-      <slot name="icon"></slot>
-    </span>
-    <span>
+    <component v-if="icon" :is="icon" class="h-[1.4em] w-[1.4em] shrink-0" :class="[
+      iconRight ? 'ml-[.2em] order-3' : 'mr-[.2em] order-1'
+    ]"/>
+    <span class="order-2">
       <slot></slot>
     </span>
   </component>
 </template>
+
+<style scoped>
+.theme-primary {
+  --btn-surface: theme(colors.tree-green.600);
+  --btn-alt: theme(colors.neutral.50);
+
+  --btn-surface--hover: theme(colors.tree-green.700);
+  --btn-alt--hover: theme(colors.tree-green.50);
+
+  --btn-surface--active: theme(colors.tree-green.500);
+  --btn-alt--active: theme(colors.white);
+
+  --btn-ring: theme(colors.primary-dark-green.700);
+}
+
+.theme-danger {
+  --btn-surface: theme(colors.red.700);
+  --btn-alt: theme(colors.neutral.50);
+
+  --btn-surface--hover: theme(colors.red.800);
+  --btn-alt--hover: theme(colors.red.50);
+
+  --btn-surface--active: theme(colors.red.600);
+  --btn-alt--active: theme(colors.red.50);
+
+  --btn-ring: theme(colors.red.700);
+}
+
+.theme-info {
+  --btn-surface: theme(colors.blue.600);
+  --btn-alt: theme(colors.neutral.50);
+
+  --btn-surface--hover: theme(colors.blue.700);
+  --btn-alt--hover: theme(colors.blue.50);
+
+  --btn-surface--active: theme(colors.blue.500);
+  --btn-alt--active: theme(colors.white);
+
+  --btn-ring: theme(colors.blue.700);
+}
+
+
+.theme-warn {
+  --btn-surface: theme(colors.yellow.600);
+  --btn-alt: theme(colors.neutral.50);
+
+  --btn-surface--hover: theme(colors.yellow.700);
+  --btn-alt--hover: theme(colors.yellow.50);
+
+  --btn-surface--active: theme(colors.yellow.500);
+  --btn-alt--active: theme(colors.white);
+
+  --btn-ring: theme(colors.yellow.700);
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-primary {
+    --btn-surface: theme(colors.tree-green.300);
+    --btn-alt: theme(colors.neutral.900);
+
+    --btn-surface--hover: theme(colors.tree-green.400);
+    --btn-alt--hover: theme(colors.tree-green.900);
+
+    --btn-surface--active: theme(colors.tree-green.200);
+    --btn-alt--active: theme(colors.tree-green.800);
+
+    --btn-ring: theme(colors.primary-dark-green.600);
+  }
+}
+
+.default {
+  --btn-bg: var(--btn-surface);
+  --btn-text: var(--btn-alt);
+  --btn-border: var(--btn-surface);
+
+  --btn-bg--hover: var(--btn-surface--hover);
+  --btn-text--hover: var(--btn-alt);
+  --btn-border--hover: var(--btn-bg--hover);
+
+  --btn-bg--active: var(--btn-surface--active);
+  --btn-text--active: var(--btn-alt--active);
+  --btn-border--active: var(--btn-bg--active);
+
+  --tw-ring-opacity: 1;
+  --tw-ring-color: var(--btn-ring);
+}
+
+.xs {
+  @apply text-xs py-1.5 px-3 space-x-1.5 rounded-md;
+}
+.sm {
+  @apply text-sm py-2 px-3 space-x-1.5 rounded-md;
+}
+.base {
+  @apply text-sm py-2.5 px-5 space-x-2 rounded-lg;
+}
+.lg {
+  @apply text-base py-3 px-5 space-x-2.5 rounded-lg;
+}
+.xl {
+  @apply text-base py-4 px-6 space-x-2.5 rounded-lg;
+}
+
+.variant-rounded {
+  @apply rounded-full;
+}
+.variant-flat {
+  --btn-bg: transparent;
+  --btn-border: transparent;
+  --btn-text: var(--btn-surface);
+
+  --btn-bg--hover: var(--btn-alt--hover);
+  --btn-text--hover: var(--btn-surface--hover);
+
+  --btn-bg--active: var(--btn-alt--active);
+  --btn-text--active: var(--btn-surface--active);
+
+  --btn-border--hover: var(--btn-alt--hover);
+  --btn-border--active: var(--btn-alt--active);
+  --tw-ring-color: var(--btn-surface);
+}
+
+.variant-outlined {
+  --btn-bg: none;
+  --btn-text: var(--btn-surface);
+
+  --btn-bg--hover: var(--btn-alt--hover);
+  --btn-text--hover: var(--btn-surface--hover);
+
+  --btn-bg--active: var(--btn-alt--active);
+  --btn-text--active: var(--btn-surface--active);
+
+  --btn-border--hover: var(--btn-surface--hover);
+  --btn-border--active: var(--btn-surface--active);
+}
+
+.variant-outlined.theme-danger {
+  --btn-border: theme(colors.neutral.200);
+}
+
+.bcc-button {
+  @apply cursor-pointer border-2 border-solid font-semibold inline-flex items-center justify-center focus:outline-none focus:ring focus:ring-offset-2;
+  border-color: var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+.bcc-button:hover {
+  background: var(--btn-bg--hover);
+  color: var(--btn-text--hover);
+  border-color: var(--btn-border--hover);
+}
+
+.bcc-button:active {
+  @apply shadow-inner;
+  background: var(--btn-bg--active);
+  color: var(--btn-text--active);
+  border-color: var(--btn-border--active);
+}
+
+.bcc-button:disabled, .bcc-button[disabled] {
+  @apply cursor-not-allowed pointer-events-none;
+
+  --btn-surface: theeme(colors.neutral.300);
+  --btn-alt: theme(colors.neutral.500);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bcc-button:disabled, .bcc-button[disabled] {
+    --btn-surface: theme(colors.neutral.800);
+  }
+}
+</style>
