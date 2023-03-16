@@ -21,7 +21,7 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       false: "",
     },
     disabled: {
-      true: "text-neutral-500 fill-neutral-500 cursor-not-allowed pointer-events-none",
+      true: "cursor-not-allowed pointer-events-none",
       false: "cursor-pointer",
     },
     iconPosition: {
@@ -47,25 +47,31 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
     {
       variant: "primary",
       disabled: true,
-      class: "bg-neutral-300 dark:bg-gray-800",
+      class: "text-button-primary-disabled bg-button-primary-disabled dark:bg-gray-800",
     },
     {
       variant: "secondary",
       disabled: true,
-      class: "outline-neutral-300 bg-neutral-50 dark:bg-neutral-900",
+      class:
+        "text-button-secondary-disabled outline-button-secondary-disabled bg-button-secondary-disabled dark:bg-neutral-900",
+    },
+    {
+      variant: "tertiary",
+      disabled: true,
+      class: "text-button-tertiary-disabled",
     },
     {
       variant: "primary",
       disabled: false,
       class: [
-        "bg-silver-tree-600 text-neutral-50 hover:bg-silver-tree-700 active:bg-silver-tree-500 active:text-white focus:outline-none focus:ring focus:bg-silver-tree-600 focus:ring-silver-tree-700 focus:ring-offset-2",
+        "bg-button-primary-default text-button-primary-default hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-white focus:outline-none focus:ring focus:bg-button-primary-focused focus:ring-silver-tree-700 focus:ring-offset-2",
       ],
     },
     {
       variant: "secondary",
       disabled: false,
       class: [
-        "outline-silver-tree-600 bg-transparent text-silver-tree-600 hover:outline-silver-tree-700 hover:text-silver-tree-700 hover:bg-silver-tree-50 active:outline-silver-tree-500 active:text-silver-tree-500 focus:ring focus:ring-silver-tree-700 focus:ring-offset-2",
+        "outline-button-secondary-default bg-transparent text-button-secondary-default hover:outline-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:outline-button-secondary-pressed active:text-button-secondary-pressed focus:ring focus:ring-silver-tree-700 focus:ring-offset-2",
         "dark:outline-silver-tree-400 dark:text-silver-tree-400 dark:hover:outline-silver-tree-200 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900",
       ],
     },
@@ -73,7 +79,7 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       variant: "tertiary",
       disabled: false,
       class: [
-        "text-silver-tree-600 hover:bg-silver-tree-50 hover:underline active:text-silver-tree-500 active:underline focus:outline-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
+        "text-button-tertiary-default hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:outline-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
         "dark:text-silver-tree-300 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900",
       ],
     },
