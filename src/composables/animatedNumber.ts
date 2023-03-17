@@ -1,4 +1,4 @@
-import { ref, watch, type Ref } from 'vue';
+import { ref, watch, type Ref } from "vue";
 
 export default function useAnimatedNumber(to: Ref<number>, from = 0, duration = 1000) {
   const current = ref(from);
@@ -23,9 +23,13 @@ export default function useAnimatedNumber(to: Ref<number>, from = 0, duration = 
     animate();
   }
 
-  watch(to, (newTo) => {
-    animateNumber(current.value ?? from, newTo);
-  }, { immediate: true });
+  watch(
+    to,
+    (newTo) => {
+      animateNumber(current.value ?? from, newTo);
+    },
+    { immediate: true }
+  );
 
   return { value: current };
 }

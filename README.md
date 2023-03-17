@@ -37,6 +37,11 @@ Run a live reloading unit test server:
 npm run test:unit
 ```
 
+Some unit test use [snapshots](https://vitest.dev/guide/snapshot.html). Be sure to update snapshots after updating a component that has such a test:
+```sh
+npm run test:update-snapshots
+```
+
 ### Creating a new component
 The repository contains a handy script for scaffolding a new component:
 ```sh

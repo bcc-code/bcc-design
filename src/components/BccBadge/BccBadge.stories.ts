@@ -5,7 +5,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
 
 // Workaround for storybook not working nicely with components passed as props
 import { app } from "@storybook/vue3";
-app.component('CheckCircleIcon');
+app.component("CheckCircleIcon", CheckCircleIcon);
 
 export default {
   title: "Components/BccBadge",
@@ -13,12 +13,12 @@ export default {
   argTypes: {
     variant: {
       description: "Determines the styling of the badge",
-      options: ["neutral", "error", "warning", "success", "info", "systemInfo"],
+      options: ["neutral", "danger", "warning", "success", "info", "systemInfo"],
       control: { type: "radio" },
     },
     size: {
       description: "Size of the badge",
-      options: ["sm", "md", "lg"],
+      options: ["xs", "sm"],
       control: { type: "radio" },
     },
     iconRight: {
@@ -52,21 +52,21 @@ Example.parameters = {
 };
 Example.args = {
   variant: "neutral",
-  size: "sm",
+  size: "xs",
   iconRight: false,
   slotDefault: "Example Badge",
 };
 
-export const Variant: StoryFn<typeof BccBadge> = ({ size }) => ({
+export const Variant: StoryFn<typeof BccBadge> = () => ({
   components: { BccBadge },
-  setup() { return { size }},
   template: `
     <div class="flex items-start space-x-2">
-      <BccBadge :size="size" variant="neutral">neutral</BccBadge>
-      <BccBadge :size="size" variant="error">error</BccBadge>
-      <BccBadge :size="size" variant="warning">warning</BccBadge>
-      <BccBadge :size="size" variant="success">success</BccBadge>
-      <BccBadge :size="size" variant="info">info</BccBadge>
+      <BccBadge variant="neutral">neutral</BccBadge>
+      <BccBadge variant="danger">danger</BccBadge>
+      <BccBadge variant="warning">warning</BccBadge>
+      <BccBadge variant="success">success</BccBadge>
+      <BccBadge variant="info">info</BccBadge>
+      <BccBadge variant="systemInfo">systemInfo</BccBadge>
     </div>
   `,
 });
@@ -75,17 +75,17 @@ export const WithIcon: StoryFn<typeof BccBadge> = () => ({
   components: { BccBadge },
   template: `
     <div class="flex items-start space-x-2">
-      <BccBadge variant="error" size="base" icon="CheckCircleIcon">
-        base, icon left
+      <BccBadge variant="danger" size="xs" icon="CheckCircleIcon">
+        xs, icon left
       </BccBadge>
-      <BccBadge variant="error" size="base" icon-right icon="CheckCircleIcon">
-        base, icon right
+      <BccBadge variant="danger" size="xs" icon-right icon="CheckCircleIcon">
+        xs, icon right
       </BccBadge>
-      <BccBadge variant="success" size="lg" icon="CheckCircleIcon">
-        lg, icon left
+      <BccBadge variant="success" size="sm" icon="CheckCircleIcon">
+        sm, icon left
       </BccBadge>
-      <BccBadge variant="success" size="lg" icon-right icon="CheckCircleIcon">
-        lg, icon right
+      <BccBadge variant="success" size="sm" icon-right icon="CheckCircleIcon">
+        sm, icon right
       </BccBadge>
     </div>
   `,

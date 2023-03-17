@@ -5,7 +5,7 @@ import BccCapacityIndicator from "./BccCapacityIndicator.vue";
 
 describe("BccCapacityIndicator", () => {
   const wait = () => new Promise((r) => setTimeout(r, 1050));
-  
+
   it("shows the remaining capacity", async () => {
     const wrapper = mount(BccCapacityIndicator, { props: { total: 20, used: 14 } });
     await wait();
