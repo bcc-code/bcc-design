@@ -43,7 +43,7 @@ withDefaults(defineProps<Props>(), {
     <component v-if="icon" :is="icon" class="h-[1.4em] w-[1.4em] shrink-0 order-2" />
     <span v-if="$slots.default"
       :class="[
-        iconRight ? 'mr-[.6em] order-1' : 'ml-[.6em] order-3'
+        iconRight ? 'order-1' : 'order-3'
       ]"
     ><slot /></span>
   </component>
@@ -137,19 +137,19 @@ withDefaults(defineProps<Props>(), {
 }
 
 .xs {
-  @apply text-xs py-1.5 px-3 rounded-md;
+  @apply text-xs py-1.5 px-3 rounded-md space-x-1.5;
 }
 .sm {
-  @apply text-sm py-2 px-3 rounded-md;
+  @apply text-sm py-2 px-3 rounded-md space-x-1.5;
 }
 .md {
-  @apply text-sm py-2.5 px-5 rounded-lg;
+  @apply text-sm py-2.5 px-5 rounded-lg space-x-2;
 }
 .lg {
-  @apply text-base py-3 px-5 rounded-lg;
+  @apply text-base py-3 px-5 rounded-lg space-x-2.5;
 }
 .xl {
-  @apply text-base py-4 px-6 rounded-lg;
+  @apply text-base py-4 px-6 rounded-lg space-x-2.5;
 }
 .iconOnly {
   @apply p-0.5 rounded-full w-[2.4em] h-[2.4em];
