@@ -137,19 +137,19 @@ withDefaults(defineProps<Props>(), {
 }
 
 .xs {
-  @apply text-xs py-1.5 px-3 rounded-md space-x-1.5;
+  @apply text-xs py-1.5 px-3 rounded-md gap-x-1.5;
 }
 .sm {
-  @apply text-sm py-2 px-3 rounded-md space-x-1.5;
+  @apply text-sm py-2 px-3 rounded-md gap-x-1.5;
 }
 .md {
-  @apply text-sm py-2.5 px-5 rounded-lg space-x-2;
+  @apply text-sm py-2.5 px-5 rounded-lg gap-x-2;
 }
 .lg {
-  @apply text-base py-3 px-5 rounded-lg space-x-2.5;
+  @apply text-base py-3 px-5 rounded-lg gap-x-2.5;
 }
 .xl {
-  @apply text-base py-4 px-6 rounded-lg space-x-2.5;
+  @apply text-base py-4 px-6 rounded-lg gap-x-2.5;
 }
 .iconOnly {
   @apply p-0.5 rounded-full w-[2.4em] h-[2.4em];
