@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 
 import { mount } from "@vue/test-utils";
 import BccButton from "./BccButton.vue";
+import { CheckCircleIcon } from "@bcc-code/icons-vue";
 
 describe("BccButton", () => {
   it("renders a text from the default slot", () => {
@@ -23,5 +24,15 @@ describe("BccButton", () => {
     });
     expect(wrapper.html()).toContain("href");
     expect(wrapper.html()).toContain('target="_blank"');
+  });
+
+  it("renders only icon", () => {
+    const wrapper = mount(BccButton, {
+      props: {
+        icon: CheckCircleIcon,
+      },
+    });
+
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

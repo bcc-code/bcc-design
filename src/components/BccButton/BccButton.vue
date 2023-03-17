@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import type { sizeVariants } from "@/composables/variants";
 import type { Component } from "vue";
 
 type Props = {
   is?: "button" | "a" | string | Component;
   variant?: 'primary' | 'danger' | 'info';
-  size?: keyof typeof sizes;
-  icon?: string | Component,
+  size?: keyof typeof sizeVariants;
+  icon?: string | Component | Function,
   iconRight?: boolean,
   center?: boolean;
   rounded?: boolean;
@@ -17,7 +18,7 @@ type Props = {
 withDefaults(defineProps<Props>(), {
   is: "button",
   variant: "primary",
-  size: "base",
+  size: "md",
   iconRight: false,
   center: true,
   rounded: false,
@@ -33,17 +34,18 @@ withDefaults(defineProps<Props>(), {
     :disabled="disabled"
     class="bcc-button default"
     :class="[size, disabled, `theme-${variant}`, {
-      'variant-rounded': rounded,
-      'variant-flat': flat,
-      'variant-outlined': outlined,
+      'rounded': rounded,
+      'flat': flat,
+      'outlined': outlined,
+      'iconOnly': $slots.default === undefined,
     }]"
   >
-    <component v-if="icon" :is="icon" class="h-[1.4em] w-[1.4em] shrink-0" :class="[
-      iconRight ? 'ml-[.2em] order-3' : 'mr-[.2em] order-1'
-    ]"/>
-    <span class="order-2">
-      <slot></slot>
-    </span>
+    <component v-if="icon" :is="icon" class="h-[1.4em] w-[1.4em] shrink-0 order-2" />
+    <span v-if="$slots.default"
+      :class="[
+        iconRight ? 'mr-[.6em] order-1' : 'ml-[.6em] order-3'
+      ]"
+    ><slot /></span>
   </component>
 </template>
 
@@ -87,18 +89,17 @@ withDefaults(defineProps<Props>(), {
   --btn-ring: theme(colors.blue.700);
 }
 
-
-.theme-warn {
-  --btn-surface: theme(colors.yellow.600);
+.theme-neutral {
+  --btn-surface: theme(colors.neutral.600);
   --btn-alt: theme(colors.neutral.50);
 
-  --btn-surface--hover: theme(colors.yellow.700);
-  --btn-alt--hover: theme(colors.yellow.50);
+  --btn-surface--hover: theme(colors.neutral.700);
+  --btn-alt--hover: theme(colors.neutral.50);
 
-  --btn-surface--active: theme(colors.yellow.500);
+  --btn-surface--active: theme(colors.neutral.500);
   --btn-alt--active: theme(colors.white);
 
-  --btn-ring: theme(colors.yellow.700);
+  --btn-ring: theme(colors.neutral.700);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -131,28 +132,32 @@ withDefaults(defineProps<Props>(), {
 
   --tw-ring-opacity: 1;
   --tw-ring-color: var(--btn-ring);
+
+  @apply flex-shrink-0 focus:ring-offset-2 transition-all;
 }
 
 .xs {
-  @apply text-xs py-1.5 px-3 space-x-1.5 rounded-md;
+  @apply text-xs py-1.5 px-3 rounded-md;
 }
 .sm {
-  @apply text-sm py-2 px-3 space-x-1.5 rounded-md;
+  @apply text-sm py-2 px-3 rounded-md;
 }
-.base {
-  @apply text-sm py-2.5 px-5 space-x-2 rounded-lg;
+.md {
+  @apply text-sm py-2.5 px-5 rounded-lg;
 }
 .lg {
-  @apply text-base py-3 px-5 space-x-2.5 rounded-lg;
+  @apply text-base py-3 px-5 rounded-lg;
 }
 .xl {
-  @apply text-base py-4 px-6 space-x-2.5 rounded-lg;
+  @apply text-base py-4 px-6 rounded-lg;
 }
-
-.variant-rounded {
+.iconOnly {
+  @apply p-0.5 rounded-full w-[2.4em] h-[2.4em];
+}
+.rounded {
   @apply rounded-full;
 }
-.variant-flat {
+.flat {
   --btn-bg: transparent;
   --btn-border: transparent;
   --btn-text: var(--btn-surface);
@@ -166,9 +171,11 @@ withDefaults(defineProps<Props>(), {
   --btn-border--hover: var(--btn-alt--hover);
   --btn-border--active: var(--btn-alt--active);
   --tw-ring-color: var(--btn-surface);
+
+  @apply focus:ring-offset-0 hover:shadow-md active:shadow-inner;
 }
 
-.variant-outlined {
+.outlined {
   --btn-bg: none;
   --btn-text: var(--btn-surface);
 
@@ -180,14 +187,16 @@ withDefaults(defineProps<Props>(), {
 
   --btn-border--hover: var(--btn-surface--hover);
   --btn-border--active: var(--btn-surface--active);
+
+  @apply focus:ring-offset-0 hover:shadow-md active:shadow-inner;
 }
 
-.variant-outlined.theme-danger {
+.outlined.theme-danger {
   --btn-border: theme(colors.neutral.200);
 }
 
 .bcc-button {
-  @apply cursor-pointer border-2 border-solid font-semibold inline-flex items-center justify-center focus:outline-none focus:ring focus:ring-offset-2;
+  @apply cursor-pointer border-2 border-solid font-semibold inline-flex items-center justify-center focus:outline-none focus:ring;
   border-color: var(--btn-border);
   background: var(--btn-bg);
   color: var(--btn-text);
@@ -208,8 +217,12 @@ withDefaults(defineProps<Props>(), {
 .bcc-button:disabled, .bcc-button[disabled] {
   @apply cursor-not-allowed pointer-events-none;
 
-  --btn-surface: theeme(colors.neutral.300);
+  --btn-surface: theme(colors.neutral.300);
   --btn-alt: theme(colors.neutral.500);
+}
+.outlined.bcc-button:disabled, .outlined.bcc-button[disabled],
+.flat.bcc-button:disabled, .flat.bcc-button[disabled] {
+  --btn-text: theme(colors.neutral.500);
 }
 
 @media (prefers-color-scheme: dark) {
