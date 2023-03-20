@@ -11,6 +11,11 @@ export default {
   title: "Components/BccButton",
   component: BccButton,
   argTypes: {
+    color: {
+      description: "Which color forms the base of the button style",
+      options: ["primary", "danger"],
+      control: { type: "radio" },
+    },
     variant: {
       description: "The global style of the button",
       options: ["primary", "secondary", "tertiary"],
