@@ -5,6 +5,10 @@ import type { Component } from "vue";
 
 const buttonClassVariants = cva("font-semibold inline-flex items-center", {
   variants: {
+    color: {
+      primary: "",
+      danger: "",
+    },
     variant: {
       primary: "",
       secondary: "outline outline-offset-[-2px] outline-2",
@@ -88,7 +92,7 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       variant: "secondary",
       disabled: true,
       class:
-        "text-button-secondary-disabled outline-button-secondary-disabled bg-button-secondary-disabled dark:bg-neutral-900",
+        "text-button-secondary-disabled outline-button-secondary-disabled bg-button-secondary-disabled dark:bg-neutral-900 dark:outline-neutral-700",
     },
     {
       variant: "tertiary",
@@ -97,13 +101,15 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
     },
     {
       variant: "primary",
+      color: "primary",
       disabled: false,
       class: [
-        "bg-button-primary-default text-button-primary-default hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-white focus:outline-none focus:ring focus:bg-button-primary-focused focus:ring-silver-tree-700 focus:ring-offset-2",
+        "bg-button-primary-default text-button-primary-default hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary-default focus:outline-none focus:ring focus:bg-button-primary-focused focus:ring-silver-tree-700 focus:ring-offset-2",
       ],
     },
     {
       variant: "secondary",
+      color: "primary",
       disabled: false,
       class: [
         "outline-button-secondary-default bg-transparent text-button-secondary-default hover:outline-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:outline-button-secondary-pressed active:text-button-secondary-pressed focus:ring focus:ring-silver-tree-700 focus:ring-offset-2",
@@ -112,15 +118,43 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
     },
     {
       variant: "tertiary",
+      color: "primary",
       disabled: false,
       class: [
         "text-button-tertiary-default hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:outline-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
         "dark:text-silver-tree-300 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900",
       ],
     },
+    {
+      variant: "primary",
+      color: "danger",
+      disabled: false,
+      class: [
+        "bg-red-700 text-white hover:bg-red-800 active:bg-red-600 active:text-white focus:outline-none focus:ring focus:bg-red-700 focus:ring-silver-tree-700 focus:ring-offset-2",
+      ],
+    },
+    {
+      variant: "secondary",
+      color: "danger",
+      disabled: false,
+      class: [
+        "outline-neutral-200 bg-transparent text-red-700 hover:outline-red-700 hover:text-red-800 hover:bg-red-50 active:outline-red-600 active:text-red-600 focus:ring focus:ring-silver-tree-700 focus:ring-offset-2",
+        "dark:outline-red-400 dark:text-red-400 dark:hover:outline-red-200 dark:hover:text-red-200 dark:hover:bg-red-900",
+      ],
+    },
+    {
+      variant: "tertiary",
+      color: "danger",
+      disabled: false,
+      class: [
+        "text-neutral-700 hover:bg-red-50 hover:underline hover:text-red-800 active:text-red-600 active:underline focus:outline-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
+        "dark:text-neutral-300 dark:hover:text-red-200 dark:hover:bg-red-900",
+      ],
+    },
   ],
   defaultVariants: {
     variant: "primary",
+    color: "primary",
     size: "base",
   },
 });
@@ -142,6 +176,7 @@ const iconClassVariants = cva("", {
 type Props = {
   is?: "button" | "a" | string | Component;
   variant?: ButtonVariants["variant"];
+  color?: ButtonVariants["color"];
   size?: ButtonVariants["size"];
   icon?: string | Component | Function;
   iconRight?: boolean;
@@ -153,6 +188,7 @@ type Props = {
 withDefaults(defineProps<Props>(), {
   is: "button",
   variant: "primary",
+  color: "primary",
   size: "base",
   iconRight: false,
   center: true,
@@ -169,6 +205,7 @@ withDefaults(defineProps<Props>(), {
       twMerge(
         buttonClassVariants({
           variant,
+          color,
           size,
           rounded,
           iconRight,
