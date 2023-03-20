@@ -4,14 +4,14 @@ import type { Component } from "vue";
 
 type Props = {
   is?: "button" | "a" | string | Component;
-  variant?: 'primary' | 'danger' | 'info';
+  variant?: "primary" | "danger" | "info";
   size?: keyof typeof sizeVariants;
-  icon?: string | Component | Function,
-  iconRight?: boolean,
+  icon?: string | Component | Function;
+  iconRight?: boolean;
   center?: boolean;
   rounded?: boolean;
-  outlined?: boolean,
-  flat?: boolean,
+  outlined?: boolean;
+  flat?: boolean;
   disabled?: boolean;
 };
 
@@ -33,34 +33,35 @@ withDefaults(defineProps<Props>(), {
     :is="is"
     :disabled="disabled"
     class="bcc-button default"
-    :class="[size, disabled, `theme-${variant}`, {
-      'rounded': rounded,
-      'flat': flat,
-      'outlined': outlined,
-      'iconOnly': $slots.default === undefined,
-    }]"
+    :class="[
+      size,
+      disabled,
+      `theme-${variant}`,
+      {
+        rounded: rounded,
+        flat: flat,
+        outlined: outlined,
+        iconOnly: $slots.default === undefined,
+      },
+    ]"
   >
-    <component v-if="icon" :is="icon" class="h-[1.4em] w-[1.4em] shrink-0 order-2" />
-    <span v-if="$slots.default"
-      :class="[
-        iconRight ? 'order-1' : 'order-3'
-      ]"
-    ><slot /></span>
+    <component v-if="icon" :is="icon" class="order-2 h-[1.4em] w-[1.4em] shrink-0" />
+    <span v-if="$slots.default" :class="[iconRight ? 'order-1' : 'order-3']"><slot /></span>
   </component>
 </template>
 
 <style scoped>
 .theme-primary {
-  --btn-surface: theme(colors.tree-green.600);
+  --btn-surface: theme(colors.silver-tree.600);
   --btn-alt: theme(colors.neutral.50);
 
-  --btn-surface--hover: theme(colors.tree-green.700);
-  --btn-alt--hover: theme(colors.tree-green.50);
+  --btn-surface--hover: theme(colors.silver-tree.700);
+  --btn-alt--hover: theme(colors.silver-tree.50);
 
-  --btn-surface--active: theme(colors.tree-green.500);
+  --btn-surface--active: theme(colors.silver-tree.500);
   --btn-alt--active: theme(colors.white);
 
-  --btn-ring: theme(colors.primary-dark-green.700);
+  --btn-ring: theme(colors.silver-tree.700);
 }
 
 .theme-danger {
@@ -104,16 +105,16 @@ withDefaults(defineProps<Props>(), {
 
 @media (prefers-color-scheme: dark) {
   .theme-primary {
-    --btn-surface: theme(colors.tree-green.300);
+    --btn-surface: theme(colors.silver-tree.300);
     --btn-alt: theme(colors.neutral.900);
 
-    --btn-surface--hover: theme(colors.tree-green.400);
-    --btn-alt--hover: theme(colors.tree-green.900);
+    --btn-surface--hover: theme(colors.silver-tree.400);
+    --btn-alt--hover: theme(colors.silver-tree.900);
 
-    --btn-surface--active: theme(colors.tree-green.200);
-    --btn-alt--active: theme(colors.tree-green.800);
+    --btn-surface--active: theme(colors.silver-tree.200);
+    --btn-alt--active: theme(colors.silver-tree.800);
 
-    --btn-ring: theme(colors.primary-dark-green.600);
+    --btn-ring: theme(colors.silver-tree.600);
   }
 }
 
@@ -133,26 +134,26 @@ withDefaults(defineProps<Props>(), {
   --tw-ring-opacity: 1;
   --tw-ring-color: var(--btn-ring);
 
-  @apply flex-shrink-0 focus:ring-offset-2 transition-all;
+  @apply flex-shrink-0 transition-all focus:ring-offset-2;
 }
 
 .xs {
-  @apply text-xs py-1.5 px-3 rounded-md gap-x-1.5;
+  @apply gap-x-1.5 rounded-md py-1.5 px-3 text-xs;
 }
 .sm {
-  @apply text-sm py-2 px-3 rounded-md gap-x-1.5;
+  @apply gap-x-1.5 rounded-md py-2 px-3 text-sm;
 }
 .md {
-  @apply text-sm py-2.5 px-5 rounded-lg gap-x-2;
+  @apply gap-x-2 rounded-lg py-2.5 px-5 text-sm;
 }
 .lg {
-  @apply text-base py-3 px-5 rounded-lg gap-x-2.5;
+  @apply gap-x-2.5 rounded-lg py-3 px-5 text-base;
 }
 .xl {
-  @apply text-base py-4 px-6 rounded-lg gap-x-2.5;
+  @apply gap-x-2.5 rounded-lg py-4 px-6 text-base;
 }
 .iconOnly {
-  @apply p-0.5 rounded-full w-[2.4em] h-[2.4em];
+  @apply h-[2.4em] w-[2.4em] rounded-full p-0.5;
 }
 .rounded {
   @apply rounded-full;
@@ -172,7 +173,7 @@ withDefaults(defineProps<Props>(), {
   --btn-border--active: var(--btn-alt--active);
   --tw-ring-color: var(--btn-surface);
 
-  @apply focus:ring-offset-0 hover:shadow-md active:shadow-inner;
+  @apply hover:shadow-md focus:ring-offset-0 active:shadow-inner;
 }
 
 .outlined {
@@ -188,7 +189,7 @@ withDefaults(defineProps<Props>(), {
   --btn-border--hover: var(--btn-surface--hover);
   --btn-border--active: var(--btn-surface--active);
 
-  @apply focus:ring-offset-0 hover:shadow-md active:shadow-inner;
+  @apply hover:shadow-md focus:ring-offset-0 active:shadow-inner;
 }
 
 .outlined.theme-danger {
@@ -196,7 +197,7 @@ withDefaults(defineProps<Props>(), {
 }
 
 .bcc-button {
-  @apply cursor-pointer border-2 border-solid font-semibold inline-flex items-center justify-center focus:outline-none focus:ring;
+  @apply inline-flex cursor-pointer items-center justify-center border-2 border-solid font-semibold focus:outline-none focus:ring;
   border-color: var(--btn-border);
   background: var(--btn-bg);
   color: var(--btn-text);
@@ -214,19 +215,23 @@ withDefaults(defineProps<Props>(), {
   border-color: var(--btn-border--active);
 }
 
-.bcc-button:disabled, .bcc-button[disabled] {
-  @apply cursor-not-allowed pointer-events-none;
+.bcc-button:disabled,
+.bcc-button[disabled] {
+  @apply pointer-events-none cursor-not-allowed;
 
   --btn-surface: theme(colors.neutral.300);
   --btn-alt: theme(colors.neutral.500);
 }
-.outlined.bcc-button:disabled, .outlined.bcc-button[disabled],
-.flat.bcc-button:disabled, .flat.bcc-button[disabled] {
+.outlined.bcc-button:disabled,
+.outlined.bcc-button[disabled],
+.flat.bcc-button:disabled,
+.flat.bcc-button[disabled] {
   --btn-text: theme(colors.neutral.500);
 }
 
 @media (prefers-color-scheme: dark) {
-  .bcc-button:disabled, .bcc-button[disabled] {
+  .bcc-button:disabled,
+  .bcc-button[disabled] {
     --btn-surface: theme(colors.neutral.800);
   }
 }
