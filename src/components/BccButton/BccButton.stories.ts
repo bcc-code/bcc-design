@@ -2,9 +2,9 @@ import BccButton from "./BccButton.vue";
 import { SearchIcon, ChevronRightIcon, ChevronLeftIcon } from "@bcc-code/icons-vue";
 
 import { app, Meta, StoryFn } from "@storybook/vue3";
-app.component('ChevronRightIcon', ChevronRightIcon);
-app.component('ChevronLeftIcon', ChevronLeftIcon);
-app.component('SearchIcon', SearchIcon);
+app.component("ChevronRightIcon", ChevronRightIcon);
+app.component("ChevronLeftIcon", ChevronLeftIcon);
+app.component("SearchIcon", SearchIcon);
 
 export default {
   title: "Components/BccButton",
@@ -12,7 +12,7 @@ export default {
   argTypes: {
     variant: {
       description: "The global style of the button",
-      options: ["primary", "danger", "info", "neutral"],
+      options: ["primary", "danger"],
       control: { type: "radio" },
     },
     size: {
@@ -66,7 +66,7 @@ Example.args = {
   variant: "primary",
   size: "md",
   rounded: false,
-  iconPosition: "left",
+  iconRight: false,
   center: true,
   disabled: false,
   outlined: false,
@@ -144,7 +144,7 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
         With left icon
       </BccButton>
       <BccButton icon-right icon="SearchIcon">
-        With right ico icon="SearchIcon"
+        With right icon
       </BccButton>
       <BccButton outlined icon="SearchIcon">
         Secondary with icon
@@ -175,7 +175,6 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
     </div>
   `,
 });
-
 
 export const IconOnly: StoryFn<typeof BccButton> = () => ({
   components: { BccButton, SearchIcon },

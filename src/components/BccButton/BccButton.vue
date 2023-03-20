@@ -76,32 +76,6 @@ withDefaults(defineProps<Props>(), {
   --btn-ring: theme(colors.red.700);
 }
 
-.theme-info {
-  --btn-surface: theme(colors.blue.600);
-  --btn-alt: theme(colors.neutral.50);
-
-  --btn-surface--hover: theme(colors.blue.700);
-  --btn-alt--hover: theme(colors.blue.50);
-
-  --btn-surface--active: theme(colors.blue.500);
-  --btn-alt--active: theme(colors.white);
-
-  --btn-ring: theme(colors.blue.700);
-}
-
-.theme-neutral {
-  --btn-surface: theme(colors.neutral.600);
-  --btn-alt: theme(colors.neutral.50);
-
-  --btn-surface--hover: theme(colors.neutral.700);
-  --btn-alt--hover: theme(colors.neutral.50);
-
-  --btn-surface--active: theme(colors.neutral.500);
-  --btn-alt--active: theme(colors.white);
-
-  --btn-ring: theme(colors.neutral.700);
-}
-
 @media (prefers-color-scheme: dark) {
   .theme-primary {
     --btn-surface: theme(colors.silver-tree.300);
