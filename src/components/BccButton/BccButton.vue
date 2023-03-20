@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { cva, type VariantProps } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
 import type { Component } from "vue";
 
 const buttonClassVariants = cva("font-semibold inline-flex items-center", {
@@ -10,11 +11,11 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       tertiary: "",
     },
     size: {
-      xs: "text-xs py-1.5 px-3 space-x-1.5",
-      sm: "text-sm py-2 px-3 space-x-1.5",
-      base: "text-sm py-2.5 px-5 space-x-2",
-      lg: "text-base py-3 px-5 space-x-2.5",
-      xl: "text-base py-4 px-6 space-x-2.5",
+      xs: "text-xs py-1.5 px-3 gap-x-1.5",
+      sm: "text-sm py-2 px-3 gap-x-1.5",
+      base: "text-sm py-2.5 px-5 gap-x-2",
+      lg: "text-base py-3 px-5 gap-x-2.5",
+      xl: "text-base py-4 px-6 gap-x-2.5",
     },
     rounded: {
       true: "rounded-full",
@@ -24,9 +25,13 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       true: "cursor-not-allowed pointer-events-none",
       false: "cursor-pointer",
     },
-    iconPosition: {
-      left: "",
-      right: "flex-row-reverse space-x-reverse",
+    iconRight: {
+      true: "gap-x-reverse",
+      false: "",
+    },
+    iconOnly: {
+      true: "rounded-full",
+      false: "",
     },
     center: {
       true: "justify-center",
@@ -43,6 +48,36 @@ const buttonClassVariants = cva("font-semibold inline-flex items-center", {
       size: ["base", "lg", "xl"],
       rounded: false,
       class: "rounded-lg",
+    },
+    {
+      iconOnly: true,
+      rounded: false,
+      class: "rounded-full",
+    },
+    {
+      size: "xs",
+      iconOnly: true,
+      class: "w-6 h-6 p-1",
+    },
+    {
+      size: "sm",
+      iconOnly: true,
+      class: "w-8 h-8 p-1",
+    },
+    {
+      size: "base",
+      iconOnly: true,
+      class: "w-10 h-10 p-2",
+    },
+    {
+      size: "lg",
+      iconOnly: true,
+      class: "w-12 h-12 p-2",
+    },
+    {
+      size: "xl",
+      iconOnly: true,
+      class: "w-14 h-14 p-3",
     },
     {
       variant: "primary",
@@ -108,7 +143,8 @@ type Props = {
   is?: "button" | "a" | string | Component;
   variant?: ButtonVariants["variant"];
   size?: ButtonVariants["size"];
-  iconPosition?: ButtonVariants["iconPosition"];
+  icon?: string | Component | Function;
+  iconRight?: boolean;
   center?: boolean;
   rounded?: boolean;
   disabled?: boolean;
@@ -118,7 +154,7 @@ withDefaults(defineProps<Props>(), {
   is: "button",
   variant: "primary",
   size: "base",
-  iconPosition: "left",
+  iconRight: false,
   center: true,
   rounded: false,
   disabled: false,
@@ -129,13 +165,21 @@ withDefaults(defineProps<Props>(), {
   <component
     :is="is"
     :disabled="disabled"
-    :class="buttonClassVariants({ variant, size, rounded, iconPosition, center, disabled })"
+    :class="
+      twMerge(
+        buttonClassVariants({
+          variant,
+          size,
+          rounded,
+          iconRight,
+          center,
+          disabled,
+          iconOnly: icon !== undefined && !$slots.default,
+        })
+      )
+    "
   >
-    <span :class="iconClassVariants({ size })" v-if="$slots.icon">
-      <slot name="icon"></slot>
-    </span>
-    <span>
-      <slot></slot>
-    </span>
+    <component v-if="icon" :is="icon" class="order-2" :class="iconClassVariants({ size })" />
+    <span v-if="$slots.default" :class="[iconRight ? 'order-1' : 'order-3']"><slot /></span>
   </component>
 </template>
