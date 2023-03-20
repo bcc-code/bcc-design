@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import type { sizeVariants } from "@/composables/variants";
 import type { Component } from "vue";
 
 type Props = {
   is?: "button" | "a" | string | Component;
   variant?: "primary" | "danger" | "info";
-  size?: keyof typeof sizeVariants;
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
   icon?: string | Component | Function;
   iconRight?: boolean;
   center?: boolean;
