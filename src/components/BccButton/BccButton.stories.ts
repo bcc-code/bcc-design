@@ -97,9 +97,11 @@ export const Tertiary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
     <div class="flex items-center space-x-2">
-      <BccButton color="danger">Danger (primary)</BccButton>
-      <BccButton color="danger" variant="secondary">Danger (secondary)</BccButton>
-      <BccButton color="danger" variant="tertiary">Danger (tertiary)</BccButton>
+      <BccButton variant="tertiary" size="xs">Tertiary (xs)</BccButton>
+      <BccButton variant="tertiary" size="sm">Tertiary (sm)</BccButton>
+      <BccButton variant="tertiary" size="base">Tertiary (base)</BccButton>
+      <BccButton variant="tertiary" size="lg">Tertiary (lg)</BccButton>
+      <BccButton variant="tertiary" size="xl">Tertiary (xl)</BccButton>
     </div>
   `,
 });
@@ -108,9 +110,9 @@ export const Danger: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
     <div class="flex items-center space-x-2">
-      <BccButton variant="tertiary" size="xs">Tertiary (xs)</BccButton>
-      <BccButton variant="tertiary" size="sm">Tertiary (sm)</BccButton>
-      <BccButton variant="tertiary" size="base">Tertiary (base)</BccButton>
+      <BccButton color="danger">Danger (primary)</BccButton>
+      <BccButton color="danger" variant="secondary">Danger (secondary)</BccButton>
+      <BccButton color="danger" variant="tertiary">Danger (tertiary)</BccButton>
     </div>
   `,
 });
