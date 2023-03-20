@@ -4,7 +4,7 @@ import { sizeVariants, variants } from "../../composables/variants";
 
 withDefaults(
   defineProps<{
-    icon?: string | Component;
+    icon?: string | Component | Function;
     iconRight?: boolean;
     size?: keyof typeof sizeVariants;
     variant?: keyof typeof variants;

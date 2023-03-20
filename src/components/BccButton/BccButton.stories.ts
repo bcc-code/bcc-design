@@ -1,12 +1,21 @@
 import BccButton from "./BccButton.vue";
 import { SearchIcon, ChevronRightIcon, ChevronLeftIcon } from "@bcc-code/icons-vue";
 
-import type { Meta, StoryFn } from "@storybook/vue3";
+import { app, Meta, StoryFn } from "@storybook/vue3";
+
+app.component("ChevronRightIcon", ChevronRightIcon);
+app.component("ChevronLeftIcon", ChevronLeftIcon);
+app.component("SearchIcon", SearchIcon);
 
 export default {
   title: "Components/BccButton",
   component: BccButton,
   argTypes: {
+    color: {
+      description: "Which color forms the base of the button style",
+      options: ["primary", "danger"],
+      control: { type: "radio" },
+    },
     variant: {
       description: "The global style of the button",
       options: ["primary", "secondary", "tertiary"],
@@ -17,10 +26,8 @@ export default {
       options: ["xs", "sm", "base", "lg", "xl"],
       control: { type: "radio" },
     },
-    iconPosition: {
-      description: "On which side of the button to put the contents of the icon slot",
-      options: ["left", "right"],
-      control: { type: "radio" },
+    iconRight: {
+      description: "Whether the icon prop is rendered on the left or right side of the button",
     },
     center: {
       description: "Whether text and icon are centered or at the opposing sides of the button",
@@ -43,13 +50,8 @@ const Template: StoryFn<typeof BccButton> = (args) => ({
     return { args };
   },
   template: `
-    <BccButton v-bind="args">
-      <template #icon>
-        <SearchIcon />
-      </template>
-      <template #default>
-        {{ args.slotDefault }}
-      </template>
+    <BccButton v-bind="args" icon="SearchIcon">
+      {{ args.slotDefault }}
     </BccButton>
   `,
 });
@@ -60,9 +62,10 @@ Example.parameters = {
 };
 Example.args = {
   variant: "primary",
+  color: "primary",
   size: "base",
   rounded: false,
-  iconPosition: "left",
+  iconRight: false,
   center: true,
   disabled: false,
   is: "button",
@@ -108,6 +111,17 @@ export const Tertiary: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
+export const Danger: StoryFn<typeof BccButton> = () => ({
+  components: { BccButton },
+  template: `
+    <div class="flex items-center space-x-2">
+      <BccButton color="danger">Danger (primary)</BccButton>
+      <BccButton color="danger" variant="secondary">Danger (secondary)</BccButton>
+      <BccButton color="danger" variant="tertiary">Danger (tertiary)</BccButton>
+    </div>
+  `,
+});
+
 export const Disabled: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
@@ -134,68 +148,59 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
   components: { BccButton, SearchIcon },
   template: `
     <div class="flex items-start space-x-2">
-      <BccButton>
-        <template #icon>
-          <SearchIcon />
-        </template>
+      <BccButton icon="SearchIcon">
         With left icon
       </BccButton>
-      <BccButton icon-position="right">
+      <BccButton icon="SearchIcon" icon-right>
         With right icon
-        <template #icon>
-          <SearchIcon />
-        </template>
       </BccButton>
-      <BccButton variant="secondary">
-        <template #icon>
-          <SearchIcon />
-        </template>
+      <BccButton variant="secondary" icon="SearchIcon">
         Secondary with icon
       </BccButton>
-      <BccButton variant="tertiary">
-        <template #icon>
-          <SearchIcon />
-        </template>
+      <BccButton variant="tertiary" icon="SearchIcon">
         Tertiary with icon
       </BccButton>
-      <BccButton :disabled="true">
-        <template #icon>
-          <SearchIcon />
-        </template>
+      <BccButton :disabled="true" icon="SearchIcon">
         Disabled with icon
       </BccButton>
     </div>
     <div class="flex items-start space-x-2 mt-4">
-      <BccButton size="xs">
-        <template #icon>
-          <SearchIcon />
-        </template>
+      <BccButton size="xs" icon="SearchIcon">
         xs button
       </BccButton>
-      <BccButton size="sm">
-        <template #icon>
-          <SearchIcon />
-        </template>
+      <BccButton size="sm" icon="SearchIcon">
         sm button
       </BccButton>
-      <BccButton size="base">
-        <template #icon>
-          <SearchIcon />
-        </template>
+      <BccButton size="base" icon="SearchIcon">
         base button
       </BccButton>
-      <BccButton size="lg">
-        <template #icon>
-          <SearchIcon />
-        </template>
+      <BccButton size="lg" icon="SearchIcon">
         lg button
       </BccButton>
-      <BccButton size="xl">
-        <template #icon>
-          <SearchIcon />
-        </template>
+      <BccButton size="xl" icon="SearchIcon">
         xl button
       </BccButton>
+    </div>
+  `,
+});
+
+export const IconOnly: StoryFn<typeof BccButton> = () => ({
+  components: { BccButton, SearchIcon },
+  template: `
+    <div class="flex items-start space-x-2">
+      <BccButton icon="SearchIcon" />
+      <BccButton icon-right icon="SearchIcon" />
+      <BccButton rounded icon="SearchIcon" />
+      <BccButton variant="secondary" icon="SearchIcon" />
+      <BccButton variant="tertiary" icon="SearchIcon" />
+      <BccButton disabled icon="SearchIcon" />
+    </div>
+    <div class="flex items-start space-x-2 mt-4">
+      <BccButton size="xs" icon="SearchIcon" />
+      <BccButton size="sm" icon="SearchIcon" />
+      <BccButton size="base" icon="SearchIcon" />
+      <BccButton size="lg" icon="SearchIcon" />
+      <BccButton size="xl" icon="SearchIcon" />
     </div>
   `,
 });
@@ -207,32 +212,20 @@ export const ContentPosition: StoryFn<typeof BccButton> = () => ({
       <BccButton variant="primary" class="w-full">
         Default text
       </BccButton>
-      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true">
-        <template #icon>
-          <ChevronLeftIcon />
-        </template>
+      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true" icon="ChevronLeftIcon">
         Default text, icon left
       </BccButton>
-      <BccButton class="w-full" size="lg" variant="secondary" icon-position="right">
-        <template #icon>
-          <ChevronRightIcon />
-        </template>
+      <BccButton class="w-full" size="lg" variant="secondary" icon-right icon="ChevronRightIcon">
         Default text, icon right
       </BccButton>
       
       <BccButton variant="primary" class="w-full" :center="false">
         Non-centered text
       </BccButton>
-      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true" :center="false">
-        <template #icon>
-          <ChevronLeftIcon />
-        </template>
+      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true" :center="false" icon="ChevronLeftIcon">
         Non-centered text, icon left
       </BccButton>
-      <BccButton class="w-full" size="lg" variant="secondary" icon-position="right" :center="false">
-        <template #icon>
-          <ChevronRightIcon />
-        </template>
+      <BccButton class="w-full" size="lg" variant="secondary" icon-right :center="false" icon="ChevronRightIcon">
         Non-centered text, icon right
       </BccButton>
     </div>
