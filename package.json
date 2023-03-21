@@ -2,7 +2,7 @@
   "name": "@bcc-code/vue-components",
   "repository": "https://github.com/bcc-code/bcc-vue-components.git",
   "homepage": "https://developer.bcc.no/bcc-design/vue-components/",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "type": "module",
   "license": "Apache-2.0",
   "files": [
