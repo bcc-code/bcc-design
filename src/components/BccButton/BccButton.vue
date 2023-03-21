@@ -8,7 +8,7 @@ const buttonClassVariants = cva(
   {
     variants: {
       color: {
-        primary: "",
+        default: "",
         danger: "",
       },
       variant: {
@@ -103,7 +103,7 @@ const buttonClassVariants = cva(
       },
       {
         variant: "primary",
-        color: "primary",
+        color: "default",
         disabled: false,
         class: [
           "bg-button-primary-default text-button-primary-default hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary-default focus:outline-none focus:ring focus:bg-button-primary-focused focus:ring-silver-tree-700 focus:ring-offset-2",
@@ -111,7 +111,7 @@ const buttonClassVariants = cva(
       },
       {
         variant: "secondary",
-        color: "primary",
+        color: "default",
         disabled: false,
         class: [
           "outline-button-secondary-default bg-transparent text-button-secondary-default hover:outline-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:outline-button-secondary-pressed active:text-button-secondary-pressed focus:ring focus:ring-silver-tree-700 focus:ring-offset-2",
@@ -120,7 +120,7 @@ const buttonClassVariants = cva(
       },
       {
         variant: "tertiary",
-        color: "primary",
+        color: "default",
         disabled: false,
         class: [
           "text-button-tertiary-default hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:outline-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
@@ -156,7 +156,7 @@ const buttonClassVariants = cva(
     ],
     defaultVariants: {
       variant: "primary",
-      color: "primary",
+      color: "default",
       size: "base",
     },
   }
@@ -191,7 +191,7 @@ type Props = {
 withDefaults(defineProps<Props>(), {
   is: "button",
   variant: "primary",
-  color: "primary",
+  color: "default",
   size: "base",
   iconRight: false,
   center: true,

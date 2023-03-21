@@ -13,7 +13,7 @@ export default {
   argTypes: {
     color: {
       description: "Which color forms the base of the button style",
-      options: ["primary", "danger"],
+      options: ["default", "danger"],
       control: { type: "radio" },
     },
     variant: {
@@ -62,7 +62,7 @@ Example.parameters = {
 };
 Example.args = {
   variant: "primary",
-  color: "primary",
+  color: "default",
   size: "base",
   rounded: false,
   iconRight: false,
