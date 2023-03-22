@@ -106,7 +106,7 @@ const buttonClassVariants = cva(
         color: "default",
         disabled: false,
         class: [
-          "bg-button-primary-default text-button-primary-default hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary-default focus:border-none focus:ring focus:bg-button-primary-focused focus:ring-silver-tree-700 focus:ring-offset-2",
+          "bg-button-primary-default text-button-primary-default hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary-default focus:ring focus:bg-button-primary-focused focus:ring-silver-tree-700 focus:ring-offset-2",
         ],
       },
       {
@@ -123,7 +123,7 @@ const buttonClassVariants = cva(
         color: "default",
         disabled: false,
         class: [
-          "text-button-tertiary-default hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:border-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
+          "text-button-tertiary-default hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
           "dark:text-silver-tree-300 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900",
         ],
       },
@@ -132,7 +132,7 @@ const buttonClassVariants = cva(
         color: "danger",
         disabled: false,
         class: [
-          "bg-red-700 text-white hover:bg-red-800 active:bg-red-600 active:text-white focus:border-none focus:ring focus:bg-red-700 focus:ring-silver-tree-700 focus:ring-offset-2",
+          "bg-red-700 text-white hover:bg-red-800 active:bg-red-600 active:text-white focus:ring focus:bg-red-700 focus:ring-silver-tree-700 focus:ring-offset-2",
         ],
       },
       {
@@ -149,7 +149,7 @@ const buttonClassVariants = cva(
         color: "danger",
         disabled: false,
         class: [
-          "text-neutral-700 hover:bg-red-50 hover:underline hover:text-red-800 active:text-red-600 active:underline focus:border-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
+          "text-neutral-700 hover:bg-red-50 hover:underline hover:text-red-800 active:text-red-600 active:underline focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
           "dark:text-neutral-300 dark:hover:text-red-200 dark:hover:bg-red-900",
         ],
       },
