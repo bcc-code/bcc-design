@@ -13,4 +13,7 @@ module.exports = {
     ecmaVersion: "latest",
   },
   ignorePatterns: ["**/*.config.cjs"],
+  rules: {
+    "prettier/prettier": "error",
+  },
 };
