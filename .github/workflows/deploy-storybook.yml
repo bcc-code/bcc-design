@@ -28,7 +28,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16 # Build storybook errors out on Node >18, see https://stackoverflow.com/a/69699772
+          node-version-file: .node-version
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
 
@@ -37,6 +37,8 @@ jobs:
 
       - name: Build Storybook
         run: pnpm build-storybook
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider # https://stackoverflow.com/a/69699772
 
       - name: Deploy
         id: builddeploy
