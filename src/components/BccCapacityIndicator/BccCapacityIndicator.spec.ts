@@ -14,6 +14,8 @@ describe("BccCapacityIndicator", () => {
     wrapper.setProps({ used: 6 });
     await wait();
     expect(wrapper.text()).toBe("14");
+
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it("shows all capacity without the used prop", async () => {
@@ -26,5 +28,6 @@ describe("BccCapacityIndicator", () => {
     const wrapper = mount(BccCapacityIndicator, { props: { total: -1 } });
     await wait();
     expect(wrapper.html()).toContain("<path");
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });
