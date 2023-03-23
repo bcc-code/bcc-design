@@ -12,4 +12,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
+  ignorePatterns: ["**/*.config.cjs"],
+  rules: {
+    "prettier/prettier": "error",
+  },
 };
