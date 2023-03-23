@@ -43,6 +43,7 @@ export const State: StoryFn<typeof BccCapacityIndicator> = () => ({
       <BccCapacityIndicator :total="20" :used="6" />
       <BccCapacityIndicator :total="20" :used="18" />
       <BccCapacityIndicator :total="20" :used="20" />
+      <BccCapacityIndicator :total="0" :used="0" />
       <BccCapacityIndicator :total="-1" />
     </div>
   `,
