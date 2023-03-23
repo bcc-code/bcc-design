@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 import type { Component } from "vue";
 
 const buttonClassVariants = cva(
-  "font-semibold inline-flex items-center active:shadow-inner hover:shadow-md",
+  "font-semibold inline-flex items-center active:shadow-inner hover:shadow-md focus:outline-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2",
   {
     variants: {
       color: {
@@ -13,7 +13,7 @@ const buttonClassVariants = cva(
       },
       variant: {
         primary: "border-transparent border-2",
-        secondary: "border border-2",
+        secondary: "border-2",
         tertiary: "border-transparent border-2",
       },
       size: {
@@ -106,7 +106,7 @@ const buttonClassVariants = cva(
         color: "default",
         disabled: false,
         class: [
-          "bg-button-primary-default text-button-primary-default hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary-default focus:ring focus:bg-button-primary-focused focus:ring-silver-tree-700 focus:ring-offset-2",
+          "bg-button-primary-default text-button-primary-default hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary-default focus:bg-button-primary-focused",
         ],
       },
       {
@@ -114,7 +114,7 @@ const buttonClassVariants = cva(
         color: "default",
         disabled: false,
         class: [
-          "border-button-secondary-default bg-transparent text-button-secondary-default hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed focus:ring focus:ring-silver-tree-700 focus:ring-offset-2",
+          "border-button-secondary-default bg-transparent text-button-secondary-default hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed",
           "dark:border-silver-tree-400 dark:text-silver-tree-400 dark:hover:border-silver-tree-200 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900",
         ],
       },
@@ -123,7 +123,7 @@ const buttonClassVariants = cva(
         color: "default",
         disabled: false,
         class: [
-          "text-button-tertiary-default hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
+          "text-button-tertiary-default hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:underline",
           "dark:text-silver-tree-300 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900",
         ],
       },
@@ -132,7 +132,7 @@ const buttonClassVariants = cva(
         color: "danger",
         disabled: false,
         class: [
-          "bg-red-700 text-white hover:bg-red-800 active:bg-red-600 active:text-white focus:ring focus:bg-red-700 focus:ring-silver-tree-700 focus:ring-offset-2",
+          "bg-red-700 text-white hover:bg-red-800 active:bg-red-600 active:text-white focus:bg-red-700",
         ],
       },
       {
@@ -140,7 +140,7 @@ const buttonClassVariants = cva(
         color: "danger",
         disabled: false,
         class: [
-          "border-neutral-200 bg-transparent text-red-700 hover:border-red-700 hover:text-red-800 hover:bg-red-50 active:border-red-600 active:text-red-600 focus:ring focus:ring-silver-tree-700 focus:ring-offset-2",
+          "border-neutral-200 bg-transparent text-red-700 hover:border-red-700 hover:text-red-800 hover:bg-red-50 active:border-red-600 active:text-red-600",
           "dark:border-red-400 dark:text-red-400 dark:hover:border-red-200 dark:hover:text-red-200 dark:hover:bg-red-900",
         ],
       },
@@ -149,7 +149,7 @@ const buttonClassVariants = cva(
         color: "danger",
         disabled: false,
         class: [
-          "text-neutral-700 hover:bg-red-50 hover:underline hover:text-red-800 active:text-red-600 active:underline focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 focus:underline",
+          "text-neutral-700 hover:bg-red-50 hover:underline hover:text-red-800 active:text-red-600 active:underline focus:underline",
           "dark:text-neutral-300 dark:hover:text-red-200 dark:hover:bg-red-900",
         ],
       },
