@@ -19,6 +19,24 @@ const variant = ref("primary");
 
       <template #controls>
         <HstText v-model="label" title="Label" />
+        <HstRadio
+          v-model="variant"
+          title="Variant"
+          :options="[
+            {
+              label: 'Primary',
+              value: 'primary',
+            },
+            {
+              label: 'Secondary',
+              value: 'secondary',
+            },
+            {
+              label: 'Tertiary',
+              value: 'tertiary',
+            },
+          ]"
+        />
       </template>
     </Variant>
 
