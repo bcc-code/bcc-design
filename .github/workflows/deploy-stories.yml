@@ -1,4 +1,4 @@
-name: Deploy Storybook
+name: Deploy Stories
 
 on:
   workflow_dispatch:
@@ -35,10 +35,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Storybook
-        run: pnpm build-storybook
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider # https://stackoverflow.com/a/69699772
+      - name: Build
+        run: pnpm story:build
 
       - name: Deploy
         id: builddeploy
@@ -48,7 +46,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           app_location: "/"
-          output_location: "storybook-static"
+          output_location: ".histoire/dist"
           skip_app_build: true
           skip_api_build: true
 
