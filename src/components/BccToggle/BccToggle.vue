@@ -73,8 +73,8 @@ const toggled = computed({
         ]"
         aria-hidden="true"
       >
-        <CircleLoader class="text-silver-tree-600 h-3 w-3" v-if="loading" />
-        <CheckIcon class="text-silver-tree-600 h-3 w-3" v-else />
+        <CircleLoader class="h-3 w-3 text-silver-tree-600" v-if="loading" />
+        <CheckIcon class="h-3 w-3 text-silver-tree-600" v-else />
       </span>
     </span>
   </Switch>
