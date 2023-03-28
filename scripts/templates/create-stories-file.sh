@@ -6,6 +6,7 @@ export default {
   title: \"Components/$1\",
   component: $1,
   argTypes: {
+
   },
 } as Meta<typeof $1>;
 
@@ -24,5 +25,6 @@ Example.parameters = {
   viewMode: \"docs\",
 };
 Example.args = {
+
 };
 " > src/components/$1/$1.stories.ts
