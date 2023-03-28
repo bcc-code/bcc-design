@@ -8,3 +8,4 @@ export { default as BccBadge } from "./components/BccBadge/BccBadge.vue";
 export { default as BccPin } from "./components/BccPin/BccPin.vue";
 export { default as BccCapacityIndicator } from "./components/BccCapacityIndicator/BccCapacityIndicator.vue";
 export { default as BccAvatar } from "./components/BccAvatar/BccAvatar.vue";
+export { default as BccToggle } from "./components/BccToggle/BccToggle.vue";
