@@ -35,13 +35,13 @@ const toggled = computed({
   <Switch
     v-model="toggled"
     :disabled="loading || disabled"
-    class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2"
+    class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-0"
     :class="[
       toggled
-        ? 'bg-silver-tree-600 focus:ring-silver-tree-300 focus:ring-offset-0'
+        ? 'bg-silver-tree-600 focus:ring-silver-tree-900'
         : wasToggled
-        ? 'bg-red-600 focus:ring-red-300 focus:ring-offset-0'
-        : 'bg-gray-200 focus:ring-gray-600',
+        ? 'bg-red-600 focus:ring-red-900'
+        : 'bg-neutral-200 focus:ring-silver-tree-900',
       { 'opacity-50': disabled },
     ]"
   >
