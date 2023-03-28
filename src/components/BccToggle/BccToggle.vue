@@ -4,12 +4,18 @@ import { Switch } from "@headlessui/vue";
 import { CheckIcon, CloseIcon } from "@bcc-code/icons-vue";
 import CircleLoader from "./CircleLoader.vue";
 
-const props = defineProps<{
+type Props = {
   modelValue: boolean;
-  wasToggled: boolean;
-  disabled: boolean;
-  loading: boolean;
-}>();
+  wasToggled?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
+};
+
+const props = withDefaults(defineProps<Props>(), {
+  wasToggled: false,
+  disabled: false,
+  loading: false,
+});
 
 const { modelValue, wasToggled, disabled, loading } = toRefs(props);
 
