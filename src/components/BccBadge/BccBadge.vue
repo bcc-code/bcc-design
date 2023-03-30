@@ -19,7 +19,7 @@ withDefaults(
 
 <template>
   <div
-    class="inline-flex items-center justify-center rounded-md border py-[.2em] px-[1em] font-medium leading-none tracking-wide"
+    class="inline-flex items-center justify-center rounded-md border py-[.2em] px-[1em] font-normal leading-none tracking-wide"
     :class="[variants[variant], sizeVariants[size] ?? size]"
   >
     <component
