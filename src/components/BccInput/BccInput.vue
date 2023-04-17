@@ -7,12 +7,12 @@ export default {
 <script setup lang="ts">
 import { cva, type VariantProps } from "class-variance-authority";
 
-const inputClassVariants = cva("px-4 py-3 text-sm rounded-lg border focus:outline-2", {
+const inputClassVariants = cva("px-4 py-3 text-sm rounded-lg border focus:outline-2 ", {
   variants: {
     state: {
-      default: "focus:outline-silver-tree-600 border-neutral-300",
-      error: "border-danger bg-red-50 text-danger focus:outline-red-600",
-      success: "border-success bg-green-50 text-success focus:outline-green-600",
+      default: "border-on-secondary focus:outline-silver-tree-600",
+      error: "border-danger focus:outline-danger",
+      success: "border-success focus:outline-success",
     },
     disabled: {
       true: "cursor-not-allowed",
@@ -23,7 +23,7 @@ const inputClassVariants = cva("px-4 py-3 text-sm rounded-lg border focus:outlin
     {
       state: "default",
       disabled: false,
-      class: "text-gray-900",
+      class: "text-primary",
     },
     {
       state: "default",
