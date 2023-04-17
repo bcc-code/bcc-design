@@ -32,7 +32,7 @@
     "create-component": "./scripts/create-component.sh"
   },
   "dependencies": {
-    "@bcc-code/design-tokens": "^0.3.0"
+    "@bcc-code/design-tokens": "^0.4.0"
   },
   "peerDependencies": {
     "tailwindcss": "^3.2.4",

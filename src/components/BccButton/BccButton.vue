@@ -106,7 +106,7 @@ const buttonClassVariants = cva(
         color: "default",
         disabled: false,
         class: [
-          "bg-button-primary-default text-button-primary-default hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary-default focus:bg-button-primary-focused",
+          "bg-button-primary text-button-primary hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary focus:bg-button-primary-focused",
         ],
       },
       {
@@ -114,7 +114,7 @@ const buttonClassVariants = cva(
         color: "default",
         disabled: false,
         class: [
-          "border-button-secondary-default bg-transparent text-button-secondary-default hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed",
+          "border-button-secondary bg-transparent text-button-secondary hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed",
           "dark:border-silver-tree-400 dark:text-silver-tree-400 dark:hover:border-silver-tree-200 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900",
         ],
       },
@@ -123,7 +123,7 @@ const buttonClassVariants = cva(
         color: "default",
         disabled: false,
         class: [
-          "text-button-tertiary-default hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:underline",
+          "text-button-tertiary hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:underline",
           "dark:text-silver-tree-300 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900",
         ],
       },
