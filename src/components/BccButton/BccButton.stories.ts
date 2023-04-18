@@ -154,6 +154,8 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
       <BccButton icon="SearchIcon" icon-right>
         With right icon
       </BccButton>
+    </div>
+    <div class="flex items-start space-x-2 mt-4">
       <BccButton variant="secondary" icon="SearchIcon">
         Secondary with icon
       </BccButton>

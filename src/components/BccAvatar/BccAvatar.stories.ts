@@ -10,6 +10,10 @@ export default {
       options: ["male", "female", "unknown"],
       control: { type: "radio" },
     },
+    size: {
+      options: ["xs", "sm", "md", "lg", "xl"],
+      control: { type: "radio" },
+    },
   },
 } as Meta<typeof BccAvatar>;
 
@@ -31,6 +35,7 @@ Example.args = {
   initials: "LG",
   gender: "male",
   child: false,
+  size: "sm",
 };
 
 export const State: StoryFn<typeof BccAvatar> = () => ({
