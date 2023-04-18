@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 import type { Component } from "vue";
 
 const buttonClassVariants = cva(
-  "font-semibold inline-flex items-center active:shadow-inner hover:shadow-md focus:outline-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2",
+  "font-semibold inline-flex items-center active:shadow-inner hover:shadow-md focus:outline-none focus:ring focus:ring-silver-tree-700 focus:ring-offset-2 tracking-wide",
   {
     variants: {
       color: {
@@ -17,11 +17,11 @@ const buttonClassVariants = cva(
         tertiary: "border-transparent border-2",
       },
       size: {
-        xs: "text-xs py-1.5 px-3 gap-x-1.5",
-        sm: "text-sm py-2 px-3 gap-x-1.5",
-        base: "text-sm py-2.5 px-5 gap-x-2",
-        lg: "text-base py-3 px-5 gap-x-2.5",
-        xl: "text-base py-4 px-6 gap-x-2.5",
+        xs: "text-xs leading-3 py-1.5 px-3 gap-x-1.5 h-6",
+        sm: "text-sm leading-3.5 py-2 px-3 gap-x-1.5 h-8",
+        base: "text-base leading-5 py-2.5 px-5 gap-x-2 h-10",
+        lg: "text-base leading-5 py-3 px-5 gap-x-2.5 h-12",
+        xl: "text-xl leading-5 py-4 px-6 gap-x-2.5 h-14",
       },
       rounded: {
         true: "rounded-full",
