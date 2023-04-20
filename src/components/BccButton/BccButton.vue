@@ -50,7 +50,7 @@ const iconOnly = props.icon !== undefined && !slots.default;
       'bcc-button-center': center,
     }"
   >
-    <component v-if="icon" :is="icon" class="order-2" />
+    <component v-if="icon" :is="icon" class="bcc-button-icon order-2" />
     <span v-if="$slots.default" :class="[iconRight ? 'order-1' : 'order-3']"><slot /></span>
   </component>
 </template>
