@@ -75,7 +75,7 @@ Example.args = {
 export const Primary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
-    <div class="flex items-start space-x-2">
+    <div class="flex items-start gap-x-2">
       <BccButton size="xs">Primary (xs)</BccButton>
       <BccButton size="sm">Primary (sm)</BccButton>
       <BccButton size="base">Primary (base)</BccButton>
@@ -88,7 +88,7 @@ export const Primary: StoryFn<typeof BccButton> = () => ({
 export const Secondary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
-    <div class="flex items-start space-x-2">
+    <div class="flex items-start gap-x-2">
       <BccButton variant="secondary" size="xs">Secondary (xs)</BccButton>
       <BccButton variant="secondary" size="sm">Secondary (sm)</BccButton>
       <BccButton variant="secondary" size="base">Secondary (base)</BccButton>
@@ -101,7 +101,7 @@ export const Secondary: StoryFn<typeof BccButton> = () => ({
 export const Tertiary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
-    <div class="flex items-center space-x-2">
+    <div class="flex items-center gap-x-2">
       <BccButton variant="tertiary" size="xs">Tertiary (xs)</BccButton>
       <BccButton variant="tertiary" size="sm">Tertiary (sm)</BccButton>
       <BccButton variant="tertiary" size="base">Tertiary (base)</BccButton>
@@ -114,7 +114,7 @@ export const Tertiary: StoryFn<typeof BccButton> = () => ({
 export const Danger: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
-    <div class="flex items-center space-x-2">
+    <div class="flex items-center gap-x-2">
       <BccButton color="danger">Danger (primary)</BccButton>
       <BccButton color="danger" variant="secondary">Danger (secondary)</BccButton>
       <BccButton color="danger" variant="tertiary">Danger (tertiary)</BccButton>
@@ -125,7 +125,7 @@ export const Danger: StoryFn<typeof BccButton> = () => ({
 export const Disabled: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
-    <div class="flex items-start space-x-2">
+    <div class="flex items-start gap-x-2">
       <BccButton variant="primary" :disabled="true">Primary disabled</BccButton>
       <BccButton variant="secondary" :disabled="true">Secondary disabled</BccButton>
       <BccButton variant="tertiary" :disabled="true">Tertiary disabled</BccButton>
@@ -136,7 +136,7 @@ export const Disabled: StoryFn<typeof BccButton> = () => ({
 export const Rounded: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
-    <div class="flex items-start space-x-2">
+    <div class="flex items-start gap-x-2">
       <BccButton variant="primary" :rounded="true">Primary rounded</BccButton>
       <BccButton variant="secondary" :rounded="true">Secondary rounded</BccButton>
       <BccButton variant="tertiary" :rounded="true">Tertiary rounded</BccButton>
@@ -147,7 +147,7 @@ export const Rounded: StoryFn<typeof BccButton> = () => ({
 export const WithIcon: StoryFn<typeof BccButton> = () => ({
   components: { BccButton, SearchIcon },
   template: `
-    <div class="flex items-start space-x-2">
+    <div class="flex items-start gap-x-2">
       <BccButton icon="SearchIcon">
         With left icon
       </BccButton>
@@ -155,7 +155,7 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
         With right icon
       </BccButton>
     </div>
-    <div class="flex items-start space-x-2 mt-4">
+    <div class="flex items-start gap-x-2 mt-4">
       <BccButton variant="secondary" icon="SearchIcon">
         Secondary with icon
       </BccButton>
@@ -166,7 +166,7 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
         Disabled with icon
       </BccButton>
     </div>
-    <div class="flex items-start space-x-2 mt-4">
+    <div class="flex items-start gap-x-2 mt-4">
       <BccButton size="xs" icon="SearchIcon">
         xs button
       </BccButton>
@@ -189,7 +189,7 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
 export const IconOnly: StoryFn<typeof BccButton> = () => ({
   components: { BccButton, SearchIcon },
   template: `
-    <div class="flex items-start space-x-2">
+    <div class="flex items-start gap-x-2">
       <BccButton icon="SearchIcon" />
       <BccButton icon-right icon="SearchIcon" />
       <BccButton rounded icon="SearchIcon" />
@@ -197,7 +197,7 @@ export const IconOnly: StoryFn<typeof BccButton> = () => ({
       <BccButton variant="tertiary" icon="SearchIcon" />
       <BccButton disabled icon="SearchIcon" />
     </div>
-    <div class="flex items-start space-x-2 mt-4">
+    <div class="flex items-start gap-x-2 mt-4">
       <BccButton size="xs" icon="SearchIcon" />
       <BccButton size="sm" icon="SearchIcon" />
       <BccButton size="base" icon="SearchIcon" />
@@ -237,13 +237,10 @@ export const ContentPosition: StoryFn<typeof BccButton> = () => ({
 export const Anchor: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
-    <div class="flex items-start space-x-2">
+    <div class="flex items-start gap-x-2">
       <BccButton is="a" variant="primary">Primary</BccButton>
-      <BccButton is="a" variant="primary" :disabled="true">Primary disabled</BccButton>
       <BccButton is="a" variant="secondary">Secondary</BccButton>
-      <BccButton is="a" variant="secondary" :disabled="true">Secondary disabled</BccButton>
       <BccButton is="a" variant="tertiary">Tertiary</BccButton>
-      <BccButton is="a" variant="tertiary" :disabled="true">Tertiary disabled</BccButton>
     </div>
   `,
 });
