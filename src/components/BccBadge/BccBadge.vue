@@ -22,7 +22,6 @@ withDefaults(
     :class="{
       'bcc-badge-xs': size === 'xs',
       'bcc-badge-sm': size === 'sm',
-      'bcc-badge-neutral': variant === 'neutral',
       'bcc-badge-danger': variant === 'danger',
       'bcc-badge-warning': variant === 'warning',
       'bcc-badge-success': variant === 'success',

@@ -40,7 +40,6 @@ const iconOnly = props.icon !== undefined && !slots.default;
       'bcc-button-base': size === 'base',
       'bcc-button-lg': size === 'lg',
       'bcc-button-xl': size === 'xl',
-      'bcc-button-default': color === 'default',
       'bcc-button-danger': color === 'danger',
       'bcc-button-primary': variant === 'primary',
       'bcc-button-secondary': variant === 'secondary',

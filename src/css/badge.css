@@ -1,6 +1,8 @@
 @layer components {
     .bcc-badge {
         @apply inline-flex items-center justify-center rounded-md border font-normal leading-none tracking-wide gap-1;
+        /* Default neutral badge */
+        @apply border-neutral-200 bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 dark:border-neutral-700;
     }
 
     /* Size */
@@ -12,9 +14,6 @@
     }
 
     /* Variants */
-    .bcc-badge-neutral {
-        @apply border-neutral-200 bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 dark:border-neutral-700;
-    }
     .bcc-badge-danger {
         @apply border-danger bg-danger text-danger dark:bg-red-900 dark:text-red-200 dark:border-red-700;
     }

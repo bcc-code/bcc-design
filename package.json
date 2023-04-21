@@ -21,7 +21,7 @@
     "build": "run-p type-check build-types build-only",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
-    "test:update-snapshots": "npm run test:unit -- -u",
+    "test:unit:update-snapshots": "npm run test:unit -- -u",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "build-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.compile.json",
