@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, toRefs } from "vue";
-import { Switch } from "@headlessui/vue";
 import { CheckIcon, CloseIcon } from "@bcc-code/icons-vue";
 import CircleLoader from "./CircleLoader.vue";
 
