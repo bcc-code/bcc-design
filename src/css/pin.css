@@ -1,6 +1,6 @@
 @layer components {
     .bcc-pin {
-        @apply inline-block rounded-full p-[.3em] shadow-md;
+        @apply inline-block rounded-full p-[.3em] shadow-md text-xs;
     }
 
     .bcc-pin .bcc-pin-icon {
@@ -22,26 +22,7 @@
     .bcc-pin-info {
         @apply border-info bg-info text-info dark:bg-blue-900 dark:text-blue-300 dark:border-blue-700;
     }
-    .bcc-pin-systeminfo {
+    .bcc-pin-system {
         @apply border-system bg-system text-system dark:bg-teal-900 dark:text-teal-300 dark:border-teal-700;
-    }
-
-    .bcc-pin-xs {
-        @apply text-xs;
-    }
-    .bcc-pin-sm {
-        @apply text-sm;
-    }
-    .bcc-pin-md {
-        @apply text-base;
-    }
-    .bcc-pin-lg {
-        @apply text-lg;
-    }
-    .bcc-pin-xl {
-        @apply text-xl;
-    }
-    .bcc-pin-2xl {
-        @apply text-2xl;
     }
 }

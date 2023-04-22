@@ -4,11 +4,9 @@ import type { Component } from "vue";
 withDefaults(
   defineProps<{
     icon?: string | Component | Function;
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
-    variant?: "neutral" | "danger" | "warning" | "success" | "info" | "systemInfo";
+    variant?: "neutral" | "danger" | "warning" | "success" | "info" | "system";
   }>(),
   {
-    size: "xs",
     variant: "neutral",
   }
 );
@@ -23,14 +21,7 @@ withDefaults(
       'bcc-pin-warning': variant === 'warning',
       'bcc-pin-success': variant === 'success',
       'bcc-pin-info': variant === 'info',
-      'bcc-pin-systeminfo': variant === 'systemInfo',
-
-      'bcc-pin-xs': size === 'xs',
-      'bcc-pin-sm': size === 'sm',
-      'bcc-pin-md': size === 'md',
-      'bcc-pin-lg': size === 'lg',
-      'bcc-pin-xl': size === 'xl',
-      'bcc-pin-2xl': size === '2xl',
+      'bcc-pin-system': variant === 'system',
     }"
   >
     <component :is="icon" class="bcc-pin-icon" />
