@@ -14,8 +14,7 @@ module.exports = {
           implementation: require("postcss"),
         },
       },
-    },
-    "@storybook/addon-mdx-gfm"
+    }
   ],
   "framework": {
     name: "@storybook/vue3-vite",
