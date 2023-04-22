@@ -5,6 +5,10 @@ on:
     branches-ignore:
       - 'main'
   workflow_call:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
 
 env:
   CI: true
