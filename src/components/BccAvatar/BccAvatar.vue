@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { sizeVariants } from "../../composables/variants";
-
 withDefaults(
   defineProps<{
     initials: string;
     gender?: "male" | "female" | "unknown";
     child?: boolean;
-    size?: keyof typeof sizeVariants;
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
   }>(),
   {
     gender: "unknown",
@@ -14,23 +12,26 @@ withDefaults(
     size: "sm",
   }
 );
-
-const colors = {
-  male: ["bg-blue-100", "text-blue-900"],
-  female: ["bg-violet-100", "text-violet-900"],
-  unknown: ["bg-neutral-100", "text-neutral-900"],
-};
-const childColors = {
-  male: ["bg-sky-100", "text-sky-800"],
-  female: ["bg-pink-100", "text-pink-800"],
-  unknown: ["bg-neutral-100", "text-neutral-800"],
-};
 </script>
 
 <template>
   <div
-    class="h-[2.2857em] w-[2.2857em] rounded-full text-center font-semibold leading-[2.2857em] shadow-[0_0.071em_0.142em_rgba(0,0,0,0.05)]"
-    :class="[sizeVariants[size] ?? size, child ? childColors[gender] : colors[gender]]"
+    class="bcc-avatar"
+    :class="{
+      'bcc-avatar-xs': size === 'xs',
+      'bcc-avatar-sm': size === 'sm',
+      'bcc-avatar-md': size === 'md',
+      'bcc-avatar-lg': size === 'lg',
+      'bcc-avatar-xl': size === 'xl',
+      'bcc-avatar-2xl': size === '2xl',
+
+      'bcc-avatar-man': !child && gender === 'male',
+      'bcc-avatar-woman': !child && gender === 'female',
+      'bcc-avatar-person': !child && gender === 'unknown',
+      'bcc-avatar-boy': child && gender === 'male',
+      'bcc-avatar-girl': child && gender === 'female',
+      'bcc-avatar-child': child && gender === 'unknown',
+    }"
   >
     {{ initials.slice(0, 2) }}
   </div>
