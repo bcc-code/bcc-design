@@ -15,11 +15,6 @@ export default {
       options: ["neutral", "danger", "warning", "success", "info", "systemInfo"],
       control: { type: "radio" },
     },
-    size: {
-      description: "Size of the pin",
-      options: ["sm", "md", "lg"],
-      control: { type: "radio" },
-    },
   },
 } as Meta<typeof BccPin>;
 
@@ -39,7 +34,6 @@ Example.parameters = {
 };
 Example.args = {
   variant: "neutral",
-  size: "sm",
 };
 
 export const Variants: StoryFn<typeof BccPin> = () => ({
