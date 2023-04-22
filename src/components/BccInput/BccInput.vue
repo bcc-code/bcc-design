@@ -19,11 +19,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <span class="inline-flex flex-col space-y-2">
-    <label
-      class="bcc-input-label"
-      v-if="label">
-      {{ label }}
-    </label>
+    <label class="bcc-input-label" v-if="label">{{ label }}</label>
     <input
       :disabled="disabled"
       class="bcc-input"
