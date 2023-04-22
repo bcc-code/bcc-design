@@ -9,12 +9,16 @@ type Props = {
   wasToggled?: boolean;
   disabled?: boolean;
   loading?: boolean;
+  withIcon?: boolean;
+  label?: string;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   wasToggled: false,
   disabled: false,
   loading: false,
+  withIcon: true,
+  label: "",
 });
 
 const { modelValue, wasToggled, disabled, loading } = toRefs(props);
@@ -32,50 +36,20 @@ const toggled = computed({
 </script>
 
 <template>
-  <Switch
-    v-model="toggled"
-    :disabled="loading || disabled"
-    class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-0"
-    :class="[
-      toggled
-        ? 'bg-silver-tree-600 focus:ring-silver-tree-900'
-        : wasToggled
-        ? 'bg-red-600 focus:ring-red-900'
-        : 'bg-neutral-200 focus:ring-silver-tree-900',
-      { 'opacity-50': disabled },
-    ]"
-  >
-    <span class="sr-only">Toggle</span>
-    <span
-      :class="[
-        toggled ? 'translate-x-5' : 'translate-x-0',
-        'pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out',
-      ]"
-    >
-      <span
-        :class="[
-          toggled ? 'opacity-0 duration-100 ease-out' : 'opacity-100 duration-200 ease-in',
-          'absolute inset-0 flex h-full w-full items-center justify-center transition-opacity',
-        ]"
-        aria-hidden="true"
-      >
-        <CircleLoader
-          class="h-3 w-3"
-          :class="wasToggled ? 'text-red-600' : 'text-gray-400'"
-          v-if="loading"
-        />
-        <CloseIcon class="h-3 w-3" :class="wasToggled ? 'text-red-600' : 'text-gray-400'" v-else />
-      </span>
-      <span
-        :class="[
-          toggled ? 'opacity-100 duration-200 ease-in' : 'opacity-0 duration-100 ease-out',
-          'absolute inset-0 flex h-full w-full items-center justify-center transition-opacity',
-        ]"
-        aria-hidden="true"
-      >
-        <CircleLoader class="h-3 w-3 text-silver-tree-600" v-if="loading" />
-        <CheckIcon class="h-3 w-3 text-silver-tree-600" v-else />
-      </span>
+  <label class="bcc-toggle" :class="{ 'bcc-toggle-was-toggled': wasToggled }">
+    <input
+      type="checkbox"
+      class="bcc-toggle-input"
+      :disabled="loading || disabled"
+      v-model="toggled"
+    />
+    <span class="bcc-toggle-circle" aria-hidden="true">
+      <CircleLoader class="h-3 w-3" v-if="loading" />
+      <template v-else-if="withIcon">
+        <CheckIcon class="hidden h-3 w-3 [.bcc-toggle-input:checked~.bcc-toggle-circle>&]:block" />
+        <CloseIcon class="h-3 w-3 [.bcc-toggle-input:checked~.bcc-toggle-circle>&]:hidden" />
+      </template>
     </span>
-  </Switch>
+    <span v-if="label" class="bcc-toggle-label">{{ label }}</span>
+  </label>
 </template>
