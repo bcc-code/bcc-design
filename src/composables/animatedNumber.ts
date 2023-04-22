@@ -1,6 +1,7 @@
 import { ref, watch, type Ref } from "vue";
 
 export default function useAnimatedNumber(to: Ref<number>, from = 0, duration = 1000) {
+  if (duration <= 0.1) return { value: to };
   const current = ref(from);
 
   function animateNumber(startValue: number, endValue: number) {

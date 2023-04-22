@@ -12,6 +12,9 @@ export default {
     used: {
       description: "How much from the total capacity is not available",
     },
+    animate: {
+      description: "If the indicator should animate on display or not",
+    },
   },
 } as Meta<typeof BccCapacityIndicator>;
 
