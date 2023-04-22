@@ -30,7 +30,6 @@ jobs:
           app_location: "/" # App source code path
           output_location: "storybook-static" # Built app content directory - optional
           app_build_command: "npm run build-storybook"
-          skip_deploy_on_missing_secrets: true
 
   close_pull_request:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

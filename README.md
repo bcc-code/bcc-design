@@ -32,7 +32,7 @@ npm run test:unit
 
 Some unit test use [snapshots](https://vitest.dev/guide/snapshot.html). Be sure to update snapshots after updating a component that has such a test:
 ```sh
-npm run test:update-snapshots
+npm run test:unit:update-snapshots
 ```
 
 ### Creating a new component
