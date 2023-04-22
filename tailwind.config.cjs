@@ -7,5 +7,5 @@ module.exports = {
     themes.bccForbundetTheme
   ],
   darkMode: 'class', // To disable dark mode, see https://developer.bcc.no/bcc-design/vue-components/#disable-dark-mode
-  plugins: [],
+  plugins: []
 };

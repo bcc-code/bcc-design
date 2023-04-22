@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import type { Component } from "vue";
-import { sizeVariants, variants } from "../../composables/variants";
 
 withDefaults(
   defineProps<{
     icon?: string | Component | Function;
     iconRight?: boolean;
-    size?: keyof typeof sizeVariants;
-    variant?: keyof typeof variants;
+    size?: "xs" | "sm";
+    variant?: "neutral" | "danger" | "warning" | "success" | "info" | "system";
   }>(),
   {
     iconRight: false,
@@ -19,14 +18,22 @@ withDefaults(
 
 <template>
   <div
-    class="inline-flex items-center justify-center rounded-md border py-[.2em] px-[0.8em] font-normal leading-none tracking-wide"
-    :class="[variants[variant], sizeVariants[size] ?? size]"
+    class="bcc-badge"
+    :class="{
+      'bcc-badge-xs': size === 'xs',
+      'bcc-badge-sm': size === 'sm',
+      'bcc-badge-danger': variant === 'danger',
+      'bcc-badge-warning': variant === 'warning',
+      'bcc-badge-success': variant === 'success',
+      'bcc-badge-info': variant === 'info',
+      'bcc-badge-system': variant === 'system',
+    }"
   >
     <component
       v-if="icon"
       :is="icon"
-      class="h-[1.2em] w-[1.2em] shrink-0"
-      :class="[iconRight ? 'order-3 ml-[.4em]' : 'order-1 mr-[.4em]']"
+      class="bcc-badge-icon"
+      :class="[iconRight ? 'order-3' : 'order-1']"
     />
     <span class="order-2"><slot></slot></span>
   </div>

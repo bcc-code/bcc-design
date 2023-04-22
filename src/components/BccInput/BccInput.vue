@@ -5,51 +5,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { cva, type VariantProps } from "class-variance-authority";
-
-const inputClassVariants = cva("px-4 py-3 text-sm rounded-lg border focus:outline-2 ", {
-  variants: {
-    state: {
-      default: "border-on-secondary focus:outline-silver-tree-600",
-      error: "border-danger focus:outline-danger",
-      success: "border-success focus:outline-success",
-    },
-    disabled: {
-      true: "cursor-not-allowed",
-      false: "",
-    },
-  },
-  compoundVariants: [
-    {
-      state: "default",
-      disabled: false,
-      class: "text-primary",
-    },
-    {
-      state: "default",
-      disabled: true,
-      class: "bg-neutral-100 text-neutral-400",
-    },
-  ],
-  defaultVariants: {},
-});
-
-const messageClassVariants = cva("text-sm", {
-  variants: {
-    state: {
-      default: "text-secondary",
-      error: "text-danger",
-      success: "text-success",
-    },
-  },
-  compoundVariants: [],
-  defaultVariants: {},
-});
-
-type InputVariants = VariantProps<typeof inputClassVariants>;
-
 type Props = {
-  state?: InputVariants["state"];
+  state?: "default" | "error" | "success";
   disabled?: boolean;
 };
 
@@ -61,8 +18,23 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <span class="inline-flex flex-col space-y-2">
-    <input :disabled="disabled" :class="inputClassVariants({ state, disabled })" v-bind="$attrs" />
-    <span v-if="$slots.default" :class="messageClassVariants({ state })">
+    <input
+      :disabled="disabled"
+      class="bcc-input"
+      :class="{
+        'bcc-input-error': state === 'error',
+        'bcc-input-success': state === 'success',
+      }"
+      v-bind="$attrs"
+    />
+    <span
+      v-if="$slots.default"
+      :class="{
+        'bcc-input-message-default': state === 'default',
+        'bcc-input-message-error': state === 'error',
+        'bcc-input-message-success': state === 'success',
+      }"
+    >
       <slot></slot>
     </span>
   </span>

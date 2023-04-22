@@ -1,0 +1,104 @@
+@layer components {
+    .bcc-button {
+        @apply font-semibold inline-flex items-center active:shadow-inner hover:shadow-md focus:outline-none focus:ring focus:ring-focused focus:ring-offset-2 tracking-wide border-2 justify-between;
+        @apply cursor-pointer disabled:cursor-not-allowed disabled:pointer-events-none;
+    }
+
+    /* Size */
+    .bcc-button-xs {
+        @apply text-xs leading-3 py-1.5 px-3 gap-x-1.5 h-6 rounded-md;
+    }
+    .bcc-button-sm {
+        @apply text-sm leading-4 py-2 px-3 gap-x-1.5 h-8 rounded-md;
+    }
+    .bcc-button-base {
+        @apply text-base leading-5 py-2.5 px-5 gap-x-2 h-10 rounded-lg;
+    }
+    .bcc-button-lg {
+        @apply text-base leading-5 py-3 px-5 gap-x-2.5 h-12 rounded-lg;
+    }
+    .bcc-button-xl {
+        @apply text-xl leading-5 py-4 px-6 gap-x-2.5 h-14 rounded-lg;
+    }
+
+    /* Rounded */
+    .bcc-button-rounded {
+        @apply rounded-full;
+    }
+
+    /* Icon only */
+    .bcc-button-icon-only {
+        @apply justify-center rounded-full;
+    }
+    .bcc-button-xs.bcc-button-icon-only {
+        @apply w-6 h-6 p-1;
+    }
+    .bcc-button-sm.bcc-button-icon-only {
+        @apply w-8 h-8 p-1;
+    }
+    .bcc-button-base.bcc-button-icon-only {
+        @apply w-10 h-10 p-2;
+    }
+    .bcc-button-lg.bcc-button-icon-only {
+        @apply w-12 h-12 p-2;
+    }
+    .bcc-button-xl.bcc-button-icon-only {
+        @apply w-14 h-14 p-3;
+    }
+
+    /* Center */
+    .bcc-button-center {
+        @apply justify-center;
+    }
+
+    /* 
+     * Variants
+     */
+    /* Default variants */
+    .bcc-button-primary {
+        @apply bg-button-primary text-button-primary hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary focus:bg-button-primary-focused;
+        @apply border-transparent;
+        @apply disabled:text-button-primary-disabled disabled:bg-button-primary-disabled dark:disabled:bg-gray-800;
+    }
+    .bcc-button-secondary {
+        @apply border-button-secondary bg-transparent text-button-secondary hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed;
+        @apply dark:border-silver-tree-400 dark:text-silver-tree-400 dark:hover:border-silver-tree-200 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900;
+        @apply disabled:text-button-secondary-disabled disabled:border-button-secondary-disabled disabled:bg-button-secondary-disabled dark:disabled:bg-neutral-900 dark:disabled:border-neutral-700;
+    }
+    .bcc-button-tertiary {
+        @apply text-button-tertiary hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:underline;
+        @apply dark:text-silver-tree-300 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900;
+        @apply border-transparent;
+        @apply disabled:text-button-tertiary-disabled;
+    }
+
+    /* Danger variants */
+    .bcc-button-danger.bcc-button-primary {
+        @apply bg-red-700 text-white hover:bg-red-800 active:bg-red-600 active:text-white focus:bg-red-700;
+    }
+    .bcc-button-danger.bcc-button-secondary {
+        @apply border-neutral-200 bg-transparent text-red-700 hover:border-red-700 hover:text-red-800 hover:bg-red-50 active:border-red-600 active:text-red-600;
+        @apply dark:border-red-400 dark:text-red-400 dark:hover:border-red-200 dark:hover:text-red-200 dark:hover:bg-red-900;
+    }
+    .bcc-button-danger.bcc-button-tertiary {
+        @apply text-neutral-700 hover:bg-red-50 hover:underline hover:text-red-800 active:text-red-600 active:underline focus:underline;
+        @apply dark:text-neutral-300 dark:hover:text-red-200 dark:hover:bg-red-900;
+    }
+
+    /* Icon */
+    .bcc-button-xs .bcc-button-icon {
+        @apply w-4 h-4;
+    }
+    .bcc-button-sm .bcc-button-icon {
+        @apply w-4 h-4;
+    }
+    .bcc-button-base .bcc-button-icon{
+        @apply w-5 h-5;
+    }
+    .bcc-button-lg .bcc-button-icon {
+        @apply w-6 h-6;
+    }
+    .bcc-button-xl .bcc-button-icon {
+        @apply w-6 h-6;
+    }
+}

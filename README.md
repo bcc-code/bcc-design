@@ -14,13 +14,6 @@ Refer to the [documentation](https://developer.bcc.no/bcc-design/vue-components/
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - [Tailwind CSS Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
-Add the following to `.vscode/settings.json` to enable Tailwind Intellisense in places where the `cva` package is used for building classes:
-```json
-    "tailwindCSS.experimental.classRegex": [
-        ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-    ]
-```
-
 ### Get started
 Install dependencies:
 ```sh

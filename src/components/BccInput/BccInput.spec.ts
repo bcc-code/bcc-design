@@ -6,7 +6,9 @@ import BccInput from "./BccInput.vue";
 describe("BccInput", () => {
   it("renders a text from the default slot", () => {
     const wrapper = mount(BccInput, { slots: { default: "Test message" } });
+
     expect(wrapper.text()).toBe("Test message");
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it("passes through non-prop attributes", () => {
