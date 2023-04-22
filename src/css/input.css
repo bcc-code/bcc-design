@@ -4,6 +4,11 @@
         @apply disabled:bg-neutral-100 disabled:text-neutral-400 disabled:cursor-not-allowed;
     }
 
+    /* Label */
+    .bcc-input-label {
+        @apply text-xs text-primary font-semibold;
+    }
+
     /* State */
     .bcc-input-error {
         @apply border-danger focus:outline-danger;

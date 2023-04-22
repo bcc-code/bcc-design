@@ -8,6 +8,7 @@ export default {
 type Props = {
   state?: "default" | "error" | "success";
   disabled?: boolean;
+  label?: string;
 };
 
 withDefaults(defineProps<Props>(), {
@@ -18,6 +19,11 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <span class="inline-flex flex-col space-y-2">
+    <label
+      class="bcc-input-label"
+      v-if="label">
+      {{ label }}
+    </label>
     <input
       :disabled="disabled"
       class="bcc-input"

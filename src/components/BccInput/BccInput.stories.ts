@@ -42,6 +42,7 @@ Example.args = {
   disabled: false,
   placeholder: "Example placeholder",
   slotDefault: "",
+  label: "Example label",
 };
 
 export const State: StoryFn<typeof BccInput> = () => ({
