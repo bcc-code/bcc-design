@@ -8,20 +8,26 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     {
-        name: "@storybook/addon-postcss",
-        options: {
-          postcssLoaderOptions: {
-            implementation: require("postcss"),
-          },
+      name: "@storybook/addon-postcss",
+      options: {
+        postcssLoaderOptions: {
+          implementation: require("postcss"),
         },
+      },
     },
+    "@storybook/addon-mdx-gfm"
   ],
-  "framework": "@storybook/vue3",
+  "framework": {
+    name: "@storybook/vue3-vite",
+    options: {}
+  },
   "core": {
-    "builder": "@storybook/builder-vite",
     "disableTelemetry": true,
   },
   "features": {
     "storyStoreV7": true
   },
-}
+  docs: {
+    autodocs: true
+  }
+};

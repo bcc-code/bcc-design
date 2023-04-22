@@ -1,11 +1,14 @@
 import BccButton from "./BccButton.vue";
 import { SearchIcon, ChevronRightIcon, ChevronLeftIcon } from "@bcc-code/icons-vue";
 
-import { app, Meta, StoryFn } from "@storybook/vue3";
+import type { Meta, StoryFn } from "@storybook/vue3";
+import { setup } from "@storybook/vue3";
 
-app.component("ChevronRightIcon", ChevronRightIcon);
-app.component("ChevronLeftIcon", ChevronLeftIcon);
-app.component("SearchIcon", SearchIcon);
+setup((app) => {
+  app.component("ChevronRightIcon", ChevronRightIcon);
+  app.component("ChevronLeftIcon", ChevronLeftIcon);
+  app.component("SearchIcon", SearchIcon);
+});
 
 export default {
   title: "Components/BccButton",

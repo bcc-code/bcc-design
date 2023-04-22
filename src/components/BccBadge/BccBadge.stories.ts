@@ -4,8 +4,8 @@ import { CheckCircleIcon } from "@bcc-code/icons-vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 // Workaround for storybook not working nicely with components passed as props
-import { app } from "@storybook/vue3";
-app.component("CheckCircleIcon", CheckCircleIcon);
+import { setup } from "@storybook/vue3";
+setup((app) => app.component("CheckCircleIcon", CheckCircleIcon));
 
 export default {
   title: "Components/BccBadge",

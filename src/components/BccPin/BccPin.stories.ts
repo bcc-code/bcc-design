@@ -2,9 +2,9 @@ import BccPin from "./BccPin.vue";
 import { CheckCircleIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
-import { app } from "@storybook/vue3";
+import { setup } from "@storybook/vue3";
 
-app.component("CheckCircleIcon", CheckCircleIcon);
+setup((app) => app.component("CheckCircleIcon", CheckCircleIcon));
 
 export default {
   title: "Components/BccPin",
