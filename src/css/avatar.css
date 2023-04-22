@@ -1,0 +1,43 @@
+@layer components {
+    .bcc-avatar-xs {
+        @apply text-xs;
+    }
+    .bcc-avatar-sm {
+        @apply text-sm;
+    }
+    .bcc-avatar-md {
+        @apply text-base;
+    }
+    .bcc-avatar-lg {
+        @apply text-lg;
+    }
+    .bcc-avatar-xl {
+        @apply text-xl;
+    }
+    .bcc-avatar-2xl {
+        @apply text-2xl;
+    }
+
+    .bcc-avatar {
+        @apply h-[2.2857em] w-[2.2857em] rounded-full text-center font-semibold leading-[2.2857em] shadow-[0_0.071em_0.142em_rgba(0,0,0,0.05)];
+    }
+
+    .bcc-avatar-man {
+        @apply bg-blue-100 text-blue-900;
+    }
+    .bcc-avatar-woman {
+        @apply bg-violet-100 text-violet-900;
+    }
+    .bcc-avatar-person {
+        @apply bg-neutral-100 text-neutral-900;
+    }
+    .bcc-avatar-boy {
+        @apply bg-sky-100 text-sky-800;
+    }
+    .bcc-avatar-girl {
+        @apply bg-pink-100 text-pink-800;
+    }
+    .bcc-avatar-child {
+        @apply bg-neutral-100 text-neutral-800;
+    }
+}
