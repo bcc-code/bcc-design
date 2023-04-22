@@ -1,0 +1,47 @@
+@layer components {
+    .bcc-pin {
+        @apply inline-block rounded-full p-[.3em] shadow-md;
+    }
+
+    .bcc-pin .bcc-pin-icon {
+        @apply h-[1.2em] w-[1.2em]
+    }
+
+    .bcc-pin-neutral {
+        @apply border-neutral-200 bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 dark:border-neutral-700;
+    }
+    .bcc-pin-danger {
+        @apply border-danger bg-danger text-danger dark:bg-red-900 dark:text-red-200 dark:border-red-700;
+    }
+    .bcc-pin-warning {
+        @apply border-warning bg-warning text-warning dark:bg-yellow-900 dark:text-yellow-300 dark:border-yellow-700;
+    }
+    .bcc-pin-success {
+        @apply border-success bg-success text-success dark:bg-green-900 dark:text-green-300 dark:border-green-700;
+    }
+    .bcc-pin-info {
+        @apply border-info bg-info text-info dark:bg-blue-900 dark:text-blue-300 dark:border-blue-700;
+    }
+    .bcc-pin-systeminfo {
+        @apply border-system bg-system text-system dark:bg-teal-900 dark:text-teal-300 dark:border-teal-700;
+    }
+
+    .bcc-pin-xs {
+        @apply text-xs;
+    }
+    .bcc-pin-sm {
+        @apply text-sm;
+    }
+    .bcc-pin-md {
+        @apply text-base;
+    }
+    .bcc-pin-lg {
+        @apply text-lg;
+    }
+    .bcc-pin-xl {
+        @apply text-xl;
+    }
+    .bcc-pin-2xl {
+        @apply text-2xl;
+    }
+}
