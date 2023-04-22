@@ -4,7 +4,7 @@
     }
 
     .bcc-pin .bcc-pin-icon {
-        @apply h-[1.2em] w-[1.2em]
+        @apply h-4 w-4;
     }
 
     .bcc-pin-neutral {
