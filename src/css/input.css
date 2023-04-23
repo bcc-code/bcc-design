@@ -9,6 +9,11 @@
         @apply text-xs text-primary font-semibold;
     }
 
+    /* Optional */
+    .bcc-input-optional {
+        @apply text-xs text-neutral-400 font-normal;
+    }
+
     /* State */
     .bcc-input-error {
         @apply border-danger focus:outline-danger;

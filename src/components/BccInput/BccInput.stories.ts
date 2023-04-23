@@ -40,6 +40,7 @@ Example.parameters = {
 Example.args = {
   state: "default",
   disabled: false,
+  required: false,
   placeholder: "Example placeholder",
   slotDefault: "",
   label: "Example label",
@@ -49,10 +50,10 @@ export const State: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
   template: `
     <div class="inline-flex flex-col space-y-4">
-      <BccInput value="Default" placeholder="Example placeholder" />
-      <BccInput value="Default disabled" placeholder="Example placeholder" :disabled="true" />
-      <BccInput value="Error" placeholder="Example placeholder" state="error" />
-      <BccInput value="Success" placeholder="Example placeholder" state="success" />
+      <BccInput value="Default" placeholder="Example placeholder" :required="true" />
+      <BccInput value="Default disabled" placeholder="Example placeholder" :disabled="true" :required="true" />
+      <BccInput value="Error" placeholder="Example placeholder" state="error" :required="true" />
+      <BccInput value="Success" placeholder="Example placeholder" state="success" :required="true" />
     </div>
   `,
 });
@@ -61,9 +62,9 @@ export const WithMessage: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
   template: `
     <div class="inline-flex flex-col space-y-4">
-      <BccInput value="Default" placeholder="Example placeholder">This is an example message with <strong>styling</strong>.</BccInput>
-      <BccInput value="Error" placeholder="Example placeholder" state="error">This is an example message with <strong>styling</strong>.</BccInput>
-      <BccInput value="Success" placeholder="Example placeholder" state="success">This is an example message with <strong>styling</strong>.</BccInput>
+      <BccInput value="Default" placeholder="Example placeholder" :required="true">This is an example message with <strong>styling</strong>.</BccInput>
+      <BccInput value="Error" placeholder="Example placeholder" state="error" :required="true">This is an example message with <strong>styling</strong>.</BccInput>
+      <BccInput value="Success" placeholder="Example placeholder" state="success" :required="true">This is an example message with <strong>styling</strong>.</BccInput>
     </div>
   `,
 });
