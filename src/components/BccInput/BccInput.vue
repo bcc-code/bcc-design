@@ -9,6 +9,7 @@ type Props = {
   state?: "default" | "error" | "success";
   disabled?: boolean;
   label?: string;
+  optionalLabel?: string;
   required?: boolean;
 };
 
@@ -23,7 +24,9 @@ withDefaults(defineProps<Props>(), {
   <span class="inline-flex flex-col space-y-2">
     <div>
       <label class="bcc-input-label float-left" v-if="label">{{ label }}</label>
-      <span class="bcc-input-optional float-right" v-if="required === false">Optional</span>
+      <span class="bcc-input-optional float-right" v-if="required === false">{{
+        optionalLabel
+      }}</span>
     </div>
     <input
       :disabled="disabled"
