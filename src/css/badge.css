@@ -3,12 +3,11 @@
         @apply inline-flex items-center justify-center rounded-md border font-normal leading-none tracking-wide gap-1;
         /* Default neutral badge */
         @apply border-neutral-200 bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 dark:border-neutral-700;
+        /* Default xs badge */
+        @apply text-xs leading-3 px-2 py-0.5;
     }
 
     /* Size */
-    .bcc-badge-xs {
-        @apply text-xs leading-3 px-2 py-0.5;
-    }
     .bcc-badge-sm {
         @apply text-sm leading-5 px-3 py-0.5;
     }
@@ -31,7 +30,7 @@
     }
 
     /* Icon */
-    .bcc-badge-xs .bcc-badge-icon {
+    .bcc-badge-icon {
         @apply h-3 w-3;
     }
     .bcc-badge-sm .bcc-badge-icon {
