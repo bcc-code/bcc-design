@@ -13,8 +13,19 @@
   "module": "./dist/vue-components.js",
   "types": "./dist_types/index.d.ts",
   "exports": {
-    "import": "./dist/vue-components.js",
-    "require": "./dist/vue-components.umd.js"
+    ".": {
+      "import": {
+        "types": "./dist_types/index.d.ts",
+        "default": "./dist/vue-components.js"
+      },
+      "require": {
+        "types": "./dist_types/index.d.ts",
+        "default": "./dist/vue-components.umd.js"
+      }
+    },
+    "./style.css": {
+      "import": "./dist/style.css"
+    }
   },
   "scripts": {
     "start": "npm run storybook",

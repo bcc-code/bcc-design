@@ -1,3 +1,5 @@
+import "./style.css";
+
 // Composables
 export { default as useAnimatedNumber } from "./composables/animatedNumber";
 
