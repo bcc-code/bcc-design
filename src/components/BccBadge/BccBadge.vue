@@ -20,7 +20,6 @@ withDefaults(
   <div
     class="bcc-badge"
     :class="{
-      'bcc-badge-xs': size === 'xs',
       'bcc-badge-sm': size === 'sm',
       'bcc-badge-danger': variant === 'danger',
       'bcc-badge-warning': variant === 'warning',
