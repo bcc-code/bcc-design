@@ -25,15 +25,19 @@
     },
     "./style.css": {
       "import": "./dist/style.css"
+    },
+    "./index.css": {
+      "import": "./dist_css/index.css"
     }
   },
   "scripts": {
     "start": "npm run storybook",
-    "build": "run-p type-check build-types build-only",
+    "build": "run-p type-check build-types build-only build-css",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "test:unit:update-snapshots": "npm run test:unit -- -u",
     "build-only": "vite build",
+    "build-css": "copyfiles --flat ./src/css/*.css dist_css",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "build-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.compile.json",
     "lint": "npm run lint:no-fix -- --fix",
@@ -73,6 +77,7 @@
     "@vueuse/core": "^9.13.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.22.0",
     "eslint-plugin-storybook": "^0.6.11",
     "eslint-plugin-vue": "^9.3.0",
