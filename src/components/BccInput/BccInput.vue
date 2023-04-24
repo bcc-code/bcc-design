@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, type StyleValue } from "vue";
 import { useAttrs } from "vue";
 
 type Props = {
@@ -25,7 +25,7 @@ withDefaults(defineProps<Props>(), {
 
 const attrs = useAttrs();
 const attrsWithoutStyles = computed(() => {
-  let returnObj = {};
+  let returnObj: Record<string, unknown> = {};
   for (const attr in attrs) {
     if (attr !== "class" && attr !== "style") {
       returnObj[attr] = attrs[attr];
@@ -36,7 +36,11 @@ const attrsWithoutStyles = computed(() => {
 </script>
 
 <template>
-  <div class="inline-flex flex-col space-y-2" :class="$attrs['class']" :style="$attrs['style']">
+  <div
+    class="inline-flex flex-col space-y-2"
+    :class="$attrs['class']"
+    :style="$attrs['style'] as StyleValue"
+  >
     <label class="space-y-2">
       <span
         v-if="label || !required"
