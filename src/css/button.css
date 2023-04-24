@@ -1,6 +1,6 @@
 @layer components {
     .bcc-button {
-        @apply font-semibold inline-flex items-center active:shadow-inner hover:shadow-md focus:outline-none focus:ring focus:ring-focused focus:ring-offset-2 tracking-wide border-2 justify-between;
+        @apply font-semibold inline-flex items-center active:shadow-inner hover:shadow-md focus:outline-none focus:ring focus:ring-offset-2 tracking-wide border-2 justify-between;
         @apply cursor-pointer disabled:cursor-not-allowed disabled:pointer-events-none;
     }
 
@@ -56,12 +56,12 @@
      */
     /* Default variants */
     .bcc-button-primary {
-        @apply bg-button-primary text-button-primary hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary focus:bg-button-primary-focused;
+        @apply bg-button-primary text-button-primary hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary focus:bg-button-primary-focused focus:ring-button-primary-focused;
         @apply border-transparent;
         @apply disabled:text-button-primary-disabled disabled:bg-button-primary-disabled dark:disabled:bg-gray-800;
     }
     .bcc-button-secondary {
-        @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed;
+        @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed focus:ring-button-secondary-focused;
         @apply dark:border-silver-tree-400 dark:text-silver-tree-400 dark:hover:border-silver-tree-200 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900;
         @apply disabled:text-button-secondary-disabled disabled:border-button-secondary-disabled disabled:bg-button-secondary-disabled dark:disabled:bg-neutral-900 dark:disabled:border-neutral-700;
     }
