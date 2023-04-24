@@ -26,7 +26,7 @@
     "./style.css": {
       "import": "./dist/style.css"
     },
-    "./index.css": {
+    "./tailwind/index.css": {
       "import": "./dist_css/index.css"
     }
   },
