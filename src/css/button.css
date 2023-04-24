@@ -66,7 +66,7 @@
         @apply disabled:text-button-secondary-disabled disabled:border-button-secondary-disabled disabled:bg-button-secondary-disabled dark:disabled:bg-neutral-900 dark:disabled:border-neutral-700;
     }
     .bcc-button-tertiary {
-        @apply text-button-tertiary hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:underline;
+        @apply text-button-tertiary hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:underline focus:ring-button-secondary-focused;
         @apply dark:text-silver-tree-300 dark:hover:text-silver-tree-200 dark:hover:bg-silver-tree-900;
         @apply border-transparent;
         @apply disabled:text-button-tertiary-disabled;
