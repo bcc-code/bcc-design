@@ -68,3 +68,6 @@ jobs:
       
       - name: Lint
         run: npm run lint:no-fix
+
+      - name: Type Check
+        run: npm run type-check
