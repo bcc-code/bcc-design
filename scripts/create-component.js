@@ -19,6 +19,12 @@ function appendFile(filePath, fileContent) {
   return append(rootPath + filePath, fileContent);
 }
 
+function getLowercaseComponentName(componentName) {
+  // Remove Bcc prefix and lowercase component name (this doesn't take into account names with multiple words)
+  const lowercaseUnprefixedComponentName = componentName.slice(3).toLowerCase();
+  return lowercaseUnprefixedComponentName;
+}
+
 function createVueFile(componentName) {
   return promises.writeFile(
     rootPath + `src/components/${componentName}/${componentName}.vue`,
@@ -87,7 +93,24 @@ Example.args = {
   );
 }
 
+function createCssFile(componentName) {
+  componentName = getLowercaseComponentName(componentName);
+  return promises.writeFile(
+    rootPath + `src/css/${componentName}.css`,
+    `@layer components {
+    .bcc-${componentName} {
+        @apply ;
+    }
+  }`
+  );
+}
+
 async function createComponent(componentName) {
+  if (!componentName.startsWith("Bcc")) {
+    console.log(`Component name needs to be prefixed with "Bcc", provided "${componentName}"`);
+    return;
+  }
+
   console.log(`Create component ${componentName}`);
 
   if (await fileExists(`src/components/${componentName}`)) {
@@ -101,11 +124,14 @@ async function createComponent(componentName) {
     createVueFile(componentName),
     createTestFile(componentName),
     createStoryFile(componentName),
+    createCssFile(componentName),
     appendFile(
       "src/index.ts",
       `export { default as ${componentName} } from "./components/${componentName}/${componentName}.vue";\n`
     ),
   ]);
+
+  const cssComponentName = getLowercaseComponentName(componentName);
 
   console.log(`Scaffolded ${componentName} component. The following files were created:\n`);
   console.log(`
@@ -115,6 +141,8 @@ src
 \t\t├── ${componentName}.spec.ts
 \t\t├── ${componentName}.stories.ts
 \t\t├── ${componentName}.vue
+├── css
+\t├── ${cssComponentName}.css
 \t\t`);
 }
 
