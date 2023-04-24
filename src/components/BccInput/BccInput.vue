@@ -38,7 +38,11 @@ const attrsWithoutStyles = computed(() => {
 <template>
   <div class="inline-flex flex-col space-y-2" :class="$attrs['class']" :style="$attrs['style']">
     <label class="space-y-2">
-      <span v-if="label || !required" class="flex justify-between gap-x-2">
+      <span
+        v-if="label || !required"
+        class="flex gap-x-2"
+        :class="{ 'justify-between': label && !required, 'justify-end': !label && !required }"
+      >
         <span v-if="label" class="bcc-input-label">{{ label }}</span>
         <span v-if="!required" class="bcc-input-optional-label">{{ optionalLabel }}</span>
       </span>
