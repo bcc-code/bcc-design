@@ -40,10 +40,10 @@ The repository contains a handy script for scaffolding a new component:
 ```sh
 npm run create-component ComponentName
 ```
-This will create a Vue component, with an accompanying test and stories file, and will also update the exports for the library.
+This will create a Vue component, with accompanying test, stories and CSS files, and will also update the exports for the library.
 
 ### Building for production
-To build the package for production, including types and icons, run:
+To build the package for production, including types, run:
 ```sh
 npm run build
 ```
