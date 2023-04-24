@@ -1,12 +1,17 @@
 @layer components {
     .bcc-input {
-        @apply px-4 py-3 text-sm rounded-lg text-primary border focus:outline-2 border-on-secondary focus:outline-silver-tree-600;
+        @apply w-full px-4 py-3 text-sm rounded-lg text-primary border focus:outline-2 border-on-secondary focus:outline-silver-tree-600;
         @apply disabled:bg-neutral-100 disabled:text-neutral-400 disabled:cursor-not-allowed;
     }
 
     /* Label */
     .bcc-input-label {
         @apply text-xs text-primary font-semibold;
+    }
+
+    /* Optional */
+    .bcc-input-optional-label {
+        @apply text-xs text-neutral-400 font-normal truncate;
     }
 
     /* State */
