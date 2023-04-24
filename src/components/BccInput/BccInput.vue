@@ -5,6 +5,9 @@ export default {
 </script>
 
 <script setup lang="ts">
+import { computed } from "vue";
+import { useAttrs } from "vue";
+
 type Props = {
   state?: "default" | "error" | "success";
   disabled?: boolean;
@@ -17,27 +20,39 @@ withDefaults(defineProps<Props>(), {
   state: "default",
   disabled: false,
   required: false,
+  optionalLabel: "Optional",
+});
+
+const attrs = useAttrs();
+const attrsWithoutStyles = computed(() => {
+  let returnObj = {};
+  for (const attr in attrs) {
+    if (attr !== "class" && attr !== "style") {
+      returnObj[attr] = attrs[attr];
+    }
+  }
+  return returnObj;
 });
 </script>
 
 <template>
-  <span class="inline-flex flex-col space-y-2">
-    <div>
-      <label class="bcc-input-label float-left" v-if="label">{{ label }}</label>
-      <span class="bcc-input-optional float-right" v-if="required === false">{{
-        optionalLabel
-      }}</span>
-    </div>
-    <input
-      :disabled="disabled"
-      :required="required"
-      class="bcc-input"
-      :class="{
-        'bcc-input-error': state === 'error',
-        'bcc-input-success': state === 'success',
-      }"
-      v-bind="$attrs"
-    />
+  <div class="inline-flex flex-col space-y-2" :class="$attrs['class']" :style="$attrs['style']">
+    <label class="space-y-2">
+      <span v-if="label || !required" class="flex justify-between gap-x-2">
+        <span v-if="label" class="bcc-input-label">{{ label }}</span>
+        <span v-if="!required" class="bcc-input-optional-label">{{ optionalLabel }}</span>
+      </span>
+      <input
+        :disabled="disabled"
+        :required="required"
+        class="bcc-input"
+        :class="{
+          'bcc-input-error': state === 'error',
+          'bcc-input-success': state === 'success',
+        }"
+        v-bind="attrsWithoutStyles"
+      />
+    </label>
     <span
       v-if="$slots.default"
       :class="{
@@ -48,5 +63,5 @@ withDefaults(defineProps<Props>(), {
     >
       <slot></slot>
     </span>
-  </span>
+  </div>
 </template>
