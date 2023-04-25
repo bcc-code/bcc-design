@@ -47,9 +47,6 @@ const Template: StoryFn<typeof BccBadge> = (args) => ({
 });
 
 export const Example = Template.bind({});
-Example.parameters = {
-  viewMode: "docs",
-};
 Example.args = {
   variant: "neutral",
   size: "xs",

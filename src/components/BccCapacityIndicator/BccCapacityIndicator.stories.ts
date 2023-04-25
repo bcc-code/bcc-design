@@ -29,9 +29,6 @@ const Template: StoryFn<typeof BccCapacityIndicator> = (args) => ({
 });
 
 export const Example = Template.bind({});
-Example.parameters = {
-  viewMode: "docs",
-};
 Example.args = {
   total: 20,
   used: 14,

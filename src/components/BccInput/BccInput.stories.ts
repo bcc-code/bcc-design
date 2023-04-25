@@ -34,9 +34,6 @@ const Template: StoryFn<typeof BccInput> = (args) => ({
 });
 
 export const Example = Template.bind({});
-Example.parameters = {
-  viewMode: "docs",
-};
 Example.args = {
   state: "default",
   disabled: false,

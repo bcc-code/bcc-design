@@ -83,9 +83,6 @@ const Template: StoryFn<typeof ${componentName}> = (args) => ({
 });
 
 export const Example = Template.bind({});
-Example.parameters = {
-  viewMode: "docs",
-};
 Example.args = {
 
 };

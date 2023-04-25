@@ -60,9 +60,6 @@ const Template: StoryFn<typeof BccButton> = (args) => ({
 });
 
 export const Example = Template.bind({});
-Example.parameters = {
-  viewMode: "docs",
-};
 Example.args = {
   variant: "primary",
   color: "default",

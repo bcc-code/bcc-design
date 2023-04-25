@@ -29,9 +29,6 @@ const Template: StoryFn<typeof BccPin> = (args) => ({
 });
 
 export const Example = Template.bind({});
-Example.parameters = {
-  viewMode: "docs",
-};
 Example.args = {
   variant: "neutral",
 };

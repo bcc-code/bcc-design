@@ -28,9 +28,6 @@ const Template: StoryFn<typeof BccAvatar> = (args) => ({
 });
 
 export const Example = Template.bind({});
-Example.parameters = {
-  viewMode: "docs",
-};
 Example.args = {
   initials: "LG",
   gender: "male",

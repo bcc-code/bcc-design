@@ -19,9 +19,6 @@ const Template: StoryFn<typeof BccToggle> = (args) => ({
 });
 
 export const Example = Template.bind({});
-Example.parameters = {
-  viewMode: "docs",
-};
 Example.args = {
   modelValue: false,
   wasToggled: false,
