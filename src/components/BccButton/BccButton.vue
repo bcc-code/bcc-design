@@ -37,7 +37,6 @@ const iconOnly = props.icon !== undefined && !slots.default;
     :class="{
       'bcc-button-xs': size === 'xs',
       'bcc-button-sm': size === 'sm',
-      'bcc-button-base': size === 'base',
       'bcc-button-lg': size === 'lg',
       'bcc-button-xl': size === 'xl',
       'bcc-button-danger': color === 'danger',

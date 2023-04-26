@@ -4,7 +4,7 @@ withDefaults(
     initials: string;
     gender?: "male" | "female" | "unknown";
     child?: boolean;
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+    size?: "xs" | "sm";
   }>(),
   {
     gender: "unknown",
@@ -19,12 +19,6 @@ withDefaults(
     class="bcc-avatar"
     :class="{
       'bcc-avatar-xs': size === 'xs',
-      'bcc-avatar-sm': size === 'sm',
-      'bcc-avatar-md': size === 'md',
-      'bcc-avatar-lg': size === 'lg',
-      'bcc-avatar-xl': size === 'xl',
-      'bcc-avatar-2xl': size === '2xl',
-
       'bcc-avatar-man': !child && gender === 'male',
       'bcc-avatar-woman': !child && gender === 'female',
       'bcc-avatar-person': !child && gender === 'unknown',
