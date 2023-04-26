@@ -31,9 +31,10 @@ const Template: StoryFn<typeof BccPin> = (args) => ({
 export const Example = Template.bind({});
 Example.args = {
   variant: "neutral",
+  text: "",
 };
 
-export const Variants: StoryFn<typeof BccPin> = () => ({
+export const WithIcon: StoryFn<typeof BccPin> = () => ({
   components: { BccPin, CheckCircleIcon },
   template: `
     <div class="flex items-start space-x-2">
@@ -42,6 +43,19 @@ export const Variants: StoryFn<typeof BccPin> = () => ({
       <BccPin variant="warning" icon="CheckCircleIcon" />
       <BccPin variant="success" icon="CheckCircleIcon" />
       <BccPin variant="info" icon="CheckCircleIcon" />
+    </div>
+  `,
+});
+
+export const WithText: StoryFn<typeof BccPin> = () => ({
+  components: { BccPin },
+  template: `
+    <div class="flex items-start space-x-2">
+      <BccPin variant="neutral" text="1" />
+      <BccPin variant="danger" text="1" />
+      <BccPin variant="warning" text="1" />
+      <BccPin variant="success" text="1" />
+      <BccPin variant="info" text="1" />
     </div>
   `,
 });

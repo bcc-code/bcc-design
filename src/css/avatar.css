@@ -1,27 +1,13 @@
 @layer components {
-    .bcc-avatar-xs {
-        @apply text-xs;
-    }
-    .bcc-avatar-sm {
-        @apply text-sm;
-    }
-    .bcc-avatar-md {
-        @apply text-base;
-    }
-    .bcc-avatar-lg {
-        @apply text-lg;
-    }
-    .bcc-avatar-xl {
-        @apply text-xl;
-    }
-    .bcc-avatar-2xl {
-        @apply text-2xl;
-    }
-
     .bcc-avatar {
-        @apply h-[2.2857em] w-[2.2857em] rounded-full text-center font-semibold leading-[2.2857em] shadow-[0_0.071em_0.142em_rgba(0,0,0,0.05)];
+        @apply inline-flex items-center justify-center rounded-full text-center font-semibold shadow-[0_0.071em_0.142em_rgba(0,0,0,0.05)];
+        /* default sm size */
+        @apply h-8 w-8 text-sm leading-[1.125rem];
     }
 
+    .bcc-avatar-xs {
+        @apply h-7 w-7 text-xs;
+    }
     .bcc-avatar-man {
         @apply bg-blue-100 text-blue-900;
     }

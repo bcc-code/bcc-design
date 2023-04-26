@@ -1,15 +1,14 @@
 @layer components {
     .bcc-pin {
-        @apply inline-block rounded-full p-[.3em] shadow-md text-xs;
+        @apply h-5 w-5 inline-flex items-center justify-center border rounded-full shadow-md text-xs font-semibold;
+        /* Default neutral variant */
+        @apply border-neutral-200 bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 dark:border-neutral-700;
     }
 
     .bcc-pin .bcc-pin-icon {
         @apply h-4 w-4;
     }
 
-    .bcc-pin-neutral {
-        @apply border-neutral-200 bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 dark:border-neutral-700;
-    }
     .bcc-pin-danger {
         @apply border-danger bg-danger text-danger dark:bg-red-900 dark:text-red-200 dark:border-red-700;
     }

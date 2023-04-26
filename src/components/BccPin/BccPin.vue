@@ -5,6 +5,7 @@ withDefaults(
   defineProps<{
     icon?: string | Component | Function;
     variant?: "neutral" | "danger" | "warning" | "success" | "info" | "system";
+    text?: string;
   }>(),
   {
     variant: "neutral",
@@ -16,7 +17,6 @@ withDefaults(
   <div
     class="bcc-pin"
     :class="{
-      'bcc-pin-neutral': variant === 'neutral',
       'bcc-pin-danger': variant === 'danger',
       'bcc-pin-warning': variant === 'warning',
       'bcc-pin-success': variant === 'success',
@@ -24,6 +24,7 @@ withDefaults(
       'bcc-pin-system': variant === 'system',
     }"
   >
-    <component :is="icon" class="bcc-pin-icon" />
+    <component :is="icon" class="bcc-pin-icon" v-if="icon" />
+    <span v-else-if="text">{{ text }}</span>
   </div>
 </template>
