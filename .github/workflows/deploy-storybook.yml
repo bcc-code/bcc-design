@@ -37,8 +37,6 @@ jobs:
 
       - name: Build Storybook
         run: pnpm build-storybook
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider # https://stackoverflow.com/a/69699772
 
       - name: Deploy
         id: builddeploy
