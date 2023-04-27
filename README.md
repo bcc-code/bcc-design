@@ -14,6 +14,12 @@ Refer to the [documentation](https://developer.bcc.no/bcc-design/vue-components/
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - [Tailwind CSS Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
+### Prerequisites
+This project uses [pnpm](https://pnpm.io/), which you need to install before usage. The easiest way is to install it with npm:
+```sh
+npm install -g pnpm
+```
+
 ### Get started
 Install dependencies:
 ```sh
