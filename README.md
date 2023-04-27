@@ -17,35 +17,35 @@ Refer to the [documentation](https://developer.bcc.no/bcc-design/vue-components/
 ### Get started
 Install dependencies:
 ```sh
-npm ci
+pnpm install --frozen-lockfile
 ```
 
 Then run Storybook when developing components to have a live reloading server to test them:
 ```sh
-npm run storybook
+pnpm storybook
 ```
 
 Run a live reloading unit test server:
 ```sh
-npm run test:unit
+pnpm test:unit
 ```
 
 Some unit test use [snapshots](https://vitest.dev/guide/snapshot.html). Be sure to update snapshots after updating a component that has such a test:
 ```sh
-npm run test:unit:update-snapshots
+pnpm test:unit:update-snapshots
 ```
 
 ### Creating a new component
 The repository contains a handy script for scaffolding a new component:
 ```sh
-npm run create-component ComponentName
+pnpm create-component ComponentName
 ```
 This will create a Vue component, with accompanying test, stories and CSS files, and will also update the exports for the library.
 
 ### Building for production
 To build the package for production, including types, run:
 ```sh
-npm run build
+pnpm build
 ```
 
 ## License
