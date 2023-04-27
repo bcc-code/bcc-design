@@ -48,7 +48,8 @@
     "create-component": "node ./scripts/create-component.js"
   },
   "dependencies": {
-    "@bcc-code/design-tokens": "^0.5.0"
+    "@bcc-code/design-tokens": "^0.5.0",
+    "@storybook/blocks": "^7.0.7"
   },
   "peerDependencies": {
     "tailwindcss": "^3.2.4",
