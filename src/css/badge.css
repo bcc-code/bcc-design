@@ -2,7 +2,7 @@
     .bcc-badge {
         @apply inline-flex items-center justify-center rounded-md border font-normal leading-none tracking-wide gap-1;
         /* Default neutral badge */
-        @apply border-neutral-200 bg-neutral-50 text-neutral-900
+        @apply border-neutral-200 bg-neutral-50 text-neutral-900;
         /* Default xs badge */
         @apply text-xs leading-3 px-2 py-0.5;
     }

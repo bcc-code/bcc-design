@@ -39,10 +39,9 @@ const dashArray = Math.PI * 18 * 2;
     height="2em"
     viewBox="0 0 40 40"
     :class="{
-      'text-neutral-800 dark:text-neutral-200': total == -1,
-      'text-silver-tree-600 dark:text-neutral-300': progress >= 0 && progress < 50,
-      'text-muddy-waters-500': progress >= 50 && progress < 100,
-      'text-red-800': progress >= 100,
+      'capacity-indicator-open': total == -1 || (progress >= 0 && progress < 50),
+      'capacity-indicator-warning': progress >= 50 && progress < 100,
+      'capacity-indicator-full': progress >= 100,
     }"
   >
     <circle

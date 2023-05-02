@@ -1,0 +1,13 @@
+@layer components {
+    .capacity-indicator-open {
+        @apply text-neutral-800;
+    }
+
+    .capacity-indicator-warning {
+        @apply text-muddy-waters-500;
+    }
+
+    .capacity-indicator-full {
+        @apply text-red-800;
+    }
+}
