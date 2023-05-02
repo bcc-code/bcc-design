@@ -48,8 +48,7 @@
     "create-component": "node ./scripts/create-component.js"
   },
   "dependencies": {
-    "@bcc-code/design-tokens": "^0.5.0",
-    "@storybook/blocks": "^7.0.7"
+    "@bcc-code/design-tokens": "^0.5.0"
   },
   "peerDependencies": {
     "tailwindcss": "^3.2.4",
@@ -64,6 +63,7 @@
     "@storybook/addon-essentials": "^7.0.7",
     "@storybook/addon-interactions": "^7.0.7",
     "@storybook/addon-links": "^7.0.7",
+    "@storybook/blocks": "^7.0.7",
     "@storybook/testing-library": "^0.1.0",
     "@storybook/vue3": "^7.0.7",
     "@storybook/vue3-vite": "^7.0.7",
