@@ -40,7 +40,7 @@ const dashArray = Math.PI * 18 * 2;
     viewBox="0 0 40 40"
     :class="{
       'text-neutral-800 dark:text-neutral-200': total == -1,
-      'text-tree-green-600 dark:text-neutral-300': progress >= 0 && progress < 50,
+      'text-silver-tree-600 dark:text-neutral-300': progress >= 0 && progress < 50,
       'text-muddy-waters-500': progress >= 50 && progress < 100,
       'text-red-800': progress >= 100,
     }"
