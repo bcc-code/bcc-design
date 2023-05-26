@@ -1,5 +1,8 @@
 import "./style.css";
 
+// Tokens
+export { default as bccForbundetTheme } from "./tokens/tailwind/bccForbundetTheme";
+
 // Composables
 export { default as useAnimatedNumber } from "./composables/animatedNumber";
 

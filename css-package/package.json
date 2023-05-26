@@ -2,11 +2,13 @@
   "name": "@bcc-code/design-components",
   "repository": "https://github.com/bcc-code/bcc-vue-components.git",
   "homepage": "https://developer.bcc.no/bcc-design/components/",
-  "version": "0.0.0-dev",
+  "version": "0.0.0-dev.ce472c4",
   "type": "module",
   "license": "Apache-2.0",
   "files": [
-    "dist"
+    "dist",
+    "dist_types",
+    "dist_css"
   ],
   "main": "./dist/design-components.umd.js",
   "module": "./dist/design-components.js",
