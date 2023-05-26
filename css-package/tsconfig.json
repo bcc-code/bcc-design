@@ -1,0 +1,22 @@
+{
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "index.ts"],
+    "exclude": ["src/**/*.spec.ts"],
+    "compilerOptions": {
+      "outDir": "dist_types",
+      "baseUrl": "./",
+      "target": "esnext",
+      "useDefineForClassFields": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "isolatedModules": true,
+      "strict": true,
+      "jsx": "preserve",
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+      "skipLibCheck": true,
+      "types": [
+        "vite/client"
+      ]
+    }
+}  
