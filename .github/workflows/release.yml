@@ -33,9 +33,16 @@ jobs:
         run: pnpm install --frozen-lockfile
       
       - name: Build
-        run: npm run build
+        run: |
+          pnpm build
+          pnpm build:css-package
 
-      - name: Publish
+      - name: Publish `@bcc-code/vue-components`
         run: npm publish --tag latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish `@bcc-code/design-components`
+        run: npm publish ./css-package --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

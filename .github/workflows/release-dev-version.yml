@@ -39,7 +39,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: npm run build
+        run: |
+          pnpm build
+          pnpm build:css-package
 
       - name: Resolve version
         id: vars
@@ -48,7 +50,12 @@ jobs:
       - name: 'Version based on commit: 0.0.0-dev.${{ env.sha_short }}'
         run: npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
 
-      - name: Publish
+      - name: Publish `@bcc-code/vue-components`
         run: npm publish --tag dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish `@bcc-code/design-components`
+        run: npm publish ./css-package --tag dev
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
