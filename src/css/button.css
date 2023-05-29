@@ -56,19 +56,19 @@
      */
     /* Default variants */
     .bcc-button-primary {
-        @apply bg-button-primary text-button-primary hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary focus:bg-button-primary-focused focus:ring-button-primary-focused;
+        @apply bg-button-primary text-button-primary hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary;
         @apply border-transparent;
-        @apply disabled:text-button-primary-disabled disabled:bg-button-primary-disabled;
+        /* @apply disabled:text-button-primary-disabled disabled:bg-button-primary-disabled; */
     }
     .bcc-button-secondary {
-        @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed focus:ring-button-secondary-focused;
-        @apply disabled:text-button-secondary-disabled disabled:border-button-secondary-disabled disabled:bg-button-secondary-disabled;
+        @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed;
+        /* @apply disabled:text-button-secondary-disabled disabled:border-button-secondary-disabled disabled:bg-button-secondary-disabled; */
     }
-    .bcc-button-tertiary {
-        @apply text-button-tertiary hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:underline focus:ring-button-secondary-focused;
+    /* .bcc-button-tertiary {
+        @apply text-button-tertiary hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:underline;
         @apply border-transparent;
         @apply disabled:text-button-tertiary-disabled;
-    }
+    } */
 
     /* Danger variants */
     .bcc-button-danger.bcc-button-primary {
@@ -97,4 +97,4 @@
     .bcc-button-xl .bcc-button-icon {
         @apply w-6 h-6;
     }
-}
+}    
