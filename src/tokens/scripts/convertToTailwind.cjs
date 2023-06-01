@@ -46,7 +46,7 @@ async function writeColors(figmaInput) {
 
   for (let [colorKey] of Object.entries(colors)) {
     for (let [colorWeightKey, colorWeightToken] of Object.entries(colors[colorKey])) {
-      colors[colorKey][colorWeightKey] = `var(--${colorKey}-${colorWeightKey})`;
+      colors[colorKey][colorWeightKey] = colorWeightToken.value;
     }
   }
 
