@@ -48,9 +48,6 @@
     "build-storybook": "storybook build",
     "create-component": "node ./scripts/create-component.js"
   },
-  "dependencies": {
-    "@bcc-code/design-tokens": "^0.5.0"
-  },
   "peerDependencies": {
     "tailwindcss": "^3.3.2",
     "vue": "^3.3.2"
