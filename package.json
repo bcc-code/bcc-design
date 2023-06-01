@@ -28,31 +28,29 @@
       "import": "./dist/style.css"
     },
     "./tailwind/index.css": {
-      "import": "./dist_css/index.css"
+      "import": "./dist_css/tailwind/index.css"
     }
   },
   "scripts": {
     "start": "npm run storybook",
-    "build": "run-p type-check build-types build-only build-css",
+    "build": "run-p type-check build:types build:vite build:css",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "test:unit:update-snapshots": "npm run test:unit -- -u",
-    "build-only": "vite build",
-    "build-css": "copyfiles --flat ./src/css/*.css dist_css",
+    "build:vite": "vite build",
+    "build:css": "copyfiles --flat ./src/css/*.css dist_css/tailwind",
+    "build:tailwind": "node ./src/tokens/scripts/convertToTailwind.cjs",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "build-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.compile.json",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.compile.json",
     "lint": "npm run lint:no-fix -- --fix",
     "lint:no-fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
     "create-component": "node ./scripts/create-component.js"
   },
-  "dependencies": {
-    "@bcc-code/design-tokens": "^0.5.0"
-  },
   "peerDependencies": {
-    "tailwindcss": "^3.2.4",
-    "vue": "^3.2.45"
+    "tailwindcss": "^3.3.2",
+    "vue": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -85,12 +83,12 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
     "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.2.2",
+    "prettier-plugin-tailwindcss": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.7",
-    "tailwindcss": "^3.2.4",
-    "typescript": "~4.7.4",
+    "tailwindcss": "^3.3.2",
+    "typescript": "~4.9",
     "vite": "^4.0.0",
     "vitest": "^0.25.6",
     "vue": "^3.2.45",

@@ -25,9 +25,6 @@
     .bcc-badge-info {
         @apply border-info bg-info text-info;
     }
-    .bcc-badge-system {
-        @apply border-system bg-system text-system;
-    }
 
     /* Icon */
     .bcc-badge-icon {

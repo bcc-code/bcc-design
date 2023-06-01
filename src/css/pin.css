@@ -21,7 +21,4 @@
     .bcc-pin-info {
         @apply border-info bg-info text-info;
     }
-    .bcc-pin-system {
-        @apply border-system bg-system text-system;
-    }
 }

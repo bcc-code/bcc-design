@@ -21,7 +21,6 @@ withDefaults(
       'bcc-pin-warning': variant === 'warning',
       'bcc-pin-success': variant === 'success',
       'bcc-pin-info': variant === 'info',
-      'bcc-pin-system': variant === 'system',
     }"
   >
     <component :is="icon" class="bcc-pin-icon" v-if="icon" />

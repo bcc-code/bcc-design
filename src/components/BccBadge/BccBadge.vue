@@ -25,7 +25,6 @@ withDefaults(
       'bcc-badge-warning': variant === 'warning',
       'bcc-badge-success': variant === 'success',
       'bcc-badge-info': variant === 'info',
-      'bcc-badge-system': variant === 'system',
     }"
   >
     <component
