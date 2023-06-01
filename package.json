@@ -2,7 +2,7 @@
   "name": "@bcc-code/vue-components",
   "repository": "https://github.com/bcc-code/bcc-vue-components.git",
   "homepage": "https://developer.bcc.no/bcc-design/vue-components/",
-  "version": "0.12.1",
+  "version": "0.0.0-dev.123",
   "type": "module",
   "license": "Apache-2.0",
   "files": [
@@ -47,8 +47,7 @@
     "lint:no-fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
-    "create-component": "node ./scripts/create-component.js",
-    "version": "npm version $npm_package_version --no-git-tag-version && git add ."
+    "create-component": "node ./scripts/create-component.js"
   },
   "peerDependencies": {
     "tailwindcss": "^3.3.2",
