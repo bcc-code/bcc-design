@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "npm run storybook",
-    "build": "run-p type-check build:types build:vite build:css build:tailwind",
+    "build": "run-p type-check build:types build:vite build:css",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "test:unit:update-snapshots": "npm run test:unit -- -u",
