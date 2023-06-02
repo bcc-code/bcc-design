@@ -38,10 +38,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: |
-          pnpm build
-          pnpm build:css-package
+      - name: Build Vue package
+        run: pnpm build
+
+      - name: Build CSS package
+        run: pnpm build
+        working-directory: css-package
 
       - name: Resolve version
         id: vars
