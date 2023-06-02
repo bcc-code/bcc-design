@@ -39,6 +39,7 @@
     "test:unit:update-snapshots": "npm run test:unit -- -u",
     "build:vite": "vite build",
     "build:css": "copyfiles --flat ./src/css/*.css dist_css/tailwind",
+    "build:css-package": "copyfiles dist/*.css dist_css/*/*.* css-package",
     "build:tailwind": "node ./src/tokens/scripts/convertToTailwind.cjs",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.compile.json",

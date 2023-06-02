@@ -38,17 +38,28 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: npm run build
+      - name: Build Vue package
+        run: pnpm build
+
+      - name: Build CSS package
+        run: pnpm build
+        working-directory: css-package
 
       - name: Resolve version
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
-      - name: 'Version based on commit: 0.0.0-dev.${{ env.sha_short }}'
-        run: npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
-
-      - name: Publish
-        run: npm publish --tag dev
+      - name: Publish `@bcc-code/vue-components`
+        run: |
+          npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
+          npm publish --tag dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish `@bcc-code/design-components`
+        run: |
+          npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
+          npm publish --tag dev
+        working-directory: css-package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

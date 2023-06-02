@@ -54,5 +54,19 @@ To build the package for production, including types, run:
 pnpm build
 ```
 
+### Releasing a new version
+Ensure you have admin rights to push to the `master` branch of the repository.
+
+Then run the version script. This passes the version argument to `npm version`, so you use it like that command. For example, to update from v0.12.0 to v0.13.0:
+```sh
+./scripts/version.sh minor
+```
+
+This will update both the root `package.json` as well as the `css-package/package.json`, and create a Git commit with a tag pointing to it. Then, push this commit:
+```sh
+git push --follow-tags
+```
+This will create a new [release](https://github.com/bcc-code/bcc-vue-components/releases) in GitHub. Set the release notes in GitHub and publish the release to bring this new version to npm.
+
 ## License
 This package is licensed under the [Apache 2.0 license](./LICENSE).
