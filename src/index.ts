@@ -1,5 +1,8 @@
 import "./style.css";
 
+// Tailwind plugin
+export { default as tailwindPlugin } from "./tokens/plugin/tailwindPlugin";
+
 // Composables
 export { default as useAnimatedNumber } from "./composables/animatedNumber";
 
