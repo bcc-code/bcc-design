@@ -12,7 +12,7 @@
   ],
   "main": "./dist/design-components.umd.js",
   "module": "./dist/design-components.js",
-  "types": "./dist_types/index.d.ts",
+  "types": "./dist_types/css-package/index.d.ts",
   "exports": {
     ".": {
       "import": {
