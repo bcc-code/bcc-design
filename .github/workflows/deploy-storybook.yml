@@ -2,9 +2,8 @@ name: Deploy Storybook
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
