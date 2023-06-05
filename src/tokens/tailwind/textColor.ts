@@ -17,6 +17,11 @@ export const textColor = {
   "emphasis": {
     "DEFAULT": "var(--neutral-0)"
   },
+  "interactive": {
+    "DEFAULT": "var(--silver-tree-600)",
+    "hover": "var(--silver-tree-700)",
+    "pressed": "var(--silver-tree-500)"
+  },
   "button": {
     "primary": {
       "DEFAULT": "var(--neutral-0)"

@@ -11,26 +11,26 @@ function getCssVariable(token) {
   return token.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
 }
 
-function getNestedColors(buttonVariants, type) {
-  let buttonColors = {};
+function getNestedColors(variants, type) {
+  let colors = {};
 
   // variantKey = primary, secondary etc.
-  for (let [variantKey] of Object.entries(buttonVariants)) {
+  for (let [variantKey] of Object.entries(variants)) {
     // itemKey = background, foreground, border etc.
-    for (let [itemKey, itemValue] of Object.entries(buttonVariants[variantKey])) {
+    for (let [itemKey, itemValue] of Object.entries(variants[variantKey])) {
       if (itemKey === type) {
-        buttonColors[variantKey] = {};
+        colors[variantKey] = {};
 
         // tokenKey = default, hover, pressed etc.
         // tokenValue = hex color value
         for (let [tokenKey, tokenValue] of Object.entries(itemValue)) {
-          buttonColors[variantKey][tokenKey] = getCssVariable(tokenValue.value);
+          colors[variantKey][tokenKey] = getCssVariable(tokenValue.value);
         }
       }
     }
   }
 
-  return buttonColors;
+  return colors;
 }
 
 async function writeTailwindConfig(file, content) {
@@ -64,6 +64,12 @@ async function writeTextColors(aliasTokens) {
 
   // Semantic text colors
   const semanticForegroundColors = getNestedColors(semanticTokens, "foreground");
+  
+  const interactiveForegroundColors = aliasTokens.global.interactive;
+
+  for (let [tokenKey, tokenValue] of Object.entries(interactiveForegroundColors)) {
+    interactiveForegroundColors[tokenKey] = getCssVariable(tokenValue.value);
+  }
 
   // Button text colors
   const buttonForegroundColors = getNestedColors(aliasTokens.global.button, "foreground");
@@ -72,6 +78,7 @@ async function writeTextColors(aliasTokens) {
   const textColor = {
     ...globalTextColor,
     ...semanticForegroundColors,
+    interactive: interactiveForegroundColors,
     button: {
       ...buttonForegroundColors,
       danger: dangerButtonForegroundColors,
