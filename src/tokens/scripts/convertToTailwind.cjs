@@ -67,11 +67,15 @@ async function writeTextColors(aliasTokens) {
 
   // Button text colors
   const buttonForegroundColors = getNestedColors(aliasTokens.global.button, "foreground");
+  const dangerButtonForegroundColors = getNestedColors(aliasTokens.danger.button, "foreground");
 
   const textColor = {
     ...globalTextColor,
     ...semanticForegroundColors,
-    button: buttonForegroundColors,
+    button: {
+      ...buttonForegroundColors,
+      danger: dangerButtonForegroundColors,
+    },
   };
 
   let content = `export const textColor = ${JSON.stringify(textColor, null, 2)};`;
@@ -92,11 +96,15 @@ async function writeBorderColors(aliasTokens) {
 
   // Button border
   const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border");
+  const dangerButtonBorderColors = getNestedColors(aliasTokens.danger.button, "border");
 
   const borderColor = {
     ...globalBorderColor,
     ...semanticBorderColors,
-    button: buttonBorderColors,
+    button: {
+      ...buttonBorderColors,
+      danger: dangerButtonBorderColors,
+    },
   };
 
   let content = `export const borderColor = ${JSON.stringify(borderColor, null, 2)};`;
@@ -124,11 +132,15 @@ async function writeBackgroundColors(aliasTokens) {
 
   // Button background
   const buttonBackgroundColors = getNestedColors(aliasTokens.global.button, "background");
+  const dangerButtonBackgroundColors = getNestedColors(aliasTokens.danger.button, "background");
 
   const backgroundColor = {
     ...backgroundColors,
     ...semanticBackgroundColors,
-    button: buttonBackgroundColors,
+    button: {
+      ...buttonBackgroundColors,
+      danger: dangerButtonBackgroundColors,
+    },
   };
 
   let content = `export const backgroundColor = ${JSON.stringify(backgroundColor, null, 2)};`;

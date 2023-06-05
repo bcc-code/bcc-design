@@ -27,6 +27,18 @@ export const borderColor = {
       "DEFAULT": "var(--neutral-300)",
       "hover": "var(--neutral-900)",
       "pressed": "var(--neutral-400)"
+    },
+    "danger": {
+      "primary": {
+        "DEFAULT": "var(--red-800)",
+        "hover": "var(--red-900)",
+        "pressed": "var(--red-700)"
+      },
+      "secondary": {
+        "DEFAULT": "var(--neutral-300)",
+        "hover": "var(--red-800)",
+        "pressed": "var(--red-700)"
+      }
     }
   }
 };

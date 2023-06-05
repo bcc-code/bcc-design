@@ -69,13 +69,13 @@
 
     /* Danger variants */
     .bcc-button-danger.bcc-button-primary {
-        @apply bg-red-700 text-white hover:bg-red-800 active:bg-red-600 active:text-white focus:bg-red-700;
+        @apply bg-button-danger-primary text-button-danger-primary hover:bg-button-danger-primary-hover active:bg-button-danger-primary-pressed focus:bg-button-danger-primary-pressed;
     }
     .bcc-button-danger.bcc-button-secondary {
-        @apply border-neutral-200 bg-button-secondary text-red-700 hover:border-red-700 hover:text-red-800 hover:bg-red-50 active:border-red-600 active:text-red-600;
+        @apply border-button-danger-secondary bg-button-danger-secondary text-button-danger-secondary hover:border-button-danger-secondary-hover hover:bg-button-danger-secondary-hover active:border-button-danger-secondary-pressed active:bg-button-danger-secondary-pressed;
     }
     .bcc-button-danger.bcc-button-tertiary {
-        @apply text-neutral-700 hover:bg-red-50 hover:underline hover:text-red-800 active:text-red-600 active:underline focus:underline;
+        @apply text-button-danger-tertiary hover:text-button-danger-tertiary-hover active:text-button-danger-tertiary-pressed;
     }
 
     /* Icon */

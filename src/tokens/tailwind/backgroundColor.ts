@@ -39,6 +39,18 @@ export const backgroundColor = {
       "DEFAULT": "var(--neutral-0)",
       "hover": "var(--neutral-50)",
       "pressed": "var(--neutral-50)"
+    },
+    "danger": {
+      "primary": {
+        "DEFAULT": "var(--red-700)",
+        "hover": "var(--red-800)",
+        "pressed": "var(--red-600)"
+      },
+      "secondary": {
+        "DEFAULT": "var(--neutral-0)",
+        "hover": "var(--red-50)",
+        "pressed": "var(--red-50)"
+      }
     }
   }
 };
