@@ -1,7 +1,6 @@
 const fs = require("fs").promises;
 
-// TODO add emphasis
-const semanticColors = ["success", "warning", "danger", "info"];
+const semanticColors = ["success", "warning", "danger", "info", "emphasis"];
 let semanticTokens = {};
 
 function getCssVariable(token) {

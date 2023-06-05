@@ -26,6 +26,9 @@ export const backgroundColor = {
   "info": {
     "DEFAULT": "var(--blue-50)"
   },
+  "emphasis": {
+    "DEFAULT": "var(--neutral-900)"
+  },
   "button": {
     "primary": {
       "DEFAULT": "var(--silver-tree-600)",

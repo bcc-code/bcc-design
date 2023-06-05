@@ -14,6 +14,9 @@ export const textColor = {
   "info": {
     "DEFAULT": "var(--blue-900)"
   },
+  "emphasis": {
+    "DEFAULT": "var(--neutral-0)"
+  },
   "button": {
     "primary": {
       "DEFAULT": "var(--neutral-0)"

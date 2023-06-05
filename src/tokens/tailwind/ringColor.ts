@@ -14,6 +14,9 @@ export const ringColor = {
   "info": {
     "DEFAULT": "rgba(25,78,143,0.4)"
   },
+  "emphasis": {
+    "DEFAULT": "var(--neutral-800)"
+  },
   "button": {
     "primary": {
       "DEFAULT": "var(--silver-tree-700)",
