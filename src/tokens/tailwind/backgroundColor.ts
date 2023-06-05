@@ -34,8 +34,8 @@ export const backgroundColor = {
     },
     "secondary": {
       "DEFAULT": "var(--neutral-0)",
-      "hover": "var(--silver-tree-50)",
-      "pressed": "var(--silver-tree-50)"
+      "hover": "var(--neutral-50)",
+      "pressed": "var(--neutral-50)"
     }
   }
 };

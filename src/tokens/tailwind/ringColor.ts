@@ -16,14 +16,14 @@ export const ringColor = {
   },
   "button": {
     "primary": {
-      "DEFAULT": "var(--silver-tree-600)",
-      "hover": "var(--silver-tree-600)",
-      "pressed": "var(--silver-tree-500)"
+      "DEFAULT": "var(--silver-tree-700)",
+      "hover": "var(--silver-tree-800)",
+      "pressed": "var(--silver-tree-600)"
     },
     "secondary": {
-      "DEFAULT": "var(--silver-tree-600)",
-      "hover": "var(--silver-tree-700)",
-      "pressed": "var(--silver-tree-500)"
+      "DEFAULT": "var(--neutral-300)",
+      "hover": "var(--neutral-900)",
+      "pressed": "var(--neutral-400)"
     }
   }
 };

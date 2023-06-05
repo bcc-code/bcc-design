@@ -19,6 +19,9 @@ export const textColor = {
       "DEFAULT": "var(--neutral-0)"
     },
     "secondary": {
+      "DEFAULT": "var(--neutral-900)"
+    },
+    "tertiary": {
       "DEFAULT": "var(--silver-tree-600)",
       "hover": "var(--silver-tree-700)",
       "pressed": "var(--silver-tree-500)"
