@@ -63,8 +63,8 @@
         @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed;
     }
     .bcc-button-tertiary {
-        @apply text-button-tertiary active:text-button-tertiary-hover;
-        @apply border-transparent;
+        @apply text-button-tertiary hover:text-button-tertiary-hover active:text-button-tertiary-pressed;
+        @apply border-transparent hover:shadow-none active:shadow-none;
     }
 
     /* Danger variants */
