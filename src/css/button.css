@@ -62,10 +62,10 @@
     .bcc-button-secondary {
         @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed;
     }
-    /* .bcc-button-tertiary {
-        @apply text-button-tertiary hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:underline;
+    .bcc-button-tertiary {
+        @apply text-button-tertiary active:text-button-tertiary-hover;
         @apply border-transparent;
-    } */
+    }
 
     /* Danger variants */
     .bcc-button-danger.bcc-button-primary {
