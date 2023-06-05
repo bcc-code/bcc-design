@@ -61,7 +61,7 @@
         /* @apply disabled:text-button-primary-disabled disabled:bg-button-primary-disabled; */
     }
     .bcc-button-secondary {
-        @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed;
+        @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed;
         /* @apply disabled:text-button-secondary-disabled disabled:border-button-secondary-disabled disabled:bg-button-secondary-disabled; */
     }
     /* .bcc-button-tertiary {
