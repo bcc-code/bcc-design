@@ -1,6 +1,6 @@
 @layer components {
     .bcc-button {
-        @apply font-semibold inline-flex items-center active:shadow-inner hover:shadow-md focus:outline-none focus:ring-1 focus:ring-emphasis focus:ring-offset-2 tracking-wide border justify-between;
+        @apply font-semibold inline-flex items-center outline-1 outline-emphasis outline-offset-2 tracking-wide border justify-between active:shadow-inner hover:shadow-md focus:outline;
         @apply cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none;
         
         /* Default base size */
