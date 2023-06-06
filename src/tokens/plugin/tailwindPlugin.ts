@@ -1,14 +1,14 @@
 import { bccForbundetTheme } from "../../tokens";
 
-const tailwindPlugin = function ({ addBase }) {
+const tailwindPlugin = function ({ addBase }: any) {
   const colors = bccForbundetTheme.theme!.extend!.colors;
 
-  for (const [colorKey] of Object.entries(colors!)) {
-    for (const [colorWeightKey, colorWeightToken] of Object.entries(colors[colorKey])) {
+  for (const [colorKey, colorObject] of Object.entries(colors!)) {
+    for (const colorWeightKey in colorObject) {
       const variableName = `--${colorKey}-${colorWeightKey}`;
       addBase({
         ":root": {
-          [variableName]: colorWeightToken,
+          [variableName]: colorObject[colorWeightKey], // e.g. --neutral-600: #4b5563
         },
       });
     }
