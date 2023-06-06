@@ -26,6 +26,9 @@ export const backgroundColor = {
   "info": {
     "DEFAULT": "var(--blue-50)"
   },
+  "emphasis": {
+    "DEFAULT": "var(--neutral-900)"
+  },
   "button": {
     "primary": {
       "DEFAULT": "var(--silver-tree-600)",
@@ -34,8 +37,20 @@ export const backgroundColor = {
     },
     "secondary": {
       "DEFAULT": "var(--neutral-0)",
-      "hover": "var(--silver-tree-50)",
-      "pressed": "var(--silver-tree-50)"
+      "hover": "var(--neutral-50)",
+      "pressed": "var(--neutral-50)"
+    },
+    "danger": {
+      "primary": {
+        "DEFAULT": "var(--red-700)",
+        "hover": "var(--red-800)",
+        "pressed": "var(--red-600)"
+      },
+      "secondary": {
+        "DEFAULT": "var(--neutral-0)",
+        "hover": "var(--red-50)",
+        "pressed": "var(--red-50)"
+      }
     }
   }
 };

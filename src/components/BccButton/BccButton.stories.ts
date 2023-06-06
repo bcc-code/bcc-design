@@ -130,6 +130,11 @@ export const Disabled: StoryFn<typeof BccButton> = () => ({
       <BccButton variant="secondary" :disabled="true">Secondary disabled</BccButton>
       <BccButton variant="tertiary" :disabled="true">Tertiary disabled</BccButton>
     </div>
+    <div class="flex items-start gap-x-2 mt-4">
+      <BccButton variant="primary" :disabled="true" color="danger">Primary disabled</BccButton>
+      <BccButton variant="secondary" :disabled="true" color="danger">Secondary disabled</BccButton>
+      <BccButton variant="tertiary" :disabled="true" color="danger">Tertiary disabled</BccButton>
+    </div>
   `,
 });
 

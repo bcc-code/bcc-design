@@ -1,7 +1,7 @@
 @layer components {
     .bcc-button {
-        @apply font-semibold inline-flex items-center active:shadow-inner hover:shadow-md focus:outline-none focus:ring focus:ring-offset-2 tracking-wide border-2 justify-between;
-        @apply cursor-pointer disabled:cursor-not-allowed disabled:pointer-events-none;
+        @apply font-semibold inline-flex items-center tracking-wide border justify-between active:shadow-inner hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-emphasis focus-visible:outline-offset-2;
+        @apply cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none;
         
         /* Default base size */
         @apply text-base leading-5 py-2.5 px-5 gap-x-2 h-10 rounded-lg;
@@ -58,27 +58,24 @@
     .bcc-button-primary {
         @apply bg-button-primary text-button-primary hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary;
         @apply border-transparent;
-        /* @apply disabled:text-button-primary-disabled disabled:bg-button-primary-disabled; */
     }
     .bcc-button-secondary {
-        @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:text-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed active:text-button-secondary-pressed;
-        /* @apply disabled:text-button-secondary-disabled disabled:border-button-secondary-disabled disabled:bg-button-secondary-disabled; */
+        @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed;
     }
-    /* .bcc-button-tertiary {
-        @apply text-button-tertiary hover:bg-button-tertiary-hover hover:underline active:text-button-tertiary-hover active:underline focus:underline;
-        @apply border-transparent;
-        @apply disabled:text-button-tertiary-disabled;
-    } */
+    .bcc-button-tertiary {
+        @apply text-button-tertiary hover:text-button-tertiary-hover active:text-button-tertiary-pressed;
+        @apply border-transparent hover:shadow-none active:shadow-none;
+    }
 
     /* Danger variants */
     .bcc-button-danger.bcc-button-primary {
-        @apply bg-red-700 text-white hover:bg-red-800 active:bg-red-600 active:text-white focus:bg-red-700;
+        @apply bg-button-danger-primary text-button-danger-primary hover:bg-button-danger-primary-hover active:bg-button-danger-primary-pressed;
     }
     .bcc-button-danger.bcc-button-secondary {
-        @apply border-neutral-200 bg-button-secondary text-red-700 hover:border-red-700 hover:text-red-800 hover:bg-red-50 active:border-red-600 active:text-red-600;
+        @apply border-button-danger-secondary bg-button-danger-secondary text-button-danger-secondary hover:border-button-danger-secondary-hover hover:bg-button-danger-secondary-hover active:border-button-danger-secondary-pressed active:bg-button-danger-secondary-pressed;
     }
     .bcc-button-danger.bcc-button-tertiary {
-        @apply text-neutral-700 hover:bg-red-50 hover:underline hover:text-red-800 active:text-red-600 active:underline focus:underline;
+        @apply text-button-danger-tertiary hover:text-button-danger-tertiary-hover active:text-button-danger-tertiary-pressed;
     }
 
     /* Icon */

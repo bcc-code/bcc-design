@@ -14,16 +14,31 @@ export const ringColor = {
   "info": {
     "DEFAULT": "rgba(25,78,143,0.4)"
   },
+  "emphasis": {
+    "DEFAULT": "var(--neutral-800)"
+  },
   "button": {
     "primary": {
-      "DEFAULT": "var(--silver-tree-600)",
-      "hover": "var(--silver-tree-600)",
-      "pressed": "var(--silver-tree-500)"
+      "DEFAULT": "var(--silver-tree-700)",
+      "hover": "var(--silver-tree-800)",
+      "pressed": "var(--silver-tree-600)"
     },
     "secondary": {
-      "DEFAULT": "var(--silver-tree-600)",
-      "hover": "var(--silver-tree-700)",
-      "pressed": "var(--silver-tree-500)"
+      "DEFAULT": "var(--neutral-300)",
+      "hover": "var(--neutral-900)",
+      "pressed": "var(--neutral-400)"
+    },
+    "danger": {
+      "primary": {
+        "DEFAULT": "var(--red-800)",
+        "hover": "var(--red-900)",
+        "pressed": "var(--red-700)"
+      },
+      "secondary": {
+        "DEFAULT": "var(--neutral-300)",
+        "hover": "var(--red-800)",
+        "pressed": "var(--red-700)"
+      }
     }
   }
 };

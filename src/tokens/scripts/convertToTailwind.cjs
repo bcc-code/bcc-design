@@ -1,7 +1,6 @@
 const fs = require("fs").promises;
 
-// TODO add emphasis
-const semanticColors = ["success", "warning", "danger", "info"];
+const semanticColors = ["success", "warning", "danger", "info", "emphasis"];
 let semanticTokens = {};
 
 function getCssVariable(token) {
@@ -12,26 +11,26 @@ function getCssVariable(token) {
   return token.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
 }
 
-function getNestedColors(buttonVariants, type) {
-  let buttonColors = {};
+function getNestedColors(variants, type) {
+  let colors = {};
 
   // variantKey = primary, secondary etc.
-  for (let [variantKey] of Object.entries(buttonVariants)) {
+  for (let [variantKey] of Object.entries(variants)) {
     // itemKey = background, foreground, border etc.
-    for (let [itemKey, itemValue] of Object.entries(buttonVariants[variantKey])) {
+    for (let [itemKey, itemValue] of Object.entries(variants[variantKey])) {
       if (itemKey === type) {
-        buttonColors[variantKey] = {};
+        colors[variantKey] = {};
 
         // tokenKey = default, hover, pressed etc.
         // tokenValue = hex color value
         for (let [tokenKey, tokenValue] of Object.entries(itemValue)) {
-          buttonColors[variantKey][tokenKey] = getCssVariable(tokenValue.value);
+          colors[variantKey][tokenKey] = getCssVariable(tokenValue.value);
         }
       }
     }
   }
 
-  return buttonColors;
+  return colors;
 }
 
 async function writeTailwindConfig(file, content) {
@@ -65,14 +64,25 @@ async function writeTextColors(aliasTokens) {
 
   // Semantic text colors
   const semanticForegroundColors = getNestedColors(semanticTokens, "foreground");
+  
+  const interactiveForegroundColors = aliasTokens.global.interactive;
+
+  for (let [tokenKey, tokenValue] of Object.entries(interactiveForegroundColors)) {
+    interactiveForegroundColors[tokenKey] = getCssVariable(tokenValue.value);
+  }
 
   // Button text colors
   const buttonForegroundColors = getNestedColors(aliasTokens.global.button, "foreground");
+  const dangerButtonForegroundColors = getNestedColors(aliasTokens.danger.button, "foreground");
 
   const textColor = {
     ...globalTextColor,
     ...semanticForegroundColors,
-    button: buttonForegroundColors,
+    interactive: interactiveForegroundColors,
+    button: {
+      ...buttonForegroundColors,
+      danger: dangerButtonForegroundColors,
+    },
   };
 
   let content = `export const textColor = ${JSON.stringify(textColor, null, 2)};`;
@@ -93,11 +103,15 @@ async function writeBorderColors(aliasTokens) {
 
   // Button border
   const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border");
+  const dangerButtonBorderColors = getNestedColors(aliasTokens.danger.button, "border");
 
   const borderColor = {
     ...globalBorderColor,
     ...semanticBorderColors,
-    button: buttonBorderColors,
+    button: {
+      ...buttonBorderColors,
+      danger: dangerButtonBorderColors,
+    },
   };
 
   let content = `export const borderColor = ${JSON.stringify(borderColor, null, 2)};`;
@@ -125,11 +139,15 @@ async function writeBackgroundColors(aliasTokens) {
 
   // Button background
   const buttonBackgroundColors = getNestedColors(aliasTokens.global.button, "background");
+  const dangerButtonBackgroundColors = getNestedColors(aliasTokens.danger.button, "background");
 
   const backgroundColor = {
     ...backgroundColors,
     ...semanticBackgroundColors,
-    button: buttonBackgroundColors,
+    button: {
+      ...buttonBackgroundColors,
+      danger: dangerButtonBackgroundColors,
+    },
   };
 
   let content = `export const backgroundColor = ${JSON.stringify(backgroundColor, null, 2)};`;
