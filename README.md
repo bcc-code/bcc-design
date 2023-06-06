@@ -1,6 +1,10 @@
-# @bcc-code/vue-components
-This library is a collection of components that conform to the BCC Design System, implemented in Vue.js and styled with Tailwind CSS.
+# BCC Design System Components
+This library is a collection of components that conform to the BCC Design System.
 
+> **Note**
+> This is the Vue component implementation, for the CSS-only library [see here](./css-package/README.md)
+
+**@bcc-code/vue-components**
 [![version](https://img.shields.io/npm/v/@bcc-code/vue-components)](https://github.com/bcc-code/bcc-vue-components/releases) [![license](https://img.shields.io/npm/l/@bcc-code/vue-components)](https://github.com/bcc-code/bcc-vue-components/blob/main/LICENSE)
 
 ## Installation & Usage
