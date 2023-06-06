@@ -1,10 +1,9 @@
 # BCC Design System Components
 This library is a collection of components that conform to the BCC Design System.
 
-> **Note**
-> This is the Vue component implementation, for the CSS-only library [see here](./css-package/README.md)
+> **Note** This is the Vue component implementation, for the CSS-only library [see here](./css-package/README.md)
 
-**@bcc-code/vue-components**
+### @bcc-code/vue-components
 [![version](https://img.shields.io/npm/v/@bcc-code/vue-components)](https://github.com/bcc-code/bcc-vue-components/releases) [![license](https://img.shields.io/npm/l/@bcc-code/vue-components)](https://github.com/bcc-code/bcc-vue-components/blob/main/LICENSE)
 
 ## Installation & Usage
@@ -71,6 +70,16 @@ This will update both the root `package.json` as well as the `css-package/packag
 git push --follow-tags
 ```
 This will create a new [release](https://github.com/bcc-code/bcc-vue-components/releases) in GitHub. Set the release notes in GitHub and publish the release to bring this new version to npm.
+
+## Tokens
+This repository includes a setup with tokens from the design system. These tokens are exported from Figma and can be found in `src/tokens/input/figma.json`.
+
+To build the tokens from this source file, run:
+```sh
+pnpm build:tailwind
+```
+
+This will update the files of the Tailwind theme which can then be checked into Git.
 
 ## License
 This package is licensed under the [Apache 2.0 license](./LICENSE).
