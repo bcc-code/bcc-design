@@ -1,4 +1,4 @@
-import { bccForbundetTheme } from "../../tokens";
+import bccForbundetTheme from "../tailwind/bccForbundetTheme";
 
 const tailwindPlugin = function ({ addBase }: any) {
   const colors = bccForbundetTheme.theme!.extend!.colors;

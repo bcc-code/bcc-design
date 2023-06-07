@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { bccForbundetTheme } from "./src/tokens";
+import bccForbundetTheme from "./src/tokens/tailwind/bccForbundetTheme";
 import tailwindPlugin from "./src/tokens/plugin/tailwindPlugin";
 
 export default {
