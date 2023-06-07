@@ -10,7 +10,7 @@
     "dist_types",
     "dist_css"
   ],
-  "main": "./dist/vue-components.umd.js",
+  "main": "./dist/vue-components.umd.cjs",
   "module": "./dist/vue-components.js",
   "types": "./dist_types/index.d.ts",
   "exports": {
@@ -21,7 +21,7 @@
       },
       "require": {
         "types": "./dist_types/index.d.ts",
-        "default": "./dist/vue-components.umd.js"
+        "default": "./dist/vue-components.umd.cjs"
       }
     },
     "./style.css": {
