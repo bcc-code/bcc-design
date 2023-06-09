@@ -17,13 +17,15 @@ type Props = {
   required?: boolean;
 };
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   state: "default",
   disabled: false,
   required: false,
   showOptionalLabel: false,
   optionalLabel: "Optional",
 });
+
+const showOptionalLabel: bool = computed(() => props.showOptionalLabel && !props.required);
 
 const attrs = useAttrs();
 const attrsWithoutStyles = computed(() => {

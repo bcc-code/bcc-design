@@ -29,12 +29,21 @@ describe("BccInput", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("renders a text if the input is optional", () => {
+  it("can render an extra label if the input is optional", () => {
     const wrapper = mount(BccInput, {
       props: { showOptionalLabel: true, optionalLabel: "Custom optional label" },
     });
 
     expect(wrapper.text()).toBe("Custom optional label");
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it("does not render a text if the input is both required and optional", () => {
+    const wrapper = mount(BccInput, {
+      props: { showOptionalLabel: true, optionalLabel: "Custom optional label", required: true },
+    });
+
+    expect(wrapper.text()).not.toBe("Custom optional label");
     expect(wrapper.html()).toMatchSnapshot();
   });
 

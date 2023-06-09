@@ -14,6 +14,9 @@ export default {
     placeholder: {
       description: "The HTML placeholder attribute",
     },
+    showOptionalLabel: {
+      description: "Will only take effect when `required` is `false`",
+    },
     slotDefault: {
       name: "default slot",
       description: "An optional message below the input",
@@ -71,10 +74,10 @@ export const Optional: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccInput showOptionalLabel="true" label="Default" placeholder="With label and optional" :required="false" class="w-1/2" />
-      <BccInput showOptionalLabel="true" placeholder="Without label" :required="false" class="w-1/2" />
-      <BccInput showOptionalLabel="true" label="Label" optionalLabel="Optional label that is pretty long and should truncate" placeholder="Long optional label" :required="false" class="w-1/4" />
-      <BccInput showOptionalLabel="true" label="Pretty long label as well" optionalLabel="Optional label that is pretty long and should truncate" placeholder="Long label and optional label" :required="false" class="w-1/4" />
+      <BccInput :showOptionalLabel="true" label="Default" placeholder="With label and optional" :required="false" class="w-1/2" />
+      <BccInput :showOptionalLabel="true" placeholder="Without label" :required="false" class="w-1/2" />
+      <BccInput :showOptionalLabel="true" label="Label" optionalLabel="Optional label that is pretty long and should truncate" placeholder="Long optional label" :required="false" class="w-1/4" />
+      <BccInput :showOptionalLabel="true" label="Pretty long label as well" optionalLabel="Optional label that is pretty long and should truncate" placeholder="Long label and optional label" :required="false" class="w-1/4" />
     </div>
   `,
 });
