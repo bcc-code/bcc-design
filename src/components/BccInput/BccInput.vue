@@ -9,6 +9,7 @@ import { computed, type StyleValue } from "vue";
 import { useAttrs } from "vue";
 
 type Props = {
+  modelValue?: string;
   state?: "default" | "error" | "success";
   disabled?: boolean;
   label?: string;
@@ -24,6 +25,8 @@ const props = withDefaults(defineProps<Props>(), {
   showOptionalLabel: false,
   optionalLabel: "Optional",
 });
+
+defineEmits(["update:modelValue"]);
 
 const showOptionalLabel = computed(() => props.showOptionalLabel && !props.required);
 
@@ -65,6 +68,8 @@ const attrsWithoutStyles = computed(() => {
           'bcc-input-error': state === 'error',
           'bcc-input-success': state === 'success',
         }"
+        :value="modelValue"
+        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         v-bind="attrsWithoutStyles"
       />
     </label>
