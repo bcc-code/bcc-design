@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
   optionalLabel: "Optional",
 });
 
-const showOptionalLabel: bool = computed(() => props.showOptionalLabel && !props.required);
+const showOptionalLabel = computed(() => props.showOptionalLabel && !props.required);
 
 const attrs = useAttrs();
 const attrsWithoutStyles = computed(() => {
@@ -49,7 +49,10 @@ const attrsWithoutStyles = computed(() => {
       <span
         v-if="label || showOptionalLabel"
         class="flex gap-x-2"
-        :class="{ 'justify-between': label && showOptionalLabel, 'justify-end': !label && showOptionalLabel }"
+        :class="{
+          'justify-between': label && showOptionalLabel,
+          'justify-end': !label && showOptionalLabel,
+        }"
       >
         <span v-if="label" class="bcc-input-label">{{ label }}</span>
         <span v-if="showOptionalLabel" class="bcc-input-optional-label">{{ optionalLabel }}</span>
