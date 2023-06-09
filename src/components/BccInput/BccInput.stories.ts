@@ -37,7 +37,7 @@ export const Example = Template.bind({});
 Example.args = {
   state: "default",
   disabled: false,
-  required: true,
+  required: false,
   placeholder: "Example placeholder",
   slotDefault: "",
   label: "Example label",

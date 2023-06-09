@@ -2,7 +2,7 @@
 
 exports[`BccInput > renders a label 1`] = `
 "<div class=\\"inline-flex flex-col space-y-2\\"><label class=\\"space-y-2\\"><span class=\\"flex gap-x-2\\"><span class=\\"bcc-input-label\\">Test label</span>
-    <!--v-if--></span><input required=\\"\\" class=\\"bcc-input\\">
+    <!--v-if--></span><input class=\\"bcc-input\\">
   </label>
   <!--v-if-->
 </div>"
@@ -10,7 +10,7 @@ exports[`BccInput > renders a label 1`] = `
 
 exports[`BccInput > renders a text from the default slot 1`] = `
 "<div class=\\"inline-flex flex-col space-y-2\\"><label class=\\"space-y-2\\">
-    <!--v-if--><input required=\\"\\" class=\\"bcc-input\\">
+    <!--v-if--><input class=\\"bcc-input\\">
   </label><span class=\\"bcc-input-message-default\\">Test message</span></div>"
 `;
 
@@ -22,7 +22,7 @@ exports[`BccInput > renders a text if the input is optional 1`] = `
 
 exports[`BccInput > renders without a label or optional text 1`] = `
 "<div class=\\"inline-flex flex-col space-y-2\\"><label class=\\"space-y-2\\">
-    <!--v-if--><input required=\\"\\" class=\\"bcc-input\\">
+    <!--v-if--><input class=\\"bcc-input\\">
   </label>
   <!--v-if-->
 </div>"

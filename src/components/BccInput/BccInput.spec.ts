@@ -6,8 +6,7 @@ import BccInput from "./BccInput.vue";
 describe("BccInput", () => {
   it("renders a text from the default slot", () => {
     const wrapper = mount(BccInput, {
-      slots: { default: "Test message" },
-      props: { required: true },
+      slots: { default: "Test message" }
     });
 
     expect(wrapper.text()).toBe("Test message");
@@ -16,7 +15,7 @@ describe("BccInput", () => {
 
   it("renders a label", () => {
     const wrapper = mount(BccInput, {
-      props: { label: "Test label", required: true },
+      props: { label: "Test label" },
     });
 
     expect(wrapper.text()).toBe("Test label");
@@ -24,9 +23,7 @@ describe("BccInput", () => {
   });
 
   it("renders without a label or optional text", () => {
-    const wrapper = mount(BccInput, {
-      props: { required: true },
-    });
+    const wrapper = mount(BccInput);
 
     expect(wrapper.text()).toBe("");
     expect(wrapper.html()).toMatchSnapshot();
@@ -34,7 +31,7 @@ describe("BccInput", () => {
 
   it("renders a text if the input is optional", () => {
     const wrapper = mount(BccInput, {
-      props: { optionalLabel: "Custom optional label" },
+      props: { showOptionalLabel: true, optionalLabel: "Custom optional label" },
     });
 
     expect(wrapper.text()).toBe("Custom optional label");
