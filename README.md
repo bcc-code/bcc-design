@@ -58,9 +58,9 @@ pnpm build
 ```
 
 ### Releasing a new version
-Ensure you have admin rights to push to the `master` branch of the repository.
+Only maintainers who can push to the `main` branch can currently release new versions.
 
-Then run the version script. This passes the version argument to `npm version`, so you use it like that command. For example, to update from v0.12.0 to v0.13.0:
+To create a new version, don't use `npm version` but run the custom version script. This passes the version argument to `npm version`, so you use it like that command. For example, to update from v0.12.0 to v0.13.0:
 ```sh
 ./scripts/version.sh minor
 ```
@@ -69,7 +69,7 @@ This will update both the root `package.json` as well as the `css-package/packag
 ```sh
 git push --follow-tags
 ```
-This will create a new [release](https://github.com/bcc-code/bcc-vue-components/releases) in GitHub. Set the release notes in GitHub and publish the release to bring this new version to npm.
+This will create a new [release](https://github.com/bcc-code/bcc-vue-components/releases) in GitHub. Maintainers can publish this release, after which the new version will be pushed to npm with the `latest` tag.
 
 ## Tokens
 This repository includes a setup with tokens from the design system. These tokens are exported from Figma and can be found in `src/tokens/input/figma.json`.
