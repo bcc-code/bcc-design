@@ -12,16 +12,20 @@ type Props = {
   state?: "default" | "error" | "success";
   disabled?: boolean;
   label?: string;
+  showOptionalLabel?: boolean;
   optionalLabel?: string;
   required?: boolean;
 };
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   state: "default",
   disabled: false,
   required: false,
+  showOptionalLabel: false,
   optionalLabel: "Optional",
 });
+
+const showOptionalLabel = computed(() => props.showOptionalLabel && !props.required);
 
 const attrs = useAttrs();
 const attrsWithoutStyles = computed(() => {
@@ -43,12 +47,15 @@ const attrsWithoutStyles = computed(() => {
   >
     <label class="space-y-2">
       <span
-        v-if="label || !required"
+        v-if="label || showOptionalLabel"
         class="flex gap-x-2"
-        :class="{ 'justify-between': label && !required, 'justify-end': !label && !required }"
+        :class="{
+          'justify-between': label && showOptionalLabel,
+          'justify-end': !label && showOptionalLabel,
+        }"
       >
         <span v-if="label" class="bcc-input-label">{{ label }}</span>
-        <span v-if="!required" class="bcc-input-optional-label">{{ optionalLabel }}</span>
+        <span v-if="showOptionalLabel" class="bcc-input-optional-label">{{ optionalLabel }}</span>
       </span>
       <input
         :disabled="disabled"
