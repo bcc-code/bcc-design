@@ -29,12 +29,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ssh-key: ${{ secrets.ACTIONS_DEPLOY_PRIVATE_KEY }}
+          token: ${{ secrets.BCC_BOT_ACCESS_TOKEN }}
 
       - name: Set commit author to GitHub Actions
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "bcc-bot"
+          git config --global user.email "84040471+bcc-bot@users.noreply.github.com"
     
       - name: Version new ${{ github.event.inputs.version }} version
         run: ./scripts/version.sh ${{ github.event.inputs.version }}
