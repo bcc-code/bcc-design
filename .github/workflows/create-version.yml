@@ -40,5 +40,5 @@ jobs:
         run: ./scripts/version.sh ${{ github.event.inputs.version }}
 
       - name: Push
-        run: git push
+        run: git push --follow-tags
     
