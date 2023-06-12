@@ -1,0 +1,37 @@
+name: Create New Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: true
+        default: 'minor'
+
+env:
+  CI: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    permissions:
+      contents: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set commit author to GitHub Actions
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    
+      - name: Version new ${{ github.event.inputs.version }} version
+        run: ./scripts/version.sh ${{ github.event.inputs.version }}
+
+      - name: Push
+        run: git push
+    
