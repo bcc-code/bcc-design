@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version'
+        description: 'Version (major/minor/patch)'
         required: true
-        default: 'minor'
+        default: ''
 
 env:
   CI: true
