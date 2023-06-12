@@ -3,6 +3,11 @@
 # Take the version increment as an argument
 INCREMENT=$1
 
+if [ -z "$INCREMENT" ]; then
+    echo "No version given!"
+    exit 1
+fi
+
 # Version vue-components
 NEW_VERSION=$(npm version $INCREMENT --no-git-tag-version)
 
@@ -20,4 +25,4 @@ git add .
 git commit -m "$NEW_VERSION"
 
 # Create a tag
-git tag "$NEW_VERSION"
+git tag -am $NEW_VERSION "$NEW_VERSION"
