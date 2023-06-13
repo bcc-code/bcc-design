@@ -1,5 +1,4 @@
 name: Prepare Release
-run-name: Prepare Release ${{ github.env.TAG_NAME }}
 
 on:
   workflow_dispatch:
