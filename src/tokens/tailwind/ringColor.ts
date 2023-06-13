@@ -19,25 +19,25 @@ export const ringColor = {
   },
   "button": {
     "primary": {
-      "DEFAULT": "var(--border-primary)",
-      "hover": "var(--border-primary-hover)",
-      "pressed": "var(--border-primary-pressed)"
+      "DEFAULT": "var(--border-button-primary)",
+      "hover": "var(--border-button-primary-hover)",
+      "pressed": "var(--border-button-primary-pressed)"
     },
     "secondary": {
-      "DEFAULT": "var(--border-secondary)",
-      "hover": "var(--border-secondary-hover)",
-      "pressed": "var(--border-secondary-pressed)"
+      "DEFAULT": "var(--border-button-secondary)",
+      "hover": "var(--border-button-secondary-hover)",
+      "pressed": "var(--border-button-secondary-pressed)"
     },
     "danger": {
       "primary": {
-        "DEFAULT": "var(--border-danger-primary)",
-        "hover": "var(--border-danger-primary-hover)",
-        "pressed": "var(--border-danger-primary-pressed)"
+        "DEFAULT": "var(--border-button-danger-primary)",
+        "hover": "var(--border-button-danger-primary-hover)",
+        "pressed": "var(--border-button-danger-primary-pressed)"
       },
       "secondary": {
-        "DEFAULT": "var(--border-danger-secondary)",
-        "hover": "var(--border-danger-secondary-hover)",
-        "pressed": "var(--border-danger-secondary-pressed)"
+        "DEFAULT": "var(--border-button-danger-secondary)",
+        "hover": "var(--border-button-danger-secondary-hover)",
+        "pressed": "var(--border-button-danger-secondary-pressed)"
       }
     }
   }

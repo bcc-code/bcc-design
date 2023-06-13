@@ -128,8 +128,8 @@ async function writeBorderColors(aliasTokens) {
   const semanticBorderColors = getNestedColors(semanticTokens, "border", "border");
 
   // Button border
-  const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border", "border");
-  const dangerButtonBorderColors = getNestedColors(aliasTokens.danger.button, "border", "border-danger");
+  const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border", "border-button");
+  const dangerButtonBorderColors = getNestedColors(aliasTokens.danger.button, "border", "border-button-danger");
 
   const borderColor = {
     ...globalBorderColor,
