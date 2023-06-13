@@ -1,43 +1,43 @@
 export const borderColor = {
-  "on-primary": "var(--neutral-200)",
-  "on-secondary": "var(--neutral-300)",
-  "on-tertiary": "var(--neutral-400)",
+  "on-primary": "var(--border-on-primary)",
+  "on-secondary": "var(--border-on-secondary)",
+  "on-tertiary": "var(--border-on-tertiary)",
   "success": {
-    "DEFAULT": "rgba(10,92,47,0.4)"
+    "DEFAULT": "var(--border-success)"
   },
   "warning": {
-    "DEFAULT": "rgba(115,71,17,0.4)"
+    "DEFAULT": "var(--border-warning)"
   },
   "danger": {
-    "DEFAULT": "rgba(137,16,46,0.4)"
+    "DEFAULT": "var(--border-danger)"
   },
   "info": {
-    "DEFAULT": "rgba(25,78,143,0.4)"
+    "DEFAULT": "var(--border-info)"
   },
   "emphasis": {
-    "DEFAULT": "var(--neutral-800)"
+    "DEFAULT": "var(--border-emphasis)"
   },
   "button": {
     "primary": {
-      "DEFAULT": "var(--silver-tree-700)",
-      "hover": "var(--silver-tree-800)",
-      "pressed": "var(--silver-tree-600)"
+      "DEFAULT": "var(--border-button-primary)",
+      "hover": "var(--border-button-primary-hover)",
+      "pressed": "var(--border-button-primary-pressed)"
     },
     "secondary": {
-      "DEFAULT": "var(--neutral-300)",
-      "hover": "var(--neutral-900)",
-      "pressed": "var(--neutral-400)"
+      "DEFAULT": "var(--border-button-secondary)",
+      "hover": "var(--border-button-secondary-hover)",
+      "pressed": "var(--border-button-secondary-pressed)"
     },
     "danger": {
       "primary": {
-        "DEFAULT": "var(--red-800)",
-        "hover": "var(--red-900)",
-        "pressed": "var(--red-700)"
+        "DEFAULT": "var(--border-button-danger-primary)",
+        "hover": "var(--border-button-danger-primary-hover)",
+        "pressed": "var(--border-button-danger-primary-pressed)"
       },
       "secondary": {
-        "DEFAULT": "var(--neutral-300)",
-        "hover": "var(--red-800)",
-        "pressed": "var(--red-700)"
+        "DEFAULT": "var(--border-button-danger-secondary)",
+        "hover": "var(--border-button-danger-secondary-hover)",
+        "pressed": "var(--border-button-danger-secondary-pressed)"
       }
     }
   }

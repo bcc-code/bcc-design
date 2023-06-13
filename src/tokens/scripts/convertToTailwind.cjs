@@ -3,18 +3,39 @@ const fs = require("fs").promises;
 const semanticColors = ["success", "warning", "danger", "info", "emphasis"];
 let semanticTokens = {};
 
-function getCssVariable(token) {
-  if (!token.startsWith("{colors.")) {
-    return token;
+let tokenCssVariables = {};
+
+function getCssVariable(tokenKey, tokenValue) {
+  if (!tokenValue.startsWith("{colors.") && !tokenValue.startsWith("rgb")) {
+    throw Error("Token value not formatted properly");
   }
 
-  return token.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
+  let cssVariableValue = "";
+
+  // It's probably a color function like rgba()
+  if (!tokenValue.startsWith("{colors.")) {
+    cssVariableValue = tokenValue;
+  } else {
+    cssVariableValue = tokenValue.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
+  }
+
+  let cssVariableKey = tokenKey.replaceAll(".", "-");
+
+  if (cssVariableKey.toLowerCase().endsWith("-default")) {
+    cssVariableKey = cssVariableKey.slice(0, -8);
+  }
+
+  tokenCssVariables[`--${cssVariableKey}`] = cssVariableValue;
+
+  const cssVariable = `var(--${cssVariableKey})`;
+
+  return cssVariable;
 }
 
-function getNestedColors(variants, type) {
+function getNestedColors(variants, type, name) {
   let colors = {};
 
-  // variantKey = primary, secondary etc.
+  // variantKey = primary, secondary etc. or success, danger etc.
   for (let [variantKey] of Object.entries(variants)) {
     // itemKey = background, foreground, border etc.
     for (let [itemKey, itemValue] of Object.entries(variants[variantKey])) {
@@ -24,7 +45,7 @@ function getNestedColors(variants, type) {
         // tokenKey = default, hover, pressed etc.
         // tokenValue = hex color value
         for (let [tokenKey, tokenValue] of Object.entries(itemValue)) {
-          colors[variantKey][tokenKey] = getCssVariable(tokenValue.value);
+          colors[variantKey][tokenKey] = getCssVariable(`${name}-${variantKey}-${tokenKey}`, tokenValue.value);
         }
       }
     }
@@ -38,6 +59,11 @@ async function writeTailwindConfig(file, content) {
   content = content.replaceAll("default", "DEFAULT");
 
   await fs.writeFile(file, content, "utf8");
+}
+
+async function writeCssVariables() {
+  let content = `export const cssVariables = ${JSON.stringify(tokenCssVariables, null, 2)};`;
+  await fs.writeFile("./src/tokens/variables/variables.ts", content, "utf8");
 }
 
 async function writeColors(figmaInput) {
@@ -59,21 +85,21 @@ async function writeTextColors(aliasTokens) {
   const globalTextColor = aliasTokens.global.foreground;
 
   for (let [tokenKey, tokenValue] of Object.entries(globalTextColor)) {
-    globalTextColor[tokenKey] = getCssVariable(tokenValue.value);
+    globalTextColor[tokenKey] = getCssVariable("text-" + tokenKey, tokenValue.value);
   }
 
   // Semantic text colors
-  const semanticForegroundColors = getNestedColors(semanticTokens, "foreground");
+  const semanticForegroundColors = getNestedColors(semanticTokens, "foreground", "text");
   
   const interactiveForegroundColors = aliasTokens.global.interactive;
 
   for (let [tokenKey, tokenValue] of Object.entries(interactiveForegroundColors)) {
-    interactiveForegroundColors[tokenKey] = getCssVariable(tokenValue.value);
+    interactiveForegroundColors[tokenKey] = getCssVariable(`text-interactive-${tokenKey}`, tokenValue.value);
   }
 
   // Button text colors
-  const buttonForegroundColors = getNestedColors(aliasTokens.global.button, "foreground");
-  const dangerButtonForegroundColors = getNestedColors(aliasTokens.danger.button, "foreground");
+  const buttonForegroundColors = getNestedColors(aliasTokens.global.button, "foreground", "text-button");
+  const dangerButtonForegroundColors = getNestedColors(aliasTokens.danger.button, "foreground", "text-button-danger");
 
   const textColor = {
     ...globalTextColor,
@@ -95,15 +121,15 @@ async function writeBorderColors(aliasTokens) {
   const globalBorderColor = aliasTokens.global.border;
 
   for (let [tokenKey, tokenValue] of Object.entries(globalBorderColor)) {
-    globalBorderColor[tokenKey] = getCssVariable(tokenValue.value);
+    globalBorderColor[tokenKey] = getCssVariable("border-" + tokenKey, tokenValue.value)
   }
 
   // Semantic border
-  const semanticBorderColors = getNestedColors(semanticTokens, "border");
+  const semanticBorderColors = getNestedColors(semanticTokens, "border", "border");
 
   // Button border
-  const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border");
-  const dangerButtonBorderColors = getNestedColors(aliasTokens.danger.button, "border");
+  const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border", "border-button");
+  const dangerButtonBorderColors = getNestedColors(aliasTokens.danger.button, "border", "border-button-danger");
 
   const borderColor = {
     ...globalBorderColor,
@@ -130,16 +156,16 @@ async function writeBackgroundColors(aliasTokens) {
 
   for (let [variantKey] of Object.entries(backgroundColors)) {
     for (let [tokenKey, tokenValue] of Object.entries(backgroundColors[variantKey])) {
-      backgroundColors[variantKey][tokenKey] = getCssVariable(tokenValue.value);
+      backgroundColors[variantKey][tokenKey] = getCssVariable(`bg-${variantKey}-${tokenKey}`, tokenValue.value)
     }
   }
 
   // Semantic backgrounds
-  const semanticBackgroundColors = getNestedColors(semanticTokens, "background");
+  const semanticBackgroundColors = getNestedColors(semanticTokens, "background", "bg");
 
   // Button background
-  const buttonBackgroundColors = getNestedColors(aliasTokens.global.button, "background");
-  const dangerButtonBackgroundColors = getNestedColors(aliasTokens.danger.button, "background");
+  const buttonBackgroundColors = getNestedColors(aliasTokens.global.button, "background", "bg-button");
+  const dangerButtonBackgroundColors = getNestedColors(aliasTokens.danger.button, "background", "bg-button-danger");
 
   const backgroundColor = {
     ...backgroundColors,
@@ -178,6 +204,8 @@ async function main() {
   await writeTextColors(figmaInput["alias tokens"]);
   await writeBorderColors(figmaInput["alias tokens"]);
   await writeBackgroundColors(figmaInput["alias tokens"]);
+
+  await writeCssVariables();
 
   return console.log("Finished building Tailwind config");
 }
