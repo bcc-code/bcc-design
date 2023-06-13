@@ -30,10 +30,6 @@ function getCssVariable(tokenKey, tokenValue) {
 }
 
 function saveBrandVariable(tokenKey, tokenValue) {
-  if (!tokenValue.startsWith("{colors.") && !tokenValue.startsWith("rgb")) {
-    throw Error("Token value not formatted properly");
-  }
-
   let cssVariableValue = "";
 
   // It's probably a color function like rgba()
@@ -84,6 +80,9 @@ async function writeTailwindConfig(file, content) {
 async function writeCssVariables() {
   let content = `const cssVariables = ${JSON.stringify(globalCssVariables, null, 2)};\n\nexport default cssVariables;`;
   await fs.writeFile("./src/tokens/variables/global.ts", content, "utf8");
+  
+  let brandContent = `const cssVariables = ${JSON.stringify(brandCssVariables, null, 2)};\n\nexport default cssVariables;`;
+  await fs.writeFile("./src/tokens/variables/brand.ts", brandContent, "utf8");
 }
 
 async function writeColors(figmaInput) {
@@ -103,18 +102,22 @@ async function writeColors(figmaInput) {
 async function writeTextColors(aliasTokens) {
   // Global text colors
   const globalTextColor = aliasTokens.global.foreground;
+  const brandTextColor = aliasTokens.brand.foreground;
 
   for (let [tokenKey, tokenValue] of Object.entries(globalTextColor)) {
     globalTextColor[tokenKey] = getCssVariable("text-" + tokenKey, tokenValue.value);
+    saveBrandVariable("text-" + tokenKey, brandTextColor[tokenKey].value);
   }
 
   // Semantic text colors
   const semanticForegroundColors = getNestedColors(semanticTokens, "foreground", "text");
   
   const interactiveForegroundColors = aliasTokens.global.interactive;
+  const brandInteractiveForegroundColors = aliasTokens.brand.interactive;
 
   for (let [tokenKey, tokenValue] of Object.entries(interactiveForegroundColors)) {
     interactiveForegroundColors[tokenKey] = getCssVariable(`text-interactive-${tokenKey}`, tokenValue.value);
+    saveBrandVariable(`text-interactive-${tokenKey}`, brandInteractiveForegroundColors[tokenKey].value);
   }
 
   // Button text colors
@@ -139,9 +142,11 @@ async function writeTextColors(aliasTokens) {
 async function writeBorderColors(aliasTokens) {
   // Global border
   const globalBorderColor = aliasTokens.global.border;
+  const brandBorderColor = aliasTokens.brand.border;
 
   for (let [tokenKey, tokenValue] of Object.entries(globalBorderColor)) {
     globalBorderColor[tokenKey] = getCssVariable("border-" + tokenKey, tokenValue.value)
+    saveBrandVariable("border-" + tokenKey, brandBorderColor[tokenKey].value)
   }
 
   // Semantic border
@@ -173,10 +178,14 @@ async function writeBorderColors(aliasTokens) {
 async function writeBackgroundColors(aliasTokens) {
   // Normal background
   const backgroundColors = aliasTokens.global.background;
+  const brandBackgroundColors = aliasTokens.brand.background;
 
   for (let [variantKey] of Object.entries(backgroundColors)) {
     for (let [tokenKey, tokenValue] of Object.entries(backgroundColors[variantKey])) {
       backgroundColors[variantKey][tokenKey] = getCssVariable(`bg-${variantKey}-${tokenKey}`, tokenValue.value)
+      if (brandBackgroundColors[variantKey][tokenKey]) {
+        saveBrandVariable(`bg-${variantKey}-${tokenKey}`, brandBackgroundColors[variantKey][tokenKey].value);
+      }
     }
   }
 
