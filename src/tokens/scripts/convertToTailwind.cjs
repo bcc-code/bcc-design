@@ -55,6 +55,28 @@ function getNestedColors(variants, type) {
   return colors;
 }
 
+function getNestedColorsWithTokenCssVariable(variants, type, name) {
+  let colors = {};
+
+  // variantKey = primary, secondary etc.
+  for (let [variantKey] of Object.entries(variants)) {
+    // itemKey = background, foreground, border etc.
+    for (let [itemKey, itemValue] of Object.entries(variants[variantKey])) {
+      if (itemKey === type) {
+        colors[variantKey] = {};
+
+        // tokenKey = default, hover, pressed etc.
+        // tokenValue = hex color value
+        for (let [tokenKey, tokenValue] of Object.entries(itemValue)) {
+          colors[variantKey][tokenKey] = getDoubleCssVariable(`${name}-${variantKey}-${tokenKey}`, tokenValue.value);
+        }
+      }
+    }
+  }
+
+  return colors;
+}
+
 async function writeTailwindConfig(file, content) {
   // Simplifies class names so bg-info-default becomes bg-info
   content = content.replaceAll("default", "DEFAULT");
@@ -95,12 +117,12 @@ async function writeTextColors(aliasTokens) {
   const interactiveForegroundColors = aliasTokens.global.interactive;
 
   for (let [tokenKey, tokenValue] of Object.entries(interactiveForegroundColors)) {
-    interactiveForegroundColors[tokenKey] = getCssVariable(tokenValue.value);
+    interactiveForegroundColors[tokenKey] = getDoubleCssVariable(`text-interactive-${tokenKey}`, tokenValue.value);
   }
 
   // Button text colors
-  const buttonForegroundColors = getNestedColors(aliasTokens.global.button, "foreground");
-  const dangerButtonForegroundColors = getNestedColors(aliasTokens.danger.button, "foreground");
+  const buttonForegroundColors = getNestedColorsWithTokenCssVariable(aliasTokens.global.button, "foreground", "text-button");
+  const dangerButtonForegroundColors = getNestedColorsWithTokenCssVariable(aliasTokens.danger.button, "foreground", "text-button-danger");
 
   const textColor = {
     ...globalTextColor,
@@ -129,8 +151,8 @@ async function writeBorderColors(aliasTokens) {
   const semanticBorderColors = getNestedColors(semanticTokens, "border");
 
   // Button border
-  const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border");
-  const dangerButtonBorderColors = getNestedColors(aliasTokens.danger.button, "border");
+  const buttonBorderColors = getNestedColorsWithTokenCssVariable(aliasTokens.global.button, "border", "border");
+  const dangerButtonBorderColors = getNestedColorsWithTokenCssVariable(aliasTokens.danger.button, "border", "border-danger");
 
   const borderColor = {
     ...globalBorderColor,
@@ -165,8 +187,8 @@ async function writeBackgroundColors(aliasTokens) {
   const semanticBackgroundColors = getNestedColors(semanticTokens, "background");
 
   // Button background
-  const buttonBackgroundColors = getNestedColors(aliasTokens.global.button, "background");
-  const dangerButtonBackgroundColors = getNestedColors(aliasTokens.danger.button, "background");
+  const buttonBackgroundColors = getNestedColorsWithTokenCssVariable(aliasTokens.global.button, "background", "bg-button");
+  const dangerButtonBackgroundColors = getNestedColorsWithTokenCssVariable(aliasTokens.danger.button, "background", "bg-button-danger");
 
   const backgroundColor = {
     ...backgroundColors,

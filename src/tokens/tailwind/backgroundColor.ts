@@ -31,25 +31,25 @@ export const backgroundColor = {
   },
   "button": {
     "primary": {
-      "DEFAULT": "var(--silver-tree-600)",
-      "hover": "var(--silver-tree-700)",
-      "pressed": "var(--silver-tree-500)"
+      "DEFAULT": "var(--bg-button-primary)",
+      "hover": "var(--bg-button-primary-hover)",
+      "pressed": "var(--bg-button-primary-pressed)"
     },
     "secondary": {
-      "DEFAULT": "var(--neutral-0)",
-      "hover": "var(--neutral-50)",
-      "pressed": "var(--neutral-50)"
+      "DEFAULT": "var(--bg-button-secondary)",
+      "hover": "var(--bg-button-secondary-hover)",
+      "pressed": "var(--bg-button-secondary-pressed)"
     },
     "danger": {
       "primary": {
-        "DEFAULT": "var(--red-700)",
-        "hover": "var(--red-800)",
-        "pressed": "var(--red-600)"
+        "DEFAULT": "var(--bg-button-danger-primary)",
+        "hover": "var(--bg-button-danger-primary-hover)",
+        "pressed": "var(--bg-button-danger-primary-pressed)"
       },
       "secondary": {
-        "DEFAULT": "var(--neutral-0)",
-        "hover": "var(--red-50)",
-        "pressed": "var(--red-50)"
+        "DEFAULT": "var(--bg-button-danger-secondary)",
+        "hover": "var(--bg-button-danger-secondary-hover)",
+        "pressed": "var(--bg-button-danger-secondary-pressed)"
       }
     }
   }

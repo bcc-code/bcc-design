@@ -19,25 +19,25 @@ export const outlineColor = {
   },
   "button": {
     "primary": {
-      "DEFAULT": "var(--silver-tree-700)",
-      "hover": "var(--silver-tree-800)",
-      "pressed": "var(--silver-tree-600)"
+      "DEFAULT": "var(--border-primary)",
+      "hover": "var(--border-primary-hover)",
+      "pressed": "var(--border-primary-pressed)"
     },
     "secondary": {
-      "DEFAULT": "var(--neutral-300)",
-      "hover": "var(--neutral-900)",
-      "pressed": "var(--neutral-400)"
+      "DEFAULT": "var(--border-secondary)",
+      "hover": "var(--border-secondary-hover)",
+      "pressed": "var(--border-secondary-pressed)"
     },
     "danger": {
       "primary": {
-        "DEFAULT": "var(--red-800)",
-        "hover": "var(--red-900)",
-        "pressed": "var(--red-700)"
+        "DEFAULT": "var(--border-danger-primary)",
+        "hover": "var(--border-danger-primary-hover)",
+        "pressed": "var(--border-danger-primary-pressed)"
       },
       "secondary": {
-        "DEFAULT": "var(--neutral-300)",
-        "hover": "var(--red-800)",
-        "pressed": "var(--red-700)"
+        "DEFAULT": "var(--border-danger-secondary)",
+        "hover": "var(--border-danger-secondary-hover)",
+        "pressed": "var(--border-danger-secondary-pressed)"
       }
     }
   }

@@ -18,33 +18,33 @@ export const textColor = {
     "DEFAULT": "var(--neutral-0)"
   },
   "interactive": {
-    "DEFAULT": "var(--silver-tree-600)",
-    "hover": "var(--silver-tree-700)",
-    "pressed": "var(--silver-tree-500)"
+    "DEFAULT": "var(--text-interactive)",
+    "hover": "var(--text-interactive-hover)",
+    "pressed": "var(--text-interactive-pressed)"
   },
   "button": {
     "primary": {
-      "DEFAULT": "var(--neutral-0)"
+      "DEFAULT": "var(--text-button-primary)"
     },
     "secondary": {
-      "DEFAULT": "var(--neutral-900)"
+      "DEFAULT": "var(--text-button-secondary)"
     },
     "tertiary": {
-      "DEFAULT": "var(--silver-tree-600)",
-      "hover": "var(--silver-tree-700)",
-      "pressed": "var(--silver-tree-500)"
+      "DEFAULT": "var(--text-button-tertiary)",
+      "hover": "var(--text-button-tertiary-hover)",
+      "pressed": "var(--text-button-tertiary-pressed)"
     },
     "danger": {
       "primary": {
-        "DEFAULT": "var(--neutral-0)"
+        "DEFAULT": "var(--text-button-danger-primary)"
       },
       "secondary": {
-        "DEFAULT": "var(--red-800)"
+        "DEFAULT": "var(--text-button-danger-secondary)"
       },
       "tertiary": {
-        "DEFAULT": "var(--neutral-900)",
-        "hover": "var(--red-800)",
-        "pressed": "var(--red-600)"
+        "DEFAULT": "var(--text-button-danger-tertiary)",
+        "hover": "var(--text-button-danger-tertiary-hover)",
+        "pressed": "var(--text-button-danger-tertiary-pressed)"
       }
     }
   }
