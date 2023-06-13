@@ -15,19 +15,19 @@ export const backgroundColor = {
     "pressed": "var(--bg-tertiary-pressed)"
   },
   "success": {
-    "DEFAULT": "var(--green-50)"
+    "DEFAULT": "var(--bg-success)"
   },
   "warning": {
-    "DEFAULT": "var(--yellow-50)"
+    "DEFAULT": "var(--bg-warning)"
   },
   "danger": {
-    "DEFAULT": "var(--red-50)"
+    "DEFAULT": "var(--bg-danger)"
   },
   "info": {
-    "DEFAULT": "var(--blue-50)"
+    "DEFAULT": "var(--bg-info)"
   },
   "emphasis": {
-    "DEFAULT": "var(--neutral-900)"
+    "DEFAULT": "var(--bg-emphasis)"
   },
   "button": {
     "primary": {
