@@ -3,19 +3,19 @@ export const borderColor = {
   "on-secondary": "var(--border-on-secondary)",
   "on-tertiary": "var(--border-on-tertiary)",
   "success": {
-    "DEFAULT": "rgba(10,92,47,0.4)"
+    "DEFAULT": "var(--border-success)"
   },
   "warning": {
-    "DEFAULT": "rgba(115,71,17,0.4)"
+    "DEFAULT": "var(--border-warning)"
   },
   "danger": {
-    "DEFAULT": "rgba(137,16,46,0.4)"
+    "DEFAULT": "var(--border-danger)"
   },
   "info": {
-    "DEFAULT": "rgba(25,78,143,0.4)"
+    "DEFAULT": "var(--border-info)"
   },
   "emphasis": {
-    "DEFAULT": "var(--neutral-800)"
+    "DEFAULT": "var(--border-emphasis)"
   },
   "button": {
     "primary": {

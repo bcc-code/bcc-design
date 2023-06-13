@@ -14,12 +14,19 @@ function getCssVariable(token) {
 }
 
 function getDoubleCssVariable(tokenKey, tokenValue) {
-  if (!tokenValue.startsWith("{colors.")) {
+  if (!tokenValue.startsWith("{colors.") && !tokenValue.startsWith("rgb")) {
     throw Error("Token value not formatted properly");
   }
 
-  const cssVariableValue = tokenValue.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
-  
+  let cssVariableValue = "";
+
+  // It's probably a color function like rgba()
+  if (!tokenValue.startsWith("{colors.")) {
+    cssVariableValue = tokenValue;
+  } else {
+    cssVariableValue = tokenValue.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
+  }
+
   let cssVariableKey = tokenKey.replaceAll(".", "-");
 
   if (cssVariableKey.toLowerCase().endsWith("-default")) {
@@ -148,7 +155,7 @@ async function writeBorderColors(aliasTokens) {
   }
 
   // Semantic border
-  const semanticBorderColors = getNestedColors(semanticTokens, "border");
+  const semanticBorderColors = getNestedColorsWithTokenCssVariable(semanticTokens, "border", "border");
 
   // Button border
   const buttonBorderColors = getNestedColorsWithTokenCssVariable(aliasTokens.global.button, "border", "border");
