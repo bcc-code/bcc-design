@@ -36,7 +36,7 @@ function getDoubleCssVariable(tokenKey, tokenValue) {
 function getNestedColors(variants, type) {
   let colors = {};
 
-  // variantKey = primary, secondary etc.
+  // variantKey = primary, secondary etc. or success, danger etc.
   for (let [variantKey] of Object.entries(variants)) {
     // itemKey = background, foreground, border etc.
     for (let [itemKey, itemValue] of Object.entries(variants[variantKey])) {
@@ -58,7 +58,7 @@ function getNestedColors(variants, type) {
 function getNestedColorsWithTokenCssVariable(variants, type, name) {
   let colors = {};
 
-  // variantKey = primary, secondary etc.
+  // variantKey = primary, secondary etc. or success, danger etc.
   for (let [variantKey] of Object.entries(variants)) {
     // itemKey = background, foreground, border etc.
     for (let [itemKey, itemValue] of Object.entries(variants[variantKey])) {
@@ -112,7 +112,7 @@ async function writeTextColors(aliasTokens) {
   }
 
   // Semantic text colors
-  const semanticForegroundColors = getNestedColors(semanticTokens, "foreground");
+  const semanticForegroundColors = getNestedColorsWithTokenCssVariable(semanticTokens, "foreground", "text");
   
   const interactiveForegroundColors = aliasTokens.global.interactive;
 

@@ -3,19 +3,19 @@ export const textColor = {
   "secondary": "var(--text-secondary)",
   "tertiary": "var(--text-tertiary)",
   "success": {
-    "DEFAULT": "var(--green-900)"
+    "DEFAULT": "var(--text-success)"
   },
   "warning": {
-    "DEFAULT": "var(--yellow-900)"
+    "DEFAULT": "var(--text-warning)"
   },
   "danger": {
-    "DEFAULT": "var(--red-900)"
+    "DEFAULT": "var(--text-danger)"
   },
   "info": {
-    "DEFAULT": "var(--blue-900)"
+    "DEFAULT": "var(--text-info)"
   },
   "emphasis": {
-    "DEFAULT": "var(--neutral-0)"
+    "DEFAULT": "var(--text-emphasis)"
   },
   "interactive": {
     "DEFAULT": "var(--text-interactive)",
