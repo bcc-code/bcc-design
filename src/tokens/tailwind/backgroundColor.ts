@@ -1,18 +1,18 @@
 export const backgroundColor = {
   "primary": {
-    "DEFAULT": "var(--neutral-0)",
-    "hover": "var(--isbre-50)",
-    "active": "var(--isbre-200)"
+    "DEFAULT": "var(--bg-primary)",
+    "hover": "var(--bg-primary-hover)",
+    "active": "var(--bg-primary-active)"
   },
   "secondary": {
-    "DEFAULT": "var(--isbre-100)",
-    "hover": "var(--isbre-200)",
-    "active": "var(--isbre-300)"
+    "DEFAULT": "var(--bg-secondary)",
+    "hover": "var(--bg-secondary-hover)",
+    "active": "var(--bg-secondary-active)"
   },
   "tertiary": {
-    "DEFAULT": "var(--isbre-400)",
-    "hover": "var(--isbre-500)",
-    "pressed": "var(--isbre-600)"
+    "DEFAULT": "var(--bg-tertiary)",
+    "hover": "var(--bg-tertiary-hover)",
+    "pressed": "var(--bg-tertiary-pressed)"
   },
   "success": {
     "DEFAULT": "var(--green-50)"

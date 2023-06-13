@@ -1,4 +1,5 @@
 import bccForbundetTheme from "../tailwind/bccForbundetTheme";
+import { cssVariables } from "../variables/variables";
 
 const tailwindPlugin = function ({ addBase }: any) {
   const colors = bccForbundetTheme.theme!.extend!.colors;
@@ -12,6 +13,14 @@ const tailwindPlugin = function ({ addBase }: any) {
         },
       });
     }
+  }
+
+  for (const [variableName, variableValue] of Object.entries(cssVariables)) {
+    addBase({
+      ":root": {
+        [variableName]: variableValue,
+      },
+    });
   }
 };
 

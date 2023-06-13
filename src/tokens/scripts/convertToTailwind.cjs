@@ -3,12 +3,34 @@ const fs = require("fs").promises;
 const semanticColors = ["success", "warning", "danger", "info", "emphasis"];
 let semanticTokens = {};
 
+let tokenCssVariables = {};
+
 function getCssVariable(token) {
   if (!token.startsWith("{colors.")) {
     return token;
   }
 
   return token.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
+}
+
+function getDoubleCssVariable(tokenKey, tokenValue) {
+  if (!tokenValue.startsWith("{colors.")) {
+    throw Error("Token value not formatted properly");
+  }
+
+  const cssVariableValue = tokenValue.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
+  
+  let cssVariableKey = tokenKey.replaceAll(".", "-");
+
+  if (cssVariableKey.toLowerCase().endsWith("-default")) {
+    cssVariableKey = cssVariableKey.slice(0, -8);
+  }
+
+  tokenCssVariables[`--${cssVariableKey}`] = cssVariableValue;
+
+  const cssVariable = `var(--${cssVariableKey})`;
+
+  return cssVariable;
 }
 
 function getNestedColors(variants, type) {
@@ -40,6 +62,11 @@ async function writeTailwindConfig(file, content) {
   await fs.writeFile(file, content, "utf8");
 }
 
+async function writeCssVariables() {
+  let content = `export const cssVariables = ${JSON.stringify(tokenCssVariables, null, 2)};`;
+  await fs.writeFile("./src/tokens/variables/variables.ts", content, "utf8");
+}
+
 async function writeColors(figmaInput) {
   let colors = figmaInput.reference.colors;
 
@@ -59,7 +86,7 @@ async function writeTextColors(aliasTokens) {
   const globalTextColor = aliasTokens.global.foreground;
 
   for (let [tokenKey, tokenValue] of Object.entries(globalTextColor)) {
-    globalTextColor[tokenKey] = getCssVariable(tokenValue.value);
+    globalTextColor[tokenKey] = getDoubleCssVariable("text-" + tokenKey, tokenValue.value);
   }
 
   // Semantic text colors
@@ -95,7 +122,7 @@ async function writeBorderColors(aliasTokens) {
   const globalBorderColor = aliasTokens.global.border;
 
   for (let [tokenKey, tokenValue] of Object.entries(globalBorderColor)) {
-    globalBorderColor[tokenKey] = getCssVariable(tokenValue.value);
+    globalBorderColor[tokenKey] = getDoubleCssVariable("border-" + tokenKey, tokenValue.value)
   }
 
   // Semantic border
@@ -130,7 +157,7 @@ async function writeBackgroundColors(aliasTokens) {
 
   for (let [variantKey] of Object.entries(backgroundColors)) {
     for (let [tokenKey, tokenValue] of Object.entries(backgroundColors[variantKey])) {
-      backgroundColors[variantKey][tokenKey] = getCssVariable(tokenValue.value);
+      backgroundColors[variantKey][tokenKey] = getDoubleCssVariable(`bg-${variantKey}-${tokenKey}`, tokenValue.value)
     }
   }
 
@@ -178,6 +205,8 @@ async function main() {
   await writeTextColors(figmaInput["alias tokens"]);
   await writeBorderColors(figmaInput["alias tokens"]);
   await writeBackgroundColors(figmaInput["alias tokens"]);
+
+  await writeCssVariables();
 
   return console.log("Finished building Tailwind config");
 }

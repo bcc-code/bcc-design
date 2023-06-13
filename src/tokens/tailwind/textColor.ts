@@ -1,7 +1,7 @@
 export const textColor = {
-  "primary": "var(--neutral-900)",
-  "secondary": "var(--neutral-600)",
-  "tertiary": "var(--neutral-400)",
+  "primary": "var(--text-primary)",
+  "secondary": "var(--text-secondary)",
+  "tertiary": "var(--text-tertiary)",
   "success": {
     "DEFAULT": "var(--green-900)"
   },

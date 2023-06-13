@@ -1,7 +1,7 @@
 export const outlineColor = {
-  "on-primary": "var(--neutral-200)",
-  "on-secondary": "var(--neutral-300)",
-  "on-tertiary": "var(--neutral-400)",
+  "on-primary": "var(--border-on-primary)",
+  "on-secondary": "var(--border-on-secondary)",
+  "on-tertiary": "var(--border-on-tertiary)",
   "success": {
     "DEFAULT": "rgba(10,92,47,0.4)"
   },
