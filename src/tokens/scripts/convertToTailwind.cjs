@@ -4,12 +4,9 @@ const semanticColors = ["success", "warning", "danger", "info", "emphasis"];
 let semanticTokens = {};
 
 let globalCssVariables = {};
+let brandCssVariables = {};
 
 function getCssVariable(tokenKey, tokenValue) {
-  if (!tokenValue.startsWith("{colors.") && !tokenValue.startsWith("rgb")) {
-    throw Error("Token value not formatted properly");
-  }
-
   let cssVariableValue = "";
 
   // It's probably a color function like rgba()
@@ -30,6 +27,29 @@ function getCssVariable(tokenKey, tokenValue) {
   const cssVariable = `var(--${cssVariableKey})`;
 
   return cssVariable;
+}
+
+function saveBrandVariable(tokenKey, tokenValue) {
+  if (!tokenValue.startsWith("{colors.") && !tokenValue.startsWith("rgb")) {
+    throw Error("Token value not formatted properly");
+  }
+
+  let cssVariableValue = "";
+
+  // It's probably a color function like rgba()
+  if (!tokenValue.startsWith("{colors.")) {
+    cssVariableValue = tokenValue;
+  } else {
+    cssVariableValue = tokenValue.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
+  }
+
+  let cssVariableKey = tokenKey.replaceAll(".", "-");
+
+  if (cssVariableKey.toLowerCase().endsWith("-default")) {
+    cssVariableKey = cssVariableKey.slice(0, -8);
+  }
+
+  brandCssVariables[`--${cssVariableKey}`] = cssVariableValue;
 }
 
 function getNestedColors(variants, type, name) {
