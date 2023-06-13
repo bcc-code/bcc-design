@@ -3,7 +3,7 @@ const fs = require("fs").promises;
 const semanticColors = ["success", "warning", "danger", "info", "emphasis"];
 let semanticTokens = {};
 
-let tokenCssVariables = {};
+let globalCssVariables = {};
 
 function getCssVariable(tokenKey, tokenValue) {
   if (!tokenValue.startsWith("{colors.") && !tokenValue.startsWith("rgb")) {
@@ -25,7 +25,7 @@ function getCssVariable(tokenKey, tokenValue) {
     cssVariableKey = cssVariableKey.slice(0, -8);
   }
 
-  tokenCssVariables[`--${cssVariableKey}`] = cssVariableValue;
+  globalCssVariables[`--${cssVariableKey}`] = cssVariableValue;
 
   const cssVariable = `var(--${cssVariableKey})`;
 
@@ -62,8 +62,8 @@ async function writeTailwindConfig(file, content) {
 }
 
 async function writeCssVariables() {
-  let content = `export const cssVariables = ${JSON.stringify(tokenCssVariables, null, 2)};`;
-  await fs.writeFile("./src/tokens/variables/variables.ts", content, "utf8");
+  let content = `const cssVariables = ${JSON.stringify(globalCssVariables, null, 2)};\n\nexport default cssVariables;`;
+  await fs.writeFile("./src/tokens/variables/global.ts", content, "utf8");
 }
 
 async function writeColors(figmaInput) {

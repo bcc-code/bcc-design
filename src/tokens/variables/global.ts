@@ -1,4 +1,4 @@
-export const cssVariables = {
+const cssVariables = {
   "--text-primary": "var(--neutral-900)",
   "--text-secondary": "var(--neutral-600)",
   "--text-tertiary": "var(--neutral-400)",
@@ -67,3 +67,5 @@ export const cssVariables = {
   "--bg-button-danger-secondary-hover": "var(--red-50)",
   "--bg-button-danger-secondary-pressed": "var(--red-50)"
 };
+
+export default cssVariables;

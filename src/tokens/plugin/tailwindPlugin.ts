@@ -1,5 +1,5 @@
 import bccForbundetTheme from "../tailwind/bccForbundetTheme";
-import { cssVariables } from "../variables/variables";
+import globalCssVariables from "../variables/global";
 
 const tailwindPlugin = function ({ addBase }: any) {
   const colors = bccForbundetTheme.theme!.extend!.colors;
@@ -15,7 +15,7 @@ const tailwindPlugin = function ({ addBase }: any) {
     }
   }
 
-  for (const [variableName, variableValue] of Object.entries(cssVariables)) {
+  for (const [variableName, variableValue] of Object.entries(globalCssVariables)) {
     addBase({
       ":root": {
         [variableName]: variableValue,
