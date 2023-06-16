@@ -24,7 +24,6 @@ const Template: StoryFn<typeof BccAvatar> = (args) => ({
   },
   template: `
     <BccAvatar v-bind="args" />
-    <span class="text-secondary">blarp</span>
   `,
 });
 

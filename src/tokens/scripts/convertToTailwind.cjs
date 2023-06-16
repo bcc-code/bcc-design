@@ -6,46 +6,37 @@ let semanticTokens = {};
 let globalCssVariables = {};
 let brandCssVariables = {};
 
-function getCssVariable(tokenKey, tokenValue) {
-  let cssVariableValue = "";
-
-  // It's probably a color function like rgba()
+// Convert a token value into something that can be used as the value of a CSS variable
+function getCssVariableValue(tokenValue) {
+  // It might be a color function like rgba() or a direct hex color value
   if (!tokenValue.startsWith("{colors.")) {
-    cssVariableValue = tokenValue;
-  } else {
-    cssVariableValue = tokenValue.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
+    return tokenValue;
   }
-
-  let cssVariableKey = tokenKey.replaceAll(".", "-");
-
-  if (cssVariableKey.toLowerCase().endsWith("-default")) {
-    cssVariableKey = cssVariableKey.slice(0, -8);
-  }
-
-  globalCssVariables[`--${cssVariableKey}`] = cssVariableValue;
-
-  const cssVariable = `var(--${cssVariableKey})`;
-
-  return cssVariable;
+  
+  // Convert a token from {colors.neutral.900} to var(--neutral-900)
+  return tokenValue.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
 }
 
-function saveBrandVariable(tokenKey, tokenValue) {
-  let cssVariableValue = "";
-
-  // It's probably a color function like rgba()
-  if (!tokenValue.startsWith("{colors.")) {
-    cssVariableValue = tokenValue;
-  } else {
-    cssVariableValue = tokenValue.replaceAll("{colors.", "var(--").replaceAll("}", ")").replaceAll(".", "-");
-  }
-
+// Get a CSS variable name from a token key, and save its value to a global object
+function getCssVariable(tokenKey, tokenValue, brandTokenValue = null) {
   let cssVariableKey = tokenKey.replaceAll(".", "-");
 
+  // Remove the -default suffix to simplify the variable name
   if (cssVariableKey.toLowerCase().endsWith("-default")) {
     cssVariableKey = cssVariableKey.slice(0, -8);
   }
 
-  brandCssVariables[`--${cssVariableKey}`] = cssVariableValue;
+  // Save value of this variable to the global export of CSS variable values
+  globalCssVariables[`--${cssVariableKey}`] = getCssVariableValue(tokenValue);
+
+  // Save value of the corresponding brand token to the global export of brand variables
+  if (brandTokenValue) {
+    brandCssVariables[`--${cssVariableKey}`] = getCssVariableValue(brandTokenValue);
+  }
+
+  // Return the key formatted as a CSS variable
+  const cssVariable = `var(--${cssVariableKey})`;
+  return cssVariable;
 }
 
 function getNestedColors(variants, type, name) {
@@ -105,8 +96,7 @@ async function writeTextColors(aliasTokens) {
   const brandTextColor = aliasTokens.brand.foreground;
 
   for (let [tokenKey, tokenValue] of Object.entries(globalTextColor)) {
-    globalTextColor[tokenKey] = getCssVariable("text-" + tokenKey, tokenValue.value);
-    saveBrandVariable("text-" + tokenKey, brandTextColor[tokenKey].value);
+    globalTextColor[tokenKey] = getCssVariable("text-" + tokenKey, tokenValue.value, brandTextColor[tokenKey].value);
   }
 
   // Semantic text colors
@@ -116,8 +106,7 @@ async function writeTextColors(aliasTokens) {
   const brandInteractiveForegroundColors = aliasTokens.brand.interactive;
 
   for (let [tokenKey, tokenValue] of Object.entries(interactiveForegroundColors)) {
-    interactiveForegroundColors[tokenKey] = getCssVariable(`text-interactive-${tokenKey}`, tokenValue.value);
-    saveBrandVariable(`text-interactive-${tokenKey}`, brandInteractiveForegroundColors[tokenKey].value);
+    interactiveForegroundColors[tokenKey] = getCssVariable(`text-interactive-${tokenKey}`, tokenValue.value, brandInteractiveForegroundColors[tokenKey].value);
   }
 
   // Button text colors
@@ -145,8 +134,7 @@ async function writeBorderColors(aliasTokens) {
   const brandBorderColor = aliasTokens.brand.border;
 
   for (let [tokenKey, tokenValue] of Object.entries(globalBorderColor)) {
-    globalBorderColor[tokenKey] = getCssVariable("border-" + tokenKey, tokenValue.value)
-    saveBrandVariable("border-" + tokenKey, brandBorderColor[tokenKey].value)
+    globalBorderColor[tokenKey] = getCssVariable("border-" + tokenKey, tokenValue.value, brandBorderColor[tokenKey].value);
   }
 
   // Semantic border
@@ -182,10 +170,7 @@ async function writeBackgroundColors(aliasTokens) {
 
   for (let [variantKey] of Object.entries(backgroundColors)) {
     for (let [tokenKey, tokenValue] of Object.entries(backgroundColors[variantKey])) {
-      backgroundColors[variantKey][tokenKey] = getCssVariable(`bg-${variantKey}-${tokenKey}`, tokenValue.value)
-      if (brandBackgroundColors[variantKey][tokenKey]) {
-        saveBrandVariable(`bg-${variantKey}-${tokenKey}`, brandBackgroundColors[variantKey][tokenKey].value);
-      }
+      backgroundColors[variantKey][tokenKey] = getCssVariable(`bg-${variantKey}-${tokenKey}`, tokenValue.value, brandBackgroundColors[variantKey][tokenKey]?.value)
     }
   }
 
