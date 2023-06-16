@@ -16,8 +16,6 @@ permissions:
 
 jobs:
   build:
-    if: github.ref == 'refs/heads/tokens-update-from-figma'
-
     runs-on: ubuntu-latest
 
     steps:
