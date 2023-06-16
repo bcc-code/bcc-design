@@ -1,9 +1,12 @@
 name: Build Tailwind config
 
 on:
-  issue_comment: 
-    types: [created]
-  workflow_call:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
+    paths:
+      - src/tokens/input/figma.json
 
 env:
   CI: true
@@ -13,7 +16,7 @@ permissions:
 
 jobs:
   build:
-    if: github.event_name == 'push' || contains(github.event.comment.body, '/build')
+    if: github.ref == 'refs/heads/tokens-update-from-figma'
 
     runs-on: ubuntu-latest
 
@@ -49,4 +52,4 @@ jobs:
         run: git commit -m "Build Tailwind config files"
 
       - name: Push
-        run: git push --follow-tags    
+        run: git push
