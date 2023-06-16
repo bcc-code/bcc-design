@@ -20,7 +20,7 @@ export const textColor = {
   "interactive": {
     "DEFAULT": "var(--text-interactive)",
     "hover": "var(--text-interactive-hover)",
-    "pressed": "var(--text-interactive-pressed)"
+    "active": "var(--text-interactive-active)"
   },
   "button": {
     "primary": {
@@ -32,7 +32,7 @@ export const textColor = {
     "tertiary": {
       "DEFAULT": "var(--text-button-tertiary)",
       "hover": "var(--text-button-tertiary-hover)",
-      "pressed": "var(--text-button-tertiary-pressed)"
+      "active": "var(--text-button-tertiary-active)"
     },
     "danger": {
       "primary": {
@@ -44,7 +44,7 @@ export const textColor = {
       "tertiary": {
         "DEFAULT": "var(--text-button-danger-tertiary)",
         "hover": "var(--text-button-danger-tertiary-hover)",
-        "pressed": "var(--text-button-danger-tertiary-pressed)"
+        "active": "var(--text-button-danger-tertiary-active)"
       }
     }
   }

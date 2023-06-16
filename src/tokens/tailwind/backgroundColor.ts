@@ -12,7 +12,7 @@ export const backgroundColor = {
   "tertiary": {
     "DEFAULT": "var(--bg-tertiary)",
     "hover": "var(--bg-tertiary-hover)",
-    "pressed": "var(--bg-tertiary-pressed)"
+    "active": "var(--bg-tertiary-active)"
   },
   "success": {
     "DEFAULT": "var(--bg-success)"
@@ -33,23 +33,23 @@ export const backgroundColor = {
     "primary": {
       "DEFAULT": "var(--bg-button-primary)",
       "hover": "var(--bg-button-primary-hover)",
-      "pressed": "var(--bg-button-primary-pressed)"
+      "active": "var(--bg-button-primary-active)"
     },
     "secondary": {
       "DEFAULT": "var(--bg-button-secondary)",
       "hover": "var(--bg-button-secondary-hover)",
-      "pressed": "var(--bg-button-secondary-pressed)"
+      "active": "var(--bg-button-secondary-active)"
     },
     "danger": {
       "primary": {
         "DEFAULT": "var(--bg-button-danger-primary)",
         "hover": "var(--bg-button-danger-primary-hover)",
-        "pressed": "var(--bg-button-danger-primary-pressed)"
+        "active": "var(--bg-button-danger-primary-active)"
       },
       "secondary": {
         "DEFAULT": "var(--bg-button-danger-secondary)",
         "hover": "var(--bg-button-danger-secondary-hover)",
-        "pressed": "var(--bg-button-danger-secondary-pressed)"
+        "active": "var(--bg-button-danger-secondary-active)"
       }
     }
   }
