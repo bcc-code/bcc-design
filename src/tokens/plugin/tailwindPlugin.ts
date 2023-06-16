@@ -1,5 +1,5 @@
 import globalCssVariables from "../variables/global";
-import brandCssVariables from "../variables/brand";
+import alternativeCssVariables from "../variables/alternative";
 
 const tailwindPlugin = function ({ addBase }: any) {
   for (const [variableName, variableValue] of Object.entries(globalCssVariables)) {
@@ -10,9 +10,9 @@ const tailwindPlugin = function ({ addBase }: any) {
     });
   }
 
-  for (const [variableName, variableValue] of Object.entries(brandCssVariables)) {
+  for (const [variableName, variableValue] of Object.entries(alternativeCssVariables)) {
     addBase({
-      "[data-context=\"brand\"]": {
+      "[data-context=\"alternative\"]": {
         [variableName]: variableValue,
       },
     });
