@@ -21,23 +21,23 @@ export const ringColor = {
     "primary": {
       "DEFAULT": "var(--border-button-primary)",
       "hover": "var(--border-button-primary-hover)",
-      "pressed": "var(--border-button-primary-pressed)"
+      "active": "var(--border-button-primary-active)"
     },
     "secondary": {
       "DEFAULT": "var(--border-button-secondary)",
       "hover": "var(--border-button-secondary-hover)",
-      "pressed": "var(--border-button-secondary-pressed)"
+      "active": "var(--border-button-secondary-active)"
     },
     "danger": {
       "primary": {
         "DEFAULT": "var(--border-button-danger-primary)",
         "hover": "var(--border-button-danger-primary-hover)",
-        "pressed": "var(--border-button-danger-primary-pressed)"
+        "active": "var(--border-button-danger-primary-active)"
       },
       "secondary": {
         "DEFAULT": "var(--border-button-danger-secondary)",
         "hover": "var(--border-button-danger-secondary-hover)",
-        "pressed": "var(--border-button-danger-secondary-pressed)"
+        "active": "var(--border-button-danger-secondary-active)"
       }
     }
   }

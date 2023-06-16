@@ -56,26 +56,26 @@
      */
     /* Default variants */
     .bcc-button-primary {
-        @apply bg-button-primary text-button-primary hover:bg-button-primary-hover active:bg-button-primary-pressed active:text-button-primary;
+        @apply bg-button-primary text-button-primary hover:bg-button-primary-hover active:bg-button-primary-active active:text-button-primary;
         @apply border-transparent;
     }
     .bcc-button-secondary {
-        @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-pressed;
+        @apply border-button-secondary bg-button-secondary text-button-secondary hover:border-button-secondary-hover hover:bg-button-secondary-hover active:border-button-secondary-active;
     }
     .bcc-button-tertiary {
-        @apply text-button-tertiary hover:text-button-tertiary-hover active:text-button-tertiary-pressed;
+        @apply text-button-tertiary hover:text-button-tertiary-hover active:text-button-tertiary-active;
         @apply border-transparent hover:shadow-none active:shadow-none;
     }
 
     /* Danger variants */
     .bcc-button-danger.bcc-button-primary {
-        @apply bg-button-danger-primary text-button-danger-primary hover:bg-button-danger-primary-hover active:bg-button-danger-primary-pressed;
+        @apply bg-button-danger-primary text-button-danger-primary hover:bg-button-danger-primary-hover active:bg-button-danger-primary-active;
     }
     .bcc-button-danger.bcc-button-secondary {
-        @apply border-button-danger-secondary bg-button-danger-secondary text-button-danger-secondary hover:border-button-danger-secondary-hover hover:bg-button-danger-secondary-hover active:border-button-danger-secondary-pressed active:bg-button-danger-secondary-pressed;
+        @apply border-button-danger-secondary bg-button-danger-secondary text-button-danger-secondary hover:border-button-danger-secondary-hover hover:bg-button-danger-secondary-hover active:border-button-danger-secondary-active active:bg-button-danger-secondary-active;
     }
     .bcc-button-danger.bcc-button-tertiary {
-        @apply text-button-danger-tertiary hover:text-button-danger-tertiary-hover active:text-button-danger-tertiary-pressed;
+        @apply text-button-danger-tertiary hover:text-button-danger-tertiary-hover active:text-button-danger-tertiary-active;
     }
 
     /* Icon */

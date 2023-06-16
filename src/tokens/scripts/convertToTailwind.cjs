@@ -4,7 +4,7 @@ const semanticColors = ["success", "warning", "danger", "info", "emphasis"];
 let semanticTokens = {};
 
 let globalCssVariables = {};
-let brandCssVariables = {};
+let alternativeCssVariables = {};
 
 // Convert a token value into something that can be used as the value of a CSS variable
 function getCssVariableValue(tokenValue) {
@@ -18,7 +18,7 @@ function getCssVariableValue(tokenValue) {
 }
 
 // Get a CSS variable name from a token key, and save its value to a global object
-function getCssVariable(tokenKey, tokenValue, brandTokenValue = null) {
+function getCssVariable(tokenKey, tokenValue, alternativeTokenValue = null) {
   let cssVariableKey = tokenKey.replaceAll(".", "-");
 
   // Remove the -default suffix to simplify the variable name
@@ -29,9 +29,9 @@ function getCssVariable(tokenKey, tokenValue, brandTokenValue = null) {
   // Save value of this variable to the global export of CSS variable values
   globalCssVariables[`--${cssVariableKey}`] = getCssVariableValue(tokenValue);
 
-  // Save value of the corresponding brand token to the global export of brand variables
-  if (brandTokenValue) {
-    brandCssVariables[`--${cssVariableKey}`] = getCssVariableValue(brandTokenValue);
+  // Save value of the corresponding alternative token to the global export of alternative variables
+  if (alternativeTokenValue) {
+    alternativeCssVariables[`--${cssVariableKey}`] = getCssVariableValue(alternativeTokenValue);
   }
 
   // Return the key formatted as a CSS variable
@@ -39,7 +39,7 @@ function getCssVariable(tokenKey, tokenValue, brandTokenValue = null) {
   return cssVariable;
 }
 
-function getNestedColors(variants, type, name, brandVariants = null) {
+function getNestedColors(variants, type, name, alternativeVariants = null) {
   let colors = {};
 
   // variantKey = primary, secondary etc. or success, danger etc.
@@ -52,13 +52,13 @@ function getNestedColors(variants, type, name, brandVariants = null) {
         // tokenKey = default, hover, pressed etc.
         // tokenValue = hex color value
         for (let [tokenKey, tokenValue] of Object.entries(itemValue)) {
-          // Get the brand variant for this token if it exists
-          let brandVariant = null;
-          if (brandVariants && brandVariants[variantKey][itemKey][tokenKey]) {
-            brandVariant = brandVariants[variantKey][itemKey][tokenKey].value;
+          // Get the alternative variant for this token if it exists
+          let alternativeVariant = null;
+          if (alternativeVariants && alternativeVariants[variantKey][itemKey][tokenKey]) {
+            alternativeVariant = alternativeVariants[variantKey][itemKey][tokenKey].value;
           }
 
-          colors[variantKey][tokenKey] = getCssVariable(`${name}-${variantKey}-${tokenKey}`, tokenValue.value, brandVariant);
+          colors[variantKey][tokenKey] = getCssVariable(`${name}-${variantKey}-${tokenKey}`, tokenValue.value, alternativeVariant);
         }
       }
     }
@@ -81,8 +81,8 @@ async function writeCssVariables() {
   let content = `const cssVariables = ${JSON.stringify(globalCssVariables, null, 2)};\n\nexport default cssVariables;`;
   await fs.writeFile("./src/tokens/variables/global.ts", content, "utf8");
   
-  let brandContent = `const cssVariables = ${JSON.stringify(brandCssVariables, null, 2)};\n\nexport default cssVariables;`;
-  await fs.writeFile("./src/tokens/variables/brand.ts", brandContent, "utf8");
+  let alternativeContent = `const cssVariables = ${JSON.stringify(alternativeCssVariables, null, 2)};\n\nexport default cssVariables;`;
+  await fs.writeFile("./src/tokens/variables/alternative.ts", alternativeContent, "utf8");
 }
 
 // Write the global reference colors, like neutral-900
@@ -101,24 +101,24 @@ async function writeReferenceColors(figmaInput) {
 async function writeTextColors(aliasTokens) {
   // Global text colors
   const globalTextColor = aliasTokens.global.foreground;
-  const brandTextColor = aliasTokens.brand.foreground;
+  const alternativeTextColor = aliasTokens.alternative.foreground;
 
   for (let [tokenKey, tokenValue] of Object.entries(globalTextColor)) {
-    globalTextColor[tokenKey] = getCssVariable("text-" + tokenKey, tokenValue.value, brandTextColor[tokenKey].value);
+    globalTextColor[tokenKey] = getCssVariable("text-" + tokenKey, tokenValue.value, alternativeTextColor[tokenKey].value);
   }
 
   // Semantic text colors
   const semanticForegroundColors = getNestedColors(semanticTokens, "foreground", "text");
   
   const interactiveForegroundColors = aliasTokens.global.interactive;
-  const brandInteractiveForegroundColors = aliasTokens.brand.interactive;
+  const alternativeInteractiveForegroundColors = aliasTokens.alternative.interactive;
 
   for (let [tokenKey, tokenValue] of Object.entries(interactiveForegroundColors)) {
-    interactiveForegroundColors[tokenKey] = getCssVariable(`text-interactive-${tokenKey}`, tokenValue.value, brandInteractiveForegroundColors[tokenKey].value);
+    interactiveForegroundColors[tokenKey] = getCssVariable(`text-interactive-${tokenKey}`, tokenValue.value, alternativeInteractiveForegroundColors[tokenKey].value);
   }
 
   // Button text colors
-  const buttonForegroundColors = getNestedColors(aliasTokens.global.button, "foreground", "text-button", aliasTokens.brand.button);
+  const buttonForegroundColors = getNestedColors(aliasTokens.global.button, "foreground", "text-button", aliasTokens.alternative.button);
   const dangerButtonForegroundColors = getNestedColors(aliasTokens.danger.button, "foreground", "text-button-danger");
 
   const textColor = {
@@ -137,17 +137,17 @@ async function writeTextColors(aliasTokens) {
 async function writeBorderColors(aliasTokens) {
   // Global border
   const globalBorderColor = aliasTokens.global.border;
-  const brandBorderColor = aliasTokens.brand.border;
+  const alternativeBorderColor = aliasTokens.alternative.border;
 
   for (let [tokenKey, tokenValue] of Object.entries(globalBorderColor)) {
-    globalBorderColor[tokenKey] = getCssVariable("border-" + tokenKey, tokenValue.value, brandBorderColor[tokenKey].value);
+    globalBorderColor[tokenKey] = getCssVariable("border-" + tokenKey, tokenValue.value, alternativeBorderColor[tokenKey].value);
   }
 
   // Semantic border
   const semanticBorderColors = getNestedColors(semanticTokens, "border", "border");
 
   // Button border
-  const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border", "border-button", aliasTokens.brand.button);
+  const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border", "border-button", aliasTokens.alternative.button);
   const dangerButtonBorderColors = getNestedColors(aliasTokens.danger.button, "border", "border-button-danger");
 
   const borderColor = {
@@ -167,11 +167,11 @@ async function writeBorderColors(aliasTokens) {
 async function writeBackgroundColors(aliasTokens) {
   // Normal background
   const backgroundColors = aliasTokens.global.background;
-  const brandBackgroundColors = aliasTokens.brand.background;
+  const alternativeBackgroundColors = aliasTokens.alternative.background;
 
   for (let [variantKey] of Object.entries(backgroundColors)) {
     for (let [tokenKey, tokenValue] of Object.entries(backgroundColors[variantKey])) {
-      backgroundColors[variantKey][tokenKey] = getCssVariable(`bg-${variantKey}-${tokenKey}`, tokenValue.value, brandBackgroundColors[variantKey][tokenKey]?.value)
+      backgroundColors[variantKey][tokenKey] = getCssVariable(`bg-${variantKey}-${tokenKey}`, tokenValue.value, alternativeBackgroundColors[variantKey][tokenKey]?.value)
     }
   }
 
@@ -179,7 +179,7 @@ async function writeBackgroundColors(aliasTokens) {
   const semanticBackgroundColors = getNestedColors(semanticTokens, "background", "bg");
 
   // Button background
-  const buttonBackgroundColors = getNestedColors(aliasTokens.global.button, "background", "bg-button", aliasTokens.brand.button);
+  const buttonBackgroundColors = getNestedColors(aliasTokens.global.button, "background", "bg-button", aliasTokens.alternative.button);
   const dangerButtonBackgroundColors = getNestedColors(aliasTokens.danger.button, "background", "bg-button-danger");
 
   const backgroundColor = {
