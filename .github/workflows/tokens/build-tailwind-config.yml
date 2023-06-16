@@ -1,0 +1,54 @@
+name: Create PR to update tokens
+
+on:
+  issue_comment: 
+    types: [created]
+  workflow_call:
+
+env:
+  CI: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.event_name == 'push' || contains(github.event.comment.body, '/build')
+    permissions:
+      contents: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.BCC_BOT_ACCESS_TOKEN }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+    
+      - name: Build Tailwind config 
+        run: pnpm build:tailwind
+
+      - name: Set commit author to bcc-bot
+        run: |
+          git config --global user.name "bcc-bot"
+          git config --global user.email "84040471+bcc-bot@users.noreply.github.com"
+      
+      - name: Commit changes
+        run: git commit -m "Build Tailwind config files"
+
+      - name: Push
+        run: git push --follow-tags    
