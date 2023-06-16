@@ -1,4 +1,4 @@
-name: Create PR to update tokens
+name: Build Tailwind config
 
 on:
   issue_comment: 
