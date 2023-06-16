@@ -9,13 +9,11 @@ env:
   CI: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
     if: github.event_name == 'push' || contains(github.event.comment.body, '/build')
-    permissions:
-      contents: write
 
     runs-on: ubuntu-latest
 

@@ -9,16 +9,13 @@ env:
   CI: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
     uses: ./.github/workflows/tokens/build-tailwind-config.yml
 
   create-pr:
-    permissions:
-      contents: write
-
     runs-on: ubuntu-latest
 
     steps:
