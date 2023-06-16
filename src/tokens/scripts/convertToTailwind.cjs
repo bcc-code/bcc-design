@@ -118,7 +118,7 @@ async function writeTextColors(aliasTokens) {
   }
 
   // Button text colors
-  const buttonForegroundColors = getNestedColors(aliasTokens.global.button, "foreground", "text-button");
+  const buttonForegroundColors = getNestedColors(aliasTokens.global.button, "foreground", "text-button", aliasTokens.brand.button);
   const dangerButtonForegroundColors = getNestedColors(aliasTokens.danger.button, "foreground", "text-button-danger");
 
   const textColor = {
@@ -179,7 +179,7 @@ async function writeBackgroundColors(aliasTokens) {
   const semanticBackgroundColors = getNestedColors(semanticTokens, "background", "bg");
 
   // Button background
-  const buttonBackgroundColors = getNestedColors(aliasTokens.global.button, "background", "bg-button");
+  const buttonBackgroundColors = getNestedColors(aliasTokens.global.button, "background", "bg-button", aliasTokens.brand.button);
   const dangerButtonBackgroundColors = getNestedColors(aliasTokens.danger.button, "background", "bg-button-danger");
 
   const backgroundColor = {

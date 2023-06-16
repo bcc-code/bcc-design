@@ -5,6 +5,10 @@ const cssVariables = {
   "--text-interactive": "#D8B9A6",
   "--text-interactive-hover": "var(--muddy-waters-300)",
   "--text-interactive-pressed": "#DFC5B4",
+  "--text-button-primary": "var(--brand-800)",
+  "--text-button-secondary": "var(--muddy-waters-200)",
+  "--text-button-tertiary": "var(--muddy-waters-200)",
+  "--text-button-tertiary-hover": "var(--muddy-waters-300)",
   "--border-on-primary": "var(--brand-400)",
   "--border-on-secondary": "var(--brand-300)",
   "--border-on-tertiary": "var(--brand-200)",
@@ -19,7 +23,13 @@ const cssVariables = {
   "--bg-secondary-hover": "var(--brand-600)",
   "--bg-tertiary": "var(--brand-400)",
   "--bg-tertiary-hover": "var(--brand-500)",
-  "--bg-tertiary-pressed": "var(--brand-300)"
+  "--bg-tertiary-pressed": "var(--brand-300)",
+  "--bg-button-primary": "#D8B9A6",
+  "--bg-button-primary-hover": "var(--muddy-waters-300)",
+  "--bg-button-primary-pressed": "#DFC5B4",
+  "--bg-button-secondary": "#00524B",
+  "--bg-button-secondary-hover": "#004D47",
+  "--bg-button-secondary-pressed": "#006159"
 };
 
 export default cssVariables;
