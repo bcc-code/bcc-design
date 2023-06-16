@@ -91,7 +91,7 @@ async function writeReferenceColors(figmaInput) {
 
   for (let [colorKey] of Object.entries(colors)) {
     for (let [colorWeightKey, colorWeightToken] of Object.entries(colors[colorKey])) {
-      colors[colorKey][colorWeightKey] = colorWeightToken.value;
+      colors[colorKey][colorWeightKey] = getCssVariable(`${colorKey}-${colorWeightKey}`, colorWeightToken.value);
     }
   }
 
