@@ -39,7 +39,7 @@ function getCssVariable(tokenKey, tokenValue, brandTokenValue = null) {
   return cssVariable;
 }
 
-function getNestedColors(variants, type, name) {
+function getNestedColors(variants, type, name, brandVariants = null) {
   let colors = {};
 
   // variantKey = primary, secondary etc. or success, danger etc.
@@ -52,7 +52,12 @@ function getNestedColors(variants, type, name) {
         // tokenKey = default, hover, pressed etc.
         // tokenValue = hex color value
         for (let [tokenKey, tokenValue] of Object.entries(itemValue)) {
-          colors[variantKey][tokenKey] = getCssVariable(`${name}-${variantKey}-${tokenKey}`, tokenValue.value);
+          let brandVariant = null;
+          if (brandVariants && brandVariants[variantKey][itemKey][tokenKey]) {
+            brandVariant = brandVariants[variantKey][itemKey][tokenKey].value;
+          }
+
+          colors[variantKey][tokenKey] = getCssVariable(`${name}-${variantKey}-${tokenKey}`, tokenValue.value, brandVariant);
         }
       }
     }
@@ -141,7 +146,7 @@ async function writeBorderColors(aliasTokens) {
   const semanticBorderColors = getNestedColors(semanticTokens, "border", "border");
 
   // Button border
-  const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border", "border-button");
+  const buttonBorderColors = getNestedColors(aliasTokens.global.button, "border", "border-button", aliasTokens.brand.button);
   const dangerButtonBorderColors = getNestedColors(aliasTokens.danger.button, "border", "border-button-danger");
 
   const borderColor = {
