@@ -47,7 +47,9 @@ jobs:
           git config --global user.email "84040471+bcc-bot@users.noreply.github.com"
       
       - name: Commit changes
-        run: git commit -m "Build Tailwind config files"
+        run: |
+          git add .
+          git commit -m "Build Tailwind config files"
 
       - name: Push
         run: git push
