@@ -52,6 +52,7 @@ function getNestedColors(variants, type, name, brandVariants = null) {
         // tokenKey = default, hover, pressed etc.
         // tokenValue = hex color value
         for (let [tokenKey, tokenValue] of Object.entries(itemValue)) {
+          // Get the brand variant for this token if it exists
           let brandVariant = null;
           if (brandVariants && brandVariants[variantKey][itemKey][tokenKey]) {
             brandVariant = brandVariants[variantKey][itemKey][tokenKey].value;
@@ -66,13 +67,16 @@ function getNestedColors(variants, type, name, brandVariants = null) {
   return colors;
 }
 
-async function writeTailwindConfig(file, content) {
+async function writeTailwindConfig(name, colors) {
+  let content = `export const ${name} = ${JSON.stringify(colors, null, 2)};`;
+
   // Simplifies class names so bg-info-default becomes bg-info
   content = content.replaceAll("default", "DEFAULT");
 
-  await fs.writeFile(file, content, "utf8");
+  await fs.writeFile(`./src/tokens/tailwind/${name}.ts`, content, "utf8");
 }
 
+// Write all the saved CSS variable values to a global file, to be used in the Tailwind plugin
 async function writeCssVariables() {
   let content = `const cssVariables = ${JSON.stringify(globalCssVariables, null, 2)};\n\nexport default cssVariables;`;
   await fs.writeFile("./src/tokens/variables/global.ts", content, "utf8");
@@ -81,7 +85,8 @@ async function writeCssVariables() {
   await fs.writeFile("./src/tokens/variables/brand.ts", brandContent, "utf8");
 }
 
-async function writeColors(figmaInput) {
+// Write the global reference colors, like neutral-900
+async function writeReferenceColors(figmaInput) {
   let colors = figmaInput.reference.colors;
 
   for (let [colorKey] of Object.entries(colors)) {
@@ -90,9 +95,7 @@ async function writeColors(figmaInput) {
     }
   }
 
-  let content = `export const colors = ${JSON.stringify(colors, null, 2)};`;
-
-  await writeTailwindConfig("./src/tokens/tailwind/colors.ts", content);
+  await writeTailwindConfig("colors", colors);
 }
 
 async function writeTextColors(aliasTokens) {
@@ -128,9 +131,7 @@ async function writeTextColors(aliasTokens) {
     },
   };
 
-  let content = `export const textColor = ${JSON.stringify(textColor, null, 2)};`;
-
-  await writeTailwindConfig("./src/tokens/tailwind/textColor.ts", content);
+  await writeTailwindConfig("textColor", textColor);
 }
 
 async function writeBorderColors(aliasTokens) {
@@ -158,14 +159,9 @@ async function writeBorderColors(aliasTokens) {
     },
   };
 
-  let content = `export const borderColor = ${JSON.stringify(borderColor, null, 2)};`;
-  await writeTailwindConfig("./src/tokens/tailwind/borderColor.ts", content);
-
-  let outlineContent = `export const outlineColor = ${JSON.stringify(borderColor, null, 2)};`;
-  await writeTailwindConfig("./src/tokens/tailwind/outlineColor.ts", outlineContent);
-
-  let ringContent = `export const ringColor = ${JSON.stringify(borderColor, null, 2)};`;
-  await writeTailwindConfig("./src/tokens/tailwind/ringColor.ts", ringContent);
+  await writeTailwindConfig("borderColor", borderColor);
+  await writeTailwindConfig("outlineColor", borderColor);
+  await writeTailwindConfig("ringColor", borderColor);
 }
 
 async function writeBackgroundColors(aliasTokens) {
@@ -195,9 +191,7 @@ async function writeBackgroundColors(aliasTokens) {
     },
   };
 
-  let content = `export const backgroundColor = ${JSON.stringify(backgroundColor, null, 2)};`;
-
-  await writeTailwindConfig("./src/tokens/tailwind/backgroundColor.ts", content);
+  await writeTailwindConfig("backgroundColor", backgroundColor);
 }
 
 async function getFigmaInput() {
@@ -219,7 +213,7 @@ async function main() {
 
   setSemanticTokens(figmaInput["alias tokens"]);
 
-  await writeColors(figmaInput);
+  await writeReferenceColors(figmaInput);
   await writeTextColors(figmaInput["alias tokens"]);
   await writeBorderColors(figmaInput["alias tokens"]);
   await writeBackgroundColors(figmaInput["alias tokens"]);
