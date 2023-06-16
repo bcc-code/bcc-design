@@ -52,4 +52,4 @@ jobs:
           git commit -m "Build Tailwind config files"
 
       - name: Push
-        run: git push
+        run: git push origin tokens-update-from-figma
