@@ -1,0 +1,23 @@
+name: Create PR to update tokens
+
+on:
+  push:
+    branches:
+      - tokens-update-from-figma
+
+env:
+  CI: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: ./.github/workflows/tokens/build-tailwind-config.yml
+
+  create-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create PR
+        run: gh pr create -B main -H tokens-update-from-figma --title 'Update tokens to latest version from Figma' --body 'Includes newly built files for Tailwind config. Comment `/build` to run the build again.'
