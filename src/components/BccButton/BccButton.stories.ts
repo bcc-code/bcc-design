@@ -249,3 +249,14 @@ export const Anchor: StoryFn<typeof BccButton> = () => ({
     </div>
   `,
 });
+
+export const AlternativeContext: StoryFn<typeof BccButton> = () => ({
+  components: { BccButton },
+  template: `
+    <div class="flex items-start gap-x-2 bg-primary p-4 rounded" data-context="alternative">
+      <BccButton is="a" variant="primary">Primary</BccButton>
+      <BccButton is="a" variant="secondary">Secondary</BccButton>
+      <BccButton is="a" variant="tertiary">Tertiary</BccButton>
+    </div>
+  `,
+});

@@ -92,3 +92,13 @@ export const WithMessage: StoryFn<typeof BccInput> = () => ({
     </div>
   `,
 });
+
+export const AlternativeContext: StoryFn<typeof BccInput> = () => ({
+  components: { BccInput },
+  template: `
+    <div class="bg-primary p-4 rounded inline-flex flex-col space-y-4" data-context="alternative">
+      <BccInput value="Default" placeholder="Example placeholder">This is an example message with <strong>styling</strong>.</BccInput>
+      <BccInput value="Disabled" placeholder="Example placeholder" disabled>This is an example message with <strong>styling</strong>.</BccInput>
+    </div>
+  `,
+});
