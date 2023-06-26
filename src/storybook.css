@@ -1,6 +1,6 @@
 @import "css/index.css";
 
-@config "../tailwind.compile.config.ts";
+@config "../tailwind.config.ts";
 
 @tailwind base;
 @tailwind components;
