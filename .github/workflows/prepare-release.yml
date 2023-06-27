@@ -34,3 +34,4 @@ jobs:
         with:
           draft: true
           tag_name: ${{ env.TAG_NAME }}
+          generate_release_notes: true
