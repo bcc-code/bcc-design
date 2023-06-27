@@ -33,9 +33,9 @@
   },
   "scripts": {
     "build": "run-p build:vite build:types build:css",
-    "build:vite": "vite build",
-    "build:types": "tsc --declaration --emitDeclarationOnly -p tsconfig.json",
-    "build:css": "copyfiles --flat ../src/css/*.css dist_css/tailwind"
+    "build:vite": "rimraf dist && vite build",
+    "build:types": "rimraf dist_types && tsc --declaration --emitDeclarationOnly -p tsconfig.json",
+    "build:css": "rimraf dist_css && copyfiles --flat ../src/css/*.css dist_css/tailwind"
   },
   "peerDependencies": {
     "tailwindcss": "^3.2.4"
@@ -46,9 +46,10 @@
     }
   },
   "devDependencies": {
-    "typescript": "^4.9.5",
     "copyfiles": "^2.4.1",
     "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.1",
+    "typescript": "^4.9.5",
     "vite": "^4.3.8"
   }
 }
