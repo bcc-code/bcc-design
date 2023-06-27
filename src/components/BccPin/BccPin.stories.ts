@@ -2,9 +2,6 @@ import BccPin from "./BccPin.vue";
 import { CheckCircleIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
-import { setup } from "@storybook/vue3";
-
-setup((app) => app.component("CheckCircleIcon", CheckCircleIcon));
 
 export default {
   title: "Components/BccPin",
@@ -19,12 +16,12 @@ export default {
 } as Meta<typeof BccPin>;
 
 const Template: StoryFn<typeof BccPin> = (args) => ({
-  components: { BccPin, CheckCircleIcon },
+  components: { BccPin },
   setup() {
-    return { args };
+    return { args, CheckCircleIcon };
   },
   template: `
-    <BccPin v-bind="args" icon="CheckCircleIcon" />
+    <BccPin v-bind="args" :icon="CheckCircleIcon" />
   `,
 });
 
@@ -35,14 +32,17 @@ Example.args = {
 };
 
 export const WithIcon: StoryFn<typeof BccPin> = () => ({
-  components: { BccPin, CheckCircleIcon },
+  components: { BccPin },
+  setup() {
+    return { CheckCircleIcon };
+  },
   template: `
     <div class="flex items-start space-x-2">
-      <BccPin variant="neutral" icon="CheckCircleIcon" />
-      <BccPin variant="danger" icon="CheckCircleIcon" />
-      <BccPin variant="warning" icon="CheckCircleIcon" />
-      <BccPin variant="success" icon="CheckCircleIcon" />
-      <BccPin variant="info" icon="CheckCircleIcon" />
+      <BccPin variant="neutral" :icon="CheckCircleIcon" />
+      <BccPin variant="danger" :icon="CheckCircleIcon" />
+      <BccPin variant="warning" :icon="CheckCircleIcon" />
+      <BccPin variant="success" :icon="CheckCircleIcon" />
+      <BccPin variant="info" :icon="CheckCircleIcon" />
     </div>
   `,
 });

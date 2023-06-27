@@ -3,10 +3,6 @@ import { CheckCircleIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
-// Workaround for storybook not working nicely with components passed as props
-import { setup } from "@storybook/vue3";
-setup((app) => app.component("CheckCircleIcon", CheckCircleIcon));
-
 export default {
   title: "Components/BccBadge",
   component: BccBadge,
@@ -35,10 +31,10 @@ export default {
 const Template: StoryFn<typeof BccBadge> = (args) => ({
   components: { BccBadge },
   setup() {
-    return { args };
+    return { args, CheckCircleIcon };
   },
   template: `
-    <BccBadge v-bind="args" icon="CheckCircleIcon">
+    <BccBadge v-bind="args" :icon="CheckCircleIcon">
       <template #default>
         {{ args.slotDefault }}
       </template>
@@ -70,18 +66,21 @@ export const Variant: StoryFn<typeof BccBadge> = () => ({
 
 export const WithIcon: StoryFn<typeof BccBadge> = () => ({
   components: { BccBadge },
+  setup() {
+    return { CheckCircleIcon };
+  },
   template: `
     <div class="flex items-start space-x-2">
-      <BccBadge variant="danger" size="xs" icon="CheckCircleIcon">
+      <BccBadge variant="danger" size="xs" :icon="CheckCircleIcon">
         xs, icon left
       </BccBadge>
-      <BccBadge variant="danger" size="xs" icon-right icon="CheckCircleIcon">
+      <BccBadge variant="danger" size="xs" icon-right :icon="CheckCircleIcon">
         xs, icon right
       </BccBadge>
-      <BccBadge variant="success" size="sm" icon="CheckCircleIcon">
+      <BccBadge variant="success" size="sm" :icon="CheckCircleIcon">
         sm, icon left
       </BccBadge>
-      <BccBadge variant="success" size="sm" icon-right icon="CheckCircleIcon">
+      <BccBadge variant="success" size="sm" icon-right :icon="CheckCircleIcon">
         sm, icon right
       </BccBadge>
     </div>
