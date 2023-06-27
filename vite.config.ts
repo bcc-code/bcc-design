@@ -13,7 +13,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "./src/index.ts"),
-      name: "bcc-vue-components",
+      name: "bcc-design-library",
     },
     rollupOptions: {
       external: ["vue"],

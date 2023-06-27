@@ -1,7 +1,7 @@
 {
-  "name": "@bcc-code/vue-components",
-  "repository": "https://github.com/bcc-code/bcc-design-components.git",
-  "homepage": "https://developer.bcc.no/bcc-design/components/vue-components/",
+  "name": "@bcc-code/design-library-vue",
+  "repository": "https://github.com/bcc-code/bcc-design-library.git",
+  "homepage": "https://developer.bcc.no/bcc-design/design-library/",
   "version": "0.13.1",
   "type": "module",
   "license": "Apache-2.0",
@@ -10,18 +10,18 @@
     "dist_types",
     "dist_css"
   ],
-  "main": "./dist/vue-components.umd.cjs",
-  "module": "./dist/vue-components.js",
+  "main": "./dist/design-library-vue.umd.cjs",
+  "module": "./dist/design-library-vue.js",
   "types": "./dist_types/index.d.ts",
   "exports": {
     ".": {
       "import": {
         "types": "./dist_types/index.d.ts",
-        "default": "./dist/vue-components.js"
+        "default": "./dist/design-library-vue.js"
       },
       "require": {
         "types": "./dist_types/index.d.ts",
-        "default": "./dist/vue-components.umd.cjs"
+        "default": "./dist/design-library-vue.umd.cjs"
       }
     },
     "./style.css": {

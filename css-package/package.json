@@ -1,7 +1,7 @@
 {
-  "name": "@bcc-code/design-components",
-  "repository": "https://github.com/bcc-code/bcc-design-components.git",
-  "homepage": "https://developer.bcc.no/bcc-design/components/",
+  "name": "@bcc-code/design-library",
+  "repository": "https://github.com/bcc-code/bcc-design-library.git",
+  "homepage": "https://developer.bcc.no/bcc-design/design-library/",
   "version": "0.13.1",
   "type": "module",
   "license": "Apache-2.0",
@@ -10,8 +10,8 @@
     "dist_types",
     "dist_css"
   ],
-  "main": "./dist/design-components.umd.js",
-  "module": "./dist/design-components.js",
+  "main": "./dist/design-library.umd.js",
+  "module": "./dist/design-library.js",
   "types": "./dist_types/css-package/index.d.ts",
   "exports": {
     ".": {

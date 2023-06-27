@@ -1,13 +1,13 @@
-# BCC Design System Components
-This library is a collection of components that conform to the BCC Design System.
+# BCC Design System Library
+This library is a collection of tokens and components that conform to the BCC Design System.
 
-> **Note** This is the Vue component implementation, for the CSS-only library [see here](./css-package/README.md)
+> **Note** This is the Vue implementation, for the CSS-only library [see here](./css-package/README.md)
 
-### @bcc-code/vue-components
-[![version](https://img.shields.io/npm/v/@bcc-code/vue-components)](https://github.com/bcc-code/bcc-vue-components/releases) [![license](https://img.shields.io/npm/l/@bcc-code/vue-components)](https://github.com/bcc-code/bcc-vue-components/blob/main/LICENSE)
+### @bcc-code/design-library-vue
+[![version](https://img.shields.io/npm/v/@bcc-code/design-library-vue)](https://github.com/bcc-code/bcc-design-library-vue/releases) [![license](https://img.shields.io/npm/l/@bcc-code/design-library-vue)](https://github.com/bcc-code/bcc-design-library-vue/blob/main/LICENSE)
 
 ## Installation & Usage
-Refer to the [documentation](https://developer.bcc.no/bcc-design/vue-components/) for installation instructions and to [Storybook](https://vue-components-storybook.developer.bcc.no) for interactive example of the components and their variants.
+Refer to the [documentation](https://developer.bcc.no/bcc-design/design-library) for installation instructions and to [Storybook](https://vue-components-storybook.developer.bcc.no) for interactive example of the components and their variants.
 
 ## Developing the package locally
 ### Recommended IDE Setup
@@ -58,7 +58,7 @@ pnpm build
 ```
 
 ### Releasing a new version
-A new version can be released by running the [Create New Version](https://github.com/bcc-code/bcc-design-components/actions/workflows/create-version.yml) workflow from GitHub. This will update the version in the `package.json`, push a Git commit and tag, and create a new [release](https://github.com/bcc-code/bcc-vue-components/releases) in GitHub. Maintainers can publish this release, after which the new version will be pushed to npm with the `latest` tag.
+A new version can be released by running the [Create New Version](https://github.com/bcc-code/bcc-design-library/actions/workflows/create-version.yml) workflow from GitHub. This will update the version in the `package.json`, push a Git commit and tag, and create a new [release](https://github.com/bcc-code/bcc-design-library/releases) in GitHub. Maintainers can publish this release, after which the new version will be pushed to npm with the `latest` tag.
 
 ## Tokens
 This repository includes a setup with tokens from the design system. These tokens are exported from Figma and can be found in `src/tokens/input/figma.json`.
