@@ -32,7 +32,7 @@ export const Example = Template.bind({});
 Example.args = {
   total: 20,
   used: 14,
-  animate: true,
+  animate: false,
 };
 
 export const State: StoryFn<typeof BccCapacityIndicator> = () => ({
