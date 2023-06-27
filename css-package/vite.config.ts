@@ -5,7 +5,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "./index.ts"),
-      name: "bcc-design-components",
+      name: "bcc-design-library",
     },
   },
 });

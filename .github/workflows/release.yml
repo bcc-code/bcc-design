@@ -39,12 +39,12 @@ jobs:
         run: pnpm build
         working-directory: css-package
 
-      - name: Publish `@bcc-code/vue-components`
+      - name: Publish `@bcc-code/design-library-vue`
         run: npm publish --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish `@bcc-code/design-components`
+      - name: Publish `@bcc-code/design-library`
         run: npm publish ./css-package --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -5,8 +5,11 @@ import baseConfig from "./tailwind.config";
 export default {
   ...baseConfig,
   
-  // Only include classes from component files
-  content: ["./src/**/*.vue"],
+  // Only include classes from .vue component files, not stories
+  content: [
+    "./src/**/*.vue",
+    "../src/**/*.vue", // This file is also used from the CSS package folder, paths are relative from there
+  ],
   
   // Do not use the style reset when compiling the CSS
   corePlugins: {
