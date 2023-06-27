@@ -14,8 +14,8 @@ export default {
   title: "Components/BccButton",
   component: BccButton,
   argTypes: {
-    color: {
-      description: "Which color forms the base of the button style",
+    context: {
+      description: "Which context color forms the base of the button style",
       options: ["default", "danger"],
       control: { type: "radio" },
     },
@@ -62,7 +62,7 @@ const Template: StoryFn<typeof BccButton> = (args) => ({
 export const Example = Template.bind({});
 Example.args = {
   variant: "primary",
-  color: "default",
+  context: "default",
   size: "base",
   rounded: false,
   iconRight: false,
@@ -115,9 +115,9 @@ export const Danger: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
     <div class="flex items-center gap-x-2">
-      <BccButton color="danger">Danger (primary)</BccButton>
-      <BccButton color="danger" variant="secondary">Danger (secondary)</BccButton>
-      <BccButton color="danger" variant="tertiary">Danger (tertiary)</BccButton>
+      <BccButton context="danger">Danger (primary)</BccButton>
+      <BccButton context="danger" variant="secondary">Danger (secondary)</BccButton>
+      <BccButton context="danger" variant="tertiary">Danger (tertiary)</BccButton>
     </div>
   `,
 });
@@ -131,9 +131,9 @@ export const Disabled: StoryFn<typeof BccButton> = () => ({
       <BccButton variant="tertiary" :disabled="true">Tertiary disabled</BccButton>
     </div>
     <div class="flex items-start gap-x-2 mt-4">
-      <BccButton variant="primary" :disabled="true" color="danger">Primary disabled</BccButton>
-      <BccButton variant="secondary" :disabled="true" color="danger">Secondary disabled</BccButton>
-      <BccButton variant="tertiary" :disabled="true" color="danger">Tertiary disabled</BccButton>
+      <BccButton variant="primary" :disabled="true" context="danger">Primary disabled</BccButton>
+      <BccButton variant="secondary" :disabled="true" context="danger">Secondary disabled</BccButton>
+      <BccButton variant="tertiary" :disabled="true" context="danger">Tertiary disabled</BccButton>
     </div>
   `,
 });

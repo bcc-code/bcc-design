@@ -5,7 +5,7 @@ import { useSlots } from "vue";
 type Props = {
   is?: "button" | "a" | string | Component;
   variant?: "primary" | "secondary" | "tertiary";
-  color?: "default" | "danger";
+  context?: "default" | "danger";
   size?: "xs" | "sm" | "base" | "lg" | "xl";
   icon?: string | Component | Function;
   iconRight?: boolean;
@@ -17,7 +17,7 @@ type Props = {
 const props = withDefaults(defineProps<Props>(), {
   is: "button",
   variant: "primary",
-  color: "default",
+  context: "default",
   size: "base",
   iconRight: false,
   center: true,
@@ -39,7 +39,7 @@ const iconOnly = props.icon !== undefined && !slots.default;
       'bcc-button-sm': size === 'sm',
       'bcc-button-lg': size === 'lg',
       'bcc-button-xl': size === 'xl',
-      'bcc-button-danger': color === 'danger',
+      'bcc-button-danger': context === 'danger',
       'bcc-button-primary': variant === 'primary',
       'bcc-button-secondary': variant === 'secondary',
       'bcc-button-tertiary': variant === 'tertiary',
