@@ -6,7 +6,7 @@ withDefaults(
     icon?: string | Component | Function;
     iconRight?: boolean;
     size?: "xs" | "sm";
-    variant?: "neutral" | "danger" | "warning" | "success" | "info" | "system";
+    variant?: "neutral" | "danger" | "warning" | "success" | "info";
   }>(),
   {
     iconRight: false,

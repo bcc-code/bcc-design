@@ -9,7 +9,7 @@ export default {
   argTypes: {
     variant: {
       description: "Determines the styling of the badge",
-      options: ["neutral", "danger", "warning", "success", "info", "system"],
+      options: ["neutral", "danger", "warning", "success", "info"],
       control: { type: "radio" },
     },
     size: {
@@ -59,7 +59,6 @@ export const Variant: StoryFn<typeof BccBadge> = () => ({
       <BccBadge variant="warning">warning</BccBadge>
       <BccBadge variant="success">success</BccBadge>
       <BccBadge variant="info">info</BccBadge>
-      <BccBadge variant="system">system</BccBadge>
     </div>
   `,
 });
