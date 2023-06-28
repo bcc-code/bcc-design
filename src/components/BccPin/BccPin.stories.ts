@@ -9,7 +9,7 @@ export default {
   argTypes: {
     variant: {
       description: "Determines the styling of the pin",
-      options: ["neutral", "danger", "warning", "success", "info", "systemInfo"],
+      options: ["neutral", "danger", "warning", "success", "info"],
       control: { type: "radio" },
     },
   },

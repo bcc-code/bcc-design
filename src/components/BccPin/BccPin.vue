@@ -4,7 +4,7 @@ import type { Component } from "vue";
 withDefaults(
   defineProps<{
     icon?: string | Component | Function;
-    variant?: "neutral" | "danger" | "warning" | "success" | "info" | "system";
+    variant?: "neutral" | "danger" | "warning" | "success" | "info";
     text?: string;
   }>(),
   {
