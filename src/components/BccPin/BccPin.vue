@@ -4,11 +4,11 @@ import type { Component } from "vue";
 withDefaults(
   defineProps<{
     icon?: string | Component | Function;
-    variant?: "neutral" | "danger" | "warning" | "success" | "info";
+    context?: "neutral" | "danger" | "warning" | "success" | "info";
     text?: string;
   }>(),
   {
-    variant: "neutral",
+    context: "neutral",
   }
 );
 </script>
@@ -17,10 +17,10 @@ withDefaults(
   <div
     class="bcc-pin"
     :class="{
-      'bcc-pin-danger': variant === 'danger',
-      'bcc-pin-warning': variant === 'warning',
-      'bcc-pin-success': variant === 'success',
-      'bcc-pin-info': variant === 'info',
+      'bcc-pin-danger': context === 'danger',
+      'bcc-pin-warning': context === 'warning',
+      'bcc-pin-success': context === 'success',
+      'bcc-pin-info': context === 'info',
     }"
   >
     <component :is="icon" class="bcc-pin-icon" v-if="icon" />

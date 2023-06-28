@@ -6,12 +6,12 @@ withDefaults(
     icon?: string | Component | Function;
     iconRight?: boolean;
     size?: "xs" | "sm";
-    variant?: "neutral" | "danger" | "warning" | "success" | "info";
+    context?: "neutral" | "danger" | "warning" | "success" | "info";
   }>(),
   {
     iconRight: false,
     size: "xs",
-    variant: "neutral",
+    context: "neutral",
   }
 );
 </script>
@@ -21,10 +21,10 @@ withDefaults(
     class="bcc-badge"
     :class="{
       'bcc-badge-sm': size === 'sm',
-      'bcc-badge-danger': variant === 'danger',
-      'bcc-badge-warning': variant === 'warning',
-      'bcc-badge-success': variant === 'success',
-      'bcc-badge-info': variant === 'info',
+      'bcc-badge-danger': context === 'danger',
+      'bcc-badge-warning': context === 'warning',
+      'bcc-badge-success': context === 'success',
+      'bcc-badge-info': context === 'info',
     }"
   >
     <component
