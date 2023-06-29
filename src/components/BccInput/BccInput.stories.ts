@@ -93,6 +93,9 @@ export const WithMessage: StoryFn<typeof BccInput> = () => ({
   `,
 });
 
+/**
+ * Wrap the input in an element with `data-context="alternative"` to render an alternative input on a dark background
+ */
 export const AlternativeContext: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
   template: `

@@ -39,12 +39,12 @@ export const Basic: StoryFn<typeof BccToggle> = () => ({
   `,
 });
 
+/**
+ * Set the `was-toggled` prop to `true` to indicate that changing the value of the toggle to off has consequences.
+ */
 export const WasToggled: StoryFn<typeof BccToggle> = () => ({
   components: { BccToggle },
   template: `
-    <div class="mb-4 text-gray-700">
-      Set the <code>was-toggled</code> prop to <code>true</code> to indicate that changing the value of the toggle to off has consequences.
-    </div>
     <div class="flex items-center space-x-2">
       <BccToggle :modelValue="true" :was-toggled="true" />
       <BccToggle :modelValue="false" :was-toggled="true" />
