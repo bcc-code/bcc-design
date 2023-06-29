@@ -4,6 +4,9 @@ export default {
   title: "Typography",
 } as Meta;
 
+/**
+ * These are the typography styles of the design system. Each class will automatically adapt to their desktop variant on the `sm` mobile breakpoint.
+ */
 export const Examples: StoryFn = () => ({
   template: `
     <div class="space-y-8">

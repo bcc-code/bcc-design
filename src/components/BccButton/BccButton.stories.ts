@@ -252,6 +252,9 @@ export const Anchor: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
+/**
+ * Wrap the button in an element with `data-context="alternative"` to render an alternative button on a dark background
+ */
 export const AlternativeContext: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `

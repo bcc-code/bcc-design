@@ -49,3 +49,21 @@ export const State: StoryFn<typeof BccCapacityIndicator> = () => ({
     </div>
   `,
 });
+
+/**
+ * Setting the `animate` prop to `true` will animate the indicator to its current value when it's first rendered
+ */
+export const Animated: StoryFn<typeof BccCapacityIndicator> = () => ({
+  components: { BccCapacityIndicator },
+  template: `
+    <div class="flex items-center space-x-4">
+      <BccCapacityIndicator animate :total="42" />
+      <BccCapacityIndicator animate :total="200" :used="1" />
+      <BccCapacityIndicator animate :total="20" :used="6" />
+      <BccCapacityIndicator animate :total="20" :used="18" />
+      <BccCapacityIndicator animate :total="20" :used="20" />
+      <BccCapacityIndicator animate :total="0" :used="0" />
+      <BccCapacityIndicator animate :total="-1" />
+    </div>
+  `,
+});
