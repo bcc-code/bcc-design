@@ -2,7 +2,7 @@
   "name": "@bcc-code/design-library-vue",
   "repository": "https://github.com/bcc-code/bcc-design-library.git",
   "homepage": "https://developer.bcc.no/bcc-design/design-library/",
-  "version": "0.14.0",
+  "version": "1.0.0",
   "type": "module",
   "license": "Apache-2.0",
   "files": [
