@@ -7,8 +7,8 @@ export default {
   title: "Components/BccPin",
   component: BccPin,
   argTypes: {
-    variant: {
-      description: "Determines the styling of the pin",
+    context: {
+      description: "Which context color to use for the styling of the pin",
       options: ["neutral", "danger", "warning", "success", "info"],
       control: { type: "radio" },
     },
@@ -27,7 +27,7 @@ const Template: StoryFn<typeof BccPin> = (args) => ({
 
 export const Example = Template.bind({});
 Example.args = {
-  variant: "neutral",
+  context: "neutral",
   text: "",
 };
 
@@ -38,11 +38,11 @@ export const WithIcon: StoryFn<typeof BccPin> = () => ({
   },
   template: `
     <div class="flex items-start space-x-2">
-      <BccPin variant="neutral" :icon="CheckCircleIcon" />
-      <BccPin variant="danger" :icon="CheckCircleIcon" />
-      <BccPin variant="warning" :icon="CheckCircleIcon" />
-      <BccPin variant="success" :icon="CheckCircleIcon" />
-      <BccPin variant="info" :icon="CheckCircleIcon" />
+      <BccPin context="neutral" :icon="CheckCircleIcon" />
+      <BccPin context="danger" :icon="CheckCircleIcon" />
+      <BccPin context="warning" :icon="CheckCircleIcon" />
+      <BccPin context="success" :icon="CheckCircleIcon" />
+      <BccPin context="info" :icon="CheckCircleIcon" />
     </div>
   `,
 });
@@ -51,11 +51,11 @@ export const WithText: StoryFn<typeof BccPin> = () => ({
   components: { BccPin },
   template: `
     <div class="flex items-start space-x-2">
-      <BccPin variant="neutral" text="1" />
-      <BccPin variant="danger" text="1" />
-      <BccPin variant="warning" text="1" />
-      <BccPin variant="success" text="1" />
-      <BccPin variant="info" text="1" />
+      <BccPin context="neutral" text="1" />
+      <BccPin context="danger" text="1" />
+      <BccPin context="warning" text="1" />
+      <BccPin context="success" text="1" />
+      <BccPin context="info" text="1" />
     </div>
   `,
 });
