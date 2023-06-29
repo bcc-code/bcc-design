@@ -8,47 +8,37 @@ export const Examples: StoryFn = () => ({
   template: `
     <div class="space-y-8">
         <div class="space-y-2">
-            <div class="text-display-md">text-display-md</div>
             <div class="text-display">text-display</div>
-            <div class="text-display-sm">text-display-sm</div>
         </div>
 
         <div class="space-y-2">
-            <div class="text-heading-lg">text-heading-lg</div>
-            <div class="text-heading-md">text-heading-md</div>
-            <div class="text-heading">text-heading</div>
-            <div class="text-heading-sm">text-heading-sm</div>
+            <div class="text-title-large">text-title-large</div>
+            <div class="text-title-medium">text-title-medium</div>
+            <div class="text-title-small">text-title-small</div>
         </div>
 
         <div class="space-y-2">
-            <div class="text-title-lg">text-title-lg</div>
-            <div class="text-title-md">text-title-md</div>
-            <div class="text-title">text-title</div>
+            <div class="text-heading-large">text-heading-large</div>
+            <div class="text-heading-medium">text-heading-medium</div>
+            <div class="text-heading-base">text-heading-base</div>
+            <div class="text-heading-small">text-heading-small</div>
         </div>
 
         <div class="space-y-2">
-            <div class="text-subtitle-md">text-subtitle-md</div>
-            <div class="text-subtitle">text-subtitle</div>
-            <div class="text-subtitle-sm">text-subtitle-sm</div>
+            <div class="text-body-base">text-body-base</div>
+            <div class="text-body-small">text-body-small</div>
         </div>
 
         <div class="space-y-2">
-            <div class="text-label-md">text-label-md</div>
-            <div class="text-label">text-label</div>
-            <div class="text-label-sm">text-label-sm</div>
-            <div class="text-label-xs">text-label-xs</div>
+            <div class="text-caption">text-caption</div>
+            <div class="text-overline">text-overline</div>
         </div>
 
         <div class="space-y-2">
-            <div class="text-body">text-body</div>
-            <div class="text-body-sm">text-body-sm</div>
-            <div class="text-body-xs">text-body-xs</div>
-        </div>
-
-        <div class="space-y-2">
-            <div class="text-caption-xs">text-caption-xs</div>
-            <div class="text-caption-xxs">text-caption-xxs</div>
-        </div>
+            <div class="text-label-medium">text-label-medium</div>
+            <div class="text-label-base">text-label-base</div>
+            <div class="text-label-small">text-label-small</div>
+        </div>       
     </div>
   `,
 });
