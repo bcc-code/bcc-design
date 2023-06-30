@@ -59,7 +59,7 @@ jobs:
         run: pnpm install --frozen-lockfile
       
       - name: Lint
-        run: npm run lint:no-fix
+        run: npm run lint
 
       - name: Type Check
         run: npm run type-check
