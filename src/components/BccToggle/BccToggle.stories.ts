@@ -14,7 +14,7 @@ const Template: StoryFn<typeof BccToggle> = (args) => ({
     return { args };
   },
   template: `
-    <BccToggle v-model="args.modelValue" />
+    <BccToggle v-model="args.modelValue" v-bind="args" />
   `,
 });
 
