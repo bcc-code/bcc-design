@@ -13,7 +13,7 @@ async function main() {
     .then(async (result) => {
       const output = result.css;
 
-      await fs.writeFile("./dist_css/tailwind/index.css", output, { flag: "a" });
+      await fs.writeFile("./dist_css/tailwind/index.css", output, "utf8");
     });
 }
 
