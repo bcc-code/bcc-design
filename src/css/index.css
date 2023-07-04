@@ -1,9 +1,11 @@
+/* The contents of this file are automatically combined on build time */
+
 @import "typography.css";
 
-@import "avatar.css";
-@import "capacity-indicator.css";
-@import "badge.css";
-@import "button.css";
-@import "input.css";
-@import "pin.css";
-@import "toggle.css";
+@import "../components/BccAvatar/BccAvatar.css";
+@import "../components/BccCapacityIndicator/BccCapacityIndicator.css";
+@import "../components/BccBadge/BccBadge.css";
+@import "../components/BccButton/BccButton.css";
+@import "../components/BccInput/BccInput.css";
+@import "../components/BccPin/BccPin.css";
+@import "../components/BccToggle/BccToggle.css";

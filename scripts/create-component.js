@@ -91,11 +91,11 @@ Example.args = {
 }
 
 function createCssFile(componentName) {
-  componentName = getLowercaseComponentName(componentName);
+  const cssClassName = getLowercaseComponentName(componentName);
   return promises.writeFile(
-    rootPath + `src/css/${componentName}.css`,
+    rootPath + `src/components/${componentName}/${componentName}.css`,
     `@layer components {
-    .bcc-${componentName} {
+    .bcc-${cssClassName} {
         @apply ;
     }
   }`
@@ -126,20 +126,21 @@ async function createComponent(componentName) {
       "src/index.ts",
       `export { default as ${componentName} } from "./components/${componentName}/${componentName}.vue";\n`
     ),
+    appendFile(
+      "src/css/index.css",
+      `@import "../components/${componentName}/${componentName}.css";\n`
+    ),
   ]);
-
-  const cssComponentName = getLowercaseComponentName(componentName);
 
   console.log(`Scaffolded ${componentName} component. The following files were created:\n`);
   console.log(`
 src
 ├── components
 \t├── ${componentName}
+\t\t├── ${componentName}.css
 \t\t├── ${componentName}.spec.ts
 \t\t├── ${componentName}.stories.ts
 \t\t├── ${componentName}.vue
-├── css
-\t├── ${cssComponentName}.css
 \t\t`);
 }
 
