@@ -48,3 +48,20 @@ export const State: StoryFn<typeof BccAvatar> = () => ({
     </div>
   `,
 });
+
+/**
+ * Use CSS to create a list of avatars
+ */
+export const ListExample: StoryFn<typeof BccAvatar> = () => ({
+  components: { BccAvatar },
+  template: `
+    <div class="flex items-center">
+      <BccAvatar initials="Ge" gender="male" />
+      <BccAvatar initials="Id" gender="female" class="shrink-0 -ml-[0.571em]" />
+      <BccAvatar initials="Un" gender="unknown" class="shrink-0 -ml-[0.571em]" />
+      <BccAvatar initials="Ab" gender="male" :child="true" class="shrink-0 -ml-[0.571em]" />
+      <BccAvatar initials="Cd" gender="female" :child="true" class="shrink-0 -ml-[0.571em]" />
+      <BccAvatar initials="+2"  :child="true" class="shrink-0 -ml-[0.571em]" />
+    </div>
+  `,
+});
