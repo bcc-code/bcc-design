@@ -8,10 +8,12 @@ const props = withDefaults(
     total: number;
     used?: number;
     animate?: boolean;
+    size: "base" | "lg";
   }>(),
   {
     used: 0,
     animate: false,
+    size: "base",
   }
 );
 
@@ -38,7 +40,9 @@ const dashArray = Math.PI * 18 * 2;
     width="2em"
     height="2em"
     viewBox="0 0 40 40"
+    class="bcc-capacity-indicator"
     :class="{
+      'bcc-capacity-indicator-lg': size == 'lg',
       'bcc-capacity-indicator-open': total == -1 || (progress >= 0 && progress < 50),
       'bcc-capacity-indicator-warning': progress >= 50 && progress < 100,
       'bcc-capacity-indicator-full': progress >= 100,

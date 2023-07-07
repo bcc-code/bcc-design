@@ -18,6 +18,11 @@ export default {
     animate: {
       description: "If the indicator should animate on display or not",
     },
+    size: {
+      description: "The size of component",
+      options: ["base", "lg"],
+      control: { type: "radio" },
+    },
   },
 } as Meta<typeof BccCapacityIndicator>;
 
@@ -36,6 +41,7 @@ Example.args = {
   total: 20,
   used: 14,
   animate: false,
+  size: "base",
 };
 
 /**
@@ -70,6 +76,19 @@ export const Animated: StoryFn<typeof BccCapacityIndicator> = () => ({
       <BccCapacityIndicator animate :total="20" :used="20" />
       <BccCapacityIndicator animate :total="0" :used="0" />
       <BccCapacityIndicator animate :total="-1" />
+    </div>
+  `,
+});
+
+/**
+ * Set the `size` prop to change the size of the component
+ */
+export const Size: StoryFn<typeof BccCapacityIndicator> = () => ({
+  components: { BccCapacityIndicator },
+  template: `
+    <div class="flex items-center space-x-4">
+      <BccCapacityIndicator size="base" :total="42" />
+      <BccCapacityIndicator size="lg" :total="20" :used="6" />
     </div>
   `,
 });

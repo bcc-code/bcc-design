@@ -15,6 +15,11 @@ export default {
       options: ["default", "success", "danger"],
       control: { type: "radio" },
     },
+    size: {
+      description: "The size of component",
+      options: ["base", "lg"],
+      control: { type: "radio" },
+    },
   },
 } as Meta<typeof BccStatusIndicator>;
 
@@ -31,6 +36,7 @@ const Template: StoryFn<typeof BccStatusIndicator> = (args) => ({
 export const Example = Template.bind({});
 Example.args = {
   status: "success",
+  size: "base",
 };
 
 /**
@@ -60,6 +66,19 @@ export const CustomIcon: StoryFn<typeof BccStatusIndicator> = () => ({
       <BccStatusIndicator :icon="SearchIcon" />
       <BccStatusIndicator :icon="SearchIcon" status="success" />
       <BccStatusIndicator :icon="SearchIcon" status="danger" />
+    </div>
+  `,
+});
+
+/**
+ * Set the `size` prop to change the component size
+ */
+export const Size: StoryFn<typeof BccStatusIndicator> = () => ({
+  components: { BccStatusIndicator },
+  template: `
+    <div class="flex items-center space-x-4">
+      <BccStatusIndicator size="base" status="success" />
+      <BccStatusIndicator size="lg" status="success" />
     </div>
   `,
 });

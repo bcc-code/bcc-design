@@ -1,4 +1,12 @@
 @layer components {
+    .bcc-capacity-indicator {
+        @apply text-base;
+    }
+
+    .bcc-capacity-indicator-lg {
+        @apply text-xl;
+    }
+
     .bcc-capacity-indicator-open {
         @apply text-neutral-300;
     }
