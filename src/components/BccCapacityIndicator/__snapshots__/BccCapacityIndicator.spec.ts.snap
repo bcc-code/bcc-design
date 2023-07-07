@@ -9,8 +9,8 @@ exports[`BccCapacityIndicator > shows an icon if the capacity is infinite 1`] = 
 `;
 
 exports[`BccCapacityIndicator > shows the remaining capacity 1`] = `
-"<svg width=\\"2em\\" height=\\"2em\\" viewBox=\\"0 0 40 40\\" class=\\"bcc-capacity-indicator bcc-capacity-indicator-open\\">
+"<svg width=\\"2em\\" height=\\"2em\\" viewBox=\\"0 0 40 40\\" class=\\"bcc-capacity-indicator bcc-capacity-indicator-warning\\">
   <circle cx=\\"20\\" cy=\\"20\\" r=\\"18\\" fill=\\"none\\" stroke-width=\\"2\\" stroke=\\"currentColor\\"></circle>
-  <circle cx=\\"20\\" cy=\\"20\\" r=\\"18\\" fill=\\"none\\" stroke-width=\\"2\\" stroke-dasharray=\\"113.09733552923255\\" stroke-dashoffset=\\"79.16813487046278\\" stroke=\\"currentColor\\" transform=\\"rotate(-90 20 20)\\" class=\\"bcc-capacity-indicator-circle-used\\"></circle><text text-anchor=\\"middle\\" x=\\"20\\" y=\\"25\\" font-size=\\"14\\" font-weight=\\"600\\" fill=\\"currentColor\\" class=\\"bcc-capacity-indicator-text\\">14</text>
+  <circle cx=\\"20\\" cy=\\"20\\" r=\\"18\\" fill=\\"none\\" stroke-width=\\"2\\" stroke-dasharray=\\"113.09733552923255\\" stroke-dashoffset=\\"33.929200658769766\\" stroke=\\"currentColor\\" transform=\\"rotate(-90 20 20)\\" class=\\"bcc-capacity-indicator-circle-used\\"></circle><text text-anchor=\\"middle\\" x=\\"20\\" y=\\"25\\" font-size=\\"14\\" font-weight=\\"600\\" fill=\\"currentColor\\" class=\\"bcc-capacity-indicator-text\\">2</text>
 </svg>"
 `;
