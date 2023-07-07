@@ -67,16 +67,16 @@ export const CustomIcon: StoryFn<typeof BccStatusIndicator> = () => ({
 /**
  * Wrap the component in an element with `data-context="alternative"` to render an alternative component on a dark background
  */
-export const AlternativeContext: StoryFn<typeof BccCapacityIndicator> = () => ({
+export const AlternativeContext: StoryFn<typeof BccStatusIndicator> = () => ({
   components: { BccStatusIndicator },
   setup() {
     return { SearchIcon };
   },
   template: `
     <div class="flex items-start gap-x-2 bg-primary p-4 rounded" data-context="alternative">
-      <BccStatusIndicator :icon="SearchIcon" />
-      <BccStatusIndicator :icon="SearchIcon" status="success" />
-      <BccStatusIndicator :icon="SearchIcon" status="danger" />
+      <BccStatusIndicator />
+      <BccStatusIndicator status="success" />
+      <BccStatusIndicator status="danger" />
     </div>
   `,
 });

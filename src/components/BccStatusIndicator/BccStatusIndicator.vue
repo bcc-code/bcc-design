@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Component } from "vue";
-import { CheckIcon, ScheduleIcon, ExclamationIcon } from "@bcc-code/icons-vue";
+import { CheckIcon, ScheduleIcon, LockIcon } from "@bcc-code/icons-vue";
 
 type Props = {
   status: "default" | "success" | "danger";
@@ -23,6 +23,6 @@ withDefaults(defineProps<Props>(), {
     <component v-if="icon" :is="icon" class="bcc-status-indicator-icon" />
     <ScheduleIcon class="bcc-status-indicator-icon" v-else-if="status == 'default'" />
     <CheckIcon class="bcc-status-indicator-icon" v-else-if="status == 'success'" />
-    <ExclamationIcon class="bcc-status-indicator-icon" v-else-if="status == 'danger'" />
+    <LockIcon class="bcc-status-indicator-icon" v-else-if="status == 'danger'" />
   </div>
 </template>
