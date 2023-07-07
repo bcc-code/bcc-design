@@ -1,0 +1,17 @@
+@layer components {
+    .bcc-status-indicator {
+        @apply h-8 w-8 rounded-full border-2 border-neutral-300 bg-white p-1 text-primary;
+    }
+
+    .bcc-status-indicator-success {
+        @apply border-success text-success;
+    }
+
+    .bcc-status-indicator-danger {
+        @apply border-danger text-danger;
+    }
+
+    .bcc-status-indicator-icon {
+        @apply h-5 w-5;
+    }
+}

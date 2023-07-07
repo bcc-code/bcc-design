@@ -2,6 +2,9 @@ import BccCapacityIndicator from "./BccCapacityIndicator.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
+/**
+ * Show the remaining capacity, for example for activities. Pairs well with the `StatusIndicator` for more custom status states
+ */
 export default {
   title: "Components/BccCapacityIndicator",
   component: BccCapacityIndicator,
@@ -35,6 +38,9 @@ Example.args = {
   animate: false,
 };
 
+/**
+ * Pass the `total` and `used` props to control the state of the component. Set `total` to `-1` to show infinite capacity
+ */
 export const State: StoryFn<typeof BccCapacityIndicator> = () => ({
   components: { BccCapacityIndicator },
   template: `
