@@ -1,0 +1,39 @@
+@layer components {
+    .bcc-status-indicator {
+        @apply h-8 w-8 rounded-full border-2 border-neutral-300 p-1 text-primary;
+    }
+
+    .bcc-status-indicator-success {
+        @apply border-success text-success;
+    }
+
+    .bcc-status-indicator-danger {
+        @apply border-danger text-danger;
+    }
+
+    .bcc-status-indicator-icon {
+        @apply h-5 w-5;
+    }
+
+    .bcc-status-indicator-lg {
+        @apply h-10 w-10 p-1.5;
+    }
+    .bcc-status-indicator-lg .bcc-status-indicator-icon {
+        @apply h-6 w-6;
+    }
+
+    [data-context="alternative"] .bcc-status-indicator-success {
+        @apply border-neutral-300;
+    }
+
+    [data-context="alternative"] .bcc-status-indicator-danger {
+        @apply border-red-100;
+    }
+
+    [data-context="alternative"] .bcc-status-indicator-icon {
+        @apply text-neutral-0;
+    }
+    [data-context="alternative"] .bcc-status-indicator-danger .bcc-status-indicator-icon {
+        @apply text-red-100;
+    }
+}

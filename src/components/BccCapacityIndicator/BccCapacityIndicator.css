@@ -1,13 +1,57 @@
 @layer components {
-    .capacity-indicator-open {
-        @apply text-neutral-800;
+    .bcc-capacity-indicator {
+        @apply text-base;
     }
 
-    .capacity-indicator-warning {
-        @apply text-muddy-waters-500;
+    .bcc-capacity-indicator-lg {
+        @apply text-xl;
     }
 
-    .capacity-indicator-full {
-        @apply text-red-800;
+    .bcc-capacity-indicator-open {
+        @apply text-neutral-300;
+    }
+    .bcc-capacity-indicator-open .bcc-capacity-indicator-circle-used {
+        @apply text-neutral-500;
+    }
+    .bcc-capacity-indicator-open .bcc-capacity-indicator-text {
+        @apply text-neutral-900;
+    }
+
+    .bcc-capacity-indicator-warning {
+        @apply text-muddy-waters-100;
+    }
+    .bcc-capacity-indicator-warning .bcc-capacity-indicator-circle-used {
+        @apply text-muddy-waters-400;
+    }
+    .bcc-capacity-indicator-warning .bcc-capacity-indicator-text {
+        @apply text-muddy-waters-600;
+    }
+
+    .bcc-capacity-indicator-full {
+        @apply text-red-900;
+    }
+
+    [data-context="alternative"] .bcc-capacity-indicator-open {
+        @apply text-neutral-300;
+    }
+    [data-context="alternative"] .bcc-capacity-indicator-open .bcc-capacity-indicator-circle-used {
+        @apply text-neutral-0;
+    }
+    [data-context="alternative"] .bcc-capacity-indicator-open .bcc-capacity-indicator-text {
+        @apply text-neutral-0;
+    }
+
+    [data-context="alternative"] .bcc-capacity-indicator-warning {
+        @apply text-neutral-0;
+    }
+    [data-context="alternative"] .bcc-capacity-indicator-warning .bcc-capacity-indicator-circle-used {
+        @apply text-muddy-waters-300;
+    }
+    [data-context="alternative"] .bcc-capacity-indicator-warning .bcc-capacity-indicator-text {
+        @apply text-muddy-waters-200;
+    }
+
+    [data-context="alternative"] .bcc-capacity-indicator-full {
+        @apply text-red-100;
     }
 }
