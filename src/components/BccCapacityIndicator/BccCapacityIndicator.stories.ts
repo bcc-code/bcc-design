@@ -73,3 +73,21 @@ export const Animated: StoryFn<typeof BccCapacityIndicator> = () => ({
     </div>
   `,
 });
+
+/**
+ * Wrap the component in an element with `data-context="alternative"` to render an alternative component on a dark background
+ */
+export const AlternativeContext: StoryFn<typeof BccCapacityIndicator> = () => ({
+  components: { BccCapacityIndicator },
+  template: `
+  <div class="flex items-start gap-x-2 bg-primary p-4 rounded" data-context="alternative">
+      <BccCapacityIndicator animate :total="42" />
+      <BccCapacityIndicator animate :total="200" :used="1" />
+      <BccCapacityIndicator animate :total="20" :used="6" />
+      <BccCapacityIndicator animate :total="20" :used="18" />
+      <BccCapacityIndicator animate :total="20" :used="20" />
+      <BccCapacityIndicator animate :total="0" :used="0" />
+      <BccCapacityIndicator animate :total="-1" />
+    </div>
+  `,
+});

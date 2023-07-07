@@ -1,14 +1,49 @@
 @layer components {
-    /* @deprecated non-bcc-prefixed classes should be removed in 2.0 */
-    .bcc-capacity-indicator-open, .capacity-indicator-open {
-        @apply text-neutral-800;
+    .bcc-capacity-indicator-open {
+        @apply text-neutral-300;
+    }
+    .bcc-capacity-indicator-open .bcc-capacity-indicator-circle-used {
+        @apply text-neutral-500;
+    }
+    .bcc-capacity-indicator-open .bcc-capacity-indicator-text {
+        @apply text-neutral-900;
     }
 
-    .bcc-capacity-indicator-warning, .capacity-indicator-warning {
-        @apply text-muddy-waters-500;
+    .bcc-capacity-indicator-warning {
+        @apply text-muddy-waters-100;
+    }
+    .bcc-capacity-indicator-warning .bcc-capacity-indicator-circle-used {
+        @apply text-muddy-waters-400;
+    }
+    .bcc-capacity-indicator-warning .bcc-capacity-indicator-text {
+        @apply text-muddy-waters-600;
     }
 
-    .bcc-capacity-indicator-full, .capacity-indicator-full {
-        @apply text-red-800;
+    .bcc-capacity-indicator-full {
+        @apply text-red-900;
+    }
+
+    [data-context="alternative"] .bcc-capacity-indicator-open {
+        @apply text-neutral-300;
+    }
+    [data-context="alternative"] .bcc-capacity-indicator-open .bcc-capacity-indicator-circle-used {
+        @apply text-neutral-0;
+    }
+    [data-context="alternative"] .bcc-capacity-indicator-open .bcc-capacity-indicator-text {
+        @apply text-neutral-0;
+    }
+
+    [data-context="alternative"] .bcc-capacity-indicator-warning {
+        @apply text-neutral-0;
+    }
+    [data-context="alternative"] .bcc-capacity-indicator-warning .bcc-capacity-indicator-circle-used {
+        @apply text-muddy-waters-300;
+    }
+    [data-context="alternative"] .bcc-capacity-indicator-warning .bcc-capacity-indicator-text {
+        @apply text-muddy-waters-200;
+    }
+
+    [data-context="alternative"] .bcc-capacity-indicator-full {
+        @apply text-red-100;
     }
 }
