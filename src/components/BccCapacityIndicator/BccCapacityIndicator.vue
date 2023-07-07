@@ -39,9 +39,9 @@ const dashArray = Math.PI * 18 * 2;
     height="2em"
     viewBox="0 0 40 40"
     :class="{
-      'capacity-indicator-open': total == -1 || (progress >= 0 && progress < 50),
-      'capacity-indicator-warning': progress >= 50 && progress < 100,
-      'capacity-indicator-full': progress >= 100,
+      'bcc-capacity-indicator-open': total == -1 || (progress >= 0 && progress < 50),
+      'bcc-capacity-indicator-warning': progress >= 50 && progress < 100,
+      'bcc-capacity-indicator-full': progress >= 100,
     }"
   >
     <circle
