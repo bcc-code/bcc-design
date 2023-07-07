@@ -33,7 +33,7 @@ const percentage = computed(() => {
 const { value: progress } = useAnimatedNumber(
   percentage,
   percentage.value,
-  props.animationDuration.value
+  props.animationDuration
 );
 
 const dashArray = Math.PI * 18 * 2;
