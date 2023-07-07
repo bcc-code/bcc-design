@@ -15,13 +15,13 @@ export default {
     used: {
       description: "How much from the total capacity is not available",
     },
-    animate: {
-      description: "If the indicator should animate on display or not",
-    },
     size: {
       description: "The size of component",
       options: ["base", "lg"],
       control: { type: "radio" },
+    },
+    animationDuration: {
+      description: "How long the animation in `ms` is when the `used` prop is updated",
     },
   },
 } as Meta<typeof BccCapacityIndicator>;
@@ -40,8 +40,8 @@ export const Example = Template.bind({});
 Example.args = {
   total: 20,
   used: 14,
-  animate: false,
   size: "base",
+  animationDuration: 1000,
 };
 
 /**
@@ -58,24 +58,6 @@ export const State: StoryFn<typeof BccCapacityIndicator> = () => ({
       <BccCapacityIndicator :total="20" :used="20" />
       <BccCapacityIndicator :total="0" :used="0" />
       <BccCapacityIndicator :total="-1" />
-    </div>
-  `,
-});
-
-/**
- * Setting the `animate` prop to `true` will animate the indicator to its current value when it's first rendered
- */
-export const Animated: StoryFn<typeof BccCapacityIndicator> = () => ({
-  components: { BccCapacityIndicator },
-  template: `
-    <div class="flex items-center space-x-4">
-      <BccCapacityIndicator animate :total="42" />
-      <BccCapacityIndicator animate :total="200" :used="1" />
-      <BccCapacityIndicator animate :total="20" :used="6" />
-      <BccCapacityIndicator animate :total="20" :used="18" />
-      <BccCapacityIndicator animate :total="20" :used="20" />
-      <BccCapacityIndicator animate :total="0" :used="0" />
-      <BccCapacityIndicator animate :total="-1" />
     </div>
   `,
 });
@@ -100,13 +82,13 @@ export const AlternativeContext: StoryFn<typeof BccCapacityIndicator> = () => ({
   components: { BccCapacityIndicator },
   template: `
   <div class="flex items-start gap-x-2 bg-primary p-4 rounded" data-context="alternative">
-      <BccCapacityIndicator animate :total="42" />
-      <BccCapacityIndicator animate :total="200" :used="1" />
-      <BccCapacityIndicator animate :total="20" :used="6" />
-      <BccCapacityIndicator animate :total="20" :used="18" />
-      <BccCapacityIndicator animate :total="20" :used="20" />
-      <BccCapacityIndicator animate :total="0" :used="0" />
-      <BccCapacityIndicator animate :total="-1" />
+      <BccCapacityIndicator :total="42" />
+      <BccCapacityIndicator :total="200" :used="1" />
+      <BccCapacityIndicator :total="20" :used="6" />
+      <BccCapacityIndicator :total="20" :used="18" />
+      <BccCapacityIndicator :total="20" :used="20" />
+      <BccCapacityIndicator :total="0" :used="0" />
+      <BccCapacityIndicator :total="-1" />
     </div>
   `,
 });

@@ -7,29 +7,33 @@ const props = withDefaults(
     // -1 = Infinity
     total: number;
     used?: number;
-    animate?: boolean;
     size?: "base" | "lg";
+    animationDuration?: number;
   }>(),
   {
     used: 0,
-    animate: false,
     size: "base",
+    animationDuration: 1000,
   }
 );
 
-const duration = props.animate ? 1000 : 0;
+const { value: valueUsed } = useAnimatedNumber(
+  toRef(props, "used"),
+  props.used,
+  props.animationDuration
+);
 
-const { value: valueUsed } = useAnimatedNumber(toRef(props, "used"), 0, duration);
+const percentage = computed(() => {
+  if (props.total === -1) return -1;
+  if (props.used > props.total || props.used === props.total) return 100;
+  if (props.total > 0) return (props.used / props.total) * 100;
+  return 0;
+});
 
 const { value: progress } = useAnimatedNumber(
-  computed(() => {
-    if (props.total === -1) return -1;
-    if (props.used > props.total || props.used === props.total) return 100;
-    if (props.total > 0) return (props.used / props.total) * 100;
-    return 0;
-  }),
-  0,
-  duration
+  percentage,
+  percentage.value,
+  props.animationDuration
 );
 
 const dashArray = Math.PI * 18 * 2;
