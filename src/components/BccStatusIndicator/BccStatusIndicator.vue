@@ -3,9 +3,9 @@ import type { Component } from "vue";
 import { CheckIcon, ScheduleIcon, LockIcon } from "@bcc-code/icons-vue";
 
 type Props = {
-  status: "default" | "success" | "danger";
+  status?: "default" | "success" | "danger";
   icon?: string | Component | Function;
-  size: "base" | "lg";
+  size?: "base" | "lg";
 };
 
 withDefaults(defineProps<Props>(), {

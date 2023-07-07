@@ -8,7 +8,7 @@ const props = withDefaults(
     total: number;
     used?: number;
     animate?: boolean;
-    size: "base" | "lg";
+    size?: "base" | "lg";
   }>(),
   {
     used: 0,
