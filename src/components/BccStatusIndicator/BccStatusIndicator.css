@@ -1,6 +1,6 @@
 @layer components {
     .bcc-status-indicator {
-        @apply h-8 w-8 rounded-full border-2 border-neutral-300 bg-white p-1 text-primary;
+        @apply h-8 w-8 rounded-full border-2 border-neutral-300 p-1 text-primary;
     }
 
     .bcc-status-indicator-success {
@@ -13,5 +13,20 @@
 
     .bcc-status-indicator-icon {
         @apply h-5 w-5;
+    }
+
+    [data-context="alternative"] .bcc-status-indicator-success {
+        @apply border-neutral-300;
+    }
+
+    [data-context="alternative"] .bcc-status-indicator-danger {
+        @apply border-red-100;
+    }
+
+    [data-context="alternative"] .bcc-status-indicator-icon {
+        @apply text-neutral-0;
+    }
+    [data-context="alternative"] .bcc-status-indicator-danger .bcc-status-indicator-icon {
+        @apply text-red-100;
     }
 }
