@@ -64,7 +64,22 @@ Example.args = {
   is: "button",
   slotDefault: "Example Button",
 };
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccButton :icon="SearchIcon">
+  Example Button
+</BccButton>
+    `,
+    },
+  },
+};
 
+/**
+ * Set the `variant` prop to `primary` to render a primary button. This is the default value for this prop so it's not necessary to set it.
+ */
 export const Primary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
@@ -78,6 +93,9 @@ export const Primary: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
+/**
+ * Set the `variant` prop to `secondary` to render a secondary button
+ */
 export const Secondary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
@@ -91,6 +109,9 @@ export const Secondary: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
+/**
+ * Set the `variant` prop to `tertiary` to render a tertiary button
+ */
 export const Tertiary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
@@ -104,6 +125,9 @@ export const Tertiary: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
+/**
+ * Set the `context` prop to `danger` to render danger variants of the button
+ */
 export const Danger: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
@@ -115,33 +139,42 @@ export const Danger: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
+/**
+ * Set the `disabled` prop to disable the button and all click events on it
+ */
 export const Disabled: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
     <div class="flex items-start gap-x-2">
-      <BccButton variant="primary" :disabled="true">Primary disabled</BccButton>
-      <BccButton variant="secondary" :disabled="true">Secondary disabled</BccButton>
-      <BccButton variant="tertiary" :disabled="true">Tertiary disabled</BccButton>
+      <BccButton variant="primary" disabled>Primary disabled</BccButton>
+      <BccButton variant="secondary" disabled>Secondary disabled</BccButton>
+      <BccButton variant="tertiary" disabled>Tertiary disabled</BccButton>
     </div>
     <div class="flex items-start gap-x-2 mt-4">
-      <BccButton variant="primary" :disabled="true" context="danger">Primary disabled</BccButton>
-      <BccButton variant="secondary" :disabled="true" context="danger">Secondary disabled</BccButton>
-      <BccButton variant="tertiary" :disabled="true" context="danger">Tertiary disabled</BccButton>
+      <BccButton variant="primary" disabled context="danger">Primary disabled</BccButton>
+      <BccButton variant="secondary" disabled context="danger">Secondary disabled</BccButton>
+      <BccButton variant="tertiary" disabled context="danger">Tertiary disabled</BccButton>
     </div>
   `,
 });
 
+/**
+ * Set the `rounded` prop to render an alternate rounded button
+ */
 export const Rounded: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
     <div class="flex items-start gap-x-2">
-      <BccButton variant="primary" :rounded="true">Primary rounded</BccButton>
-      <BccButton variant="secondary" :rounded="true">Secondary rounded</BccButton>
-      <BccButton variant="tertiary" :rounded="true">Tertiary rounded</BccButton>
+      <BccButton variant="primary" rounded>Primary rounded</BccButton>
+      <BccButton variant="secondary" rounded>Secondary rounded</BccButton>
+      <BccButton variant="tertiary" rounded>Tertiary rounded</BccButton>
     </div>
   `,
 });
 
+/**
+ * Pass an icon to the `icon` prop to add an icon. Set `iconRight` to render the icon on the right instead of the default left side.
+ */
 export const WithIcon: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   setup() {
@@ -163,7 +196,7 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
       <BccButton variant="tertiary" :icon="SearchIcon">
         Tertiary with icon
       </BccButton>
-      <BccButton :disabled="true" :icon="SearchIcon">
+      <BccButton disabled :icon="SearchIcon">
         Disabled with icon
       </BccButton>
     </div>
@@ -187,6 +220,9 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
+/**
+ * If you only pass an `icon` and nothing in the default slot, the button changes shape to render an icon only button.
+ */
 export const IconOnly: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   setup() {
@@ -211,6 +247,9 @@ export const IconOnly: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
+/**
+ * Set the `center` prop to `false` (default is `true`) to justify the text and optionally icon of the button
+ */
 export const ContentPosition: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   setup() {
@@ -221,7 +260,7 @@ export const ContentPosition: StoryFn<typeof BccButton> = () => ({
       <BccButton variant="primary" class="w-full">
         Default text
       </BccButton>
-      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true" :icon="ChevronLeftIcon">
+      <BccButton class="w-full" size="lg" variant="secondary" rounded disabled :icon="ChevronLeftIcon">
         Default text, icon left
       </BccButton>
       <BccButton class="w-full" size="lg" variant="secondary" icon-right :icon="ChevronRightIcon">
@@ -231,7 +270,7 @@ export const ContentPosition: StoryFn<typeof BccButton> = () => ({
       <BccButton variant="primary" class="w-full" :center="false">
         Non-centered text
       </BccButton>
-      <BccButton class="w-full" size="lg" variant="secondary" :rounded="true" :disabled="true" :center="false" :icon="ChevronLeftIcon">
+      <BccButton class="w-full" size="lg" variant="secondary" rounded disabled :center="false" :icon="ChevronLeftIcon">
         Non-centered text, icon left
       </BccButton>
       <BccButton class="w-full" size="lg" variant="secondary" icon-right :center="false" :icon="ChevronRightIcon">
@@ -241,6 +280,9 @@ export const ContentPosition: StoryFn<typeof BccButton> = () => ({
   `,
 });
 
+/**
+ * Set the `is` prop to `a` to render an `<a>` element instead of a `<button>`
+ */
 export const Anchor: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
   template: `
