@@ -98,7 +98,8 @@ function createCssFile(componentName) {
     .bcc-${cssClassName} {
         @apply ;
     }
-  }`
+}
+`
   );
 }
 
