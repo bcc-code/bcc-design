@@ -7,7 +7,12 @@ describe("BccModal", () => {
   it("renders a modal", () => {
     const wrapper = mount(BccModal, {
       props: { open: true, title: "Modal title" },
-      slots: { default: "Modal content" },
+      slots: {
+        default: "Modal content",
+        heading: "",
+        primaryAction: "Primary action",
+        secondaryAction: "Secondary action",
+      },
       global: {
         renderStubDefaultSlot: true,
       },
@@ -16,6 +21,8 @@ describe("BccModal", () => {
 
     expect(wrapper.text()).toContain("Modal title");
     expect(wrapper.text()).toContain("Modal content");
+    expect(wrapper.text()).toContain("Primary action");
+    expect(wrapper.text()).toContain("Secondary action");
     expect(wrapper.html()).toMatchSnapshot();
   });
 });
