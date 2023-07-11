@@ -1,20 +1,26 @@
 <script setup lang="ts">
 import { Dialog, DialogOverlay, TransitionChild, TransitionRoot } from "@headlessui/vue";
-import { CloseIcon } from "@bcc-code/icons-vue";
+import { CloseIcon, CheckCircleFillIcon } from "@bcc-code/icons-vue";
 import BccButton from "../BccButton/BccButton.vue";
+import { computed, useSlots } from "vue";
 
 type Props = {
   open: boolean;
   title: string;
   showClose?: boolean;
+  headingContext?: "success";
+  headingTitle?: string;
 };
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   open: false,
   showClose: true,
 });
 
 const emit = defineEmits(["close"]);
+
+const slots = useSlots();
+const showHeading = computed(() => props.headingTitle || slots.heading);
 </script>
 
 <template>
@@ -48,11 +54,22 @@ const emit = defineEmits(["close"]);
             <div
               class="flex max-w-xl flex-col gap-6 rounded-t-lg bg-primary p-6 text-primary shadow-xl sm:min-w-lg sm:rounded-lg"
             >
+              <div v-if="showHeading" class="flex flex-col gap-5 border-b border-on-primary pb-5">
+                <div
+                  class="text-heading-base flex items-center gap-2 text-success"
+                  v-if="headingTitle"
+                >
+                  <CheckCircleFillIcon class="h-4 w-4" />
+                  {{ headingTitle }}
+                </div>
+                <div class="text-secondary" v-if="slots.heading"><slot name="heading"></slot></div>
+              </div>
+
               <div class="flex justify-between">
-                <h1 class="text-heading-base">{{ title }}</h1>
+                <h3 class="text-heading-base">{{ title }}</h3>
                 <button
                   @click.prevent="emit('close')"
-                  v-if="showClose"
+                  v-if="showClose && !showHeading"
                   class="hidden sm:inline-block"
                 >
                   <CloseIcon class="h-6 w-6" />
