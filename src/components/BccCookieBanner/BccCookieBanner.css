@@ -1,0 +1,28 @@
+@layer components {
+    .bcc-cookie-banner {
+        @apply text-body-base flex flex-col gap-8 rounded-lg bg-white p-4 text-primary shadow-lg md:flex-row;
+    }
+
+    .bcc-cookie-banner a {
+        @apply underline text-interactive hover:text-interactive-hover active:text-interactive-active;
+    }
+
+    .bcc-cookie-banner-icon {
+        @apply hidden h-6 w-6 shrink-0 md:inline-block;
+    }
+
+    .bcc-cookie-banner-wrapper {
+        @apply absolute inset-x-0 bottom-0 z-50 p-4;
+    }
+
+    .bcc-cookie-banner-overlay {
+        @apply fixed inset-0 z-50 bg-black/80;
+    }
+
+    .bcc-cookie-banner-actions {
+        @apply flex w-full items-center justify-center gap-4 md:w-auto;
+    }
+    .bcc-cookie-banner-actions > button {
+        @apply flex-1;
+    }
+}
