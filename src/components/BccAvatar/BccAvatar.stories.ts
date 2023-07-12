@@ -35,6 +35,9 @@ Example.args = {
   size: "sm",
 };
 
+/**
+ * Set the `gender` and `child` props to change how the avatar looks
+ */
 export const State: StoryFn<typeof BccAvatar> = () => ({
   components: { BccAvatar },
   template: `
@@ -61,7 +64,7 @@ export const ListExample: StoryFn<typeof BccAvatar> = () => ({
       <BccAvatar initials="Un" gender="unknown" class="shrink-0 -ml-[0.571em]" />
       <BccAvatar initials="Ab" gender="male" :child="true" class="shrink-0 -ml-[0.571em]" />
       <BccAvatar initials="Cd" gender="female" :child="true" class="shrink-0 -ml-[0.571em]" />
-      <BccAvatar initials="+2"  :child="true" class="shrink-0 -ml-[0.571em]" />
+      <BccAvatar initials="+2" class="shrink-0 -ml-[0.571em]" />
     </div>
   `,
 });
