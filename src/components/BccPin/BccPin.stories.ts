@@ -3,6 +3,9 @@ import { CheckCircleIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
+/**
+ * A companion to the `Badge` component, to render just a small icon or text
+ */
 export default {
   title: "Components/BccPin",
   component: BccPin,
@@ -25,12 +28,28 @@ const Template: StoryFn<typeof BccPin> = (args) => ({
   `,
 });
 
+/**
+ * Set the `context` prop to control how the pin looks
+ */
 export const Example = Template.bind({});
 Example.args = {
-  context: "neutral",
+  context: "success",
   text: "",
 };
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccPin context="success" :icon="CheckCircleIcon" />      
+`,
+    },
+  },
+};
 
+/**
+ * Set the `icon` prop to render an icon in the pin
+ */
 export const WithIcon: StoryFn<typeof BccPin> = () => ({
   components: { BccPin },
   setup() {
@@ -47,6 +66,9 @@ export const WithIcon: StoryFn<typeof BccPin> = () => ({
   `,
 });
 
+/**
+ * Set the `text` prop to render a text in the pin. If both `icon` and `text` are given only the `icon` is rendered
+ */
 export const WithText: StoryFn<typeof BccPin> = () => ({
   components: { BccPin },
   template: `
