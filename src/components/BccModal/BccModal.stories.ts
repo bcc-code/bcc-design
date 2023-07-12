@@ -78,7 +78,7 @@ Example.parameters = {
   </template>
 
   <template #primaryAction>
-    <BccButton>Confirm</BccButton>
+    <BccButton @click="showModal = false">Confirm</BccButton>
   </template>
 </BccModal>
     `,
@@ -127,7 +127,7 @@ WithExtraHeading.parameters = {
   </template>
 
   <template #primaryAction>
-    <BccButton>Confirm</BccButton>
+    <BccButton @click="showModal = false">Confirm</BccButton>
   </template>
 </BccModal>
     `,

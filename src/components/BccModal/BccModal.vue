@@ -36,7 +36,7 @@ const showHeading = computed(() => props.headingTitle || slots.heading);
           leave-from="opacity-100"
           leave-to="opacity-0"
         >
-          <DialogOverlay class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" />
+          <DialogOverlay class="bcc-modal-overlay" />
         </TransitionChild>
 
         <TransitionChild
@@ -48,43 +48,38 @@ const showHeading = computed(() => props.headingTitle || slots.heading);
           leave-from="opacity-100 translate-y-0 sm:scale-100"
           leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
-          <div
-            class="flex h-full w-full transform flex-col justify-end transition-all sm:items-center sm:justify-center sm:p-5"
-          >
-            <div
-              class="flex flex-col gap-6 rounded-t-lg bg-primary p-6 text-primary shadow-xl sm:min-w-lg sm:max-w-xl sm:rounded-lg"
-            >
-              <div v-if="showHeading" class="flex flex-col gap-5 border-b border-on-primary pb-5">
-                <div
-                  class="text-heading-base flex items-center gap-2 text-success"
-                  v-if="headingTitle"
-                >
-                  <CheckCircleFillIcon class="h-4 w-4" />
+          <div class="bcc-modal-wrapper">
+            <div class="bcc-modal">
+              <div v-if="showHeading" class="bcc-modal-heading">
+                <div class="bcc-modal-heading-title" v-if="headingTitle">
+                  <CheckCircleFillIcon class="bcc-modal-heading-icon" />
                   {{ headingTitle }}
                 </div>
-                <div class="text-secondary" v-if="slots.heading"><slot name="heading"></slot></div>
+                <div class="bcc-modal-heading-text" v-if="slots.heading">
+                  <slot name="heading"></slot>
+                </div>
               </div>
 
-              <div class="flex justify-between">
-                <h3 class="text-heading-base">{{ title }}</h3>
+              <div class="bcc-modal-title">
+                <h3>{{ title }}</h3>
                 <button
                   @click.prevent="emit('close')"
                   v-if="showClose && !showHeading"
-                  class="hidden sm:inline-block"
+                  class="bcc-modal-close-button"
                 >
-                  <CloseIcon class="h-6 w-6" />
+                  <CloseIcon class="bcc-modal-close-icon" />
                 </button>
               </div>
 
-              <div class="text-body-base">
+              <div class="bcc-modal-content">
                 <slot></slot>
               </div>
 
-              <div class="flex flex-col gap-4 sm:flex-row sm:justify-end sm:self-end">
-                <div class="order-2 flex flex-col" v-if="$slots.secondaryAction">
+              <div class="bcc-modal-actions">
+                <div class="bcc-modal-secondary-action" v-if="$slots.secondaryAction">
                   <slot name="secondaryAction"></slot>
                 </div>
-                <div class="order-1 flex flex-col sm:order-3" v-if="$slots.primaryAction">
+                <div class="bcc-modal-primary-action" v-if="$slots.primaryAction">
                   <slot name="primaryAction">
                     <BccButton @click="emit('close')"> OK </BccButton>
                   </slot>
