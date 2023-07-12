@@ -12,18 +12,9 @@
         @apply flex h-full w-full transform flex-col justify-end transition-all sm:items-center sm:justify-center sm:p-5;
     }
 
-    /* Heading */
-    .bcc-modal-heading {
-        @apply flex flex-col gap-5 border-b border-on-primary pb-5;
-    }
-    .bcc-modal-heading-title {
-        @apply text-heading-base flex items-center gap-2 text-success;
-    }
-    .bcc-modal-heading-icon {
-        @apply h-4 w-4;
-    }
-    .bcc-modal-heading-text {
-        @apply text-secondary;
+    /* Header */
+    .bcc-modal-header {
+        @apply border-b border-on-primary pb-5;
     }
 
     /* Title */

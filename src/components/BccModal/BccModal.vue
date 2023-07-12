@@ -1,26 +1,20 @@
 <script setup lang="ts">
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue";
-import { CloseIcon, CheckCircleFillIcon } from "@bcc-code/icons-vue";
+import { CloseIcon } from "@bcc-code/icons-vue";
 import BccButton from "../BccButton/BccButton.vue";
-import { computed, useSlots } from "vue";
 
 type Props = {
   open: boolean;
   title: string;
-  showClose?: boolean;
-  headingContext?: "success";
-  headingTitle?: string;
+  showCloseButton?: boolean;
 };
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   open: false,
-  showClose: true,
+  showCloseButton: true,
 });
 
 const emit = defineEmits(["close"]);
-
-const slots = useSlots();
-const showHeading = computed(() => props.headingTitle || slots.heading);
 </script>
 
 <template>
@@ -50,22 +44,17 @@ const showHeading = computed(() => props.headingTitle || slots.heading);
         >
           <div class="bcc-modal-wrapper">
             <DialogPanel class="bcc-modal">
-              <div v-if="showHeading" class="bcc-modal-heading">
-                <div class="bcc-modal-heading-title" v-if="headingTitle">
-                  <CheckCircleFillIcon class="bcc-modal-heading-icon" />
-                  {{ headingTitle }}
-                </div>
-                <div class="bcc-modal-heading-text" v-if="slots.heading">
-                  <slot name="heading"></slot>
-                </div>
+              <div class="bcc-modal-header" v-if="$slots.header">
+                <slot name="header" />
               </div>
 
               <div class="bcc-modal-title">
                 <DialogTitle as="h3">{{ title }}</DialogTitle>
                 <button
                   @click.prevent="emit('close')"
-                  v-if="showClose && !showHeading"
+                  v-if="showCloseButton && !$slots.header"
                   class="bcc-modal-close-button"
+                  aria-label="Close modal window"
                 >
                   <CloseIcon class="bcc-modal-close-icon" />
                 </button>
