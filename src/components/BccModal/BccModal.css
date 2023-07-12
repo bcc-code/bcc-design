@@ -1,6 +1,6 @@
 @layer components {
     .bcc-modal {
-        @apply flex flex-col gap-6 rounded-t-lg bg-primary p-6 text-primary shadow-xl sm:min-w-lg sm:max-w-xl sm:rounded-lg;
+        @apply relative flex flex-col gap-6 rounded-t-lg bg-primary p-6 text-primary shadow-xl sm:min-w-lg sm:max-w-[80vh] sm:rounded-lg max-h-[80vh];
     }
 
     /* Overlay/Wrapper */
@@ -30,7 +30,16 @@
 
     /* Content */
     .bcc-modal-content {
-        @apply text-body-base;
+        @apply text-body-base overflow-y-auto;
+    }
+
+    /* Footer */
+    .bcc-modal-footer {
+        @apply sticky bottom-0 left-0 right-0 bg-primary;
+    }
+
+    .bcc-modal-footer-content {
+        @apply mb-5;
     }
 
     /* Actions */

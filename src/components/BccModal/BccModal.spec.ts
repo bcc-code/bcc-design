@@ -9,7 +9,8 @@ describe("BccModal", () => {
       props: { open: true, title: "Modal title" },
       slots: {
         default: "Modal content",
-        heading: "",
+        header: "Header slot",
+        footer: "Footer slot`",
         primaryAction: "Primary action",
         secondaryAction: "Secondary action",
       },
@@ -19,8 +20,10 @@ describe("BccModal", () => {
       shallow: true,
     });
 
+    expect(wrapper.text()).toContain("Header slot");
     expect(wrapper.text()).toContain("Modal title");
     expect(wrapper.text()).toContain("Modal content");
+    expect(wrapper.text()).toContain("Footer slot");
     expect(wrapper.text()).toContain("Primary action");
     expect(wrapper.text()).toContain("Secondary action");
     expect(wrapper.html()).toMatchSnapshot();
