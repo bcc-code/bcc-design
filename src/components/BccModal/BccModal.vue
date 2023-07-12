@@ -52,10 +52,7 @@ const emit = defineEmits(["close"]);
                 <DialogTitle as="h3">{{ title }}</DialogTitle>
                 <button
                   @click.prevent="emit('close')"
-                  v-if="
-                    (showCloseButton && !$slots.header) ||
-                    (!$slots.primaryAction && !$slots.secondaryAction)
-                  "
+                  v-if="showCloseButton && !$slots.header"
                   class="bcc-modal-close-button"
                   aria-label="Close modal window"
                 >
@@ -76,7 +73,7 @@ const emit = defineEmits(["close"]);
                   <div class="bcc-modal-secondary-action" v-if="$slots.secondaryAction">
                     <slot name="secondaryAction"></slot>
                   </div>
-                  <div class="bcc-modal-primary-action" v-if="$slots.primaryAction">
+                  <div class="bcc-modal-primary-action">
                     <slot name="primaryAction">
                       <BccButton @click="emit('close')"> OK </BccButton>
                     </slot>
