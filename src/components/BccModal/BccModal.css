@@ -1,6 +1,6 @@
 @layer components {
     .bcc-modal {
-        @apply relative flex flex-col gap-6 rounded-t-lg bg-primary p-6 text-primary shadow-xl sm:min-w-lg sm:max-w-[80vh] sm:rounded-lg max-h-[80vh];
+        @apply relative flex flex-col gap-6 rounded-lg bg-primary p-6 text-primary shadow-xl sm:min-w-[20rem] sm:max-w-[32rem] max-h-[80vh];
     }
 
     /* Overlay/Wrapper */
@@ -9,7 +9,7 @@
     }
 
     .bcc-modal-wrapper {
-        @apply flex h-full w-full transform flex-col justify-end transition-all sm:items-center sm:justify-center sm:p-5;
+        @apply flex h-full w-full transform flex-col justify-end transition-all sm:items-center sm:justify-center p-4;
     }
 
     /* Header */

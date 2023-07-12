@@ -21,10 +21,6 @@ const bccForbundetTheme: Partial<Config> = {
       backgroundColor,
       outlineColor,
       ringColor,
-      minWidth: {
-        'lg': '32rem',
-        '1/2': '50%',
-      }
     },
   },
 };

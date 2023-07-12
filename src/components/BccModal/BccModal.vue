@@ -3,6 +3,10 @@ import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } fro
 import { CloseIcon } from "@bcc-code/icons-vue";
 import BccButton from "../BccButton/BccButton.vue";
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 type Props = {
   open: boolean;
   title: string;
@@ -43,7 +47,7 @@ const emit = defineEmits(["close"]);
           leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
           <div class="bcc-modal-wrapper">
-            <DialogPanel class="bcc-modal">
+            <DialogPanel class="bcc-modal" v-bind="$attrs">
               <div class="bcc-modal-header" v-if="$slots.header">
                 <slot name="header" />
               </div>

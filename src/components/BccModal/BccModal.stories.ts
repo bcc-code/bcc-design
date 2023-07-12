@@ -172,7 +172,7 @@ const ScrollableTemplate: StoryFn<typeof BccModal> = (args) => ({
     return { args };
   },
   template: `
-    <BccModal v-bind="args" @close="args.open = false">
+    <BccModal v-bind="args" @close="args.open = false" class="max-w-[80vw]">
         <template #default>
           <p class="mb-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id mattis sapien. Morbi euismod convallis tellus, in rutrum risus. Vivamus quam dui, auctor sit amet nibh non, dignissim volutpat massa. Nunc accumsan mauris vel congue finibus. Nulla venenatis maximus libero, quis imperdiet justo mattis sit amet. Vestibulum a odio a arcu accumsan malesuada. Mauris porttitor egestas orci nec bibendum. Sed accumsan, erat nec cursus vehicula, nibh risus porta tellus, eget rhoncus erat sem at nunc. Aliquam ornare, nibh blandit molestie tincidunt, ligula lectus faucibus diam, sed tristique arcu neque interdum purus. Morbi a blandit eros, quis suscipit sapien. Donec dictum dignissim maximus. Sed ac eros consectetur, ultrices dui a, rhoncus mi.
@@ -230,7 +230,7 @@ const ScrollableTemplate: StoryFn<typeof BccModal> = (args) => ({
 });
 
 /**
- * Set the size to `??` to make the modal take up as much space as possible, until 80% of the viewport height and width. The content of the modal will be scrollable if there is too much, with the actions and `footer` slot always being in view.
+ * The content of the modal will be scrollable if there is too much to show at once, with the header, actions and `footer` slot always being in view. Use a `class` or `style` attribute to make the modal larger than the provided `size`s if that is needed for you
  */
 export const Scrollable = ScrollableTemplate.bind({});
 Scrollable.args = {
@@ -246,6 +246,7 @@ Scrollable.parameters = {
   title="Heading"
   :open="showModal"
   @close="showModal = false"
+  class="max-w-[80vw]"
 >
   <template #default>
     Lorem ipsum dolor sit amet...
