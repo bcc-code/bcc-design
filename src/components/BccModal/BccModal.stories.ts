@@ -204,6 +204,18 @@ const ScrollableTemplate: StoryFn<typeof BccModal> = (args) => ({
           <p class="mb-4">
             Nulla venenatis nisi eu pulvinar accumsan. Vivamus condimentum lectus sed ligula euismod molestie. Aliquam facilisis malesuada leo, quis gravida ligula. Etiam lorem orci, auctor quis rutrum interdum, eleifend sit amet nulla. Morbi fermentum mi in lacinia aliquet. Quisque accumsan orci urna, id consequat sem ullamcorper in. Phasellus sodales mattis pharetra. Nam non mauris eget sapien efficitur pulvinar. Suspendisse potenti. Aenean vitae porta libero, quis malesuada urna. Aliquam gravida sollicitudin elit a lacinia. Nullam non est lacus. Donec posuere massa eleifend eros lobortis rhoncus.  
           </p>
+
+          <p class="mb-4">
+            Etiam ullamcorper posuere libero tempor hendrerit. Donec faucibus quis nunc non vehicula. In sit amet nibh interdum, hendrerit sem a, elementum est. Aliquam viverra tristique mi, ac ultricies orci congue vel. Nam imperdiet sem non efficitur porttitor. Phasellus ac nunc euismod est porta tincidunt. Pellentesque dapibus tortor ex, sed laoreet nunc mattis finibus. Donec sollicitudin neque a leo fermentum, quis maximus ex bibendum. Nulla dictum nisl nec facilisis venenatis. Mauris imperdiet vitae nulla eget euismod. Aenean dictum rutrum dui, cursus blandit lectus ultrices eget. Morbi non tristique elit, a tempor lectus. Nullam quis bibendum orci, et ornare eros. Nunc commodo dolor leo. In tincidunt imperdiet arcu, nec pharetra diam feugiat pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+          </p>
+
+          <p class="mb-4">
+            Quisque at laoreet leo. Quisque eu nulla consequat, viverra enim tristique, congue libero. Fusce et gravida nisi. Ut consectetur lectus massa, sit amet gravida eros tempus in. Suspendisse suscipit orci bibendum rhoncus venenatis. Pellentesque varius luctus volutpat. Praesent velit urna, bibendum sed lacinia ut, hendrerit ac risus. Sed elementum congue dui, quis bibendum justo tempus sed. Integer vel sem id elit dignissim laoreet in id tellus. Morbi vehicula sagittis mattis. Nam cursus, diam sit amet iaculis egestas, metus dolor mollis libero, sit amet ornare sapien massa at neque. Suspendisse mollis nisl massa, vitae sagittis lorem condimentum non.
+          </p>
+
+          <p class="mb-4">
+            Nulla venenatis nisi eu pulvinar accumsan. Vivamus condimentum lectus sed ligula euismod molestie. Aliquam facilisis malesuada leo, quis gravida ligula. Etiam lorem orci, auctor quis rutrum interdum, eleifend sit amet nulla. Morbi fermentum mi in lacinia aliquet. Quisque accumsan orci urna, id consequat sem ullamcorper in. Phasellus sodales mattis pharetra. Nam non mauris eget sapien efficitur pulvinar. Suspendisse potenti. Aenean vitae porta libero, quis malesuada urna. Aliquam gravida sollicitudin elit a lacinia. Nullam non est lacus. Donec posuere massa eleifend eros lobortis rhoncus.  
+          </p>
         </template>
 
         <template #footer>
