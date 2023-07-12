@@ -1,6 +1,6 @@
 @layer components {
     .bcc-modal {
-        @apply relative flex flex-col gap-6 rounded-lg bg-primary p-6 text-primary shadow-xl sm:min-w-[20rem] sm:max-w-[32rem] max-h-[80vh];
+        @apply relative flex flex-col gap-6 rounded-lg bg-primary p-6 text-primary shadow-xl sm:min-w-[28.5rem] sm:max-w-[28.5rem] xl:max-w-[33rem] max-h-[80vh];
     }
 
     /* Overlay/Wrapper */
