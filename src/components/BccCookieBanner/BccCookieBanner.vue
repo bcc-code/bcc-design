@@ -15,6 +15,8 @@ withDefaults(defineProps<Props>(), {
   declineButtonText: "Decline",
   acceptButtonText: "Accept",
 });
+
+const emit = defineEmits(["accept", "decline"]);
 </script>
 
 <template>
@@ -30,10 +32,10 @@ withDefaults(defineProps<Props>(), {
         </p>
 
         <div class="bcc-cookie-banner-actions">
-          <BccButton variant="secondary" @click="$emit('decline')">
+          <BccButton variant="secondary" @click="emit('decline')">
             {{ declineButtonText }}
           </BccButton>
-          <BccButton @click="$emit('accept')">{{ acceptButtonText }}</BccButton>
+          <BccButton @click="emit('accept')">{{ acceptButtonText }}</BccButton>
         </div>
       </div>
     </div>

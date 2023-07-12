@@ -1,0 +1,55 @@
+@layer components {
+    .bcc-modal {
+        @apply relative flex flex-col gap-6 rounded-lg bg-primary p-6 text-primary shadow-xl sm:min-w-[28.5rem] sm:max-w-[28.5rem] xl:max-w-[32rem] max-h-[80vh];
+    }
+
+    /* Overlay/Wrapper */
+    .bcc-modal-overlay {
+        @apply fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity;
+    }
+
+    .bcc-modal-wrapper {
+        @apply flex h-full w-full transform flex-col justify-end transition-all sm:items-center sm:justify-center p-4;
+    }
+
+    /* Header */
+    .bcc-modal-header {
+        @apply border-b border-on-primary pb-5;
+    }
+
+    /* Title */
+    .bcc-modal-title {
+        @apply text-heading-base flex justify-between;
+    }
+    .bcc-modal-close-button {
+        @apply text-black;
+    }
+    .bcc-modal-close-icon {
+        @apply h-6 w-6;
+    }
+
+    /* Content */
+    .bcc-modal-content {
+        @apply text-body-base overflow-y-auto;
+    }
+
+    /* Footer */
+    .bcc-modal-footer {
+        @apply sticky bottom-0 left-0 right-0 bg-primary;
+    }
+
+    .bcc-modal-footer-content {
+        @apply mb-5;
+    }
+
+    /* Actions */
+    .bcc-modal-actions {
+        @apply flex flex-col gap-4 sm:flex-row sm:justify-end sm:self-end;
+    }
+    .bcc-modal-secondary-action {
+        @apply order-2 flex flex-col;
+    }
+    .bcc-modal-primary-action {
+        @apply order-1 flex flex-col sm:order-3;
+    }
+}

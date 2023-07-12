@@ -8,7 +8,7 @@
     }
 
     .bcc-cookie-banner-icon {
-        @apply hidden h-6 w-6 shrink-0 md:inline-block;
+        @apply h-6 w-6 shrink-0 self-center md:self-auto -mb-4 md:mb-0;
     }
 
     .bcc-cookie-banner-wrapper {

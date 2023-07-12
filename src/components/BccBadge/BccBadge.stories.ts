@@ -44,12 +44,27 @@ const Template: StoryFn<typeof BccBadge> = (args) => ({
 
 export const Example = Template.bind({});
 Example.args = {
-  context: "neutral",
-  size: "xs",
+  context: "success",
+  size: "sm",
   iconRight: false,
   slotDefault: "Example Badge",
 };
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccBadge context="success" size="sm" :icon="checkCircleIcon">
+  Example Badge
+</BccBadge>
+    `,
+    },
+  },
+};
 
+/**
+ * Set the `context` prop to control the color of the badge
+ */
 export const Context: StoryFn<typeof BccBadge> = () => ({
   components: { BccBadge },
   template: `
@@ -63,6 +78,9 @@ export const Context: StoryFn<typeof BccBadge> = () => ({
   `,
 });
 
+/**
+ * Set the `icon` prop to show an icon and the `icon-right` prop to put the icon on the right of the badge
+ */
 export const WithIcon: StoryFn<typeof BccBadge> = () => ({
   components: { BccBadge },
   setup() {
