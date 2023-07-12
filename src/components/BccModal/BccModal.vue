@@ -52,7 +52,7 @@ const showHeading = computed(() => props.headingTitle || slots.heading);
             class="flex h-full w-full transform flex-col justify-end transition-all sm:items-center sm:justify-center sm:p-5"
           >
             <div
-              class="flex max-w-xl flex-col gap-6 rounded-t-lg bg-primary p-6 text-primary shadow-xl sm:min-w-lg sm:rounded-lg"
+              class="flex flex-col gap-6 rounded-t-lg bg-primary p-6 text-primary shadow-xl sm:min-w-lg sm:max-w-xl sm:rounded-lg"
             >
               <div v-if="showHeading" class="flex flex-col gap-5 border-b border-on-primary pb-5">
                 <div

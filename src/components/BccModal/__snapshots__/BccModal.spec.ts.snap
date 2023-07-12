@@ -9,7 +9,7 @@ exports[`BccModal > renders a modal 1`] = `
       </anonymous-stub>
       <anonymous-stub as=\\"template\\" unmount=\\"true\\" appear=\\"false\\" enter=\\"ease-out duration-300\\" enterfrom=\\"opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95\\" enterto=\\"opacity-100 translate-y-0 sm:scale-100\\" entered=\\"\\" leave=\\"ease-in duration-200\\" leavefrom=\\"opacity-100 translate-y-0 sm:scale-100\\" leaveto=\\"opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95\\">
         <div class=\\"flex h-full w-full transform flex-col justify-end transition-all sm:items-center sm:justify-center sm:p-5\\">
-          <div class=\\"flex max-w-xl flex-col gap-6 rounded-t-lg bg-primary p-6 text-primary shadow-xl sm:min-w-lg sm:rounded-lg\\">
+          <div class=\\"flex flex-col gap-6 rounded-t-lg bg-primary p-6 text-primary shadow-xl sm:min-w-lg sm:max-w-xl sm:rounded-lg\\">
             <div class=\\"flex flex-col gap-5 border-b border-on-primary pb-5\\">
               <!--v-if-->
               <div class=\\"text-secondary\\"></div>
