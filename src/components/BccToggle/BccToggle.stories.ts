@@ -27,7 +27,20 @@ Example.args = {
   withIcon: true,
   label: "Test label",
 };
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccToggle label="Test label" />
+    `,
+    },
+  },
+};
 
+/**
+ * A toggle can be initialized with `true` or `false`. Set the value with `modelValue` (the default [for components](https://vuejs.org/guide/components/v-model.html#component-v-model)), or use `v-model`.
+ */
 export const Basic: StoryFn<typeof BccToggle> = () => ({
   components: { BccToggle },
   template: `
@@ -40,45 +53,51 @@ export const Basic: StoryFn<typeof BccToggle> = () => ({
 });
 
 /**
- * Set the `was-toggled` prop to `true` to indicate that changing the value of the toggle to off has consequences.
+ * Set the `was-toggled` prop to indicate that changing the value of the toggle to off has consequences.
  */
 export const WasToggled: StoryFn<typeof BccToggle> = () => ({
   components: { BccToggle },
   template: `
     <div class="flex items-center space-x-2">
-      <BccToggle :modelValue="true" :was-toggled="true" />
-      <BccToggle :modelValue="false" :was-toggled="true" />
-      <BccToggle :modelValue="false" :was-toggled="true" :label="'Test label'" />
+      <BccToggle :modelValue="true" was-toggled />
+      <BccToggle :modelValue="false" was-toggled />
+      <BccToggle :modelValue="false" was-toggled :label="'Test label'" />
     </div>
   `,
 });
 
+/**
+ * Set the `disabled` attribute to disable all click events on the toggle
+ */
 export const Disabled: StoryFn<typeof BccToggle> = () => ({
   components: { BccToggle },
   template: `
     <div class="flex items-center space-x-2">
       <BccToggle :modelValue="true" disabled />
       <BccToggle :modelValue="false" disabled />
-      <BccToggle :modelValue="false" disabled :was-toggled="true" />
-      <BccToggle :modelValue="false" disabled :was-toggled="true" :label="'Test label'" />
+      <BccToggle :modelValue="false" disabled was-toggled />
+      <BccToggle :modelValue="false" disabled was-toggled :label="'Test label'" />
     </div>
   `,
 });
 
+/**
+ * Set the `loading` prop to disable the toggle and show a loading icon
+ */
 export const Loading: StoryFn<typeof BccToggle> = () => ({
   components: { BccToggle },
   template: `
     <div class="flex items-center space-x-2">
       <BccToggle :modelValue="true" loading />
       <BccToggle :modelValue="false" loading />
-      <BccToggle :modelValue="false" :was-toggled="true" loading />
-      <BccToggle :modelValue="false" :was-toggled="true" loading :label="'Test label'" />
+      <BccToggle :modelValue="false" was-toggled loading />
+      <BccToggle :modelValue="false" was-toggled loading :label="'Test label'" />
     </div>
     <div class="flex items-center space-x-2 mt-4">
       <BccToggle :modelValue="true" loading disabled />
       <BccToggle :modelValue="false" loading disabled />
-      <BccToggle :modelValue="false" :was-toggled="true" loading disabled />
-      <BccToggle :modelValue="false" loading disabled :was-toggled="true" :label="'Test label'" />
+      <BccToggle :modelValue="false" was-toggled loading disabled />
+      <BccToggle :modelValue="false" loading disabled was-toggled :label="'Test label'" />
     </div>
   `,
 });
