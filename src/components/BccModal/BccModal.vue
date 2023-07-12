@@ -3,6 +3,7 @@ import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } fro
 import { CloseIcon } from "@bcc-code/icons-vue";
 import BccButton from "../BccButton/BccButton.vue";
 
+// eslint-disable-next-line no-undef
 defineOptions({
   inheritAttrs: false,
 });
