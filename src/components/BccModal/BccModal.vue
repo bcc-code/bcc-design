@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Dialog, DialogOverlay, TransitionChild, TransitionRoot } from "@headlessui/vue";
+import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue";
 import { CloseIcon, CheckCircleFillIcon } from "@bcc-code/icons-vue";
 import BccButton from "../BccButton/BccButton.vue";
 import { computed, useSlots } from "vue";
@@ -36,7 +36,7 @@ const showHeading = computed(() => props.headingTitle || slots.heading);
           leave-from="opacity-100"
           leave-to="opacity-0"
         >
-          <DialogOverlay class="bcc-modal-overlay" />
+          <div class="bcc-modal-overlay" />
         </TransitionChild>
 
         <TransitionChild
@@ -49,7 +49,7 @@ const showHeading = computed(() => props.headingTitle || slots.heading);
           leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
           <div class="bcc-modal-wrapper">
-            <div class="bcc-modal">
+            <DialogPanel class="bcc-modal">
               <div v-if="showHeading" class="bcc-modal-heading">
                 <div class="bcc-modal-heading-title" v-if="headingTitle">
                   <CheckCircleFillIcon class="bcc-modal-heading-icon" />
@@ -61,7 +61,7 @@ const showHeading = computed(() => props.headingTitle || slots.heading);
               </div>
 
               <div class="bcc-modal-title">
-                <h3>{{ title }}</h3>
+                <DialogTitle as="h3">{{ title }}</DialogTitle>
                 <button
                   @click.prevent="emit('close')"
                   v-if="showClose && !showHeading"
@@ -85,7 +85,7 @@ const showHeading = computed(() => props.headingTitle || slots.heading);
                   </slot>
                 </div>
               </div>
-            </div>
+            </DialogPanel>
           </div>
         </TransitionChild>
       </div>
