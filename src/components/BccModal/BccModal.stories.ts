@@ -7,11 +7,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
 export default {
   title: "Components/BccModal",
   component: BccModal,
-  argTypes: {
-    showCloseButton: {
-      description: "Whether to show a close button on desktops. Always hidden on mobile.",
-    },
-  },
+  argTypes: {},
 } as Meta<typeof BccModal>;
 
 const Template: StoryFn<typeof BccModal> = (args) => ({

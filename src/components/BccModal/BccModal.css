@@ -22,7 +22,7 @@
         @apply text-heading-base flex justify-between;
     }
     .bcc-modal-close-button {
-        @apply hidden sm:inline-block text-black;
+        @apply text-black;
     }
     .bcc-modal-close-icon {
         @apply h-6 w-6;
