@@ -47,7 +47,20 @@ Example.args = {
   showOptionalLabel: false,
   optionalLabel: "Optional",
 };
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccInput label="Example label" placeholder="Example placeholder" v-model="example" />      
+`,
+    },
+  },
+};
 
+/**
+ * Set the `state` prop to control how the input is rendered. Set the `disabled` prop to disable the input
+ */
 export const State: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
   template: `
@@ -60,6 +73,9 @@ export const State: StoryFn<typeof BccInput> = () => ({
   `,
 });
 
+/**
+ * The input can be wrapped in a `label`
+ */
 export const WithLabel: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
   template: `
@@ -70,18 +86,24 @@ export const WithLabel: StoryFn<typeof BccInput> = () => ({
   `,
 });
 
+/**
+ * Set the `show-optional-label` prop to show a label when the input is not `required`. Control the text for this label with the `optionalLabel` prop, which can be useful for translation.
+ */
 export const Optional: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccInput :showOptionalLabel="true" label="Default" placeholder="With label and optional" :required="false" class="w-1/2" />
-      <BccInput :showOptionalLabel="true" placeholder="Without label" :required="false" class="w-1/2" />
-      <BccInput :showOptionalLabel="true" label="Label" optionalLabel="Optional label that is pretty long and should truncate" placeholder="Long optional label" :required="false" class="w-1/4" />
-      <BccInput :showOptionalLabel="true" label="Pretty long label as well" optionalLabel="Optional label that is pretty long and should truncate" placeholder="Long label and optional label" :required="false" class="w-1/4" />
+      <BccInput show-optional-label label="Default" placeholder="With label and optional" :required="false" class="w-1/2" />
+      <BccInput show-optional-label placeholder="Without label" :required="false" class="w-1/2" />
+      <BccInput show-optional-label label="Label" optionalLabel="Optional label that is pretty long and should truncate" placeholder="Long optional label" :required="false" class="w-1/4" />
+      <BccInput show-optional-label label="Pretty long label as well" optionalLabel="Optional label that is pretty long and should truncate" placeholder="Long label and optional label" :required="false" class="w-1/4" />
     </div>
   `,
 });
 
+/**
+ * Pass text to the default slot for the component to render a message below the input. The styling takes the `state` into account.
+ */
 export const WithMessage: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
   template: `
