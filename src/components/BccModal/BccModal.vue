@@ -2,6 +2,7 @@
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue";
 import { CloseIcon } from "@bcc-code/icons-vue";
 import BccButton from "../BccButton/BccButton.vue";
+import { computed, useSlots } from "vue";
 
 // eslint-disable-next-line no-undef
 defineOptions({
@@ -10,21 +11,24 @@ defineOptions({
 
 type Props = {
   open: boolean;
-  title: string;
-  showCloseButton?: boolean;
+  title?: string;
+  closeButton?: boolean;
 };
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   open: false,
-  showCloseButton: true,
+  closeButton: true,
 });
 
 const emit = defineEmits(["close"]);
+
+const slots = useSlots();
+const showCloseButton = computed(() => props.closeButton && !slots.header);
 </script>
 
 <template>
   <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="fixed inset-0" @close="emit('close')">
+    <Dialog as="div" class="bcc-modal-overlay-wrapper" @close="emit('close')">
       <div class="flex h-screen w-screen items-center justify-center overflow-hidden">
         <TransitionChild
           as="div"
@@ -53,20 +57,22 @@ const emit = defineEmits(["close"]);
                 <slot name="header" />
               </div>
 
-              <div class="bcc-modal-title">
-                <DialogTitle as="h3">{{ title }}</DialogTitle>
-                <button
-                  @click.prevent="emit('close')"
-                  v-if="showCloseButton && !$slots.header"
-                  class="bcc-modal-close-button"
-                  aria-label="Close modal window"
-                >
-                  <CloseIcon class="bcc-modal-close-icon" />
-                </button>
-              </div>
+              <div class="bcc-modal-body">
+                <div class="bcc-modal-title" v-if="title || showCloseButton">
+                  <DialogTitle as="h3">{{ title }}</DialogTitle>
+                  <button
+                    @click.prevent="emit('close')"
+                    v-if="showCloseButton"
+                    class="bcc-modal-close-button"
+                    aria-label="Close modal window"
+                  >
+                    <CloseIcon class="bcc-modal-close-icon" />
+                  </button>
+                </div>
 
-              <div class="bcc-modal-content">
-                <slot />
+                <div class="bcc-modal-content">
+                  <slot />
+                </div>
               </div>
 
               <div class="bcc-modal-footer">

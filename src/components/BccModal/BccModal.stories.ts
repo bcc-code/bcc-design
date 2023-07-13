@@ -4,6 +4,9 @@ import { CheckCircleFillIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
+/**
+ * A versatile modal component. Be sure to read the [guidelines](https://bccit.notion.site/Modals-e79ddadb127d4ff6aa6650379132d09a) on how to use this component.
+ */
 export default {
   title: "Components/BccModal",
   component: BccModal,
@@ -44,13 +47,13 @@ const Template: StoryFn<typeof BccModal> = (args) => ({
 });
 
 /**
- * Control the content of the modal with the `title` prop and the `default` slot. Pass buttons to the `primaryAction` and `secondaryAction` slots. Set `showCloseButton` to `false` to hide the close button on desktops. The modal emits a `close` event when the user clicks the close button or closes the modal by clicking outside of it or pressing Escape.
+ * Control the content of the modal with the `title` prop and the `default` slot. Pass buttons to the `primaryAction` and `secondaryAction` slots. Set `closeButton` to `false` to hide the close button on desktops. The modal emits a `close` event when the user clicks the close button or closes the modal by clicking outside of it or pressing Escape.
  */
 export const Example = Template.bind({});
 Example.args = {
   open: false,
   title: "Confirm email address",
-  showCloseButton: true,
+  closeButton: true,
   slotDefault: "",
 };
 Example.parameters = {
@@ -59,9 +62,7 @@ Example.parameters = {
       language: "html",
       code: `
 <BccModal title="Confirm email address" :open="showModal" @close="showModal = false">
-  <template #default>
-    Is your email address <strong>lida@example.org</strong>?
-  </template>
+  Is your email address <strong>lida@example.org</strong>?
 
   <template #secondaryAction>
     <BccButton variant="secondary" @click="showModal = false">Cancel</BccButton>
@@ -120,7 +121,7 @@ const ExtraSlotsTemplate: StoryFn<typeof BccModal> = (args) => ({
 export const ExtraSlots = ExtraSlotsTemplate.bind({});
 ExtraSlots.args = {
   open: false,
-  showCloseButton: true,
+  closeButton: true,
   title: "Join the activity chat group",
   primaryActionText: "Open Telegram chat",
   secondaryActionText: "Close",
@@ -256,9 +257,7 @@ Scrollable.parameters = {
   @close="showModal = false"
   class="max-w-[80vw]"
 >
-  <template #default>
-    Lorem ipsum dolor sit amet...
-  </template>
+  Lorem ipsum dolor sit amet...
   
   <template #footer>
     <label class="flex items-center gap-2">
