@@ -16,9 +16,10 @@ describe("BccCookieBanner", () => {
 
   it("renders slot and button text", async () => {
     const wrapper = mount(BccCookieBanner, {
-      props: { open: true, acceptButtonText: "I Accept" },
+      props: { open: true, title: "Test title", acceptButtonText: "I Accept" },
       slots: { default: "Default slot content" },
     });
+    expect(wrapper.text()).toContain("Test title");
     expect(wrapper.text()).toContain("I Accept");
     expect(wrapper.text()).toContain("Default slot content");
   });

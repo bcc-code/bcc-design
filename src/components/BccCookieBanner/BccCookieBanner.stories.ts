@@ -1,4 +1,5 @@
 import BccCookieBanner from "./BccCookieBanner.vue";
+import BccButton from "../BccButton/BccButton.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -10,31 +11,44 @@ export default {
   component: BccCookieBanner,
   argTypes: {
     showOverlay: {
-      description:
-        "Controls whether to overlay a dark background and show the component at the bottom of the screen. Doesn't work well in Storybook",
+      description: "Controls whether to overlay a dark background behind the cookie banner",
     },
   },
 } as Meta<typeof BccCookieBanner>;
 
 const Template: StoryFn<typeof BccCookieBanner> = (args) => ({
-  components: { BccCookieBanner },
+  components: { BccCookieBanner, BccButton },
   setup() {
     return { args };
   },
   template: `
-    <div class="bg-secondary p-4">
-      <BccCookieBanner v-bind="args">
-        We would like to evaluate your usage of this app in order to improve your experience. Read
-        more in our <a href="https://event.bcc.no/personvernerklaering/" target="_blank">privacy policy</a>.
-      </BccCookieBanner>
-    </div>
+    <BccCookieBanner v-bind="args" @decline="args.open = false" @accept="args.open = false">
+      We would like to evaluate your usage of this app in order to improve your experience. Read
+      more in our <a href="https://event.bcc.no/personvernerklaering/" target="_blank">privacy policy</a>.
+    </BccCookieBanner>
+    
+    <BccButton variant="secondary" @click="args.open=true">Open cookie banner</BccButton>
   `,
 });
 
 export const Example = Template.bind({});
 Example.args = {
-  open: true,
-  showOverlay: false,
+  open: false,
+  title: "We value your privacy",
+  showOverlay: true,
   declineButtonText: "Decline",
   acceptButtonText: "Accept",
+};
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccCookieBanner title="We value your privacy" :open="showCookieBanner" @decline="showCookieBanner = false" @accept="showCookieBanner = false">
+  We would like to evaluate your usage of this app in order to improve your experience.
+  Read more in our <a href="https://event.bcc.no/personvernerklaering/" target="_blank">privacy policy</a>.
+</BccCookieBanner>
+    `,
+    },
+  },
 };

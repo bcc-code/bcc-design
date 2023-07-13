@@ -1,28 +1,42 @@
 @layer components {
     .bcc-cookie-banner {
-        @apply text-body-base flex flex-col gap-8 rounded-lg bg-white p-4 text-primary shadow-lg md:flex-row;
+        @apply mx-auto text-body-base flex flex-col justify-between gap-6 rounded-lg bg-white p-4 text-primary shadow-lg md:gap-8 md:flex-row max-w-7xl;
+    }
+
+    /* Overlay/Wrapper */
+    .bcc-cookie-banner-wrapper {
+        @apply fixed inset-x-0 bottom-0 z-50 p-4;
+    }
+
+    .bcc-cookie-banner-overlay {
+        @apply fixed inset-0 z-50 bg-black/80 backdrop-blur-sm transition-opacity;
+    }
+
+    /* Content */
+    .bcc-cookie-banner-content {
+        @apply flex flex-col gap-2;
+    }
+
+    .bcc-cookie-banner-icon {
+        @apply h-6 w-6;
+    }
+
+    .bcc-cookie-banner-title {
+        @apply flex items-center gap-2 text-heading-medium;
     }
 
     .bcc-cookie-banner a {
         @apply underline text-interactive hover:text-interactive-hover active:text-interactive-active;
     }
 
-    .bcc-cookie-banner-icon {
-        @apply h-6 w-6 shrink-0 self-center md:self-auto -mb-4 md:mb-0;
-    }
-
-    .bcc-cookie-banner-wrapper {
-        @apply absolute inset-x-0 bottom-0 z-50 p-4;
-    }
-
-    .bcc-cookie-banner-overlay {
-        @apply fixed inset-0 z-50 bg-black/80;
-    }
-
+    /* Actions */
     .bcc-cookie-banner-actions {
-        @apply flex w-full items-center justify-center gap-4 md:w-auto;
+        @apply flex flex-col justify-center gap-4 sm:flex-row md:items-end;
     }
-    .bcc-cookie-banner-actions > button {
-        @apply flex-1;
+    .bcc-cookie-banner-decline-button {
+        @apply order-3 flex-1 sm:order-1;
+    }
+    .bcc-cookie-banner-accept-button {
+        @apply order-2 flex-1;
     }
 }
