@@ -10,7 +10,7 @@ defineOptions({
 
 type Props = {
   open: boolean;
-  title: string;
+  title?: string;
   showCloseButton?: boolean;
 };
 
@@ -54,7 +54,7 @@ const emit = defineEmits(["close"]);
               </div>
 
               <div class="bcc-modal-body">
-                <div class="bcc-modal-title">
+                <div class="bcc-modal-title" v-if="title">
                   <DialogTitle as="h3">{{ title }}</DialogTitle>
                   <button
                     @click.prevent="emit('close')"
