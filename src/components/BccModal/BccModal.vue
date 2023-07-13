@@ -53,20 +53,22 @@ const emit = defineEmits(["close"]);
                 <slot name="header" />
               </div>
 
-              <div class="bcc-modal-title">
-                <DialogTitle as="h3">{{ title }}</DialogTitle>
-                <button
-                  @click.prevent="emit('close')"
-                  v-if="showCloseButton && !$slots.header"
-                  class="bcc-modal-close-button"
-                  aria-label="Close modal window"
-                >
-                  <CloseIcon class="bcc-modal-close-icon" />
-                </button>
-              </div>
+              <div class="bcc-modal-body">
+                <div class="bcc-modal-title">
+                  <DialogTitle as="h3">{{ title }}</DialogTitle>
+                  <button
+                    @click.prevent="emit('close')"
+                    v-if="showCloseButton && !$slots.header"
+                    class="bcc-modal-close-button"
+                    aria-label="Close modal window"
+                  >
+                    <CloseIcon class="bcc-modal-close-icon" />
+                  </button>
+                </div>
 
-              <div class="bcc-modal-content">
-                <slot />
+                <div class="bcc-modal-content">
+                  <slot />
+                </div>
               </div>
 
               <div class="bcc-modal-footer">

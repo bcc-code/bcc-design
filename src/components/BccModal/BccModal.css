@@ -17,9 +17,14 @@
         @apply border-b border-on-primary pb-5;
     }
 
+    /* Body */
+    .bcc-modal-body {
+        @apply flex flex-col gap-2;
+    }
+
     /* Title */
     .bcc-modal-title {
-        @apply text-heading-base flex justify-between;
+        @apply text-heading-medium flex justify-between;
     }
     .bcc-modal-close-button {
         @apply text-black;
