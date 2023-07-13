@@ -57,7 +57,7 @@ const showCloseButton = computed(() => props.closeButton && !slots.header);
                 <slot name="header" />
               </div>
 
-              <div class="bcc-modal-body">
+              <div class="bcc-modal-body" v-if="title || showCloseButton || slots.default">
                 <div class="bcc-modal-title" v-if="title || showCloseButton">
                   <DialogTitle as="h3">{{ title }}</DialogTitle>
                   <button

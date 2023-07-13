@@ -16,8 +16,8 @@
     }
 
     /* Header */
-    .bcc-modal-header {
-        @apply border-b border-on-primary pb-5;
+    .bcc-modal-header + .bcc-modal-body {
+        @apply border-t border-on-primary pt-5;
     }
 
     /* Body */
