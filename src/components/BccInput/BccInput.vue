@@ -7,6 +7,7 @@ export default {
 <script setup lang="ts">
 import { computed, type StyleValue } from "vue";
 import { useAttrs } from "vue";
+import { useId } from "../../hooks/use-id";
 
 type Props = {
   modelValue?: string;
@@ -27,6 +28,8 @@ const props = withDefaults(defineProps<Props>(), {
   showOptionalLabel: false,
   optionalLabel: "Optional",
 });
+
+const id = `bcc-input-${useId()}`;
 
 defineEmits(["update:modelValue"]);
 
@@ -50,7 +53,7 @@ const attrsWithoutStyles = computed(() => {
     :class="$attrs['class']"
     :style="$attrs['style'] as StyleValue"
   >
-    <label class="space-y-2">
+    <label class="space-y-2" :for="id">
       <span
         v-if="label || showOptionalLabel"
         class="flex gap-x-2"
@@ -63,6 +66,7 @@ const attrsWithoutStyles = computed(() => {
         <span v-if="showOptionalLabel" class="bcc-input-optional-label">{{ optionalLabel }}</span>
       </span>
       <input
+        :id="id"
         :disabled="disabled"
         :required="required"
         class="bcc-input"
