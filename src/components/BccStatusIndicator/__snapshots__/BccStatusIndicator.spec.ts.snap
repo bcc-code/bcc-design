@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccStatusIndicator > renders a custom icon 1`] = `
 "<div class=\\"bcc-status-indicator bcc-status-indicator-success\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" aria-hidden=\\"true\\" viewBox=\\"0 96 960 960\\" fill=\\"currentColor\\" class=\\"bcc-status-indicator-icon\\">
