@@ -10,7 +10,7 @@
 
     /* Label */
     .bcc-input-label {
-        @apply text-xs text-primary font-semibold;
+        @apply flex gap-2 justify-between items-end text-xs text-primary font-semibold;
     }
 
     /* Optional */

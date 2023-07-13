@@ -53,33 +53,24 @@ const attrsWithoutStyles = computed(() => {
     :class="$attrs['class']"
     :style="$attrs['style'] as StyleValue"
   >
-    <label class="space-y-2" :for="id">
-      <span
-        v-if="label || showOptionalLabel"
-        class="flex gap-x-2"
-        :class="{
-          'justify-between': label && showOptionalLabel,
-          'justify-end': !label && showOptionalLabel,
-        }"
-      >
-        <span v-if="label" class="bcc-input-label">{{ label }}</span>
-        <span v-if="showOptionalLabel" class="bcc-input-optional-label">{{ optionalLabel }}</span>
-      </span>
-      <input
-        :id="id"
-        :disabled="disabled"
-        :required="required"
-        class="bcc-input"
-        :class="{
-          'bcc-input-error': state === 'error',
-          'bcc-input-success': state === 'success',
-          'bcc-input-lg': size === 'lg',
-        }"
-        :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-        v-bind="attrsWithoutStyles"
-      />
+    <label class="bcc-input-label" :for="id" v-if="label || showOptionalLabel">
+      <span>{{ label }}</span>
+      <span v-if="showOptionalLabel" class="bcc-input-optional-label">{{ optionalLabel }}</span>
     </label>
+    <input
+      :id="id"
+      :disabled="disabled"
+      :required="required"
+      class="bcc-input"
+      :class="{
+        'bcc-input-error': state === 'error',
+        'bcc-input-success': state === 'success',
+        'bcc-input-lg': size === 'lg',
+      }"
+      :value="modelValue"
+      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+      v-bind="attrsWithoutStyles"
+    />
     <span
       v-if="$slots.default"
       :class="{
