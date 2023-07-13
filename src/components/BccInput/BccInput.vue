@@ -48,11 +48,7 @@ const attrsWithoutStyles = computed(() => {
 </script>
 
 <template>
-  <div
-    class="inline-flex flex-col space-y-2"
-    :class="$attrs['class']"
-    :style="$attrs['style'] as StyleValue"
-  >
+  <div class="bcc-input-wrapper" :class="$attrs['class']" :style="$attrs['style'] as StyleValue">
     <label class="bcc-input-label" :for="id" v-if="label || showOptionalLabel">
       <span>{{ label }}</span>
       <span v-if="showOptionalLabel" class="bcc-input-optional-label">{{ optionalLabel }}</span>

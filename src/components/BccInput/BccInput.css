@@ -4,6 +4,12 @@
         @apply disabled:bg-neutral-100 disabled:text-neutral-400 disabled:cursor-not-allowed;
     }
 
+    /* Wrapper */
+    .bcc-input-wrapper {
+        @apply inline-flex flex-col space-y-2;
+    }
+
+    /* Size */
     .bcc-input-lg {
         @apply py-4;
     }
