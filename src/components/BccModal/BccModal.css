@@ -19,7 +19,7 @@
 
     /* Body */
     .bcc-modal-body {
-        @apply flex flex-col gap-2;
+        @apply flex flex-col gap-2 overflow-y-auto;
     }
 
     /* Title */
