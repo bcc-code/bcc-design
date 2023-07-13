@@ -62,9 +62,7 @@ Example.parameters = {
       language: "html",
       code: `
 <BccModal title="Confirm email address" :open="showModal" @close="showModal = false">
-  <template #default>
-    Is your email address <strong>lida@example.org</strong>?
-  </template>
+  Is your email address <strong>lida@example.org</strong>?
 
   <template #secondaryAction>
     <BccButton variant="secondary" @click="showModal = false">Cancel</BccButton>
@@ -259,9 +257,7 @@ Scrollable.parameters = {
   @close="showModal = false"
   class="max-w-[80vw]"
 >
-  <template #default>
-    Lorem ipsum dolor sit amet...
-  </template>
+  Lorem ipsum dolor sit amet...
   
   <template #footer>
     <label class="flex items-center gap-2">
