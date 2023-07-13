@@ -28,7 +28,7 @@ const showCloseButton = computed(() => props.closeButton && !slots.header);
 
 <template>
   <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="fixed inset-0 z-50" @close="emit('close')">
+    <Dialog as="div" class="bcc-modal-overlay-wrapper" @close="emit('close')">
       <div class="flex h-screen w-screen items-center justify-center overflow-hidden">
         <TransitionChild
           as="div"

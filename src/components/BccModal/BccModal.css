@@ -4,6 +4,9 @@
     }
 
     /* Overlay/Wrapper */
+    .bcc-modal-overlay-wrapper {
+        @apply fixed inset-0 z-50;
+    }
     .bcc-modal-overlay {
         @apply fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity;
     }
