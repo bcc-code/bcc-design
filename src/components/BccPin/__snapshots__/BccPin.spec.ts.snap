@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccPin > renders a pin 1`] = `
 "<div class=\\"bcc-pin\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" aria-hidden=\\"true\\" viewBox=\\"0 96 960 960\\" fill=\\"currentColor\\" class=\\"bcc-pin-icon\\">
