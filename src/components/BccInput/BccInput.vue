@@ -11,6 +11,7 @@ import { useAttrs } from "vue";
 type Props = {
   modelValue?: string;
   state?: "default" | "error" | "success";
+  size?: "base" | "lg";
   disabled?: boolean;
   label?: string;
   showOptionalLabel?: boolean;
@@ -20,6 +21,7 @@ type Props = {
 
 const props = withDefaults(defineProps<Props>(), {
   state: "default",
+  size: "base",
   disabled: false,
   required: false,
   showOptionalLabel: false,
@@ -67,6 +69,7 @@ const attrsWithoutStyles = computed(() => {
         :class="{
           'bcc-input-error': state === 'error',
           'bcc-input-success': state === 'success',
+          'bcc-input-lg': size === 'lg',
         }"
         :value="modelValue"
         @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"

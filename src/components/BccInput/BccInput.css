@@ -4,6 +4,10 @@
         @apply disabled:bg-neutral-100 disabled:text-neutral-400 disabled:cursor-not-allowed;
     }
 
+    .bcc-input-lg {
+        @apply py-4;
+    }
+
     /* Label */
     .bcc-input-label {
         @apply text-xs text-primary font-semibold;

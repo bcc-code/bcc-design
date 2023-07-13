@@ -6,6 +6,10 @@ export default {
   title: "Components/BccInput",
   component: BccInput,
   argTypes: {
+    size: {
+      options: ["base", "lg"],
+      control: { type: "radio" },
+    },
     state: {
       description: "Style of the input",
       options: ["default", "error", "success"],
@@ -39,6 +43,7 @@ const Template: StoryFn<typeof BccInput> = (args) => ({
 export const Example = Template.bind({});
 Example.args = {
   state: "default",
+  size: "base",
   disabled: false,
   required: false,
   placeholder: "Example placeholder",
