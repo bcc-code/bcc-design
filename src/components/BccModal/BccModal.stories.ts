@@ -47,13 +47,13 @@ const Template: StoryFn<typeof BccModal> = (args) => ({
 });
 
 /**
- * Control the content of the modal with the `title` prop and the `default` slot. Pass buttons to the `primaryAction` and `secondaryAction` slots. Set `showCloseButton` to `false` to hide the close button on desktops. The modal emits a `close` event when the user clicks the close button or closes the modal by clicking outside of it or pressing Escape.
+ * Control the content of the modal with the `title` prop and the `default` slot. Pass buttons to the `primaryAction` and `secondaryAction` slots. Set `closeButton` to `false` to hide the close button on desktops. The modal emits a `close` event when the user clicks the close button or closes the modal by clicking outside of it or pressing Escape.
  */
 export const Example = Template.bind({});
 Example.args = {
   open: false,
   title: "Confirm email address",
-  showCloseButton: true,
+  closeButton: true,
   slotDefault: "",
 };
 Example.parameters = {
@@ -121,7 +121,7 @@ const ExtraSlotsTemplate: StoryFn<typeof BccModal> = (args) => ({
 export const ExtraSlots = ExtraSlotsTemplate.bind({});
 ExtraSlots.args = {
   open: false,
-  showCloseButton: true,
+  closeButton: true,
   title: "Join the activity chat group",
   primaryActionText: "Open Telegram chat",
   secondaryActionText: "Close",

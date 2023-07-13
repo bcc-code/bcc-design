@@ -2,6 +2,7 @@
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue";
 import { CloseIcon } from "@bcc-code/icons-vue";
 import BccButton from "../BccButton/BccButton.vue";
+import { computed, useSlots } from "vue";
 
 // eslint-disable-next-line no-undef
 defineOptions({
@@ -11,15 +12,18 @@ defineOptions({
 type Props = {
   open: boolean;
   title?: string;
-  showCloseButton?: boolean;
+  closeButton?: boolean;
 };
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   open: false,
-  showCloseButton: true,
+  closeButton: true,
 });
 
 const emit = defineEmits(["close"]);
+
+const slots = useSlots();
+const showCloseButton = computed(() => props.closeButton && !slots.header);
 </script>
 
 <template>
@@ -54,11 +58,11 @@ const emit = defineEmits(["close"]);
               </div>
 
               <div class="bcc-modal-body">
-                <div class="bcc-modal-title" v-if="title">
+                <div class="bcc-modal-title" v-if="title || showCloseButton">
                   <DialogTitle as="h3">{{ title }}</DialogTitle>
                   <button
                     @click.prevent="emit('close')"
-                    v-if="showCloseButton && !$slots.header"
+                    v-if="showCloseButton"
                     class="bcc-modal-close-button"
                     aria-label="Close modal window"
                   >

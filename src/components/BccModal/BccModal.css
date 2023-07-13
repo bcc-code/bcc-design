@@ -24,7 +24,7 @@
 
     /* Title */
     .bcc-modal-title {
-        @apply text-heading-medium flex justify-between;
+        @apply text-heading-medium flex justify-between items-start;
     }
     .bcc-modal-close-button {
         @apply text-black;
