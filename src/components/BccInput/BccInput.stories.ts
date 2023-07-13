@@ -1,4 +1,5 @@
 import BccInput from "./BccInput.vue";
+import { SearchIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -31,15 +32,18 @@ export default {
 const Template: StoryFn<typeof BccInput> = (args) => ({
   components: { BccInput },
   setup() {
-    return { args };
+    return { args, SearchIcon };
   },
   template: `
-    <BccInput v-bind="args" type="text" value="Example value">
+    <BccInput v-bind="args" type="text" value="Example value" :icon="SearchIcon">
       {{ args.slotDefault }}
     </BccInput>
   `,
 });
 
+/**
+ * Use `v-model` like a normal input to handle input.
+ */
 export const Example = Template.bind({});
 Example.args = {
   state: "default",
@@ -57,7 +61,7 @@ Example.parameters = {
     source: {
       language: "html",
       code: `
-<BccInput label="Example label" placeholder="Example placeholder" v-model="example" />      
+<BccInput :icon="SearchIcon" label="Example label" placeholder="Example placeholder" v-model="example" />      
 `,
     },
   },
@@ -71,9 +75,26 @@ export const State: StoryFn<typeof BccInput> = () => ({
   template: `
     <div class="inline-flex flex-col space-y-4">
       <BccInput value="Default" placeholder="Example placeholder" />
-      <BccInput value="Default disabled" placeholder="Example placeholder" :disabled="true" />
+      <BccInput value="Default disabled" placeholder="Example placeholder" disabled />
       <BccInput value="Error" placeholder="Example placeholder" state="error" />
+      <BccInput value="Error disabled" placeholder="Example placeholder" state="error" disabled />
       <BccInput value="Success" placeholder="Example placeholder" state="success" />
+      <BccInput value="Success disabled" placeholder="Example placeholder" state="success" disabled />
+    </div>
+  `,
+});
+
+/**
+ * Set the `size` prop to control the size of the input
+ */
+export const Size: StoryFn<typeof BccInput> = () => ({
+  components: { BccInput },
+  template: `
+    <div class="inline-flex flex-col space-y-4">
+      <BccInput value="base" placeholder="Example placeholder" />
+      <BccInput value="base" placeholder="Example placeholder" disabled />
+      <BccInput size="lg" value="lg" placeholder="Example placeholder" />
+      <BccInput size="lg" value="lg" placeholder="Example placeholder" disabled />
     </div>
   `,
 });
@@ -87,6 +108,23 @@ export const WithLabel: StoryFn<typeof BccInput> = () => ({
     <div class="flex flex-col space-y-4">
       <BccInput label="Example Label" placeholder="Example placeholder" />
       <BccInput label="Example Label that is really long but should still display" placeholder="Example placeholder" class="w-1/4" />
+    </div>
+  `,
+});
+
+/**
+ * Set the `icon` prop to add an icon inside the input
+ */
+export const WithIcon: StoryFn<typeof BccInput> = () => ({
+  components: { BccInput },
+  setup() {
+    return { SearchIcon };
+  },
+  template: `
+    <div class="flex flex-col space-y-4">
+      <BccInput label="base input with icon" placeholder="Example placeholder" :icon="SearchIcon" class="w-1/4" />
+      <BccInput label="lg input with icon" placeholder="Example placeholder" :icon="SearchIcon" class="w-1/4" size="lg" />
+      <BccInput label="disabled input with icon" placeholder="Example placeholder" :icon="SearchIcon" class="w-1/4" disabled />
     </div>
   `,
 });

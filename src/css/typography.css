@@ -76,7 +76,7 @@
     }
 
     .text-caption {
-        @apply text-sm leading-normal;
+        @apply text-xs leading-normal;
     }
     .text-overline {
         @apply text-xs leading-normal uppercase;

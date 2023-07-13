@@ -1,27 +1,30 @@
 @layer components {
     .bcc-input {
-        @apply w-full px-4 py-3 text-sm rounded-lg text-primary bg-primary border border-on-primary focus:outline-2 focus:outline-emphasis;
-        @apply disabled:bg-neutral-100 disabled:text-neutral-400 disabled:cursor-not-allowed;
+        @apply w-full px-4 py-3 text-body-small rounded-lg text-primary bg-primary border border-on-primary focus:outline-2 focus:outline-emphasis;
+        @apply disabled:bg-secondary disabled:text-tertiary disabled:cursor-not-allowed;
     }
 
-    /* Wrapper */
-    .bcc-input-wrapper {
+    /* Container/Wrapper */
+    .bcc-input-container {
         @apply inline-flex flex-col space-y-2;
+    }
+    .bcc-input-wrapper {
+        @apply relative;
     }
 
     /* Size */
-    .bcc-input-lg {
-        @apply py-4;
+    .bcc-input-lg > .bcc-input {
+        @apply text-body-base py-4;
     }
 
     /* Label */
     .bcc-input-label {
-        @apply flex gap-2 justify-between items-end text-xs text-primary font-semibold;
+        @apply flex gap-2 justify-between items-end text-label-small text-primary;
     }
 
     /* Optional */
     .bcc-input-optional-label {
-        @apply text-xs text-neutral-400 font-normal truncate;
+        @apply text-caption font-normal text-tertiary truncate;
     }
 
     /* State */
@@ -41,5 +44,28 @@
     }
     .bcc-input-message-success {
         @apply text-success;
+    }
+
+    /* Icon */
+    .bcc-input-icon {
+        @apply h-4 w-4 text-tertiary;
+    }
+    .bcc-input-lg .bcc-input-icon {
+        @apply h-6 w-6;
+    }
+
+    .bcc-input-icon-wrapper {
+        @apply pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3;
+    }
+
+    .bcc-input-lg > .bcc-input-icon-wrapper {
+        @apply pl-4;
+    }
+
+    .bcc-input-with-icon {
+        @apply pl-8;
+    }
+    .bcc-input-lg > .bcc-input-with-icon {
+        @apply pl-12;
     }
 }

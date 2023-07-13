@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, type StyleValue } from "vue";
+import { computed, type Component, type StyleValue } from "vue";
 import { useAttrs } from "vue";
 import { useId } from "../../hooks/use-id";
 
@@ -13,6 +13,7 @@ type Props = {
   modelValue?: string;
   state?: "default" | "error" | "success";
   size?: "base" | "lg";
+  icon?: string | Component | Function;
   disabled?: boolean;
   label?: string;
   showOptionalLabel?: boolean;
@@ -48,25 +49,35 @@ const attrsWithoutStyles = computed(() => {
 </script>
 
 <template>
-  <div class="bcc-input-wrapper" :class="$attrs['class']" :style="$attrs['style'] as StyleValue">
+  <div class="bcc-input-container" :class="$attrs['class']" :style="$attrs['style'] as StyleValue">
     <label class="bcc-input-label" :for="id" v-if="label || showOptionalLabel">
       <span>{{ label }}</span>
       <span v-if="showOptionalLabel" class="bcc-input-optional-label">{{ optionalLabel }}</span>
     </label>
-    <input
-      :id="id"
-      :disabled="disabled"
-      :required="required"
-      class="bcc-input"
+    <div
+      class="bcc-input-wrapper"
       :class="{
-        'bcc-input-error': state === 'error',
-        'bcc-input-success': state === 'success',
         'bcc-input-lg': size === 'lg',
       }"
-      :value="modelValue"
-      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-      v-bind="attrsWithoutStyles"
-    />
+    >
+      <div class="bcc-input-icon-wrapper" v-if="icon">
+        <component :is="icon" class="bcc-input-icon" aria-hidden="true" />
+      </div>
+      <input
+        :id="id"
+        :disabled="disabled"
+        :required="required"
+        class="bcc-input"
+        :class="{
+          'bcc-input-error': state === 'error',
+          'bcc-input-success': state === 'success',
+          'bcc-input-with-icon': icon,
+        }"
+        :value="modelValue"
+        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+        v-bind="attrsWithoutStyles"
+      />
+    </div>
     <span
       v-if="$slots.default"
       :class="{
