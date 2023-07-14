@@ -8,12 +8,14 @@ export default {
 import { computed, type Component, type StyleValue } from "vue";
 import { useAttrs } from "vue";
 import { useId } from "../../hooks/use-id";
+import { CloseIcon } from "@bcc-code/icons-vue";
 
 type Props = {
   modelValue?: string;
   state?: "default" | "error" | "success";
   size?: "base" | "lg";
   icon?: string | Component | Function;
+  clearable?: boolean;
   disabled?: boolean;
   label?: string;
   showOptionalLabel?: boolean;
@@ -24,6 +26,7 @@ type Props = {
 const props = withDefaults(defineProps<Props>(), {
   state: "default",
   size: "base",
+  clearable: false,
   disabled: false,
   required: false,
   showOptionalLabel: false,
@@ -32,7 +35,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const id = `bcc-input-${useId()}`;
 
-defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "clear"]);
 
 const showOptionalLabel = computed(() => props.showOptionalLabel && !props.required);
 
@@ -46,6 +49,11 @@ const attrsWithoutStyles = computed(() => {
   }
   return returnObj;
 });
+
+function clear() {
+  emit("update:modelValue", "");
+  emit("clear");
+}
 </script>
 
 <template>
@@ -72,11 +80,19 @@ const attrsWithoutStyles = computed(() => {
           'bcc-input-error': state === 'error',
           'bcc-input-success': state === 'success',
           'bcc-input-with-icon': icon,
+          'bcc-input-with-clearable': clearable,
         }"
         :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+        @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         v-bind="attrsWithoutStyles"
       />
+      <div class="absolute inset-y-0 right-0 flex items-center pr-3" v-if="clearable && modelValue">
+        <CloseIcon
+          class="h-5 w-5 cursor-pointer text-tertiary hover:text-secondary active:text-primary"
+          aria-hidden="true"
+          @click="clear"
+        />
+      </div>
     </div>
     <span
       v-if="$slots.default"

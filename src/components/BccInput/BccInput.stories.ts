@@ -11,6 +11,9 @@ export default {
       options: ["base", "lg"],
       control: { type: "radio" },
     },
+    clearable: {
+      description: "Whether to display an icon button to clear the input",
+    },
     state: {
       description: "Style of the input",
       options: ["default", "error", "success"],
@@ -26,6 +29,9 @@ export default {
       name: "default slot",
       description: "An optional message below the input",
     },
+    value: {
+      description: "For testing purposes in Storybook, use `v-model` normally",
+    },
   },
 } as Meta<typeof BccInput>;
 
@@ -35,7 +41,7 @@ const Template: StoryFn<typeof BccInput> = (args) => ({
     return { args, SearchIcon };
   },
   template: `
-    <BccInput v-bind="args" type="text" value="Example value" :icon="SearchIcon">
+    <BccInput v-bind="args" type="text" v-model="args.value" :icon="SearchIcon" @clear="args.value = ''" class="w-1/4">
       {{ args.slotDefault }}
     </BccInput>
   `,
@@ -48,6 +54,7 @@ export const Example = Template.bind({});
 Example.args = {
   state: "default",
   size: "base",
+  clearable: true,
   disabled: false,
   required: false,
   placeholder: "Example placeholder",
@@ -55,13 +62,20 @@ Example.args = {
   label: "Example label",
   showOptionalLabel: false,
   optionalLabel: "Optional",
+  value: "Example value",
 };
 Example.parameters = {
   docs: {
     source: {
       language: "html",
       code: `
-<BccInput :icon="SearchIcon" label="Example label" placeholder="Example placeholder" v-model="example" />      
+<BccInput
+  :icon="SearchIcon"
+  label="Example label"
+  placeholder="Example placeholder"
+  clearable
+  v-model="example"
+/>      
 `,
     },
   },
@@ -128,6 +142,40 @@ export const WithIcon: StoryFn<typeof BccInput> = () => ({
     </div>
   `,
 });
+
+/**
+ * Set the `clearable` prop to render an icon button on the right to clear the input when there is a value. Will emit both the normal `update:modelValue` event (automatically handled with `v-model`) and a `clear` event if you need to do extra logic when someone clicks the button.
+ */
+export const Clearable = Template.bind({});
+Clearable.args = {
+  state: "default",
+  size: "base",
+  clearable: true,
+  disabled: false,
+  required: false,
+  placeholder: "Find a city...",
+  slotDefault: "",
+  label: "Search",
+  showOptionalLabel: false,
+  optionalLabel: "Optional",
+  value: "Krakow",
+};
+Clearable.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccInput
+  :icon="SearchIcon"
+  label="Search"
+  placeholder="Find something..."
+  clearable
+  v-model="search"
+/>
+`,
+    },
+  },
+};
 
 /**
  * Set the `show-optional-label` prop to show a label when the input is not `required`. Control the text for this label with the `optionalLabel` prop, which can be useful for translation.
