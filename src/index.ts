@@ -20,3 +20,4 @@ export { default as BccToggle } from "./components/BccToggle/BccToggle.vue";
 export { default as BccStatusIndicator } from "./components/BccStatusIndicator/BccStatusIndicator.vue";
 export { default as BccCookieBanner } from "./components/BccCookieBanner/BccCookieBanner.vue";
 export { default as BccModal } from "./components/BccModal/BccModal.vue";
+export { default as BccCheckbox } from "./components/BccCheckbox/BccCheckbox.vue";

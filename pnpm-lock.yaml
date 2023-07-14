@@ -19,8 +19,8 @@ importers:
         specifier: ^7.22.9
         version: 7.22.9
       '@bcc-code/icons-vue':
-        specifier: ^0.3.0
-        version: 0.3.0(vue@3.3.4)
+        specifier: ^1.0.0
+        version: 1.0.0(vue@3.3.4)
       '@headlessui/vue':
         specifier: ^1.7.14
         version: 1.7.14(vue@3.3.4)
@@ -2466,8 +2466,8 @@ packages:
       '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
 
-  /@bcc-code/icons-vue@0.3.0(vue@3.3.4):
-    resolution: {integrity: sha512-FwjpMkegzQB8ogPJaRfMHSfxPM7XSJeDKQna4Xjlmtpf3sUsD5mVV5oKzzev0OFfrjH/ANmntJznQm587QeMPA==}
+  /@bcc-code/icons-vue@1.0.0(vue@3.3.4):
+    resolution: {integrity: sha512-CvILoUvfyT/4uf2Ll2e/Dl+hjo9tfHsN8xODTjxwVTkJZ3jS+O3lGsma/yosAh2YVNLiJSkmqHcntnl9aSCUKw==}
     peerDependencies:
       vue: '>= 3'
     dependencies:
