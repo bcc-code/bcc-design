@@ -4,6 +4,14 @@ import { mount } from "@vue/test-utils";
 import BccInput from "./BccInput.vue";
 
 describe("BccInput", () => {
+  it("emits update event on input", async () => {
+    const wrapper = mount(BccInput);
+    await wrapper.find(".bcc-input").setValue("brunstad");
+
+    expect(wrapper.emitted("update:modelValue")?.length).toBe(1);
+    expect(wrapper.emitted("update:modelValue")![0]).toEqual(["brunstad"]);
+  });
+
   it("renders a text from the default slot", () => {
     const wrapper = mount(BccInput, {
       slots: { default: "Test message" },
@@ -50,5 +58,14 @@ describe("BccInput", () => {
   it("passes through non-prop attributes", () => {
     const wrapper = mount(BccInput, { attrs: { autocomplete: true } });
     expect(wrapper.html()).toContain('autocomplete="true"');
+  });
+
+  it("emits events when clearing the input", async () => {
+    const wrapper = mount(BccInput, { props: { modelValue: "Test value", clearable: true } });
+    await wrapper.find(".bcc-input-clear-button").trigger("click");
+
+    expect(wrapper.emitted("update:modelValue")?.length).toBe(1);
+    expect(wrapper.emitted("update:modelValue")![0]).toEqual([""]);
+    expect(wrapper.emitted("clear")?.length).toBe(1);
   });
 });

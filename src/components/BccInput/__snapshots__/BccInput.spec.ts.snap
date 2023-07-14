@@ -1,9 +1,10 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccInput > can render an extra label if the input is optional 1`] = `
-"<div class=\\"bcc-input-container\\"><label class=\\"bcc-input-label\\" for=\\"bcc-input-4\\"><span></span><span class=\\"bcc-input-optional-label\\">Custom optional label</span></label>
+"<div class=\\"bcc-input-container\\"><label class=\\"bcc-input-label\\" for=\\"bcc-input-5\\"><span></span><span class=\\"bcc-input-optional-label\\">Custom optional label</span></label>
   <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><input id=\\"bcc-input-4\\" class=\\"bcc-input\\">
+    <!--v-if--><input id=\\"bcc-input-5\\" class=\\"bcc-input\\">
+    <!--v-if-->
   </div>
   <!--v-if-->
 </div>"
@@ -13,18 +14,20 @@ exports[`BccInput > does not render a text if the input is both required and opt
 "<div class=\\"bcc-input-container\\">
   <!--v-if-->
   <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><input id=\\"bcc-input-5\\" required=\\"\\" class=\\"bcc-input\\">
+    <!--v-if--><input id=\\"bcc-input-6\\" required=\\"\\" class=\\"bcc-input\\">
+    <!--v-if-->
   </div>
   <!--v-if-->
 </div>"
 `;
 
 exports[`BccInput > renders a label 1`] = `
-"<div class=\\"bcc-input-container\\"><label class=\\"bcc-input-label\\" for=\\"bcc-input-2\\"><span>Test label</span>
+"<div class=\\"bcc-input-container\\"><label class=\\"bcc-input-label\\" for=\\"bcc-input-3\\"><span>Test label</span>
     <!--v-if-->
   </label>
   <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><input id=\\"bcc-input-2\\" class=\\"bcc-input\\">
+    <!--v-if--><input id=\\"bcc-input-3\\" class=\\"bcc-input\\">
+    <!--v-if-->
   </div>
   <!--v-if-->
 </div>"
@@ -34,7 +37,8 @@ exports[`BccInput > renders a text from the default slot 1`] = `
 "<div class=\\"bcc-input-container\\">
   <!--v-if-->
   <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><input id=\\"bcc-input-1\\" class=\\"bcc-input\\">
+    <!--v-if--><input id=\\"bcc-input-2\\" class=\\"bcc-input\\">
+    <!--v-if-->
   </div><span class=\\"bcc-input-message-default\\">Test message</span>
 </div>"
 `;
@@ -43,7 +47,8 @@ exports[`BccInput > renders without a label or optional text 1`] = `
 "<div class=\\"bcc-input-container\\">
   <!--v-if-->
   <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><input id=\\"bcc-input-3\\" class=\\"bcc-input\\">
+    <!--v-if--><input id=\\"bcc-input-4\\" class=\\"bcc-input\\">
+    <!--v-if-->
   </div>
   <!--v-if-->
 </div>"
