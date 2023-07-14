@@ -5,12 +5,15 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, type StyleValue } from "vue";
+import { computed, type Component, type StyleValue } from "vue";
 import { useAttrs } from "vue";
+import { useId } from "../../hooks/use-id";
 
 type Props = {
   modelValue?: string;
   state?: "default" | "error" | "success";
+  size?: "base" | "lg";
+  icon?: string | Component | Function;
   disabled?: boolean;
   label?: string;
   showOptionalLabel?: boolean;
@@ -20,11 +23,14 @@ type Props = {
 
 const props = withDefaults(defineProps<Props>(), {
   state: "default",
+  size: "base",
   disabled: false,
   required: false,
   showOptionalLabel: false,
   optionalLabel: "Optional",
 });
+
+const id = `bcc-input-${useId()}`;
 
 defineEmits(["update:modelValue"]);
 
@@ -43,36 +49,35 @@ const attrsWithoutStyles = computed(() => {
 </script>
 
 <template>
-  <div
-    class="inline-flex flex-col space-y-2"
-    :class="$attrs['class']"
-    :style="$attrs['style'] as StyleValue"
-  >
-    <label class="space-y-2">
-      <span
-        v-if="label || showOptionalLabel"
-        class="flex gap-x-2"
-        :class="{
-          'justify-between': label && showOptionalLabel,
-          'justify-end': !label && showOptionalLabel,
-        }"
-      >
-        <span v-if="label" class="bcc-input-label">{{ label }}</span>
-        <span v-if="showOptionalLabel" class="bcc-input-optional-label">{{ optionalLabel }}</span>
-      </span>
+  <div class="bcc-input-container" :class="$attrs['class']" :style="$attrs['style'] as StyleValue">
+    <label class="bcc-input-label" :for="id" v-if="label || showOptionalLabel">
+      <span>{{ label }}</span>
+      <span v-if="showOptionalLabel" class="bcc-input-optional-label">{{ optionalLabel }}</span>
+    </label>
+    <div
+      class="bcc-input-wrapper"
+      :class="{
+        'bcc-input-lg': size === 'lg',
+      }"
+    >
+      <div class="bcc-input-icon-wrapper" v-if="icon">
+        <component :is="icon" class="bcc-input-icon" aria-hidden="true" />
+      </div>
       <input
+        :id="id"
         :disabled="disabled"
         :required="required"
         class="bcc-input"
         :class="{
           'bcc-input-error': state === 'error',
           'bcc-input-success': state === 'success',
+          'bcc-input-with-icon': icon,
         }"
         :value="modelValue"
         @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         v-bind="attrsWithoutStyles"
       />
-    </label>
+    </div>
     <span
       v-if="$slots.default"
       :class="{
