@@ -1,6 +1,7 @@
 @layer components {
     .bcc-input {
-        @apply w-full h-10 px-4 py-2 text-body-small rounded-lg text-primary bg-primary border border-on-primary focus:outline-2 focus:outline-emphasis;
+        @apply w-full h-10 px-4 py-2 text-body-small rounded-lg text-primary bg-primary border border-on-primary focus:outline-1 focus:outline-emphasis;
+        @apply placeholder:text-tertiary;
         @apply disabled:bg-secondary disabled:text-tertiary disabled:cursor-not-allowed;
     }
 
@@ -48,7 +49,7 @@
 
     /* Icon */
     .bcc-input-icon {
-        @apply h-4 w-4 text-tertiary;
+        @apply h-4 w-4 text-secondary;
     }
     .bcc-input-lg .bcc-input-icon {
         @apply h-6 w-6;
@@ -75,7 +76,7 @@
     }
 
     .bcc-input-clear-button {
-        @apply h-5 w-5 cursor-pointer text-tertiary hover:text-secondary active:text-primary;
+        @apply h-5 w-5 cursor-pointer text-primary hover:text-secondary;
     }
     
     .bcc-input-clearable {

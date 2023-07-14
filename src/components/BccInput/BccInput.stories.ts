@@ -54,7 +54,7 @@ export const Example = Template.bind({});
 Example.args = {
   state: "default",
   size: "base",
-  clearable: true,
+  clearable: false,
   disabled: false,
   required: false,
   placeholder: "Example placeholder",
@@ -73,7 +73,6 @@ Example.parameters = {
   :icon="SearchIcon"
   label="Example label"
   placeholder="Example placeholder"
-  clearable
   v-model="example"
 />      
 `,
