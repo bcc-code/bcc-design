@@ -80,16 +80,17 @@ function clear() {
           'bcc-input-error': state === 'error',
           'bcc-input-success': state === 'success',
           'bcc-input-with-icon': icon,
-          'bcc-input-with-clearable': clearable,
+          'bcc-input-clearable': clearable,
         }"
         :value="modelValue"
         @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         v-bind="attrsWithoutStyles"
       />
-      <div class="absolute inset-y-0 right-0 flex items-center pr-3" v-if="clearable && modelValue">
+      <div class="bcc-input-clear-button-wrapper" v-if="clearable && modelValue">
+        <span class="sr-only" id="bcc-input-clear-desc">Clear input</span>
         <CloseIcon
-          class="h-5 w-5 cursor-pointer text-tertiary hover:text-secondary active:text-primary"
-          aria-hidden="true"
+          class="bcc-input-clear-button"
+          aria-describedby="bcc-input-clear-desc"
           @click="clear"
         />
       </div>

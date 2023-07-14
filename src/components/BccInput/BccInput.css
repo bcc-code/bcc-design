@@ -68,4 +68,24 @@
     .bcc-input-lg > .bcc-input-with-icon {
         @apply pl-12;
     }
+
+    /* Clear button */
+    .bcc-input-clear-button-wrapper {
+        @apply absolute inset-y-0 right-0 flex items-center pr-3;
+    }
+
+    .bcc-input-clear-button {
+        @apply h-5 w-5 cursor-pointer text-tertiary hover:text-secondary active:text-primary;
+    }
+    
+    .bcc-input-clearable {
+        @apply pr-8;
+    }
+
+    .bcc-input-lg .bcc-input-clear-button {
+        @apply w-6 h-6;
+    }
+    .bcc-input-lg .bcc-input-clearable {
+        @apply pr-10;
+    }
 }
