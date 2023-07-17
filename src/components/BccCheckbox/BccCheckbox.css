@@ -4,7 +4,17 @@
         @apply disabled:bg-neutral-50 disabled:border-on-secondary disabled:hover:bg-neutral-50 disabled:hover:border-on-secondary;
     }
     .bcc-checkbox:checked:disabled, .bcc-checkbox:indeterminate:disabled {
-        @apply bg-neutral-500 border-neutral-500;
+        @apply bg-neutral-400 border-neutral-400;
+    }
+
+    /* Custom icons */
+    .bcc-checkbox:checked {
+        /* Generated with https://github.com/tigt/mini-svg-data-uri CLI */
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M6.45458 9.84532L11.755 4.56004C11.8984 4.41869 12.068 4.34802 12.2639 4.34802C12.4597 4.34802 12.6283 4.41896 12.7697 4.56084C12.911 4.70271 12.9817 4.87334 12.9817 5.07271C12.9817 5.27208 12.911 5.44445 12.7697 5.58984L6.96948 11.39C6.82446 11.5314 6.65191 11.602 6.45182 11.602C6.25174 11.602 6.08102 11.5314 5.93968 11.39L3.21373 8.66408C3.07238 8.51802 3.00171 8.34522 3.00171 8.14566C3.00171 7.94609 3.07265 7.77563 3.21453 7.63429C3.3564 7.49294 3.52702 7.42227 3.7264 7.42227C3.92577 7.42227 4.09815 7.49294 4.24353 7.63429L6.45458 9.84532Z' fill='white'/%3e %3c/svg%3e")
+    }
+    .bcc-checkbox:indeterminate {
+        /* Generated with https://github.com/tigt/mini-svg-data-uri CLI */
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M4.12412 8.70615C3.9263 8.70615 3.75915 8.63766 3.62268 8.50068C3.48621 8.3637 3.41797 8.19592 3.41797 7.99736C3.41797 7.79878 3.48621 7.63188 3.62268 7.49666C3.75915 7.36143 3.9263 7.29382 4.12412 7.29382H11.8768C12.0746 7.29382 12.2443 7.36231 12.3857 7.49929C12.5272 7.63627 12.598 7.80405 12.598 8.00261C12.598 8.20119 12.5272 8.36809 12.3857 8.50331C12.2443 8.63854 12.0746 8.70615 11.8768 8.70615H4.12412Z' fill='white'/%3e %3c/svg%3e")
     }
 
     /* Wrapper */

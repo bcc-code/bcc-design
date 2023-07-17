@@ -4,7 +4,7 @@
         @apply disabled:bg-neutral-50 disabled:border-on-secondary disabled:hover:bg-neutral-50 disabled:hover:border-on-secondary;
     }
     .bcc-radio:checked:disabled {
-        @apply bg-neutral-500 border-neutral-500;
+        @apply bg-neutral-400 border-neutral-400;
     }
 
     /* Wrapper */
