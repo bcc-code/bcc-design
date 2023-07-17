@@ -8,7 +8,6 @@ export default {
 import { useId } from "../../hooks/use-id";
 
 type Props = {
-  modelValue: string;
   label?: string;
   disabled?: boolean;
 };

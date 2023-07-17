@@ -11,4 +11,13 @@ describe("BccToggle", () => {
     wrapper.setProps({ modelValue: true });
     expect(wrapper.html()).toMatchSnapshot();
   });
+
+  it("renders a label", () => {
+    const wrapper = mount(BccToggle, {
+      props: { label: "Test label", modelValue: false },
+    });
+
+    expect(wrapper.text()).toBe("Test label");
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });
