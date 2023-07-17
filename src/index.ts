@@ -21,3 +21,4 @@ export { default as BccStatusIndicator } from "./components/BccStatusIndicator/B
 export { default as BccCookieBanner } from "./components/BccCookieBanner/BccCookieBanner.vue";
 export { default as BccModal } from "./components/BccModal/BccModal.vue";
 export { default as BccCheckbox } from "./components/BccCheckbox/BccCheckbox.vue";
+export { default as BccRadio } from "./components/BccRadio/BccRadio.vue";

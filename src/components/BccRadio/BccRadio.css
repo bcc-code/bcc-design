@@ -1,0 +1,17 @@
+@layer components {
+    .bcc-radio {
+        @apply form-radio border-button-primary text-interactive focus:ring focus:ring-emphasis focus:ring-offset-0;
+        @apply disabled:bg-neutral-50 disabled:border-on-secondary disabled:hover:bg-neutral-50 disabled:hover:border-on-secondary;
+    }
+    .bcc-radio:checked:disabled {
+        @apply bg-neutral-500 border-neutral-500;
+    }
+
+    /* Wrapper */
+    .bcc-radio-wrapper {
+        @apply text-body-small flex items-center gap-2 text-secondary;
+    }
+    .bcc-radio-wrapper-disabled {
+        @apply text-tertiary;
+    }
+}

@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const { modelValue, indeterminate } = toRefs(props);
 
-const input = ref(null);
+const input = ref<HTMLInputElement | null>(null);
 const id = `bcc-checkbox-${useId()}`;
 
 const emit = defineEmits(["update:modelValue"]);
@@ -41,7 +41,7 @@ onMounted(() => {
     indeterminate,
     (value) => {
       if (input.value) {
-        const element = input.value as HTMLInputElement;
+        const element = input.value;
         element.indeterminate = value;
       }
     },
