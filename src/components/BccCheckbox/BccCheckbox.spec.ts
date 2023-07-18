@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest";
 
 import { mount } from "@vue/test-utils";
-import BccToggle from "./BccToggle.vue";
+import BccCheckbox from "./BccCheckbox.vue";
 
-describe("BccToggle", () => {
-  it("renders a toggle in on or off state", () => {
-    const wrapper = mount(BccToggle, { props: { modelValue: false } });
+describe("BccCheckbox", () => {
+  it("renders a checked or unchecked checkbox", () => {
+    const wrapper = mount(BccCheckbox, { props: { modelValue: false } });
     expect(wrapper.html()).toMatchSnapshot();
 
     wrapper.setProps({ modelValue: true });
@@ -13,7 +13,7 @@ describe("BccToggle", () => {
   });
 
   it("renders a label", () => {
-    const wrapper = mount(BccToggle, {
+    const wrapper = mount(BccCheckbox, {
       props: { label: "Test label", modelValue: false },
     });
 

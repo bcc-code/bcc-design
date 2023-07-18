@@ -22,14 +22,14 @@ const props = withDefaults(defineProps<Props>(), {
 
 const { modelValue, wasToggled, disabled, loading } = toRefs(props);
 
-const emits = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
 
 const toggled = computed({
   get() {
     return !!modelValue.value;
   },
   set(value: boolean) {
-    emits("update:modelValue", value);
+    emit("update:modelValue", value);
   },
 });
 </script>
