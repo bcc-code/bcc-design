@@ -6,7 +6,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * A checkbox input conforming to the design system styles
  */
 export default {
-  title: "Components/BccCheckbox",
+  title: "Forms/BccCheckbox",
   component: BccCheckbox,
   argTypes: {},
 } as Meta<typeof BccCheckbox>;

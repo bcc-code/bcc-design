@@ -4,12 +4,15 @@ import { SearchIcon } from "@bcc-code/icons-vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccInput",
+  title: "Forms/BccInput",
   component: BccInput,
   argTypes: {
     size: {
-      options: ["base", "lg"],
+      options: ["sm", "base", "lg"],
       control: { type: "radio" },
+    },
+    clearable: {
+      description: "Whether to display an icon button to clear the input",
     },
     state: {
       description: "Style of the input",
@@ -26,6 +29,9 @@ export default {
       name: "default slot",
       description: "An optional message below the input",
     },
+    value: {
+      description: "For testing purposes in Storybook, use `v-model` normally",
+    },
   },
 } as Meta<typeof BccInput>;
 
@@ -35,7 +41,7 @@ const Template: StoryFn<typeof BccInput> = (args) => ({
     return { args, SearchIcon };
   },
   template: `
-    <BccInput v-bind="args" type="text" value="Example value" :icon="SearchIcon">
+    <BccInput v-bind="args" type="text" v-model="args.value" :icon="SearchIcon" @clear="args.value = ''" class="w-1/4">
       {{ args.slotDefault }}
     </BccInput>
   `,
@@ -48,6 +54,7 @@ export const Example = Template.bind({});
 Example.args = {
   state: "default",
   size: "base",
+  clearable: false,
   disabled: false,
   required: false,
   placeholder: "Example placeholder",
@@ -55,13 +62,19 @@ Example.args = {
   label: "Example label",
   showOptionalLabel: false,
   optionalLabel: "Optional",
+  value: "Example value",
 };
 Example.parameters = {
   docs: {
     source: {
       language: "html",
       code: `
-<BccInput :icon="SearchIcon" label="Example label" placeholder="Example placeholder" v-model="example" />      
+<BccInput
+  :icon="SearchIcon"
+  label="Example label"
+  placeholder="Example placeholder"
+  v-model="example"
+/>      
 `,
     },
   },
@@ -89,12 +102,17 @@ export const State: StoryFn<typeof BccInput> = () => ({
  */
 export const Size: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
+  setup() {
+    return { SearchIcon };
+  },
   template: `
     <div class="inline-flex flex-col space-y-4">
+      <BccInput size="sm" value="sm" placeholder="Example placeholder" />
+      <BccInput size="sm" value="sm" placeholder="Example placeholder" :icon="SearchIcon" disabled />
       <BccInput value="base" placeholder="Example placeholder" />
-      <BccInput value="base" placeholder="Example placeholder" disabled />
+      <BccInput value="base" placeholder="Example placeholder" :icon="SearchIcon" disabled />
       <BccInput size="lg" value="lg" placeholder="Example placeholder" />
-      <BccInput size="lg" value="lg" placeholder="Example placeholder" disabled />
+      <BccInput size="lg" value="lg" placeholder="Example placeholder" :icon="SearchIcon" disabled />
     </div>
   `,
 });
@@ -128,6 +146,40 @@ export const WithIcon: StoryFn<typeof BccInput> = () => ({
     </div>
   `,
 });
+
+/**
+ * Set the `clearable` prop to render an icon button on the right to clear the input when there is a value. Will emit both the normal `update:modelValue` event (automatically handled with `v-model`) and a `clear` event if you need to do extra logic when someone clicks the button.
+ */
+export const Clearable = Template.bind({});
+Clearable.args = {
+  state: "default",
+  size: "base",
+  clearable: true,
+  disabled: false,
+  required: false,
+  placeholder: "Find a city...",
+  slotDefault: "",
+  label: "Search",
+  showOptionalLabel: false,
+  optionalLabel: "Optional",
+  value: "Krakow",
+};
+Clearable.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccInput
+  :icon="SearchIcon"
+  label="Search"
+  placeholder="Find something..."
+  clearable
+  v-model="search"
+/>
+`,
+    },
+  },
+};
 
 /**
  * Set the `show-optional-label` prop to show a label when the input is not `required`. Control the text for this label with the `optionalLabel` prop, which can be useful for translation.

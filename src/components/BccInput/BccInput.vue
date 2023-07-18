@@ -8,12 +8,14 @@ export default {
 import { computed, type Component, type StyleValue } from "vue";
 import { useAttrs } from "vue";
 import { useId } from "../../hooks/use-id";
+import { CloseIcon } from "@bcc-code/icons-vue";
 
 type Props = {
   modelValue?: string;
   state?: "default" | "error" | "success";
-  size?: "base" | "lg";
+  size?: "sm" | "base" | "lg";
   icon?: string | Component | Function;
+  clearable?: boolean;
   disabled?: boolean;
   label?: string;
   showOptionalLabel?: boolean;
@@ -24,6 +26,7 @@ type Props = {
 const props = withDefaults(defineProps<Props>(), {
   state: "default",
   size: "base",
+  clearable: false,
   disabled: false,
   required: false,
   showOptionalLabel: false,
@@ -32,7 +35,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const id = `bcc-input-${useId()}`;
 
-defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue", "clear"]);
 
 const showOptionalLabel = computed(() => props.showOptionalLabel && !props.required);
 
@@ -46,6 +49,11 @@ const attrsWithoutStyles = computed(() => {
   }
   return returnObj;
 });
+
+function clear() {
+  emit("update:modelValue", "");
+  emit("clear");
+}
 </script>
 
 <template>
@@ -57,11 +65,17 @@ const attrsWithoutStyles = computed(() => {
     <div
       class="bcc-input-wrapper"
       :class="{
+        'bcc-input-sm': size === 'sm',
         'bcc-input-lg': size === 'lg',
       }"
     >
       <div class="bcc-input-icon-wrapper" v-if="icon">
-        <component :is="icon" class="bcc-input-icon" aria-hidden="true" />
+        <component
+          :is="icon"
+          class="bcc-input-icon"
+          :class="{ 'bcc-input-icon-disabled': disabled }"
+          aria-hidden="true"
+        />
       </div>
       <input
         :id="id"
@@ -72,11 +86,20 @@ const attrsWithoutStyles = computed(() => {
           'bcc-input-error': state === 'error',
           'bcc-input-success': state === 'success',
           'bcc-input-with-icon': icon,
+          'bcc-input-clearable': clearable,
         }"
         :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+        @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         v-bind="attrsWithoutStyles"
       />
+      <div class="bcc-input-clear-button-wrapper" v-if="clearable && modelValue">
+        <span class="sr-only" id="bcc-input-clear-desc">Clear input</span>
+        <CloseIcon
+          class="bcc-input-clear-button"
+          aria-describedby="bcc-input-clear-desc"
+          @click="clear"
+        />
+      </div>
     </div>
     <span
       v-if="$slots.default"

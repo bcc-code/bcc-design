@@ -1,6 +1,7 @@
 @layer components {
     .bcc-input {
-        @apply w-full px-4 py-3 text-body-small rounded-lg text-primary bg-primary border border-on-primary focus:outline-2 focus:outline-emphasis;
+        @apply w-full flex items-center h-10 px-4 py-2 text-body-small rounded-lg text-primary bg-primary border border-on-primary focus:outline-1 focus:outline-emphasis;
+        @apply placeholder:text-tertiary;
         @apply disabled:bg-secondary disabled:text-tertiary disabled:cursor-not-allowed;
     }
 
@@ -13,8 +14,11 @@
     }
 
     /* Size */
-    .bcc-input-lg > .bcc-input {
-        @apply text-body-base py-4;
+    .bcc-input-sm .bcc-input {
+        @apply h-8 text-body-small py-1;
+    }
+    .bcc-input-lg .bcc-input {
+        @apply h-14 text-body-base py-4;
     }
 
     /* Label */
@@ -48,7 +52,10 @@
 
     /* Icon */
     .bcc-input-icon {
-        @apply h-4 w-4 text-tertiary;
+        @apply h-4 w-4 text-secondary;
+    }
+    .bcc-input-icon-disabled {
+        @apply text-tertiary;
     }
     .bcc-input-lg .bcc-input-icon {
         @apply h-6 w-6;
@@ -67,5 +74,25 @@
     }
     .bcc-input-lg > .bcc-input-with-icon {
         @apply pl-12;
+    }
+
+    /* Clear button */
+    .bcc-input-clear-button-wrapper {
+        @apply absolute inset-y-0 right-0 flex items-center pr-3;
+    }
+
+    .bcc-input-clear-button {
+        @apply h-5 w-5 cursor-pointer text-primary hover:text-secondary;
+    }
+    
+    .bcc-input-clearable {
+        @apply pr-8;
+    }
+
+    .bcc-input-lg .bcc-input-clear-button {
+        @apply w-6 h-6;
+    }
+    .bcc-input-lg .bcc-input-clearable {
+        @apply pr-10;
     }
 }
