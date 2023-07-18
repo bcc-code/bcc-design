@@ -49,10 +49,9 @@ export const State: StoryFn<typeof BccCheckbox> = () => ({
   template: `
     <div class="inline-flex flex-col space-y-4">
       <BccCheckbox label="Unchecked" :modelValue="false" />
-      <BccCheckbox label="Checked" :modelValue="true" />
       <BccCheckbox label="Disabled unchecked" :modelValue="false" disabled />
-      <BccCheckbox label="Disabled checked" :modelValue="true" disabled />
       <BccCheckbox label="Checked" :modelValue="true" />
+      <BccCheckbox label="Disabled checked" :modelValue="true" disabled />
       <BccCheckbox label="Indeterminate" :modelValue="true" indeterminate />
       <BccCheckbox label="Indeterminate disabled" :modelValue="true" indeterminate disabled />
     </div>
