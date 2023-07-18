@@ -1,0 +1,16 @@
+@layer components {
+    .bcc-alert {
+        @apply text-body-small px-4 py-3.5 rounded-md bg-info text-info border border-info;
+    }
+
+    /* Context */
+    .bcc-alert-success {
+        @apply bg-success text-success border-success;
+    }
+    .bcc-alert-warning {
+        @apply bg-warning text-warning border-warning;
+    }
+    .bcc-alert-danger {
+        @apply bg-danger text-danger border-danger;
+    }
+}

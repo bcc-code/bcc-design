@@ -22,3 +22,4 @@ export { default as BccCookieBanner } from "./components/BccCookieBanner/BccCook
 export { default as BccModal } from "./components/BccModal/BccModal.vue";
 export { default as BccCheckbox } from "./components/BccCheckbox/BccCheckbox.vue";
 export { default as BccRadio } from "./components/BccRadio/BccRadio.vue";
+export { default as BccAlert } from "./components/BccAlert/BccAlert.vue";
