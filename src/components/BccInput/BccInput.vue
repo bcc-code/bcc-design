@@ -13,7 +13,7 @@ import { CloseIcon } from "@bcc-code/icons-vue";
 type Props = {
   modelValue?: string;
   state?: "default" | "error" | "success";
-  size?: "base" | "lg";
+  size?: "sm" | "base" | "lg";
   icon?: string | Component | Function;
   clearable?: boolean;
   disabled?: boolean;
@@ -65,11 +65,17 @@ function clear() {
     <div
       class="bcc-input-wrapper"
       :class="{
+        'bcc-input-sm': size === 'sm',
         'bcc-input-lg': size === 'lg',
       }"
     >
       <div class="bcc-input-icon-wrapper" v-if="icon">
-        <component :is="icon" class="bcc-input-icon" aria-hidden="true" />
+        <component
+          :is="icon"
+          class="bcc-input-icon"
+          :class="{ 'bcc-input-icon-disabled': disabled }"
+          aria-hidden="true"
+        />
       </div>
       <input
         :id="id"

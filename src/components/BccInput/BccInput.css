@@ -1,6 +1,6 @@
 @layer components {
     .bcc-input {
-        @apply w-full h-10 px-4 py-2 text-body-small rounded-lg text-primary bg-primary border border-on-primary focus:outline-1 focus:outline-emphasis;
+        @apply w-full flex items-center h-10 px-4 py-2 text-body-small rounded-lg text-primary bg-primary border border-on-primary focus:outline-1 focus:outline-emphasis;
         @apply placeholder:text-tertiary;
         @apply disabled:bg-secondary disabled:text-tertiary disabled:cursor-not-allowed;
     }
@@ -14,7 +14,10 @@
     }
 
     /* Size */
-    .bcc-input-lg > .bcc-input {
+    .bcc-input-sm .bcc-input {
+        @apply h-8 text-body-small py-1;
+    }
+    .bcc-input-lg .bcc-input {
         @apply h-14 text-body-base py-4;
     }
 
@@ -50,6 +53,9 @@
     /* Icon */
     .bcc-input-icon {
         @apply h-4 w-4 text-secondary;
+    }
+    .bcc-input-icon-disabled {
+        @apply text-tertiary;
     }
     .bcc-input-lg .bcc-input-icon {
         @apply h-6 w-6;

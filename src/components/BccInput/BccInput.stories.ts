@@ -8,7 +8,7 @@ export default {
   component: BccInput,
   argTypes: {
     size: {
-      options: ["base", "lg"],
+      options: ["sm", "base", "lg"],
       control: { type: "radio" },
     },
     clearable: {
@@ -102,12 +102,17 @@ export const State: StoryFn<typeof BccInput> = () => ({
  */
 export const Size: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
+  setup() {
+    return { SearchIcon };
+  },
   template: `
     <div class="inline-flex flex-col space-y-4">
+      <BccInput size="sm" value="sm" placeholder="Example placeholder" />
+      <BccInput size="sm" value="sm" placeholder="Example placeholder" :icon="SearchIcon" disabled />
       <BccInput value="base" placeholder="Example placeholder" />
-      <BccInput value="base" placeholder="Example placeholder" disabled />
+      <BccInput value="base" placeholder="Example placeholder" :icon="SearchIcon" disabled />
       <BccInput size="lg" value="lg" placeholder="Example placeholder" />
-      <BccInput size="lg" value="lg" placeholder="Example placeholder" disabled />
+      <BccInput size="lg" value="lg" placeholder="Example placeholder" :icon="SearchIcon" disabled />
     </div>
   `,
 });
