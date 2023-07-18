@@ -58,7 +58,7 @@
         @apply text-tertiary;
     }
     .bcc-input-lg .bcc-input-icon {
-        @apply h-6 w-6;
+        @apply h-5 w-5;
     }
 
     .bcc-input-icon-wrapper {
@@ -66,14 +66,14 @@
     }
 
     .bcc-input-lg > .bcc-input-icon-wrapper {
-        @apply pl-4;
+        @apply pl-3.5;
     }
 
     .bcc-input-with-icon {
         @apply pl-8;
     }
     .bcc-input-lg > .bcc-input-with-icon {
-        @apply pl-12;
+        @apply pl-10;
     }
 
     /* Clear button */
