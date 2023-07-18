@@ -9,8 +9,5 @@ export default {
   darkMode: "class", // To disable dark mode, see https://developer.bcc.no/bcc-design/design-library/vue-components/#disable-dark-mode
   plugins: [
     tailwindPlugin,
-    formsPlugin({
-      strategy: 'class',
-    }),
   ],
 } satisfies Config;
