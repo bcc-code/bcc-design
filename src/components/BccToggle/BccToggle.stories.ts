@@ -3,7 +3,7 @@ import BccToggle from "./BccToggle.vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccToggle",
+  title: "Forms/BccToggle",
   component: BccToggle,
   argTypes: {},
 } as Meta<typeof BccToggle>;

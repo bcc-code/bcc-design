@@ -9,3 +9,16 @@ export const parameters = {
     },
   },
 }
+
+
+const preview = {
+  parameters: {
+    options: {
+      storySort: {
+        order: ['Forms', 'Components', '*'],
+      },
+    },
+  },
+};
+
+export default preview;

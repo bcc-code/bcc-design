@@ -6,7 +6,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * A radio input conforming to the design system styles
  */
 export default {
-  title: "Components/BccRadio",
+  title: "Forms/BccRadio",
   component: BccRadio,
   argTypes: {},
 } as Meta<typeof BccRadio>;

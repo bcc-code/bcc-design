@@ -4,7 +4,7 @@ import { SearchIcon, ChevronRightIcon, ChevronLeftIcon } from "@bcc-code/icons-v
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccButton",
+  title: "Forms/BccButton",
   component: BccButton,
   argTypes: {
     context: {

@@ -4,7 +4,7 @@ import { SearchIcon } from "@bcc-code/icons-vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccInput",
+  title: "Forms/BccInput",
   component: BccInput,
   argTypes: {
     size: {
