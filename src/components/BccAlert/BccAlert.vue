@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { TaskAltIcon, InfoIcon, WarningIcon, ErrorIcon } from "@bcc-code/icons-vue";
+import { TaskAltIcon, InfoIcon, WarningIcon, ErrorIcon, CloseIcon } from "@bcc-code/icons-vue";
 
 type Props = {
   context?: "info" | "success" | "warning" | "danger";
   icon?: boolean;
   title?: string;
+  closeButton?: boolean;
 };
 
 withDefaults(defineProps<Props>(), {
   context: "info",
   icon: false,
+  closeButton: false,
 });
+
+const emit = defineEmits(["close"]);
 </script>
 
 <template>
@@ -32,5 +36,13 @@ withDefaults(defineProps<Props>(), {
     <p class="bcc-alert-content">
       <slot />
     </p>
+    <button
+      @click.prevent="emit('close')"
+      v-if="closeButton"
+      aria-label="Close alert"
+      class="bcc-alert-close-button"
+    >
+      <CloseIcon class="bcc-alert-close-icon" />
+    </button>
   </div>
 </template>
