@@ -20,11 +20,13 @@ const Template: StoryFn<typeof BccAlert> = (args) => ({
     return { args };
   },
   template: `
-    <BccAlert v-bind="args" v-if="args.open" @close="args.open = false">
+    <BccAlert v-bind="args" @close="args.open = false">
       {{ args.slotDefault }}
     </BccAlert>
 
-    <BccButton v-if="!args.open" variant="secondary" @click="args.open=true">Open alert</BccButton>
+    <BccButton variant="secondary" @click="args.open = true" v-if="!args.open">
+      Show alert
+    </BccButton>
   `,
 });
 
@@ -36,6 +38,25 @@ Example.args = {
   closeButton: true,
   title: "Well done!",
   slotDefault: "Successfully uploaded",
+};
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccAlert
+  title="Well done!"
+  icon
+  closeButton
+  context="success"
+  :open="showSuccessAlert"
+  @close="showSuccessAlert = false"
+>
+  Successfully uploaded
+</BccAlert>
+    `,
+    },
+  },
 };
 
 /**
@@ -84,7 +105,7 @@ export const WithTitle: StoryFn<typeof BccAlert> = () => ({
 });
 
 /**
- * Set the `closeButton` prop to render a close button. Clicking this will emit a `close` event, which you can use to no longer render the component, for example with a `v-if`
+ * Set the `closeButton` prop to render a close button. Clicking this will emit a `close` event, which you can use to change the `open` prop to `false` to hide the alert.
  */
 export const WithCloseButton: StoryFn<typeof BccAlert> = () => ({
   components: { BccAlert },
