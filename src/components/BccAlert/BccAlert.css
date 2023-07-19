@@ -35,6 +35,10 @@
     }
 
     /* Content */
+    .bcc-alert-content {
+        @apply pr-4;
+    }
+
     .bcc-alert-title + .bcc-alert-content {
         @apply w-full;
     }

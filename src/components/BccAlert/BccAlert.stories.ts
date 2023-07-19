@@ -111,7 +111,7 @@ export const WithCloseButton: StoryFn<typeof BccAlert> = () => ({
   components: { BccAlert },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccAlert closeButton>You might want to check this out!</BccAlert>
+      <BccAlert closeButton>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</BccAlert>
       <BccAlert closeButton icon>You might want to check this out!</BccAlert>
       <BccAlert closeButton title="Well done!">You might want to check this out!</BccAlert>
       <BccAlert closeButton title="Well done!" icon>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</BccAlert>
