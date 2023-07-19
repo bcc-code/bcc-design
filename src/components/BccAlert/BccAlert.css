@@ -1,0 +1,45 @@
+@layer components {
+    .bcc-alert {
+        @apply text-body-small relative px-4 py-3.5 rounded-md flex items-center gap-x-2.5 gap-y-1 flex-wrap;
+        /* Default info context */
+        @apply bg-info text-info border border-info;
+    }
+
+    /* Context */
+    .bcc-alert-success {
+        @apply bg-success text-success border-success;
+    }
+    .bcc-alert-warning {
+        @apply bg-warning text-warning border-warning;
+    }
+    .bcc-alert-danger {
+        @apply bg-danger text-danger border-danger;
+    }
+
+    /* Icon */
+    .bcc-alert-icon {
+        @apply h-5 w-5;
+    }
+
+    /* Close button */
+    .bcc-alert-close-button {
+        @apply absolute right-4 top-4;
+    }
+    .bcc-alert-close-icon {
+        @apply h-4 w-4;
+    }
+
+    /* Title */
+    .bcc-alert-title {
+        @apply text-heading-small
+    }
+
+    /* Content */
+    .bcc-alert-content {
+        @apply pr-4;
+    }
+
+    .bcc-alert-title + .bcc-alert-content {
+        @apply w-full;
+    }
+}
