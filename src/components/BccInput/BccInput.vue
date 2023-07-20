@@ -13,6 +13,7 @@ import BccFormLabel from "@/components/BccFormLabel/BccFormLabel.vue";
 
 type Props = {
   modelValue?: string;
+  is?: "input" | "textarea";
   state?: "default" | "error" | "success";
   size?: "sm" | "base" | "lg";
   icon?: string | Component | Function;
@@ -25,6 +26,7 @@ type Props = {
 };
 
 const props = withDefaults(defineProps<Props>(), {
+  is: "input",
   state: "default",
   size: "base",
   clearable: false,
@@ -65,7 +67,7 @@ function clear() {
         'bcc-input-lg': size === 'lg',
       }"
     >
-      <div class="bcc-input-icon-wrapper" v-if="icon">
+      <div class="bcc-input-icon-wrapper" v-if="icon && is !== 'textarea'">
         <component
           :is="icon"
           class="bcc-input-icon"
@@ -73,7 +75,8 @@ function clear() {
           aria-hidden="true"
         />
       </div>
-      <input
+      <component
+        :is="is"
         :id="id"
         :disabled="disabled"
         :required="required"
@@ -81,14 +84,17 @@ function clear() {
         :class="{
           'bcc-input-error': state === 'error',
           'bcc-input-success': state === 'success',
-          'bcc-input-with-icon': icon,
-          'bcc-input-clearable': clearable,
+          'bcc-input-with-icon': icon && is !== 'textarea',
+          'bcc-input-clearable': clearable && is !== 'textarea',
         }"
         :value="modelValue"
         @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         v-bind="attrsWithoutStyles"
       />
-      <div class="bcc-input-clear-button-wrapper" v-if="clearable && modelValue">
+      <div
+        class="bcc-input-clear-button-wrapper"
+        v-if="clearable && modelValue && is !== 'textarea'"
+      >
         <span class="sr-only" id="bcc-input-clear-desc">Clear input</span>
         <CloseIcon
           class="bcc-input-clear-button"
@@ -99,6 +105,7 @@ function clear() {
     </div>
     <span
       v-if="$slots.default"
+      class="bcc-input-message"
       :class="{
         'bcc-input-message-default': state === 'default',
         'bcc-input-message-error': state === 'error',
