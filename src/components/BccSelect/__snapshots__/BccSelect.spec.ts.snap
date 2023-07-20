@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccSelect > can render an extra label if the input is optional 1`] = `
+"<div class=\\"bcc-input-container\\"><label class=\\"bcc-input-label\\" for=\\"bcc-input-5\\"><span></span><span class=\\"bcc-input-optional-label\\">Custom optional label</span></label><select class=\\"bcc-select\\" id=\\"bcc-input-5\\"></select>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`BccSelect > does not render a text if the input is both required and optional 1`] = `
+"<div class=\\"bcc-input-container\\">
+  <!--v-if--><select class=\\"bcc-select\\" id=\\"bcc-input-6\\" required=\\"\\"></select>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`BccSelect > renders a label 1`] = `
+"<div class=\\"bcc-input-container\\"><label class=\\"bcc-input-label\\" for=\\"bcc-input-3\\"><span>Test label</span>
+    <!--v-if-->
+  </label><select class=\\"bcc-select\\" id=\\"bcc-input-3\\"></select>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`BccSelect > renders a text from the default and message slots 1`] = `
+"<div class=\\"bcc-input-container\\">
+  <!--v-if--><select class=\\"bcc-select\\" id=\\"bcc-input-2\\">
+    <option value=\\"brunstad\\">Brunstad</option>
+  </select><span class=\\"bcc-input-message-default\\">Test message</span>
+</div>"
+`;
+
+exports[`BccSelect > renders without a label or optional text 1`] = `
+"<div class=\\"bcc-input-container\\">
+  <!--v-if--><select class=\\"bcc-select\\" id=\\"bcc-input-4\\"></select>
+  <!--v-if-->
+</div>"
+`;
