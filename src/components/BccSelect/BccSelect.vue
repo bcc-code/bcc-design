@@ -1,7 +1,14 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
+</script>
+
 <script setup lang="ts">
 import { computed, type StyleValue } from "vue";
 import { useAttrsWithoutStyles } from "@/composables/attrsWithoutStyles";
 import { useId } from "@/hooks/use-id";
+import BccFormLabel from "@/components/BccFormLabel/BccFormLabel.vue";
 
 type Props = {
   modelValue?: string;
@@ -34,12 +41,14 @@ const { attrsWithoutStyles } = useAttrsWithoutStyles();
 
 <template>
   <div class="bcc-input-container" :class="$attrs['class']" :style="$attrs['style'] as StyleValue">
-    <label class="bcc-input-label" :for="id" v-if="label || showOptionalLabel">
-      <span>{{ label }}</span>
-      <span v-if="showOptionalLabel" class="bcc-input-optional-label">
-        {{ optionalLabel }}
-      </span>
-    </label>
+    <BccFormLabel
+      :for="id"
+      v-if="label || showOptionalLabel"
+      :showOptionalLabel="showOptionalLabel"
+      :optionalLabel="optionalLabel"
+    >
+      {{ label }}
+    </BccFormLabel>
     <select
       class="bcc-select"
       :class="{
