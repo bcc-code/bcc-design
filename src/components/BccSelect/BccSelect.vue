@@ -69,6 +69,7 @@ const { attrsWithoutStyles } = useAttrsWithoutStyles();
 
     <span
       v-if="$slots.message"
+      class="bcc-input-message"
       :class="{
         'bcc-input-message-default': state === 'default',
         'bcc-input-message-error': state === 'error',

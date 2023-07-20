@@ -25,6 +25,10 @@ export default {
     showOptionalLabel: {
       description: "Will only take effect when `required` is `false`",
     },
+    is: {
+      options: ["input", "textarea"],
+      control: { type: "radio" },
+    },
     slotDefault: {
       name: "default slot",
       description: "An optional message below the input",
@@ -63,6 +67,7 @@ Example.args = {
   showOptionalLabel: false,
   optionalLabel: "Optional",
   value: "Example value",
+  is: "input",
 };
 Example.parameters = {
   docs: {
@@ -206,6 +211,18 @@ export const WithMessage: StoryFn<typeof BccInput> = () => ({
       <BccInput value="Default" placeholder="Example placeholder">This is an example message with <strong>styling</strong>.</BccInput>
       <BccInput value="Error" placeholder="Example placeholder" state="error">This is an example message with <strong>styling</strong>.</BccInput>
       <BccInput value="Success" placeholder="Example placeholder" state="success">This is an example message with <strong>styling</strong>.</BccInput>
+    </div>
+  `,
+});
+
+/**
+ * Set the `is` prop to `textare` to render a `textarea` instead of an `input` element. The `icon` and `clearable` props will be ignored for a textarea.
+ */
+export const Textarea: StoryFn<typeof BccInput> = () => ({
+  components: { BccInput },
+  template: `
+    <div class="inline-flex flex-col space-y-4">
+      <BccInput is="textarea" rows="4" value="A quite long value but because this is a textarea you can see it all." placeholder="Example placeholder">This is an example message with <strong>styling</strong>.</BccInput>
     </div>
   `,
 });

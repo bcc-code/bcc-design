@@ -39,7 +39,18 @@ exports[`BccInput > renders a text from the default slot 1`] = `
   <div class=\\"bcc-input-wrapper\\">
     <!--v-if--><input id=\\"bcc-input-2\\" class=\\"bcc-input\\">
     <!--v-if-->
-  </div><span class=\\"bcc-input-message-default\\">Test message</span>
+  </div><span class=\\"bcc-input-message bcc-input-message-default\\">Test message</span>
+</div>"
+`;
+
+exports[`BccInput > renders a textarea without icon and clearable 1`] = `
+"<div class=\\"bcc-input-container\\">
+  <!--v-if-->
+  <div class=\\"bcc-input-wrapper\\">
+    <!--v-if--><textarea id=\\"bcc-input-9\\" class=\\"bcc-input\\"></textarea>
+    <!--v-if-->
+  </div>
+  <!--v-if-->
 </div>"
 `;
 

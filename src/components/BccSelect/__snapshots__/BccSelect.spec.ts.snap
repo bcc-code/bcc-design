@@ -25,7 +25,7 @@ exports[`BccSelect > renders a text from the default and message slots 1`] = `
 "<div class=\\"bcc-input-container\\">
   <!--v-if--><select class=\\"bcc-select\\" id=\\"bcc-input-2\\">
     <option value=\\"brunstad\\">Brunstad</option>
-  </select><span class=\\"bcc-input-message-default\\">Test message</span>
+  </select><span class=\\"bcc-input-message bcc-input-message-default\\">Test message</span>
 </div>"
 `;
 
