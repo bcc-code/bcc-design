@@ -6,8 +6,8 @@ export default {
 
 <script setup lang="ts">
 import { computed, type Component, type StyleValue } from "vue";
-import { useAttrs } from "vue";
-import { useId } from "../../hooks/use-id";
+import { useAttrsWithoutStyles } from "@/composables/attrsWithoutStyles";
+import { useId } from "@/hooks/use-id";
 import { CloseIcon } from "@bcc-code/icons-vue";
 
 type Props = {
@@ -33,22 +33,13 @@ const props = withDefaults(defineProps<Props>(), {
   optionalLabel: "Optional",
 });
 
+const { attrsWithoutStyles } = useAttrsWithoutStyles();
+
 const id = `bcc-input-${useId()}`;
 
 const emit = defineEmits(["update:modelValue", "clear"]);
 
 const showOptionalLabel = computed(() => props.showOptionalLabel && !props.required);
-
-const attrs = useAttrs();
-const attrsWithoutStyles = computed(() => {
-  let returnObj: Record<string, unknown> = {};
-  for (const attr in attrs) {
-    if (attr !== "class" && attr !== "style") {
-      returnObj[attr] = attrs[attr];
-    }
-  }
-  return returnObj;
-});
 
 function clear() {
   emit("update:modelValue", "");
@@ -109,7 +100,7 @@ function clear() {
         'bcc-input-message-success': state === 'success',
       }"
     >
-      <slot></slot>
+      <slot />
     </span>
   </div>
 </template>

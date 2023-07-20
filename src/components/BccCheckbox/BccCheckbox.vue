@@ -5,8 +5,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, toRefs, watch } from "vue";
-import { useId } from "../../hooks/use-id";
+import { computed, onMounted, ref, toRefs, watch, type StyleValue } from "vue";
+import { useAttrsWithoutStyles } from "@/composables/attrsWithoutStyles";
+import { useId } from "@/hooks/use-id";
 
 type Props = {
   modelValue: boolean;
@@ -48,17 +49,30 @@ onMounted(() => {
     { immediate: true }
   );
 });
+
+const { attrs, attrsWithoutStyles } = useAttrsWithoutStyles();
+
+const wrapperClasses = computed(() => {
+  const classes = [];
+  if (props.disabled) {
+    classes.push("bcc-checkbox-wrapper-disabled");
+  }
+  if (attrs["class"]) {
+    classes.push(attrs["class"]);
+  }
+  return classes;
+});
 </script>
 
 <template>
-  <div class="bcc-checkbox-wrapper" :class="{ 'bcc-checkbox-wrapper-disabled': disabled }">
+  <div class="bcc-checkbox-wrapper" :class="wrapperClasses" :style="$attrs['style'] as StyleValue">
     <input
       type="checkbox"
       class="bcc-checkbox"
       :id="id"
       :disabled="disabled"
       v-model="toggled"
-      v-bind="$attrs"
+      v-bind="attrsWithoutStyles"
       ref="input"
     />
     <label :for="id">{{ label }}</label>

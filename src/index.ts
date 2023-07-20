@@ -23,3 +23,4 @@ export { default as BccModal } from "./components/BccModal/BccModal.vue";
 export { default as BccCheckbox } from "./components/BccCheckbox/BccCheckbox.vue";
 export { default as BccRadio } from "./components/BccRadio/BccRadio.vue";
 export { default as BccAlert } from "./components/BccAlert/BccAlert.vue";
+export { default as BccSelect } from "./components/BccSelect/BccSelect.vue";

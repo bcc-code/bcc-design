@@ -118,7 +118,7 @@ export const Size: StoryFn<typeof BccInput> = () => ({
 });
 
 /**
- * The input can be wrapped in a `label`
+ * The input can have a `label`. A unique id is automatically generated for the input, which the label uses in its `for` attribute
  */
 export const WithLabel: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
