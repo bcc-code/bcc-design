@@ -18,21 +18,21 @@ resource "azurerm_static_site" "main" {
   sku_size            = "Free" # local.props.app_environment == "prod" ? "Standard" : "Free"
 }
 
-# resource "azurerm_static_site_custom_domain" "main" {
-#   static_site_id  = azurerm_static_site.main.id
-#   domain_name     = local.props.app_environment == "prod" ? "design-library.developer.bcc.no" : "design-library-dev.developer.bcc.no"
-#   validation_type = "cname-delegation"
+resource "azurerm_static_site_custom_domain" "main" {
+  static_site_id  = azurerm_static_site.main.id
+  domain_name     = local.props.app_environment == "prod" ? "design-library.developer.bcc.no" : "design-library-dev.developer.bcc.no"
+  validation_type = "cname-delegation"
 
-#   lifecycle {
-#     ignore_changes = [
-#       validation_type
-#     ]
-#   }
+  lifecycle {
+    ignore_changes = [
+      validation_type
+    ]
+  }
 
-#   timeouts {
-#     create = "15m"
-#     update = "15m"
-#     delete = "30m"
-#     read   = "5m"
-#   }
-# }
+  timeouts {
+    create = "20m"
+    update = "15m"
+    delete = "30m"
+    read   = "5m"
+  }
+}
