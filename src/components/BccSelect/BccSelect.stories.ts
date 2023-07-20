@@ -14,7 +14,7 @@ export default {
       control: { type: "radio" },
     },
     state: {
-      description: "Style of the input",
+      description: "Style of the select",
       options: ["default", "error", "success"],
       control: { type: "radio" },
     },
@@ -142,7 +142,7 @@ export const Size: StoryFn<typeof BccSelect> = () => ({
 });
 
 /**
- * The input can have a `label`. A unique id is automatically generated for the input, which the label uses in its `for` attribute
+ * The select can have a `label`. A unique id is automatically generated for the select, which the label uses in its `for` attribute
  */
 export const WithLabel: StoryFn<typeof BccSelect> = () => ({
   components: { BccSelect },
@@ -161,7 +161,7 @@ export const WithLabel: StoryFn<typeof BccSelect> = () => ({
 });
 
 /**
- * Set the `show-optional-label` prop to show a label when the input is not `required`. Control the text for this label with the `optionalLabel` prop, which can be useful for translation.
+ * Set the `show-optional-label` prop to show a label when the select is not `required`. Control the text for this label with the `optionalLabel` prop, which can be useful for translation.
  */
 export const Optional: StoryFn<typeof BccSelect> = () => ({
   components: { BccSelect },
