@@ -81,21 +81,24 @@ export const State: StoryFn<typeof BccSelect> = () => ({
         <option value="default">Default</option>
         <option value="two">Option 2</option>
       </BccSelect>
+      <BccSelect class="w-1/4" value="default" disabled>
+        <option value="default">Default disabled</option>
+        <option value="two">Option 2</option>
+      </BccSelect>
       <BccSelect state="error" class="w-1/4" value="default">
         <option value="default">Error</option>
+        <option value="two">Option 2</option>
+      </BccSelect>
+      <BccSelect state="error" class="w-1/4" value="default" disabled>
+        <option value="default">Error disabled</option>
         <option value="two">Option 2</option>
       </BccSelect>
       <BccSelect state="success" class="w-1/4" value="default">
         <option value="default">Success</option>
         <option value="two">Option 2</option>
       </BccSelect>
-      <BccSelect class="w-1/4" value="default" disabled>
-        <option value="default">Success</option>
-        <option value="two">Option 2</option>
-      </BccSelect>
-      <BccSelect class="w-1/4" value="default">
-        <option disabled selected>Select an option...</option>
-        <option value="default">Success</option>
+      <BccSelect state="success" class="w-1/4" value="default" disabled>
+        <option value="default">Success disabled</option>
         <option value="two">Option 2</option>
       </BccSelect>
     </div>
