@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, useAttrs, type StyleValue } from "vue";
-import { useId } from "../../hooks/use-id";
+import { computed, type StyleValue } from "vue";
+import { useAttrsWithoutStyles } from "@/composables/attrsWithoutStyles";
+import { useId } from "@/hooks/use-id";
 
 type Props = {
   modelValue?: string;
@@ -28,16 +29,7 @@ const emit = defineEmits(["update:modelValue"]);
 
 const showOptionalLabel = computed(() => props.showOptionalLabel && !props.required);
 
-const attrs = useAttrs();
-const attrsWithoutStyles = computed(() => {
-  let returnObj: Record<string, unknown> = {};
-  for (const attr in attrs) {
-    if (attr !== "class" && attr !== "style") {
-      returnObj[attr] = attrs[attr];
-    }
-  }
-  return returnObj;
-});
+const { attrsWithoutStyles } = useAttrsWithoutStyles();
 </script>
 
 <template>

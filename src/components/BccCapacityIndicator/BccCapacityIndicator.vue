@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, toRef } from "vue";
-import useAnimatedNumber from "../../composables/animatedNumber";
+import useAnimatedNumber from "@/composables/animatedNumber";
 
 const props = withDefaults(
   defineProps<{
