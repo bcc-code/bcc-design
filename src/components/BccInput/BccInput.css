@@ -21,16 +21,6 @@
         @apply h-14 text-body-base py-4;
     }
 
-    /* Label */
-    .bcc-input-label {
-        @apply flex gap-2 justify-between items-end text-label-small text-primary;
-    }
-
-    /* Optional */
-    .bcc-input-optional-label {
-        @apply text-caption font-normal text-tertiary truncate;
-    }
-
     /* State */
     .bcc-input-error {
         @apply border-danger focus:outline-danger;

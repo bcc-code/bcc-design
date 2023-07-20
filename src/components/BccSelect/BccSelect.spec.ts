@@ -61,7 +61,7 @@ describe("BccSelect", () => {
   });
 
   it("passes through non-prop attributes", () => {
-    const wrapper = mount(BccSelect, { attrs: { autofocus: true } });
-    expect(wrapper.html()).toContain('autofocus="true"');
+    const wrapper = mount(BccSelect, { attrs: { name: "test" } });
+    expect(wrapper.html()).toContain('name="test"');
   });
 });

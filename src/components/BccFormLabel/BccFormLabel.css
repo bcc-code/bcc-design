@@ -1,0 +1,11 @@
+@layer components {
+    /* Label */
+    .bcc-form-label, .bcc-input-label {
+        @apply flex gap-2 justify-between items-end text-label-small text-primary;
+    }
+
+    /* Optional */
+    .bcc-form-label-optional, .bcc-input-optional-label {
+        @apply text-caption font-normal text-tertiary truncate;
+    }
+}
