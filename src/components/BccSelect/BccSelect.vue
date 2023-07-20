@@ -3,6 +3,7 @@ import { computed, useAttrs, type StyleValue } from "vue";
 import { useId } from "../../hooks/use-id";
 
 type Props = {
+  modelValue?: string;
   state?: "default" | "error" | "success";
   size?: "sm" | "base" | "lg";
   disabled?: boolean;
@@ -22,6 +23,8 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const id = `bcc-input-${useId()}`;
+
+const emit = defineEmits(["update:modelValue"]);
 
 const showOptionalLabel = computed(() => props.showOptionalLabel && !props.required);
 
@@ -54,7 +57,10 @@ const attrsWithoutStyles = computed(() => {
         'bcc-select-lg': size === 'lg',
       }"
       :id="id"
+      :value="modelValue"
       :disabled="disabled"
+      :required="required"
+      @input="emit('update:modelValue', ($event.target as HTMLSelectElement).value)"
       v-bind="attrsWithoutStyles"
     >
       <slot />

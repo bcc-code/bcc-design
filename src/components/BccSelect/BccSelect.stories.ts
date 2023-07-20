@@ -13,6 +13,14 @@ export default {
       options: ["sm", "base", "lg"],
       control: { type: "radio" },
     },
+    state: {
+      description: "Style of the input",
+      options: ["default", "error", "success"],
+      control: { type: "radio" },
+    },
+    showOptionalLabel: {
+      description: "Will only take effect when `required` is `false`",
+    },
   },
 } as Meta<typeof BccSelect>;
 
@@ -23,17 +31,19 @@ const Template: StoryFn<typeof BccSelect> = (args) => ({
   },
   template: `
     <BccSelect v-bind="args" class="w-1/4">
-      <option>Option 1</option>
-      <option>Option 2</option>
+      <option disabled value="">Select an option...</option>
+      <option value="one">Option 1</option>
+      <option value="two">Option 2</option>
     </BccSelect>
   `,
 });
 
 /**
- * Use `v-model` to control the value of the select. Pass normal HTML `option` elements to the default slot to render the options.
+ * Use `v-model` to control the value of the select. Pass normal HTML `option` elements to the default slot to render the options (be sure to include `value` attributes on each option).
  */
 export const Example = Template.bind({});
 Example.args = {
+  modelValue: "one",
   label: "Example label",
   state: "default",
   size: "base",
@@ -51,8 +61,9 @@ Example.parameters = {
   label="Example label"
   v-model="example"
 >
-  <option>Option 1</option>
-  <option>Option 2</option>
+  <option disabled value="">Select an option...</option>
+  <option value="one">Option 1</option>
+  <option value="two">Option 2</option>
 </BccSelect>
 `,
     },
@@ -66,17 +77,42 @@ export const State: StoryFn<typeof BccSelect> = () => ({
   components: { BccSelect },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccSelect class="w-1/4">
-        <option>Default</option>
-        <option>Option 2</option>
+      <BccSelect class="w-1/4" value="default">
+        <option value="default">Default</option>
+        <option value="two">Option 2</option>
       </BccSelect>
-      <BccSelect state="error" class="w-1/4">
-        <option>Error</option>
-        <option>Option 2</option>
+      <BccSelect state="error" class="w-1/4" value="default">
+        <option value="default">Error</option>
+        <option value="two">Option 2</option>
       </BccSelect>
-      <BccSelect state="success" class="w-1/4">
-        <option>Success</option>
-        <option>Option 2</option>
+      <BccSelect state="success" class="w-1/4" value="default">
+        <option value="default">Success</option>
+        <option value="two">Option 2</option>
+      </BccSelect>
+      <BccSelect class="w-1/4" value="default" disabled>
+        <option value="default">Success</option>
+        <option value="two">Option 2</option>
+      </BccSelect>
+      <BccSelect class="w-1/4" value="default">
+        <option disabled selected>Select an option...</option>
+        <option value="default">Success</option>
+        <option value="two">Option 2</option>
+      </BccSelect>
+    </div>
+  `,
+});
+
+/**
+ * Like a normal select element, don't set the value and create an `option` with `disabled` and an empty value to have a default placeholder text.
+ */
+export const Placeholder: StoryFn<typeof BccSelect> = () => ({
+  components: { BccSelect },
+  template: `
+    <div class="flex flex-col space-y-4">
+      <BccSelect class="w-1/4" value="">
+        <option disabled value="">Select an option...</option>
+        <option value="one">Success</option>
+        <option value="two">Option 2</option>
       </BccSelect>
     </div>
   `,
@@ -89,17 +125,17 @@ export const Size: StoryFn<typeof BccSelect> = () => ({
   components: { BccSelect },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccSelect size="sm" class="w-1/4">
-        <option>sm select</option>
-        <option>Option 2</option>
+      <BccSelect size="sm" class="w-1/4" value="default">
+        <option value="default">sm select</option>
+        <option value="two">Option 2</option>
       </BccSelect>
-      <BccSelect size="base" class="w-1/4">
-        <option>base select</option>
-        <option>Option 2</option>
+      <BccSelect size="base" class="w-1/4" value="default">
+        <option value="default">base select</option>
+        <option value="two">Option 2</option>
       </BccSelect>
-      <BccSelect size="lg" class="w-1/4">
-        <option>lg select</option>
-        <option>Option 2</option>
+      <BccSelect size="lg" class="w-1/4" value="default">
+        <option value="default">lg select</option>
+        <option value="two">Option 2</option>
       </BccSelect>
     </div>
   `,
@@ -112,13 +148,13 @@ export const WithLabel: StoryFn<typeof BccSelect> = () => ({
   components: { BccSelect },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccSelect label="Example Label" size="base">
-        <option>base select</option>
-        <option>Option 2</option>
+      <BccSelect label="Example Label" size="base" value="default">
+        <option value="default">base select</option>
+        <option value="two">Option 2</option>
       </BccSelect>
-      <BccSelect label="Example Label that is really long but should still display"  class="w-1/4">
-        <option>base select</option>
-        <option>Option 2</option>
+      <BccSelect label="Example Label that is really long but should still display"  class="w-1/4" value="default">
+        <option value="default">base select</option>
+        <option value="two">Option 2</option>
       </BccSelect>
     </div>
   `,
@@ -131,24 +167,24 @@ export const Optional: StoryFn<typeof BccSelect> = () => ({
   components: { BccSelect },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccSelect show-optional-label label="Example Label" class="w-1/4">
-        <option>With label and optional</option>
-        <option>Option 2</option>
+      <BccSelect show-optional-label label="Example Label" class="w-1/4" value="default">
+        <option value="default">With label and optional</option>
+        <option value="two">Option 2</option>
       </BccSelect>
 
-      <BccSelect show-optional-label label="Example Label" optionalLabel="Optional label that is pretty long and should truncate" class="w-1/4">
-        <option>Long optional label</option>
-        <option>Option 2</option>
+      <BccSelect show-optional-label label="Example Label" optionalLabel="Optional label that is pretty long and should truncate" class="w-1/4" value="default">
+        <option value="default">Long optional label</option>
+        <option value="two">Option 2</option>
       </BccSelect>
 
-      <BccSelect show-optional-label optionalLabel="Optional label that is pretty long and should truncate" class="w-1/4">
-        <option>Without label</option>
-        <option>Option 2</option>
+      <BccSelect show-optional-label optionalLabel="Optional label that is pretty long and should truncate" class="w-1/4" value="default">
+        <option value="default">Without label</option>
+        <option value="two">Option 2</option>
       </BccSelect>
 
-      <BccSelect show-optional-label label="Pretty long label as well" optionalLabel="Optional label that is pretty long and should truncate" class="w-1/4">
-        <option>Long label and optional label</option>
-        <option>Option 2</option>
+      <BccSelect show-optional-label label="Pretty long label as well" optionalLabel="Optional label that is pretty long and should truncate" class="w-1/4" value="default">
+        <option value="default">Long label and optional label</option>
+        <option value="two">Option 2</option>
       </BccSelect>
     </div>
   `,
@@ -161,27 +197,27 @@ export const WithMessage: StoryFn<typeof BccSelect> = () => ({
   components: { BccSelect },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccSelect class="w-1/2">
-        <option>Default</option>
-        <option>Option 2</option>
+      <BccSelect class="w-1/2" value="default">
+        <option value="default">Default</option>
+        <option value="two">Option 2</option>
 
         <template #message>
           This is an example message with <strong>styling</strong>.
         </template>
       </BccSelect>
 
-      <BccSelect class="w-1/2" state="success">
-        <option>Success</option>
-        <option>Option 2</option>
+      <BccSelect class="w-1/2" state="success" value="default">
+        <option value="default">Success</option>
+        <option value="two">Option 2</option>
 
         <template #message>
           This is an example message with <strong>styling</strong>.
         </template>
       </BccSelect>
 
-      <BccSelect class="w-1/2" state="error">
-        <option>Error</option>
-        <option>Option 2</option>
+      <BccSelect class="w-1/2" state="error" value="default">
+        <option value="default">Error</option>
+        <option value="two">Option 2</option>
 
         <template #message>
           This is an example message with <strong>styling</strong>.

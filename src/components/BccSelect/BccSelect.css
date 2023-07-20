@@ -1,6 +1,7 @@
 @layer components {
     .bcc-select {
         @apply w-full h-10 px-4 py-2 form-select text-body-small rounded-lg text-primary bg-primary border-on-primary focus:ring-0 focus:outline-2 focus:outline-emphasis focus:-outline-offset-1;
+        @apply disabled:bg-secondary disabled:text-tertiary disabled:cursor-not-allowed;
     }
 
     /* Size */
