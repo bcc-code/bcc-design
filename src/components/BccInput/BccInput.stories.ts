@@ -216,7 +216,7 @@ export const WithMessage: StoryFn<typeof BccInput> = () => ({
 });
 
 /**
- * Set the `is` prop to `textare` to render a `textarea` instead of an `input` element. The `icon` and `clearable` props will be ignored for a textarea.
+ * Set the `is` prop to `textarea` to render a `textarea` instead of an `input` element. The `icon` and `clearable` props will be ignored for a textarea.
  */
 export const Textarea: StoryFn<typeof BccInput> = () => ({
   components: { BccInput },
