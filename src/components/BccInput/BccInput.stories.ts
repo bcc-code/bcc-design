@@ -112,12 +112,12 @@ export const Size: StoryFn<typeof BccInput> = () => ({
   },
   template: `
     <div class="inline-flex flex-col space-y-4">
-      <BccInput size="sm" value="sm" placeholder="Example placeholder" />
-      <BccInput size="sm" value="sm" placeholder="Example placeholder" :icon="SearchIcon" disabled />
-      <BccInput value="base" placeholder="Example placeholder" />
-      <BccInput value="base" placeholder="Example placeholder" :icon="SearchIcon" disabled />
-      <BccInput size="lg" value="lg" placeholder="Example placeholder" />
-      <BccInput size="lg" value="lg" placeholder="Example placeholder" :icon="SearchIcon" disabled />
+      <BccInput label="label for sm input" size="sm" value="sm" placeholder="Example placeholder" />
+      <BccInput label="label for sm input" size="sm" value="sm" placeholder="Example placeholder" :icon="SearchIcon" disabled />
+      <BccInput label="label for base input" value="base" placeholder="Example placeholder" />
+      <BccInput label="label for base input" value="base" placeholder="Example placeholder" :icon="SearchIcon" disabled />
+      <BccInput label="label for lg input" size="lg" value="lg" placeholder="Example placeholder" />
+      <BccInput label="label for lg input" size="lg" value="lg" placeholder="Example placeholder" :icon="SearchIcon" disabled />
     </div>
   `,
 });

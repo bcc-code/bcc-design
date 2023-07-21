@@ -29,20 +29,6 @@
         @apply border-success focus:outline-success;
     }
 
-    /* Message */
-    .bcc-input-message {
-        @apply text-body-small;
-    }
-    .bcc-input-message-default {
-        @apply text-secondary;
-    }
-    .bcc-input-message-error {
-        @apply text-danger;
-    }
-    .bcc-input-message-success {
-        @apply text-success;
-    }
-
     /* Icon */
     .bcc-input-icon {
         @apply h-4 w-4 text-secondary;

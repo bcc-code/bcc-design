@@ -9,6 +9,7 @@ import { computed, type StyleValue } from "vue";
 import { useAttrsWithoutStyles } from "@/composables/attrsWithoutStyles";
 import { useId } from "@/hooks/use-id";
 import BccFormLabel from "@/components/BccFormLabel/BccFormLabel.vue";
+import BccFormMessage from "@/components/BccFormMessage/BccFormMessage.vue";
 
 type Props = {
   modelValue?: string;
@@ -42,8 +43,9 @@ const { attrsWithoutStyles } = useAttrsWithoutStyles();
 <template>
   <div class="bcc-input-container" :class="$attrs['class']" :style="$attrs['style'] as StyleValue">
     <BccFormLabel
-      :for="id"
       v-if="label || showOptionalLabel"
+      :for="id"
+      :size="size === 'lg' ? 'lg' : undefined"
       :showOptionalLabel="showOptionalLabel"
       :optionalLabel="optionalLabel"
     >
@@ -67,16 +69,8 @@ const { attrsWithoutStyles } = useAttrsWithoutStyles();
       <slot />
     </select>
 
-    <span
-      v-if="$slots.message"
-      class="bcc-input-message"
-      :class="{
-        'bcc-input-message-default': state === 'default',
-        'bcc-input-message-error': state === 'error',
-        'bcc-input-message-success': state === 'success',
-      }"
-    >
+    <BccFormMessage v-if="$slots.message" :state="state">
       <slot name="message" />
-    </span>
+    </BccFormMessage>
   </div>
 </template>

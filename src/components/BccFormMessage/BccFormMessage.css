@@ -1,0 +1,15 @@
+@layer components {
+    .bcc-form-message, .bcc-input-message {
+        @apply text-caption;
+        /* default state */
+        @apply text-secondary;
+    }
+
+    /* State */
+    .bcc-form-message-error, .bcc-input-message-error {
+        @apply text-danger;
+    }
+    .bcc-form-message-success, .bcc-input-message-success {
+        @apply text-success;
+    }
+}
