@@ -10,6 +10,7 @@ import { useAttrsWithoutStyles } from "@/composables/attrsWithoutStyles";
 import { useId } from "@/hooks/use-id";
 import { CloseIcon } from "@bcc-code/icons-vue";
 import BccFormLabel from "@/components/BccFormLabel/BccFormLabel.vue";
+import BccFormMessage from "@/components/BccFormMessage/BccFormMessage.vue";
 
 type Props = {
   modelValue?: string;
@@ -104,16 +105,8 @@ function clear() {
         />
       </div>
     </div>
-    <span
-      v-if="$slots.default"
-      class="bcc-input-message"
-      :class="{
-        'bcc-input-message-default': state === 'default',
-        'bcc-input-message-error': state === 'error',
-        'bcc-input-message-success': state === 'success',
-      }"
-    >
+    <BccFormMessage v-if="$slots.default" :state="state">
       <slot />
-    </span>
+    </BccFormMessage>
   </div>
 </template>

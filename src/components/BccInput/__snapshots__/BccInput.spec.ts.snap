@@ -39,7 +39,7 @@ exports[`BccInput > renders a text from the default slot 1`] = `
   <div class=\\"bcc-input-wrapper\\">
     <!--v-if--><input id=\\"bcc-input-2\\" class=\\"bcc-input\\">
     <!--v-if-->
-  </div><span class=\\"bcc-input-message bcc-input-message-default\\">Test message</span>
+  </div><span class=\\"bcc-form-message bcc-form-message-default\\">Test message</span>
 </div>"
 `;
 
