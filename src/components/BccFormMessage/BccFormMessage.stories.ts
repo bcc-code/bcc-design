@@ -2,6 +2,9 @@ import BccFormMessage from "./BccFormMessage.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
+/**
+ * A companion component used with for example the input to show a validation message
+ */
 export default {
   title: "Forms/BccFormMessage",
   component: BccFormMessage,
@@ -14,6 +17,9 @@ export default {
   },
 } as Meta<typeof BccFormMessage>;
 
+/**
+ * Pass content to the default slot to render a message
+ */
 const Template: StoryFn<typeof BccFormMessage> = (args) => ({
   components: { BccFormMessage },
   setup() {
