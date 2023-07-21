@@ -14,6 +14,10 @@ export default {
     for: {
       description: "The normal HTML `for` attribute for the label",
     },
+    size: {
+      options: ["base", "lg"],
+      control: { type: "radio" },
+    },
   },
 } as Meta<typeof BccFormLabel>;
 
@@ -35,6 +39,7 @@ const Template: StoryFn<typeof BccFormLabel> = (args) => ({
 export const Example = Template.bind({});
 Example.args = {
   slotDefault: "Example label",
+  size: "base",
   for: "",
   showOptionalLabel: false,
   optionalLabel: "Optional",
@@ -51,6 +56,19 @@ export const OptionalLabel: StoryFn<typeof BccFormLabel> = () => ({
       <BccInput show-optional-label placeholder="Without label" :required="false" class="w-1/2" />
       <BccInput show-optional-label label="Label" optionalLabel="Optional label that is pretty long and should truncate" placeholder="Long optional label" :required="false" class="w-1/4" />
       <BccInput show-optional-label label="Pretty long label as well" optionalLabel="Optional label that is pretty long and should truncate" placeholder="Long label and optional label" :required="false" class="w-1/4" />
+    </div>
+  `,
+});
+
+/**
+ * Set the `size` prop to control the size of the label
+ */
+export const Size: StoryFn<typeof BccFormLabel> = () => ({
+  components: { BccFormLabel },
+  template: `
+    <div class="flex flex-col space-y-4">
+      <BccFormLabel>base label</BccFormLabel>
+      <BccFormLabel size="lg">lg label</BccFormLabel>
     </div>
   `,
 });

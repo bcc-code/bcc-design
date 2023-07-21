@@ -42,8 +42,9 @@ const { attrsWithoutStyles } = useAttrsWithoutStyles();
 <template>
   <div class="bcc-input-container" :class="$attrs['class']" :style="$attrs['style'] as StyleValue">
     <BccFormLabel
-      :for="id"
       v-if="label || showOptionalLabel"
+      :for="id"
+      :size="size === 'lg' ? 'lg' : undefined"
       :showOptionalLabel="showOptionalLabel"
       :optionalLabel="optionalLabel"
     >

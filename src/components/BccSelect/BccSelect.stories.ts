@@ -128,15 +128,15 @@ export const Size: StoryFn<typeof BccSelect> = () => ({
   components: { BccSelect },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccSelect size="sm" class="w-1/4" value="default">
+      <BccSelect label="label for sm select" size="sm" class="w-1/4" value="default">
         <option value="default">sm select</option>
         <option value="two">Option 2</option>
       </BccSelect>
-      <BccSelect size="base" class="w-1/4" value="default">
+      <BccSelect label="label for base select" size="base" class="w-1/4" value="default">
         <option value="default">base select</option>
         <option value="two">Option 2</option>
       </BccSelect>
-      <BccSelect size="lg" class="w-1/4" value="default">
+      <BccSelect label="label for lg select" size="lg" class="w-1/4" value="default">
         <option value="default">lg select</option>
         <option value="two">Option 2</option>
       </BccSelect>
