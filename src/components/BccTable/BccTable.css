@@ -1,0 +1,21 @@
+@layer components {
+    .bcc-table {
+        @apply w-full;
+    }
+
+    /* Head */
+    .bcc-table-header-row {
+        @apply bg-gray-50;
+    }
+
+    /* Header */
+    .bcc-table-header {
+        @apply text-label-small px-4 py-3 text-left text-secondary;
+        @apply first:rounded-l-lg last:rounded-r-lg;
+    }
+
+    /* Cell */
+    .bcc-table-cell {
+        @apply text-body-small px-4 py-3 text-secondary;
+    }
+}
