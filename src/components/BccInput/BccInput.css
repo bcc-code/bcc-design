@@ -31,7 +31,7 @@
 
     /* Message */
     .bcc-input-message {
-        @apply text-body-small;
+        @apply text-caption;
     }
     .bcc-input-message-default {
         @apply text-secondary;
