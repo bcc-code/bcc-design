@@ -2,8 +2,8 @@
 import { SwapVertIcon, ArrowUpwardIcon, ArrowDownwardIcon } from "@bcc-code/icons-vue";
 
 type TableColumn = {
-  text: string;
-  value: string;
+  key: string;
+  text?: string;
   sortable?: boolean;
 };
 
@@ -19,7 +19,7 @@ withDefaults(defineProps<Props>(), {});
   <table class="bcc-table">
     <thead>
       <tr class="bcc-table-header-row">
-        <th class="bcc-table-header" v-for="column in columns" :key="column.value">
+        <th class="bcc-table-header" v-for="column in columns" :key="column.key">
           <div class="bcc-table-header-content">
             {{ column.text }}
           </div>
@@ -28,10 +28,10 @@ withDefaults(defineProps<Props>(), {});
     </thead>
     <tbody>
       <tr v-for="(item, key) in items" :key="key">
-        <td class="bcc-table-cell" v-for="column in columns" :key="column.value">
-          <slot v-if="$slots[`item.${column.value}`]" :name="`item.${column.value}`" :item="item" />
+        <td class="bcc-table-cell" v-for="column in columns" :key="column.key">
+          <slot v-if="$slots[`item.${column.key}`]" :name="`item.${column.key}`" :item="item" />
           <span v-else>
-            {{ item[column.value] }}
+            {{ item[column.key] }}
           </span>
         </td>
         <td></td>

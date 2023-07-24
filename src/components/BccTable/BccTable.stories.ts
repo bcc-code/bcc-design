@@ -33,23 +33,23 @@ Example.args = {
   columns: [
     {
       text: "Year group",
-      value: "year_group",
+      key: "year_group",
     },
     {
       text: "Name",
-      value: "name",
+      key: "name",
     },
     {
       text: "Status",
-      value: "status",
+      key: "status",
     },
     {
       text: "Progress",
-      value: "progress",
+      key: "progress",
     },
     {
       text: "Actions",
-      value: "actions",
+      key: "actions",
       sortable: false,
     },
   ],
