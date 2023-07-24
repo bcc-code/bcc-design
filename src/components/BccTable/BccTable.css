@@ -14,6 +14,14 @@
         @apply first:rounded-l-lg last:rounded-r-lg;
     }
 
+    .bcc-table-header-content {
+        @apply flex items-center;
+    }
+
+    .bcc-table-header-sort-icon {
+        @apply h-5 w-5 text-tertiary;
+    }
+
     /* Cell */
     .bcc-table-cell {
         @apply text-body-small px-4 py-3 text-secondary;

@@ -17,7 +17,7 @@ const Template: StoryFn<typeof BccTable> = (args) => ({
     return { args, ChevronRightIcon };
   },
   template: `
-    <BccTable :headers="args.headers" :items="args.items">
+    <BccTable :columns="args.columns" :items="args.items">
       <template #item.status="{ item }">
         <BccBadge :context="item.status.context">{{ item.status.text }}</BccBadge>
       </template>
@@ -30,7 +30,7 @@ const Template: StoryFn<typeof BccTable> = (args) => ({
 
 export const Example = Template.bind({});
 Example.args = {
-  headers: [
+  columns: [
     {
       text: "Year group",
       value: "year_group",
@@ -75,7 +75,7 @@ Example.parameters = {
     source: {
       language: "html",
       code: `
-<BccTable :headers="headers" :items="items">
+<BccTable :columns="columns" :items="items">
   <template #item.status="{ item }">
     <BccBadge :context="item.status.context">{{ item.status.text }}</BccBadge>
   </template>
