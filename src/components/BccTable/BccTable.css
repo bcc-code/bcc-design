@@ -13,13 +13,22 @@
         @apply text-label-small px-4 py-3 text-left text-secondary;
         @apply first:rounded-l-lg last:rounded-r-lg;
     }
+    .bcc-table-header-sortable {
+        @apply cursor-pointer;
+    }
 
     .bcc-table-header-content {
-        @apply flex items-center;
+        @apply flex items-center gap-2;
     }
 
     .bcc-table-header-sort-icon {
         @apply h-5 w-5 text-tertiary;
+    }
+    .bcc-table-header-sort-icon-undetermined {
+        @apply text-transparent;
+    }
+    .bcc-table-header-sortable:hover .bcc-table-header-sort-icon {
+        @apply inline-block text-secondary;
     }
 
     /* Cell */
