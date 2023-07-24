@@ -5,6 +5,9 @@ import { ChevronRightIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
+/**
+ * A versatile table with built-in sorting.
+ */
 export default {
   title: "Components/BccTable",
   component: BccTable,
@@ -33,6 +36,19 @@ const Template: StoryFn<typeof BccTable> = (args) => ({
   `,
 });
 
+const statusSort = (a, b) => {
+  if (a.status.text > b.status.text) return 1;
+  if (a.status.text < b.status.text) return -1;
+  return 0;
+};
+
+/**
+ * Pass a `columns` array with `text` (displayed as the column header in the table) and `key` (used to reference values) elements. Pass an `items` array with objects that have an item for each of the `key`s in the columns (or pass a slot for columns that do not have associated data, see below).
+ *
+ * By default the contents whatever is in the item key will be rendered. Pass a slot to the table named `item.<column key>` to control the rendering. In this example both for `status` and `actions` a custom table cell is rendered. This slot is a [scoped slot](https://vuejs.org/guide/components/slots.html#scoped-slots) and receives the current `item` as a slot prop.
+ *
+ * Columns are sortable by default, set `sortable: false` on a column to disable sorting. Set a `sortMethod` on a column to have a custom sort method, handy when that particular column isn't something that can be sorted alphabetically or numerically by default (note that our example on the status column here only works with ascending sort due to Storybook limitations).
+ */
 export const Example = Template.bind({});
 Example.args = {
   sortBy: undefined,
@@ -49,6 +65,7 @@ Example.args = {
     {
       text: "Status",
       key: "status",
+      sortMethod: statusSort,
     },
     {
       text: "Progress",
@@ -65,13 +82,13 @@ Example.args = {
       id: 1,
       year_group: "23/24",
       name: "Ola Nordmann",
-      status: { text: "Behind Schedule", context: "warning" },
+      status: { text: "On Track", context: "success" },
       progress: 2,
     },
     {
       id: 2,
       year_group: "22/23",
-      name: "Lawrence Greenfield",
+      name: "Johan Oscar",
       status: { text: "Finished", context: "info" },
       progress: 25,
     },
@@ -79,7 +96,7 @@ Example.args = {
       id: 3,
       year_group: "22/23",
       name: "Ada Lovelace",
-      status: { text: "On Track", context: "success" },
+      status: { text: "Behind Schedule", context: "warning" },
       progress: 15,
     },
     {

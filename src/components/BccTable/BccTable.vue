@@ -2,16 +2,18 @@
 import { SwapVertIcon, ArrowUpwardIcon, ArrowDownwardIcon } from "@bcc-code/icons-vue";
 import { onMounted, ref, toRefs } from "vue";
 
-type TableColumn = {
+type Column = {
   key: string;
   text?: string;
   sortable?: boolean;
+  sortMethod?: (a: Item, b: Item) => number;
 };
+type Item = Record<string, any>;
 type SortDirection = "ascending" | "descending";
 
 type Props = {
-  columns: TableColumn[];
-  items: Record<string, any & { sortMethod?: Function }>[];
+  columns: Column[];
+  items: Item[];
   sortBy?: string;
   sortDirection?: SortDirection;
 };
@@ -29,17 +31,22 @@ function resetSortedItems() {
   sortedItems.value = [...items.value];
 }
 
-function sortItems(columnKey: string, direction: SortDirection) {
+function sortItems(column: Column, direction: SortDirection) {
+  if (column.sortMethod) {
+    sortedItems.value.sort(column.sortMethod);
+    return;
+  }
+
   sortedItems.value.sort((a, b) => {
-    const firstItem = a[columnKey];
-    const secondItem = b[columnKey];
+    const firstItem = a[column.key];
+    const secondItem = b[column.key];
     if (firstItem < secondItem) return direction == "descending" ? 1 : -1;
     if (firstItem > secondItem) return direction == "descending" ? -1 : 1;
     return 0;
   });
 }
 
-function sort(column: TableColumn) {
+function sort(column: Column) {
   if (column.sortable === false) {
     return;
   }
@@ -55,19 +62,20 @@ function sort(column: TableColumn) {
   // If the column was already sorted, flip the sort direction
   if (sortBy?.value == column.key) {
     emit("update:sortDirection", "descending");
-    sortItems(column.key, "descending");
+    sortItems(column, "descending");
     return;
   }
 
   // Reset the sort direction when another column is clicked
   emit("update:sortDirection", "ascending");
   emit("update:sortBy", column.key);
-  sortItems(column.key, "ascending");
+  sortItems(column, "ascending");
 }
 
 onMounted(() => {
   if (sortBy?.value) {
-    sortItems(sortBy.value, sortDirection.value);
+    const column = columns.value.find((c) => c.key == sortBy.value);
+    sortItems(column!, sortDirection.value);
   }
 });
 </script>
@@ -86,7 +94,11 @@ onMounted(() => {
           <div class="bcc-table-header-content">
             {{ column.text }}
 
-            <div v-if="column.sortable !== false">
+            <button
+              v-if="column.sortable !== false"
+              aria-label="Sort column"
+              class="bcc-table-header-sort"
+            >
               <SwapVertIcon
                 class="bcc-table-header-sort-icon bcc-table-header-sort-icon-undetermined"
                 v-if="sortBy !== column.key"
@@ -99,7 +111,7 @@ onMounted(() => {
                 class="bcc-table-header-sort-icon"
                 v-if="sortBy == column.key && sortDirection == 'descending'"
               />
-            </div>
+            </button>
           </div>
         </th>
       </tr>
