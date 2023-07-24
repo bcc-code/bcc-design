@@ -1,7 +1,4 @@
 import BccTable from "./BccTable.vue";
-import BccTableHeader from "./BccTableHeader.vue";
-import BccTableRow from "./BccTableRow.vue";
-import BccTableCell from "./BccTableCell.vue";
 import BccButton from "@/components/BccButton/BccButton.vue";
 import BccBadge from "@/components/BccBadge/BccBadge.vue";
 import { ChevronRightIcon } from "@bcc-code/icons-vue";
@@ -15,39 +12,47 @@ export default {
 } as Meta<typeof BccTable>;
 
 const Template: StoryFn<typeof BccTable> = (args) => ({
-  components: { BccTable, BccTableHeader, BccTableRow, BccTableCell, BccButton, BccBadge },
+  components: { BccTable, BccButton, BccBadge },
   setup() {
     return { args, ChevronRightIcon };
   },
   template: `
-    <BccTable>
-      <template #headers>
-        <BccTableHeader>Year group</BccTableHeader>
-        <BccTableHeader>Name</BccTableHeader>
-        <BccTableHeader>Status</BccTableHeader>
-        <BccTableHeader>Progress</BccTableHeader>
-        <BccTableHeader>Actions</BccTableHeader>
+    <BccTable :headers="args.headers" :items="args.items">
+      <template #item.status="{ item }">
+        <BccBadge :context="item.status.context">{{ item.status.text }}</BccBadge>
       </template>
-
-      <BccTableRow v-for="item in args.items">
-        <BccTableCell>{{ item.year_group }}</BccTableCell>
-        <BccTableCell>{{ item.name }}</BccTableCell>
-        <BccTableCell>
-          <BccBadge :context="item.status.context">
-            {{ item.status.text }}
-          </BccBadge>
-        </BccTableCell>
-        <BccTableCell>{{ item.progress }}</BccTableCell>
-        <BccTableCell>
-          <BccButton variant="tertiary" :padding="false" size="sm" :icon="ChevronRightIcon" iconRight>Evaluation</BccButton>
-        </BccTableCell>
-      </BccTableRow>
+      <template #item.actions="{ item }">
+        <BccButton variant="tertiary" size="sm" :padding="false" :icon="ChevronRightIcon" iconRight>Evaluation</BccButton>
+      </template>
     </BccTable>
   `,
 });
 
 export const Example = Template.bind({});
 Example.args = {
+  headers: [
+    {
+      text: "Year group",
+      value: "year_group",
+    },
+    {
+      text: "Name",
+      value: "name",
+    },
+    {
+      text: "Status",
+      value: "status",
+    },
+    {
+      text: "Progress",
+      value: "progress",
+    },
+    {
+      text: "Actions",
+      value: "actions",
+      sortable: false,
+    },
+  ],
   items: [
     {
       id: 1,
@@ -64,4 +69,21 @@ Example.args = {
       progress: "15/25",
     },
   ],
+};
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccTable :headers="headers" :items="items">
+  <template #item.status="{ item }">
+    <BccBadge :context="item.status.context">{{ item.status.text }}</BccBadge>
+  </template>
+  <template #item.actions="{ item }">
+    <BccButton variant="tertiary" size="sm" :padding="false" :icon="ChevronRightIcon" iconRight @click="editItem(item.id")>Evaluation</BccButton>
+  </template>
+</BccTable>
+    `,
+    },
+  },
 };
