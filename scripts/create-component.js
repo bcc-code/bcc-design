@@ -96,7 +96,7 @@ function createCssFile(componentName) {
     rootPath + `src/components/${componentName}/${componentName}.css`,
     `@layer components {
     .bcc-${cssClassName} {
-        @apply ;
+
     }
 }
 `

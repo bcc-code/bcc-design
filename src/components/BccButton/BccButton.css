@@ -51,6 +51,11 @@
         @apply justify-center;
     }
 
+    /* Padding */
+    .bcc-button-tertiary.bcc-button-no-padding {
+        @apply p-0 h-auto;
+    }
+
     /* 
      * Variants
      */

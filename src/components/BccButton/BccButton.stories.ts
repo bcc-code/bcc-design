@@ -33,6 +33,10 @@ export default {
       options: ["button", "a"],
       control: { type: "radio" },
     },
+    padding: {
+      description:
+        "Remove all vertical and horizontal padding and the set button height for the `tertiary` button",
+    },
     slotDefault: {
       name: "default slot",
       description: "The button text",
@@ -62,6 +66,7 @@ Example.args = {
   center: true,
   disabled: false,
   is: "button",
+  padding: true,
   slotDefault: "Example Button",
 };
 Example.parameters = {
@@ -110,7 +115,7 @@ export const Secondary: StoryFn<typeof BccButton> = () => ({
 });
 
 /**
- * Set the `variant` prop to `tertiary` to render a tertiary button
+ * Set the `variant` prop to `tertiary` to render a tertiary button. Set the `padding` prop to `false` to disable any padding and set height to be able to use this button as a link
  */
 export const Tertiary: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
@@ -121,6 +126,9 @@ export const Tertiary: StoryFn<typeof BccButton> = () => ({
       <BccButton variant="tertiary" size="base">Tertiary (base)</BccButton>
       <BccButton variant="tertiary" size="lg">Tertiary (lg)</BccButton>
       <BccButton variant="tertiary" size="xl">Tertiary (xl)</BccButton>
+    </div>
+    <div>
+      <BccButton variant="tertiary" :padding="false">Tertiary (no padding)</BccButton>
     </div>
   `,
 });
