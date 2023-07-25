@@ -28,7 +28,7 @@
 
     /* Icon only */
     .bcc-button-icon-only {
-        @apply justify-center rounded-full;
+        @apply justify-center;
     }
     .bcc-button-xs.bcc-button-icon-only {
         @apply w-6 h-6 p-1;

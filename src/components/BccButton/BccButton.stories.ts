@@ -229,7 +229,7 @@ export const WithIcon: StoryFn<typeof BccButton> = () => ({
 });
 
 /**
- * If you only pass an `icon` and nothing in the default slot, the button changes shape to render an icon only button.
+ * If you only pass an `icon` and nothing in the default slot, the button will become an icon button. Set the `rounded` prop to render a rounded icon button.
  */
 export const IconOnly: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
@@ -240,10 +240,16 @@ export const IconOnly: StoryFn<typeof BccButton> = () => ({
     <div class="flex items-start gap-x-2">
       <BccButton :icon="SearchIcon" />
       <BccButton icon-right :icon="SearchIcon" />
-      <BccButton rounded :icon="SearchIcon" />
       <BccButton variant="secondary" :icon="SearchIcon" />
       <BccButton variant="tertiary" :icon="SearchIcon" />
       <BccButton disabled :icon="SearchIcon" />
+    </div>
+    <div class="flex items-start gap-x-2 mt-4">
+      <BccButton :icon="SearchIcon" rounded />
+      <BccButton icon-right :icon="SearchIcon" rounded />
+      <BccButton variant="secondary" :icon="SearchIcon" rounded />
+      <BccButton variant="tertiary" :icon="SearchIcon" rounded />
+      <BccButton disabled :icon="SearchIcon" rounded />
     </div>
     <div class="flex items-start gap-x-2 mt-4">
       <BccButton size="xs" :icon="SearchIcon" />
@@ -251,6 +257,13 @@ export const IconOnly: StoryFn<typeof BccButton> = () => ({
       <BccButton size="base" :icon="SearchIcon" />
       <BccButton size="lg" :icon="SearchIcon" />
       <BccButton size="xl" :icon="SearchIcon" />
+    </div>
+    <div class="flex items-start gap-x-2 mt-4">
+      <BccButton size="xs" :icon="SearchIcon" rounded />
+      <BccButton size="sm" :icon="SearchIcon" rounded />
+      <BccButton size="base" :icon="SearchIcon" rounded />
+      <BccButton size="lg" :icon="SearchIcon" rounded />
+      <BccButton size="xl" :icon="SearchIcon" rounded />
     </div>
   `,
 });
