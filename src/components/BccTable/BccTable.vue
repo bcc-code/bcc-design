@@ -81,51 +81,53 @@ onMounted(() => {
 </script>
 
 <template>
-  <table class="bcc-table">
-    <thead>
-      <tr class="bcc-table-header-row">
-        <th
-          class="bcc-table-header"
-          :class="{ 'bcc-table-header-sortable': column.sortable !== false }"
-          v-for="column in columns"
-          :key="column.key"
-          @click="sort(column)"
-        >
-          <div class="bcc-table-header-content">
-            {{ column.text }}
+  <div class="bcc-table-wrapper">
+    <table class="bcc-table">
+      <thead>
+        <tr class="bcc-table-header-row">
+          <th
+            class="bcc-table-header"
+            :class="{ 'bcc-table-header-sortable': column.sortable !== false }"
+            v-for="column in columns"
+            :key="column.key"
+            @click="sort(column)"
+          >
+            <div class="bcc-table-header-content">
+              {{ column.text }}
 
-            <button
-              v-if="column.sortable !== false"
-              aria-label="Sort column"
-              class="bcc-table-header-sort"
-            >
-              <SwapVertIcon
-                class="bcc-table-header-sort-icon bcc-table-header-sort-icon-undetermined"
-                v-if="sortBy !== column.key"
-              />
-              <ArrowUpwardIcon
-                class="bcc-table-header-sort-icon"
-                v-if="sortBy == column.key && sortDirection == 'ascending'"
-              />
-              <ArrowDownwardIcon
-                class="bcc-table-header-sort-icon"
-                v-if="sortBy == column.key && sortDirection == 'descending'"
-              />
-            </button>
-          </div>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="(item, key) in sortedItems" :key="key">
-        <td class="bcc-table-cell" v-for="column in columns" :key="column.key">
-          <slot v-if="$slots[`item.${column.key}`]" :name="`item.${column.key}`" :item="item" />
-          <span v-else>
-            {{ item[column.key] }}
-          </span>
-        </td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+              <button
+                v-if="column.sortable !== false"
+                aria-label="Sort column"
+                class="bcc-table-header-sort"
+              >
+                <SwapVertIcon
+                  class="bcc-table-header-sort-icon bcc-table-header-sort-icon-undetermined"
+                  v-if="sortBy !== column.key"
+                />
+                <ArrowUpwardIcon
+                  class="bcc-table-header-sort-icon"
+                  v-if="sortBy == column.key && sortDirection == 'ascending'"
+                />
+                <ArrowDownwardIcon
+                  class="bcc-table-header-sort-icon"
+                  v-if="sortBy == column.key && sortDirection == 'descending'"
+                />
+              </button>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, key) in sortedItems" :key="key">
+          <td class="bcc-table-cell" v-for="column in columns" :key="column.key">
+            <slot v-if="$slots[`item.${column.key}`]" :name="`item.${column.key}`" :item="item" />
+            <span v-else>
+              {{ item[column.key] }}
+            </span>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>

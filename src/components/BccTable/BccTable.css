@@ -1,6 +1,11 @@
 @layer components {
     .bcc-table {
-        @apply w-full;
+        @apply min-w-full;
+    }
+
+    /* Wrapper */
+    .bcc-table-wrapper {
+        @apply overflow-x-auto;
     }
 
     /* Head */
@@ -10,7 +15,7 @@
 
     /* Header */
     .bcc-table-header {
-        @apply text-label-small px-4 py-3 text-left text-secondary;
+        @apply text-label-small px-4 py-3 text-left whitespace-nowrap text-secondary;
         @apply first:rounded-l-lg last:rounded-r-lg;
     }
     .bcc-table-header-sortable {
@@ -33,6 +38,6 @@
 
     /* Cell */
     .bcc-table-cell {
-        @apply text-body-small px-4 py-3 text-secondary;
+        @apply text-body-small px-4 py-3 whitespace-nowrap text-secondary;
     }
 }
