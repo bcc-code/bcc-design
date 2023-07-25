@@ -12,7 +12,7 @@ type Props = {
   center?: boolean;
   rounded?: boolean;
   disabled?: boolean;
-  padding?: boolean;
+  tertiaryPadding?: boolean;
 };
 
 const props = withDefaults(defineProps<Props>(), {
@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<Props>(), {
   center: true,
   rounded: false,
   disabled: false,
-  padding: true,
+  tertiaryPadding: false,
 });
 
 const slots = useSlots();
@@ -45,7 +45,7 @@ const iconOnly = props.icon !== undefined && !slots.default;
       'bcc-button-primary': variant === 'primary',
       'bcc-button-secondary': variant === 'secondary',
       'bcc-button-tertiary': variant === 'tertiary',
-      'bcc-button-no-padding': !padding,
+      'bcc-button-no-padding': !tertiaryPadding,
       'bcc-button-icon-only': iconOnly,
       'bcc-button-rounded': rounded,
       'bcc-button-center': center,

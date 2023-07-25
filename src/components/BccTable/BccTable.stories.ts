@@ -30,7 +30,7 @@ const Template: StoryFn<typeof BccTable> = (args) => ({
         <BccBadge :context="item.status.context">{{ item.status.text }}</BccBadge>
       </template>
       <template #item.actions="{ item }">
-        <BccButton variant="tertiary" size="sm" :padding="false" :icon="ChevronRightIcon" iconRight>Evaluation</BccButton>
+        <BccButton variant="tertiary" size="sm" :icon="ChevronRightIcon" iconRight>Evaluation</BccButton>
       </template>
     </BccTable>
   `,
@@ -123,7 +123,7 @@ Example.parameters = {
     <BccBadge :context="item.status.context">{{ item.status.text }}</BccBadge>
   </template>
   <template #item.actions="{ item }">
-    <BccButton variant="tertiary" size="sm" :padding="false" :icon="ChevronRightIcon" iconRight @click="editItem(item.id")>Evaluation</BccButton>
+    <BccButton variant="tertiary" size="sm" :icon="ChevronRightIcon" iconRight @click="editItem(item.id")>Evaluation</BccButton>
   </template>
 </BccTable>
     `,
