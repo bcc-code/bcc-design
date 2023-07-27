@@ -1,4 +1,4 @@
-name: "Design Library: Release"
+name: Release
 
 on:
   release:
@@ -12,7 +12,7 @@ env:
 
 jobs:
   build:
-    if: contains(github.event.release.name, 'design-library')
+    if: contains(github.event.release.name, 'icons')
     runs-on: ubuntu-latest
 
     steps:
@@ -29,27 +29,19 @@ jobs:
           node-version-file: .node-version
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-          cache-dependency-path: design-library/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      
-      - name: Build Vue package
-        run: pnpm build
-        working-directory: design-library
 
-      - name: Build CSS package
+      - name: Build
         run: pnpm build
-        working-directory: design-library/css-package
 
-      - name: Publish `@bcc-code/design-library-vue`
+      - name: Publish `@bcc-code/icons`
         run: npm publish --tag latest
-        working-directory: design-library
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish `@bcc-code/design-library`
-        run: npm publish ./css-package --tag latest
-        working-directory: design-library
+      - name: Publish `@bcc-code/icons-vue`
+        run: npm publish ./vue --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

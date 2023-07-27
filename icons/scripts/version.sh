@@ -22,7 +22,7 @@ cd ..
 git add .
 
 # Commit changes
-git commit -m "$NEW_VERSION"
+git commit -m "icons $NEW_VERSION"
 
 # Create a tag
-git tag -am $NEW_VERSION "$NEW_VERSION"
+git tag -am icons-$NEW_VERSION "icons-$NEW_VERSION"
