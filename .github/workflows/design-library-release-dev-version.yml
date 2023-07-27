@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - design-library/**/*.*
+      - design-library/**
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}

@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - design-library/src/tokens/input/figma.json
+      - .github/workflows/design-library-build-tailwind-config.yml
 
 env:
   CI: true

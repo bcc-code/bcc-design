@@ -6,7 +6,8 @@ on:
     branches:
       - main
     paths:
-      - design-library/**/*.*
+      - design-library/**
+      - .github/workflows/design-library-tests.yml
   workflow_call:
 
 env:
