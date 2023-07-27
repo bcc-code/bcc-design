@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: .node-version
+          node-version-file: icons/.node-version
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
           cache-dependency-path: icons/pnpm-lock.yaml
