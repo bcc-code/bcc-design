@@ -9,7 +9,11 @@
 [Full documentation](https://developer.bcc.no/bcc-design)
 
 ## Repository structure
+### Main packages
+- [design-library](./design-library/README.md) - CSS and Vue implementation of components, tokens and typography
+- [icons](./icons/README.md) - Icons based on Material Design, in SVG and Vue component formats
+
+### Other folders
 - `docs` folder is deployed with the common VuePress setup to [developer.bcc.no/bcc-design](https://developer.bcc.no/bcc-design/)
 - `www` folder is used for design assets and is deployed to [design.bcc.no](https://design.bcc.no)
-- `design-library` - CSS and Vue implementation of components, tokens and typography
-- `icons` - Icons based on Material Design, in SVG and Vue component formats
+- `infra` folder contains terraform scripts
