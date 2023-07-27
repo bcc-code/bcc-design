@@ -1,4 +1,4 @@
-name: Prepare Release
+name: "Design Library: Prepare Release"
 
 on:
   workflow_dispatch:
@@ -33,5 +33,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           draft: true
+          name: "@bcc-code/design-library ${{ env.TAG_NAME }}"
           tag_name: ${{ env.TAG_NAME }}
           generate_release_notes: true
