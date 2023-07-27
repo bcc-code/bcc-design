@@ -24,8 +24,10 @@ const Template: StoryFn<typeof BccRadio> = (args) => ({
     return { args };
   },
   template: `
-    <BccRadio label="Option 1" value="yes" v-model="args.modelValue" v-bind="args" />
-    <BccRadio label="Option 2" value="no" v-model="args.modelValue" v-bind="args" />  `,
+    <div class="flex flex-col gap-1">
+      <BccRadio label="Option 1" value="yes" v-model="args.modelValue" v-bind="args" />
+      <BccRadio label="Option 2" value="no" v-model="args.modelValue" v-bind="args" />
+    </div>`,
 });
 
 /**
