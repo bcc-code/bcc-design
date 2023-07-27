@@ -2,4 +2,8 @@
 
 exports[`BccRadio > renders a label 1`] = `"<div class=\\"bcc-radio-wrapper\\"><input type=\\"radio\\" class=\\"bcc-radio\\" id=\\"bcc-radio-2\\"><label for=\\"bcc-radio-2\\">Test label</label></div>"`;
 
-exports[`BccRadio > renders a radio input 1`] = `"<div class=\\"bcc-radio-wrapper\\"><input type=\\"radio\\" class=\\"bcc-radio\\" id=\\"bcc-radio-1\\"><label for=\\"bcc-radio-1\\"></label></div>"`;
+exports[`BccRadio > renders a radio input 1`] = `
+"<div class=\\"bcc-radio-wrapper\\"><input type=\\"radio\\" class=\\"bcc-radio\\" id=\\"bcc-radio-1\\">
+  <!--v-if-->
+</div>"
+`;
