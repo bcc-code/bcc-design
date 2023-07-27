@@ -7,7 +7,7 @@
 
     /* Container/Wrapper */
     .bcc-input-container {
-        @apply flex flex-col space-y-2;
+        @apply inline-flex flex-col space-y-2;
     }
     .bcc-input-wrapper {
         @apply relative;
