@@ -3,6 +3,9 @@ name: "Icons: Release Dev Version"
 on:
   push:
     branches: [main]
+    paths:
+      - icons/**
+      - .github/workflows/icons-release-dev-version.yml
 
 env:
   CI: true

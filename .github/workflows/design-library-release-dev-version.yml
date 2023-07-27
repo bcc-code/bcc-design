@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - design-library/**
+      - .github/workflows/design-library-release-dev-version.yml
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}

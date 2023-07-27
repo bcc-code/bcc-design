@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - design-library/**
+      - .github/workflows/design-library-deploy-storybook-dev.yml
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
