@@ -28,7 +28,7 @@ const id = `bcc-checkbox-${useId()}`;
 
 const emit = defineEmits(["update:modelValue"]);
 
-const toggled = computed({
+const checked = computed({
   get() {
     return !!modelValue.value;
   },
@@ -71,10 +71,10 @@ const wrapperClasses = computed(() => {
       class="bcc-checkbox"
       :id="id"
       :disabled="disabled"
-      v-model="toggled"
+      v-model="checked"
       v-bind="attrsWithoutStyles"
       ref="input"
     />
-    <label :for="id">{{ label }}</label>
+    <label :for="id" v-if="label">{{ label }}</label>
   </div>
 </template>
