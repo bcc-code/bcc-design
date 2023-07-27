@@ -8,7 +8,14 @@ import type { Meta, StoryFn } from "@storybook/vue3";
 export default {
   title: "Forms/BccRadio",
   component: BccRadio,
-  argTypes: {},
+  argTypes: {
+    modelValue: {
+      description: "Used within `v-model` for the currently selected value",
+    },
+    value: {
+      description: "The value of this specific radio input",
+    },
+  },
 } as Meta<typeof BccRadio>;
 
 const Template: StoryFn<typeof BccRadio> = (args) => ({
@@ -17,8 +24,8 @@ const Template: StoryFn<typeof BccRadio> = (args) => ({
     return { args };
   },
   template: `
-    <BccRadio label="Option 1" name="question" value="yes" v-bind="args" />
-  `,
+    <BccRadio label="Option 1" value="yes" v-model="args.modelValue" v-bind="args" />
+    <BccRadio label="Option 2" value="no" v-model="args.modelValue" v-bind="args" />  `,
 });
 
 /**
@@ -26,17 +33,16 @@ const Template: StoryFn<typeof BccRadio> = (args) => ({
  */
 export const Example = Template.bind({});
 Example.args = {
-  label: "Example label",
-  modelValue: "example",
+  modelValue: "yes",
   disabled: false,
-  checked: false,
 };
 Example.parameters = {
   docs: {
     source: {
       language: "html",
       code: `
-<BccRadio label="Example label" v-model="example" />      
+<BccRadio label="Option 1" value="yes" v-model="example" />      
+<BccRadio label="Option 2" value="no" v-model="example" />      
 `,
     },
   },
@@ -49,10 +55,10 @@ export const State: StoryFn<typeof BccRadio> = () => ({
   components: { BccRadio },
   template: `
     <div class="inline-flex flex-col space-y-4">
-      <BccRadio label="Unchecked" :modelValue="false" />
-      <BccRadio label="Checked" checked />
-      <BccRadio label="Disabled unchecked" :modelValue="false" disabled />
-      <BccRadio label="Disabled checked" checked disabled />
+      <BccRadio label="Unchecked" value="yes" modelValue="" />
+      <BccRadio label="Checked" value="yes" modelValue="yes" />
+      <BccRadio label="Disabled unchecked" value="yes" modelValue="" disabled />
+      <BccRadio label="Disabled checked" value="yes" modelValue="yes" disabled />
     </div>
   `,
 });

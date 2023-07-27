@@ -10,6 +10,8 @@ import { computed, type StyleValue } from "vue";
 import { useId } from "@/hooks/use-id";
 
 type Props = {
+  modelValue: string;
+  value: string;
   label?: string;
   disabled?: boolean;
 };
@@ -43,8 +45,10 @@ const wrapperClasses = computed(() => {
       class="bcc-radio"
       :id="id"
       :disabled="disabled"
+      :value="value"
+      :checked="modelValue == value"
+      @input="emit('update:modelValue', value)"
       v-bind="attrsWithoutStyles"
-      @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
     />
     <label :for="id" v-if="label">{{ label }}</label>
   </div>
