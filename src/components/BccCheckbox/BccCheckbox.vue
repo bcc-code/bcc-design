@@ -75,6 +75,6 @@ const wrapperClasses = computed(() => {
       v-bind="attrsWithoutStyles"
       ref="input"
     />
-    <label :for="id">{{ label }}</label>
+    <label :for="id" v-if="label">{{ label }}</label>
   </div>
 </template>

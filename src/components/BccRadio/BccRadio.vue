@@ -46,6 +46,6 @@ const wrapperClasses = computed(() => {
       v-bind="attrsWithoutStyles"
       @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
     />
-    <label :for="id">{{ label }}</label>
+    <label :for="id" v-if="label">{{ label }}</label>
   </div>
 </template>
