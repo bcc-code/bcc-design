@@ -1,0 +1,70 @@
+name: "Design Library: Release Dev Version"
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - design-library/**/*.*
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+env:
+  CI: true
+
+jobs:
+  test:
+    uses: ./.github/workflows/design-library-tests.yml
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: design-library
+
+      - name: Build Vue package
+        run: pnpm build
+        working-directory: design-library
+
+      - name: Build CSS package
+        run: pnpm build
+        working-directory: design-library/css-package
+
+      - name: Resolve version
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Publish `@bcc-code/design-library-vue`
+        run: |
+          npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
+          npm publish --tag dev
+        working-directory: design-library
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish `@bcc-code/design-library`
+        run: |
+          npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
+          npm publish --tag dev
+        working-directory: design-library/css-package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

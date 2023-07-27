@@ -31,9 +31,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+        working-directory: design-library
 
       - name: Build Storybook
         run: pnpm build-storybook
+        working-directory: design-library
 
       - name: Deploy
         id: builddeploy
@@ -41,6 +43,6 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_DEPLOY_TOKEN }}
           action: "upload"
-          app_location: "storybook-static"
+          app_location: "design-library/storybook-static"
           skip_app_build: true
           skip_api_build: true

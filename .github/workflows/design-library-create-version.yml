@@ -1,5 +1,5 @@
-name: Create New Version
-run-name: Create new ${{ github.event.inputs.version }} version
+name: Create New Design Library Version
+run-name: Create new ${{ github.event.inputs.version }} design library version
 
 on:
   workflow_dispatch:
@@ -35,6 +35,7 @@ jobs:
     
       - name: Version new ${{ github.event.inputs.version }} version
         run: ./scripts/version.sh ${{ github.event.inputs.version }}
+        working-directory: design-library
 
       - name: Push
         run: git push --follow-tags

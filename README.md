@@ -11,6 +11,5 @@
 ## Repository structure
 - `docs` folder is deployed with the common VuePress setup to [developer.bcc.no/bcc-design](https://developer.bcc.no/bcc-design/)
 - `www` folder is used for design assets and is deployed to [design.bcc.no](https://design.bcc.no)
-- `packages` folder with the npm packages that can be used to implement the design system:
-   - `design-library` - CSS and Vue implementation of components, tokens and typography
-   - `icons` - Icons based on Material Design, in SVG and Vue component formats
+- `design-library` - CSS and Vue implementation of components, tokens and typography
+- `icons` - Icons based on Material Design, in SVG and Vue component formats

@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - src/tokens/input/figma.json
+      - design-library/src/tokens/input/figma.json
 
 env:
   CI: true
@@ -37,9 +37,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+        working-directory: design-library
 
       - name: Build
         run: pnpm build:tailwind
+        working-directory: design-library
     
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
