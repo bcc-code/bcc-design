@@ -45,7 +45,8 @@ const statusSort = (a, b) => {
 /**
  * Pass a `columns` array with `text` (displayed as the column header in the table) and `key` (used to reference values) elements. Pass an `items` array with objects that have an item for each of the `key`s in the columns (or pass a slot for columns that do not have associated data, see below).
  *
- * By default the contents whatever is in the item key will be rendered. Pass a slot to the table named `item.<column key>` to control the rendering. In this example both for `status` and `actions` a custom table cell is rendered. This slot is a [scoped slot](https://vuejs.org/guide/components/slots.html#scoped-slots) and receives the current `item` as a slot prop.
+ * By default the contents whatever is in the item key will be rendered. You can render something from deeper levels by using a dot notation, such as `progress.amount`.
+ * Pass a slot to the table named `item.<column key>` to control the rendering. In this example both for `status` and `actions` a custom table cell is rendered. This slot is a [scoped slot](https://vuejs.org/guide/components/slots.html#scoped-slots) and receives the current `item` as a slot prop.
  *
  * Columns are sortable by default, set `sortable: false` on a column to disable sorting. Set a `sortMethod` on a column to have a custom sort method, handy when that particular column isn't something that can be sorted alphabetically or numerically by default (note that our example on the status column here only works with ascending sort due to Storybook limitations).
  */
@@ -69,7 +70,7 @@ Example.args = {
     },
     {
       text: "Progress",
-      key: "progress",
+      key: "progress.amount",
     },
     {
       text: "Actions",
@@ -83,28 +84,36 @@ Example.args = {
       year_group: "23/24",
       name: "Ola Nordmann",
       status: { text: "On Track", context: "success" },
-      progress: 2,
+      progress: {
+        amount: 2,
+      },
     },
     {
       id: 2,
       year_group: "22/23",
       name: "Johan Oscar",
       status: { text: "Finished", context: "info" },
-      progress: 25,
+      progress: {
+        amount: 25,
+      },
     },
     {
       id: 3,
       year_group: "22/23",
       name: "Ada Lovelace",
       status: { text: "Behind Schedule", context: "warning" },
-      progress: 15,
+      progress: {
+        amount: 15,
+      },
     },
     {
       id: 4,
       year_group: "23/24",
       name: "Firmus Piett",
       status: { text: "On Track", context: "success" },
-      progress: 15,
+      progress: {
+        amount: 15,
+      },
     },
   ],
 };

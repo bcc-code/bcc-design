@@ -38,8 +38,8 @@ function sortItems(column: Column, direction: SortDirection) {
   }
 
   sortedItems.value.sort((a, b) => {
-    const firstItem = a[column.key];
-    const secondItem = b[column.key];
+    const firstItem = getField(a, column.key);
+    const secondItem = getField(b, column.key);
     if (firstItem < secondItem) return direction == "descending" ? 1 : -1;
     if (firstItem > secondItem) return direction == "descending" ? -1 : 1;
     return 0;
@@ -70,6 +70,11 @@ function sort(column: Column) {
   emit("update:sortDirection", "ascending");
   emit("update:sortBy", column.key);
   sortItems(column, "ascending");
+}
+
+function getField(item: Item, columnKey: string) {
+  const segments = columnKey.split(".");
+  return segments.reduce((obj, key) => obj[key], item);
 }
 
 onMounted(() => {
@@ -122,7 +127,7 @@ onMounted(() => {
           <td class="bcc-table-cell" v-for="column in columns" :key="column.key">
             <slot v-if="$slots[`item.${column.key}`]" :name="`item.${column.key}`" :item="item" />
             <span v-else>
-              {{ item[column.key] }}
+              {{ getField(item, column.key) }}
             </span>
           </td>
           <td></td>
