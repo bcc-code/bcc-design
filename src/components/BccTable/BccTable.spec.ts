@@ -12,15 +12,25 @@ const columns = [
     text: "Name",
     key: "name",
   },
+  {
+    text: "Progress",
+    key: "progress.amount",
+  },
 ];
 const items = [
   {
     year_group: "22/23",
     name: "Ada Lovelace",
+    progress: {
+      amount: 25,
+    },
   },
   {
     year_group: "23/24",
     name: "Firmus Piett",
+    progress: {
+      amount: 42,
+    },
   },
 ];
 
@@ -35,6 +45,7 @@ describe("BccTable", () => {
 
     expect(wrapper.text()).toContain("Year group");
     expect(wrapper.text()).toContain("Ada Lovelace");
+    expect(wrapper.text()).toContain("42");
     expect(wrapper.html()).toMatchSnapshot();
   });
 
