@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SwapVertIcon, ArrowUpwardIcon, ArrowDownwardIcon } from "@bcc-code/icons-vue";
-import { onMounted, ref, toRefs } from "vue";
+import { computed, toRefs } from "vue";
 
 type Column = {
   key: string;
@@ -25,26 +25,36 @@ const { columns, items, sortBy, sortDirection } = toRefs(props);
 
 const emit = defineEmits(["update:sortBy", "update:sortDirection"]);
 
-let sortedItems = ref([...items.value]);
-
-function resetSortedItems() {
-  sortedItems.value = [...items.value];
+function getField(item: Item, columnKey: string) {
+  const segments = columnKey.split(".");
+  return segments.reduce((obj, key) => obj[key], item);
 }
 
-function sortItems(column: Column, direction: SortDirection) {
-  if (column.sortMethod) {
-    sortedItems.value.sort(column.sortMethod);
-    return;
+const sortedItems = computed(() => {
+  if (sortBy?.value == undefined) {
+    return items.value;
   }
 
-  sortedItems.value.sort((a, b) => {
+  const column = columns.value.find((c) => c.key == sortBy.value);
+
+  if (!column) {
+    throw "Sorting by unknown column";
+  }
+
+  const sortableItems = [...items.value];
+
+  if (column.sortMethod) {
+    return sortableItems.sort(column.sortMethod);
+  }
+
+  return sortableItems.sort((a, b) => {
     const firstItem = getField(a, column.key);
     const secondItem = getField(b, column.key);
-    if (firstItem < secondItem) return direction == "descending" ? 1 : -1;
-    if (firstItem > secondItem) return direction == "descending" ? -1 : 1;
+    if (firstItem < secondItem) return sortDirection.value == "descending" ? 1 : -1;
+    if (firstItem > secondItem) return sortDirection.value == "descending" ? -1 : 1;
     return 0;
   });
-}
+});
 
 function sort(column: Column) {
   if (column.sortable === false) {
@@ -53,7 +63,6 @@ function sort(column: Column) {
 
   // Stop sorting this column if we have cycled through both sorting directions
   if (sortBy?.value == column.key && sortDirection.value === "descending") {
-    resetSortedItems();
     emit("update:sortDirection", "descending");
     emit("update:sortBy", undefined);
     return;
@@ -62,27 +71,13 @@ function sort(column: Column) {
   // If the column was already sorted, flip the sort direction
   if (sortBy?.value == column.key) {
     emit("update:sortDirection", "descending");
-    sortItems(column, "descending");
     return;
   }
 
   // Reset the sort direction when another column is clicked
   emit("update:sortDirection", "ascending");
   emit("update:sortBy", column.key);
-  sortItems(column, "ascending");
 }
-
-function getField(item: Item, columnKey: string) {
-  const segments = columnKey.split(".");
-  return segments.reduce((obj, key) => obj[key], item);
-}
-
-onMounted(() => {
-  if (sortBy?.value) {
-    const column = columns.value.find((c) => c.key == sortBy.value);
-    sortItems(column!, sortDirection.value);
-  }
-});
 </script>
 
 <template>
