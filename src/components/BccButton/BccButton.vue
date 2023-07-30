@@ -4,9 +4,9 @@ import { useSlots } from "vue";
 
 type Props = {
   is?: "button" | "a" | string | Component;
-  variant?: "primary" | "secondary" | "tertiary";
-  context?: "default" | "danger";
-  size?: "xs" | "sm" | "base" | "lg" | "xl";
+  variant?: keyof typeof variants;
+  context?: keyof typeof contexts;
+  size?: keyof typeof sizes;
   icon?: string | Component | Function;
   iconRight?: boolean;
   center?: boolean;
@@ -29,6 +29,25 @@ const props = withDefaults(defineProps<Props>(), {
 
 const slots = useSlots();
 const iconOnly = props.icon !== undefined && !slots.default;
+
+const sizes = {
+  xs: 'bcc-button-xs',
+  sm: 'bcc-button-sm',
+  base: '',
+  lg: 'bcc-button-lg',
+  xl: 'bcc-button-xl',
+}
+
+const variants = {
+  primary: 'bcc-button-primary',
+  secondary: 'bcc-button-secondary',
+  tertiary: 'bcc-button-tertiary',
+}
+
+const contexts = {
+  default: '',
+  danger: 'bcc-button-danger',
+}
 </script>
 
 <template>
@@ -36,20 +55,17 @@ const iconOnly = props.icon !== undefined && !slots.default;
     :is="is"
     :disabled="disabled"
     class="bcc-button"
-    :class="{
-      'bcc-button-xs': size === 'xs',
-      'bcc-button-sm': size === 'sm',
-      'bcc-button-lg': size === 'lg',
-      'bcc-button-xl': size === 'xl',
-      'bcc-button-danger': context === 'danger',
-      'bcc-button-primary': variant === 'primary',
-      'bcc-button-secondary': variant === 'secondary',
-      'bcc-button-tertiary': variant === 'tertiary',
-      'bcc-button-no-padding': !padding,
-      'bcc-button-icon-only': iconOnly,
-      'bcc-button-rounded': rounded,
-      'bcc-button-center': center,
-    }"
+    :class="[
+      sizes[size],
+      variants[variant],
+      contexts[context],
+      {
+        'bcc-button-no-padding': !padding,
+        'bcc-button-icon-only': iconOnly,
+        'bcc-button-rounded': rounded,
+        'bcc-button-center': center,
+      }
+    ]"
   >
     <component v-if="icon" :is="icon" class="bcc-button-icon order-2" />
     <span v-if="$slots.default" :class="[iconRight ? 'order-1' : 'order-3']"><slot /></span>
