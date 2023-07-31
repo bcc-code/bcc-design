@@ -49,10 +49,7 @@ const contexts = {
     leave-from="opacity-100"
     leave-to="opacity-0"
   >
-    <div
-      class="bcc-alert"
-      :class="contexts[context].class"
-    >
+    <div class="bcc-alert" :class="contexts[context].class">
       <component v-if="icon" :is="contexts[context].icon" class="bcc-alert-icon" />
 
       <h3 v-if="title" class="bcc-alert-title">{{ title }}</h3>

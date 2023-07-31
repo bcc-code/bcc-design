@@ -31,23 +31,23 @@ const slots = useSlots();
 const iconOnly = props.icon !== undefined && !slots.default;
 
 const sizes = {
-  xs: 'bcc-button-xs',
-  sm: 'bcc-button-sm',
-  base: '',
-  lg: 'bcc-button-lg',
-  xl: 'bcc-button-xl',
-}
+  xs: "bcc-button-xs",
+  sm: "bcc-button-sm",
+  base: "",
+  lg: "bcc-button-lg",
+  xl: "bcc-button-xl",
+};
 
 const variants = {
-  primary: 'bcc-button-primary',
-  secondary: 'bcc-button-secondary',
-  tertiary: 'bcc-button-tertiary',
-}
+  primary: "bcc-button-primary",
+  secondary: "bcc-button-secondary",
+  tertiary: "bcc-button-tertiary",
+};
 
 const contexts = {
-  default: '',
-  danger: 'bcc-button-danger',
-}
+  default: "",
+  danger: "bcc-button-danger",
+};
 </script>
 
 <template>
@@ -64,7 +64,7 @@ const contexts = {
         'bcc-button-icon-only': iconOnly,
         'bcc-button-rounded': rounded,
         'bcc-button-center': center,
-      }
+      },
     ]"
   >
     <component v-if="icon" :is="icon" class="bcc-button-icon order-2" />
