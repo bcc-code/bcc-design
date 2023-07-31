@@ -1,0 +1,22 @@
+{
+    "name": "@bcc-code/icons",
+    "repository": "https://github.com/bcc-code/bcc-icons.git",
+    "homepage": "https://developer.bcc.no/bcc-design/icons",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "files": [
+        "icons"
+    ],
+    "scripts": {
+        "build": "npm run build-icons && node ./scripts/build.js",
+        "build-icons": "rimraf icons && svgo -f ./node_modules/@material-symbols/svg-500/rounded -o ./icons --pretty --indent=2"
+    },
+    "devDependencies": {
+        "@material-symbols/svg-500": "^0.4.6",
+        "@vue/compiler-dom": "^3.0.5",
+        "camelcase": "^6.0.0",
+        "number-to-words": "1.2.4",
+        "rimraf": "^5.0.1",
+        "svgo": "^2.8.0"
+    }
+}

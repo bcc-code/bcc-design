@@ -1,0 +1,53 @@
+name: Build Tailwind config
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
+    paths:
+      - design-library/src/tokens/input/figma.json
+      - .github/workflows/design-library-build-tailwind-config.yml
+
+env:
+  CI: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.BCC_BOT_ACCESS_TOKEN }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: design-library/.node-version
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+          cache-dependency-path: design-library/pnpm-lock.yaml
+          
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: design-library
+
+      - name: Build
+        run: pnpm build:tailwind
+        working-directory: design-library
+    
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Build Tailwind config"
+

@@ -1,0 +1,20 @@
+{
+    "name": "@bcc-code/icons-vue",
+    "repository": "https://github.com/bcc-code/bcc-icons.git",
+    "homepage": "https://developer.bcc.no/bcc-design/icons",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+        "import": "./dist/esm/index.js",
+        "require": "./dist/index.js"
+    },
+    "peerDependencies": {
+        "vue": ">= 3"
+    }
+}

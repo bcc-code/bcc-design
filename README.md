@@ -1,76 +1,19 @@
-# BCC Design System Library
-This library is a collection of tokens and components that conform to the BCC Design System.
+<p align="center">
+  <img src="https://design.bcc.no/logos/bcc_logo_secondary.svg" width="120" style="margin-bottom: 10px;">
+</p>
+<h1 align="center">Design System</h1>
+<p align="center">Packages, assets and documentation to use the BCC Design System in your products.</p>
 
-> **Note** This is the Vue implementation, for the CSS-only library [see here](./css-package/README.md)
+## Links
 
-### @bcc-code/design-library-vue
-[![version](https://img.shields.io/npm/v/@bcc-code/design-library-vue)](https://github.com/bcc-code/bcc-design-library-vue/releases) [![license](https://img.shields.io/npm/l/@bcc-code/design-library-vue)](https://github.com/bcc-code/bcc-design-library-vue/blob/main/LICENSE)
+[Full documentation](https://developer.bcc.no/bcc-design)
 
-## Installation & Usage
-Refer to the [documentation](https://developer.bcc.no/bcc-design/design-library) for installation instructions and to [Storybook](https://design-library.developer.bcc.no) for interactive example of the components and their variants (view the [dev Storybook](https://design-library-dev.developer.bcc.no) for unreleased changes).
+## Repository structure
+### Main packages
+- [design-library](./design-library/README.md) - CSS and Vue implementation of components, tokens and typography
+- [icons](./icons/README.md) - Icons based on Material Design, in SVG and Vue component formats
 
-## Developing the package locally
-### Recommended IDE Setup
-[VSCode](https://code.visualstudio.com/) with the following plugins:
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
-  - [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-  - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-  - [Tailwind CSS Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-
-### Prerequisites
-This project uses [pnpm](https://pnpm.io/), which you need to install before usage. The easiest way is to install it with npm:
-```sh
-npm install -g pnpm
-```
-
-### Get started
-Install dependencies:
-```sh
-pnpm install --frozen-lockfile
-```
-
-Then run Storybook when developing components to have a live reloading server to test them:
-```sh
-pnpm storybook
-```
-
-Run a live reloading unit test server:
-```sh
-pnpm test:unit
-```
-
-Some unit test use [snapshots](https://vitest.dev/guide/snapshot.html). Be sure to update snapshots after updating a component that has such a test:
-```sh
-pnpm test:unit:update-snapshots
-```
-
-### Creating a new component
-The repository contains a handy script for scaffolding a new component:
-```sh
-pnpm create-component ComponentName
-```
-This will create a Vue component, with accompanying test, stories and CSS files, and will also update the exports for the library.
-
-### Building for production
-To build the package for production, including types, run:
-```sh
-pnpm build
-```
-
-### Releasing a new version
-A new version can be released by running the [Create New Version](https://github.com/bcc-code/bcc-design-library/actions/workflows/create-version.yml) workflow from GitHub. This will update the version in the `package.json`, push a Git commit and tag, and create a new [release](https://github.com/bcc-code/bcc-design-library/releases) in GitHub. Maintainers can publish this release, after which the new version will be pushed to npm with the `latest` tag.
-
-All commits to master will be released under the `dev` tag on npm, so they can be tested and installed immediately even if a new release hasn't come out.
-
-## Tokens
-This repository includes a setup with tokens from the design system. These tokens are exported from Figma and can be found in `src/tokens/input/figma.json`.
-
-To build the tokens from this source file, run:
-```sh
-pnpm build:tailwind
-```
-
-This will update the files of the Tailwind theme which can then be checked into Git.
-
-## License
-This package is licensed under the [Apache 2.0 license](./LICENSE).
+### Other folders
+- `docs` folder is deployed with the common VuePress setup to [developer.bcc.no/bcc-design](https://developer.bcc.no/bcc-design/)
+- `www` folder is used for design assets and is deployed to [design.bcc.no](https://design.bcc.no)
+- `infra` folder contains terraform scripts
