@@ -6,7 +6,7 @@ order: 10
 View interactive examples of the components [in Storybook](https://design-library.developer.bcc.no)
 :::
 
-For project that don't use Vue we offer a CSS library with classes for all the components. Note that some components might require JavaScript for interactive parts, which you would need to write yourself, although you could take inspiration from the [Vue source](https://github.com/bcc-code/bcc-design/tree/main/design-libary/src/components).
+For project that don't use Vue we offer a CSS library with classes for all the components. Note that some components might require JavaScript for interactive parts, which you would need to write yourself, although you could take inspiration from the [Vue source](https://github.com/bcc-code/bcc-design/tree/main/design-library/src/components).
 
 ## Installation and usage
 The `latest` tag is the recommended, most stable version of the library. It is also possible to install a `dev` version (swap `@latest` out for `@dev` in the examples below), which always points to the latest commit on the `main` branch. You can view unreleased components on the [dev Storybook](https://design-library-dev.developer.bcc.no).

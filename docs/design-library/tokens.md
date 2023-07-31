@@ -21,4 +21,4 @@ By default, tokens are using the `global` context. However, by setting the `data
 If your whole app should use the alternative colors, set the `data-context` attribute on the `html` or `body` elements.
 
 ## Available tokens
-There is currently no visual overview of all the tokens, but you can take a look at the source code of the components package to view both the [Tailwind utilities](https://github.com/bcc-code/bcc-design/tree/main/design-libary/src/tokens/tailwind) and [CSS variables](https://github.com/bcc-code/bcc-design/tree/main/design-libary/src/tokens/variables).
+There is currently no visual overview of all the tokens, but you can take a look at the source code of the components package to view both the [Tailwind utilities](https://github.com/bcc-code/bcc-design/tree/main/design-library/src/tokens/tailwind) and [CSS variables](https://github.com/bcc-code/bcc-design/tree/main/design-library/src/tokens/variables).
