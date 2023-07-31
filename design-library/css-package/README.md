@@ -1,7 +1,7 @@
 # @bcc-code/design-library
 This library provides CSS for tokens and components to implement the BCC Design System.
 
-[![version](https://img.shields.io/npm/v/@bcc-code/design-library)](https://github.com/bcc-code/bcc-design-library/releases) [![license](https://img.shields.io/npm/l/@bcc-code/design-library)](https://github.com/bcc-code/bcc-design-library/blob/main/LICENSE)
+[![version](https://img.shields.io/npm/v/@bcc-code/design-library)](https://github.com/bcc-code/bcc-design/releases) [![license](https://img.shields.io/npm/l/@bcc-code/design-library)](https://github.com/bcc-code/bcc-design/blob/main/design-library/LICENSE)
 
 ## Installation & Usage
 Refer to the [documentation](https://developer.bcc.no/bcc-design/design-library/) for installation instructions and to [Storybook](https://component-stories.developer.bcc.no) for interactive example of the components and their variants.

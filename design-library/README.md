@@ -4,7 +4,7 @@ This library is a collection of tokens and components that conform to the BCC De
 > **Note** This is the Vue implementation, for the CSS-only library [see here](./css-package/README.md)
 
 ### @bcc-code/design-library-vue
-[![version](https://img.shields.io/npm/v/@bcc-code/design-library-vue)](https://github.com/bcc-code/bcc-design-library-vue/releases) [![license](https://img.shields.io/npm/l/@bcc-code/design-library-vue)](https://github.com/bcc-code/bcc-design-library-vue/blob/main/LICENSE)
+[![version](https://img.shields.io/npm/v/@bcc-code/design-library-vue)](https://github.com/bcc-code/bcc-design/releases) [![license](https://img.shields.io/npm/l/@bcc-code/design-library-vue)](https://github.com/bcc-code/bcc-design/blob/main/design-library/LICENSE)
 
 ## Installation & Usage
 Refer to the [documentation](https://developer.bcc.no/bcc-design/design-library) for installation instructions and to [Storybook](https://design-library.developer.bcc.no) for interactive example of the components and their variants (view the [dev Storybook](https://design-library-dev.developer.bcc.no) for unreleased changes).
@@ -58,7 +58,7 @@ pnpm build
 ```
 
 ### Releasing a new version
-A new version can be released by running the [Create New Version](https://github.com/bcc-code/bcc-design-library/actions/workflows/create-version.yml) workflow from GitHub. This will update the version in the `package.json`, push a Git commit and tag, and create a new [release](https://github.com/bcc-code/bcc-design-library/releases) in GitHub. Maintainers can publish this release, after which the new version will be pushed to npm with the `latest` tag.
+A new version can be released by running the [Create New Version](https://github.com/bcc-code/bcc-design/actions/workflows/design-library-create-version.yml) workflow from GitHub. This will update the version in the `package.json`, push a Git commit and tag, and create a new [release](https://github.com/bcc-code/bcc-design/releases) in GitHub. Maintainers can publish this release, after which the new version will be pushed to npm with the `latest` tag.
 
 All commits to master will be released under the `dev` tag on npm, so they can be tested and installed immediately even if a new release hasn't come out.
 

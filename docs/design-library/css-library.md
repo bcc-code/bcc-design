@@ -6,13 +6,13 @@ order: 10
 View interactive examples of the components [in Storybook](https://design-library.developer.bcc.no)
 :::
 
-For project that don't use Vue we offer a CSS library with classes for all the components. Note that some components might require JavaScript for interactive parts, which you would need to write yourself, although you could take inspiration from the [Vue source](https://github.com/bcc-code/bcc-design-library/tree/main/src/components).
+For project that don't use Vue we offer a CSS library with classes for all the components. Note that some components might require JavaScript for interactive parts, which you would need to write yourself, although you could take inspiration from the [Vue source](https://github.com/bcc-code/bcc-design/tree/main/design-libary/src/components).
 
 ## Installation and usage
 The `latest` tag is the recommended, most stable version of the library. It is also possible to install a `dev` version (swap `@latest` out for `@dev` in the examples below), which always points to the latest commit on the `main` branch. You can view unreleased components on the [dev Storybook](https://design-library-dev.developer.bcc.no).
 
 ### 1. Install package
-[![design components version](https://img.shields.io/npm/v/@bcc-code/design-library/latest?label=%40bcc-code%2Fdesign-library)](https://github.com/bcc-code/bcc-design-library/releases)
+[![version](https://img.shields.io/npm/v/@bcc-code/design-library?label=%40bcc-code%2Fdesign-library)](https://github.com/bcc-code/bcc-design/releases)
 
 <CodeGroup>
   <CodeGroupItem title="PNPM" active>
@@ -111,4 +111,4 @@ This approach has a few downsides:
 ## Using classes
 The classes follow a naming convention of `.bcc-<component-name><-optional-modifier>`, so for example the button has `.bcc-button` base class and `.bcc-button-primary` for the primary variant and `.bcc-button-xl` for the `xl` size. Applying all three classes gives you an XL primary button.
 
-At the moment there is no separate documentation about all the CSS classes. One way to find out which classes to use are to use Inspect element on the [components Storybook](https://design-library.developer.bcc.no) to view which classes are added with which prop. Or check out the [components source](https://github.com/bcc-code/bcc-design-library/tree/main/src/components).
+At the moment there is no separate documentation about all the CSS classes. One way to find out which classes to use are to use Inspect element on the [components Storybook](https://design-library.developer.bcc.no) to view which classes are added with which prop. Or check out the [components source](https://github.com/bcc-code/bcc-design/tree/main/design-library/src/components).

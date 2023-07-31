@@ -15,7 +15,7 @@ In projects that lack a setup with npm, like for example WordPress, you can stil
 https://unpkg.com/@bcc-code/design-library@latest/dist/style.css
 ```
 
-Note that it's recommended to pin the version to a specific [version](https://github.com/bcc-code/bcc-design-library/releases) of the Vue components instead of the `latest` tag.
+Note that it's recommended to pin the version to a specific [version](https://github.com/bcc-code/bcc-design/releases) of the Vue components instead of the `latest` tag.
 
 ::: warning HEADS UP
 This will just include the component classes and other design system tokens, and we therefore do recommend looking into a setup with npm and optionally Tailwind to easily apply all aspects of the design system to your interface.
