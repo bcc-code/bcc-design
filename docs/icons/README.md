@@ -5,7 +5,7 @@ sectionOrder: 50
 # BCC icons
 The icons used in the BCC design system are SVG icons based on [Material Symbols](https://fonts.google.com/icons).
 
-[![icons version](https://img.shields.io/npm/v/@bcc-code/icons/latest?label=%40bcc-code%2Ficons)](https://github.com/bcc-code/bcc-icons/releases)
+[![icons version](https://img.shields.io/npm/v/@bcc-code/icons/latest?label=%40bcc-code%2Ficons)](https://github.com/bcc-code/bcc-design/releases)
 
 ## Usage
 The `@bcc-code/icons` package contains raw SVG icons. You can install it from npm:
@@ -32,7 +32,7 @@ But in most cases, you should install a framework-specific package. Currently on
 ### Vue
 Note that this package is only compatible with Vue 3.
 
-[![icons-vue version](https://img.shields.io/npm/v/@bcc-code/icons-vue/latest?label=%40bcc-code%2Ficons-vue)](https://github.com/bcc-code/bcc-icons/releases)
+[![icons-vue version](https://img.shields.io/npm/v/@bcc-code/icons-vue/latest?label=%40bcc-code%2Ficons-vue)](https://github.com/bcc-code/bcc-design/releases)
 
 First, install `@bcc-code/icons-vue` from npm:
 

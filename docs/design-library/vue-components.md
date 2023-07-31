@@ -13,7 +13,7 @@ The Vue components depend on [Vue 3](https://vuejs.org/). The components are int
 The `latest` tag is the recommended, most stable version of the library. It is also possible to install a `dev` version (swap `@latest` out for `@dev` in the examples below), which always points to the latest commit on the `main` branch.
 
 ### 1. Install package
-[![vue components version](https://img.shields.io/npm/v/@bcc-code/design-library-vue/latest?label=%40bcc-code%design-library-vue)](https://github.com/bcc-code/bcc-design-library/releases)
+[![version](https://img.shields.io/npm/v/@bcc-code/design-library-vue?label=%40bcc-code%2Fdesign-library-vue)](https://github.com/bcc-code/bcc-design/releases)
 
 <CodeGroup>
   <CodeGroupItem title="PNPM" active>
