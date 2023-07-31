@@ -7,7 +7,7 @@ This library is a collection of tokens and components that conform to the BCC De
 [![version](https://img.shields.io/npm/v/@bcc-code/design-library-vue)](https://github.com/bcc-code/bcc-design-library-vue/releases) [![license](https://img.shields.io/npm/l/@bcc-code/design-library-vue)](https://github.com/bcc-code/bcc-design-library-vue/blob/main/LICENSE)
 
 ## Installation & Usage
-Refer to the [documentation](https://developer.bcc.no/bcc-design/design-library) for installation instructions and to [Storybook](https://vue-components-storybook.developer.bcc.no) for interactive example of the components and their variants.
+Refer to the [documentation](https://developer.bcc.no/bcc-design/design-library) for installation instructions and to [Storybook](https://design-library.developer.bcc.no) for interactive example of the components and their variants (view the [dev Storybook](https://design-library-dev.developer.bcc.no) for unreleased changes).
 
 ## Developing the package locally
 ### Recommended IDE Setup
@@ -59,6 +59,8 @@ pnpm build
 
 ### Releasing a new version
 A new version can be released by running the [Create New Version](https://github.com/bcc-code/bcc-design-library/actions/workflows/create-version.yml) workflow from GitHub. This will update the version in the `package.json`, push a Git commit and tag, and create a new [release](https://github.com/bcc-code/bcc-design-library/releases) in GitHub. Maintainers can publish this release, after which the new version will be pushed to npm with the `latest` tag.
+
+All commits to master will be released under the `dev` tag on npm, so they can be tested and installed immediately even if a new release hasn't come out.
 
 ## Tokens
 This repository includes a setup with tokens from the design system. These tokens are exported from Figma and can be found in `src/tokens/input/figma.json`.
