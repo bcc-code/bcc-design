@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 import bccForbundetTheme from "./src/tokens/tailwind/bccForbundetTheme";
 import tailwindPlugin from "./src/tokens/plugin/tailwindPlugin";
-import formsPlugin from "@tailwindcss/forms";
 
 export default {
   content: ["./src/**/*.{vue,ts}"],
