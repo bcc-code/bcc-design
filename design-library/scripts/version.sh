@@ -22,7 +22,7 @@ cd ..
 git add .
 
 # Commit changes
-git commit -m "$NEW_VERSION"
+git commit -m "design-library $NEW_VERSION"
 
 # Create a tag
 git tag -am $NEW_VERSION "$NEW_VERSION"

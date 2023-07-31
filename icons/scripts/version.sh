@@ -8,10 +8,10 @@ if [ -z "$INCREMENT" ]; then
     exit 1
 fi
 
-# Version vue-components
+# Version main package
 NEW_VERSION=$(npm version $INCREMENT --no-git-tag-version)
 
-# Version design-components
+# Version vue package
 cd vue
 npm version $INCREMENT --no-git-tag-version
 
