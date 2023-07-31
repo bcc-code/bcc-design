@@ -33,6 +33,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          name: "icons ${{ env.TAG_NAME }}"
+          name: "${{ env.TAG_NAME }}"
           tag_name: "${{ env.TAG_NAME }}"
           generate_release_notes: true
