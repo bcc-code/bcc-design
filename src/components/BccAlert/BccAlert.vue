@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { TaskAltIcon, InfoIcon, WarningIcon, ErrorIcon, CloseIcon } from "@bcc-code/icons-vue";
+import { CloseIcon, ErrorIcon, InfoIcon, TaskAltIcon, WarningIcon } from "@bcc-code/icons-vue";
 import { TransitionRoot } from "@headlessui/vue";
 
 type Props = {
-  context?: "info" | "success" | "warning" | "danger";
+  context?: keyof typeof contexts;
   icon?: boolean;
   title?: string;
   closeButton?: boolean;
@@ -18,6 +18,25 @@ withDefaults(defineProps<Props>(), {
 });
 
 const emit = defineEmits(["close"]);
+
+const contexts = {
+  info: {
+    class: "",
+    icon: InfoIcon,
+  },
+  success: {
+    class: "bcc-alert-success",
+    icon: TaskAltIcon,
+  },
+  warning: {
+    class: "bcc-alert-warning",
+    icon: WarningIcon,
+  },
+  danger: {
+    class: "bcc-alert-danger",
+    icon: ErrorIcon,
+  },
+};
 </script>
 
 <template>
@@ -30,20 +49,9 @@ const emit = defineEmits(["close"]);
     leave-from="opacity-100"
     leave-to="opacity-0"
   >
-    <div
-      class="bcc-alert"
-      :class="{
-        'bcc-alert-success': context == 'success',
-        'bcc-alert-warning': context == 'warning',
-        'bcc-alert-danger': context == 'danger',
-      }"
-    >
-      <span v-if="icon">
-        <InfoIcon class="bcc-alert-icon" v-if="context == 'info'" />
-        <TaskAltIcon class="bcc-alert-icon" v-if="context == 'success'" />
-        <WarningIcon class="bcc-alert-icon" v-if="context == 'warning'" />
-        <ErrorIcon class="bcc-alert-icon" v-if="context == 'danger'" />
-      </span>
+    <div class="bcc-alert" :class="contexts[context].class">
+      <component v-if="icon" :is="contexts[context].icon" class="bcc-alert-icon" />
+
       <h3 v-if="title" class="bcc-alert-title">{{ title }}</h3>
       <p class="bcc-alert-content">
         <slot />
