@@ -29,10 +29,10 @@ jobs:
         run: |
           echo "TAG_NAME=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
-      - name: Release
+      - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          name: "@bcc-code/design-library ${{ env.TAG_NAME }}"
+          name: "design-library ${{ env.TAG_NAME }}"
           tag_name: ${{ env.TAG_NAME }}
           generate_release_notes: true

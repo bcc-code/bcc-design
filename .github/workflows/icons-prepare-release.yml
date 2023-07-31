@@ -29,9 +29,10 @@ jobs:
         run: |
           echo "TAG_NAME=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
-      - name: Release
+      - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          tag_name: "@bcc-code/icons ${{ env.TAG_NAME }}"
+          name: "icons ${{ env.TAG_NAME }}"
+          tag_name: "${{ env.TAG_NAME }}"
           generate_release_notes: true
