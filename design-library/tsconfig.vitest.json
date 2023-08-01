@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.app.json",
-  "exclude": ["src/**/*.stories.ts"],
+  "exclude": ["src/**/*.stories.ts", "src/tokens/**/*.vue"],
   "compilerOptions": {
     "composite": true,
     "lib": [],
