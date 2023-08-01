@@ -32,7 +32,17 @@ npm install @bcc-code/design-library-vue@latest
   </CodeGroupItem>
 </CodeGroup>
 
-### 2. Import CSS
+### 2. Import fonts
+The design system uses two fonts: [Archivo](https://fonts.google.com/specimen/Archivo) for most text and [IBM Plex Serif](https://fonts.google.com/specimen/IBM+Plex+Serif) for serif text. These are set automatically in the Tailwind config (see below), but you still need to import them. The easiest way is with Google Fonts:
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+```
+
+Check the Google Fonts site for more options on how to include these fonts.
+
+### 3. Import CSS
 #### Tailwind
 The Vue components are lightweight wrapper around the CSS library. You need to import the CSS classes in your main CSS file to be able to use them:
 
