@@ -24,9 +24,11 @@ function getTailwindName(categoryKey, itemKey = null) {
 </script>
 
 <template>
-  <div class="mb-4 grid grid-cols-12">
-    <div class="col-span-2 text-sm font-bold text-gray-600">{{ heading ?? categoryKey }}</div>
-    <div class="col-span-10">
+  <div class="mb-4 grid grid-cols-12 gap-2">
+    <div class="col-span-12 text-sm font-bold text-gray-600 md:col-span-2">
+      {{ heading ?? categoryKey }}
+    </div>
+    <div class="col-span-12 md:col-span-10">
       <div class="flex rounded border border-gray-300 shadow">
         <div v-if="typeof contents == 'string'" class="flex-1">
           <div class="h-12 rounded" :style="{ backgroundColor: contents }"></div>
@@ -42,7 +44,7 @@ function getTailwindName(categoryKey, itemKey = null) {
           ></div>
         </div>
       </div>
-      <div class="flex text-center text-sm text-gray-700">
+      <div class="flex gap-2 text-center text-sm text-gray-700">
         <div v-if="typeof contents == 'string'" class="flex-1 py-2">
           {{ getTailwindName(categoryKey) }}
         </div>
