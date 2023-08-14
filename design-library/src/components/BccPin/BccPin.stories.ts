@@ -1,5 +1,5 @@
-import BccPin from "./BccPin.vue";
 import { CheckCircleIcon } from "@bcc-code/icons-vue";
+import BccPin from "./BccPin.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -74,10 +74,10 @@ export const WithText: StoryFn<typeof BccPin> = () => ({
   template: `
     <div class="flex items-start space-x-2">
       <BccPin context="neutral" text="1" />
-      <BccPin context="danger" text="1" />
-      <BccPin context="warning" text="1" />
-      <BccPin context="success" text="1" />
-      <BccPin context="info" text="1" />
+      <BccPin context="danger" text="2" />
+      <BccPin context="warning" text="10" />
+      <BccPin context="success" text="43" />
+      <BccPin context="info" text="911" />
     </div>
   `,
 });

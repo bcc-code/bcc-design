@@ -5,6 +5,10 @@
         @apply border-neutral-200 bg-neutral-50 text-neutral-900;
     }
 
+    .bcc-pin-text {
+        @apply w-auto px-2;
+    }
+
     .bcc-pin .bcc-pin-icon {
         @apply h-4 w-4;
     }
