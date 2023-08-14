@@ -35,7 +35,7 @@ Example.args = {
       icon: CircleNotificationsIcon,
       as: h({
         template: `<div class="p-4">
-          <p>Copy this code to use tabs:</p>
+          <p>Define tab content using slots or components:</p>
           <code class="my-2 inline-block border-4 border-dashed border-gray-300 p-2 text-gray-600">
             &lt;template #tab-1&gt;You content here&lt;/template&gt;
           </code>
