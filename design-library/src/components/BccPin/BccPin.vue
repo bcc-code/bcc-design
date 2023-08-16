@@ -17,6 +17,7 @@ withDefaults(
   <div
     class="bcc-pin"
     :class="{
+      'bcc-pin-text': !icon,
       'bcc-pin-danger': context === 'danger',
       'bcc-pin-warning': context === 'warning',
       'bcc-pin-success': context === 'success',

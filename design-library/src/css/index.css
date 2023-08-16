@@ -1,5 +1,6 @@
 /* The contents of this file are automatically combined on build time */
 
+@import "helpers.css";
 @import "typography.css";
 
 @import "../components/BccAvatar/BccAvatar.css";
@@ -19,3 +20,4 @@
 @import "../components/BccFormLabel/BccFormLabel.css";
 @import "../components/BccFormMessage/BccFormMessage.css";
 @import "../components/BccTable/BccTable.css";
+@import "../components/BccTabs/BccTabs.css";
