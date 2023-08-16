@@ -3,6 +3,9 @@ import { CheckCircleIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
+/**
+ * A badge component to be used for informational text, like "new" or "recommended". See the `BccPin` component for a differently styled version for numbers.
+ */
 export default {
   title: "Components/BccBadge",
   component: BccBadge,
