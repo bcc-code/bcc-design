@@ -12,7 +12,8 @@
         content: '';
     }
 
-    @media (max-width: theme('screens.sm')) {        
+    @media (max-width: theme('screens.sm')) {
+        .bcc-tabs-bar--1 .bcc-tabs-bar-item,        
         .bcc-tabs-bar--2 .bcc-tabs-bar-item {
             min-width: 50%;
         }
