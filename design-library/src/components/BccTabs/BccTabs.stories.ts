@@ -76,9 +76,9 @@ Example.parameters = {
       language: "html",
       code: `
 <BccTabs :tabs="[
-  {title:"Using slots"},
+  {title:"Using slots", icon: CircleNotificationsIcon},
   {title:"Using Component", component: MyComponent},
-  {title:"Disabled",disabled:true}
+  {title:"Disabled",disabled:true, badge: { text: "new", context: "info" }}
 ]'>
   <template #tab-1>
     <div class="p-4">This is tab 1</div>
@@ -155,4 +155,20 @@ WithIconsPinsAndBadges.args = {
     },
   ],
   size: "base",
+};
+
+WithIconsPinsAndBadges.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccTabs :selectedIndex="selectedTab" @change="changeTab"
+  :tabs="[
+    {title:"Using slots", icon: AccountTreeIcon },
+    {title:"With styled Pin", pin: { icon: CheckIcon, context: "success" } },
+    {title:"With Badge", badge: { text: "new", context: "info"} }
+  ]'></BccTabs>
+    `,
+    },
+  },
 };
