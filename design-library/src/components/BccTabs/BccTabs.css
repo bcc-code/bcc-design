@@ -4,7 +4,7 @@
     }
 
     .bcc-tabs-bar {
-        @apply relative flex items-end gap-4 md:gap-8 min-w-full overflow-scroll hide-scrollbar;
+        @apply relative flex items-end min-w-full overflow-scroll hide-scrollbar;
     }
 
     .bcc-tabs-bar::before {
@@ -27,7 +27,7 @@
     }
 
     .bcc-tabs-bar-item {
-        @apply relative flex items-center justify-center whitespace-nowrap shrink-0 cursor-pointer select-none gap-2 px-4 py-3 border-b-2 text-tertiary focus:outline-none transition-colors;
+        @apply relative flex items-center justify-center whitespace-nowrap shrink-0 cursor-pointer select-none px-5 py-3 border-b-2 text-tertiary focus:outline-none transition-colors;
     }
     
     .bcc-tabs-bar-item:not(.bcc-tabs-bar-item--disabled) {
@@ -44,6 +44,10 @@
 
     .bcc-tabs-bar-icon {
         @apply w-5 h-5;
+    }
+
+    .bcc-tabs-item-title {
+        @apply ml-1 mr-3;
     }
 
     /* Size */

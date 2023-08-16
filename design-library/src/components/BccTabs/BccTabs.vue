@@ -52,7 +52,7 @@ const sizes = {
           ]"
         >
           <component v-if="tab.icon" :is="tab.icon" class="bcc-tabs-bar-icon" />
-          {{ tab.title }}
+          <span class="bcc-tabs-item-title">{{ tab.title }}</span>
           <BccPin v-if="tab.pin" v-bind="tab.pin" />
           <BccBadge v-if="tab.badge" v-bind="tab.badge">
             {{ tab.badge.text }}
