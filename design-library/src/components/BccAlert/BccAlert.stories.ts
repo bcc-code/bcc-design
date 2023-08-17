@@ -1,5 +1,5 @@
-import BccAlert from "./BccAlert.vue";
 import BccButton from "../BccButton/BccButton.vue";
+import BccAlert from "./BccAlert.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -82,7 +82,7 @@ export const WithIcon: StoryFn<typeof BccAlert> = () => ({
   template: `
     <div class="flex flex-col space-y-4">
       <BccAlert icon><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
-      <BccAlert icon context="success"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
+      <BccAlert icon context="success"><strong>Oh snap!</strong> You might want to check this out! Or maybe just let it be</BccAlert>
       <BccAlert icon context="warning"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
       <BccAlert icon context="danger"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
     </div>
@@ -111,7 +111,7 @@ export const WithCloseButton: StoryFn<typeof BccAlert> = () => ({
   components: { BccAlert },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccAlert closeButton>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</BccAlert>
+      <BccAlert closeButton icon><strong>Aww yeah</strong>, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</BccAlert>
       <BccAlert closeButton icon>You might want to check this out!</BccAlert>
       <BccAlert closeButton title="Well done!">You might want to check this out!</BccAlert>
       <BccAlert closeButton title="Well done!" icon>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</BccAlert>
