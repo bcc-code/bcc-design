@@ -1,10 +1,9 @@
 import {
-  BadgeIcon,
   CheckIcon,
   EventIcon,
   GroupsFillIcon,
   NotificationsIcon,
-  PersonIcon,
+  PersonIcon
 } from "@bcc-code/icons-vue";
 import BccTabs from "./BccTabs.vue";
 
@@ -132,7 +131,7 @@ WithIconsPinsAndBadges.args = {
       badge: {
         text: "new",
       },
-      icon: BadgeIcon,
+      icon: PersonIcon,
       as: h({
         template: `<code class="my-2 inline-block border-4 border-dashed border-gray-300 p-2 text-gray-600">{
           title: "Features",
