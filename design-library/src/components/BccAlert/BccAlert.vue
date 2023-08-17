@@ -52,10 +52,10 @@ const contexts = {
     <div class="bcc-alert" :class="contexts[context].class">
       <component v-if="icon" :is="contexts[context].icon" class="bcc-alert-icon" />
 
-      <h3 v-if="title" class="bcc-alert-title">{{ title }}</h3>
-      <p class="bcc-alert-content">
-        <slot />
-      </p>
+      <div class="bcc-alert-content">
+        <h3 v-if="title" class="bcc-alert-title">{{ title }}</h3>
+        <p><slot></slot></p>
+      </div>
       <button
         @click.prevent="emit('close')"
         v-if="closeButton"

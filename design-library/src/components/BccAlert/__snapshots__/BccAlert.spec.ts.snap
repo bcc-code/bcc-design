@@ -4,8 +4,10 @@ exports[`BccAlert > renders an alert 1`] = `
 "<anonymous-stub as=\\"div\\" show=\\"true\\" unmount=\\"true\\" appear=\\"false\\" enter=\\"transition-opacity duration-100\\" enterfrom=\\"opacity-0\\" enterto=\\"opacity-100\\" entered=\\"\\" leave=\\"transition-opacity duration-150\\" leavefrom=\\"opacity-100\\" leaveto=\\"opacity-0\\">
   <div class=\\"bcc-alert\\">
     <!--v-if-->
-    <h3 class=\\"bcc-alert-title\\">Alert title</h3>
-    <p class=\\"bcc-alert-content\\">Alert content</p>
+    <div class=\\"bcc-alert-content\\">
+      <h3 class=\\"bcc-alert-title\\">Alert title</h3>
+      <p>Alert content</p>
+    </div>
     <!--v-if-->
   </div>
 </anonymous-stub>"
