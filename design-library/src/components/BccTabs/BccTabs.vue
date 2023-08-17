@@ -51,10 +51,12 @@ const sizes = {
             sizes[size],
           ]"
         >
-          <component v-if="tab.icon" :is="tab.icon" class="bcc-tabs-bar-icon" />
-          <span class="bcc-tabs-item-title">{{ tab.title }}</span>
-          <BccPin v-if="tab.pin" v-bind="tab.pin" />
-          <BccBadge v-if="tab.badge" v-bind="tab.badge">
+          <div v-if="tab.icon" class="bcc-tabs-bar-icon">
+            <component :is="tab.icon" />
+          </div>
+          {{ tab.title }}
+          <BccPin class="bcc-tabs-item-right" v-if="tab.pin" v-bind="tab.pin" />
+          <BccBadge class="bcc-tabs-item-right" v-if="tab.badge" v-bind="tab.badge">
             {{ tab.badge.text }}
           </BccBadge>
         </div>

@@ -1,4 +1,10 @@
-import { AccountTreeIcon, CheckIcon, CircleNotificationsIcon } from "@bcc-code/icons-vue";
+import {
+  CheckIcon,
+  EventIcon,
+  GroupsFillIcon,
+  NotificationsIcon,
+  PersonIcon
+} from "@bcc-code/icons-vue";
 import BccTabs from "./BccTabs.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
@@ -32,7 +38,7 @@ Example.args = {
   tabs: [
     {
       title: "Using slots",
-      icon: CircleNotificationsIcon,
+      icon: PersonIcon,
       as: h({
         template: `<div class="p-4">
           <p>Define tab content using slots or components:</p>
@@ -44,6 +50,7 @@ Example.args = {
     },
     {
       title: "Using Component",
+      icon: GroupsFillIcon,
       as: h({
         template: `
           <div class="p-4">
@@ -98,7 +105,7 @@ WithIconsPinsAndBadges.args = {
   tabs: [
     {
       title: "With Icon",
-      icon: AccountTreeIcon,
+      icon: EventIcon,
       as: h({
         template: `<code class="my-2 inline-block border-4 border-dashed border-gray-300 p-2 text-gray-600">{
           title: "Features",
@@ -108,10 +115,9 @@ WithIconsPinsAndBadges.args = {
     },
     {
       title: "With Pin",
-      icon: CircleNotificationsIcon,
+      icon: NotificationsIcon,
       pin: {
         text: "0/5",
-        context: "info",
       },
       as: h({
         template: `<code class="my-2 inline-block border-4 border-dashed border-gray-300 p-2 text-gray-600">{
@@ -121,7 +127,22 @@ WithIconsPinsAndBadges.args = {
       }),
     },
     {
-      title: "With styled Pin",
+      title: "With Badge",
+      badge: {
+        text: "new",
+      },
+      icon: PersonIcon,
+      as: h({
+        template: `<code class="my-2 inline-block border-4 border-dashed border-gray-300 p-2 text-gray-600">{
+          title: "Features",
+          badge: {
+            text: "new"
+          },
+        }</code>`,
+      }),
+    },
+    {
+      title: "With style",
       pin: {
         icon: CheckIcon,
         context: "success",
@@ -132,23 +153,6 @@ WithIconsPinsAndBadges.args = {
           pin: {
             icon: CheckIcon,
             context: "success",
-          },
-        }</code>`,
-      }),
-    },
-    {
-      title: "With Badge",
-      badge: {
-        text: "new",
-        context: "info",
-      },
-      icon: AccountTreeIcon,
-      as: h({
-        template: `<code class="my-2 inline-block border-4 border-dashed border-gray-300 p-2 text-gray-600">{
-          title: "Features",
-          badge: {
-            text: "new",
-            context: "info",
           },
         }</code>`,
       }),
