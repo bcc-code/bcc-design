@@ -58,9 +58,11 @@ pnpm build
 ```
 
 ### Releasing a new version
-A new version can be released by running the [Create New Version](https://github.com/bcc-code/bcc-design/actions/workflows/design-library-create-version.yml) workflow from GitHub. This will update the version in the `package.json`, push a Git commit and tag, and create a new [release](https://github.com/bcc-code/bcc-design/releases) in GitHub. Maintainers can publish this release, after which the new version will be pushed to npm with the `latest` tag.
+A new version can be released by running the [Create New Version](https://github.com/bcc-code/bcc-design/actions/workflows/design-library-create-version.yml) workflow from GitHub.
+This will update the version in the `package.json`, push a Git commit and tag, and create a new [release](https://github.com/bcc-code/bcc-design/releases) in GitHub.
+Maintainers can publish this release, after which the new version will be pushed to npm with the `latest` tag.
 
-All commits to master will be released under the `dev` tag on npm, so they can be tested and installed immediately even if a new release hasn't come out.
+All commits to main will be released under the `dev` tag on npm, so they can be tested and installed immediately even if a new release hasn't come out.
 
 ## Tokens
 This repository includes a setup with tokens from the design system. These tokens are exported from Figma and can be found in `src/tokens/input/figma.json`.
