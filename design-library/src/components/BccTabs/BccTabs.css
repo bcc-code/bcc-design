@@ -44,16 +44,16 @@
     }
 
     .bcc-tabs-bar-icon {
-        @apply w-5 h-5;
+        @apply w-5 h-5 mr-1.5;
     }
 
-    .bcc-tabs-item-title {
-        @apply ml-1 mr-3;
+    .bcc-tabs-item-right {
+        @apply ml-3;
     }
 
     /* Size */
     .bcc-tabs-sm {
-        @apply px-3 py-2;
+        @apply px-4 py-2;
     }
     .bcc-tabs-lg {
         @apply px-6 py-4;
