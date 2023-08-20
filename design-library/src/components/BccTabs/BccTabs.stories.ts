@@ -3,7 +3,7 @@ import {
   EventIcon,
   GroupsFillIcon,
   NotificationsIcon,
-  PersonIcon
+  PersonIcon,
 } from "@bcc-code/icons-vue";
 import BccTabs from "./BccTabs.vue";
 
