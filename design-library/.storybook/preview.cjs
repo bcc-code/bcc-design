@@ -18,6 +18,9 @@ const preview = {
         order: ['Introduction', 'Tokens', 'Forms', 'Components', '*'],
       },
     },
+    docs: {
+      toc: true,
+    }
   },
 };
 
