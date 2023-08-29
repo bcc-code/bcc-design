@@ -8,15 +8,23 @@ The basis of this package are the [rounded SVG icons](https://github.com/marella
 ## Installation & Usage
 Refer to the [documentation](https://developer.bcc.no/bcc-design/icons) for installation instructions and usage information.
 
-## Developing this package locally
-To build a version locally, first install dependencies:
+## Updating Icons
+
+### Custom/Override Icons
+
+Add custom icons to then `custom-icons` folder. These will be merged on to the default icons during build.
+
+Ensure to replace the `fill` attribute with `currentColor` to allow for color overrides.
+
+### Google Icons
+
 ```
 pnpm install
 ```
 
-Then build the icons to both the SVG and the Vue library:
+Download and optimise the Google icons:
 ```
-pnpm build
+pnpm google-icons
 ```
 
 ### Releasing a new version
