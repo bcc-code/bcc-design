@@ -37,7 +37,7 @@ async function downloadSvgs(dir, style, axes) {
   const dirs = Object.values(styleDirs);
   await mkdirs(dirs);
   console.log('Fetching metadata');
-  const versions = await getVersions('symbols');
+  const versions = await getVersions(true);
   const downloads = getDownloads(versions, styleDirs, axes);
   console.log('::group::Downloading SVGs');
   await downloadAll(downloads, { ignoreExisting: true });
