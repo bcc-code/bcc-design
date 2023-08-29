@@ -1,5 +1,6 @@
 node_modules
 dist
 icons
+svg
 .vscode/
 !.vscode/extensions.json
