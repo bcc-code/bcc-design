@@ -1,3 +1,12 @@
+/**
+ * Download SVGs from Google Fonts
+ * 
+ * Based on the script from https://github.com/marella/material-design-icons/blob/main/scripts/svg.js
+ * 
+ * Reason for not using the original script:
+ * We only need one set (the rounded 500) not all of them
+ */
+
 import isSvg from 'is-svg';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';

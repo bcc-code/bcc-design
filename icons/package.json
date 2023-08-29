@@ -9,8 +9,8 @@
     ],
     "scripts": {
         "build": "pnpm merge-icons && node ./scripts/build.js",
-        "merge-icons": "cp -R ./google-icons ./icons && cp -R ./custom-icons ./icons",
-        "google-icons": "node ./scripts/download-svg.mjs && svgo -f ./svg/rounded -o ./google-icons --pretty --indent=2"
+        "merge-icons": "cp -R ./google-icons ./icons/ && cp -R ./custom-icons/ ./icons",
+        "google-icons": "node ./scripts/google-icons/download.mjs && svgo -f ./svg/rounded -o ./google-icons --pretty --indent=2"
     },
     "devDependencies": {
         "@vue/compiler-dom": "^3.0.5",
