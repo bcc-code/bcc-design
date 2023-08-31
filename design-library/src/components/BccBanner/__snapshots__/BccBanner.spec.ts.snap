@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccBanner > renders an banner 1`] = `
-"<transition-stub name=\\"bcc-banner\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\">
+"<transition-stub name=\\"bcc-close\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\">
   <div class=\\"bcc-banner\\">
     <div class=\\"bcc-banner-header\\">
       <!--v-if-->

@@ -47,7 +47,7 @@ function actionClicked(action: Action) {
 </script>
 
 <template>
-  <Transition name="bcc-banner">
+  <Transition name="bcc-close">
     <div class="bcc-banner" v-if="open">
       <div class="bcc-banner-header">
         <component v-if="icon" :is="icon" class="bcc-banner-icon" />

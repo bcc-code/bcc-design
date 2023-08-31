@@ -58,15 +58,3 @@
         @apply  min-w-min w-24;
     }
 }
-
-/* Transition */
-.bcc-banner-enter-active,
-.bcc-banner-leave-active {
-    transition: transform 0.5s ease;
-    transform-origin: top;
-}
-
-.bcc-banner-enter-from,
-.bcc-banner-leave-to {
-    transform: scaleY(0);
-}

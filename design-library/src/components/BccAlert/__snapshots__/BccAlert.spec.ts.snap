@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccAlert > renders an alert 1`] = `
-"<anonymous-stub as=\\"div\\" show=\\"true\\" unmount=\\"true\\" appear=\\"false\\" enter=\\"transition-opacity duration-100\\" enterfrom=\\"opacity-0\\" enterto=\\"opacity-100\\" entered=\\"\\" leave=\\"transition-opacity duration-150\\" leavefrom=\\"opacity-100\\" leaveto=\\"opacity-0\\">
+"<transition-stub name=\\"bcc-fade\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\">
   <div class=\\"bcc-alert\\">
     <!--v-if-->
     <div class=\\"bcc-alert-content\\">
@@ -10,5 +10,5 @@ exports[`BccAlert > renders an alert 1`] = `
     </div>
     <!--v-if-->
   </div>
-</anonymous-stub>"
+</transition-stub>"
 `;

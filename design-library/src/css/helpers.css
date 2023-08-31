@@ -9,3 +9,30 @@
 		display: none; /* for Chrome, Safari, and Opera */
 	}
 }
+
+/** Transitions **/
+
+/* Fade */
+.bcc-fade-enter-active,
+.bcc-fade-leave-active {
+	transition: opacity .3s ease;
+}
+
+.bcc-fade-enter-from,
+.bcc-fade-leave-to {
+	opacity: 0;
+}
+
+/* Close */
+.bcc-close-enter-active,
+.bcc-close-leave-active {
+	transition: transform .6s ease, opacity .4s ease;
+	transform-origin: top;
+}
+
+.bcc-close-enter-from,
+.bcc-close-leave-to {
+	opacity: 0;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	transform: scaleY(0.4);
+}
