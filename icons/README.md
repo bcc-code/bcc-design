@@ -18,6 +18,8 @@ Ensure to replace the `fill` attribute with `currentColor` to allow for color ov
 
 ### Google Icons
 
+Do not edit icons in the `google-icons` directory, instead add a file with the same name in the `custom-icons` which will then override the same google icon
+
 ```
 pnpm install
 ```
