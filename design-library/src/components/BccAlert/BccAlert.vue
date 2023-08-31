@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { CloseIcon, ErrorIcon, InfoIcon, TaskAltIcon, WarningIcon } from "@bcc-code/icons-vue";
-import { TransitionRoot } from "@headlessui/vue";
 
 type Props = {
   context?: keyof typeof contexts;
@@ -40,16 +39,8 @@ const contexts = {
 </script>
 
 <template>
-  <TransitionRoot
-    :show="open"
-    enter="transition-opacity duration-100"
-    enter-from="opacity-0"
-    enter-to="opacity-100"
-    leave="transition-opacity duration-150"
-    leave-from="opacity-100"
-    leave-to="opacity-0"
-  >
-    <div class="bcc-alert" :class="contexts[context].class">
+  <Transition name="bcc-fade">
+    <div v-if="open" class="bcc-alert" :class="contexts[context].class">
       <component v-if="icon" :is="contexts[context].icon" class="bcc-alert-icon" />
 
       <div class="bcc-alert-content">
@@ -65,5 +56,5 @@ const contexts = {
         <CloseIcon class="bcc-alert-close-icon" />
       </button>
     </div>
-  </TransitionRoot>
+  </Transition>
 </template>
