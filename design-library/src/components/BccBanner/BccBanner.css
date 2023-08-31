@@ -51,7 +51,7 @@
     }
 
     .bcc-banner-notification .bcc-banner-actions {
-        @apply flex items-center justify-end gap-3;
+        @apply mt-3 flex items-center justify-end gap-3;
     }
 
     .bcc-banner-notification .bcc-banner-actions .bcc-button {
