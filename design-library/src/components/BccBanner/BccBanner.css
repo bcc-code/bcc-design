@@ -55,6 +55,6 @@
     }
 
     .bcc-banner-notification .bcc-banner-actions .bcc-button {
-        @apply  min-w-min w-24;
+        @apply min-w-min w-24;
     }
 }
