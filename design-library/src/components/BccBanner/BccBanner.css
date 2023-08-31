@@ -1,0 +1,72 @@
+@layer components {
+    .bcc-banner {
+        background: var(--bcc-banner-bg, var(--brand-600));
+        @apply p-4
+    }
+
+    .bcc-banner-header {
+        @apply flex items-center justify-between text-white mb-4;
+    }
+
+    .bcc-banner-icon {
+        @apply h-6 w-6 mr-3;
+    }
+
+    .bcc-banner-title {
+        @apply text-heading-base flex-1;
+    }
+
+    .bcc-banner-close-button {
+        @apply p-2 -mt-1 -mb-1 -mr-2;
+    }
+    .bcc-banner-close-button:active {
+        @apply scale-90;
+    }
+
+    .bcc-banner-close-icon {
+        @apply h-5 w-5;
+    }
+
+    .bcc-banner-default {
+        @apply text-white;
+    }
+
+    .bcc-banner-default .bcc-banner-actions {
+        @apply mt-3 flex flex-wrap sm:flex-nowrap gap-3;
+    }
+
+    .bcc-banner-default .bcc-banner-actions .bcc-button {
+        @apply w-full;
+    }
+
+    .bcc-banner-default .bcc-button:not(:first-child) {
+        --text-button-secondary: white;
+        --border-button-secondary: var(--brand-500);
+        --bg-button-secondary: var(--brand-700);
+        --bg-button-secondary-hover: var(--brand-700);
+    }
+
+    .bcc-banner-notification {
+        @apply bg-white p-3 rounded-xl;
+    }
+
+    .bcc-banner-notification .bcc-banner-actions {
+        @apply flex items-center justify-end gap-3;
+    }
+
+    .bcc-banner-notification .bcc-banner-actions .bcc-button {
+        @apply  min-w-min w-24;
+    }
+}
+
+/* Transition */
+.bcc-banner-enter-active,
+.bcc-banner-leave-active {
+    transition: transform 0.5s ease;
+    transform-origin: top;
+}
+
+.bcc-banner-enter-from,
+.bcc-banner-leave-to {
+    transform: scaleY(0);
+}
