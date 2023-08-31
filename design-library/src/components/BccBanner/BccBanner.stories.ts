@@ -1,7 +1,7 @@
 import {
   BccFillIcon,
   CircleNotificationsFillIcon,
-  NotificationsOffFillIcon
+  NotificationsOffFillIcon,
 } from "@bcc-code/icons-vue";
 import BccBanner from "./BccBanner.vue";
 
