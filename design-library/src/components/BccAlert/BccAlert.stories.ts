@@ -2,6 +2,7 @@ import BccButton from "../BccButton/BccButton.vue";
 import BccAlert from "./BccAlert.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
+import { Face2Icon } from "@bcc-code/icons-vue";
 
 export default {
   title: "Components/BccAlert",
@@ -76,10 +77,13 @@ export const Basic: StoryFn<typeof BccAlert> = () => ({
 });
 
 /**
- * Set the `icon` prop to render an icon determined by the `context`
+ * Set the `icon` prop to render an icon determined by the `context`. Passing a component as a prop `:icon="FaceIcon"` will override the default icon.
  */
-export const WithIcon: StoryFn<typeof BccAlert> = () => ({
+export const WithIcon: StoryFn<typeof BccAlert> = (args) => ({
   components: { BccAlert },
+  setup() {
+    return { args, Face2Icon };
+  },
   template: `
     <div class="flex flex-col space-y-4">
       <BccAlert icon><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
@@ -87,6 +91,7 @@ export const WithIcon: StoryFn<typeof BccAlert> = () => ({
       <BccAlert icon context="warning"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
       <BccAlert icon context="danger"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
       <BccAlert icon context="notice"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
+      <BccAlert :icon="Face2Icon" context="notice">Look at this custom icon I added!</BccAlert>
     </div>
   `,
 });
