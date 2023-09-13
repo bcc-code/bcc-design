@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import {
-CloseIcon,
-ErrorFillIcon,
-InfoFillIcon,
-TaskAltIcon,
-WarningFillIcon
+  CloseIcon,
+  ErrorFillIcon,
+  InfoFillIcon,
+  TaskAltIcon,
+  WarningFillIcon,
+  NotificationsFillIcon,
 } from "@bcc-code/icons-vue";
 
 type Props = {
@@ -40,6 +41,10 @@ const contexts = {
   danger: {
     class: "bcc-alert-danger",
     icon: ErrorFillIcon,
+  },
+  notice: {
+    class: "bcc-alert-notice",
+    icon: NotificationsFillIcon,
   },
 };
 </script>

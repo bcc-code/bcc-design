@@ -15,6 +15,9 @@
     .bcc-alert-danger {
         @apply bg-danger text-danger border-danger;
     }
+    .bcc-alert-notice {
+        @apply bg-brand-50 text-brand-600 border-brand-300;
+    }
 
     /* Icon */
     .bcc-alert-icon {
