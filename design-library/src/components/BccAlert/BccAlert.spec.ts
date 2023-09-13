@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { mount } from "@vue/test-utils";
 import BccAlert from "./BccAlert.vue";
@@ -6,7 +6,7 @@ import BccAlert from "./BccAlert.vue";
 describe("BccAlert", () => {
   it("renders an alert", () => {
     const wrapper = mount(BccAlert, {
-      props: { title: "Alert title" },
+      props: { title: "Alert title", icon: true },
       slots: {
         default: "Alert content",
       },

@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { CloseIcon, ErrorIcon, InfoIcon, TaskAltIcon, WarningIcon } from "@bcc-code/icons-vue";
+import {
+CloseIcon,
+ErrorFillIcon,
+InfoFillIcon,
+TaskAltIcon,
+WarningFillIcon
+} from "@bcc-code/icons-vue";
 
 type Props = {
   context?: keyof typeof contexts;
@@ -21,7 +27,7 @@ const emit = defineEmits(["close"]);
 const contexts = {
   info: {
     class: "",
-    icon: InfoIcon,
+    icon: InfoFillIcon,
   },
   success: {
     class: "bcc-alert-success",
@@ -29,11 +35,11 @@ const contexts = {
   },
   warning: {
     class: "bcc-alert-warning",
-    icon: WarningIcon,
+    icon: WarningFillIcon,
   },
   danger: {
     class: "bcc-alert-danger",
-    icon: ErrorIcon,
+    icon: ErrorFillIcon,
   },
 };
 </script>
