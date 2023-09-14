@@ -43,8 +43,8 @@ const contexts = {
     class: "bcc-alert-danger",
     icon: ErrorFillIcon,
   },
-  notice: {
-    class: "bcc-alert-notice",
+  neutral: {
+    class: "bcc-alert-neutral",
     icon: NotificationsFillIcon,
   },
 };

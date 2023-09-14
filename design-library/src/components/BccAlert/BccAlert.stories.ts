@@ -9,7 +9,7 @@ export default {
   component: BccAlert,
   argTypes: {
     context: {
-      options: ["info", "success", "warning", "danger", "notice"],
+      options: ["info", "success", "warning", "danger", "neutral"],
       control: { type: "radio" },
     },
   },
@@ -71,7 +71,7 @@ export const Basic: StoryFn<typeof BccAlert> = () => ({
       <BccAlert context="success"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
       <BccAlert context="warning"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
       <BccAlert context="danger"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
-      <BccAlert context="notice"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
+      <BccAlert context="neutral"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
     </div>
   `,
 });
@@ -90,8 +90,8 @@ export const WithIcon: StoryFn<typeof BccAlert> = (args) => ({
       <BccAlert icon context="success"><strong>Oh snap!</strong> You might want to check this out! Or maybe just let it be</BccAlert>
       <BccAlert icon context="warning"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
       <BccAlert icon context="danger"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
-      <BccAlert icon context="notice"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
-      <BccAlert :icon="Face2Icon" context="notice">Look at this custom icon I added!</BccAlert>
+      <BccAlert icon context="neutral"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
+      <BccAlert :icon="Face2Icon" context="neutral">Look at this custom icon I added!</BccAlert>
     </div>
   `,
 });
@@ -107,7 +107,7 @@ export const WithTitle: StoryFn<typeof BccAlert> = () => ({
       <BccAlert title="Well done!" icon context="success">You might want to check this out!</BccAlert>
       <BccAlert title="Well done!" icon context="warning">You might want to check this out!</BccAlert>
       <BccAlert title="Well done!" icon context="danger">You might want to check this out!</BccAlert>
-      <BccAlert title="Well done!" icon context="notice">You might want to check this out!</BccAlert>
+      <BccAlert title="Well done!" icon context="neutral">You might want to check this out!</BccAlert>
     </div>
   `,
 });
