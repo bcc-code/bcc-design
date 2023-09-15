@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import {
-CloseIcon,
-ErrorFillIcon,
-InfoFillIcon,
-TaskAltIcon,
-WarningFillIcon
+  CloseIcon,
+  ErrorFillIcon,
+  InfoFillIcon,
+  TaskAltIcon,
+  WarningFillIcon,
+  NotificationsFillIcon,
 } from "@bcc-code/icons-vue";
+import type { Component } from "vue";
 
 type Props = {
   context?: keyof typeof contexts;
-  icon?: boolean;
+  icon?: boolean | Component;
   title?: string;
   closeButton?: boolean;
   open?: boolean;
@@ -41,13 +43,21 @@ const contexts = {
     class: "bcc-alert-danger",
     icon: ErrorFillIcon,
   },
+  neutral: {
+    class: "bcc-alert-neutral",
+    icon: NotificationsFillIcon,
+  },
 };
 </script>
 
 <template>
   <Transition name="bcc-fade">
     <div v-if="open" class="bcc-alert" :class="contexts[context].class">
-      <component v-if="icon" :is="contexts[context].icon" class="bcc-alert-icon" />
+      <component
+        v-if="icon"
+        :is="typeof icon === 'boolean' ? contexts[context].icon : icon"
+        class="bcc-alert-icon"
+      />
 
       <div class="bcc-alert-content">
         <h3 v-if="title" class="bcc-alert-title">{{ title }}</h3>

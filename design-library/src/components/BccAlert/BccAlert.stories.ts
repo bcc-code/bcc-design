@@ -2,13 +2,14 @@ import BccButton from "../BccButton/BccButton.vue";
 import BccAlert from "./BccAlert.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
+import { Face2Icon } from "@bcc-code/icons-vue";
 
 export default {
   title: "Components/BccAlert",
   component: BccAlert,
   argTypes: {
     context: {
-      options: ["info", "success", "warning", "danger"],
+      options: ["info", "success", "warning", "danger", "neutral"],
       control: { type: "radio" },
     },
   },
@@ -70,21 +71,27 @@ export const Basic: StoryFn<typeof BccAlert> = () => ({
       <BccAlert context="success"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
       <BccAlert context="warning"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
       <BccAlert context="danger"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
+      <BccAlert context="neutral"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
     </div>
   `,
 });
 
 /**
- * Set the `icon` prop to render an icon determined by the `context`
+ * Set the `icon` prop to render an icon determined by the `context`. Passing a component as a prop `:icon="FaceIcon"` will override the default icon.
  */
-export const WithIcon: StoryFn<typeof BccAlert> = () => ({
+export const WithIcon: StoryFn<typeof BccAlert> = (args) => ({
   components: { BccAlert },
+  setup() {
+    return { args, Face2Icon };
+  },
   template: `
     <div class="flex flex-col space-y-4">
       <BccAlert icon><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
       <BccAlert icon context="success"><strong>Oh snap!</strong> You might want to check this out! Or maybe just let it be</BccAlert>
       <BccAlert icon context="warning"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
       <BccAlert icon context="danger"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
+      <BccAlert icon context="neutral"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
+      <BccAlert :icon="Face2Icon" context="neutral">Look at this custom icon I added!</BccAlert>
     </div>
   `,
 });
@@ -100,6 +107,7 @@ export const WithTitle: StoryFn<typeof BccAlert> = () => ({
       <BccAlert title="Well done!" icon context="success">You might want to check this out!</BccAlert>
       <BccAlert title="Well done!" icon context="warning">You might want to check this out!</BccAlert>
       <BccAlert title="Well done!" icon context="danger">You might want to check this out!</BccAlert>
+      <BccAlert title="Well done!" icon context="neutral">You might want to check this out!</BccAlert>
     </div>
   `,
 });
