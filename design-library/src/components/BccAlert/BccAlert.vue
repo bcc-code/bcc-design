@@ -11,7 +11,7 @@ import type { Component } from "vue";
 
 type Props = {
   context?: keyof typeof contexts;
-  icon?: boolean | Component | Function;
+  icon?: boolean | Component;
   title?: string;
   closeButton?: boolean;
   open?: boolean;
