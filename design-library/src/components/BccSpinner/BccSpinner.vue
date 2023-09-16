@@ -5,7 +5,7 @@ withDefaults(defineProps<Props>(), {});
 </script>
 <template>
   <svg
-    class="... mr-3 h-5 w-5 animate-spin"
+    class="bcc-spinner"
     xmlns="http://www.w3.org/2000/svg"
     width="100"
     height="100"

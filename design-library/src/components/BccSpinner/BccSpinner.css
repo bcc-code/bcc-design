@@ -1,4 +1,5 @@
 @layer components {
   .bcc-spinner {
+    @apply animate-spin;
   }
 }
