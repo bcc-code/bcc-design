@@ -1,0 +1,20 @@
+@layer components {
+    /* Base */
+    .bcc-progress-container {
+        @apply inline-flex flex-col space-y-2;
+    }
+
+    .bcc-progress {
+        @apply rounded w-full bg-neutral-200;
+    }
+
+    /* Color */
+    .bcc-progress-line {
+        @apply rounded bg-silver-tree-600;
+    }
+
+    /* Size */
+    .bcc-progress-container .bcc-form-label-lg .bcc-form-label-optional {
+        @apply text-label-base;
+    }
+}

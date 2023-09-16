@@ -1,0 +1,59 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccProgress > renders without any properties 1`] = `
+"<div class=\\"bcc-progress-container\\"><label class=\\"bcc-form-label\\"><span><span>0 / 100</span></span><span class=\\"bcc-form-label-optional\\">0%</span></label>
+  <div class=\\"bcc-progress h-1.5\\">
+    <div class=\\"bcc-progress-line h-1.5\\" style=\\"width: 0%;\\"></div>
+  </div>
+</div>"
+`;
+
+exports[`BccProgress > should exceed 100% 1`] = `
+"<div class=\\"bcc-progress-container\\"><label class=\\"bcc-form-label\\"><span><span>110 / 100</span></span><span class=\\"bcc-form-label-optional\\">110%</span></label>
+  <div class=\\"bcc-progress h-1.5\\">
+    <div class=\\"bcc-progress-line h-1.5\\" style=\\"width: 100%;\\"></div>
+  </div>
+</div>"
+`;
+
+exports[`BccProgress > should not exceed 110% 1`] = `
+"<div class=\\"bcc-progress-container\\"><label class=\\"bcc-form-label\\"><span><span>110 / 100</span></span><span class=\\"bcc-form-label-optional\\">100%</span></label>
+  <div class=\\"bcc-progress h-1.5\\">
+    <div class=\\"bcc-progress-line h-1.5\\" style=\\"width: 100%;\\"></div>
+  </div>
+</div>"
+`;
+
+exports[`BccProgress > should not render percentage 1`] = `
+"<div class=\\"bcc-progress-container\\"><label class=\\"bcc-form-label\\"><span><span>100 / 100</span></span>
+    <!--v-if-->
+  </label>
+  <div class=\\"bcc-progress h-1.5\\">
+    <div class=\\"bcc-progress-line h-1.5\\" style=\\"width: 100%;\\"></div>
+  </div>
+</div>"
+`;
+
+exports[`BccProgress > should not render values 1`] = `
+"<div class=\\"bcc-progress-container\\"><label class=\\"bcc-form-label\\"><span></span><span class=\\"bcc-form-label-optional\\">100%</span></label>
+  <div class=\\"bcc-progress h-1.5\\">
+    <div class=\\"bcc-progress-line h-1.5\\" style=\\"width: 100%;\\"></div>
+  </div>
+</div>"
+`;
+
+exports[`BccProgress > should render percentage 1`] = `
+"<div class=\\"bcc-progress-container\\"><label class=\\"bcc-form-label\\"><span><span>100 / 100</span></span><span class=\\"bcc-form-label-optional\\">100%</span></label>
+  <div class=\\"bcc-progress h-1.5\\">
+    <div class=\\"bcc-progress-line h-1.5\\" style=\\"width: 100%;\\"></div>
+  </div>
+</div>"
+`;
+
+exports[`BccProgress > should render values 1`] = `
+"<div class=\\"bcc-progress-container\\"><label class=\\"bcc-form-label\\"><span><span>100 / 100</span></span><span class=\\"bcc-form-label-optional\\">100%</span></label>
+  <div class=\\"bcc-progress h-1.5\\">
+    <div class=\\"bcc-progress-line h-1.5\\" style=\\"width: 100%;\\"></div>
+  </div>
+</div>"
+`;
