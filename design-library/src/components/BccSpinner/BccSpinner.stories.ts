@@ -5,9 +5,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
 export default {
   title: "Components/BccSpinner",
   component: BccSpinner,
-  argTypes: {
-
-  },
+  argTypes: {},
 } as Meta<typeof BccSpinner>;
 
 const Template: StoryFn<typeof BccSpinner> = (args) => ({
@@ -21,6 +19,4 @@ const Template: StoryFn<typeof BccSpinner> = (args) => ({
 });
 
 export const Example = Template.bind({});
-Example.args = {
-
-};
+Example.args = {};
