@@ -1,10 +1,22 @@
 <script setup lang="ts">
-type Props = {};
+type Props = {
+  size?: keyof typeof sizes;
+};
 
-withDefaults(defineProps<Props>(), {});
+const props = withDefaults(defineProps<Props>(), {
+  size: "base",
+});
+const sizes = {
+  xs: "bcc-spinner-xs",
+  sm: "bcc-spinner-sm",
+  base: "bcc-spinner-base",
+  lg: "bcc-spinner-lg",
+  xl: "bcc-spinner-xl",
+};
 </script>
 <template>
   <svg
+    :class="[sizes[size]]"
     class="bcc-spinner"
     xmlns="http://www.w3.org/2000/svg"
     width="100"
