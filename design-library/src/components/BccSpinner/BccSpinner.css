@@ -6,7 +6,7 @@
   .bcc-spinner-circle {
     @apply text-isbre-100;
   }
-  .bcc-spinner-progress-indicator {
+  .bcc-spinner-progress {
     @apply text-silver-tree-600;
   }
 
