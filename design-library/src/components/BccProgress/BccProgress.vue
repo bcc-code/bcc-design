@@ -53,7 +53,7 @@ const height = computed(() => {
   >
     <BccFormLabel
       v-if="showPercentage || showValues"
-      :size="size"
+      :size="size !== 'sm' ? size : 'base'"
       :showOptionalLabel="showPercentage"
       :optionalLabel="Math.round(percentage) + '%'"
     >
