@@ -28,6 +28,16 @@ export const Example = Template.bind({});
 Example.args = {
   size: "base",
 };
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccSpinner />
+    `,
+    },
+  },
+};
 
 /**
  * Set the `size` prop to change the size of the spinner
