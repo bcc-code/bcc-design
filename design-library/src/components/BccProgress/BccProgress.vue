@@ -23,31 +23,34 @@ const props = withDefaults(defineProps<Props>(), {
   size: "base",
   showValues: true,
   showPercentage: true,
-  exceed: true
+  exceed: true,
 });
 
 const percentage = computed(() => {
-  if (props.value > props.max && !props.exceed) return 100
-  return (props.value / props.max) * 100
+  if (props.value > props.max && !props.exceed) return 100;
+  return (props.value / props.max) * 100;
 });
 
 const percentageSafe = computed(() => {
-  if (props.value > props.max) return 100
-  return percentage.value
+  if (props.value > props.max) return 100;
+  return percentage.value;
 });
 
 const height = computed(() => {
   return {
-    'h-1': props.size === 'sm',
-    'h-1.5': props.size === 'base',
-    'h-2': props.size === 'lg',
-  }
+    "h-1": props.size === "sm",
+    "h-1.5": props.size === "base",
+    "h-2": props.size === "lg",
+  };
 });
-
 </script>
 
 <template>
-  <div class="bcc-progress-container" :class="$attrs['class']" :style="$attrs['style'] as StyleValue">
+  <div
+    class="bcc-progress-container"
+    :class="$attrs['class']"
+    :style="$attrs['style'] as StyleValue"
+  >
     <BccFormLabel
       v-if="showPercentage || showValues"
       :size="size"
@@ -67,6 +70,5 @@ const height = computed(() => {
         :style="{ width: percentageSafe + '%' }"
       />
     </div>
-
   </div>
 </template>

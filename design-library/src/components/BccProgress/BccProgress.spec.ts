@@ -4,7 +4,6 @@ import { mount } from "@vue/test-utils";
 import BccProgress from "./BccProgress.vue";
 
 describe("BccProgress", () => {
-
   it("renders without any properties", () => {
     const wrapper = mount(BccProgress);
 
@@ -65,5 +64,4 @@ describe("BccProgress", () => {
     expect(wrapper.text()).not.toContain("100 / 100");
     expect(wrapper.html()).toMatchSnapshot();
   });
-
 });

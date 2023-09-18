@@ -48,7 +48,7 @@ const Template: StoryFn<typeof BccProgress> = (args) => ({
  */
 export const Example = Template.bind({});
 Example.args = {
-  value: 30145.50,
+  value: 30145.5,
   max: 200000,
   size: "base",
   exceed: true,
@@ -103,7 +103,7 @@ export const Max: StoryFn<typeof BccProgress> = () => ({
 /**
  * Do or do not let percentage `exceed` 100%
  */
-export const exceed: StoryFn<typeof BccProgress> = () => ({
+export const Exceed: StoryFn<typeof BccProgress> = () => ({
   components: { BccProgress },
   template: `
     <div class="flex flex-col space-y-4">
@@ -116,7 +116,7 @@ export const exceed: StoryFn<typeof BccProgress> = () => ({
 /**
  * Set `showValues` and / or `showPercentage` to false
  */
-export const showValuesAndOrPercentage: StoryFn<typeof BccProgress> = () => ({
+export const ShowValuesAndOrPercentage: StoryFn<typeof BccProgress> = () => ({
   components: { BccProgress },
   template: `
     <div class="flex flex-col space-y-4">
