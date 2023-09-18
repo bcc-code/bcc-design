@@ -29,3 +29,4 @@ export { default as BccTable } from "./components/BccTable/BccTable.vue";
 export { default as BccTabs } from "./components/BccTabs/BccTabs.vue";
 export { default as BccToggle } from "./components/BccToggle/BccToggle.vue";
 export { default as BccBanner } from "./components/BccBanner/BccBanner.vue";
+export { default as BccSpinner } from "./components/BccSpinner/BccSpinner.vue";

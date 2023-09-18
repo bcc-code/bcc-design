@@ -1,0 +1,20 @@
+@layer components {
+  .bcc-spinner {
+    @apply animate-spin;
+  }
+  .bcc-spinner-xs {
+    @apply h-8 w-8;
+  }
+  .bcc-spinner-sm {
+    @apply h-10 w-10;
+  }
+  .bcc-spinner-base {
+    @apply h-16 w-16;
+  }
+  .bcc-spinner-lg {
+    @apply h-20 w-20;
+  }
+  .bcc-spinner-xl {
+    @apply h-24 w-24;
+  }
+}
