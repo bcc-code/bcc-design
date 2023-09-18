@@ -51,6 +51,27 @@ pnpm create-component ComponentName
 ```
 This will create a Vue component, with accompanying test, stories and CSS files, and will also update the exports for the library.
 
+### Linting
+This project includes a [linting](https://en.wikipedia.org/wiki/Lint_(software)) setup via [ESLint](https://eslint.org/), which includes [Prettier](https://prettier.io/). The linting settings are intentionally strict, and all Prettier alerts are treated as errors. This ensures the code is always formatted in the same way.
+
+When using VS Code, install the [ESLint plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and make sure it is set to format on save, or manually add this to your VS Code settings:
+```json
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  },
+```
+
+You can manually run the linting command as well to check for linting errors:
+```sh
+pnpm lint
+```
+This command is also run in CI and will fail the build if there are any errors.
+
+Errors can be automatically fixed by running
+```sh
+pnpm lint:fix
+```
+
 ### Building for production
 To build the package for production, including types, run:
 ```sh
