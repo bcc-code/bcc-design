@@ -3,7 +3,7 @@ type Props = {
   size?: keyof typeof sizes;
 };
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   size: "base",
 });
 const sizes = {
