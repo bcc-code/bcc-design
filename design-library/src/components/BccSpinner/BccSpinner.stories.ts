@@ -24,10 +24,25 @@ const Template: StoryFn<typeof BccSpinner> = (args) => ({
   `,
 });
 
+export const Example = Template.bind({});
+Example.args = {
+  size: "base",
+};
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccSpinner />
+    `,
+    },
+  },
+};
+
 /**
- * Set the `size` prop to `xs`, `sm`, `base`, `lg`, `xl` to set the size
+ * Set the `size` prop to change the size of the spinner
  */
-export const Primary: StoryFn<typeof BccSpinner> = () => ({
+export const Size: StoryFn<typeof BccSpinner> = () => ({
   components: { BccSpinner },
   template: `
     <div class="flex items-start gap-x-2">
@@ -39,6 +54,3 @@ export const Primary: StoryFn<typeof BccSpinner> = () => ({
     </div>
   `,
 });
-
-export const Example = Template.bind({});
-Example.args = {};

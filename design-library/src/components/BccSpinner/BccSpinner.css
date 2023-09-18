@@ -2,6 +2,15 @@
   .bcc-spinner {
     @apply animate-spin;
   }
+
+  .bcc-spinner-circle {
+    @apply text-isbre-100;
+  }
+  .bcc-spinner-progress {
+    @apply text-silver-tree-600;
+  }
+
+  /* Size */
   .bcc-spinner-xs {
     @apply h-8 w-8;
   }
