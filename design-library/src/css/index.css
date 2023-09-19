@@ -17,6 +17,7 @@
 @import "../components/BccRadio/BccRadio.css";
 @import "../components/BccAlert/BccAlert.css";
 @import "../components/BccSelect/BccSelect.css";
+@import "../components/BccProgress/BccProgress.css";
 @import "../components/BccFormLabel/BccFormLabel.css";
 @import "../components/BccFormMessage/BccFormMessage.css";
 @import "../components/BccTable/BccTable.css";
