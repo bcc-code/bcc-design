@@ -13,10 +13,7 @@
         @apply rounded bg-silver-tree-600 h-full;
     }
 
-   
-
     /* Size */
-    
     .bcc-progress-container .bcc-form-label-lg .bcc-form-label-optional {
         @apply text-label-base;
     }
