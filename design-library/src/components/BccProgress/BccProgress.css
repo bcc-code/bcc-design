@@ -8,7 +8,6 @@
         @apply rounded w-full bg-neutral-200 h-1.5;
     }
 
-    /* Color */
     .bcc-progress-bar {
         @apply rounded bg-silver-tree-600 h-full;
     }
