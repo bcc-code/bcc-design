@@ -9,7 +9,7 @@
     }
 
     /* Color */
-    .bcc-progress-line {
+    .bcc-progress-bar {
         @apply rounded bg-silver-tree-600;
     }
 

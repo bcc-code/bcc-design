@@ -1,17 +1,14 @@
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-};
-</script>
-
 <script setup lang="ts">
-import { computed, type StyleValue } from "vue";
+import { computed } from "vue";
 import BccFormLabel from "@/components/BccFormLabel/BccFormLabel.vue";
 
 type Props = {
   value?: number;
   max?: number;
   size?: "sm" | "base" | "lg";
+  progressClass?: string | object;
+  barClass?: string | object;
+  labelClass?: string | object;
   showValues?: boolean;
   showPercentage?: boolean;
   exceed?: boolean;
@@ -36,26 +33,41 @@ const percentageSafe = computed(() => {
   return percentage.value;
 });
 
-const height = computed(() => {
+const progressClass = computed(() => {
+  if (props.progressClass) return props.progressClass;
   return {
+    "bcc-progress": true,
     "h-1": props.size === "sm",
     "h-1.5": props.size === "base",
     "h-2": props.size === "lg",
   };
 });
+
+const barClass = computed(() => {
+  if (props.barClass) return props.barClass;
+  if (
+    typeof progressClass.value === "object" &&
+    Object.keys(progressClass.value).includes("bcc-progress")
+  ) {
+    const clone: any = { ...progressClass.value };
+    delete clone["bcc-progress"];
+    return {
+      ...clone,
+      "bcc-progress-bar": true,
+    };
+  }
+  return progressClass.value;
+});
 </script>
 
 <template>
-  <div
-    class="bcc-progress-container"
-    :class="$attrs['class']"
-    :style="$attrs['style'] as StyleValue"
-  >
+  <div class="bcc-progress-container">
     <BccFormLabel
       v-if="showPercentage || showValues"
       :size="size !== 'sm' ? size : 'base'"
       :showOptionalLabel="showPercentage"
       :optionalLabel="Math.round(percentage) + '%'"
+      :class="labelClass"
     >
       <span v-if="showValues">
         {{ props.value.toLocaleString() }} /
@@ -63,10 +75,10 @@ const height = computed(() => {
       </span>
     </BccFormLabel>
 
-    <div class="bcc-progress" :class="{ ...height }">
+    <div class="bcc-progress" :class="progressClass">
       <div
-        class="bcc-progress-line"
-        :class="{ ...height }"
+        class="bcc-progress-bar h-full"
+        :class="barClass"
         :style="{ width: percentageSafe + '%' }"
       />
     </div>

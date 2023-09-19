@@ -6,7 +6,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * A `progress` element supporting current and max values
  */
 export default {
-  title: "Forms/BccProgress",
+  title: "Components/BccProgress",
   component: BccProgress,
   argTypes: {
     value: {
@@ -30,6 +30,18 @@ export default {
     showPercentage: {
       description: "Display percentage",
     },
+    progressClass: {
+      description: "Override height, background color and other classes.",
+      control: false,
+    },
+    barClass: {
+      description: "Override background color and other classes.",
+      control: false,
+    },
+    labelClass: {
+      description: "Override label classes.",
+      control: false,
+    },
   },
 } as Meta<typeof BccProgress>;
 
@@ -48,12 +60,15 @@ const Template: StoryFn<typeof BccProgress> = (args) => ({
  */
 export const Example = Template.bind({});
 Example.args = {
-  value: 30145.5,
+  value: 300145.5,
   max: 200000,
   size: "base",
   exceed: true,
   showValues: true,
   showPercentage: true,
+  progressClass: "",
+  barClass: "",
+  labelClass: "",
 };
 Example.parameters = {
   docs: {
@@ -67,6 +82,9 @@ Example.parameters = {
   showValues="true"
   showPercentage="true"
   exceed="true"
+  progressClass=""
+  barClass=""
+  labelClass=""
 />
 `,
     },
@@ -124,6 +142,39 @@ export const ShowValuesAndOrPercentage: StoryFn<typeof BccProgress> = () => ({
       <BccProgress class="w-1/4" :value="8" :max="10" :showValues="false"/>   
       <BccProgress class="w-1/4" :value="8" :max="10" :showPercentage="false"/>   
       <BccProgress class="w-1/4" :value="8" :max="10" :showValues="false" :showPercentage="false"/>   
+    </div>
+  `,
+});
+
+/**
+ * Set `progressClass`, `barClass` and `labelClass` to fully customize the progress bar
+ */
+export const FullCustomization: StoryFn<typeof BccProgress> = () => ({
+  components: { BccProgress },
+  template: `
+    <div class="flex flex-col space-y-4">
+      <BccProgress
+        size="lg"
+        :value="8"
+        :max="10"
+        class="w-full bg-slate-800 rounded p-2"
+        labelClass="text-white"
+        progressClass="h-4 bg-teal-400 rounded-2xl"
+        barClass="bg-purple-500 rounded-2xl"
+      />
+      <BccProgress
+        class="w-full"
+        :value="8"
+        :max="10"
+        :progressClass="{ 'h-0.5': true, 'bg-slate-300': true }"
+        :barClass="'bg-slate-500'"
+      />
+      <BccProgress
+        class="w-full"
+        :value="8"
+        :max="10"
+        progressClass="h-5"
+      />
     </div>
   `,
 });
