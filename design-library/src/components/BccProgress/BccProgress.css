@@ -10,11 +10,47 @@
 
     /* Color */
     .bcc-progress-bar {
-        @apply rounded bg-silver-tree-600;
+        @apply rounded bg-silver-tree-600 h-full;
     }
 
+   
+
     /* Size */
+    
     .bcc-progress-container .bcc-form-label-lg .bcc-form-label-optional {
         @apply text-label-base;
     }
+
+    .bcc-progress {
+        @apply h-1.5;
+    }
+
+    .bcc-progress-sm .bcc-progress {
+        @apply h-0.5;
+    }
+
+    .bcc-progress-md .bcc-progress {
+        @apply h-1;
+    }
+
+    .bcc-progress-lg .bcc-progress {
+        @apply h-2;
+    }
+
+    .bcc-progress-xl .bcc-progress {
+        @apply h-4;
+    }
+
+    .bcc-progress-2xl .bcc-progress {
+        @apply h-6;
+    }
+
+    .bcc-progress-2xl .bcc-progress {
+        @apply h-8;
+    }
+
+    .bcc-progress-3xl .bcc-progress {
+        @apply h-12;
+    }
+
 }

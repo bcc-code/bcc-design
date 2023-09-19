@@ -14,14 +14,14 @@ export default {
       control: { type: "number" },
     },
     size: {
-      options: ["sm", "base", "lg"],
+      options: ["base", "lg"],
       control: { type: "radio" },
     },
     max: {
       description: "Max Value",
       control: { type: "number" },
     },
-    exceed: {
+    overflow: {
       description: "Let or let not percentage exceed 100%",
     },
     showValues: {
@@ -29,18 +29,6 @@ export default {
     },
     showPercentage: {
       description: "Display percentage",
-    },
-    progressClass: {
-      description: "Override height, background color and other classes.",
-      control: false,
-    },
-    barClass: {
-      description: "Override background color and other classes.",
-      control: false,
-    },
-    labelClass: {
-      description: "Override label classes.",
-      control: false,
     },
   },
 } as Meta<typeof BccProgress>;
@@ -56,19 +44,16 @@ const Template: StoryFn<typeof BccProgress> = (args) => ({
 });
 
 /**
- * Use `value` to control the progress of the progress bar. Pass max value to declare when it reaches 100% and set exceed to false if it should not exceed 100%.
+ * Use `value` to control the progress of the progress bar. Pass max value to declare when it reaches 100% and set overflow to false if it should not exceed 100%.
  */
 export const Example = Template.bind({});
 Example.args = {
-  value: 300145.5,
+  value: 30145.5,
   max: 200000,
   size: "base",
-  exceed: true,
+  overflow: true,
   showValues: true,
   showPercentage: true,
-  progressClass: "",
-  barClass: "",
-  labelClass: "",
 };
 Example.parameters = {
   docs: {
@@ -78,13 +63,9 @@ Example.parameters = {
 <BccProgress
   value="30145.50"
   max="200000"
-  size="base"
   showValues="true"
   showPercentage="true"
-  exceed="true"
-  progressClass=""
-  barClass=""
-  labelClass=""
+  overflow="true"
 />
 `,
     },
@@ -98,9 +79,13 @@ export const Size: StoryFn<typeof BccProgress> = () => ({
   components: { BccProgress },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccProgress class="w-1/4" size="sm" :value="30"/>
-      <BccProgress class="w-1/4" size="base" :value="75"/>
-      <BccProgress class="w-1/4" size="lg" :value="22"/>      
+      <BccProgress class="w-1/4 bcc-progress-sm" :value="30"/>
+      <BccProgress class="w-1/4 bcc-progress-md" :value="22"/>
+      <BccProgress class="w-1/4" :value="75"/>
+      <BccProgress class="w-1/4 bcc-progress-lg" size="lg" :value="22"/>
+      <BccProgress class="w-1/4 bcc-progress-xl" size="lg" :value="22"/>
+      <BccProgress class="w-1/4 bcc-progress-2xl" size="lg" :value="22"/>
+      <BccProgress class="w-1/4 bcc-progress-3xl" size="lg" :value="22"/>
     </div>
   `,
 });
@@ -119,14 +104,14 @@ export const Max: StoryFn<typeof BccProgress> = () => ({
 });
 
 /**
- * Do or do not let percentage `exceed` 100%
+ * Do or do not let percentage `overflow` 100%
  */
-export const Exceed: StoryFn<typeof BccProgress> = () => ({
+export const Overflow: StoryFn<typeof BccProgress> = () => ({
   components: { BccProgress },
   template: `
     <div class="flex flex-col space-y-4">
       <BccProgress class="w-1/4" :value="1050" :max="100"/>
-      <BccProgress class="w-1/4" :value="1050" :max="100" :exceed="false"/>
+      <BccProgress class="w-1/4" :value="1050" :max="100" :overflow="false"/>
     </div>
   `,
 });
@@ -142,39 +127,6 @@ export const ShowValuesAndOrPercentage: StoryFn<typeof BccProgress> = () => ({
       <BccProgress class="w-1/4" :value="8" :max="10" :showValues="false"/>   
       <BccProgress class="w-1/4" :value="8" :max="10" :showPercentage="false"/>   
       <BccProgress class="w-1/4" :value="8" :max="10" :showValues="false" :showPercentage="false"/>   
-    </div>
-  `,
-});
-
-/**
- * Set `progressClass`, `barClass` and `labelClass` to fully customize the progress bar
- */
-export const FullCustomization: StoryFn<typeof BccProgress> = () => ({
-  components: { BccProgress },
-  template: `
-    <div class="flex flex-col space-y-4">
-      <BccProgress
-        size="lg"
-        :value="8"
-        :max="10"
-        class="w-full bg-slate-800 rounded p-2"
-        labelClass="text-white"
-        progressClass="h-4 bg-teal-400 rounded-2xl"
-        barClass="bg-purple-500 rounded-2xl"
-      />
-      <BccProgress
-        class="w-full"
-        :value="8"
-        :max="10"
-        :progressClass="{ 'h-0.5': true, 'bg-slate-300': true }"
-        :barClass="'bg-slate-500'"
-      />
-      <BccProgress
-        class="w-full"
-        :value="8"
-        :max="10"
-        progressClass="h-5"
-      />
     </div>
   `,
 });

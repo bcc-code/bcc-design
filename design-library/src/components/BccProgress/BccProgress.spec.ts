@@ -11,7 +11,7 @@ describe("BccProgress", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("should exceed 100%", () => {
+  it("should overflow 100%", () => {
     const wrapper = mount(BccProgress, {
       props: { value: 110, max: 100 },
     });
@@ -20,9 +20,9 @@ describe("BccProgress", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("should not exceed 110%", () => {
+  it("should not overflow 110%", () => {
     const wrapper = mount(BccProgress, {
-      props: { value: 110, max: 100, exceed: false },
+      props: { value: 110, max: 100, overflow: false },
     });
 
     expect(wrapper.text()).toContain("100%");
