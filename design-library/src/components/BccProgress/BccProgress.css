@@ -5,7 +5,7 @@
     }
 
     .bcc-progress {
-        @apply rounded w-full bg-neutral-200;
+        @apply rounded w-full bg-neutral-200 h-1.5;
     }
 
     /* Color */
@@ -19,10 +19,6 @@
     
     .bcc-progress-container .bcc-form-label-lg .bcc-form-label-optional {
         @apply text-label-base;
-    }
-
-    .bcc-progress {
-        @apply h-1.5;
     }
 
     .bcc-progress-sm .bcc-progress {
