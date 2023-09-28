@@ -110,7 +110,7 @@ jobs:
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
       - name: Cache build outputs
-        uses: actions/cache@v3
+        uses: actions/cache/save@v3
         with:
           path: |
             design-library/dist
