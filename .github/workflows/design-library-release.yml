@@ -43,14 +43,19 @@ jobs:
         run: pnpm build
         working-directory: design-library/css-package
 
+      - name: Set release channel
+        run: |
+          echo "RELEASE_CHANNEL=$(npm run release-channel --silent)" >> $GITHUB_ENV
+        working-directory: design-library
+
       - name: Publish `@bcc-code/design-library-vue`
-        run: npm publish --tag latest
+        run: npm publish --tag ${{ env.RELEASE_CHANNEL }}
         working-directory: design-library
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish `@bcc-code/design-library`
-        run: npm publish ./css-package --tag latest
+        run: npm publish ./css-package --tag ${{ env.RELEASE_CHANNEL }}
         working-directory: design-library
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
