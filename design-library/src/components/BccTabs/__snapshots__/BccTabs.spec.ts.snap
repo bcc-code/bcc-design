@@ -4,18 +4,18 @@ exports[`BccTabs > renders three tabs 1`] = `
 "<button aria-hidden=\\"true\\" style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" type=\\"button\\"></button>
 <div class=\\"bcc-tabs\\">
   <div role=\\"tablist\\" aria-orientation=\\"horizontal\\" class=\\"bcc-tabs-bar bcc-tabs-bar--3\\">
-    <div class=\\"bcc-tabs-bar-item bcc-tabs-bar-item--active text-label-base\\" id=\\"headlessui-tabs-tab-1\\" role=\\"tab\\" aria-selected=\\"true\\" tabindex=\\"0\\">
+    <div class=\\"bcc-tabs-bar-item bcc-tabs-bar-item--active text-label\\" id=\\"headlessui-tabs-tab-1\\" role=\\"tab\\" aria-selected=\\"true\\" tabindex=\\"0\\">
       <div class=\\"bcc-tabs-bar-icon\\"><svg aria-hidden=\\"true\\" viewBox=\\"0 -960 960 960\\" fill=\\"currentColor\\">
           <path d=\\"M480-71.87q-84.913 0-159.345-32.117-74.432-32.118-129.491-87.177-55.059-55.059-87.177-129.491Q71.869-395.087 71.869-480t32.118-159.345q32.118-74.432 87.177-129.491 55.059-55.059 129.491-87.177Q395.087-888.131 480-888.131t159.345 32.118q74.432 32.118 129.491 87.177 55.059 55.059 87.177 129.491Q888.131-564.913 888.131-480t-32.118 159.345q-32.118 74.432-87.177 129.491-55.059 55.059-129.491 87.177Q564.913-71.869 480-71.869Zm0-91q133.043 0 225.087-92.043Q797.13-346.957 797.13-480t-92.043-225.087Q613.043-797.13 480-797.13t-225.087 92.043Q162.87-613.043 162.87-480t92.043 225.087Q346.957-162.87 480-162.87ZM480-480Z\\"></path>
         </svg></div> With icon
       <!--v-if-->
       <!--v-if-->
     </div>
-    <div class=\\"bcc-tabs-bar-item text-label-base\\" id=\\"headlessui-tabs-tab-2\\" role=\\"tab\\" aria-selected=\\"false\\" tabindex=\\"-1\\">
+    <div class=\\"bcc-tabs-bar-item text-label\\" id=\\"headlessui-tabs-tab-2\\" role=\\"tab\\" aria-selected=\\"false\\" tabindex=\\"-1\\">
       <!--v-if--> Using Component <div class=\\"bcc-pin bcc-pin-text bcc-tabs-item-right\\"><span>5</span></div>
       <!--v-if-->
     </div>
-    <div class=\\"bcc-tabs-bar-item bcc-tabs-bar-item--disabled text-label-base\\" disabled=\\"true\\" id=\\"headlessui-tabs-tab-3\\" role=\\"tab\\" aria-selected=\\"false\\" tabindex=\\"-1\\">
+    <div class=\\"bcc-tabs-bar-item bcc-tabs-bar-item--disabled text-label\\" disabled=\\"true\\" id=\\"headlessui-tabs-tab-3\\" role=\\"tab\\" aria-selected=\\"false\\" tabindex=\\"-1\\">
       <!--v-if--> Disabled badge
       <!--v-if-->
       <div class=\\"bcc-badge bcc-badge-info bcc-tabs-item-right\\" text=\\"new\\">

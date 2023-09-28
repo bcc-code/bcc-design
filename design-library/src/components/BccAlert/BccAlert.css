@@ -1,6 +1,6 @@
 @layer components {
     .bcc-alert {
-        @apply text-body-small relative px-4 py-3.5 rounded-md flex items-start gap-x-2.5 gap-y-1;
+        @apply text-body-sm relative px-4 py-3.5 rounded-md flex items-start gap-x-2.5 gap-y-1;
         /* Default info context */
         @apply bg-info text-info border border-info;
     }
@@ -34,7 +34,7 @@
 
     /* Title */
     .bcc-alert-title {
-        @apply text-heading-small;
+        @apply text-heading-sm;
     }
 
     /* Content */
