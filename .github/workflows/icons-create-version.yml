@@ -1,5 +1,5 @@
 name: Create New Icons Version
-run-name: Create new ${{ github.event.inputs.version }} icons version
+run-name: Create new ${{ github.event.inputs.version }} ${{ github.event.inputs.channel }} icons version
 
 on:
   workflow_dispatch:
@@ -40,8 +40,6 @@ jobs:
         with:
           node-version-file: icons/.node-version
           registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
-          cache-dependency-path: icons/pnpm-lock.yaml
 
       - name: Set commit author to bcc-bot
         run: |
