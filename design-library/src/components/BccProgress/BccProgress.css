@@ -14,7 +14,7 @@
 
     /* Size */
     .bcc-progress-container .bcc-form-label-lg .bcc-form-label-optional {
-        @apply text-label-base;
+        @apply text-label;
     }
 
     .bcc-progress-sm .bcc-progress {

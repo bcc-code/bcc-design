@@ -13,7 +13,7 @@
     }
 
     .bcc-banner-title {
-        @apply text-heading-base flex-1;
+        @apply text-heading flex-1;
     }
 
     .bcc-banner-close-button {

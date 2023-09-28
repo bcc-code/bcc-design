@@ -1,11 +1,11 @@
 @layer components {
     .bcc-form-label, .bcc-input-label {
-        @apply flex gap-2 justify-between items-end text-label-small text-primary;
+        @apply flex gap-2 justify-between items-end text-label-sm text-primary;
     }
 
     /* Size */
     .bcc-form-label-lg {
-        @apply text-label-base;
+        @apply text-label;
     }
 
     /* Optional */
