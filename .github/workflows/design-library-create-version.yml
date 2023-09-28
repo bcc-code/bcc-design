@@ -12,6 +12,13 @@ on:
           - minor
           - patch
         default: minor
+      channel:
+          description: Channel
+          type: choice
+          options:
+            - release
+            - beta
+          default: release
 
 env:
   CI: true
@@ -34,7 +41,7 @@ jobs:
           git config --global user.email "84040471+bcc-bot@users.noreply.github.com"
     
       - name: Version new ${{ github.event.inputs.version }} version
-        run: ./scripts/version.sh ${{ github.event.inputs.version }}
+        run: ./scripts/version.sh ${{ github.event.inputs.version }} ${{ github.event.inputs.channel }}
         working-directory: design-library
 
       - name: Push
