@@ -81,8 +81,12 @@ pnpm build
 ### Releasing a new version
 A new version can be released by running the [Create New Version](https://github.com/bcc-code/bcc-design/actions/workflows/design-library-create-version.yml) workflow from GitHub.
 This will update the version in the `package.json`, push a Git commit and tag, and create a new [release](https://github.com/bcc-code/bcc-design/releases) in GitHub.
-Maintainers can publish this release, after which the new version will be pushed to npm with the `latest` tag.
+Maintainers can publish this release, after which the new version will be pushed to npm.
 
+#### Beta release
+If the channel in the release workflow is set to `beta`, the release version will be tagged with beta. The first time the increment is taken into account, so a `major beta` release for `v1.8.0` will create `v2.0.0-beta.0`, and a `minor beta` will create `v1.9.0-beta.0`. Every subsequent `beta` release will ignore the version and just increase the beta number, until a new `release` version is created, which will release the beta version as-is, so a `major release` for `v2.0.0-beta.4` will release `v2.0.0`.
+
+#### Dev releases
 All commits to main will be released under the `dev` tag on npm, so they can be tested and installed immediately even if a new release hasn't come out.
 
 ## Tokens
