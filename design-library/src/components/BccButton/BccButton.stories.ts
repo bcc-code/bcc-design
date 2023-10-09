@@ -25,7 +25,7 @@ export default {
     iconRight: {
       description: "Whether the icon prop is rendered on the left or right side of the button",
     },
-    center: {
+    justifyContent: {
       description: "Whether text and icon are centered or at the opposing sides of the button",
     },
     is: {
@@ -63,7 +63,7 @@ Example.args = {
   size: "base",
   rounded: false,
   iconRight: false,
-  center: true,
+  justifyContent: false,
   disabled: false,
   is: "button",
   padding: true,
@@ -269,7 +269,7 @@ export const IconOnly: StoryFn<typeof BccButton> = () => ({
 });
 
 /**
- * Set the `center` prop to `false` (default is `true`) to justify the text and optionally icon of the button
+ * Set the `justifyContent` prop to `true` (default is `false`) to justify the text and optionally icon of the button
  */
 export const ContentPosition: StoryFn<typeof BccButton> = () => ({
   components: { BccButton },
@@ -288,13 +288,13 @@ export const ContentPosition: StoryFn<typeof BccButton> = () => ({
         Default text, icon right
       </BccButton>
       
-      <BccButton variant="primary" class="w-full" :center="false">
+      <BccButton variant="primary" class="w-full" justify-content>
         Non-centered text
       </BccButton>
-      <BccButton class="w-full" size="lg" variant="secondary" rounded disabled :center="false" :icon="ChevronLeftIcon">
+      <BccButton class="w-full" size="lg" variant="secondary" rounded disabled justify-content :icon="ChevronLeftIcon">
         Non-centered text, icon left
       </BccButton>
-      <BccButton class="w-full" size="lg" variant="secondary" icon-right :center="false" :icon="ChevronRightIcon">
+      <BccButton class="w-full" size="lg" variant="secondary" icon-right justify-content :icon="ChevronRightIcon">
         Non-centered text, icon right
       </BccButton>
     </div>
