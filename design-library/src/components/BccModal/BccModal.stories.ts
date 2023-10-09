@@ -1,6 +1,6 @@
-import BccModal from "./BccModal.vue";
-import BccButton from "../BccButton/BccButton.vue";
 import { CheckCircleFillIcon } from "@bcc-code/icons-vue";
+import BccButton from "../BccButton/BccButton.vue";
+import BccModal from "./BccModal.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -85,7 +85,7 @@ const ExtraSlotsTemplate: StoryFn<typeof BccModal> = (args) => ({
   template: `
     <BccModal v-bind="args" @close="args.open = false">
       <template #header>
-        <div class="text-heading-base flex items-center gap-2 text-success pb-2">
+        <div class="text-heading flex items-center gap-2 text-success pb-2">
           <CheckCircleFillIcon class="w-4 h-4" /> Success!
         </div>
 
@@ -137,7 +137,7 @@ ExtraSlots.parameters = {
   @close="showModal = false"
 >
   <template #header>
-    <div class="text-heading-base flex items-center gap-2 text-success pb-2">
+    <div class="text-heading flex items-center gap-2 text-success pb-2">
       <CheckCircleFillIcon class="w-4 h-4" /> Success!
     </div>
 

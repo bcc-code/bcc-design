@@ -1,6 +1,6 @@
 @layer components {
     .bcc-cookie-banner {
-        @apply mx-auto text-body-base flex flex-col justify-between gap-6 rounded-lg bg-white p-4 text-primary shadow-lg md:gap-8 md:flex-row max-w-7xl;
+        @apply mx-auto text-body flex flex-col justify-between gap-6 rounded-lg bg-white p-4 text-primary shadow-lg md:gap-8 md:flex-row max-w-7xl;
     }
 
     /* Overlay/Wrapper */
@@ -22,7 +22,7 @@
     }
 
     .bcc-cookie-banner-title {
-        @apply flex items-center gap-2 text-heading-medium;
+        @apply flex items-center gap-2 text-heading-lg;
     }
 
     .bcc-cookie-banner a {

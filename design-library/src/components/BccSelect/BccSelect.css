@@ -1,15 +1,15 @@
 @layer components {
     .bcc-select {
-        @apply w-full h-10 px-4 py-2 form-select text-body-small rounded-lg text-primary bg-primary border-on-primary focus:ring-0 focus:outline-2 focus:outline-emphasis focus:-outline-offset-1;
+        @apply w-full h-10 px-4 py-2 form-select text-body-sm rounded-lg text-primary bg-primary border-on-primary focus:ring-0 focus:outline-2 focus:outline-emphasis focus:-outline-offset-1;
         @apply disabled:bg-secondary disabled:text-tertiary disabled:cursor-not-allowed;
     }
 
     /* Size */
     .bcc-select-sm {
-        @apply h-8 text-body-small py-1;
+        @apply h-8 text-body-sm py-1;
     }
     .bcc-select-lg {
-        @apply h-14 text-body-base py-4;
+        @apply h-14 text-body py-4;
     }
 
     /* State */

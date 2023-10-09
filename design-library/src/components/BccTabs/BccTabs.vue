@@ -25,9 +25,9 @@ withDefaults(defineProps<Props>(), {
 });
 
 const sizes = {
-  sm: "bcc-tabs-sm text-label-small",
-  base: "text-label-base",
-  lg: "bcc-tabs-lg text-label-medium",
+  sm: "bcc-tabs-sm text-label-sm",
+  base: "text-label",
+  lg: "bcc-tabs-lg text-label-lg",
 };
 </script>
 

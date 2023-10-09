@@ -19,7 +19,7 @@
 
     /* Wrapper */
     .bcc-checkbox-wrapper {
-        @apply text-body-small inline-flex items-center gap-2 text-secondary;
+        @apply text-body-sm inline-flex items-center gap-2 text-secondary;
     }
     .bcc-checkbox-wrapper-disabled {
         @apply text-tertiary;
