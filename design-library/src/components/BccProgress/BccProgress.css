@@ -17,12 +17,16 @@
         @apply text-label-base;
     }
 
-    .bcc-progress-sm .bcc-progress {
+    .bcc-progress-xs .bcc-progress {
         @apply h-0.5;
     }
 
-    .bcc-progress-md .bcc-progress {
+    .bcc-progress-sm .bcc-progress {
         @apply h-1;
+    }
+
+    .bcc-progress-base .bcc-progress {
+        @apply h-1.5;
     }
 
     .bcc-progress-lg .bcc-progress {
