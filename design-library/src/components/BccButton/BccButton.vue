@@ -9,7 +9,7 @@ type Props = {
   size?: keyof typeof sizes;
   icon?: string | Component | Function;
   iconRight?: boolean;
-  center?: boolean;
+  justifyContent?: boolean;
   rounded?: boolean;
   disabled?: boolean;
   padding?: boolean;
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
   context: "default",
   size: "base",
   iconRight: false,
-  center: true,
+  justifyContent: false,
   rounded: false,
   disabled: false,
   padding: true,
@@ -63,7 +63,7 @@ const contexts = {
         'bcc-button-no-padding': !padding,
         'bcc-button-icon-only': iconOnly,
         'bcc-button-rounded': rounded,
-        'bcc-button-center': center,
+        'bcc-button-justify-content': justifyContent,
       },
     ]"
   >
