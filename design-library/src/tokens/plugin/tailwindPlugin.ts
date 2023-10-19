@@ -5,7 +5,7 @@ import formsPlugin from "@tailwindcss/forms";
 const tailwindPlugin = function ({ addBase, addComponents, theme }: any) {
   for (const [variableName, variableValue] of Object.entries(globalCssVariables)) {
     addBase({
-      ":root": {
+      ":root, :host": {
         [variableName]: variableValue,
       },
     });
