@@ -12,7 +12,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
-  ignorePatterns: ["**/*.config.cjs", "**/*.config.ts", "**/tokens/**/*.ts"],
+  ignorePatterns: ["**/*.config.cjs", "**/*.config.ts", "src/tokens/**/*.ts", "scripts/**/*.*"],
   rules: {
     "prettier/prettier": "error",
   },

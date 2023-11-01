@@ -2,7 +2,7 @@
   "name": "@bcc-code/design-library-vue",
   "repository": "https://github.com/bcc-code/bcc-design.git",
   "homepage": "https://developer.bcc.no/bcc-design/design-library/",
-  "version": "2.0.0",
+  "version": "2.0.0-beta.3",
   "type": "module",
   "license": "Apache-2.0",
   "files": [
@@ -46,7 +46,9 @@
     "lint:fix": "npm run lint -- --fix",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
-    "create-component": "node ./scripts/create-component.js"
+    "create-component": "node ./scripts/create-component.js",
+    "release-channel": "node ./scripts/release-channel.js",
+    "create-version": "node ./scripts/version.cjs"
   },
   "peerDependencies": {
     "tailwindcss": "^3.3.2",
@@ -82,7 +84,7 @@
     "eslint-plugin-vue": "^9.17.0",
     "jsdom": "^20.0.3",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.29",
+    "postcss": "^8.4.31",
     "postcss-import": "^15.1.0",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",

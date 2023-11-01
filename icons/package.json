@@ -11,7 +11,9 @@
         "build": "pnpm merge-icons && node ./scripts/build.js",
         "merge-icons": "rimraf icons && mkdir -pv ./icons && cp -R ./google-icons/* ./icons && cp -R ./custom-icons/* ./icons",
         "google-icons": "rimraf ./svg && node ./scripts/google-icons/download.mjs && pnpm optimise-google-icons",
-        "optimise-google-icons": "rimraf ./google-icons && svgo -f ./svg/rounded -o ./google-icons --pretty --indent=2"
+        "optimise-google-icons": "rimraf ./google-icons && svgo -f ./svg/rounded -o ./google-icons --pretty --indent=2",
+        "release-channel": "node ./scripts/release-channel.js",
+        "create-version": "node ./scripts/version.cjs"
     },
     "devDependencies": {
         "@vue/compiler-dom": "^3.0.5",
