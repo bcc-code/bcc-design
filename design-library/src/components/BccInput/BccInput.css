@@ -1,6 +1,6 @@
 @layer components {
     .bcc-input {
-        @apply w-full flex items-center min-h-[2.5rem] px-4 py-2 text-body-sm rounded-lg text-primary bg-primary border border-on-primary focus:outline-1 focus:outline-emphasis;
+        @apply w-full flex items-center min-h-[2.5rem] px-4 py-2 text-body sm:text-body-sm rounded-lg text-primary bg-primary border border-on-primary focus:outline-1 focus:outline-emphasis;
         @apply placeholder:text-tertiary;
         @apply disabled:bg-secondary disabled:text-tertiary disabled:cursor-not-allowed;
     }
