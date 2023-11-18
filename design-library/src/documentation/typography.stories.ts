@@ -5,7 +5,7 @@ export default {
 } as Meta;
 
 /**
- * These are the typography styles of the design system. Each class will automatically adapt to their desktop variant on the `sm` mobile breakpoint.
+ * These are the typography styles of the design system. Every line represents a class that is also styled according to that class (click 'Show code' to view the source).
  */
 export const Examples: StoryFn = () => ({
   template: `

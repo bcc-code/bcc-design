@@ -3,6 +3,9 @@ order: 25
 ---
 
 # Tokens
+::: tip
+View available color tokens [in Storybook](https://design-library.developer.bcc.no/?path=/docs/tokens-color--docs)
+:::
 
 Included in the components package are the design system tokens. At the moment these are primarily colors, such as `bg-primary` and `border-button-secondary`.
 
@@ -21,4 +24,6 @@ By default, tokens are using the `global` context. However, by setting the `data
 If your whole app should use the alternative colors, set the `data-context` attribute on the `html` or `body` elements.
 
 ## Available tokens
-There is currently no visual overview of all the tokens, but you can take a look at the source code of the components package to view both the [Tailwind utilities](https://github.com/bcc-code/bcc-design/tree/main/design-library/src/tokens/tailwind) and [CSS variables](https://github.com/bcc-code/bcc-design/tree/main/design-library/src/tokens/variables).
+In Storybook you can view the available [typography classes](https://design-library.developer.bcc.no/?path=/docs/tokens-typography--docs) and [color tokens](https://design-library.developer.bcc.no/?path=/docs/tokens-color--docs).
+
+To view all available CSS variables and tokens, view the source of the [Tailwind utilities](https://github.com/bcc-code/bcc-design/tree/main/design-library/src/tokens/tailwind) and [CSS variables](https://github.com/bcc-code/bcc-design/tree/main/design-library/src/tokens/variables).
