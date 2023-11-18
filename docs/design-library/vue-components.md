@@ -2,6 +2,9 @@
 order: 20
 ---
 # Vue components
+
+[[toc]]
+
 ::: tip
 View interactive examples of the components [in Storybook](https://design-library.developer.bcc.no)
 :::

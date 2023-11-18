@@ -2,11 +2,27 @@
 order: 10
 ---
 # CSS library
+
+[[toc]]
+
 ::: tip
 View interactive examples of the components [in Storybook](https://design-library.developer.bcc.no)
 :::
 
 For project that don't use Vue we offer a CSS library with classes for all the components. Note that some components might require JavaScript for interactive parts, which you would need to write yourself, although you could take inspiration from the [Vue source](https://github.com/bcc-code/bcc-design/tree/main/design-library/src/components).
+
+## Usage without npm
+We strongly recommend to use the `@bcc-code/design-library` npm package (see below). But in projects that lack a setup with npm, like for example WordPress, you can include the compiled CSS file from a CDN, for example from Unpkg:
+
+```
+https://unpkg.com/@bcc-code/design-library@latest/dist/style.css
+```
+
+Note that it's recommended to pin the version to a specific [version](https://github.com/bcc-code/bcc-design/releases) of the Vue components instead of the `latest` tag, because that might inadvertently update you to a new major version.
+
+::: warning HEADS UP
+This will just include the component classes and other design system tokens, and we therefore do recommend looking into a setup with npm and optionally Tailwind to easily apply all aspects of the design system to your interface.
+:::
 
 ## Installation and usage
 The `latest` tag is the recommended, most stable version of the library. It is also possible to install a `dev` version (swap `@latest` out for `@dev` in the examples below), which always points to the latest commit on the `main` branch. You can view unreleased components on the [dev Storybook](https://design-library-dev.developer.bcc.no).
