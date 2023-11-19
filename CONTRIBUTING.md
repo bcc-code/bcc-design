@@ -5,7 +5,7 @@ We welcome contributions from the community! In fact, large parts of the design 
 - [BCC Coding Guide](https://developer.bcc.no/guides/coding-guide.html)
 
 ### Did you find a bug?
-- If you found a **security vulnerability**, refer to our [security policy](https://developer.bcc.no/security/).
+- If you found a **security vulnerability**, refer to our [security policy](https://developer.bcc.no/security/index.html).
 - **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/bcc-code/bcc-design/issues).
 * If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/bcc-code/bcc-design/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** if applicable.
 
