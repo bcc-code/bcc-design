@@ -3,7 +3,7 @@
 exports[`BccModal > renders a modal 1`] = `
 "<anonymous-stub as=\\"template\\" show=\\"true\\" unmount=\\"true\\" appear=\\"false\\" enter=\\"\\" enterfrom=\\"\\" enterto=\\"\\" entered=\\"\\" leave=\\"\\" leavefrom=\\"\\" leaveto=\\"\\">
   <dialog-stub as=\\"div\\" static=\\"false\\" unmount=\\"true\\" open=\\"DC8F892D-2EBD-447C-A4C8-A03058436FF4\\" id=\\"headlessui-dialog-1\\" class=\\"bcc-modal-overlay-wrapper\\">
-    <div class=\\"flex h-screen w-screen items-center justify-center overflow-hidden\\">
+    <div class=\\"flex h-[100dvh] w-[100dvw] items-center justify-center overflow-hidden\\">
       <anonymous-stub as=\\"div\\" unmount=\\"true\\" appear=\\"false\\" enter=\\"ease-out duration-300\\" enterfrom=\\"opacity-0\\" enterto=\\"opacity-100\\" entered=\\"\\" leave=\\"ease-in duration-200\\" leavefrom=\\"opacity-100\\" leaveto=\\"opacity-0\\">
         <div class=\\"bcc-modal-overlay\\"></div>
       </anonymous-stub>
