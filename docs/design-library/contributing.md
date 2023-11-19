@@ -2,6 +2,10 @@
 order: 30
 ---
 # 🔑 Contributing Guide
+::: tip
+This guide is specifically for the design library, be sure to read the [design system contributing guide](https://github.com/bcc-code/bcc-design/blob/main/CONTRIBUTING.md) as well.
+:::
+
 Components are usually first implemented in Figma by a designer and can then be implemented as a Vue component by a developer.
 
 ## Goal of the component library
