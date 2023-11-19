@@ -5,8 +5,10 @@
 <p align="center">Packages, assets and documentation to use the BCC Design System in your products.</p>
 
 ## Links
-
 [Full documentation](https://developer.bcc.no/bcc-design)
+
+## Contributing
+Do you want to contribute to the libraries in this repository? Many parts of the design system are maintained by the community and we welcome your involvement! Read the [contributing guide](./CONTRIBUTING.md) to get started.
 
 ## Repository structure
 ### Main packages
