@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      rule-filter-validator:
+        specifier: ^1.5.5
+        version: 1.5.5
       tailwindcss:
         specifier: ^3.3.2
         version: 3.3.3
@@ -19,8 +22,8 @@ importers:
         specifier: ^7.22.11
         version: 7.22.11
       '@bcc-code/icons-vue':
-        specifier: ^1.2.0
-        version: 1.2.0(vue@3.3.4)
+        specifier: ^1.4.0
+        version: 1.4.0(vue@3.3.4)
       '@headlessui/vue':
         specifier: ^1.7.16
         version: 1.7.16(vue@3.3.4)
@@ -1525,8 +1528,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@bcc-code/icons-vue@1.2.0(vue@3.3.4):
-    resolution: {integrity: sha512-fGFkpW4i5ghnuio3jiASZUJFKeeVsQuQQ0ftrwbGVwyEv8l+K09BdmTJ1xt1QPFDC9lKhAA2FPSr5128kQfgxg==}
+  /@bcc-code/icons-vue@1.4.0(vue@3.3.4):
+    resolution: {integrity: sha512-11B9/9NbI3bvFM+5sbQEfyTSP1MiS3pJXBko1aOFXqqUSKE2Bo4uGQBNFO0+APsMPyFLSmuS7kLidNe7pxlBFQ==}
     peerDependencies:
       vue: '>= 3'
     dependencies:
@@ -3624,7 +3627,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.3.4
-      vue-component-type-helpers: 1.8.19
+      vue-component-type-helpers: 1.8.22
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -7351,6 +7354,10 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
+
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: true
@@ -8909,6 +8916,12 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /rule-filter-validator@1.5.5:
+    resolution: {integrity: sha512-EP3ckc6ygeC1LDar3vYYTg5bkuaB/DpWucrz+KZrA6LKCqvmi5kZRbmCBmuzpYLIcs+xQJmOfKPa97DaDr2nUw==}
+    dependencies:
+      lodash-es: 4.17.21
+    dev: false
+
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
@@ -10107,8 +10120,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /vue-component-type-helpers@1.8.19:
-    resolution: {integrity: sha512-1OANGSZK4pzHF4uc86usWi+o5Y0zgoDtqWkPg6Am6ot+jHSAmpOah59V/4N82So5xRgivgCxGgK09lBy1XNUfQ==}
+  /vue-component-type-helpers@1.8.22:
+    resolution: {integrity: sha512-LK3wJHs3vJxHG292C8cnsRusgyC5SEZDCzDCD01mdE/AoREFMl2tzLRuzwyuEsOIz13tqgBcnvysN3Lxsa14Fw==}
     dev: true
 
   /vue-component-type-helpers@1.8.4:
