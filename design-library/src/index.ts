@@ -31,3 +31,4 @@ export { default as BccToggle } from "./components/BccToggle/BccToggle.vue";
 export { default as BccBanner } from "./components/BccBanner/BccBanner.vue";
 export { default as BccSpinner } from "./components/BccSpinner/BccSpinner.vue";
 export { default as BccProgress } from "./components/BccProgress/BccProgress.vue";
+export { default as BccForm } from "./components/BccForm/BccForm.vue";
