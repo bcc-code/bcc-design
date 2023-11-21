@@ -8,7 +8,16 @@ export default {
   // Only include classes from .vue component files, not stories
   content: [
     "./src/**/*.vue",
-    "../src/**/*.vue", // This file is also used from the CSS package folder, paths are relative from there
+    "./src/documentation/typography.stories.ts",
+
+    // This file is also used from the CSS package folder, paths are relative from there
+    "../src/**/*.vue",
+    "../src/documentation/typography.stories.ts",
+  ],
+
+  // Do not purge these classes
+  safelist: [
+    { pattern: /^bcc-/ },
   ],
   
   // Do not use the style reset when compiling the CSS
