@@ -10,6 +10,16 @@ export default {
     "./src/**/*.vue",
     "../src/**/*.vue", // This file is also used from the CSS package folder, paths are relative from there
   ],
+
+  // Do not purge these classes
+  safelist: [
+    { pattern: /^bcc-/ },
+    { pattern: /^text-title/ },
+    { pattern: /^text-heading/ },
+    { pattern: /^text-body/ },
+    { pattern: /^text-label/ },
+    { pattern: /^text-caption/ }
+  ],
   
   // Do not use the style reset when compiling the CSS
   corePlugins: {
