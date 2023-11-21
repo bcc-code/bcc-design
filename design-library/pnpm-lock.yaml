@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      rule-filter-validator:
-        specifier: ^1.5.5
-        version: 1.5.5
       tailwindcss:
         specifier: ^3.3.2
         version: 3.3.3
@@ -7354,10 +7351,6 @@ packages:
       p-locate: 5.0.0
     dev: true
 
-  /lodash-es@4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: false
-
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: true
@@ -8915,12 +8908,6 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
-
-  /rule-filter-validator@1.5.5:
-    resolution: {integrity: sha512-EP3ckc6ygeC1LDar3vYYTg5bkuaB/DpWucrz+KZrA6LKCqvmi5kZRbmCBmuzpYLIcs+xQJmOfKPa97DaDr2nUw==}
-    dependencies:
-      lodash-es: 4.17.21
-    dev: false
 
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
