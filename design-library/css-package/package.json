@@ -2,7 +2,7 @@
   "name": "@bcc-code/design-library",
   "repository": "https://github.com/bcc-code/bcc-design.git",
   "homepage": "https://developer.bcc.no/bcc-design/design-library/",
-  "version": "2.0.0-beta.4",
+  "version": "2.0.0",
   "type": "module",
   "license": "Apache-2.0",
   "files": [
