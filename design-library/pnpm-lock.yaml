@@ -19,8 +19,8 @@ importers:
         specifier: ^7.22.11
         version: 7.22.11
       '@bcc-code/icons-vue':
-        specifier: ^1.2.0
-        version: 1.2.0(vue@3.3.4)
+        specifier: ^1.4.0
+        version: 1.4.0(vue@3.3.4)
       '@headlessui/vue':
         specifier: ^1.7.16
         version: 1.7.16(vue@3.3.4)
@@ -1525,8 +1525,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@bcc-code/icons-vue@1.2.0(vue@3.3.4):
-    resolution: {integrity: sha512-fGFkpW4i5ghnuio3jiASZUJFKeeVsQuQQ0ftrwbGVwyEv8l+K09BdmTJ1xt1QPFDC9lKhAA2FPSr5128kQfgxg==}
+  /@bcc-code/icons-vue@1.4.0(vue@3.3.4):
+    resolution: {integrity: sha512-11B9/9NbI3bvFM+5sbQEfyTSP1MiS3pJXBko1aOFXqqUSKE2Bo4uGQBNFO0+APsMPyFLSmuS7kLidNe7pxlBFQ==}
     peerDependencies:
       vue: '>= 3'
     dependencies:
@@ -3624,7 +3624,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.3.4
-      vue-component-type-helpers: 1.8.19
+      vue-component-type-helpers: 1.8.22
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -10107,8 +10107,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /vue-component-type-helpers@1.8.19:
-    resolution: {integrity: sha512-1OANGSZK4pzHF4uc86usWi+o5Y0zgoDtqWkPg6Am6ot+jHSAmpOah59V/4N82So5xRgivgCxGgK09lBy1XNUfQ==}
+  /vue-component-type-helpers@1.8.22:
+    resolution: {integrity: sha512-LK3wJHs3vJxHG292C8cnsRusgyC5SEZDCzDCD01mdE/AoREFMl2tzLRuzwyuEsOIz13tqgBcnvysN3Lxsa14Fw==}
     dev: true
 
   /vue-component-type-helpers@1.8.4:

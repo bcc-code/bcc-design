@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",
-    "@bcc-code/icons-vue": "^1.2.0",
+    "@bcc-code/icons-vue": "^1.4.0",
     "@headlessui/vue": "^1.7.16",
     "@rushstack/eslint-patch": "^1.3.3",
     "@storybook/addon-actions": "^7.4.2",
