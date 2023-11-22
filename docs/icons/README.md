@@ -4,10 +4,11 @@ sectionOrder: 50
 
 # BCC icons
 The icons used in the BCC design system are SVG icons based on [Material Symbols](https://fonts.google.com/icons).
+- Ensure settings are **Weight 400**, **Grade 0** and **Size 24**
 
 [![icons version](https://img.shields.io/npm/v/@bcc-code/icons/latest?label=%40bcc-code%2Ficons)](https://github.com/bcc-code/bcc-design/releases)
 
-## Usage
+## Usage via npm
 The `@bcc-code/icons` package contains raw SVG icons. You can install it from npm:
 <CodeGroup>
   <CodeGroupItem title="PNPM" active>
@@ -93,3 +94,12 @@ npm install @bcc-code/icons-vue@dev
 
   </CodeGroupItem>
 </CodeGroup>
+
+
+## Usage OTHER
+
+If you are not using npm or just need a few icons as svg you can either:
+
+- Copy and paste them as SVG from [Figma](https://www.figma.com/file/jtWn3ebee6bJnWpfZrJzq1/BCC-Foundation---Master?type=design&node-id=772-438&mode=dev)
+- Download the majority of icons from [Google Fonts](https://fonts.google.com/icons), BUT REMEMBER:
+  - Ensure settings are **Weight 400**, **Grade 0** and **Size 24**
