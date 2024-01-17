@@ -1,0 +1,11 @@
+@import "css/index.css";
+
+@config "../tailwind.wc.config.ts";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:host {
+  @apply font-sans;
+}
