@@ -58,7 +58,7 @@ function selectEmoji(emoji: EmojiStat) {
             </template>
           </TransitionGroup>
         </template>
-        <p v-else class="bcc-react-empty">
+        <p v-else-if="placeholder" class="bcc-react-empty">
           <KeyboardArrowLeftIcon class="mr-1 w-4" /> {{ placeholder }}
         </p>
       </div>
