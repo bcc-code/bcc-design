@@ -67,7 +67,14 @@ const contexts = {
       },
     ]"
   >
-    <component v-if="icon" :is="icon" class="bcc-button-icon order-2" />
-    <span v-if="$slots.default" :class="[iconRight ? 'order-1' : 'order-3']"><slot /></span>
+    <slot></slot>
+    <component
+      v-if="icon"
+      :is="icon"
+      class="bcc-button-icon"
+      :class="[iconRight ? 'order-2' : '-order-1']"
+    />
   </component>
 </template>
+
+<style></style>
