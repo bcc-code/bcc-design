@@ -8,6 +8,7 @@ import { backgroundColor } from "./backgroundColor";
 import { outlineColor } from "./outlineColor";
 import { ringColor } from "./ringColor";
 import type { Config } from "tailwindcss";
+import { animation, keyframes } from "./transitions";
 
 const bccForbundetTheme: Partial<Config> = {
   theme: {
@@ -21,6 +22,8 @@ const bccForbundetTheme: Partial<Config> = {
       backgroundColor,
       outlineColor,
       ringColor,
+      keyframes,
+      animation
     },
   },
 };
