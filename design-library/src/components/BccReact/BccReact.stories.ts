@@ -124,6 +124,7 @@ Example.parameters = {
 export const EmptyEmojis = Template.bind({});
 EmptyEmojis.args = {
   top: true,
+  placeholder: "No reactions yet",
   emojis: [
     {
       id: "thumbsup",

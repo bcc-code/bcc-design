@@ -23,11 +23,11 @@ watch(
 
 <template>
   <button
-    class="flex cursor-pointer items-center justify-center rounded-full p-1 text-2xl leading-none shadow transition-all hover:scale-105"
-    :class="[
-      selected ? 'bg-neutral-800 text-white' : 'bg-neutral-100 text-black',
-      { 'animate-wiggle': animate },
-    ]"
+    class="bcc-react-emoji-list-item"
+    :class="{
+      'bcc-react-emoji-list-item--selected': selected,
+      'animate-wiggle': animate,
+    }"
   >
     <span>{{ emoji }}</span>
     <span v-if="count && count > 1" class="mx-1 text-xs">{{ count }}</span>
