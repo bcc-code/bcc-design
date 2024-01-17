@@ -36,3 +36,32 @@
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 	transform: scaleY(0.4);
 }
+
+/* Scale */
+.bcc-scale-enter-active,
+.bcc-scale-leave-active {
+	transition: transform .6s ease, opacity .4s ease;
+}
+
+.bcc-scale-fast-enter-active,
+.bcc-scale-fast-leave-active {
+	transition: transform .3s ease, opacity .3s ease;
+}
+
+.bcc-scale-enter-from,
+.bcc-scale-leave-to,
+.bcc-scale-fast-enter-from,
+.bcc-scale-fast-leave-to {
+	@apply opacity-0 scale-0 shadow-lg;
+}
+
+/* Explode */
+.bcc-explode-enter-active,
+.bcc-explode-leave-active {
+	transition: transform .3s ease, opacity .2s ease;
+}
+
+.bcc-explode-enter-from,
+.bcc-explode-leave-to {
+	@apply scale-[200%] opacity-0;
+}
