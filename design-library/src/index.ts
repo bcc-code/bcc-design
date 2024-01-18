@@ -32,3 +32,8 @@ export { default as BccBanner } from "./components/BccBanner/BccBanner.vue";
 export { default as BccSpinner } from "./components/BccSpinner/BccSpinner.vue";
 export { default as BccProgress } from "./components/BccProgress/BccProgress.vue";
 export { default as BccReact } from "./components/BccReact/BccReact.vue";
+export { default as BccGraphic } from "./components/BccGraphic/BccGraphic.vue";
+export { default as BccHeader } from "./components/BccHeader/BccHeader.vue";
+export { default as BccInfo } from "./components/BccInfo/BccInfo.vue";
+export { default as BccItemTile } from "./components/BccItemTile/BccItemTile.vue";
+export { default as BccSelectionElement } from "./components/BccSelectionElement/BccSelectionElement.vue";
