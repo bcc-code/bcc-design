@@ -5,9 +5,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
 export default {
   title: "Components/BccSelectionElement",
   component: BccSelectionElement,
-  argTypes: {
-
-  },
+  argTypes: {},
 } as Meta<typeof BccSelectionElement>;
 
 const Template: StoryFn<typeof BccSelectionElement> = (args) => ({
@@ -16,11 +14,11 @@ const Template: StoryFn<typeof BccSelectionElement> = (args) => ({
     return { args };
   },
   template: `
-    <BccSelectionElement v-bind="args" />
+    <BccSelectionElement>Link to first page</BccSelectionElement>
+    <BccSelectionElement>Link to second page</BccSelectionElement>
+    <BccSelectionElement :isLast="true">Link to last page</BccSelectionElement>
   `,
 });
 
 export const Example = Template.bind({});
-Example.args = {
-
-};
+Example.args = {};

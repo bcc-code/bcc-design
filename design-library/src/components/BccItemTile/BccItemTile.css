@@ -1,5 +1,6 @@
 @layer components {
-    .bcc-itemtile {
-
-    }
+  .bcc-item-tile {
+    @apply h-full min-w-full p-2;
+    @apply rounded-lg border border-on-primary text-left shadow;
+  }
 }
