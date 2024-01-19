@@ -1,12 +1,20 @@
 <script setup lang="ts">
 type Props = {
-
+  overline?: string;
+  title?: string;
+  underline?: string;
 };
 
-withDefaults(defineProps<Props>(), {
-
-});
+withDefaults(defineProps<Props>(), {});
 </script>
 
 <template>
+  <div>
+    <p class="text-caption opacity-60">{{ overline }}</p>
+    <div class="flex items-center justify-between">
+      <h2 class="text-heading mb-0.5 truncate font-bold">{{ title }}</h2>
+      <slot name="infoRight" />
+    </div>
+    <p class="text-caption opacity-60">{{ underline }}</p>
+  </div>
 </template>
