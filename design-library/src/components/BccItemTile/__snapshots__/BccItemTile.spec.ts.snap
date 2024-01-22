@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccItemTile > renders info slot 1`] = `
+"<div class=\\"bcc-item-tile\\">
+  <div>
+    <p class=\\"text-caption truncate text-secondary\\"></p>
+    <h2 class=\\"text-heading truncate font-bold\\">Title</h2>
+  </div>
+  <p>Slot markup</p>
+</div>"
+`;
+
+exports[`BccItemTile > renders title and overline 1`] = `
+"<div class=\\"bcc-item-tile\\">
+  <div>
+    <p class=\\"text-caption truncate text-secondary\\">Overline</p>
+    <h2 class=\\"text-heading truncate font-bold\\">Title</h2>
+  </div>
+</div>"
+`;
