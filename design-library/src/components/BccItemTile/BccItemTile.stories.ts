@@ -34,13 +34,15 @@ export const WithInfoOnRight: StoryFn<typeof BccItemTile> = (args) => ({
     <div class="flex flex-col space-y-4">
       <BccItemTile v-bind="args">
         <template #infoRight>
-          <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
-            <Face2Icon class="h-4 w-4" />
-            <p class="truncate">12 Apr 2000</p>
-          </div>
-          <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
-            <Face2Icon class="h-4 w-4" />
-            <p class="truncate">13 Apr 2000</p>
+          <div>
+            <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
+              <Face2Icon class="h-4 w-4" />
+              <p class="truncate">12 Apr 2000</p>
+            </div>
+            <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
+              <Face2Icon class="h-4 w-4" />
+              <p class="truncate">13 Apr 2000</p>
+            </div>
           </div>
         </template>
       </BccItemTile>

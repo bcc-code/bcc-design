@@ -10,11 +10,11 @@ withDefaults(defineProps<Props>(), {});
 
 <template>
   <div>
-    <p class="text-caption opacity-60">{{ overline }}</p>
+    <p class="text-caption text-secondary">{{ overline }}</p>
     <div class="flex items-center justify-between">
       <h2 class="text-heading mb-0.5 truncate font-bold">{{ title }}</h2>
       <slot name="infoRight" />
     </div>
-    <p class="text-caption opacity-60">{{ underline }}</p>
+    <p class="text-caption text-secondary">{{ underline }}</p>
   </div>
 </template>

@@ -1,6 +1,7 @@
 @layer components {
   .bcc-item-tile {
-    @apply h-full min-w-full p-2;
+    height: 125px;
+    @apply flex min-w-full flex-col justify-between gap-y-4 px-3 py-2;
     @apply rounded-lg border border-on-primary text-left shadow;
   }
 }

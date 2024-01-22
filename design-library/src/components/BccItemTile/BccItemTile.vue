@@ -9,8 +9,10 @@ withDefaults(defineProps<Props>(), {});
 
 <template>
   <div class="bcc-item-tile">
-    <p class="text-caption opacity-60">{{ overline }}</p>
-    <h2 class="text-heading mb-0.5 truncate font-bold">{{ title }}</h2>
+    <div>
+      <p class="text-caption truncate text-secondary">{{ overline }}</p>
+      <h2 class="text-heading truncate font-bold">{{ title }}</h2>
+    </div>
     <slot name="infoRight" />
   </div>
 </template>
