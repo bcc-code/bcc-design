@@ -13,6 +13,6 @@ withDefaults(defineProps<Props>(), {});
       <p class="text-caption truncate text-secondary">{{ overline }}</p>
       <h2 class="text-heading truncate font-bold">{{ title }}</h2>
     </div>
-    <slot name="infoRight" />
+    <slot />
   </div>
 </template>

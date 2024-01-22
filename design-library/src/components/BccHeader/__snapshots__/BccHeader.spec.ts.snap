@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccHeader > renders all text 1`] = `
+"<div>
+  <p class=\\"text-caption text-secondary\\">Overline</p>
+  <div class=\\"flex items-center justify-between\\">
+    <h2 class=\\"text-heading mb-0.5 truncate font-bold\\">Title</h2>
+  </div>
+  <p class=\\"text-caption text-secondary\\">Underline</p>
+</div>"
+`;
+
+exports[`BccHeader > renders title 1`] = `
+"<div>
+  <p class=\\"text-caption text-secondary\\"></p>
+  <div class=\\"flex items-center justify-between\\">
+    <h2 class=\\"text-heading mb-0.5 truncate font-bold\\">Title</h2>
+  </div>
+  <p class=\\"text-caption text-secondary\\"></p>
+</div>"
+`;

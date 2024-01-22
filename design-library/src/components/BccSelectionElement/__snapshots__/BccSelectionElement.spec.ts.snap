@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccSelectionElement > renders 1`] = `
+"<div class=\\"border-secondary group flex w-full cursor-pointer justify-between border-b py-2\\"><label class=\\"text-label cursor-pointer font-bold\\"></label>
+  <div class=\\"pr-1.5 transition-all group-hover:pr-0\\"><svg aria-hidden=\\"true\\" viewBox=\\"0 -960 960 960\\" fill=\\"currentColor\\" class=\\"h-4 w-4\\">
+      <path d=\\"M647-440H200q-17 0-28.5-11.5T160-480q0-17 11.5-28.5T200-520h447L451-716q-12-12-11.5-28t12.5-28q12-11 28-11.5t28 11.5l264 264q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L508-188q-11 11-27.5 11T452-188q-12-12-12-28.5t12-28.5l195-195Z\\"></path>
+    </svg></div>
+</div>"
+`;
+
+exports[`BccSelectionElement > renders last element 1`] = `
+"<div class=\\"border-secondary group flex w-full cursor-pointer justify-between border-b py-2 border-none\\"><label class=\\"text-label cursor-pointer font-bold\\"></label>
+  <div class=\\"pr-1.5 transition-all group-hover:pr-0\\"><svg aria-hidden=\\"true\\" viewBox=\\"0 -960 960 960\\" fill=\\"currentColor\\" class=\\"h-4 w-4\\">
+      <path d=\\"M647-440H200q-17 0-28.5-11.5T160-480q0-17 11.5-28.5T200-520h447L451-716q-12-12-11.5-28t12.5-28q12-11 28-11.5t28 11.5l264 264q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L508-188q-11 11-27.5 11T452-188q-12-12-12-28.5t12-28.5l195-195Z\\"></path>
+    </svg></div>
+</div>"
+`;

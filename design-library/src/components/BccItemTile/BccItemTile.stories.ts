@@ -33,7 +33,6 @@ export const WithInfoOnRight: StoryFn<typeof BccItemTile> = (args) => ({
   template: `
     <div class="flex flex-col space-y-4">
       <BccItemTile v-bind="args">
-        <template #infoRight>
           <div>
             <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
               <Face2Icon class="h-4 w-4" />
@@ -44,7 +43,6 @@ export const WithInfoOnRight: StoryFn<typeof BccItemTile> = (args) => ({
               <p class="truncate">13 Apr 2000</p>
             </div>
           </div>
-        </template>
       </BccItemTile>
     </div>
   `,
