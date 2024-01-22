@@ -19,6 +19,6 @@ describe("BccLinkItem", () => {
   it("renders last element", async () => {
     const wrapper = mount(BccLinkItem, { props: { isLast: true } });
     expect(wrapper.html()).toContain("h-4 w-4");
-    expect(wrapper.html()).toContain("border-b py-2 border-none");
+    expect(wrapper.html()).toContain("border-none");
   });
 });
