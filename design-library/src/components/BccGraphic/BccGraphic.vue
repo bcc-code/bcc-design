@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { OpenInNewIcon, CheckCircleFillIcon } from "@bcc-code/icons-vue";
-import Poster from "./Poster.vue";
+import BccPoster from "./BccPoster.vue";
 
 type Props = {
   bannerSrc?: string;
@@ -21,6 +21,6 @@ withDefaults(defineProps<Props>(), {
       <OpenInNewIcon class="bcc-graphic-open-in-icon" />
     </div>
     <CheckCircleFillIcon class="bcc-graphic-check-icon" v-if="checked" />
-    <Poster :bannerSrc="bannerSrc" :logoSrc="logoSrc" :rounding="rounding" />
+    <BccPoster :bannerSrc="bannerSrc" :logoSrc="logoSrc" :rounding="rounding" />
   </div>
 </template>
