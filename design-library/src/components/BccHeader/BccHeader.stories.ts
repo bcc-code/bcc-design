@@ -9,15 +9,21 @@ export default {
 } as Meta<typeof BccHeader>;
 
 const Template: StoryFn<typeof BccHeader> = (args) => ({
-  components: { BccHeader },
+  components: { BccHeader, Face2Icon },
   setup() {
     return { args };
   },
   template: `
-    <BccHeader v-bind="args" />
+    <BccHeader v-bind="args">
+      <template #infoRight>
+        <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
+          <Face2Icon class="h-4 w-4" />
+          <p class="truncate">12 Apr 2000</p>
+        </div>
+      </template>
+    </BccHeader>
   `,
 });
-
 export const Example = Template.bind({});
 Example.args = {
   overline: "Overline",
@@ -25,14 +31,29 @@ Example.args = {
   underline: "Underline",
 };
 
-export const WithInfoOnRight: StoryFn<typeof BccHeader> = (args) => ({
+export const AllExamples: StoryFn<typeof BccHeader> = (args) => ({
   components: { BccHeader, Face2Icon },
   setup() {
     return { args };
   },
   template: `
-    <div class="flex flex-col space-y-4">
-      <BccHeader v-bind="args">
+    <div class="flex flex-col gap-y-4">
+      <BccHeader title="Title only" />
+      <div class="border-b"></div>
+      <BccHeader title="Title and overline" overline="Overline"/>
+      <div class="border-b"></div>
+      <BccHeader title="Title, overline and underline" overline="Overline" underline="Underline"/>
+      <div class="border-b"></div>
+      <BccHeader title="Title, overline and slot" overline="Overline">
+        <template #infoRight>
+          <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
+            <Face2Icon class="h-4 w-4" />
+            <p class="truncate">12 Apr 2000</p>
+          </div>
+        </template>
+      </BccHeader>
+      <div class="border-b"></div>
+      <BccHeader title="Title, overline,underline and slot" overline="Overline" underline="Underline">
         <template #infoRight>
           <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
             <Face2Icon class="h-4 w-4" />
@@ -43,9 +64,3 @@ export const WithInfoOnRight: StoryFn<typeof BccHeader> = (args) => ({
     </div>
   `,
 });
-
-WithInfoOnRight.args = {
-  overline: "Overline",
-  title: "Title",
-  underline: "Underline",
-};

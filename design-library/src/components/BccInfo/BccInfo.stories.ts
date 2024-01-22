@@ -10,12 +10,16 @@ export default {
 } as Meta<typeof BccInfo>;
 
 const Template: StoryFn<typeof BccInfo> = (args) => ({
-  components: { BccInfo },
+  components: { BccInfo, BccButton },
   setup() {
     return { args };
   },
   template: `
-    <BccInfo v-bind="args" />
+    <BccInfo v-bind="args">
+        <template #infoRight>
+        <BccButton size="sm">Button text</BccButton>
+      </template>
+    </BccInfo>
   `,
 });
 
@@ -23,24 +27,17 @@ export const Example = Template.bind({});
 Example.args = {
   title: "Title",
   infoText: "Info",
+  infoIcon: ClockLoader10Icon,
 };
 
-export const WithButton: StoryFn<typeof BccInfo> = (args) => ({
+export const BoringExample: StoryFn<typeof BccInfo> = (args) => ({
   components: { BccInfo, BccButton },
   setup() {
     return { args, ClockLoader10Icon };
   },
-  template: `
-    <div class="flex flex-col space-y-4">
-      <BccInfo v-bind="args" :infoIcon="ClockLoader10Icon">
-        <template #infoRight>
-          <BccButton size="sm">Button text</BccButton>
-        </template>
-      </BccInfo>
-    </div>
-  `,
+  template: `<BccInfo v-bind="args"/>`,
 });
-WithButton.args = {
+BoringExample.args = {
   title: "Title",
   infoText: "Info",
 };

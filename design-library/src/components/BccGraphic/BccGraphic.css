@@ -1,5 +1,5 @@
 @layer components {
-  .bcc-graphic-wrapper {
+  .bcc-graphic {
     @apply relative w-full cursor-pointer;
     @apply h-40 md:h-52 lg:h-72;
   }
@@ -12,10 +12,10 @@
   .bcc-graphic-open-in-icon {
     @apply h-4 w-4;
   }
-  .bcc-graphic-wrapper:hover .bcc-graphic-open-in {
+  .bcc-graphic:hover .bcc-graphic-open-in {
     @apply bg-gray-200;
   }
-  .bcc-graphic-wrapper:hover .bcc-graphic-check-icon {
+  .bcc-graphic:hover .bcc-graphic-check-icon {
     @apply text-gray-200;
   }
   .bcc-graphic-check-icon {

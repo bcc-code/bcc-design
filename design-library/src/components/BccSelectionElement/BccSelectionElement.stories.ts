@@ -16,7 +16,7 @@ const Template: StoryFn<typeof BccSelectionElement> = (args) => ({
   template: `
     <BccSelectionElement>Link to first page</BccSelectionElement>
     <BccSelectionElement>Link to second page</BccSelectionElement>
-    <BccSelectionElement :isLast="true">Link to last page</BccSelectionElement>
+    <BccSelectionElement :isLast="args.isLast ?? true">Link to last page</BccSelectionElement>
   `,
 });
 

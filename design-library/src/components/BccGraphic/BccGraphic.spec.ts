@@ -14,7 +14,9 @@ describe("BccGraphic", () => {
         logoSrc,
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.html()).toContain(`background-image: url(${bannerSrc});`);
+    expect(wrapper.html()).toContain(`src="${logoSrc}"`);
+    expect(wrapper.html()).toContain("border-radius: 12px;");
   });
 
   it("renders checked", async () => {
@@ -25,7 +27,8 @@ describe("BccGraphic", () => {
         checked: true,
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.html()).not.toContain("bcc-graphic-open-in-icon");
+    expect(wrapper.html()).toContain("bcc-graphic-check-icon");
   });
 
   it("renders link out", async () => {
@@ -36,7 +39,8 @@ describe("BccGraphic", () => {
         linkOut: true,
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.html()).toContain("bcc-graphic-open-in-icon");
+    expect(wrapper.html()).not.toContain("bcc-graphic-check-icon");
   });
 
   it("renders rounding", async () => {
@@ -46,6 +50,6 @@ describe("BccGraphic", () => {
         rounding: "md",
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.html()).toContain("border-radius: 6px;");
   });
 });
