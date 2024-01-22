@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest";
 
 import { mount } from "@vue/test-utils";
-import BccSelectionElement from "./BccSelectionElement.vue";
+import BccLinkItem from "./BccLinkItem.vue";
 
-describe("BccSelectionElement", () => {
+describe("BccLinkItem", () => {
   it("renders", async () => {
-    const wrapper = mount(BccSelectionElement, {
+    const wrapper = mount(BccLinkItem, {
       props: {},
       slots: {
         default: "Title..",
@@ -17,7 +17,7 @@ describe("BccSelectionElement", () => {
   });
 
   it("renders last element", async () => {
-    const wrapper = mount(BccSelectionElement, { props: { isLast: true } });
+    const wrapper = mount(BccLinkItem, { props: { isLast: true } });
     expect(wrapper.html()).toContain("h-4 w-4");
     expect(wrapper.html()).toContain("border-b py-2 border-none");
   });

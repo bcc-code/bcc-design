@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Component } from "vue";
 type Props = {
-  title?: string;
+  title: string;
   infoIcon?: Component;
   infoText?: string;
 };
@@ -10,12 +10,12 @@ withDefaults(defineProps<Props>(), {});
 </script>
 
 <template>
-  <div class="flex items-center justify-between">
+  <div class="bcc-info">
     <div>
-      <h4 class="truncate text-xs font-bold">{{ title }}</h4>
-      <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
+      <h4 class="bcc-info-title">{{ title }}</h4>
+      <div class="bcc-info-wrapper">
         <component :is="infoIcon" v-if="infoIcon" class="h-4 w-4" />
-        <p class="truncate">{{ infoText }}</p>
+        <p class="truncate" v-if="infoText">{{ infoText }}</p>
       </div>
     </div>
     <slot name="infoRight" />

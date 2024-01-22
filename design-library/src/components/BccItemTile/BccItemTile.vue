@@ -1,16 +1,15 @@
 <script setup lang="ts">
 type Props = {
+  title: string;
   overline?: string;
-  title?: string;
 };
-
-withDefaults(defineProps<Props>(), {});
+defineProps<Props>();
 </script>
 
 <template>
   <div class="bcc-item-tile">
     <div>
-      <p class="text-caption truncate text-secondary">{{ overline }}</p>
+      <p class="text-caption truncate text-secondary" v-if="overline">{{ overline }}</p>
       <h2 class="text-heading truncate font-bold">{{ title }}</h2>
     </div>
     <slot />
