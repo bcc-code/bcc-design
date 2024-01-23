@@ -13,7 +13,7 @@
     }
     
     .bcc-react-selector {
-        @apply absolute -left-1 z-50 flex items-center drop-shadow-md gap-1 rounded-full bg-neutral-100 px-1 dark:bg-neutral-600;
+        @apply absolute -left-1 z-50 flex items-center drop-shadow-md gap-1 rounded-full bg-neutral-100 px-1;
         /* Default --bottom */
         @apply top-11 origin-top-left;
     }
@@ -29,9 +29,9 @@
     .bcc-react-emoji-list-item {
         @apply flex cursor-pointer items-center justify-center rounded-full p-1 text-2xl leading-none drop-shadow transition-all hover:scale-105;
         /* Default --not-selected */
-        @apply text-black bg-neutral-100 dark:bg-neutral-800 dark:text-white;
+        @apply text-black bg-neutral-100;
     }
     .bcc-react-emoji-list-item--selected {
-        @apply bg-neutral-800 text-white dark:bg-polo-blue-800;
+        @apply bg-neutral-800 text-white;
     }
 }
