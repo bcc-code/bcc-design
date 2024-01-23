@@ -1,5 +1,5 @@
-// eslint-disable-next-line no-undef
-const fs = require("fs").promises;
+import fs from "fs/promises";
+import writeShadows from "./writeShadows.js";
 
 const semanticColors = ["success", "warning", "danger", "info", "emphasis"];
 let semanticTokens = {};
@@ -276,6 +276,7 @@ async function main() {
   await writeTextColors(figmaInput["alias tokens"]);
   await writeBorderColors(figmaInput["alias tokens"]);
   await writeBackgroundColors(figmaInput["alias tokens"]);
+  await writeShadows(figmaInput["alias tokens"]);
 
   await writeCssVariables();
 
