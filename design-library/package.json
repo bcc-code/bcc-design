@@ -39,7 +39,7 @@
     "test:unit:update-snapshots": "npm run test:unit -- -u",
     "build:vite": "rimraf dist && vite build",
     "build:css": "rimraf dist_css && mkdir -p dist_css/tailwind && node ./scripts/build-tailwind-css-files.js",
-    "build:tailwind": "node ./src/tokens/scripts/convertToTailwind.cjs",
+    "build:tailwind": "node ./src/tokens/scripts/convertToTailwind.js",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "build:types": "rimraf dist_types && vue-tsc --declaration --emitDeclarationOnly -p tsconfig.compile.json",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",

@@ -35,7 +35,7 @@ const Template: StoryFn<typeof BccReact> = (args) => ({
     },
   },
   template: `
-    <div class="h-16 flex items-center">
+    <div class="h-20 flex items-center">
       <BccReact v-bind="args" @toggle="onToggle" />
     </div>
   `,
