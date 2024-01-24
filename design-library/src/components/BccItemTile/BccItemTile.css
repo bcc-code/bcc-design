@@ -2,6 +2,12 @@
   .bcc-item-tile {
     height: 125px;
     @apply flex min-w-full flex-col justify-between gap-y-4 px-3 py-2;
-    @apply rounded-lg border border-on-primary text-left shadow;
+    @apply overflow-y-hidden rounded-lg border border-on-primary text-left shadow;
+  }
+  .bcc-item-tile-overline {
+    @apply text-caption truncate text-secondary;
+  }
+  .bcc-item-tile-title {
+    @apply text-heading truncate font-bold;
   }
 }

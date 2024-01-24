@@ -8,4 +8,7 @@
   .bcc-info-wrapper {
     @apply text-caption-sm flex items-center gap-x-1 text-tertiary;
   }
+  .bcc-info-icon {
+    @apply h-4 w-4;
+  }
 }

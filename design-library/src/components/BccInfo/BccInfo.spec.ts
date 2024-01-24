@@ -1,23 +1,23 @@
 import { CheckCircleIcon } from "@bcc-code/icons-vue";
 import { describe, it, expect } from "vitest";
-
+import { ClockLoader10Icon } from "@bcc-code/icons-vue";
 import { mount } from "@vue/test-utils";
 import BccInfo from "./BccInfo.vue";
 
 describe("BccInfo", () => {
   it("renders title", async () => {
     const wrapper = mount(BccInfo, { props: { title: "Title" } });
-    expect(wrapper.html()).toContain("Title</h4>");
-    expect(wrapper.html()).not.toContain("h-4 w-4");
+    expect(wrapper.text()).toContain("Title");
+    expect(wrapper.findComponent(CheckCircleIcon)).exist.toBe(false);
   });
 
   it("renders icon and text", async () => {
     const wrapper = mount(BccInfo, {
       props: { title: "Title", infoIcon: CheckCircleIcon, infoText: "Info text" },
     });
-    expect(wrapper.html()).toContain("Title</h4>");
-    expect(wrapper.html()).toContain("h-4 w-4");
-    expect(wrapper.html()).toContain("Info text</p>");
+    expect(wrapper.text()).toContain("Title");
+    expect(wrapper.findComponent(CheckCircleIcon)).exist.toBe(true);
+    expect(wrapper.text()).toContain("Info text");
   });
 
   it("renders info slot", async () => {
@@ -27,8 +27,8 @@ describe("BccInfo", () => {
         infoRight: "<p>Info right</p>",
       },
     });
-    expect(wrapper.html()).toContain("Title</h4>");
-    expect(wrapper.html()).toContain("<p>Info right</p>");
-    expect(wrapper.html()).not.toContain("h-4 w-4");
+    expect(wrapper.text()).toContain("Title");
+    expect(wrapper.text()).toContain("Info right");
+    expect(wrapper.findComponent(ClockLoader10Icon)).exist.toBe(false);
   });
 });

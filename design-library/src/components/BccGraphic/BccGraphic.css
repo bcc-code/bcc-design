@@ -24,6 +24,6 @@
 
   .bcc-graphic-poster {
     @apply flex h-full w-full items-center justify-center;
-    @apply rounded-lg bg-gradient-to-tr from-brand-500 to-brand-600 bg-cover bg-center;
+    @apply rounded-xl bg-gradient-to-tr from-brand-500 to-brand-600 bg-cover bg-center;
   }
 }

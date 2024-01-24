@@ -55,6 +55,14 @@ export const AllExamples: StoryFn<typeof BccItemTile> = (args) => ({
           </div>
           <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
             <Face2Icon class="h-4 w-4" />
+            <p class="truncate">13 Apr 2000, 13 Apr 2000, 13 Apr 2000, 13 Apr 2000, 13 Apr 2000, 13 Apr 2000,</p>
+          </div>
+          <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
+            <Face2Icon class="h-4 w-4" />
+            <p class="truncate">13 Apr 2000</p>
+          </div>
+          <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
+            <Face2Icon class="h-4 w-4" />
             <p class="truncate">13 Apr 2000</p>
           </div>
         </div>

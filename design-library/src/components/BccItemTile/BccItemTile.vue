@@ -9,8 +9,8 @@ defineProps<Props>();
 <template>
   <div class="bcc-item-tile">
     <div>
-      <p class="text-caption truncate text-secondary" v-if="overline">{{ overline }}</p>
-      <h2 class="text-heading truncate font-bold">{{ title }}</h2>
+      <p class="bcc-item-tile-overline" v-if="overline">{{ overline }}</p>
+      <h2 class="bcc-item-tile-title">{{ title }}</h2>
     </div>
     <slot />
   </div>

@@ -8,4 +8,7 @@
   .bcc-link-item-arrow {
     @apply pr-1.5 transition-all;
   }
+  .bcc-link-item-icon {
+    @apply h-4 w-4;
+  }
 }
