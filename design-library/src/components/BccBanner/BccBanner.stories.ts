@@ -8,7 +8,7 @@ import BccBanner from "./BccBanner.vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccBanner",
+  title: "Other/BccBanner",
   component: BccBanner,
   argTypes: {
     variant: {

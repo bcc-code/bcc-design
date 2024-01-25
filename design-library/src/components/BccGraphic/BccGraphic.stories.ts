@@ -3,7 +3,7 @@ import BccGraphic from "./BccGraphic.vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccGraphic",
+  title: "Widgets/BccGraphic",
   component: BccGraphic,
   argTypes: {
     rounding: {

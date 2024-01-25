@@ -6,7 +6,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * A `progress` element supporting current and max values
  */
 export default {
-  title: "Components/BccProgress",
+  title: "Common/BccProgress",
   component: BccProgress,
   argTypes: {
     value: {

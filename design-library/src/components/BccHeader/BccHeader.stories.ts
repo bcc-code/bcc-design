@@ -3,7 +3,7 @@ import { Face2Icon } from "@bcc-code/icons-vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccHeader",
+  title: "Widgets/BccHeader",
   component: BccHeader,
   argTypes: {},
 } as Meta<typeof BccHeader>;

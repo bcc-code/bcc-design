@@ -6,7 +6,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * Render multiple of these in sequence to render a list styled links
  */
 export default {
-  title: "Components/BccLinkItem",
+  title: "Widgets/BccLinkItem",
   component: BccLinkItem,
   argTypes: {},
 } as Meta<typeof BccLinkItem>;

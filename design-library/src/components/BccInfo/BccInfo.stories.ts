@@ -4,7 +4,7 @@ import { ClockLoader10Icon } from "@bcc-code/icons-vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccInfo",
+  title: "Widgets/BccInfo",
   component: BccInfo,
   argTypes: {},
 } as Meta<typeof BccInfo>;

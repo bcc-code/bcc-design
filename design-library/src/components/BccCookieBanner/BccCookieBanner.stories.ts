@@ -7,7 +7,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * A cookie banner with an accept and decline button. Emits `decline` and `accept` events when the buttons are clicked.
  */
 export default {
-  title: "Components/BccCookieBanner",
+  title: "Other/BccCookieBanner",
   component: BccCookieBanner,
   argTypes: {
     showOverlay: {

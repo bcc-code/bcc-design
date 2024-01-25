@@ -65,7 +65,7 @@ async function createStoryFile(componentName) {
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/${componentName}",
+  title: "Other/${componentName}",
   component: ${componentName},
   argTypes: {
 

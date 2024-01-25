@@ -4,7 +4,7 @@ import BccItemTile from "./BccItemTile.vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccItemTile",
+  title: "Widgets/BccItemTile",
   component: BccItemTile,
   argTypes: {},
 } as Meta<typeof BccItemTile>;

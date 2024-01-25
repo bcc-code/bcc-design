@@ -5,7 +5,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
 import { Face2Icon } from "@bcc-code/icons-vue";
 
 export default {
-  title: "Components/BccAlert",
+  title: "Common/BccAlert",
   component: BccAlert,
   argTypes: {
     context: {

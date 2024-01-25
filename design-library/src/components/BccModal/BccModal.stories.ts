@@ -8,7 +8,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * A versatile modal component. Be sure to read the [guidelines](https://bccit.notion.site/Modals-e79ddadb127d4ff6aa6650379132d09a) on how to use this component.
  */
 export default {
-  title: "Components/BccModal",
+  title: "Common/BccModal",
   component: BccModal,
   argTypes: {},
 } as Meta<typeof BccModal>;

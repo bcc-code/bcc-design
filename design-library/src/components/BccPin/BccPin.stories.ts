@@ -7,7 +7,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * A companion to the badge component, to render just an icon or a number like "42" or a counter like "4/10". See the `BccBadge` component for a larger, differently styled version to be used with text.
  */
 export default {
-  title: "Components/BccPin",
+  title: "Other/BccPin",
   component: BccPin,
   argTypes: {
     context: {

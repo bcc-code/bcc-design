@@ -6,7 +6,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * Show the remaining capacity, for example for activities. Pairs well with the `StatusIndicator` for more custom status states
  */
 export default {
-  title: "Components/BccCapacityIndicator",
+  title: "Other/BccCapacityIndicator",
   component: BccCapacityIndicator,
   argTypes: {
     total: {
