@@ -32,7 +32,7 @@ In some cases, it might be needed to set which control type Storybook will show.
 
 ```ts{5-9}
 export default {
-  title: "Components/BccButton",
+  title: "Common/BccButton",
   component: BccButton,
   argTypes: {
     variant: {
@@ -121,4 +121,27 @@ export const Disabled: StoryFn<typeof BccButton> = () => ({
     </div>
   `,
 });
+```
+
+## Common errors
+### Passing icon as a prop
+It's common that a component has an icon prop that can be passed as component instance. Doing this directly in the Storybook story will lead to an error in Storybook when viewing the code, even though the story will render:
+```ts
+Example.args = {
+  // ❌ Don't do this
+  icon: SearchIcon,
+};
+```
+
+Instead, return the icon in the `setup()` method of the story, and set the prop manually:
+
+```ts
+const Template: StoryFn<...> = (args) => ({
+  setup() {
+    // ✅ Return component in setup
+    return { args, SearchIcon };
+  },
+  // ✅ Set prop directly on the story
+  template: `
+    <BccButton v-bind="args" :icon="SearchIcon">
 ```
