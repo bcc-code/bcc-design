@@ -2,6 +2,9 @@ import BccLinkItem from "./BccLinkItem.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
+/**
+ * Render multiple of these in sequence to render a list styled links
+ */
 export default {
   title: "Components/BccLinkItem",
   component: BccLinkItem,
@@ -16,7 +19,7 @@ const Template: StoryFn<typeof BccLinkItem> = (args) => ({
   template: `
     <BccLinkItem>Link to first page</BccLinkItem>
     <BccLinkItem>Link to second page</BccLinkItem>
-    <BccLinkItem :isLast="args.isLast ?? true">Link to last page</BccLinkItem>
+    <BccLinkItem>Link to last page</BccLinkItem>
   `,
 });
 
