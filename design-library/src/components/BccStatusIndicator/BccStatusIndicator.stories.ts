@@ -7,7 +7,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * A status indicator icon that pairs well with the `CapacityIndicator`
  */
 export default {
-  title: "Components/BccStatusIndicator",
+  title: "Other/BccStatusIndicator",
   component: BccStatusIndicator,
   argTypes: {
     status: {

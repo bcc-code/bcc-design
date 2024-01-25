@@ -9,7 +9,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
  * A versatile table with built-in sorting.
  */
 export default {
-  title: "Components/BccTable",
+  title: "Common/BccTable",
   component: BccTable,
   argTypes: {
     sortDirection: {

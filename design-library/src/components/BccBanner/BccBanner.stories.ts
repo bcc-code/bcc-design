@@ -8,7 +8,7 @@ import BccBanner from "./BccBanner.vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccBanner",
+  title: "Other/BccBanner",
   component: BccBanner,
   argTypes: {
     variant: {
@@ -75,4 +75,24 @@ Example.args = {
       },
     },
   ],
+};
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccBanner
+  :icon="BccFillIcon"
+  title="Banner title"
+  open
+  closeOnAction
+  @close="close"
+  :actions="actions"
+>
+   <small>SLOTTED CONTENT</small>
+   <p>Welcome to the jungle. Hope you have fun!</p>
+</BccBanner>
+    `,
+    },
+  },
 };

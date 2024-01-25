@@ -3,7 +3,7 @@ import BccReact from "./BccReact.vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccReact",
+  title: "Other/BccReact",
   component: BccReact,
   argTypes: {},
 } as Meta<typeof BccReact>;

@@ -11,7 +11,7 @@ import type { Meta, StoryFn } from "@storybook/vue3";
 import { h } from "vue";
 
 export default {
-  title: "Components/BccTabs",
+  title: "Common/BccTabs",
   component: BccTabs,
   argTypes: {
     tabs: {

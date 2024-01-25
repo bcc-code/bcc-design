@@ -3,7 +3,7 @@ import BccSpinner from "./BccSpinner.vue";
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Components/BccSpinner",
+  title: "Other/BccSpinner",
   component: BccSpinner,
   argTypes: {
     size: {
