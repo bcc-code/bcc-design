@@ -30,6 +30,23 @@ Example.args = {
   title: "Title",
   underline: "Underline",
 };
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccHeader title="Title" overline="Overline" underline="Underline">
+  <template #infoRight>
+    <div class="...">
+      <Face2Icon class="h-4 w-4" />
+      <p class="truncate">12 Apr 2000</p>
+    </div>
+  </template>
+</BccHeader>
+    `,
+    },
+  },
+};
 
 export const AllExamples: StoryFn<typeof BccHeader> = (args) => ({
   components: { BccHeader, Face2Icon },
