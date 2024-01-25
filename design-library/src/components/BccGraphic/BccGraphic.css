@@ -24,6 +24,13 @@
 
   .bcc-graphic-poster {
     @apply flex h-full w-full items-center justify-center;
-    @apply rounded-xl bg-gradient-to-tr from-brand-500 to-brand-600 bg-cover bg-center;
+    @apply  bg-gradient-to-tr from-brand-500 to-brand-600 bg-cover bg-center;
+    /* Default rounding */
+    @apply rounded-xl;
+  }
+
+  /* Rounding */
+  .bcc-graphic-poster-rounding-md {
+    @apply rounded-md;
   }
 }

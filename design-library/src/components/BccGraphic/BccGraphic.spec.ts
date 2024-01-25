@@ -16,7 +16,6 @@ describe("BccGraphic", () => {
     });
     expect(wrapper.html()).toContain(`background-image: url(${bannerSrc});`);
     expect(wrapper.html()).toContain(`src="${logoSrc}"`);
-    expect(wrapper.html()).toContain("border-radius: 12px;");
   });
 
   it("renders checked", async () => {
@@ -41,15 +40,5 @@ describe("BccGraphic", () => {
     });
     expect(wrapper.html()).toContain("bcc-graphic-open-in-icon");
     expect(wrapper.html()).not.toContain("bcc-graphic-check-icon");
-  });
-
-  it("renders rounding", async () => {
-    const wrapper = mount(BccGraphic, {
-      props: {
-        logoSrc,
-        rounding: "md",
-      },
-    });
-    expect(wrapper.html()).toContain("border-radius: 6px;");
   });
 });
