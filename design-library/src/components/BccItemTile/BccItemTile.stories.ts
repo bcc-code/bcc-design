@@ -35,38 +35,35 @@ Example.args = {
   title: "Title",
   overline: "Overline",
 };
-
-export const AllExamples: StoryFn<typeof BccItemTile> = (args) => ({
-  components: { BccItemTile, Face2Icon },
-  setup() {
-    return { args };
-  },
-  template: `
-    <div class="flex flex-col space-y-4">
-      <BccItemTile title="Title only"/>
-      <div class="border-b"></div>
-      <BccItemTile title="Title, overline" overline="Overline"/>
-      <div class="border-b"></div>
-      <BccItemTile title="Title, overline and content" overline="Overline">
-        <div>
-          <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
-            <Face2Icon class="h-4 w-4" />
-            <p class="truncate">12 Apr 2000</p>
-          </div>
-          <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
-            <Face2Icon class="h-4 w-4" />
-            <p class="truncate">13 Apr 2000, 13 Apr 2000, 13 Apr 2000, 13 Apr 2000, 13 Apr 2000, 13 Apr 2000,</p>
-          </div>
-          <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
-            <Face2Icon class="h-4 w-4" />
-            <p class="truncate">13 Apr 2000</p>
-          </div>
-          <div class="text-caption-sm flex items-center gap-x-1 text-tertiary">
-            <Face2Icon class="h-4 w-4" />
-            <p class="truncate">13 Apr 2000</p>
-          </div>
-        </div>
-      </BccItemTile>
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccItemTile title="Title" overline="Overline">
+  <div>
+    <div class="...">
+      <Face2Icon class="h-4 w-4" />
+      <p class="truncate">12 Apr 2000</p>
     </div>
+    ...
+  </div>
+</BccItemTile>
+    `,
+    },
+  },
+};
+
+export const OnlyTitle: StoryFn<typeof BccItemTile> = () => ({
+  components: { BccItemTile },
+  template: `
+    <BccItemTile title="Title only"/>
+  `,
+});
+
+export const TitleWithOverline: StoryFn<typeof BccItemTile> = () => ({
+  components: { BccItemTile },
+  template: `
+    <BccItemTile title="Title" overline="Overline" />
   `,
 });
