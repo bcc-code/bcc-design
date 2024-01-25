@@ -76,3 +76,23 @@ Example.args = {
     },
   ],
 };
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccBanner
+  :icon="BccFillIcon"
+  title="Banner title"
+  open
+  closeOnAction
+  @close="close"
+  :actions="actions"
+>
+   <small>SLOTTED CONTENT</small>
+   <p>Welcome to the jungle. Hope you have fun!</p>
+</BccBanner>
+    `,
+    },
+  },
+};

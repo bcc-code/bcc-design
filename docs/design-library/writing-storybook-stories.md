@@ -145,3 +145,5 @@ const Template: StoryFn<...> = (args) => ({
   template: `
     <BccButton v-bind="args" :icon="SearchIcon">
 ```
+
+Alternatively, add a custom code example to the story, as this will bypass Storybook's code rendering feature.
