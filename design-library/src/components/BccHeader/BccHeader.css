@@ -1,0 +1,14 @@
+@layer components {
+  .bcc-header-overline {
+    @apply text-caption text-secondary;
+  }
+  .bcc-header-underline {
+    @apply text-caption text-secondary;
+  }
+  .bcc-header-title-wrapper {
+    @apply flex items-center justify-between;
+  }
+  .bcc-header-title {
+    @apply text-heading mb-0.5 truncate font-bold;
+  }
+}

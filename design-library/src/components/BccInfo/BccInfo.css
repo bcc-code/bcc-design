@@ -1,0 +1,14 @@
+@layer components {
+  .bcc-info {
+    @apply flex items-center justify-between;
+  }
+  .bcc-info-title {
+    @apply truncate text-xs font-bold;
+  }
+  .bcc-info-wrapper {
+    @apply text-caption-sm flex items-center gap-x-1 text-tertiary;
+  }
+  .bcc-info-icon {
+    @apply h-4 w-4;
+  }
+}

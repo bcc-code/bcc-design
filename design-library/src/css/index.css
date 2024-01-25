@@ -25,3 +25,8 @@
 @import "../components/BccBanner/BccBanner.css";
 @import "../components/BccSpinner/BccSpinner.css";
 @import "../components/BccReact/BccReact.css";
+@import "../components/BccGraphic/BccGraphic.css";
+@import "../components/BccHeader/BccHeader.css";
+@import "../components/BccInfo/BccInfo.css";
+@import "../components/BccItemTile/BccItemTile.css";
+@import "../components/BccLinkItem/BccLinkItem.css";

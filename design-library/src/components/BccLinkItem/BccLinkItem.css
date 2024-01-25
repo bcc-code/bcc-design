@@ -1,0 +1,20 @@
+@layer components {
+  .bcc-link-item {
+    @apply flex w-full cursor-pointer justify-between py-2;
+  }
+  .bcc-link-item + .bcc-link-item {
+    @apply border-t;
+  }
+
+  .bcc-link-item-label {
+    @apply text-label cursor-pointer font-bold;
+  }
+
+  .bcc-link-item-arrow {
+    @apply pr-1.5 transition-all;
+  }
+
+  .bcc-link-item-icon {
+    @apply h-4 w-4;
+  }
+}
