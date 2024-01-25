@@ -12,11 +12,11 @@ export default {
 const Template: StoryFn<typeof BccInfo> = (args) => ({
   components: { BccInfo, BccButton },
   setup() {
-    return { args };
+    return { args, ClockLoader10Icon };
   },
   template: `
-    <BccInfo v-bind="args">
-        <template #infoRight>
+    <BccInfo v-bind="args" :infoIcon="ClockLoader10Icon">
+      <template #infoRight>
         <BccButton size="sm">Button text</BccButton>
       </template>
     </BccInfo>
@@ -27,17 +27,25 @@ export const Example = Template.bind({});
 Example.args = {
   title: "Title",
   infoText: "Info",
-  infoIcon: ClockLoader10Icon,
+};
+Example.parameters = {
+  docs: {
+    source: {
+      language: "html",
+      code: `
+<BccInfo title="Title" infoText="info" :icon="ClockLoader10Icon">
+  <template #infoRight>
+    <BccButton size="sm">Button text</BccButton>
+  </template>
+</BccInfo>
+    `,
+    },
+  },
 };
 
-export const BoringExample: StoryFn<typeof BccInfo> = (args) => ({
-  components: { BccInfo, BccButton },
-  setup() {
-    return { args, ClockLoader10Icon };
-  },
-  template: `<BccInfo v-bind="args"/>`,
+export const OnlyTitleAndText: StoryFn<typeof BccInfo> = () => ({
+  components: { BccInfo },
+  template: `
+    <BccInfo title="Title" infoText="Info" />
+  `,
 });
-BoringExample.args = {
-  title: "Title",
-  infoText: "Info",
-};

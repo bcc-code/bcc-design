@@ -50,9 +50,7 @@ Example.parameters = {
 export const Default: StoryFn<typeof BccGraphic> = () => ({
   components: { BccGraphic },
   template: `
-    <div class="flex items-start gap-x-2">
-      <BccGraphic>
-    </div>
+    <BccGraphic />
   `,
 });
 
@@ -62,9 +60,7 @@ export const Default: StoryFn<typeof BccGraphic> = () => ({
 export const WithLinkOut: StoryFn<typeof BccGraphic> = () => ({
   components: { BccGraphic },
   template: `
-    <div class="flex items-start gap-x-2">
-      <BccGraphic linkOut>
-    </div>
+    <BccGraphic linkOut />
   `,
 });
 
@@ -74,8 +70,6 @@ export const WithLinkOut: StoryFn<typeof BccGraphic> = () => ({
 export const Checked: StoryFn<typeof BccGraphic> = () => ({
   components: { BccGraphic },
   template: `
-    <div class="flex items-start gap-x-2">
-      <BccGraphic checked>
-    </div>
+    <BccGraphic checked />
   `,
 });

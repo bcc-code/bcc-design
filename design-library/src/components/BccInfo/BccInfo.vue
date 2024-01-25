@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import type { Component } from "vue";
+
 type Props = {
   title: string;
   infoIcon?: Component | Function;
   infoText?: string;
 };
 
-withDefaults(defineProps<Props>(), {});
+defineProps<Props>();
 </script>
 
 <template>
