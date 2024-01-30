@@ -126,7 +126,6 @@ function sort(column: Column) {
               {{ getField(item, column.key) }}
             </span>
           </td>
-          <td></td>
         </tr>
       </tbody>
     </table>
