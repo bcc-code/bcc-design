@@ -49,6 +49,8 @@ const statusSort = (a, b) => {
  * Pass a slot to the table named `item.<column key>` to control the rendering. In this example both for `status` and `actions` a custom table cell is rendered. This slot is a [scoped slot](https://vuejs.org/guide/components/slots.html#scoped-slots) and receives the current `item` as a slot prop.
  *
  * Columns are sortable by default, set `sortable: false` on a column to disable sorting. Set a `sortMethod` on a column to have a custom sort method, handy when that particular column isn't something that can be sorted alphabetically or numerically by default (note that our example on the status column here only works with ascending sort due to Storybook limitations).
+ *
+ * Note: This example uses the [shorthand notation](https://vuejs.org/guide/components/slots.html#named-slots) for the slots. If you're using the default Vue ESLint setup, this might lead to the error "'v-slot' directive doesn't support any modifier". In this case either convert to [v-slot notation](https://stackoverflow.com/a/64609434) or [allow modifiers](https://eslint.vuejs.org/rules/valid-v-slot.html#options) in your ESLint config.
  */
 export const Example = Template.bind({});
 Example.args = {
