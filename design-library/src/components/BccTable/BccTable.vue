@@ -86,6 +86,7 @@ function sort(column: Column) {
       <thead>
         <tr class="bcc-table-header-row">
           <th
+            scope="col"
             class="bcc-table-header"
             :class="{ 'bcc-table-header-sortable': column.sortable !== false }"
             v-for="column in columns"
