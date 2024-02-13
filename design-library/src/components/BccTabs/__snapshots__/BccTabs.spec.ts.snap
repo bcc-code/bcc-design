@@ -23,10 +23,10 @@ exports[`BccTabs > renders three tabs 1`] = `
       </div>
     </div>
   </div>
-  <div>
-    <div id=\\"headlessui-tabs-panel-4\\" role=\\"tabpanel\\" tabindex=\\"0\\" data-headlessui-state=\\"selected\\">
+  <div class=\\"bcc-tabs-panels\\">
+    <div id=\\"headlessui-tabs-panel-4\\" role=\\"tabpanel\\" tabindex=\\"0\\" data-headlessui-state=\\"selected\\" class=\\"bcc-tabs-panel\\">
       <!--v-if-->
-    </div><span style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" id=\\"headlessui-tabs-panel-5\\" role=\\"tabpanel\\" tabindex=\\"-1\\"></span><span style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" id=\\"headlessui-tabs-panel-6\\" role=\\"tabpanel\\" tabindex=\\"-1\\"></span>
+    </div><span style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" id=\\"headlessui-tabs-panel-5\\" role=\\"tabpanel\\" tabindex=\\"-1\\" class=\\"bcc-tabs-panel\\"></span><span style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" id=\\"headlessui-tabs-panel-6\\" role=\\"tabpanel\\" tabindex=\\"-1\\" class=\\"bcc-tabs-panel\\"></span>
   </div>
 </div>"
 `;

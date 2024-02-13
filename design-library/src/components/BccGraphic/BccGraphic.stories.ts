@@ -19,7 +19,7 @@ const Template: StoryFn<typeof BccGraphic> = (args) => ({
     return { args };
   },
   template: `
-    <div class="flex flex-col gap-y-2">
+    <div class="flex flex-col gap-y-2 w-96">
       <BccGraphic v-bind="args" />
     </div>
   `,

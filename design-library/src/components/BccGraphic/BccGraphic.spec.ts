@@ -14,7 +14,7 @@ describe("BccGraphic", () => {
         logoSrc,
       },
     });
-    expect(wrapper.html()).toContain(`background-image: url(${bannerSrc});`);
+    expect(wrapper.html()).toContain(`src="${bannerSrc}"`);
     expect(wrapper.html()).toContain(`src="${logoSrc}"`);
   });
 
