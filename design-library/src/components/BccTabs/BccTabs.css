@@ -7,19 +7,19 @@
         @apply relative flex items-end min-w-full overflow-scroll hide-scrollbar;
     }
 
-    .bcc-tabs--fill {
+    .bcc-tabs-fill {
         @apply flex flex-1 flex-col overflow-hidden;
     }
 
-    .bcc-tabs--fill .bcc-tabs-bar {
+    .bcc-tabs-fill .bcc-tabs-bar {
         @apply sticky top-0 z-10 bg-brand-100 shrink-0;
     }
 
-    .bcc-tabs--fill .bcc-tabs-panels {
+    .bcc-tabs-fill .bcc-tabs-panels {
         @apply h-full w-full overflow-y-auto;
     }
 
-    .bcc-tabs--fill .bcc-tabs-panel {
+    .bcc-tabs-fill .bcc-tabs-panel {
         @apply h-full overflow-y-auto;
     }
 

@@ -23,6 +23,7 @@ type Props = {
 
 withDefaults(defineProps<Props>(), {
   size: "base",
+  fill: false,
 });
 
 const sizes = {
@@ -33,7 +34,7 @@ const sizes = {
 </script>
 
 <template>
-  <TabGroup as="div" class="bcc-tabs" :class="{ 'bcc-tabs--fill': fill }">
+  <TabGroup as="div" class="bcc-tabs" :class="{ 'bcc-tabs-fill': fill }">
     <TabList as="div" class="bcc-tabs-bar" :class="`bcc-tabs-bar--${tabs.length}`">
       <Tab
         v-for="(tab, index) in tabs"

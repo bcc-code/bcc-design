@@ -80,6 +80,7 @@ Example.args = {
     },
   ],
   size: "base",
+  fill: false,
 };
 
 Example.parameters = {

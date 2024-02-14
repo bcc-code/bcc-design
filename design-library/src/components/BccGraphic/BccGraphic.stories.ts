@@ -1,5 +1,7 @@
 import BccGraphic from "./BccGraphic.vue";
 
+import { ratioClasses, roundingClasses } from "./BccGraphicPoster.vue";
+
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
@@ -7,7 +9,11 @@ export default {
   component: BccGraphic,
   argTypes: {
     rounding: {
-      options: ["md", "xl"],
+      options: Object.keys(roundingClasses),
+      control: { type: "radio" },
+    },
+    ratio: {
+      options: Object.keys(ratioClasses),
       control: { type: "radio" },
     },
   },
@@ -19,7 +25,7 @@ const Template: StoryFn<typeof BccGraphic> = (args) => ({
     return { args };
   },
   template: `
-    <div class="flex flex-col gap-y-2 w-96">
+    <div class="flex flex-col gap-y-2">
       <BccGraphic v-bind="args" />
     </div>
   `,

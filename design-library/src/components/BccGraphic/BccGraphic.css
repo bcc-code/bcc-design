@@ -1,7 +1,6 @@
 @layer components {
   .bcc-graphic {
-    @apply relative w-full cursor-pointer;
-    @apply h-40 md:h-52 lg:h-72;
+    @apply relative flex max-h-full w-full cursor-pointer;
   }
 
   .bcc-graphic-open-in {
@@ -23,7 +22,20 @@
   }
 
   .bcc-graphic-poster {
-    @apply flex h-full w-full items-center justify-center;
-    @apply  bg-gradient-to-tr from-brand-500 to-brand-600 bg-cover bg-center;
+    @apply relative flex max-h-full w-full
+  }
+
+  .bcc-graphic-poster-banner {
+    @apply absolute inset-0 h-full w-full object-cover object-center
+  }
+  .bcc-graphic-poster-banner--loading {
+    @apply animate-pulse bg-gradient-to-tr from-brand-600 to-silver-tree-600 dark:from-polo-blue-900 dark:to-polo-blue-600
+  }
+
+  .bcc-graphic-poster-logo {
+    @apply absolute inset-1/4 h-1/2 w-1/2 object-contain object-center
+  }
+  .bcc-graphic-poster-logo--loading {
+    @apply animate-pulse bg-black bg-opacity-10 blur-sm
   }
 }
