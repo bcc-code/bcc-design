@@ -18,10 +18,12 @@ import type { Component } from "vue";
 type Props = {
   tabs: BccTabsGroup;
   size?: keyof typeof sizes;
+  fill?: boolean;
 };
 
 withDefaults(defineProps<Props>(), {
   size: "base",
+  fill: false,
 });
 
 const sizes = {
@@ -32,7 +34,7 @@ const sizes = {
 </script>
 
 <template>
-  <TabGroup as="div" class="bcc-tabs">
+  <TabGroup as="div" class="bcc-tabs" :class="{ 'bcc-tabs-fill': fill }">
     <TabList as="div" class="bcc-tabs-bar" :class="`bcc-tabs-bar--${tabs.length}`">
       <Tab
         v-for="(tab, index) in tabs"
@@ -62,8 +64,8 @@ const sizes = {
         </div>
       </Tab>
     </TabList>
-    <TabPanels>
-      <TabPanel v-for="(tab, index) in tabs" :key="`tab-${index + 1}`">
+    <TabPanels class="bcc-tabs-panels">
+      <TabPanel v-for="(tab, index) in tabs" :key="`tab-${index + 1}`" class="bcc-tabs-panel">
         <slot :name="`tab-${index + 1}`" :tab="tab">
           <component v-if="tab.as" :is="tab.as" />
         </slot>

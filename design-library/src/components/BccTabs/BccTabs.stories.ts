@@ -22,6 +22,11 @@ export default {
       options: ["sm", "base", "lg"],
       control: { type: "radio" },
     },
+    //Boolean fill
+    fill: {
+      description: "Fill up the entire space of the parent flex container",
+      control: { type: "boolean" },
+    },
   },
 } as Meta<typeof BccTabs>;
 
@@ -75,6 +80,7 @@ Example.args = {
     },
   ],
   size: "base",
+  fill: false,
 };
 
 Example.parameters = {
