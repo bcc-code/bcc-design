@@ -66,7 +66,7 @@ export const Default: StoryFn<typeof BccGraphic> = () => ({
 export const WithLinkOut: StoryFn<typeof BccGraphic> = () => ({
   components: { BccGraphic },
   template: `
-    <BccGraphic linkOut />
+    <BccGraphic linkOut logoSrc="https://event.bcc.no/wp-content/uploads/2023/11/BUK4_Logo-Main.svg" />
   `,
 });
 
@@ -76,6 +76,6 @@ export const WithLinkOut: StoryFn<typeof BccGraphic> = () => ({
 export const Checked: StoryFn<typeof BccGraphic> = () => ({
   components: { BccGraphic },
   template: `
-    <BccGraphic checked />
+    <BccGraphic checked bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png" />
   `,
 });

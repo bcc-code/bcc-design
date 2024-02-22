@@ -15,10 +15,10 @@ exports[`BccCookieBanner > renders with an overlay 1`] = `
         </div>
         <p></p>
       </div>
-      <div class=\\"bcc-cookie-banner-actions\\"><button class=\\"bcc-button bcc-button-secondary bcc-cookie-banner-decline-button\\">
-          <!--v-if--><span class=\\"order-3\\">Decline</span>
-        </button><button class=\\"bcc-button bcc-button-primary bcc-cookie-banner-accept-button\\">
-          <!--v-if--><span class=\\"order-3\\">Accept</span>
+      <div class=\\"bcc-cookie-banner-actions\\"><button class=\\"bcc-button bcc-button-secondary bcc-cookie-banner-decline-button\\">Decline
+          <!--v-if-->
+        </button><button class=\\"bcc-button bcc-button-primary bcc-cookie-banner-accept-button\\">Accept
+          <!--v-if-->
         </button></div>
     </div>
   </div>
@@ -38,10 +38,10 @@ exports[`BccCookieBanner > renders without an overlay 1`] = `
         </div>
         <p></p>
       </div>
-      <div class=\\"bcc-cookie-banner-actions\\"><button class=\\"bcc-button bcc-button-secondary bcc-cookie-banner-decline-button\\">
-          <!--v-if--><span class=\\"order-3\\">Decline</span>
-        </button><button class=\\"bcc-button bcc-button-primary bcc-cookie-banner-accept-button\\">
-          <!--v-if--><span class=\\"order-3\\">Accept</span>
+      <div class=\\"bcc-cookie-banner-actions\\"><button class=\\"bcc-button bcc-button-secondary bcc-cookie-banner-decline-button\\">Decline
+          <!--v-if-->
+        </button><button class=\\"bcc-button bcc-button-primary bcc-cookie-banner-accept-button\\">Accept
+          <!--v-if-->
         </button></div>
     </div>
   </div>

@@ -22,7 +22,7 @@
   }
 
   .bcc-graphic-poster {
-    @apply relative flex max-h-full w-full
+    @apply relative flex max-h-full w-full bg-gradient-to-tr from-brand-600 to-silver-tree-600 dark:from-polo-blue-900 dark:to-polo-blue-600;
   }
 
   .bcc-graphic-poster-banner {

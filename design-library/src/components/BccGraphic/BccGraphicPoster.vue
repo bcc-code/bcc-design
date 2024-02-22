@@ -43,12 +43,12 @@ const loadedLogo = ref(false);
         @load="loadedBanner = true"
         :src="bannerSrc"
         defer
-        class="absolute inset-0 h-full w-full object-cover object-center"
+        class="bcc-graphic-poster-banner"
         :class="roundingClasses[rounding]"
       />
       <div
         v-show="!loadedBanner"
-        class="bcc-graphic-poster-banner bcc-graphic-poster-banner--loading round"
+        class="bcc-graphic-poster-banner bcc-graphic-poster-banner--loading"
         :class="roundingClasses[rounding]"
       ></div>
     </template>
