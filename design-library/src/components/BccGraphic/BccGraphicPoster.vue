@@ -36,7 +36,11 @@ const loadedLogo = ref(false);
 </script>
 
 <template>
-  <div class="bcc-graphic-poster" :style="`padding-bottom: ${ratioClasses[ratio]}`">
+  <div
+    class="bcc-graphic-poster"
+    :style="`padding-bottom: ${ratioClasses[ratio]}`"
+    :class="roundingClasses[rounding]"
+  >
     <template v-if="bannerSrc">
       <img
         v-show="loadedBanner"
