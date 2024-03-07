@@ -1,15 +1,17 @@
-<script setup lang="ts">
-import { SwapVertIcon, ArrowUpwardIcon, ArrowDownwardIcon } from "@bcc-code/icons-vue";
-import { computed, toRefs } from "vue";
-
-type Column = {
+<script lang="ts">
+export type Column = {
   key: string;
   text?: string;
   sortable?: boolean;
   sortMethod?: (a: Item, b: Item) => number;
 };
-type Item = Record<string, any>;
-type SortDirection = "ascending" | "descending";
+export type Item = Record<string, any>;
+export type SortDirection = "ascending" | "descending";
+</script>
+
+<script setup lang="ts">
+import { SwapVertIcon, ArrowUpwardIcon, ArrowDownwardIcon } from "@bcc-code/icons-vue";
+import { computed, toRefs } from "vue";
 
 type Props = {
   columns: Column[];
