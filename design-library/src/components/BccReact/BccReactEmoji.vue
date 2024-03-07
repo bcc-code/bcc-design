@@ -1,12 +1,15 @@
-<script setup lang="ts">
-import { ref, watch } from "vue";
-
+<script lang="ts">
 export type EmojiStat = {
   id: string;
   emoji: string;
   count?: number;
   selected?: boolean;
 };
+</script>
+
+<script setup lang="ts">
+import { ref, watch } from "vue";
+
 const props = defineProps<EmojiStat>();
 
 const animate = ref(false);
