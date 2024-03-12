@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, withDefaults, computed } from "vue";
+import { computed } from "vue";
 
 type Props = {
   currentStep: number;
