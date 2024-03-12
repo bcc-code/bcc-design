@@ -37,3 +37,4 @@ export { default as BccHeader } from "./components/BccHeader/BccHeader.vue";
 export { default as BccInfo } from "./components/BccInfo/BccInfo.vue";
 export { default as BccItemTile } from "./components/BccItemTile/BccItemTile.vue";
 export { default as BccLinkItem } from "./components/BccLinkItem/BccLinkItem.vue";
+export { default as BccStepper } from "./components/BccStepper/BccStepper.vue";
