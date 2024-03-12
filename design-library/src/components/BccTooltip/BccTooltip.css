@@ -1,0 +1,104 @@
+@layer components {
+  .tooltip-wrapper {
+    @apply relative;
+  }
+
+  .tooltip-content {
+    @apply absolute left-1/2 text-center rounded-lg p-3 text-body-sm shadow-lg max-w-[200px] -translate-x-1/2 opacity-0;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  }
+
+  .tooltip-content.visible {
+    @apply opacity-100;
+    transition-delay: 0s;
+  }
+
+  .tooltip-content.top {
+    @apply bottom-full mb-2;
+  }
+
+  .tooltip-content.bottom {
+    @apply top-full mt-2;
+  }
+
+  .tooltip-content.dark {
+    @apply bg-emphasis text-white;
+  }
+
+  .tooltip-content.white {
+    @apply bg-white text-primary;
+  }
+
+  .tooltip-content.grey {
+    @apply bg-neutral-100 text-secondary;
+  }
+
+  .tooltip-content.top-left {
+    @apply bottom-full mb-2 left-0 translate-x-0;
+  }
+
+  .tooltip-content.top-center {
+    @apply bottom-full mb-2 left-1/2 -translate-x-1/2;
+  }
+
+  .tooltip-content.top-right {
+    @apply bottom-full mb-2 right-0 -translate-x-0;
+  }
+
+  /* Bottom with left, center, and right alignments */
+  .tooltip-content.bottom-left {
+    @apply top-full mt-2 left-0 translate-x-0;
+  }
+
+  .tooltip-content.bottom-center {
+    @apply top-full mt-2 left-1/2 -translate-x-1/2;
+  }
+
+  .tooltip-content.bottom-right {
+    @apply top-full mt-2 right-0 -translate-x-0;
+  }
+
+
+  /* Arrow */
+  .tooltip-content::after {
+    content: "";
+    @apply absolute w-4 h-4 rounded rotate-45 -translate-x-1/2 left-1/2;
+  }
+
+  .tooltip-content.bottom-center::after {
+    @apply bottom-full -mb-[10px];
+  }
+
+  .tooltip-content.top-center::after {
+    @apply top-full -mt-[10px];
+  }
+
+  .tooltip-content.bottom-left::after {
+    @apply bottom-full -mb-[10px] left-[15%];
+  }
+
+  .tooltip-content.top-left::after {
+    @apply top-full -mt-[10px] left-[15%];
+  }
+
+  .tooltip-content.bottom-right::after {
+    @apply bottom-full -mb-[10px] left-[85%];
+  }
+
+  .tooltip-content.top-right::after {
+    @apply top-full -mt-[10px] left-[85%];
+  }
+
+  .tooltip-content.dark::after {
+    @apply bg-emphasis;
+  }
+
+  .tooltip-content.white::after {
+    @apply bg-white;
+  }
+
+  .tooltip-content.grey::after {
+    @apply bg-neutral-100;
+  } 
+
+}
