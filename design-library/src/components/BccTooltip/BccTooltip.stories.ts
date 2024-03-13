@@ -82,19 +82,19 @@ export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
   template: `
   <div class="flex flex-col p-20">
     <div class="flex flex-row items-center justify-between p-10">
-      <BccTooltip primaryPosition="top" secondaryPosition="left" variant="white" text="Top Left Dark" :visible="true">
+      <BccTooltip primaryPosition="top" secondaryPosition="left" variant="white" :visible="true">
         Here is the text inside the tooltip
         <template #child>
           <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Top left white</div>
         </template>
       </BccTooltip>
-      <BccTooltip text="Top Center Dark" :visible="true">
+      <BccTooltip :visible="true">
         Here is the text inside the tooltip
         <template #child>
           <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Top center dark</div>
         </template>
       </BccTooltip>
-      <BccTooltip primaryPosition="top" secondaryPosition="right" variant="grey" text="Top Right Dark" :visible="true">
+      <BccTooltip primaryPosition="top" secondaryPosition="right" variant="grey" :visible="true">
         Here is the text inside the tooltip
         <template #child>
           <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Top right grey</div>
@@ -103,19 +103,19 @@ export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
       </div>
 
       <div class="flex flex-row items-center justify-between p-10">
-      <BccTooltip primaryPosition="bottom" secondaryPosition="left" variant="white" text="Bottom Left Dark" :visible="true">
+      <BccTooltip primaryPosition="bottom" secondaryPosition="left" variant="white" :visible="true">
         Here is the text inside the tooltip
         <template #child>
           <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Bottom left white</div>
         </template>
       </BccTooltip>
-      <BccTooltip primaryPosition="bottom" text="Bottom Center Dark" :visible="true">
+      <BccTooltip primaryPosition="bottom" :visible="true">
         Here is the text inside the tooltip
         <template #child>
           <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Bottom center dark</div>
         </template>
       </BccTooltip>
-      <BccTooltip primaryPosition="bottom" secondaryPosition="right" variant="grey" text="Bottom Right Dark" :visible="true">
+      <BccTooltip primaryPosition="bottom" secondaryPosition="right" variant="grey" :visible="true">
         Here is the text inside the tooltip
         <template #child>
           <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Bottom right grey</div>
@@ -124,19 +124,19 @@ export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
       </div>
       
       <div class="flex flex-row items-center justify-between p-10 mt-24">
-      <BccTooltip text="Top Center Dark" secondaryPosition="center" :visible="true">
+      <BccTooltip secondaryPosition="center" :visible="true">
         short
         <template #child>
           <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[10px] h-[10px]"></div>
         </template>
       </BccTooltip>
-      <BccTooltip class="mt-[250px]" text="Top Center Dark" :visible="true">
+      <BccTooltip class="mt-[250px]" :visible="true">
       Incorporating vibrant color palettes, sleek typography, and clean layouts to convey a modern aesthetic. Utilizing whitespace strategically to create visual balance and hierarchy. Implementing user-centered design principles to ensure a seamless and intuitive user experience
         <template #child>
           <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Longer texts</div>
         </template>
       </BccTooltip>
-      <BccTooltip class="mt-[250px]" text="Top Center Dark" secondaryPosition="right" :visible="true">
+      <BccTooltip class="mt-[250px]" secondaryPosition="right" :visible="true">
       <div class="flex flex-col items-center">
         <CelebrationIcon class="w-10 h-10 mb-2" /> 
         <p>You can also use icons because why not?</p>
@@ -147,13 +147,13 @@ export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
       </BccTooltip>
       </div>
       <div class="mt-[200px] flex items-center">
-        <BccTooltip text="Top Center Dark" secondaryPosition="right" :visible="true" class="w-[200px]">
+        <BccTooltip secondaryPosition="right" :visible="true" class="w-[200px]">
           <div class="flex flex-col items-center">
             <img src="https://media4.giphy.com/media/5WJ6K7XnP2K2p3VWft/giphy.gif" class="mb-2 w-full" /> 
             <p>GIFs as well I guess?</p>
           </div>
         </BccTooltip>
-        <BccTooltip text="Top Center Dark" secondaryPosition="left" variant="white" :visible="true" class="w-[200px]">
+        <BccTooltip secondaryPosition="left" variant="white" :visible="true" class="w-[200px]">
           <div class="flex flex-col items-center">
             If there is no child element
           </div>

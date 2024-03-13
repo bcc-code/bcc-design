@@ -22,9 +22,9 @@ const props = withDefaults(defineProps<Props>(), {
     <div
       :class="[
         'bcc-tooltip-content',
-        `${props.primaryPosition}-${props.secondaryPosition}`,
-        props.variant,
-        { visible: props.visible },
+        `bcc-tooltip-${props.primaryPosition}-${props.secondaryPosition}`,
+        `bcc-tooltip-${props.variant}`,
+        { 'bcc-tooltip-visible': props.visible },
       ]"
     >
       <slot></slot>

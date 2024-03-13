@@ -8,53 +8,53 @@
     transition: opacity 0.3s ease, visibility 0s linear 0.3s;
   }
 
-  .bcc-tooltip-content.visible {
+  .bcc-tooltip-content.bcc-tooltip-visible {
     @apply opacity-100;
     transition-delay: 0s;
   }
 
-  .bcc-tooltip-content.top {
+  .bcc-tooltip-content.bcc-tooltip-top {
     @apply bottom-full mb-2;
   }
   
 
-  .bcc-tooltip-content.bottom {
+  .bcc-tooltip-content.bcc-tooltip-bottom {
     @apply top-full mt-2;
   }
 
-  .bcc-tooltip-content.dark {
+  .bcc-tooltip-content.bcc-tooltip-dark {
     @apply bg-emphasis text-white;
   }
 
-  .bcc-tooltip-content.white {
+  .bcc-tooltip-content.bcc-tooltip-white {
     @apply bg-white text-primary;
   }
 
-  .bcc-tooltip-content.grey {
+  .bcc-tooltip-content.bcc-tooltip-grey {
     @apply bg-neutral-100 text-secondary;
   }
 
-  .bcc-tooltip-content.top-left {
+  .bcc-tooltip-content.bcc-tooltip-top-left {
     @apply bottom-full mb-2 left-0 translate-x-0;
   }
 
-  .bcc-tooltip-content.bottom-left {
+  .bcc-tooltip-content.bcc-tooltip-bottom-left {
     @apply top-full mt-2 left-0 translate-x-0;
   }
 
-  .bcc-tooltip-content.top-center {
+  .bcc-tooltip-content.bcc-tooltip-top-center {
     @apply bottom-full mb-2 left-1/2;
   }
 
-  .bcc-tooltip-content.bottom-center {
+  .bcc-tooltip-content.bcc-tooltip-bottom-center {
     @apply top-full mt-2 left-1/2;
   }
 
-  .bcc-tooltip-content.top-right {
+  .bcc-tooltip-content.bcc-tooltip-top-right {
     @apply bottom-full mb-2 left-0 -translate-x-0;
   }
 
-  .bcc-tooltip-content.bottom-right {
+  .bcc-tooltip-content.bcc-tooltip-bottom-right {
     @apply top-full mt-2 left-0 -translate-x-0;
   }
 
@@ -64,39 +64,39 @@
     @apply absolute w-4 h-4 rounded rotate-45 -translate-x-1/2 left-1/2;
   }
 
-  .bcc-tooltip-content.bottom-center::after {
+  .bcc-tooltip-content.bcc-tooltip-bottom-center::after {
     @apply bottom-full -mb-[10px];
   }
 
-  .bcc-tooltip-content.top-center::after {
+  .bcc-tooltip-content.bcc-tooltip-top-center::after {
     @apply top-full -mt-[10px];
   }
 
-  .bcc-tooltip-content.bottom-left::after {
+  .bcc-tooltip-content.bcc-tooltip-bottom-left::after {
     @apply bottom-full -mb-[10px] left-[15%];
   }
 
-  .bcc-tooltip-content.top-left::after {
+  .bcc-tooltip-content.bcc-tooltip-top-left::after {
     @apply top-full -mt-[10px] left-[15%];
   }
 
-  .bcc-tooltip-content.bottom-right::after {
+  .bcc-tooltip-content.bcc-tooltip-bottom-right::after {
     @apply bottom-full -mb-[10px] left-[85%];
   }
 
-  .bcc-tooltip-content.top-right::after {
+  .bcc-tooltip-content.bcc-tooltip-top-right::after {
     @apply top-full -mt-[10px] left-[85%];
   }
 
-  .bcc-tooltip-content.dark::after {
+  .bcc-tooltip-content.bcc-tooltip-dark::after {
     @apply bg-emphasis;
   }
 
-  .bcc-tooltip-content.white::after {
+  .bcc-tooltip-content.bcc-tooltip-white::after {
     @apply bg-white;
   }
 
-  .bcc-tooltip-content.grey::after {
+  .bcc-tooltip-content.bcc-tooltip-grey::after {
     @apply bg-neutral-100;
   } 
 
