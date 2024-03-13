@@ -65,12 +65,14 @@ Example.parameters = {
   docs: {
     source: {
       language: "html",
-      code: `<BccTooltip primaryPosition="top" secondaryPosition="center" variant="dark" :visible="false">
+      code: `
+      <BccTooltip primaryPosition="top" secondaryPosition="center" variant="dark" :visible="false">
           This is content 
           <template #child>
             this is the child element over which the tooltip will appear
           </template>
-        </BccTooltip>`,
+        </BccTooltip>
+      `,
     },
   },
 };
@@ -135,14 +137,6 @@ export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
           <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Longer texts</div>
         </template>
       </BccTooltip>
-      </div>
-      <div class="mt-[200px] flex items-center">
-        
-        <BccTooltip secondaryPosition="left" variant="white" :visible="true" class="w-[200px]">
-          <div class="flex flex-col items-center">
-            If there is no child element
-          </div>
-        </BccTooltip>
       </div>
     </div>
   </div>
