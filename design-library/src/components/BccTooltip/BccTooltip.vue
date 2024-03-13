@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from "vue";
+
 type Props = {
   primaryPosition?: "top" | "bottom";
   secondaryPosition?: "left" | "center" | "right";
@@ -12,6 +14,20 @@ const props = withDefaults(defineProps<Props>(), {
   variant: "dark",
   visible: false,
 });
+
+const positionClasses = computed(() => {
+  const primary = props.primaryPosition;
+  const secondary = props.secondaryPosition;
+  return `bcc-tooltip-${primary}-${secondary}`;
+});
+
+const variantClasses = {
+  dark: "bcc-tooltip-dark",
+  white: "bcc-tooltip-white",
+  grey: "bcc-tooltip-grey",
+};
+
+const computedVisibleClass = computed(() => (props.visible ? "bcc-tooltip-visible" : ""));
 </script>
 
 <template>
@@ -22,9 +38,9 @@ const props = withDefaults(defineProps<Props>(), {
     <div
       :class="[
         'bcc-tooltip-content',
-        `bcc-tooltip-${props.primaryPosition}-${props.secondaryPosition}`,
-        `bcc-tooltip-${props.variant}`,
-        { 'bcc-tooltip-visible': props.visible },
+        positionClasses,
+        variantClasses[props.variant],
+        computedVisibleClass,
       ]"
     >
       <slot></slot>
