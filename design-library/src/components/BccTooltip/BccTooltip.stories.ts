@@ -1,3 +1,4 @@
+import { CelebrationIcon } from "@bcc-code/icons-vue";
 import BccTooltip from "./BccTooltip.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
@@ -22,10 +23,6 @@ export default {
       options: ["dark", "white", "grey"],
       control: { type: "radio" },
     },
-    text: {
-      description: "The text content of the tooltip",
-      control: { type: "text" },
-    },
     visible: {
       description:
         "Controls the visibility of the tooltip. For demonstration, hover over or click the target element.",
@@ -43,11 +40,16 @@ const Template: StoryFn<typeof BccTooltip> = (args) => ({
     return { args, toggleVisibility };
   },
   template: `
-    <div class="p-10">
+    <div class="p-10 w-full flex flex-col items-center">
       <BccTooltip v-bind="args">
-        <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-full hover:bg-slate-200" @click="toggleVisibility">
-          This is a component over which the tooltip will appear <b>[CLICK ME PLS]<b>
-        </div>
+        
+          Here is the text inside the tooltip
+        
+        <template #child>
+          <div class="w-full flex flex-col items-center">
+            <div class="bg-slate-100 rounded-xl p-4 text-center cursor-pointer w-[200px]" @click="toggleVisibility">Visibility toggle</div>
+          </div>
+        </template>
       </BccTooltip>
     </div>
   `,
@@ -58,44 +60,104 @@ Example.args = {
   primaryPosition: "top",
   secondaryPosition: "center",
   variant: "dark",
-  text: "This is a tooltip",
   visible: true,
 };
 Example.parameters = {
   docs: {
     source: {
       language: "html",
-      code: `<BccTooltip primaryPosition="top" secondaryPosition="center" variant="dark" text="This is a tooltip" :visible="false">This is a component over which the tooltip will appear</BccTooltip>`,
+      code: `<BccTooltip primaryPosition="top" secondaryPosition="center" variant="dark" :visible="false">
+          This is content 
+          <template #child>
+            this is the child element over which the tooltip will appear
+          </template>
+        </BccTooltip>`,
     },
   },
 };
 
 export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
-  components: { BccTooltip },
+  components: { BccTooltip, CelebrationIcon },
   setup() {},
   template: `
-  <div class="flex flex-row items-center justify-between p-20">
-    <BccTooltip primaryPosition="top" secondaryPosition="left" variant="dark" text="Top Left Dark" :visible="true">
-      <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-full">Top Left Dark</div>
-    </BccTooltip>
-    <BccTooltip primaryPosition="top" secondaryPosition="center" variant="dark" text="Top Center Dark" :visible="true">
-      <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-full">Top Center Dark</div>
-    </BccTooltip>
-    <BccTooltip primaryPosition="top" secondaryPosition="right" variant="dark" text="Top Right Dark" :visible="true">
-      <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-full">Top Right Dark</div>
-    </BccTooltip>
-  </div>
+  <div class="flex flex-col p-20">
+    <div class="flex flex-row items-center justify-between p-10">
+      <BccTooltip primaryPosition="top" secondaryPosition="left" variant="white" text="Top Left Dark" :visible="true">
+        Here is the text inside the tooltip
+        <template #child>
+          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Top left white</div>
+        </template>
+      </BccTooltip>
+      <BccTooltip text="Top Center Dark" :visible="true">
+        Here is the text inside the tooltip
+        <template #child>
+          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Top center dark</div>
+        </template>
+      </BccTooltip>
+      <BccTooltip primaryPosition="top" secondaryPosition="right" variant="grey" text="Top Right Dark" :visible="true">
+        Here is the text inside the tooltip
+        <template #child>
+          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Top right grey</div>
+        </template>
+      </BccTooltip>
+      </div>
 
-  <div class="flex flex-row items-center justify-between p-20">
-    <BccTooltip primaryPosition="bottom" secondaryPosition="left" variant="dark" text="Bottom Left Dark" :visible="true">
-      <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-full">Bottom Left Dark</div>
-    </BccTooltip>
-    <BccTooltip primaryPosition="bottom" secondaryPosition="center" variant="dark" text="Bottom Center Dark" :visible="true">
-      <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-full">Bottom Center Dark</div>
-    </BccTooltip>
-    <BccTooltip primaryPosition="bottom" secondaryPosition="right" variant="dark" text="Bottom Right Dark" :visible="true">
-      <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-full">Bottom Right Dark</div>
-    </BccTooltip>
+      <div class="flex flex-row items-center justify-between p-10">
+      <BccTooltip primaryPosition="bottom" secondaryPosition="left" variant="white" text="Bottom Left Dark" :visible="true">
+        Here is the text inside the tooltip
+        <template #child>
+          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Bottom left white</div>
+        </template>
+      </BccTooltip>
+      <BccTooltip primaryPosition="bottom" text="Bottom Center Dark" :visible="true">
+        Here is the text inside the tooltip
+        <template #child>
+          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Bottom center dark</div>
+        </template>
+      </BccTooltip>
+      <BccTooltip primaryPosition="bottom" secondaryPosition="right" variant="grey" text="Bottom Right Dark" :visible="true">
+        Here is the text inside the tooltip
+        <template #child>
+          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Bottom right grey</div>
+        </template>
+      </BccTooltip>
+      </div>
+      
+      <div class="flex flex-row items-center justify-between p-10 mt-24">
+      <BccTooltip text="Top Center Dark" secondaryPosition="left" :visible="true">
+        Very short
+        <template #child>
+          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Short and simple</div>
+        </template>
+      </BccTooltip>
+      <BccTooltip class="mt-[250px]" text="Top Center Dark" :visible="true">
+      Incorporating vibrant color palettes, sleek typography, and clean layouts to convey a modern aesthetic. Utilizing whitespace strategically to create visual balance and hierarchy. Implementing user-centered design principles to ensure a seamless and intuitive user experience
+        <template #child>
+          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Longer texts</div>
+        </template>
+      </BccTooltip>
+      <BccTooltip class="mt-[250px]" text="Top Center Dark" secondaryPosition="right" :visible="true">
+      <div class="flex flex-col items-center">
+        <CelebrationIcon class="w-10 h-10 mb-2" /> 
+        <p>You can also use icons because why not?</p>
+      </div>
+      <template #child>
+          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Do what you want</div>
+        </template>
+      </BccTooltip>
+      </div>
+      <div class="mt-[200px] flex items-center">
+        <BccTooltip text="Top Center Dark" secondaryPosition="left" :visible="true">
+          <div class="flex flex-col items-center">
+            <img src="https://media4.giphy.com/media/5WJ6K7XnP2K2p3VWft/giphy.gif" class=" mb-2" /> 
+            <p>GIFs as well I guess?</p>
+          </div>
+          <template #child>
+              <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">GIF?</div>
+            </template>
+        </BccTooltip>
+      </div>
+    </div>
   </div>
 `,
 });
