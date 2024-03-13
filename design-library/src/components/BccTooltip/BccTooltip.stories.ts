@@ -124,10 +124,10 @@ export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
       </div>
       
       <div class="flex flex-row items-center justify-between p-10 mt-24">
-      <BccTooltip text="Top Center Dark" secondaryPosition="left" :visible="true">
-        Very short
+      <BccTooltip text="Top Center Dark" secondaryPosition="center" :visible="true">
+        short
         <template #child>
-          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Short and simple</div>
+          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[10px] h-[10px]"></div>
         </template>
       </BccTooltip>
       <BccTooltip class="mt-[250px]" text="Top Center Dark" :visible="true">
@@ -147,14 +147,11 @@ export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
       </BccTooltip>
       </div>
       <div class="mt-[200px] flex items-center">
-        <BccTooltip text="Top Center Dark" secondaryPosition="left" :visible="true">
+        <BccTooltip text="Top Center Dark" secondaryPosition="right" :visible="true" class="w-[200px]">
           <div class="flex flex-col items-center">
-            <img src="https://media4.giphy.com/media/5WJ6K7XnP2K2p3VWft/giphy.gif" class=" mb-2" /> 
+            <img src="https://media4.giphy.com/media/5WJ6K7XnP2K2p3VWft/giphy.gif" class="mb-2 w-full" /> 
             <p>GIFs as well I guess?</p>
           </div>
-          <template #child>
-              <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">GIF?</div>
-            </template>
         </BccTooltip>
       </div>
     </div>

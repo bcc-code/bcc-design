@@ -4,7 +4,7 @@
   }
 
   .bcc-tooltip-content {
-    @apply absolute left-1/2 text-center rounded-lg p-3 text-body-sm shadow-lg max-w-[200px] -translate-x-1/2 opacity-0;
+    @apply absolute left-1/2 text-center rounded-lg p-3 text-body-sm shadow-lg max-w-[200px] -translate-x-1/2 opacity-0 inline-block min-w-[80px] w-full;
     transition: opacity 0.3s ease, visibility 0s linear 0.3s;
   }
 
@@ -43,11 +43,11 @@
   }
 
   .bcc-tooltip-content.top-center {
-    @apply bottom-full mb-2 left-1/2 -translate-x-1/2;
+    @apply bottom-full mb-2 left-1/2;
   }
 
   .bcc-tooltip-content.bottom-center {
-    @apply top-full mt-2 left-1/2 -translate-x-1/2 ;
+    @apply top-full mt-2 left-1/2;
   }
 
   .bcc-tooltip-content.top-right {
