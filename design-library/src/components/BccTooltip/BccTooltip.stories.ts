@@ -153,6 +153,11 @@ export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
             <p>GIFs as well I guess?</p>
           </div>
         </BccTooltip>
+        <BccTooltip text="Top Center Dark" secondaryPosition="left" variant="white" :visible="true" class="w-[200px]">
+          <div class="flex flex-col items-center">
+            If there is no child element
+          </div>
+        </BccTooltip>
       </div>
     </div>
   </div>
