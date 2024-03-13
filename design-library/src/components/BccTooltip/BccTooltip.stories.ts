@@ -1,4 +1,3 @@
-import { CelebrationIcon } from "@bcc-code/icons-vue";
 import BccTooltip from "./BccTooltip.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
@@ -77,7 +76,7 @@ Example.parameters = {
 };
 
 export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
-  components: { BccTooltip, CelebrationIcon },
+  components: { BccTooltip },
   setup() {},
   template: `
   <div class="flex flex-col p-20">
@@ -134,15 +133,6 @@ export const AllCombinations: StoryFn<typeof BccTooltip> = () => ({
       Incorporating vibrant color palettes, sleek typography, and clean layouts to convey a modern aesthetic. Utilizing whitespace strategically to create visual balance and hierarchy. Implementing user-centered design principles to ensure a seamless and intuitive user experience
         <template #child>
           <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Longer texts</div>
-        </template>
-      </BccTooltip>
-      <BccTooltip class="mt-[250px]" secondaryPosition="right" :visible="true">
-      <div class="flex flex-col items-center">
-        <CelebrationIcon class="w-10 h-10 mb-2" /> 
-        <p>You can also use icons because why not?</p>
-      </div>
-      <template #child>
-          <div class="bg-slate-100 rounded-xl p-4 cursor-pointer w-[200px]">Do what you want</div>
         </template>
       </BccTooltip>
       </div>

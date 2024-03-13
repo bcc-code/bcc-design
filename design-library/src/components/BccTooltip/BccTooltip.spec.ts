@@ -4,12 +4,8 @@ import BccTooltip from "./BccTooltip.vue";
 
 describe("BccTooltip", () => {
   it("renders properly by default", () => {
-    const wrapper = mount(BccTooltip, {
-      props: {
-        visible: true,
-      },
-    });
-    expect(wrapper.isVisible()).toBe(true);
+    const wrapper = mount(BccTooltip);
+    expect(wrapper.find(".bcc-tooltip-content").classes()).not.toContain("bcc-tooltip-visible");
   });
 
   it("toggles visibility based on the 'visible' prop", async () => {
@@ -19,10 +15,10 @@ describe("BccTooltip", () => {
       },
     });
 
-    expect(wrapper.find(".bcc-tooltip-content.visible").exists()).toBe(false);
+    expect(wrapper.find(".bcc-tooltip-content").classes()).not.toContain("bcc-tooltip-visible");
 
     await wrapper.setProps({ visible: true });
-    expect(wrapper.find(".bcc-tooltip-content.visible").exists()).toBe(true);
+    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("bcc-tooltip-visible");
   });
 
   it("applies the correct class based on the 'primaryPosition' and 'secondaryPosition' props", async () => {
@@ -34,9 +30,9 @@ describe("BccTooltip", () => {
       },
     });
 
-    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("top-right");
+    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("bcc-tooltip-top-right");
     await wrapper.setProps({ primaryPosition: "bottom", secondaryPosition: "left" });
-    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("bottom-left");
+    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("bcc-tooltip-bottom-left");
   });
 
   it("applies the correct class based on the 'variant' prop", async () => {
@@ -47,10 +43,10 @@ describe("BccTooltip", () => {
       },
     });
 
-    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("dark");
+    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("bcc-tooltip-dark");
     await wrapper.setProps({ variant: "white" });
-    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("white");
+    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("bcc-tooltip-white");
     await wrapper.setProps({ variant: "grey" });
-    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("grey");
+    expect(wrapper.find(".bcc-tooltip-content").classes()).toContain("bcc-tooltip-grey");
   });
 });
