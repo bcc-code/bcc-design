@@ -15,19 +15,24 @@ const props = withDefaults(defineProps<Props>(), {
   visible: false,
 });
 
-const positionClasses = computed(() => {
-  const primary = props.primaryPosition;
-  const secondary = props.secondaryPosition;
-  return `bcc-tooltip-${primary}-${secondary}`;
-});
-
 const variantClasses = {
   dark: "bcc-tooltip-dark",
   white: "bcc-tooltip-white",
   grey: "bcc-tooltip-grey",
 };
 
-const computedVisibleClass = computed(() => (props.visible ? "bcc-tooltip-visible" : ""));
+const classMappings = {
+  "top-left": "bcc-tooltip-top-left",
+  "top-center": "bcc-tooltip-top-center",
+  "top-right": "bcc-tooltip-top-right",
+  "bottom-left": "bcc-tooltip-bottom-left",
+  "bottom-center": "bcc-tooltip-bottom-center",
+  "bottom-right": "bcc-tooltip-bottom-right",
+};
+
+const position = computed(() => {
+  return `${props.primaryPosition}-${props.secondaryPosition}` as keyof typeof classMappings;
+});
 </script>
 
 <template>
@@ -38,9 +43,9 @@ const computedVisibleClass = computed(() => (props.visible ? "bcc-tooltip-visibl
     <div
       :class="[
         'bcc-tooltip-content',
-        positionClasses,
+        classMappings[position],
         variantClasses[props.variant],
-        computedVisibleClass,
+        { 'bcc-tooltip-visible': props.visible },
       ]"
     >
       <slot></slot>
