@@ -30,3 +30,4 @@ jobs:
         with:
           title: BCC Design System
           description: Technical documentation and guides to facilitate the correct use of design assets of BCC
+          authentication: 'portal'
