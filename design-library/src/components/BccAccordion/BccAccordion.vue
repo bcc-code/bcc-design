@@ -48,7 +48,7 @@ const isOpen = ref(false);
       }"
       @click="() => (isOpen = !isOpen)"
     >
-      <div class="flex flex-row items-center">
+      <div class="bcc-accordion-title-wrap">
         <div>
           <slot name="left" />
         </div>
