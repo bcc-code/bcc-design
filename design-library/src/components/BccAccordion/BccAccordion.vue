@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ExpandMoreIcon } from "@bcc-code/icons-vue";
-import type { BccBadge, BccPin } from "@bcc-code/vue-components";
+import { BccBadge, BccPin } from "@/index";
 import { type Component, ref } from "vue";
 
 const variants = {

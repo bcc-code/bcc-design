@@ -1,6 +1,5 @@
 import BccAccordion from "./BccAccordion.vue";
 import { GeneticsIcon, VisibilityIcon } from "@bcc-code/icons-vue";
-import { BccBadge, BccPin } from "@bcc-code/vue-components";
 import { Meta, StoryFn } from "@storybook/vue3";
 import { ref } from "vue";
 
@@ -74,7 +73,7 @@ Example.parameters = {
 };
 
 const TempWithPin: StoryFn<typeof BccAccordion> = (args) => ({
-  components: { BccAccordion, BccPin },
+  components: { BccAccordion },
   setup() {
     return { args };
   },
@@ -96,7 +95,7 @@ WithPin.args = {
 };
 
 const TempWithBadge: StoryFn<typeof BccAccordion> = (args) => ({
-  components: { BccAccordion, BccBadge },
+  components: { BccAccordion },
   setup() {
     return { args };
   },
