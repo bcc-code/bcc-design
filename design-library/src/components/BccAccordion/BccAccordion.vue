@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, defineProps, withDefaults, type Component } from "vue";
 import { ExpandMoreIcon } from "@bcc-code/icons-vue";
 import { BccBadge, BccPin } from "@/index";
+import { type Component, ref } from "vue";
 
 const variants = {
   readonly: "bcc-accordion-readonly",
