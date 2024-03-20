@@ -40,3 +40,4 @@ export { default as BccLinkItem } from "./components/BccLinkItem/BccLinkItem.vue
 export { default as BccStepper } from "./components/BccStepper/BccStepper.vue";
 export { default as BccTooltip } from "./components/BccTooltip/BccTooltip.vue";
 export { default as BccAccordion } from "./components/BccAccordion/BccAccordion.vue";
+export { default as BccPagination } from "./components/BccPagination/BccPagination.vue";
