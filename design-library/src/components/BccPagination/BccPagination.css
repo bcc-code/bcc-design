@@ -1,6 +1,10 @@
 @layer components {
 
     .bcc-pagination {
+        @apply inline-flex items-center justify-between
+    }
+
+    .bcc-pagination-button-container {
         @apply inline-flex items-center
     }
 
@@ -12,16 +16,20 @@
         @apply text-base leading-5 py-2.5 gap-x-2 h-9;
     }
 
-    .bcc-pagination-button-page {
-        @apply px-3.5
+    .bcc-pagination-button-selected {
+        @apply text-[#30715E] px-3.5 bg-[#F6F9F9] font-semibold
+    }
+ 
+    .bcc-pagination-button-unselected {
+        @apply text-[#4B5563] px-3.5 bg-[#FFFFFF]
     }
 
     .bcc-pagination-button-left {
-        @apply rounded-l-lg px-3.5 ;
+        @apply rounded-l-lg px-3.5 text-[#30715E] ;
     }
 
     .bcc-pagination-button-right {
-        @apply rounded-r-lg px-3.5;
+        @apply rounded-r-lg px-3.5 text-[#30715E];
     }
 
     .bcc-pagination-button-icon { /* base size */
