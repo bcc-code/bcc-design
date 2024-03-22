@@ -9,27 +9,31 @@
     }
 
     .bcc-pagination button {
-        @apply select-none inline-flex items-center tracking-wide border justify-center active:shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-emphasis focus-visible:outline-offset-2;
+        @apply select-none inline-flex items-center tracking-wide border border-on-primary justify-center active:shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-emphasis focus-visible:outline-offset-2;
         @apply cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none;
         
         /* Default base size */
-        @apply text-base leading-5 py-2.5 gap-x-2 h-9;
+        @apply text-base leading-5 py-2.5 gap-x-2 h-10;
+    }
+
+    .bcc-pagination button:hover {
+        @apply bg-button-secondary-hover
     }
 
     .bcc-pagination-button-selected {
-        @apply text-[#30715E] px-3.5 bg-[#F6F9F9] font-semibold
+        @apply px-3.5 bg-secondary font-semibold text-interactive;
     }
  
     .bcc-pagination-button-unselected {
-        @apply text-[#4B5563] px-3.5 bg-[#FFFFFF]
+        @apply px-3.5 bg-button-secondary text-secondary;
     }
 
     .bcc-pagination-button-left {
-        @apply rounded-l-lg px-3.5 text-[#30715E] ;
+        @apply rounded-l-lg px-3.5 text-interactive;
     }
 
     .bcc-pagination-button-right {
-        @apply rounded-r-lg px-3.5 text-[#30715E];
+        @apply rounded-r-lg px-3.5 text-interactive;
     }
 
     .bcc-pagination-button-icon { /* base size */

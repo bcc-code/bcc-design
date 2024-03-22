@@ -10,9 +10,7 @@ import { ref } from "vue";
 export default {
   title: "Other/BccPagination",
   component: BccPagination,
-  argTypes: {
-    perPage: { control: "number", defaultValue: 2 },
-  },
+  argTypes: {},
 } as Meta<typeof BccPagination>;
 
 const Template: StoryFn<typeof BccPagination> = (args) => ({
@@ -55,12 +53,13 @@ const Template: StoryFn<typeof BccPagination> = (args) => ({
         <BccButton variant="tertiary" size="sm" :padding="false" :icon="ChevronRightIcon" iconRight>Evaluation</BccButton>
       </template>
     </BccTable>
-    <BccPagination :tableItems="args.tableItems" v-model:paginatedRows="paginatedRows" :perPage="args.perPage" />
+    <BccPagination :tableItems="args.tableItems" :maxButtonsDisplayed="args.maxButtonsDisplayed" v-model:paginatedRows="paginatedRows" />
   `,
 });
 
 export const Example = Template.bind({});
 Example.args = {
+  maxButtonsDisplayed: 3,
   tableItems: [
     {
       id: 1,
@@ -123,6 +122,51 @@ Example.args = {
       status: { text: "Finished", context: "sucess" },
       progress: {
         amount: 100,
+      },
+    },
+    {
+      id: 8,
+      year_group: "23/24",
+      name: "Jane Doe",
+      status: { text: "Finished", context: "info" },
+      progress: {
+        amount: 37,
+      },
+    },
+    {
+      id: 9,
+      year_group: "23/24",
+      name: "Freddy Fazbear",
+      status: { text: "Behind Schedule", context: "warning" },
+      progress: {
+        amount: 45,
+      },
+    },
+    {
+      id: 10,
+      year_group: "22/24",
+      name: "Lorem Ipsum",
+      status: { text: "On Track", context: "warning" },
+      progress: {
+        amount: 10,
+      },
+    },
+    {
+      id: 11,
+      year_group: "22/23",
+      name: "Nathaniel B",
+      status: { text: "On Track", context: "sucess" },
+      progress: {
+        amount: 95,
+      },
+    },
+    {
+      id: 12,
+      year_group: "22/23",
+      name: "Nathaniel T",
+      status: { text: "On Track", context: "sucess" },
+      progress: {
+        amount: 20,
       },
     },
   ],

@@ -7,20 +7,22 @@ import BccSelect from "../BccSelect/BccSelect.vue";
 
 type Props = {
   tableItems: Item[];
-  perPage?: number;
   maxButtonsDisplayed: number;
 };
 
+type PageNumberOrEllipsis = number | "...";
+
 const props = withDefaults(defineProps<Props>(), {
-  perPage: 2,
-  maxButtonsDisplayed: 2,
+  maxButtonsDisplayed: 3,
 });
-const { tableItems, perPage, maxButtonsDisplayed } = toRefs(props);
+const { tableItems, maxButtonsDisplayed } = toRefs(props);
 
 const emit = defineEmits(["update:paginatedRows"]);
 
 const currentPage = ref(1);
+const perPage = ref(2);
 const totalPages = computed(() => Math.ceil(tableItems.value.length / perPage.value));
+const maxButtons = computed(() => maxButtonsDisplayed.value - 1);
 
 const isFirstPage = computed(() => currentPage.value === 1);
 const isLastPage = computed(() => currentPage.value === totalPages.value);
@@ -32,28 +34,50 @@ const paginatedRows = computed(() => {
 });
 
 const startPage = computed(() => {
-  if (currentPage.value <= maxButtonsDisplayed.value) {
+  if (currentPage.value <= maxButtons.value) {
     return 1;
-  } else if (currentPage.value + maxButtonsDisplayed.value > totalPages.value) {
-    return totalPages.value - maxButtonsDisplayed.value;
+  } else if (currentPage.value + maxButtons.value >= totalPages.value) {
+    return totalPages.value - maxButtons.value;
   } else {
-    return currentPage.value - Math.floor(maxButtonsDisplayed.value / 2);
+    return currentPage.value - Math.floor(maxButtons.value / 2);
   }
 });
 
 const endPage = computed(() => {
-  return startPage.value + maxButtonsDisplayed.value;
+  if (totalPages.value <= maxButtons.value) {
+    return totalPages.value;
+  } else {
+    return startPage.value + maxButtons.value;
+  }
 });
 
-const currentDisplayedPages = computed(() => {
-  let arr: number[] = [];
+const currentDisplayedPages = computed<PageNumberOrEllipsis[]>(() => {
+  let arr: PageNumberOrEllipsis[] = [];
   for (let i: number = startPage.value; i <= endPage.value; i++) {
     arr.push(i);
   }
+
+  if (totalPages.value >= maxButtons.value) {
+    if (arr.includes(totalPages.value)) {
+      arr.pop();
+    }
+
+    arr.push(totalPages.value);
+
+    if (currentPage.value !== totalPages.value) {
+      // Insert an ellipsis before the last button
+      arr.splice(arr.length - 1, 0, "...");
+    }
+  }
+
   return arr;
 });
 
-const goToPage = (numPage: number) => {
+const goToPage = (numPage: PageNumberOrEllipsis) => {
+  if (numPage === "...") {
+    return;
+  }
+
   currentPage.value = numPage;
 };
 
@@ -68,24 +92,28 @@ const previous = () => {
 watchEffect(() => {
   emit("update:paginatedRows", paginatedRows.value);
 });
+
+const changePerPageValue = () => {
+  console.log(perPage.value);
+};
 </script>
 
 <template>
   <div class="bcc-pagination">
-    <BccSelect :v-model="perPage">
-      <option disabled value="">Select an option...</option>
-      <option :value="1">1</option>
-      <option :value="2">2</option>
-    </BccSelect>
-
     <div class="bcc-pagination-button-container">
+      <BccSelect @change="changePerPageValue()">
+        <option disabled :value="0">Select an option...</option>
+        <option :value="1">Option 1</option>
+        <option :value="2">Option 2</option>
+      </BccSelect>
+
       <button @click="previous" :disabled="isFirstPage" class="bcc-pagination-button-left">
         <ArrowBackIosIcon class="bcc-pagination-button-icon" />
       </button>
 
       <button
-        v-for="page in currentDisplayedPages"
-        v-bind:key="page"
+        v-for="(page, index) in currentDisplayedPages"
+        v-bind:key="index"
         @click="goToPage(page)"
         :class="{
           'bcc-pagination-button-selected': page === currentPage,
