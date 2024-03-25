@@ -7,6 +7,7 @@ const variants = {
   readonly: "bcc-accordion-readonly",
   brand: "bcc-accordion-brand",
   interactive: "bcc-accordion-interactive",
+  desktop: "bcc-accordion-desktop",
 };
 
 const sizes = {

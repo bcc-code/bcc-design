@@ -16,7 +16,7 @@ export default {
       description: "The subtitle of the accordion",
     },
     variant: {
-      options: ["readonly", "brand", "interactive"],
+      options: ["readonly", "brand", "interactive", "desktop"],
       control: { type: "radio" },
       description: "The visual variant of the accordion",
     },

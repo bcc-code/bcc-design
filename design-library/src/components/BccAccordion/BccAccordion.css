@@ -15,6 +15,10 @@
         @apply border border-on-primary bg-white;
     }
 
+    .bcc-accordion:has(.bcc-accordion-desktop) {
+        @apply bg-white shadow-none;
+    }
+
     .bcc-accordion:has(.bcc-accordion-lg) {
         & .bcc-accordion-content {
             @apply px-4;
@@ -39,6 +43,10 @@
 
     .bcc-accordion-header.bcc-accordion-interactive.bcc-accordion-active {
         @apply rounded-b-none border-b border-on-primary;
+    }
+
+    .bcc-accordion-desktop.bcc-accordion-active {
+        @apply bg-secondary;
     }
 
     .bcc-accordion-base {
@@ -85,6 +93,10 @@
 
     .bcc-accordion.bcc-accordion-interactive {
         @apply border border-on-primary bg-white;
+    }
+
+    .bcc-accordion.bcc-desktop {
+        @apply bg-white;
     }
 
     .bcc-accordion-content {
