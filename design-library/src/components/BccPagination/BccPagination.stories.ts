@@ -53,13 +53,16 @@ const Template: StoryFn<typeof BccPagination> = (args) => ({
         <BccButton variant="tertiary" size="sm" :padding="false" :icon="ChevronRightIcon" iconRight>Evaluation</BccButton>
       </template>
     </BccTable>
-    <BccPagination :tableItems="args.tableItems" :maxButtonsDisplayed="args.maxButtonsDisplayed" v-model:paginatedRows="paginatedRows" />
+    <BccPagination :tableItems="args.tableItems" :displayLeftEllipsis="args.displayLeftEllipsis" :displayRightEllipsis="args.displayRightEllipsis" :paginationPageSize="args.paginationPageSize" :maxButtonsDisplayed="args.maxButtonsDisplayed" v-model:paginatedRows="paginatedRows" />
   `,
 });
 
 export const Example = Template.bind({});
 Example.args = {
+  paginationPageSize: [1, 2, 4, 6],
   maxButtonsDisplayed: 3,
+  displayLeftEllipsis: false,
+  displayRightEllipsis: true,
   tableItems: [
     {
       id: 1,

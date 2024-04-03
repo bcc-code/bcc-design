@@ -1,7 +1,15 @@
 @layer components {
 
     .bcc-pagination {
-        @apply inline-flex items-center justify-between
+        @apply flex flex-row items-center justify-between
+    }
+
+    .bcc-pagination-rowsPerPage-container {
+        @apply inline-flex flex-row items-center gap-2
+    }
+
+    .bcc-pagination-rowsPerPage {
+        @apply w-20 text-caption
     }
 
     .bcc-pagination-button-container {
@@ -17,7 +25,7 @@
     }
 
     .bcc-pagination button:hover {
-        @apply bg-button-secondary-hover
+        @apply font-semibold
     }
 
     .bcc-pagination-button-selected {
