@@ -19,7 +19,7 @@ type PageNumberOrEllipsis = number | "...";
 const props = withDefaults(defineProps<Props>(), {
   displayLeftEllipsis: true,
   displayRightEllipsis: true,
-  maxButtonsDisplayed: 3,
+  maxButtonsDisplayed: 6,
 });
 const { tableItems, maxButtonsDisplayed } = toRefs(props);
 
@@ -28,7 +28,7 @@ const emit = defineEmits(["update:paginatedRows"]);
 const currentPage = ref(1);
 const perPage = ref("2");
 const perPageNumber = computed(() => parseInt(perPage.value));
-const totalPages = computed(() => Math.ceil(tableItems.value.length / perPageNumber.value));
+const totalPages = computed(() => Math.max(tableItems.value.length / perPageNumber.value));
 const maxButtons = computed(() => maxButtonsDisplayed.value - 1);
 
 const isFirstPage = computed(() => currentPage.value === 1);
@@ -40,38 +40,30 @@ const paginatedRows = computed(() => {
   return tableItems.value.slice(start, end);
 });
 
-const startPage = computed(() => {
-  if (currentPage.value <= maxButtons.value) {
-    return 1;
-  } else if (currentPage.value + maxButtons.value >= totalPages.value) {
-    return totalPages.value - maxButtons.value;
-  } else {
-    return currentPage.value - Math.floor(maxButtons.value / 2);
-  }
-});
-
-const endPage = computed(() => {
-  if (totalPages.value <= maxButtons.value) {
-    return totalPages.value;
-  } else {
-    return startPage.value + maxButtons.value;
-  }
-});
-
 const currentDisplayedPages = computed<PageNumberOrEllipsis[]>(() => {
   let arr: PageNumberOrEllipsis[] = [];
-  for (let i: number = startPage.value; i <= endPage.value; i++) {
+  let centerPage = Math.floor(maxButtons.value / 2) + 1;
+  let startPage = currentPage.value - centerPage + 1;
+  let endPage = currentPage.value + centerPage - 1;
+
+  if (startPage < 1) {
+    startPage = 1;
+    endPage = maxButtons.value;
+  } else if (endPage > totalPages.value) {
+    endPage = totalPages.value;
+    startPage = totalPages.value - maxButtons.value + 1;
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
+    if (i === startPage && i > 1 && props.displayLeftEllipsis) {
+      arr.push(1);
+      arr.push("...");
+    }
     arr.push(i);
-  }
-
-  if (!arr.includes(totalPages.value) && props.displayRightEllipsis === true) {
-    arr.push("...");
-    arr.push(totalPages.value);
-  }
-
-  if (!arr.includes(1) && props.displayLeftEllipsis === true) {
-    arr.splice(0, 0, 1);
-    arr.splice(1, 0, "...");
+    if (i === endPage && i < totalPages.value && props.displayRightEllipsis) {
+      arr.push("...");
+      arr.push(totalPages.value);
+    }
   }
 
   return arr;

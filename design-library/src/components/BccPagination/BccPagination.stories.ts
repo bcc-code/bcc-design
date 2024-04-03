@@ -60,7 +60,7 @@ const Template: StoryFn<typeof BccPagination> = (args) => ({
 export const Example = Template.bind({});
 Example.args = {
   paginationPageSize: [1, 2, 4, 6],
-  maxButtonsDisplayed: 3,
+  maxButtonsDisplayed: 6,
   displayLeftEllipsis: false,
   displayRightEllipsis: true,
   tableItems: [
