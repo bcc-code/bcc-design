@@ -55,39 +55,39 @@
     .bcc-accordion-lg {
         @apply px-4 py-4 text-lg;
     }
-    .bcc-accordion__title {
+    .bcc-accordion-title {
         @apply font-semibold text-primary flex flex-col items-start;
     }
-    .bcc-accordion__subtitle {
+    .bcc-accordion-subtitle {
         @apply text-caption text-secondary;
     }
-    .bcc-accordion__right {
+    .bcc-accordion-right {
         @apply flex flex-row items-center justify-end h-6;
     }
-    .bcc-accordion__icon {
+    .bcc-accordion-icon {
         @apply h-full text-interactive rotate-0 transform duration-300;
 
         > svg{
             @apply w-6 h-6;
         }
     }
-    .bcc-accordion-active .bcc-accordion__icon {
+    .bcc-accordion-active .bcc-accordion-icon {
         @apply rotate-180 transform;
     }
 
     .bcc-accordion-brand.bcc-accordion-active {
         @apply bg-brand-600;
-        & .bcc-accordion__title {
+        & .bcc-accordion-title {
             @apply text-emphasis;
         }
-        & .bcc-accordion__subtitle {
+        & .bcc-accordion-subtitle {
             @apply text-neutral-200;
         }
-        & .bcc-accordion__icon {
+        & .bcc-accordion-icon {
             @apply text-neutral-200;
         }
     }
-    .bcc-accordion__right-icon {
+    .bcc-accordion-right-icon {
         @apply ml-4;
     }
 

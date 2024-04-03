@@ -25,8 +25,8 @@ describe("BccAccordion", () => {
       },
     });
 
-    expect(wrapper.find(".bcc-accordion__title").text()).toBe("Props Title");
-    expect(wrapper.find(".bcc-accordion__subtitle").text()).toBe("Props Subtitle");
+    expect(wrapper.find(".bcc-accordion-title").text()).toBe("Props Title");
+    expect(wrapper.find(".bcc-accordion-subtitle").text()).toBe("Props Subtitle");
     expect(wrapper.find(".test-slot-content").exists()).toBe(true);
   });
 

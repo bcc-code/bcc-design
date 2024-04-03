@@ -54,20 +54,20 @@ const isOpen = ref(false);
           <slot name="left" />
         </div>
         <div>
-          <span class="bcc-accordion__title">
+          <span class="bcc-accordion-title">
             {{ title }}
           </span>
-          <span v-if="subtitle" class="bcc-accordion__subtitle">{{ subtitle }}</span>
+          <span v-if="subtitle" class="bcc-accordion-subtitle">{{ subtitle }}</span>
         </div>
       </div>
-      <div class="bcc-accordion__right">
+      <div class="bcc-accordion-right">
         <slot name="action" />
-        <component class="bcc-accordion__right-icon bcc-accordion__icon" v-if="icon" :is="icon" />
-        <BccBadge class="bcc-accordion__right-icon" v-if="badge" v-bind="badge">{{
+        <component class="bcc-accordion-right-icon bcc-accordion-icon" v-if="icon" :is="icon" />
+        <BccBadge class="bcc-accordion-right-icon" v-if="badge" v-bind="badge">{{
           badge.text
         }}</BccBadge>
-        <BccPin class="bcc-accordion__right-icon" v-show="pin" v-bind="pin" />
-        <div class="bcc-accordion__right-icon bcc-accordion__icon">
+        <BccPin class="bcc-accordion-right-icon" v-show="pin" v-bind="pin" />
+        <div class="bcc-accordion-right-icon bcc-accordion-icon">
           <ExpandMoreIcon />
         </div>
       </div>
