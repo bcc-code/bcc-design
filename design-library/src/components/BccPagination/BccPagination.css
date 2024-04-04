@@ -37,7 +37,7 @@
         @apply text-base leading-5 py-2.5 gap-x-2 h-10;
     }
 
-    .bcc-pagination button:hover {
+    .bcc-pagination-button-container button:hover {
         @apply bg-secondary-hover text-interactive-hover
     }
 
