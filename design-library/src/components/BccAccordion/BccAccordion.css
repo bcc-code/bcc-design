@@ -1,0 +1,105 @@
+@layer components {
+    .bcc-accordion {
+        @apply rounded-lg bg-secondary shadow-sm;
+    }
+
+    .bcc-accordion-header {
+        @apply flex w-full px-3 bg-white flex-row rounded-lg items-center justify-between cursor-pointer;
+    }
+
+    .bcc-accordion-title-wrap {
+        @apply flex flex-row items-center
+    }
+
+    .bcc-accordion:has(.bcc-accordion-interactive) {
+        @apply border border-on-primary bg-white;
+    }
+
+    .bcc-accordion:has(.bcc-accordion-desktop) {
+        @apply bg-white shadow-none;
+    }
+
+    .bcc-accordion:has(.bcc-accordion-lg) {
+        & .bcc-accordion-content {
+            @apply px-4;
+        }
+    }
+
+    .bcc-accordion:has(.bcc-accordion-readonly) {
+        & .bcc-accordion-content {
+            @apply pt-0 text-secondary text-body-sm;
+        }
+    }
+
+    .bcc-accordion:has(.bcc-accordion-brand) {
+        & .bcc-accordion-content {
+            @apply pt-3 px-4 text-secondary text-body-sm;
+        }
+    }
+
+    .bcc-accordion-header.bcc-accordion-readonly.bcc-accordion-active {
+        @apply bg-secondary pb-1;
+    }
+
+    .bcc-accordion-header.bcc-accordion-interactive.bcc-accordion-active {
+        @apply rounded-b-none border-b border-on-primary;
+    }
+
+    .bcc-accordion-desktop.bcc-accordion-active {
+        @apply bg-secondary;
+    }
+
+    .bcc-accordion-base {
+        @apply py-2 px-3;
+    }
+    .bcc-accordion-lg {
+        @apply px-4 py-4 text-lg;
+    }
+    .bcc-accordion-title {
+        @apply font-semibold text-primary flex flex-col items-start;
+    }
+    .bcc-accordion-subtitle {
+        @apply text-caption text-secondary;
+    }
+    .bcc-accordion-right {
+        @apply flex flex-row items-center justify-end h-6;
+    }
+    .bcc-accordion-icon {
+        @apply h-full text-interactive rotate-0 transform duration-300;
+
+        > svg{
+            @apply w-6 h-6;
+        }
+    }
+    .bcc-accordion-active .bcc-accordion-icon {
+        @apply rotate-180 transform;
+    }
+
+    .bcc-accordion-brand.bcc-accordion-active {
+        @apply bg-brand-600;
+        & .bcc-accordion-title {
+            @apply text-emphasis;
+        }
+        & .bcc-accordion-subtitle {
+            @apply text-neutral-200;
+        }
+        & .bcc-accordion-icon {
+            @apply text-neutral-200;
+        }
+    }
+    .bcc-accordion-right-icon {
+        @apply ml-4;
+    }
+
+    .bcc-accordion.bcc-accordion-interactive {
+        @apply border border-on-primary bg-white;
+    }
+
+    .bcc-accordion.bcc-desktop {
+        @apply bg-white;
+    }
+
+    .bcc-accordion-content {
+        @apply w-full px-3 py-4;
+    }
+}
