@@ -10,7 +10,12 @@ import { ref } from "vue";
 export default {
   title: "Other/BccPagination",
   component: BccPagination,
-  argTypes: {},
+  argTypes: {
+    align: {
+      options: ["left", "center", "right"],
+      control: { type: "radio" },
+    },
+  },
 } as Meta<typeof BccPagination>;
 
 const Template: StoryFn<typeof BccPagination> = (args) => ({
@@ -53,16 +58,18 @@ const Template: StoryFn<typeof BccPagination> = (args) => ({
         <BccButton variant="tertiary" size="sm" :padding="false" :icon="ChevronRightIcon" iconRight>Evaluation</BccButton>
       </template>
     </BccTable>
-    <BccPagination :tableItems="args.tableItems" :displayLeftEllipsis="args.displayLeftEllipsis" :displayRightEllipsis="args.displayRightEllipsis" :paginationPageSize="args.paginationPageSize" :maxButtonsDisplayed="args.maxButtonsDisplayed" v-model:paginatedRows="paginatedRows" />
+    <BccPagination :tableItems="args.tableItems" :align="args.align" :displayRowsPerPage="args.displayRowsPerPage" :displayLeftEllipsis="args.displayLeftEllipsis" :displayRightEllipsis="args.displayRightEllipsis" :rowsPerPageArray="args.rowsPerPageArray" :maxButtonsDisplayed="args.maxButtonsDisplayed" v-model:paginatedRows="paginatedRows" />
   `,
 });
 
 export const Example = Template.bind({});
 Example.args = {
-  paginationPageSize: [1, 2, 4, 6],
-  maxButtonsDisplayed: 6,
-  displayLeftEllipsis: false,
+  rowsPerPageArray: [1, 2, 4, 6],
+  align: "right",
+  maxButtonsDisplayed: 3,
+  displayLeftEllipsis: true,
   displayRightEllipsis: true,
+  displayRowsPerPage: true,
   tableItems: [
     {
       id: 1,

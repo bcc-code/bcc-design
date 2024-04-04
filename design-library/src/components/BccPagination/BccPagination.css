@@ -4,6 +4,18 @@
         @apply flex flex-row items-center justify-between
     }
 
+    .bcc-pagination-right {
+        @apply flex flex-row items-center justify-between
+    }
+
+    .bcc-pagination-left {
+        @apply flex flex-row-reverse items-center justify-between
+    }
+
+    .bcc-pagination-center {
+        @apply flex flex-row items-center justify-evenly
+    }
+
     .bcc-pagination-rowsPerPage-container {
         @apply inline-flex flex-row items-center gap-2
     }
@@ -16,7 +28,8 @@
         @apply inline-flex items-center
     }
 
-    .bcc-pagination button {
+
+    .bcc-pagination-button-container button {
         @apply select-none inline-flex items-center tracking-wide border border-on-primary justify-center active:shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-emphasis focus-visible:outline-offset-2;
         @apply cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none;
         
@@ -25,7 +38,7 @@
     }
 
     .bcc-pagination button:hover {
-        @apply font-semibold
+        @apply bg-secondary-hover text-interactive-hover
     }
 
     .bcc-pagination-button-selected {
