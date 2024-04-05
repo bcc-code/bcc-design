@@ -61,7 +61,7 @@ const currentDisplayedPages = computed<PageNumberOrEllipsis[]>(() => {
     }
   }
 
-  if (startPage > 2 && displayLeftEllipsis.value === true) {
+  if (startPage > 1 && displayLeftEllipsis.value === true) {
     arr.push(1);
     if (startPage > 2) {
       arr.push("...");
