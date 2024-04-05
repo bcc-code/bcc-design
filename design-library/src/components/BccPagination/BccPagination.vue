@@ -56,14 +56,8 @@ const currentDisplayedPages = computed<PageNumberOrEllipsis[]>(() => {
   if (endPage - startPage < maxButtons.value) {
     if (startPage === 1) {
       endPage = Math.min(totalPages.value, startPage + maxButtons.value - 1);
-      if (displayLeftEllipsis.value === false) {
-        endPage = Math.min(totalPages.value, startPage + maxButtons.value);
-      }
     } else if (endPage === totalPages.value) {
       startPage = Math.max(1, endPage - maxButtons.value + 1);
-      if (displayRightEllipsis.value === false) {
-        startPage = Math.max(1, endPage - maxButtons.value);
-      }
     }
   }
 
@@ -114,9 +108,9 @@ watchEffect(() => {
       'bcc-pagination-center': align === 'center',
     }"
   >
-    <div v-if="displayRowsPerPage === true" class="bcc-pagination-rowsPerPage-container">
+    <div v-if="displayRowsPerPage === true" class="bcc-pagination-rowsperpage-container">
       <BccFormLabel>Rows per page</BccFormLabel>
-      <BccSelect class="bcc-pagination-rowsPerPage" @change="goToPage(1)" v-model="perPage">
+      <BccSelect class="bcc-pagination-rowsperpage" @change="goToPage(1)" v-model="perPage">
         <option v-for="(rowSize, index) in rowsPerPageArray" :value="rowSize" v-bind:key="index">
           {{ rowSize }}
         </option>

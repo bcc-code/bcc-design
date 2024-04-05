@@ -16,11 +16,11 @@
         @apply flex flex-row items-center justify-evenly
     }
 
-    .bcc-pagination-rowsPerPage-container {
+    .bcc-pagination-rowsperpage-container {
         @apply inline-flex flex-row items-center gap-2
     }
 
-    .bcc-pagination-rowsPerPage {
+    .bcc-pagination-rowsperpage {
         @apply w-20 text-caption
     }
 
