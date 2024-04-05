@@ -56,12 +56,18 @@ const currentDisplayedPages = computed<PageNumberOrEllipsis[]>(() => {
   if (endPage - startPage < maxButtons.value) {
     if (startPage === 1) {
       endPage = Math.min(totalPages.value, startPage + maxButtons.value - 1);
+      if (displayLeftEllipsis.value === false) {
+        endPage = Math.min(totalPages.value, startPage + maxButtons.value);
+      }
     } else if (endPage === totalPages.value) {
       startPage = Math.max(1, endPage - maxButtons.value + 1);
+      if (displayRightEllipsis.value === false) {
+        startPage = Math.max(1, endPage - maxButtons.value);
+      }
     }
   }
 
-  if (startPage > 1 && displayLeftEllipsis.value === true) {
+  if (startPage > 2 && displayLeftEllipsis.value === true) {
     arr.push(1);
     if (startPage > 2) {
       arr.push("...");
