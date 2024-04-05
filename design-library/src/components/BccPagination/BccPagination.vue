@@ -27,7 +27,8 @@ const props = withDefaults(defineProps<Props>(), {
   align: "right",
   rowsPerPage: 4,
 });
-const { tableItems, maxButtonsDisplayed, rowsPerPage } = toRefs(props);
+const { tableItems, maxButtonsDisplayed, rowsPerPage, displayRightEllipsis, displayLeftEllipsis } =
+  toRefs(props);
 
 const emit = defineEmits(["update:paginatedRows", "update:pageChanged"]);
 
@@ -60,7 +61,7 @@ const currentDisplayedPages = computed<PageNumberOrEllipsis[]>(() => {
     }
   }
 
-  if (startPage > 1 && props.displayLeftEllipsis === true) {
+  if (startPage > 1 && displayLeftEllipsis.value === true) {
     arr.push(1);
     if (startPage > 2) {
       arr.push("...");
@@ -71,7 +72,7 @@ const currentDisplayedPages = computed<PageNumberOrEllipsis[]>(() => {
     arr.push(i);
   }
 
-  if (endPage < totalPages.value && props.displayRightEllipsis === true) {
+  if (endPage < totalPages.value && displayRightEllipsis.value === true) {
     if (endPage < totalPages.value - 1) {
       arr.push("...");
     }
