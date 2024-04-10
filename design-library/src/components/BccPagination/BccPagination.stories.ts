@@ -21,7 +21,7 @@ export default {
 const Template: StoryFn<typeof BccPagination> = (args) => ({
   components: { BccPagination, BccTable, BccButton, BccBadge },
   setup() {
-    const paginatedRows = ref(args.tableItems);
+    const paginatedItems = ref(args.items);
 
     const columns = ref([
       {
@@ -47,10 +47,10 @@ const Template: StoryFn<typeof BccPagination> = (args) => ({
       },
     ]);
 
-    return { args, paginatedRows, columns, ChevronRightIcon };
+    return { args, paginatedItems, columns, ChevronRightIcon };
   },
   template: `
-    <BccTable :items="paginatedRows" :columns="columns"> 
+    <BccTable :items="paginatedItems" :columns="columns"> 
     <template #item.status="{ item }">
         <BccBadge :context="item.status.context">{{ item.status.text }}</BccBadge>
       </template>
@@ -58,19 +58,20 @@ const Template: StoryFn<typeof BccPagination> = (args) => ({
         <BccButton variant="tertiary" size="sm" :padding="false" :icon="ChevronRightIcon" iconRight>Evaluation</BccButton>
       </template>
     </BccTable>
-    <BccPagination :tableItems="args.tableItems" :align="args.align" :displayRowsPerPage="args.displayRowsPerPage" :displayLeftEllipsis="args.displayLeftEllipsis" :displayRightEllipsis="args.displayRightEllipsis" :rowsPerPageArray="args.rowsPerPageArray" :maxButtonsDisplayed="args.maxButtonsDisplayed" v-model:paginatedRows="paginatedRows" />
+    <BccPagination :items="args.items" :align="args.align" :displayRowsPerPage="args.displayRowsPerPage" :displayLeftEllipsis="args.displayLeftEllipsis" :displayRightEllipsis="args.displayRightEllipsis" :rowsPerPageOptions="args.rowsPerPageOptions" :rowsPerPage="args.rowsPerPage" :maxButtonsDisplayed="args.maxButtonsDisplayed" v-model:paginatedItems="paginatedItems" />
   `,
 });
 
 export const Example = Template.bind({});
 Example.args = {
-  rowsPerPageArray: [1, 2, 4, 6],
+  rowsPerPageOptions: [1, 2, 4, 6],
+  rowsPerPage: 4,
   align: "right",
   maxButtonsDisplayed: 3,
   displayLeftEllipsis: true,
   displayRightEllipsis: true,
   displayRowsPerPage: true,
-  tableItems: [
+  items: [
     {
       id: 1,
       year_group: "23/24",

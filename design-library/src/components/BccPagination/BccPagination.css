@@ -4,10 +4,6 @@
         @apply flex flex-row items-center justify-between
     }
 
-    .bcc-pagination-right {
-        @apply flex flex-row items-center justify-between
-    }
-
     .bcc-pagination-left {
         @apply flex flex-row-reverse items-center justify-between
     }
@@ -25,40 +21,41 @@
     }
 
     .bcc-pagination-button-container {
-        @apply inline-flex items-center
+        @apply inline-flex items-center 
     }
 
-
-    .bcc-pagination-button-container button {
-        @apply select-none inline-flex items-center tracking-wide border border-on-primary justify-center active:shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-emphasis focus-visible:outline-offset-2;
+    .bcc-pagination-button {
+        @apply select-none inline-flex items-center tracking-wide border border-s-[0.5px] border-on-primary justify-center active:shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-emphasis focus-visible:outline-offset-2;
         @apply cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none;
         
         /* Default base size */
-        @apply text-base leading-5 py-2.5 gap-x-2 h-10;
-    }
+        @apply text-sm gap-x-2;
 
-    .bcc-pagination-button-container button:hover {
-        @apply bg-secondary-hover text-interactive-hover
+        @apply px-3 py-1.5 w-[33px] h-[33px] bg-primary text-secondary hover:bg-secondary-hover;
+
     }
 
     .bcc-pagination-button-selected {
-        @apply px-3.5 bg-secondary font-semibold text-interactive;
-    }
- 
-    .bcc-pagination-button-unselected {
-        @apply px-3.5 bg-button-secondary text-secondary;
+        @apply bg-secondary font-semibold text-interactive;
     }
 
-    .bcc-pagination-button-left {
-        @apply rounded-l-lg px-3.5 text-interactive;
+    .bcc-pagination-elipsis {
+        @apply select-none inline-flex items-center tracking-wide border border-s-[0.5px] border-on-primary justify-center;
+        @apply text-base leading-5 gap-x-2;
+        @apply px-3 py-1.5 w-[33px] h-[33px] bg-primary text-secondary;
+
     }
 
-    .bcc-pagination-button-right {
-        @apply rounded-r-lg px-3.5 text-interactive;
+    .bcc-pagination-arrow-left {
+        @apply w-10 border rounded-l-md text-interactive;
+    }
+
+    .bcc-pagination-arrow-right {
+        @apply w-10 border-s-[0.5px] rounded-r-md text-interactive;
     }
 
     .bcc-pagination-button-icon { /* base size */
-        @apply w-5 h-5;
+        @apply w-4 h-4;
     }
 
 }
