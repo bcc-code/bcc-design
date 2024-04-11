@@ -13,11 +13,11 @@
     }
 
     .bcc-pagination-rowsperpage-container {
-        @apply inline-flex flex-row items-center gap-2
+        @apply inline-flex flex-row items-center gap-2 text-secondary
     }
 
     .bcc-pagination-rowsperpage {
-        @apply w-20 text-caption
+        @apply w-[72px]
     }
 
     .bcc-pagination-button-container {
