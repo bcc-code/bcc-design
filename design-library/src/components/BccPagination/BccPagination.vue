@@ -129,8 +129,7 @@ watchEffect(() => {
       <button
         @click="changePage(-1)"
         :disabled="isFirstPage"
-        class="bcc-pagination-button"
-        :class="'bcc-pagination-arrow-left'"
+        class="bcc-pagination-button bcc-pagination-arrow-left"
       >
         <ArrowBackIosNewIcon class="bcc-pagination-button-icon" />
       </button>
@@ -152,8 +151,7 @@ watchEffect(() => {
       <button
         @click="changePage(1)"
         :disabled="isLastPage"
-        class="bcc-pagination-button"
-        :class="'bcc-pagination-arrow-right'"
+        class="bcc-pagination-button bcc-pagination-arrow-right"
       >
         <ArrowForwardIosIcon class="bcc-pagination-button-icon" />
       </button>

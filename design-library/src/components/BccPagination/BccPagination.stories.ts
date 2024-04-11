@@ -50,7 +50,7 @@ const Template: StoryFn<typeof BccPagination> = (args) => ({
     return { args, paginatedItems, columns, ChevronRightIcon };
   },
   template: `
-    <BccTable :items="paginatedItems" :columns="columns"> 
+    <BccTable :items="paginatedItems" :columns="columns">
     <template #item.status="{ item }">
         <BccBadge :context="item.status.context">{{ item.status.text }}</BccBadge>
       </template>
@@ -129,7 +129,7 @@ Example.args = {
     {
       id: 7,
       year_group: "22/23",
-      name: "Skibidi Toilet",
+      name: "G Man",
       status: { text: "Finished", context: "sucess" },
       progress: {
         amount: 100,
@@ -147,7 +147,7 @@ Example.args = {
     {
       id: 9,
       year_group: "23/24",
-      name: "Freddy Fazbear",
+      name: "Daphne Bennet",
       status: { text: "Behind Schedule", context: "warning" },
       progress: {
         amount: 45,
