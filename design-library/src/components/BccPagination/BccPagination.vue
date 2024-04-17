@@ -1,101 +1,50 @@
 <script setup lang="ts">
+import {
+  PaginationEllipsis,
+  PaginationList,
+  PaginationListItem,
+  PaginationNext,
+  PaginationPrev,
+  PaginationRoot,
+} from "radix-vue";
 import { ArrowBackIosNewIcon } from "@bcc-code/icons-vue";
 import { ArrowForwardIosIcon } from "@bcc-code/icons-vue";
 import { toRefs, ref, computed, watchEffect } from "vue";
 import BccSelect from "../BccSelect/BccSelect.vue";
 
 type Props = {
-  items: any[];
+  items: number;
   rowsPerPageOptions?: number[];
   rowsPerPage?: number;
   maxButtonsDisplayed?: number;
+  starterPage?: number;
   displayLeftEllipsis?: boolean;
   displayRightEllipsis?: boolean;
   align?: "left" | "center" | "right";
   displayRowsPerPage?: boolean;
 };
 
-type PageNumberOrEllipsis = number | "...";
-
 const props = withDefaults(defineProps<Props>(), {
   displayLeftEllipsis: true,
   displayRightEllipsis: true,
   displayRowsPerPage: true,
-  maxButtonsDisplayed: 3,
+  maxButtonsDisplayed: 1,
+  starterPage: 1,
   align: "right",
   rowsPerPage: 5,
   rowsPerPageOptions: () => [5, 10, 25, 50],
 });
-const { items, maxButtonsDisplayed, rowsPerPage, displayRightEllipsis, displayLeftEllipsis } =
-  toRefs(props);
+const { rowsPerPage, maxButtonsDisplayed } = toRefs(props);
 
-const emit = defineEmits(["update:paginatedItems", "update:currentPage", "update:totalPages"]);
+const emit = defineEmits(["update:currentPage", "update:totalPages"]);
 
 const currentPage = ref(1);
 const perPage = ref(rowsPerPage.value.toString());
 const perPageNumber = computed(() => parseInt(perPage.value));
-const totalPages = computed(() => Math.ceil(items.value.length / perPageNumber.value));
-const maxButtons = computed(() => maxButtonsDisplayed.value);
-
-const isFirstPage = computed(() => currentPage.value === 1);
-const isLastPage = computed(() => currentPage.value === totalPages.value);
-
-const paginatedRows = computed(() => {
-  const start = (currentPage.value - 1) * perPageNumber.value;
-  const end = start + perPageNumber.value;
-  return items.value.slice(start, end);
-});
-
-const currentDisplayedPages = computed<PageNumberOrEllipsis[]>(() => {
-  let arr: PageNumberOrEllipsis[] = [];
-
-  let startPage = Math.max(1, currentPage.value - Math.floor(maxButtons.value / 2));
-  let endPage = Math.min(totalPages.value, currentPage.value + Math.floor(maxButtons.value / 2));
-
-  if (endPage - startPage < maxButtons.value) {
-    if (startPage === 1) {
-      endPage = Math.min(totalPages.value, startPage + maxButtons.value - 1);
-    } else if (endPage === totalPages.value) {
-      startPage = Math.max(1, endPage - maxButtons.value + 1);
-    }
-  }
-
-  if (startPage > 1 && displayLeftEllipsis.value === true) {
-    arr.push(1);
-    if (startPage > 2) {
-      arr.push("...");
-    }
-  }
-
-  for (let i: number = startPage; i <= endPage; i++) {
-    arr.push(i);
-  }
-
-  if (endPage < totalPages.value && displayRightEllipsis.value === true) {
-    if (endPage < totalPages.value - 1) {
-      arr.push("...");
-    }
-    arr.push(totalPages.value);
-  }
-
-  return arr;
-});
-
-const goToPage = (numPage: PageNumberOrEllipsis) => {
-  if (numPage === "...") {
-    return;
-  }
-
-  currentPage.value = numPage;
-};
-
-const changePage = (value: number) => {
-  currentPage.value += value;
-  emit("update:currentPage", currentPage.value);
-};
+const totalPages = computed(() => Math.ceil(props.items / perPageNumber.value));
 
 watchEffect(() => {
-  emit("update:paginatedItems", paginatedRows.value);
+  emit("update:currentPage", currentPage.value);
   emit("update:totalPages", totalPages.value);
 });
 </script>
@@ -112,49 +61,45 @@ watchEffect(() => {
   >
     <div v-if="displayRowsPerPage === true" class="bcc-pagination-rowsperpage-container">
       <label class="text-caption-sm">Rows per page</label>
-      <BccSelect
-        class="bcc-pagination-rowsperpage"
-        @change="goToPage(1)"
-        v-model="perPage"
-        size="sm"
-      >
+      <BccSelect class="bcc-pagination-rowsperpage" v-model="perPage" size="sm">
         <option v-for="(rowSize, index) in rowsPerPageOptions" :value="rowSize" v-bind:key="index">
           {{ rowSize }}
         </option>
       </BccSelect>
       <label class="text-caption-sm">of {{ totalPages }} entries</label>
     </div>
-
-    <div class="bcc-pagination-button-container">
-      <button
-        @click="changePage(-1)"
-        :disabled="isFirstPage"
-        class="bcc-pagination-button bcc-pagination-arrow-left"
-      >
-        <ArrowBackIosNewIcon class="bcc-pagination-button-icon" />
-      </button>
-
-      <div v-for="(page, index) in currentDisplayedPages" v-bind:key="index">
-        <button
-          v-if="page !== '...'"
-          @click="goToPage(page)"
-          class="bcc-pagination-button"
-          :class="{
-            'bcc-pagination-button-selected': page === currentPage,
-          }"
-        >
-          {{ page }}
-        </button>
-        <span v-if="page === '...'" class="bcc-pagination-elipsis">{{ page }}</span>
-      </div>
-
-      <button
-        @click="changePage(1)"
-        :disabled="isLastPage"
-        class="bcc-pagination-button bcc-pagination-arrow-right"
-      >
-        <ArrowForwardIosIcon class="bcc-pagination-button-icon" />
-      </button>
-    </div>
+    <PaginationRoot
+      :total="props.items"
+      :itemsPerPage="perPageNumber"
+      :sibling-count="maxButtonsDisplayed"
+      show-edges
+      v-model:page="currentPage"
+      :default-page="starterPage"
+    >
+      <PaginationList v-slot="{ items }" class="bcc-pagination-button-container">
+        <PaginationPrev class="bcc-pagination-button bcc-pagination-arrow-left">
+          <ArrowBackIosNewIcon />
+        </PaginationPrev>
+        <template v-for="(page, index) in items">
+          <PaginationListItem
+            class="bcc-pagination-button data-[selected]:bg-secondary data-[selected]:font-semibold data-[selected]:text-interactive"
+            v-if="page.type === 'page'"
+            :key="index"
+            :value="page.value"
+          >
+            {{ page.value }}
+          </PaginationListItem>
+          <PaginationEllipsis
+            class="bcc-pagination-elipsis"
+            v-else
+            :key="page.type"
+            :index="index"
+          ></PaginationEllipsis>
+        </template>
+        <PaginationNext class="bcc-pagination-button bcc-pagination-arrow-right">
+          <ArrowForwardIosIcon />
+        </PaginationNext>
+      </PaginationList>
+    </PaginationRoot>
   </div>
 </template>

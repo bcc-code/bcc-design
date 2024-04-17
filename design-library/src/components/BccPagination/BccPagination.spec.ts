@@ -7,24 +7,25 @@ describe("BccPagination", () => {
   it("renders the right amount of page numbers", async () => {
     const wrapper = mount(BccPagination, {
       props: {
-        items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-        rowsPerPage: 2,
+        items: 20,
+        rowsPerPage: 5,
       },
     });
 
-    expect(wrapper.emitted("update:paginatedItems")?.length).toEqual(1);
-    expect(wrapper.emitted("update:totalPages")![0]).toEqual([6]);
+    expect(wrapper.emitted("update:totalPages")![0]).toEqual([4]);
   });
   it("renders an ellipsis on both sides", async () => {
     const wrapper = mount(BccPagination, {
       props: {
-        items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-        rowsPerPage: 1,
+        items: 50,
+        rowsPerPage: 5,
         displayLeftEllipsis: true,
         displayRightEllipsis: true,
       },
     });
 
+    await wrapper.find(".bcc-pagination-arrow-right").trigger("click");
+    await wrapper.find(".bcc-pagination-arrow-right").trigger("click");
     await wrapper.find(".bcc-pagination-arrow-right").trigger("click");
     await wrapper.find(".bcc-pagination-arrow-right").trigger("click");
     await wrapper.find(".bcc-pagination-arrow-right").trigger("click");
@@ -35,43 +36,29 @@ describe("BccPagination", () => {
   it("updating the rowsPerPage updates the rendered page numbers", async () => {
     const wrapper = mount(BccPagination, {
       props: {
-        items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        items: 30,
         rowsPerPage: 1,
         rowsPerPageOptions: [1, 3, 5, 7, 9],
+        maxButtonsDisplayed: 1,
       },
     });
 
-    expect(wrapper.findAll(".bcc-pagination-button").at(4)?.html()).contains("16");
+    expect(wrapper.findAll(".bcc-pagination-button").at(6)?.html()).contains("30");
 
     await wrapper.find(".bcc-select").setValue("3");
 
-    expect(wrapper.findAll(".bcc-pagination-button").at(4)?.html()).contains("6");
+    expect(wrapper.findAll(".bcc-pagination-button").at(6)?.html()).contains("10");
 
     await wrapper.find(".bcc-select").setValue("5");
 
-    expect(wrapper.findAll(".bcc-pagination-button").at(4)?.html()).contains("4");
+    expect(wrapper.findAll(".bcc-pagination-button").at(5)?.html()).contains("6");
 
     await wrapper.find(".bcc-select").setValue("7");
 
-    expect(wrapper.findAll(".bcc-pagination-button").at(3)?.html()).contains("3");
+    expect(wrapper.findAll(".bcc-pagination-button").at(4)?.html()).contains("5");
 
     await wrapper.find(".bcc-select").setValue("9");
 
-    expect(wrapper.findAll(".bcc-pagination-button").at(2)?.html()).contains("2");
-  });
-
-  it("paginatedItems is displaying the right contents when switching page", async () => {
-    const wrapper = mount(BccPagination, {
-      props: {
-        items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-        rowsPerPage: 3,
-      },
-    });
-
-    expect(wrapper.emitted("update:paginatedItems")![0]).toEqual([[1, 2, 3]]);
-
-    await wrapper.find(".bcc-pagination-arrow-right").trigger("click");
-
-    expect(wrapper.emitted("update:paginatedItems")![1]).toEqual([[4, 5, 6]]);
+    expect(wrapper.findAll(".bcc-pagination-button").at(4)?.html()).contains("4");
   });
 });
