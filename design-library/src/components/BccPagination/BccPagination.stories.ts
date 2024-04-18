@@ -20,7 +20,7 @@ const Template: StoryFn<typeof BccPagination> = (args) => ({
     return { args };
   },
   template: `
-    <BccPagination :rowsPerPageOptions="args.rowsPerPageOptions" :align="args.align" :displayRowsPerPage="args.displayRowsPerPage" :displayLeftEllipsis="args.displayLeftEllipsis" :displayRightEllipsis="args.displayRightEllipsis" :maxButtonsDisplayed="args.maxButtonsDisplayed" :rowsPerPage="args.rowsPerPage" :items="args.items" />
+    <BccPagination :rowsPerPageOptions="args.rowsPerPageOptions" :showElipsis="args.showElipsis" :align="args.align" :displayRowsPerPage="args.displayRowsPerPage" :maxButtonsDisplayed="args.maxButtonsDisplayed" :rowsPerPage="args.rowsPerPage" :items="args.items" />
   `,
 });
 
@@ -31,7 +31,6 @@ Example.args = {
   rowsPerPageOptions: [1, 3, 5, 7, 9],
   maxButtonsDisplayed: 1,
   align: "right",
-  displayLeftEllipsis: true,
-  displayRightEllipsis: true,
   displayRowsPerPage: true,
+  showElipsis: true,
 };

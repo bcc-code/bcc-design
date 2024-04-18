@@ -18,23 +18,21 @@ type Props = {
   rowsPerPage?: number;
   maxButtonsDisplayed?: number;
   starterPage?: number;
-  displayLeftEllipsis?: boolean;
-  displayRightEllipsis?: boolean;
+  showElipsis?: boolean;
   align?: "left" | "center" | "right";
   displayRowsPerPage?: boolean;
 };
 
 const props = withDefaults(defineProps<Props>(), {
-  displayLeftEllipsis: true,
-  displayRightEllipsis: true,
   displayRowsPerPage: true,
+  showElipsis: true,
   maxButtonsDisplayed: 1,
   starterPage: 1,
   align: "right",
   rowsPerPage: 5,
   rowsPerPageOptions: () => [5, 10, 25, 50],
 });
-const { rowsPerPage, maxButtonsDisplayed } = toRefs(props);
+const { rowsPerPage, maxButtonsDisplayed, showElipsis } = toRefs(props);
 
 const emit = defineEmits(["update:currentPage", "update:totalPages"]);
 
@@ -72,9 +70,9 @@ watchEffect(() => {
       :total="props.items"
       :itemsPerPage="perPageNumber"
       :sibling-count="maxButtonsDisplayed"
-      show-edges
       v-model:page="currentPage"
       :default-page="starterPage"
+      v-bind:show-edges="showElipsis"
     >
       <PaginationList v-slot="{ items }" class="bcc-pagination-button-container">
         <PaginationPrev class="bcc-pagination-button bcc-pagination-arrow-left">
