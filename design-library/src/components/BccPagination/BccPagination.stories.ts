@@ -19,6 +19,28 @@ export default {
 } as Meta<typeof BccPagination>;
 
 const Template: StoryFn<typeof BccPagination> = (args) => ({
+  components: { BccPagination },
+  setup() {
+    return { args };
+  },
+  template: `
+    <BccPagination :total="args.total" :align="args.align" :displayRowsPerPage="args.displayRowsPerPage" :displayLeftEllipsis="args.displayLeftEllipsis" :displayRightEllipsis="args.displayRightEllipsis" :rowsPerPageOptions="args.rowsPerPageOptions" :rowsPerPage="args.rowsPerPage" :maxButtonsDisplayed="args.maxButtonsDisplayed"/>
+  `,
+});
+
+export const Example = Template.bind({});
+Example.args = {
+  total: 100,
+  rowsPerPageOptions: [5, 10, 25, 50],
+  rowsPerPage: 5,
+  align: "right",
+  maxButtonsDisplayed: 3,
+  displayLeftEllipsis: true,
+  displayRightEllipsis: true,
+  displayRowsPerPage: true,
+};
+
+const TempTable: StoryFn<typeof BccPagination> = () => ({
   components: { BccPagination, BccTable, BccButton, BccBadge },
   setup() {
     const columns = ref([
@@ -170,7 +192,7 @@ const Template: StoryFn<typeof BccPagination> = (args) => ({
     });
     const paginatedItems = computed(() => items.value.slice(start.value, end.value));
 
-    return { args, paginatedItems, page, columns, rowsPerPage, items, ChevronRightIcon };
+    return { paginatedItems, page, columns, rowsPerPage, items, ChevronRightIcon };
   },
   template: `
     <BccTable :items="paginatedItems" :columns="columns">
@@ -181,37 +203,55 @@ const Template: StoryFn<typeof BccPagination> = (args) => ({
         <BccButton variant="tertiary" size="sm" :padding="false" :icon="ChevronRightIcon" iconRight>Evaluation</BccButton>
       </template>
     </BccTable>
-    <BccPagination :total="args.total" v-model:currentPage="page" v-model:rowsPerPage="rowsPerPage" :align="args.align" :displayRowsPerPage="args.displayRowsPerPage" :displayLeftEllipsis="args.displayLeftEllipsis" :displayRightEllipsis="args.displayRightEllipsis" :rowsPerPageOptions="args.rowsPerPageOptions" :rowsPerPage="args.rowsPerPage" :maxButtonsDisplayed="args.maxButtonsDisplayed"/>
+    <BccPagination :total="items.length" v-model:currentPage="page" v-model:rowsPerPage="rowsPerPage" :rowsPerPageOptions="[1, 2, 4, 6]" :rowsPerPage="4"/>
+  `,
+});
+export const Table = TempTable.bind({});
+
+const TempAlign: StoryFn<typeof BccPagination> = (args) => ({
+  components: { BccPagination },
+  setup() {
+    return { args };
+  },
+  template: `
+    <div class="flex flex-col gap-5">
+      <BccPagination :total="30" align="left"/>
+      <BccPagination :total="30" align="right"/>
+      <BccPagination :total="30" align="center"/>
+    </div>
   `,
 });
 
-export const Example = Template.bind({});
-Example.args = {
-  total: 12,
-  rowsPerPageOptions: [1, 2, 4, 6],
-  rowsPerPage: 4,
-  align: "right",
-  maxButtonsDisplayed: 3,
-  displayLeftEllipsis: true,
-  displayRightEllipsis: true,
-  displayRowsPerPage: true,
-};
+export const Align = TempAlign.bind({});
 
-Example.parameters = {
-  docs: {
-    source: {
-      language: "html",
-      code: `
-      <BccPagination
-      :total="12"
-      v-model:currentPage="currentPage"
-      v-model:rowsPerPage="rowsPerPage"
-      align="right"
-      :rowsPerPageOptions="{0:1,1:2,2:4,3:6}"
-      :rowsPerPage="4"
-      :maxButtonsDisplayed="5"
-  />
-      `,
-    },
+const TempElipsis: StoryFn<typeof BccPagination> = (args) => ({
+  components: { BccPagination },
+  setup() {
+    return { args };
   },
-};
+  template: `
+  <div class="flex flex-col gap-5">
+    <BccPagination :total="40" align="left" :displayRightEllipsis="false" :displayRowsPerPage="false" />
+    <BccPagination :total="40" align="left" :displayLeftEllipsis="false" :displayRowsPerPage="false" />
+    <BccPagination :total="40" align="left" :displayLeftEllipsis="false" :displayRightEllipsis="false" :displayRowsPerPage="false" />
+  </div>
+  `,
+});
+
+export const Elipsis = TempElipsis.bind({});
+
+const TempMaxButtons: StoryFn<typeof BccPagination> = (args) => ({
+  components: { BccPagination },
+  setup() {
+    return { args };
+  },
+  template: `
+  <div class="flex flex-col gap-5">
+    <BccPagination :total="60" :rowsPerPage="5" :maxButtonsDisplayed="3" align="left" :displayRowsPerPage="false" />
+    <BccPagination :total="60" :rowsPerPage="5" :maxButtonsDisplayed="5" align="left" :displayRowsPerPage="false" />
+    <BccPagination :total="60" :rowsPerPage="5" :maxButtonsDisplayed="10" align="left" :displayRowsPerPage="false"  />
+  </div>
+  `,
+});
+
+export const MaxButtons = TempMaxButtons.bind({});
