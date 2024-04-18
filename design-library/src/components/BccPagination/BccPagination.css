@@ -5,11 +5,11 @@
     }
 
     .bcc-pagination-left {
-        @apply flex flex-row-reverse items-center justify-between
+        @apply flex-row-reverse
     }
 
     .bcc-pagination-center {
-        @apply flex flex-row items-center justify-evenly
+        @apply flex-row justify-evenly
     }
 
     .bcc-pagination-rowsperpage-container {

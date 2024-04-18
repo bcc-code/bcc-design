@@ -5,7 +5,7 @@ import { toRefs, ref, computed, watchEffect } from "vue";
 import BccSelect from "../BccSelect/BccSelect.vue";
 
 type Props = {
-  items: any[];
+  total: number;
   rowsPerPageOptions?: number[];
   rowsPerPage?: number;
   maxButtonsDisplayed?: number;
@@ -26,25 +26,19 @@ const props = withDefaults(defineProps<Props>(), {
   rowsPerPage: 5,
   rowsPerPageOptions: () => [5, 10, 25, 50],
 });
-const { items, maxButtonsDisplayed, rowsPerPage, displayRightEllipsis, displayLeftEllipsis } =
+const { total, maxButtonsDisplayed, rowsPerPage, displayRightEllipsis, displayLeftEllipsis } =
   toRefs(props);
 
-const emit = defineEmits(["update:paginatedItems", "update:currentPage", "update:totalPages"]);
+const emit = defineEmits(["update:currentPage", "update:totalPages", "update:rowsPerPage"]);
 
 const currentPage = ref(1);
 const perPage = ref(rowsPerPage.value.toString());
 const perPageNumber = computed(() => parseInt(perPage.value));
-const totalPages = computed(() => Math.ceil(items.value.length / perPageNumber.value));
+const totalPages = computed(() => Math.ceil(total.value / perPageNumber.value));
 const maxButtons = computed(() => maxButtonsDisplayed.value);
 
 const isFirstPage = computed(() => currentPage.value === 1);
 const isLastPage = computed(() => currentPage.value === totalPages.value);
-
-const paginatedRows = computed(() => {
-  const start = (currentPage.value - 1) * perPageNumber.value;
-  const end = start + perPageNumber.value;
-  return items.value.slice(start, end);
-});
 
 const currentDisplayedPages = computed<PageNumberOrEllipsis[]>(() => {
   let arr: PageNumberOrEllipsis[] = [];
@@ -91,23 +85,23 @@ const goToPage = (numPage: PageNumberOrEllipsis) => {
 
 const changePage = (value: number) => {
   currentPage.value += value;
-  emit("update:currentPage", currentPage.value);
 };
 
 watchEffect(() => {
-  emit("update:paginatedItems", paginatedRows.value);
   emit("update:totalPages", totalPages.value);
+  emit("update:rowsPerPage", perPageNumber.value);
+  emit("update:currentPage", currentPage.value);
 });
 </script>
 
 <template>
   <div
+    class="bcc-pagination"
     :class="{
       'bcc-pagination-left':
         (align === 'left' && displayRowsPerPage === true) ||
         (align === 'right' && displayRowsPerPage === false),
       'bcc-pagination-center': align === 'center',
-      'bcc-pagination': align === 'right',
     }"
   >
     <div v-if="displayRowsPerPage === true" class="bcc-pagination-rowsperpage-container">
