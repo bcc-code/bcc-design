@@ -1,0 +1,61 @@
+@layer components {
+
+    .bcc-pagination {
+        @apply flex flex-row items-center justify-between
+    }
+
+    .bcc-pagination-left {
+        @apply flex-row-reverse
+    }
+
+    .bcc-pagination-center {
+        @apply flex-row justify-evenly
+    }
+
+    .bcc-pagination-rowsperpage-container {
+        @apply inline-flex flex-row items-center gap-2 text-secondary
+    }
+
+    .bcc-pagination-rowsperpage {
+        @apply w-[72px]
+    }
+
+    .bcc-pagination-button-container {
+        @apply inline-flex items-center 
+    }
+
+    .bcc-pagination-button {
+        @apply select-none inline-flex items-center tracking-wide border border-s-[0.5px] border-on-primary justify-center active:shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-emphasis focus-visible:outline-offset-2;
+        @apply cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none;
+        
+        /* Default base size */
+        @apply text-sm gap-x-2;
+
+        @apply px-3 py-1.5 w-[33px] h-[33px] bg-primary text-secondary hover:bg-secondary-hover;
+
+    }
+
+    .bcc-pagination-button-selected {
+        @apply bg-secondary font-semibold text-interactive;
+    }
+
+    .bcc-pagination-elipsis {
+        @apply select-none inline-flex items-center tracking-wide border border-s-[0.5px] border-on-primary justify-center;
+        @apply text-base leading-5 gap-x-2;
+        @apply px-3 py-1.5 w-[33px] h-[33px] bg-primary text-secondary;
+
+    }
+
+    .bcc-pagination-arrow-left {
+        @apply w-10 border rounded-l-md text-interactive;
+    }
+
+    .bcc-pagination-arrow-right {
+        @apply w-10 border-s-[0.5px] rounded-r-md text-interactive;
+    }
+
+    .bcc-pagination-button-icon { /* base size */
+        @apply w-4 h-4;
+    }
+
+}
