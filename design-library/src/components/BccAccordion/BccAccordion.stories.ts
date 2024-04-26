@@ -72,6 +72,14 @@ Example.parameters = {
   },
 };
 
+export const WithOpened = Template.bind({});
+WithOpened.args = {
+  title: "Example Accordion was expanded once the page was loaded",
+  variant: "desktop",
+  size: "base",
+  open: true,
+};
+
 const TempWithPin: StoryFn<typeof BccAccordion> = (args) => ({
   components: { BccAccordion },
   setup() {

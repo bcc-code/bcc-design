@@ -17,6 +17,7 @@ const sizes = {
 
 type Props = {
   title: string;
+  open?: boolean;
   subtitle?: string;
   variant?: keyof typeof variants;
   size?: keyof typeof sizes;
@@ -25,7 +26,7 @@ type Props = {
   pin?: InstanceType<typeof BccPin>["$props"];
 };
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   title: "",
   subtitle: "",
   variant: "readonly",
@@ -35,7 +36,7 @@ withDefaults(defineProps<Props>(), {
   pin: undefined,
 });
 
-const isOpen = ref(false);
+const isOpen = ref(props.open ?? false);
 </script>
 
 <template>
