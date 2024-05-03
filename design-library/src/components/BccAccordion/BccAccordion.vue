@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { ExpandMoreIcon } from "@bcc-code/icons-vue";
-import { BccBadge, BccPin } from "@/index";
-import { type Component, ref } from "vue";
+import { ref } from "vue";
 
 const variants = {
-  readonly: "bcc-accordion-readonly",
-  brand: "bcc-accordion-brand",
-  interactive: "bcc-accordion-interactive",
-  desktop: "bcc-accordion-desktop",
+  filled: "bcc-accordion-filled",
+  outlined: "bcc-accordion-outlined",
+  soft: "bcc-accordion-soft",
+  ghost: "bcc-accordion-ghost",
 };
 
 const sizes = {
@@ -21,19 +20,13 @@ type Props = {
   subtitle?: string;
   variant?: keyof typeof variants;
   size?: keyof typeof sizes;
-  icon?: string | Component | Function;
-  badge?: InstanceType<typeof BccBadge>["$props"] & { text: string };
-  pin?: InstanceType<typeof BccPin>["$props"];
 };
 
 const props = withDefaults(defineProps<Props>(), {
   title: "",
   subtitle: "",
-  variant: "readonly",
+  variant: "filled",
   size: "base",
-  icon: "",
-  badge: undefined,
-  pin: undefined,
 });
 
 const isOpen = ref(props.open ?? false);
@@ -52,7 +45,7 @@ const isOpen = ref(props.open ?? false);
     >
       <div class="bcc-accordion-title-wrap">
         <div>
-          <slot name="left" />
+          <slot name="prepend" />
         </div>
         <div>
           <span class="bcc-accordion-title">
@@ -62,12 +55,7 @@ const isOpen = ref(props.open ?? false);
         </div>
       </div>
       <div class="bcc-accordion-right">
-        <slot name="action" />
-        <component class="bcc-accordion-right-icon bcc-accordion-icon" v-if="icon" :is="icon" />
-        <BccBadge class="bcc-accordion-right-icon" v-if="badge" v-bind="badge">{{
-          badge.text
-        }}</BccBadge>
-        <BccPin class="bcc-accordion-right-icon" v-show="pin" v-bind="pin" />
+        <slot name="append" />
         <div class="bcc-accordion-right-icon bcc-accordion-icon">
           <ExpandMoreIcon />
         </div>
