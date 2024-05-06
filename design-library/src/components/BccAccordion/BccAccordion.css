@@ -29,6 +29,9 @@
   .bcc-accordion-subtitle {
     @apply text-caption text-secondary;
   }
+  .bcc-accordion-info {
+    @apply text-caption text-tertiary;
+  }
   .bcc-accordion-right {
     @apply flex h-6 flex-row items-center justify-end;
   }

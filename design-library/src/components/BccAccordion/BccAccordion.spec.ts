@@ -17,17 +17,21 @@ describe("BccAccordion", () => {
       props: {
         title: "Props Title",
         subtitle: "Props Subtitle",
-        variant: "readonly",
+        info: "Props Info",
+        variant: "filled",
         size: "base",
       },
       slots: {
-        left: '<div class="test-slot-content">Slot Content</div>',
+        prepend: '<div class="test-slot-content-left">Slot Content</div>',
+        append: '<div class="test-slot-content-right">Slot Content</div>',
       },
     });
 
     expect(wrapper.find(".bcc-accordion-title").text()).toBe("Props Title");
     expect(wrapper.find(".bcc-accordion-subtitle").text()).toBe("Props Subtitle");
-    expect(wrapper.find(".test-slot-content").exists()).toBe(true);
+    expect(wrapper.find(".bcc-accordion-info").text()).toBe("Props Info");
+    expect(wrapper.find(".test-slot-content-left").exists()).toBe(true);
+    expect(wrapper.find(".test-slot-content-right").exists()).toBe(true);
   });
 
   it("toggles content visibility on header click", async () => {

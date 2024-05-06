@@ -18,6 +18,7 @@ type Props = {
   title: string;
   open?: boolean;
   subtitle?: string;
+  info?: string;
   variant?: keyof typeof variants;
   size?: keyof typeof sizes;
 };
@@ -55,6 +56,9 @@ const isOpen = ref(props.open ?? false);
         </div>
       </div>
       <div class="bcc-accordion-right">
+        <span v-if="info" class="bcc-accordion-info">
+          {{ info }}
+        </span>
         <slot name="append" />
         <div class="bcc-accordion-right-icon bcc-accordion-icon">
           <ExpandMoreIcon />
