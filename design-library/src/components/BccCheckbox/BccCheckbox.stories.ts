@@ -57,3 +57,16 @@ export const State: StoryFn<typeof BccCheckbox> = () => ({
     </div>
   `,
 });
+
+/**
+ * Show how the checkbox aligns with multiline label text.
+ */
+export const MultilineLabel: StoryFn<typeof BccCheckbox> = () => ({
+  components: { BccCheckbox },
+  template: `
+    <div class="inline-flex flex-col space-y-4 max-w-[50%]">
+      <BccCheckbox disabled label="Checkboxes have been a fundamental part of web forms since the early days of HTML. They were included in the original HTML 2.0 specification in 1995, making them one of the oldest input elements on the web." :modelValue="true" />
+      <BccCheckbox label="Some digital artists create pixel art using checkboxes. By arranging them in a grid and changing their states, they can create simple images and patterns." :modelValue="false" />
+    </div>
+  `,
+});
