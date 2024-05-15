@@ -1,0 +1,83 @@
+
+@layer components {
+    .bcc-dialog {
+        @apply relative flex flex-col gap-6 rounded-lg bg-primary p-6 text-primary shadow-xl sm:min-w-[28.5rem] sm:max-w-[28.5rem] xl:max-w-[32rem] max-h-[80vh];
+    }
+
+    /* Overlay/Wrapper */
+    .bcc-dialog-overlay-wrapper {
+        @apply fixed inset-0 z-50;
+    }
+
+    .bcc-dialog-container {
+        @apply flex h-[100dvh] w-[100dvw] items-center justify-center overflow-hidden;
+    }
+  
+    .bcc-dialog-overlay {
+        @apply fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity;
+    }
+
+    .bcc-dialog-wrapper {
+        @apply flex h-full w-full transform flex-col justify-end transition-all sm:items-center sm:justify-center p-4;
+    }
+
+    /* Header */
+    .bcc-dialog-header + .bcc-dialog-body {
+        @apply border-t border-on-primary pt-5;
+    }
+
+    /* Body */
+    .bcc-dialog-body {
+        @apply flex flex-col gap-2 overflow-y-auto;
+    }
+
+    /* Title */
+    .bcc-dialog-title {
+        @apply text-heading-lg flex justify-between items-start;
+    }
+    .bcc-dialog-close-button {
+        @apply text-black;
+    }
+    .bcc-dialog-close-icon {
+        @apply h-6 w-6;
+    }
+
+    .bcc-dialog-subtitle {
+        @apply text-caption-lg text-secondary;
+    }
+
+    /* Content */
+    .bcc-dialog-content {
+        @apply text-body overflow-y-auto py-6;
+    }
+
+    /* Footer */
+    .bcc-dialog-footer {
+        @apply sticky bottom-0 left-0 right-0 bg-primary;
+    }
+
+    .bcc-dialog-footer-content {
+        @apply mb-5;
+    }
+
+    /* Actions */
+    .bcc-dialog-actions {
+        @apply flex gap-4;
+    }
+    .bcc-dialog-secondary-action {
+        @apply flex-1 w-full;
+        button {
+            @apply w-full;
+        }
+    }
+    .bcc-dialog-primary-action {
+        @apply flex-1 w-full;
+        button {
+            @apply w-full;
+        }
+    }
+
+    .bcc-dialog-alert .bcc-dialog-actions {
+        @apply justify-center;
+    }
+}
