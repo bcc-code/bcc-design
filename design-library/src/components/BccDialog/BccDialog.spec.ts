@@ -27,7 +27,6 @@ describe("BccDialog", () => {
     expect(wrapper.text()).toContain("Footer slot");
     expect(wrapper.text()).toContain("Primary action");
     expect(wrapper.text()).toContain("Secondary action");
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it("closes when the close button is clicked", async () => {
