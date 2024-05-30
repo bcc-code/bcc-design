@@ -1,0 +1,29 @@
+@layer components {
+    .bcc-nps {
+        @apply p-4 text-sm min-w-[280px];
+    }
+    
+    .bcc-nps--heading {
+        @apply mb-1 flex items-center justify-between;
+    }
+    
+    .bcc-nps--label {
+        @apply flex-1 truncate;
+    }
+    
+    .bcc-nps--scores {
+    @apply pointer-events-none flex justify-evenly cursor-pointer gap-x-0.5 rounded-lg bg-gradient-to-r from-red-500 via-yellow-400 via-75% to-green-500 px-0.5;
+    }
+    
+    .bcc-nps--scores.reverse {
+        @apply bg-gradient-to-l;
+    }
+    
+    .bcc-nps--score {
+        @apply pointer-events-auto flex h-8 flex-1 items-center justify-center shadow-inner transition-all duration-200 hover:bg-transparent;
+    }
+    
+    .bcc-nps--score.score--active {
+     @apply pointer-events-none scale-150 shadow-none;
+    }
+}
