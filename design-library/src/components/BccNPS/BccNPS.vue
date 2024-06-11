@@ -22,15 +22,19 @@ withDefaults(defineProps<Props>(), {
       <p class="bcc-nps--label">{{ leftLabel }}</p>
       <p class="bcc-nps--label text-right">{{ rightLabel }}</p>
     </div>
-    <div class="bcc-nps--scores" :class="{reverse}">
-      <div
-        v-for="i in max"
-        :key="i"
-        class="bcc-nps--score"
-        @click="modelValue = i"
-        :class="{ 'bg-white': !modelValue || modelValue < i, 'score--active': modelValue === i }"
-      >
-        {{ i }}
+    <div class="bcc-nps--scores" :class="{ reverse }">
+      <div v-for="i in max" :key="i" class="bcc-nps--score-container">
+        <div
+          class="bcc-nps--score"
+          @click="modelValue = i"
+          :class="{
+            inactive: !modelValue || modelValue < i,
+            'score--active': modelValue === i,
+          }"
+        >
+          {{ i }}
+        </div>
+        <span v-if="i !== max" class="seperator"></span>
       </div>
     </div>
   </div>
