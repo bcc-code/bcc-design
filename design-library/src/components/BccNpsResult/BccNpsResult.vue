@@ -1,20 +1,40 @@
 <script setup lang="ts">
+import { computed, ref } from "vue";
+
 type Props = {
-  max?: number;
-  disabled?: boolean;
+  score: number; // Between -100 and 100
 };
 
-const modelValue = defineModel();
+const props = withDefaults(defineProps<Props>(), {});
 
-const props = withDefaults(defineProps<Props>(), {
-  disabled: false,
-  max: 10,
+const TOT_DEGREES = 250;
+const MIN_DEGREES = 170;
+function scoreToDegrees(score: number) {
+  const perc = (score + 100) / 200;
+  const degr = perc * TOT_DEGREES - MIN_DEGREES;
+  return degr;
+}
+
+const started = ref(false);
+
+setTimeout(() => {
+  started.value = true;
+}, 150);
+
+const degrees = computed(() => {
+  const startingPoint = -170;
+
+  if (started.value && props.score !== undefined) {
+    return scoreToDegrees(props.score);
+  }
+  return startingPoint;
 });
 </script>
 
 <template>
   <div class="bcc-nps-result">
     <svg
+      @click="started = true"
       width="177"
       height="178"
       viewBox="0 0 177 178"
@@ -45,10 +65,58 @@ const props = withDefaults(defineProps<Props>(), {
         d="M20.6948 87.2829C20.6948 49.8255 50.8757 19.4576 88.1025 19.4576C98.3814 19.4576 108.12 21.7778 116.838 25.9179L125.5 8.52267C113.693 2.86646 101.117 0 88.0872 0C72.1198 0 56.4422 4.40098 42.7533 12.7303C28.6891 21.2867 17.3427 33.6641 9.9431 48.5243C2.3727 63.7282 -0.738426 80.4636 0.945241 96.9197C2.57096 112.783 8.6102 127.981 18.4407 141L34.399 128.279C25.8007 116.893 20.6917 102.689 20.6917 87.2829H20.6948Z"
         fill="#F93A4F"
       />
-      <!-- <path
+      <path
         d="M143.247 32.3886L91.5927 77.9944C90.3998 77.5143 89.0778 77.2935 87.7092 77.4053C82.9969 77.79 79.487 81.9285 79.8722 86.646C80.2573 91.3634 84.392 94.8778 89.1042 94.4931C93.8165 94.1084 97.3264 89.9699 96.9413 85.2524C96.9029 84.7825 96.8257 84.325 96.7159 83.8824L145.82 35.152C147.469 33.4324 145.08 30.8628 143.247 32.3886Z"
         fill="black"
-      /> -->
+        class="dial"
+        :style="`transform: rotate(${degrees}deg)`"
+      />
     </svg>
   </div>
 </template>
+<style>
+.dial {
+  transition: 1s
+    linear(
+      0,
+      0.004,
+      0.016,
+      0.035,
+      0.063,
+      0.098,
+      0.141 13.6%,
+      0.25,
+      0.391,
+      0.563,
+      0.765,
+      1,
+      0.891 40.9%,
+      0.848,
+      0.813,
+      0.785,
+      0.766,
+      0.754,
+      0.75,
+      0.754,
+      0.766,
+      0.785,
+      0.813,
+      0.848,
+      0.891 68.2%,
+      1 72.7%,
+      0.973,
+      0.953,
+      0.941,
+      0.938,
+      0.941,
+      0.953,
+      0.973,
+      1,
+      0.988,
+      0.984,
+      0.988,
+      1
+    );
+  transform-origin: center;
+}
+</style>
