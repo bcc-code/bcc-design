@@ -1,10 +1,11 @@
 @layer components {
   .bcc-nps {
     @apply min-w-[280px] p-4 text-sm;
+    @apply flex flex-col gap-y-2;
   }
 
   .bcc-nps--heading {
-    @apply mb-1 flex items-center justify-between;
+    @apply flex items-center justify-between;
   }
 
   .bcc-nps--label {

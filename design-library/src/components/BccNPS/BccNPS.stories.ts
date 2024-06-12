@@ -6,7 +6,16 @@ import type { Meta, StoryFn } from "@storybook/vue3";
 export default {
   title: "Forms/BccNPS",
   component: BccNPS,
-  argTypes: {},
+  argTypes: {
+    reverse: {
+      description: "Should the bar be reversed?",
+    },
+    labelPosition: {
+      description: "Where to place the labels",
+      options: ["top", "bottom"],
+      control: { type: "radio" },
+    },
+  },
 } as Meta<typeof BccNPS>;
 
 const Template: StoryFn<typeof BccNPS> = (args) => ({
