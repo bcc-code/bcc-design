@@ -31,3 +31,37 @@ const Template: StoryFn<typeof BccNPS> = (args) => ({
 
 export const Example = Template.bind({});
 Example.args = {};
+
+const TemplateForLongRange: StoryFn<typeof BccNPS> = (args) => ({
+  components: { BccNPS },
+  setup() {
+    const value = ref(0);
+    return { args, value };
+  },
+  template: `
+    <BccNPS v-bind="args" v-model="value" style="width: 992px" />
+  `,
+});
+
+export const ExampleForLongRang = TemplateForLongRange.bind({});
+ExampleForLongRang.args = {
+  max: 30,
+  labelPosition: "bottom",
+};
+
+const TemplateForInitialValue: StoryFn<typeof BccNPS> = (args) => ({
+  components: { BccNPS },
+  setup() {
+    const value = ref(5);
+    return { args, value };
+  },
+  template: `
+    <BccNPS v-bind="args" v-model="value" style="width: 320px" />
+  `,
+});
+
+export const ExampleAsDisabled = TemplateForInitialValue.bind({});
+ExampleAsDisabled.args = {
+  max: 10,
+  disabled: true,
+};

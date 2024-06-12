@@ -13,9 +13,11 @@
   }
 
   .bcc-nps--scores {
-    @apply flex justify-evenly;
-    @apply pointer-events-none cursor-pointer rounded-xl text-white;
+    @apply flex justify-evenly rounded-xl text-white;
     @apply bg-gradient-to-r from-red-700 via-yellow-400 via-75% to-green-500;
+  }
+  .bcc-nps--scores:not(.disabled) {
+    @apply pointer-events-none cursor-pointer;
   }
 
   .bcc-nps--scores.reverse {

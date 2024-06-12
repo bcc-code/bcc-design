@@ -5,17 +5,25 @@ type Props = {
   rightLabel?: string;
   labelPosition?: "top" | "bottom";
   max?: number;
+  disabled?: boolean;
 };
 
 const modelValue = defineModel();
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   reverse: false,
+  disabled: false,
   leftLabel: "Not likely",
   rightLabel: "Very likely",
   labelPosition: "top",
   max: 10,
 });
+
+function selected(i: number) {
+  if (props.disabled) return;
+
+  modelValue.value = i;
+}
 </script>
 
 <template>
@@ -27,11 +35,11 @@ withDefaults(defineProps<Props>(), {
       <p class="bcc-nps--label text-caption">{{ leftLabel }}</p>
       <p class="bcc-nps--label text-caption text-right">{{ rightLabel }}</p>
     </div>
-    <div class="bcc-nps--scores order-2" :class="{ reverse }">
+    <div class="bcc-nps--scores order-2" :class="{ disabled, reverse }">
       <div v-for="i in max" :key="i" class="bcc-nps--score-container">
         <div
           class="bcc-nps--score"
-          @click="modelValue = i"
+          @click="selected(i)"
           :class="{
             inactive: !modelValue || modelValue < i,
             'score--active': modelValue === i,
