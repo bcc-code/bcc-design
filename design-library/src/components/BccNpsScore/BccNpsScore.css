@@ -1,0 +1,54 @@
+@layer components {
+  .bcc-nps-score {
+    @apply min-w-[280px] p-4 text-sm;
+    @apply flex flex-col gap-y-2;
+  }
+
+  .bcc-nps-score--heading {
+    @apply flex items-center justify-between;
+  }
+
+  .bcc-nps-score--label {
+    @apply flex-1 truncate;
+  }
+
+  .bcc-nps-score--bar {
+    @apply flex justify-evenly rounded-xl text-white;
+    @apply bg-gradient-to-r from-red-700 via-yellow-400 via-75% to-green-500;
+  }
+  .bcc-nps-score--bar:not(.disabled) {
+    @apply pointer-events-none cursor-pointer;
+  }
+
+  .bcc-nps-score--bar.reverse {
+    @apply bg-gradient-to-l;
+  }
+
+  .bcc-nps-score--container {
+    @apply flex flex-1;
+  }
+
+  .bcc-nps-score--number {
+    @apply flex h-8 flex-1 items-center justify-center;
+    @apply pointer-events-auto font-bold transition-all duration-200 hover:bg-transparent;
+  }
+
+  .bcc-nps-score--number.active {
+    @apply pointer-events-none;
+  }
+
+  .bcc-nps-score--number.inactive {
+    @apply bg-neutral-200 text-black;
+  }
+
+  .bcc-nps-score--container:first-child .bcc-nps-score--number {
+    @apply rounded-l-xl;
+  }
+  .bcc-nps-score--container:last-child .bcc-nps-score--number {
+    @apply rounded-r-xl;
+  }
+
+  .bcc-nps-score--container .separator {
+    @apply h-full w-0.5 bg-white;
+  }
+}

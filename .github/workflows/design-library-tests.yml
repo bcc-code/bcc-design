@@ -24,14 +24,14 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 9
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: design-library/.node-version
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
+          registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
           cache-dependency-path: design-library/pnpm-lock.yaml
 
       - name: Install dependencies
@@ -52,20 +52,20 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 9
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: design-library/.node-version
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
+          registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
           cache-dependency-path: design-library/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         working-directory: design-library
-      
+
       - name: Lint
         run: npm run lint
         working-directory: design-library
@@ -84,14 +84,14 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 9
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: design-library/.node-version
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
+          registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
           cache-dependency-path: design-library/pnpm-lock.yaml
 
       - name: Install dependencies
