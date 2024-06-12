@@ -1,11 +1,11 @@
 import { ref } from "vue";
-import BccNPS from "./BccNPS.vue";
+import BccNpsScore from "./BccNpsScore.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
-  title: "Forms/BccNPS",
-  component: BccNPS,
+  title: "Feedback/BccNpsScore",
+  component: BccNpsScore,
   argTypes: {
     reverse: {
       description: "Should the bar be reversed?",
@@ -16,30 +16,30 @@ export default {
       control: { type: "radio" },
     },
   },
-} as Meta<typeof BccNPS>;
+} as Meta<typeof BccNpsScore>;
 
-const Template: StoryFn<typeof BccNPS> = (args) => ({
-  components: { BccNPS },
+const Template: StoryFn<typeof BccNpsScore> = (args) => ({
+  components: { BccNpsScore },
   setup() {
     const value = ref(0);
     return { args, value };
   },
   template: `
-    <BccNPS v-bind="args" v-model="value" style="width: 320px" />
+    <BccNpsScore v-bind="args" v-model="value" style="width: 320px" />
   `,
 });
 
 export const Example = Template.bind({});
 Example.args = {};
 
-const TemplateForLongRange: StoryFn<typeof BccNPS> = (args) => ({
-  components: { BccNPS },
+const TemplateForLongRange: StoryFn<typeof BccNpsScore> = (args) => ({
+  components: { BccNpsScore },
   setup() {
     const value = ref(0);
     return { args, value };
   },
   template: `
-    <BccNPS v-bind="args" v-model="value" style="width: 992px" />
+    <BccNpsScore v-bind="args" v-model="value" style="width: 992px" />
   `,
 });
 
@@ -49,14 +49,14 @@ ExampleForLongRang.args = {
   labelPosition: "bottom",
 };
 
-const TemplateForInitialValue: StoryFn<typeof BccNPS> = (args) => ({
-  components: { BccNPS },
+const TemplateForInitialValue: StoryFn<typeof BccNpsScore> = (args) => ({
+  components: { BccNpsScore },
   setup() {
     const value = ref(5);
     return { args, value };
   },
   template: `
-    <BccNPS v-bind="args" v-model="value" style="width: 320px" />
+    <BccNpsScore v-bind="args" v-model="value" style="width: 320px" />
   `,
 });
 

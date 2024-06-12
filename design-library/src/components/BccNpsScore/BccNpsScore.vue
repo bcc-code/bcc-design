@@ -27,27 +27,27 @@ function selected(i: number) {
 </script>
 
 <template>
-  <div class="bcc-nps">
+  <div class="bcc-nps-score">
     <div
-      class="bcc-nps--heading"
+      class="bcc-nps-score--heading"
       :class="labelPosition === 'top' ? 'order-1' : labelPosition === 'bottom' ? 'order-last' : ''"
     >
-      <p class="bcc-nps--label text-caption">{{ leftLabel }}</p>
-      <p class="bcc-nps--label text-caption text-right">{{ rightLabel }}</p>
+      <p class="bcc-nps-score--label text-caption">{{ leftLabel }}</p>
+      <p class="bcc-nps-score--label text-caption text-right">{{ rightLabel }}</p>
     </div>
-    <div class="bcc-nps--scores order-2" :class="{ disabled, reverse }">
-      <div v-for="i in max" :key="i" class="bcc-nps--score-container">
+    <div class="bcc-nps-score--bar order-2" :class="{ disabled, reverse }">
+      <div v-for="i in max" :key="i" class="bcc-nps-score--container">
         <div
-          class="bcc-nps--score"
+          class="bcc-nps-score--number"
           @click="selected(i)"
           :class="{
             inactive: !modelValue || modelValue < i,
-            'score--active': modelValue === i,
+            active: modelValue === i,
           }"
         >
           {{ i }}
         </div>
-        <span v-if="i !== max" class="seperator"></span>
+        <span v-if="i !== max" class="separator"></span>
       </div>
     </div>
   </div>

@@ -1,12 +1,12 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import BccNPS from "./BccNPS.vue";
+import BccNpsScore from "./BccNpsScore.vue";
 
-describe("BccNPS", () => {
+describe("BccNpsScore", () => {
   it("renders a nps score", () => {
-    expect(BccNPS).toBeTruthy();
+    expect(BccNpsScore).toBeTruthy();
 
-    const wrapper = mount(BccNPS, {
+    const wrapper = mount(BccNpsScore, {
       props: {},
     });
 
