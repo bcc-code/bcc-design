@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccNpsScore > renders a nps score 1`] = `
+"<div class=\\"bcc-nps-score\\">
+  <div class=\\"bcc-nps-score--heading order-1\\">
+    <p class=\\"bcc-nps-score--label text-caption\\">Not likely</p>
+    <p class=\\"bcc-nps-score--label text-caption text-right\\">Very likely</p>
+  </div>
+  <div class=\\"bcc-nps-score--bar order-2\\">
+    <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">1</div><span class=\\"separator\\"></span>
+    </div>
+    <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">2</div><span class=\\"separator\\"></span>
+    </div>
+    <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">3</div><span class=\\"separator\\"></span>
+    </div>
+    <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">4</div><span class=\\"separator\\"></span>
+    </div>
+    <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">5</div><span class=\\"separator\\"></span>
+    </div>
+    <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">6</div><span class=\\"separator\\"></span>
+    </div>
+    <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">7</div><span class=\\"separator\\"></span>
+    </div>
+    <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">8</div><span class=\\"separator\\"></span>
+    </div>
+    <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">9</div><span class=\\"separator\\"></span>
+    </div>
+    <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">10</div>
+      <!--v-if-->
+    </div>
+  </div>
+</div>"
+`;
