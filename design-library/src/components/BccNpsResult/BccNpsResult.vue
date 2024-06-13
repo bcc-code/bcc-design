@@ -74,8 +74,8 @@ const degrees = computed(() => {
         :style="`transform: rotate(${degrees}deg)`"
       />
     </svg>
-    <div class="bcc-nps-result-labels" v-if="size !== 'tiny'">
-      <h3 v-if="hideDisplay === false" class="text-heading-lg font-bold">{{ score }}</h3>
+    <div class="bcc-nps-result-labels" v-if="size !== 'tiny' && hideDisplay === false">
+      <h3 class="text-heading-lg font-bold">{{ score }}</h3>
       <label class="text-label text-tertiary">{{ underline }}</label>
     </div>
   </div>
