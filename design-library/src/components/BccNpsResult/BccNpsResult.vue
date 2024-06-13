@@ -3,20 +3,29 @@ import { computed, ref } from "vue";
 
 type Props = {
   score: number; // Between -100 and 100
+  size: "lg" | "md" | "sm" | "tiny";
+  underline: string;
+  hideDisplay: boolean;
 };
 
-const props = withDefaults(defineProps<Props>(), {});
+const props = withDefaults(defineProps<Props>(), {
+  size: "md",
+  hideDisplay: false,
+});
 
 const TOT_DEGREES = 250;
 const MIN_DEGREES = 170;
+const MAX_DEGREES = 80;
+
 function scoreToDegrees(score: number) {
   const perc = (score + 100) / 200;
   const degr = perc * TOT_DEGREES - MIN_DEGREES;
+  if (degr > MAX_DEGREES) return MAX_DEGREES;
+  if (degr < -MIN_DEGREES) return -MIN_DEGREES;
   return degr;
 }
 
 const started = ref(false);
-
 setTimeout(() => {
   started.value = true;
 }, 150);
@@ -32,15 +41,8 @@ const degrees = computed(() => {
 </script>
 
 <template>
-  <div class="bcc-nps-result">
-    <svg
-      @click="started = true"
-      width="177"
-      height="178"
-      viewBox="0 0 177 178"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+  <div class="bcc-nps-result" :class="size">
+    <svg class="result-gauge" viewBox="0 0 177 178" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M174.619 71L129.269 80.8641C129.604 82.9717 129.78 85.1312 129.78 87.3333C129.78 96.5843 126.701 105.125 121.5 112L158.155 141C166.173 130.681 171.626 119.536 174.376 107.845C177.126 96.1542 177.206 83.7678 174.616 71H174.619Z"
         fill="#DFF9E5"
@@ -68,55 +70,13 @@ const degrees = computed(() => {
       <path
         d="M143.247 32.3886L91.5927 77.9944C90.3998 77.5143 89.0778 77.2935 87.7092 77.4053C82.9969 77.79 79.487 81.9285 79.8722 86.646C80.2573 91.3634 84.392 94.8778 89.1042 94.4931C93.8165 94.1084 97.3264 89.9699 96.9413 85.2524C96.9029 84.7825 96.8257 84.325 96.7159 83.8824L145.82 35.152C147.469 33.4324 145.08 30.8628 143.247 32.3886Z"
         fill="black"
-        class="dial"
+        class="result-gauge-dial"
         :style="`transform: rotate(${degrees}deg)`"
       />
     </svg>
+    <div class="bcc-nps-result-labels" v-if="size !== 'tiny'">
+      <h3 v-if="hideDisplay === false" class="text-heading-lg font-bold">{{ score }}</h3>
+      <label class="text-label text-tertiary">{{ underline }}</label>
+    </div>
   </div>
 </template>
-<style>
-.dial {
-  transition: 1s
-    linear(
-      0,
-      0.004,
-      0.016,
-      0.035,
-      0.063,
-      0.098,
-      0.141 13.6%,
-      0.25,
-      0.391,
-      0.563,
-      0.765,
-      1,
-      0.891 40.9%,
-      0.848,
-      0.813,
-      0.785,
-      0.766,
-      0.754,
-      0.75,
-      0.754,
-      0.766,
-      0.785,
-      0.813,
-      0.848,
-      0.891 68.2%,
-      1 72.7%,
-      0.973,
-      0.953,
-      0.941,
-      0.938,
-      0.941,
-      0.953,
-      0.973,
-      1,
-      0.988,
-      0.984,
-      0.988,
-      1
-    );
-  transform-origin: center;
-}
-</style>

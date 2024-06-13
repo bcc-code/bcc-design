@@ -7,12 +7,9 @@ export default {
   title: "Feedback/BccNpsResult",
   component: BccNpsResult,
   argTypes: {
-    reverse: {
-      description: "Should the bar be reversed?",
-    },
-    labelPosition: {
-      description: "Where to place the labels",
-      options: ["top", "bottom"],
+    size: {
+      description: "Size of the NPS Result gauge",
+      options: ["lg", "md", "sm", "tiny"],
       control: { type: "radio" },
     },
   },
@@ -25,9 +22,9 @@ const Template: StoryFn<typeof BccNpsResult> = (args) => ({
     return { args, value };
   },
   template: `
-    <BccNpsResult v-bind="args" v-model="value" style="width: 320px" />
+    <BccNpsResult v-bind="args" v-model="value" />
   `,
 });
 
 export const Example = Template.bind({});
-Example.args = {};
+Example.args = { score: 30, underline: "NPS Score" };

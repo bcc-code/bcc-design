@@ -42,3 +42,4 @@ export { default as BccTooltip } from "./components/BccTooltip/BccTooltip.vue";
 export { default as BccAccordion } from "./components/BccAccordion/BccAccordion.vue";
 export { default as BccPagination } from "./components/BccPagination/BccPagination.vue";
 export { default as BccNpsScore } from "./components/BccNpsScore/BccNpsScore.vue";
+export { default as BccNpsResult } from "./components/BccNpsResult/BccNpsResult.vue";
