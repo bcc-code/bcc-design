@@ -7,11 +7,13 @@ type Props = {
   display?: string;
   underline?: string;
   hideText?: boolean;
+  animated?: boolean;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   size: "md",
   hideText: false,
+  animated: true,
 });
 
 const TOT_DEGREES = 250;
@@ -42,7 +44,7 @@ const degrees = computed(() => {
 </script>
 
 <template>
-  <div class="bcc-nps-result" :class="size">
+  <div class="bcc-nps-result" :class="animated === true ? `animated ${size}` : size">
     <svg class="result-gauge" viewBox="0 0 177 178" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M174.619 71L129.269 80.8641C129.604 82.9717 129.78 85.1312 129.78 87.3333C129.78 96.5843 126.701 105.125 121.5 112L158.155 141C166.173 130.681 171.626 119.536 174.376 107.845C177.126 96.1542 177.206 83.7678 174.616 71H174.619Z"
