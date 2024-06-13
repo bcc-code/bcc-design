@@ -11,7 +11,7 @@ exports[`BccNpsResult > renders a nps result 1`] = `
     <path d=\\"M143.247 32.3886L91.5927 77.9944C90.3998 77.5143 89.0778 77.2935 87.7092 77.4053C82.9969 77.79 79.487 81.9285 79.8722 86.646C80.2573 91.3634 84.392 94.8778 89.1042 94.4931C93.8165 94.1084 97.3264 89.9699 96.9413 85.2524C96.9029 84.7825 96.8257 84.325 96.7159 83.8824L145.82 35.152C147.469 33.4324 145.08 30.8628 143.247 32.3886Z\\" fill=\\"black\\" class=\\"result-gauge-dial\\" style=\\"transform: rotate(-170deg);\\"></path>
   </svg>
   <div class=\\"bcc-nps-result-labels\\">
-    <h3 class=\\"text-heading-lg font-bold\\"></h3><label class=\\"text-label text-tertiary\\"></label>
+    <h3 class=\\"text-heading-lg font-bold\\">20</h3><label class=\\"text-label text-tertiary\\"></label>
   </div>
 </div>"
 `;

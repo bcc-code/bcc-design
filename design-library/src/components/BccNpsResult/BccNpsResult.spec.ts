@@ -7,7 +7,7 @@ describe("BccNpsResult", () => {
     expect(BccNpsResult).toBeTruthy();
 
     const wrapper = mount(BccNpsResult, {
-      props: {},
+      props: { score: 20 },
     });
 
     expect(wrapper.html()).toMatchSnapshot();

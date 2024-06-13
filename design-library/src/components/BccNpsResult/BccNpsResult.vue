@@ -3,9 +3,9 @@ import { computed, ref } from "vue";
 
 type Props = {
   score: number; // Between -100 and 100
-  size: "lg" | "md" | "sm" | "tiny";
-  underline: string;
-  hideDisplay: boolean;
+  size?: "lg" | "md" | "sm" | "tiny";
+  underline?: string;
+  hideDisplay?: boolean;
 };
 
 const props = withDefaults(defineProps<Props>(), {
