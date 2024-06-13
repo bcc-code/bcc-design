@@ -46,3 +46,21 @@ const TemplateAllSizes: StoryFn<typeof BccNpsResult> = (args) => ({
 });
 
 export const ExampleSizes = TemplateAllSizes.bind({});
+
+const TemplateWithCustomText: StoryFn<typeof BccNpsResult> = (args) => ({
+  components: { BccNpsResult },
+  setup() {
+    const value = ref(0);
+    return { args, value };
+  },
+  template: `
+    <BccNpsResult v-bind="args" />
+  `,
+});
+
+export const ExampleWithCustomText = TemplateWithCustomText.bind({});
+ExampleWithCustomText.args = {
+  score: 30,
+  underline: "The score is good",
+  display: "Good!",
+};

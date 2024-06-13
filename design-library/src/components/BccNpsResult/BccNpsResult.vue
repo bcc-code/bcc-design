@@ -4,13 +4,14 @@ import { computed, ref } from "vue";
 type Props = {
   score: number; // Between -100 and 100
   size?: "lg" | "md" | "sm" | "tiny";
+  display?: string;
   underline?: string;
-  hideDisplay?: boolean;
+  hideText?: boolean;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   size: "md",
-  hideDisplay: false,
+  hideText: false,
 });
 
 const TOT_DEGREES = 250;
@@ -74,8 +75,8 @@ const degrees = computed(() => {
         :style="`transform: rotate(${degrees}deg)`"
       />
     </svg>
-    <div class="bcc-nps-result-labels" v-if="size !== 'tiny' && hideDisplay === false">
-      <h3 class="text-heading-lg font-bold">{{ score }}</h3>
+    <div class="bcc-nps-result-labels" v-if="!hideText && size !== 'tiny'">
+      <h3 class="text-heading-lg font-bold">{{ display ?? score }}</h3>
       <label class="text-label text-tertiary">{{ underline }}</label>
     </div>
   </div>
