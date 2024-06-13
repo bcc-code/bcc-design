@@ -1,0 +1,31 @@
+@layer components {
+  .bcc-nps-result {
+    @apply relative w-full;
+  }
+
+  .bcc-nps-result.lg {
+    width: 250px;
+  }
+  .bcc-nps-result.md {
+    width: 177px;
+  }
+  .bcc-nps-result.sm {
+    width: 110px;
+  }
+  .bcc-nps-result.tiny {
+    width: 40px;
+  }
+
+  .bcc-nps-result .result-gauge-dial {
+    transform-origin: center;
+  }
+
+  .bcc-nps-result.animated .result-gauge-dial {
+    transition-delay: 0.3s;
+    transition: all 0.7s cubic-bezier(0.75, -0.05, 0.62, 1.6);
+  }
+
+  .bcc-nps-result-labels {
+    @apply absolute bottom-0 flex w-full flex-col items-center justify-center;
+  }
+}
