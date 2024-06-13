@@ -24,6 +24,10 @@
     @apply bg-gradient-to-l;
   }
 
+  .bcc-nps-score--bar.disabled .bcc-nps-score--number.inactive {
+    @apply bg-neutral-100 text-neutral-400;
+  }
+
   .bcc-nps-score--container {
     @apply flex flex-1;
   }
