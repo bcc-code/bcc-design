@@ -22,9 +22,27 @@ const Template: StoryFn<typeof BccNpsResult> = (args) => ({
     return { args, value };
   },
   template: `
-    <BccNpsResult v-bind="args" v-model="value" />
+    <BccNpsResult v-bind="args" />
   `,
 });
 
 export const Example = Template.bind({});
 Example.args = { score: 30, underline: "NPS Score" };
+
+const TemplateAllSizes: StoryFn<typeof BccNpsResult> = (args) => ({
+  components: { BccNpsResult },
+  setup() {
+    const value = ref(0);
+    return { args, value };
+  },
+  template: `
+  <div class="flex justify-between items-center">
+    <BccNpsResult size="tiny" underline="Tiny" :score="100" />
+    <BccNpsResult size="sm" underline="Sm" :score="100" />
+    <BccNpsResult size="md" underline="Md" :score="100" />
+    <BccNpsResult size="lg" underline="Lg" :score="100" />
+  </div>
+  `,
+});
+
+export const ExampleSizes = TemplateAllSizes.bind({});
