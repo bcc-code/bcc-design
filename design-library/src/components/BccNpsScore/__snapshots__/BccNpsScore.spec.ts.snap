@@ -8,6 +8,9 @@ exports[`BccNpsScore > renders a nps score 1`] = `
   </div>
   <div class=\\"bcc-nps-score--bar order-2\\">
     <div class=\\"bcc-nps-score--container\\">
+      <div class=\\"bcc-nps-score--number inactive\\">0</div><span class=\\"separator\\"></span>
+    </div>
+    <div class=\\"bcc-nps-score--container\\">
       <div class=\\"bcc-nps-score--number inactive\\">1</div><span class=\\"separator\\"></span>
     </div>
     <div class=\\"bcc-nps-score--container\\">
