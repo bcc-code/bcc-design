@@ -1,7 +1,6 @@
 @layer components {
   .bcc-nps-score {
-    @apply min-w-[280px] p-4 text-sm;
-    @apply flex flex-col gap-y-2;
+    @apply min-w-[280px] p-4 text-caption flex flex-col gap-y-2;
   }
 
   .bcc-nps-score--heading {
@@ -28,31 +27,29 @@
     @apply bg-neutral-100 text-neutral-400;
   }
 
-  .bcc-nps-score--container {
-    @apply flex flex-1;
-  }
-
   .bcc-nps-score--number {
-    @apply flex h-8 flex-1 items-center justify-center;
-    @apply pointer-events-auto font-bold transition-all duration-200 hover:bg-transparent;
+    @apply flex h-8 flex-1 items-center justify-center border-r-[2px] border-white font-bold text-sm leading-none;
+    @apply pointer-events-auto transition-all duration-200 hover:bg-transparent;
   }
 
   .bcc-nps-score--number.active {
-    @apply pointer-events-none;
+    @apply pointer-events-none font-medium text-base;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .bcc-nps-score--number:has(~ .bcc-nps-score--number.active) {
+    @apply font-medium;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 
   .bcc-nps-score--number.inactive {
     @apply bg-neutral-200 text-black;
   }
 
-  .bcc-nps-score--container:first-child .bcc-nps-score--number {
-    @apply rounded-l-xl;
+  .bcc-nps-score--number:first-child {
+    @apply rounded-l-xl pl-0.5;
   }
-  .bcc-nps-score--container:last-child .bcc-nps-score--number {
-    @apply rounded-r-xl;
-  }
-
-  .bcc-nps-score--container .separator {
-    @apply h-full w-0.5 bg-white;
+  .bcc-nps-score--number:last-child{
+    @apply rounded-r-xl border-r-0 pr-0.5;
   }
 }
