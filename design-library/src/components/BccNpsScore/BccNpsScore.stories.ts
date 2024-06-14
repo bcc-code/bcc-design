@@ -21,7 +21,7 @@ export default {
 const Template: StoryFn<typeof BccNpsScore> = (args) => ({
   components: { BccNpsScore },
   setup() {
-    const value = ref(0);
+    const value = ref<number | null>(null);
     return { args, value };
   },
   template: `
@@ -35,7 +35,7 @@ Example.args = {};
 const TemplateForLongRange: StoryFn<typeof BccNpsScore> = (args) => ({
   components: { BccNpsScore },
   setup() {
-    const value = ref(0);
+    const value = ref<number | null>(null);
     return { args, value };
   },
   template: `
