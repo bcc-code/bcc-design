@@ -11,7 +11,9 @@ type Props = {
   disabled?: boolean;
 };
 
-const modelValue = defineModel<number>();
+const modelValue = defineModel<number | null>({
+  default: null,
+});
 
 const props = withDefaults(defineProps<Props>(), {
   reverse: false,
@@ -44,23 +46,22 @@ const range = computed(() => {
       class="bcc-nps-score--heading"
       :class="labelPosition === 'top' ? 'order-1' : labelPosition === 'bottom' ? 'order-last' : ''"
     >
-      <p class="bcc-nps-score--label text-caption">{{ leftLabel }}</p>
-      <p class="bcc-nps-score--label text-caption text-right">{{ rightLabel }}</p>
+      <p class="bcc-nps-score--label">{{ leftLabel }}</p>
+      <p class="bcc-nps-score--label text-right">{{ rightLabel }}</p>
     </div>
     <div class="bcc-nps-score--bar order-2" :class="{ disabled, reverse }">
-      <div v-for="num in range" :key="num" class="bcc-nps-score--container">
-        <div
-          class="bcc-nps-score--number"
-          @click="selected(num)"
-          :class="{
-            inactive: !modelValue || modelValue < num,
-            active: modelValue === num,
-          }"
-        >
-          {{ num }}
-        </div>
-        <span v-if="num !== range[range.length - 1]" class="separator"></span>
-      </div>
+      <button
+        v-for="num in range"
+        :key="num"
+        @click="selected(num)"
+        class="bcc-nps-score--number"
+        :class="{
+          inactive: modelValue === null || isNaN(modelValue) || modelValue < num,
+          active: modelValue === num,
+        }"
+      >
+        {{ num }}
+      </button>
     </div>
   </div>
 </template>

@@ -3,7 +3,7 @@ import { computed, ref } from "vue";
 
 type Props = {
   score: number; // Between -100 and 100
-  size?: "lg" | "md" | "sm" | "tiny";
+  size?: "lg" | "md" | "sm" | "xs";
   display?: string;
   underline?: string;
   hideText?: boolean;
@@ -44,7 +44,7 @@ const degrees = computed(() => {
 </script>
 
 <template>
-  <div class="bcc-nps-result" :class="animated === true ? `animated ${size}` : size">
+  <div class="bcc-nps-result" :class="{ animated }">
     <svg class="result-gauge" viewBox="0 0 177 178" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M174.619 71L129.269 80.8641C129.604 82.9717 129.78 85.1312 129.78 87.3333C129.78 96.5843 126.701 105.125 121.5 112L158.155 141C166.173 130.681 171.626 119.536 174.376 107.845C177.126 96.1542 177.206 83.7678 174.616 71H174.619Z"
@@ -77,9 +77,9 @@ const degrees = computed(() => {
         :style="`transform: rotate(${degrees}deg)`"
       />
     </svg>
-    <div class="bcc-nps-result-labels" v-if="!hideText && size !== 'tiny'">
-      <h3 class="text-heading-lg font-bold">{{ display ?? score }}</h3>
-      <label class="text-label text-tertiary">{{ underline }}</label>
+    <div v-if="!hideText && size !== 'xs'" class="bcc-nps-result-labels" :class="size">
+      <h3 class="bcc-nps-result-labels--heading">{{ display ?? score }}</h3>
+      <label class="bcc-nps-result-labels--label">{{ underline }}</label>
     </div>
   </div>
 </template>

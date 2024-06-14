@@ -9,7 +9,7 @@ export default {
   argTypes: {
     size: {
       description: "Size of the NPS Result gauge",
-      options: ["lg", "md", "sm", "tiny"],
+      options: ["lg", "md", "sm", "xs"],
       control: { type: "radio" },
     },
   },
@@ -22,7 +22,7 @@ const Template: StoryFn<typeof BccNpsResult> = (args) => ({
     return { args, value };
   },
   template: `
-    <BccNpsResult v-bind="args" />
+    <BccNpsResult style="width: 180px;" v-bind="args" />
   `,
 });
 
@@ -37,10 +37,10 @@ const TemplateAllSizes: StoryFn<typeof BccNpsResult> = (args) => ({
   },
   template: `
   <div class="flex justify-between items-center">
-    <BccNpsResult size="tiny" underline="Tiny" :score="100" />
-    <BccNpsResult size="sm" underline="Sm" :score="100" />
-    <BccNpsResult size="md" underline="Md" :score="100" />
-    <BccNpsResult size="lg" underline="Lg" :score="100" />
+    <BccNpsResult style="width: 40px;" size="xs" underline="Xs" :score="100" />
+    <BccNpsResult style="width: 110px;" size="sm" underline="Sm" :score="100" />
+    <BccNpsResult style="width: 180px;" size="md" underline="Md" :score="100" />
+    <BccNpsResult style="width: 250px;" size="lg" underline="Lg" :score="100" />
   </div>
   `,
 });
@@ -54,7 +54,7 @@ const TemplateWithCustomText: StoryFn<typeof BccNpsResult> = (args) => ({
     return { args, value };
   },
   template: `
-    <BccNpsResult v-bind="args" />
+    <BccNpsResult style="width: 180px;" v-bind="args" />
   `,
 });
 
