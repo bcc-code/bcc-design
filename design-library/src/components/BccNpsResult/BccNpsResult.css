@@ -3,29 +3,42 @@
     @apply relative w-full;
   }
 
-  .bcc-nps-result.lg {
-    width: 250px;
-  }
-  .bcc-nps-result.md {
-    width: 177px;
-  }
-  .bcc-nps-result.sm {
-    width: 110px;
-  }
-  .bcc-nps-result.tiny {
-    width: 40px;
-  }
-
   .bcc-nps-result .result-gauge-dial {
     transform-origin: center;
   }
 
   .bcc-nps-result.animated .result-gauge-dial {
     transition-delay: 0.3s;
-    transition: all 0.7s cubic-bezier(0.75, -0.05, 0.62, 1.6);
+    transition: all .7s cubic-bezier(0, 0, 0.3, 1.5);    
   }
 
+  .bcc-nps-result-labels.lg {
+    @apply bottom-[2em];
+  }
   .bcc-nps-result-labels {
-    @apply absolute bottom-0 flex w-full flex-col items-center justify-center;
+    @apply absolute bottom-[1em] flex w-full flex-col items-center justify-center;
+  }
+  .bcc-nps-result-labels.sm {
+    @apply bottom-0;
+  }
+
+  .bcc-nps-result-labels.lg .bcc-nps-result-labels--heading {
+    @apply text-heading-xl leading-tight;
+  }
+  .bcc-nps-result-labels--heading {
+    @apply text-heading-lg leading-none;
+  }
+  .bcc-nps-result-labels.sm .bcc-nps-result-labels--heading {
+    @apply text-heading leading-none;
+  }
+
+  .bcc-nps-result-labels.lg .bcc-nps-result-labels--label {
+    @apply text-caption-lg opacity-60;
+  }
+  .bcc-nps-result-labels--label {
+    @apply text-caption opacity-60;
+  }
+  .bcc-nps-result-labels.sm .bcc-nps-result-labels--label {
+    @apply text-caption-sm;
   }
 }
