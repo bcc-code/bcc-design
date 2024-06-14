@@ -13,12 +13,12 @@ on:
           - patch
         default: minor
       channel:
-          description: Channel
-          type: choice
-          options:
-            - release
-            - beta
-          default: release
+        description: Channel
+        type: choice
+        options:
+          - release
+          - beta
+        default: release
 
 env:
   CI: true
@@ -32,24 +32,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.BCC_BOT_ACCESS_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: design-library/.node-version
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Set commit author to bcc-bot
         run: |
           git config --global user.name "bcc-bot"
           git config --global user.email "84040471+bcc-bot@users.noreply.github.com"
-    
+
       - name: Version new ${{ github.event.inputs.version }} version
         run: npm run create-version ${{ github.event.inputs.version }} ${{ github.event.inputs.channel }}
         working-directory: design-library
 
       - name: Push
         run: git push --follow-tags
-    
