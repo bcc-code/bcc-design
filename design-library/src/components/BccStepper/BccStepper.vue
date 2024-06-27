@@ -5,30 +5,40 @@ type Props = {
   currentStep: number;
   steps: string[];
   additionalText: boolean;
+  showStepLabel?: boolean;
+  headingOverride?: string;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   currentStep: 0,
   steps: () => [""],
   additionalText: true,
+  showStepLabel: true,
 });
 
 const currentStepInfo = computed(() => {
   return {
     current: props.currentStep + 1,
     total: props.steps.length,
-    currentStepLabel: props.steps[props.currentStep],
+    label: props.steps[props.currentStep],
   };
+});
+
+const headerText = computed(() => {
+  if (props.headingOverride) {
+    return props.headingOverride;
+  }
+  return `Step ${currentStepInfo.value.current} of ${currentStepInfo.value.total}`;
 });
 </script>
 
 <template>
   <div class="bcc-stepper-container">
     <div class="bcc-stepper-header" v-if="props.additionalText">
-      <span class="bcc-stepper-current-step"
-        >Step {{ currentStepInfo.current }} of {{ currentStepInfo.total }}</span
-      >
-      <span class="bcc-stepper-current-label">{{ currentStepInfo.currentStepLabel }}</span>
+      <span class="bcc-stepper-current-step">{{ headerText }}</span>
+      <span class="bcc-stepper-current-label" v-if="showStepLabel">{{
+        currentStepInfo.label
+      }}</span>
     </div>
     <div class="bcc-stepper-indicators">
       <div
