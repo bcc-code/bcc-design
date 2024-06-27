@@ -22,8 +22,9 @@ export default {
       control: { type: "boolean" },
       description: "Whether to show the step label",
     },
-    headingOverride: {
-      description: "Override the 'Step 1 of 2' string, for example with a translated string",
+    headingFn: {
+      description:
+        "Function for formatting the 'Step 1 of 2' string, for example with a translated string",
     },
   },
 } as Meta<typeof BccStepper>;
@@ -61,13 +62,24 @@ Example.args = {
 const TemplateLabels: StoryFn<typeof BccStepper> = (args) => ({
   components: { BccStepper },
   setup() {
-    return { args };
+    function dutchFn(currentStep: number, totalSteps: number) {
+      return `Vraag ${currentStep} van de ${totalSteps}`;
+    }
+
+    function englishFn(currentStep: number, totalSteps: number) {
+      return `Question ${currentStep} of ${totalSteps}`;
+    }
+
+    function norwegianFn(currentStep: number, totalSteps: number) {
+      return `Spørsmål ${currentStep} av ${totalSteps}`;
+    }
+    return { args, dutchFn, englishFn, norwegianFn };
   },
   template: `
   <div class="flex flex-col space-y-4">
-    <BccStepper v-bind="args" headingOverride="Question 1 of 2" />
-    <BccStepper v-bind="args" headingOverride="Spørsmål 1 av 2" />
-    <BccStepper v-bind="args" headingOverride="Vraag 1 van de 2" />
+    <BccStepper v-bind="args" :headingFn="norwegianFn" />
+    <BccStepper v-bind="args" :headingFn="englishFn" />
+    <BccStepper v-bind="args" :headingFn="dutchFn" />
   </div>
   `,
 });

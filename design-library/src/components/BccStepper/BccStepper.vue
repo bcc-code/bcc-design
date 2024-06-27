@@ -6,7 +6,7 @@ type Props = {
   steps: string[];
   additionalText: boolean;
   showStepLabel?: boolean;
-  headingOverride?: string;
+  headingFn?: (currentStep: number, totalSteps: number) => {};
 };
 
 const props = withDefaults(defineProps<Props>(), {
@@ -14,31 +14,25 @@ const props = withDefaults(defineProps<Props>(), {
   steps: () => [""],
   additionalText: true,
   showStepLabel: true,
+  headingFn: (currentStep, totalSteps) => {
+    return `Step ${currentStep} of ${totalSteps}`;
+  },
 });
 
-const currentStepInfo = computed(() => {
+const state = computed(() => {
   return {
     current: props.currentStep + 1,
     total: props.steps.length,
     label: props.steps[props.currentStep],
   };
 });
-
-const headerText = computed(() => {
-  if (props.headingOverride) {
-    return props.headingOverride;
-  }
-  return `Step ${currentStepInfo.value.current} of ${currentStepInfo.value.total}`;
-});
 </script>
 
 <template>
   <div class="bcc-stepper-container">
     <div class="bcc-stepper-header" v-if="props.additionalText">
-      <span class="bcc-stepper-current-step">{{ headerText }}</span>
-      <span class="bcc-stepper-current-label" v-if="showStepLabel">{{
-        currentStepInfo.label
-      }}</span>
+      <span class="bcc-stepper-current-step">{{ headingFn(state.current, state.total) }}</span>
+      <span class="bcc-stepper-current-label" v-if="showStepLabel">{{ state.label }}</span>
     </div>
     <div class="bcc-stepper-indicators">
       <div
