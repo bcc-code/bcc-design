@@ -5,19 +5,20 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, type Component, type StyleValue } from "vue";
 import { useAttrsWithoutStyles } from "@/composables/attrsWithoutStyles";
 import { useId } from "@/hooks/use-id";
 import { CloseIcon } from "@bcc-code/icons-vue";
 import BccFormLabel from "@/components/BccFormLabel/BccFormLabel.vue";
 import BccFormMessage from "@/components/BccFormMessage/BccFormMessage.vue";
+import type { VueComponent } from "@/types";
+import { computed, StyleValue } from "vue";
 
 type Props = {
   modelValue?: string;
   is?: "input" | "textarea";
   state?: "default" | "error" | "success";
   size?: "sm" | "base" | "lg";
-  icon?: string | Component | Function;
+  icon?: VueComponent;
   clearable?: boolean;
   disabled?: boolean;
   label?: string;

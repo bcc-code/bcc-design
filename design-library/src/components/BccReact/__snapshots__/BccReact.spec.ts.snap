@@ -1,17 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccReact > renders reactions 1`] = `
-"<div class=\\"bcc-react\\">
-  <transition-group-stub name=\\"bcc-fade\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\"><button class=\\"bcc-react-toggle rounded-t-full\\"><svg aria-hidden=\\"true\\" viewBox=\\"0 -960 960 960\\" fill=\\"currentColor\\" class=\\"w-6\\">
-        <path d=\\"M480-480Zm0 400q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q43 0 83 8.5t77 24.5v90q-35-20-75.5-31.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160q133 0 226.5-93.5T800-480q0-32-6.5-62T776-600h86q9 29 13.5 58.5T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm320-680h-40q-17 0-28.5-11.5T720-800q0-17 11.5-28.5T760-840h40v-40q0-17 11.5-28.5T840-920q17 0 28.5 11.5T880-880v40h40q17 0 28.5 11.5T960-800q0 17-11.5 28.5T920-760h-40v40q0 17-11.5 28.5T840-680q-17 0-28.5-11.5T800-720v-40ZM620-520q25 0 42.5-17.5T680-580q0-25-17.5-42.5T620-640q-25 0-42.5 17.5T560-580q0 25 17.5 42.5T620-520Zm-280 0q25 0 42.5-17.5T400-580q0-25-17.5-42.5T340-640q-25 0-42.5 17.5T280-580q0 25 17.5 42.5T340-520Zm140 260q58 0 107-28t79-76q6-12-1-24t-21-12H316q-14 0-21 12t-1 24q30 48 79.5 76T480-260Z\\"></path>
+"<div class="bcc-react">
+  <transition-group-stub name="bcc-fade" appear="false" persisted="false" css="true"><button class="bcc-react-toggle rounded-t-full"><svg aria-hidden="true" viewBox="0 -960 960 960" fill="currentColor" class="w-6">
+        <path d="M480-480Zm0 400q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q43 0 83 8.5t77 24.5v90q-35-20-75.5-31.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160q133 0 226.5-93.5T800-480q0-32-6.5-62T776-600h86q9 29 13.5 58.5T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm320-680h-40q-17 0-28.5-11.5T720-800q0-17 11.5-28.5T760-840h40v-40q0-17 11.5-28.5T840-920q17 0 28.5 11.5T880-880v40h40q17 0 28.5 11.5T960-800q0 17-11.5 28.5T920-760h-40v40q0 17-11.5 28.5T840-680q-17 0-28.5-11.5T800-720v-40ZM620-520q25 0 42.5-17.5T680-580q0-25-17.5-42.5T620-640q-25 0-42.5 17.5T560-580q0 25 17.5 42.5T620-520Zm-280 0q25 0 42.5-17.5T400-580q0-25-17.5-42.5T340-640q-25 0-42.5 17.5T280-580q0 25 17.5 42.5T340-520Zm140 260q58 0 107-28t79-76q6-12-1-24t-21-12H316q-14 0-21 12t-1 24q30 48 79.5 76T480-260Z"></path>
       </svg></button>
-    <div class=\\"bcc-react-list\\">
-      <transition-group-stub name=\\"bcc-explode\\" appear=\\"true\\" persisted=\\"false\\" css=\\"true\\"><button class=\\"bcc-react-emoji-list-item\\"><span>😃</span><span class=\\"mx-1 text-xs\\">4</span></button><button class=\\"bcc-react-emoji-list-item\\"><span>👍</span>
+    <div class="bcc-react-list">
+      <transition-group-stub name="bcc-explode" appear="true" persisted="false" css="true"><button class="bcc-react-emoji-list-item"><span>😃</span><span class="mx-1 text-xs">4</span></button><button class="bcc-react-emoji-list-item"><span>👍</span>
           <!--v-if-->
         </button></transition-group-stub>
     </div>
   </transition-group-stub>
-  <transition-stub name=\\"bcc-scale-fast\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\">
+  <transition-stub name="bcc-scale-fast" appear="false" persisted="false" css="true">
     <!--v-if-->
   </transition-stub>
 </div>"

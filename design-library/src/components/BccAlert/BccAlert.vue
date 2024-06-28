@@ -7,11 +7,11 @@ import {
   WarningFillIcon,
   NotificationsFillIcon,
 } from "@bcc-code/icons-vue";
-import type { Component } from "vue";
+import type { VueComponent } from "@/types";
 
 type Props = {
   context?: keyof typeof contexts;
-  icon?: boolean | Component;
+  icon?: boolean | VueComponent;
   title?: string;
   closeButton?: boolean;
   open?: boolean;

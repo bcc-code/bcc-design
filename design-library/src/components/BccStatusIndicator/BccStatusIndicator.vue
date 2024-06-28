@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Component } from "vue";
 import { CheckIcon, ScheduleIcon, LockIcon } from "@bcc-code/icons-vue";
+import type { VueComponent } from "@/types";
 
 type Props = {
   status?: "default" | "success" | "danger";
-  icon?: string | Component | Function;
+  icon?: VueComponent;
   size?: "base" | "lg";
 };
 

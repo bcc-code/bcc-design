@@ -1,13 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccStatusIndicator > renders a custom icon 1`] = `
-"<div class=\\"bcc-status-indicator bcc-status-indicator-success\\"><svg aria-hidden=\\"true\\" viewBox=\\"0 -960 960 960\\" fill=\\"currentColor\\" class=\\"bcc-status-indicator-icon\\">
-    <path d=\\"M380-320q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l224 224q11 11 11 28t-11 28q-11 11-28 11t-28-11L532-372q-30 24-69 38t-83 14Zm0-80q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z\\"></path>
+"<div class="bcc-status-indicator bcc-status-indicator-success"><svg aria-hidden="true" viewBox="0 -960 960 960" fill="currentColor" class="bcc-status-indicator-icon">
+    <path d="M380-320q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l224 224q11 11 11 28t-11 28q-11 11-28 11t-28-11L532-372q-30 24-69 38t-83 14Zm0-80q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"></path>
   </svg></div>"
 `;
 
 exports[`BccStatusIndicator > renders a default icon 1`] = `
-"<div class=\\"bcc-status-indicator bcc-status-indicator-success\\"><svg aria-hidden=\\"true\\" viewBox=\\"0 -960 960 960\\" fill=\\"currentColor\\" class=\\"bcc-status-indicator-icon\\">
-    <path d=\\"m382-354 339-339q12-12 28.5-12t28.5 12q12 12 12 28.5T778-636L410-268q-12 12-28 12t-28-12L182-440q-12-12-11.5-28.5T183-497q12-12 28.5-12t28.5 12l142 143Z\\"></path>
+"<div class="bcc-status-indicator bcc-status-indicator-success"><svg aria-hidden="true" viewBox="0 -960 960 960" fill="currentColor" class="bcc-status-indicator-icon">
+    <path d="m382-354 339-339q12-12 28.5-12t28.5 12q12 12 12 28.5T778-636L410-268q-12 12-28 12t-28-12L182-440q-12-12-11.5-28.5T183-497q12-12 28.5-12t28.5 12l142 143Z"></path>
   </svg></div>"
 `;

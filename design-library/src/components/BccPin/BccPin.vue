@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Component } from "vue";
+import type { VueComponent } from "@/types";
 
 withDefaults(
   defineProps<{
-    icon?: string | Component | Function;
+    icon?: VueComponent;
     context?: "neutral" | "danger" | "warning" | "success" | "info";
     text?: string;
   }>(),

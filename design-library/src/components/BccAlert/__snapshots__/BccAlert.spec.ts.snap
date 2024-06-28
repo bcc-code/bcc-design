@@ -1,11 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccAlert > renders an alert 1`] = `
-"<transition-stub name=\\"bcc-fade\\" appear=\\"false\\" persisted=\\"false\\" css=\\"true\\">
-  <div class=\\"bcc-alert\\">
-    <render-stub class=\\"bcc-alert-icon\\"></render-stub>
-    <div class=\\"bcc-alert-content\\">
-      <h3 class=\\"bcc-alert-title\\">Alert title</h3>
+"<transition-stub name="bcc-fade" appear="false" persisted="false" css="true">
+  <div class="bcc-alert">
+    <render-stub class="bcc-alert-icon"></render-stub>
+    <div class="bcc-alert-content">
+      <h3 class="bcc-alert-title">Alert title</h3>
       <p>Alert content</p>
     </div>
     <!--v-if-->

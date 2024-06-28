@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccInput > can render an extra label if the input is optional 1`] = `
-"<div class=\\"bcc-input-container\\"><label class=\\"bcc-form-label\\" for=\\"bcc-input-5\\"><span></span><span class=\\"bcc-form-label-optional\\">Custom optional label</span></label>
-  <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><input id=\\"bcc-input-5\\" class=\\"bcc-input\\">
+"<div class="bcc-input-container"><label class="bcc-form-label" for="bcc-input-5"><span></span><span class="bcc-form-label-optional">Custom optional label</span></label>
+  <div class="bcc-input-wrapper">
+    <!--v-if--><input id="bcc-input-5" class="bcc-input">
     <!--v-if-->
   </div>
   <!--v-if-->
@@ -11,10 +11,10 @@ exports[`BccInput > can render an extra label if the input is optional 1`] = `
 `;
 
 exports[`BccInput > does not render a text if the input is both required and optional 1`] = `
-"<div class=\\"bcc-input-container\\">
+"<div class="bcc-input-container">
   <!--v-if-->
-  <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><input id=\\"bcc-input-6\\" required=\\"\\" class=\\"bcc-input\\">
+  <div class="bcc-input-wrapper">
+    <!--v-if--><input id="bcc-input-6" required="" class="bcc-input">
     <!--v-if-->
   </div>
   <!--v-if-->
@@ -22,11 +22,11 @@ exports[`BccInput > does not render a text if the input is both required and opt
 `;
 
 exports[`BccInput > renders a label 1`] = `
-"<div class=\\"bcc-input-container\\"><label class=\\"bcc-form-label\\" for=\\"bcc-input-3\\"><span>Test label</span>
+"<div class="bcc-input-container"><label class="bcc-form-label" for="bcc-input-3"><span>Test label</span>
     <!--v-if-->
   </label>
-  <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><input id=\\"bcc-input-3\\" class=\\"bcc-input\\">
+  <div class="bcc-input-wrapper">
+    <!--v-if--><input id="bcc-input-3" class="bcc-input">
     <!--v-if-->
   </div>
   <!--v-if-->
@@ -34,20 +34,20 @@ exports[`BccInput > renders a label 1`] = `
 `;
 
 exports[`BccInput > renders a text from the default slot 1`] = `
-"<div class=\\"bcc-input-container\\">
+"<div class="bcc-input-container">
   <!--v-if-->
-  <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><input id=\\"bcc-input-2\\" class=\\"bcc-input\\">
+  <div class="bcc-input-wrapper">
+    <!--v-if--><input id="bcc-input-2" class="bcc-input">
     <!--v-if-->
-  </div><span class=\\"bcc-form-message bcc-form-message-default\\">Test message</span>
+  </div><span class="bcc-form-message bcc-form-message-default">Test message</span>
 </div>"
 `;
 
 exports[`BccInput > renders a textarea without icon and clearable 1`] = `
-"<div class=\\"bcc-input-container\\">
+"<div class="bcc-input-container">
   <!--v-if-->
-  <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><textarea id=\\"bcc-input-9\\" class=\\"bcc-input\\"></textarea>
+  <div class="bcc-input-wrapper">
+    <!--v-if--><textarea id="bcc-input-9" class="bcc-input"></textarea>
     <!--v-if-->
   </div>
   <!--v-if-->
@@ -55,10 +55,10 @@ exports[`BccInput > renders a textarea without icon and clearable 1`] = `
 `;
 
 exports[`BccInput > renders without a label or optional text 1`] = `
-"<div class=\\"bcc-input-container\\">
+"<div class="bcc-input-container">
   <!--v-if-->
-  <div class=\\"bcc-input-wrapper\\">
-    <!--v-if--><input id=\\"bcc-input-4\\" class=\\"bcc-input\\">
+  <div class="bcc-input-wrapper">
+    <!--v-if--><input id="bcc-input-4" class="bcc-input">
     <!--v-if-->
   </div>
   <!--v-if-->

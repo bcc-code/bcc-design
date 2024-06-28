@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`BccRadio > renders a label 1`] = `"<div class=\\"bcc-radio-wrapper\\"><input type=\\"radio\\" class=\\"bcc-radio\\" id=\\"bcc-radio-2\\" value=\\"test\\"><label for=\\"bcc-radio-2\\">Test label</label></div>"`;
+exports[`BccRadio > renders a label 1`] = `"<div class="bcc-radio-wrapper"><input type="radio" class="bcc-radio" id="bcc-radio-2" value="test"><label for="bcc-radio-2">Test label</label></div>"`;
 
 exports[`BccRadio > renders a radio input 1`] = `
-"<div class=\\"bcc-radio-wrapper\\"><input type=\\"radio\\" class=\\"bcc-radio\\" id=\\"bcc-radio-1\\" value=\\"test\\">
+"<div class="bcc-radio-wrapper"><input type="radio" class="bcc-radio" id="bcc-radio-1" value="test">
   <!--v-if-->
 </div>"
 `;

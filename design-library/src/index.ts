@@ -1,5 +1,7 @@
 import "./style.css";
 
+export * from "./types";
+
 // Tailwind plugin
 export { default as tailwindPlugin } from "./tokens/plugin/tailwindPlugin";
 

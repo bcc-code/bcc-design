@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Component } from "vue";
+import type { VueComponent } from "@/types";
 
 type Props = {
   title: string;
-  infoIcon?: Component | Function;
+  infoIcon?: VueComponent;
   infoText?: string;
 };
 

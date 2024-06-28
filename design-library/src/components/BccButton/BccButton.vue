@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { Component } from "vue";
+import type { VueComponent } from "@/types";
 import { useSlots } from "vue";
 
 type Props = {
-  is?: "button" | "a" | string | Component;
+  is?: "button" | "a" | VueComponent;
   variant?: keyof typeof variants;
   context?: keyof typeof contexts;
   size?: keyof typeof sizes;
-  icon?: string | Component | Function;
+  icon?: VueComponent;
   iconRight?: boolean;
   justifyContent?: boolean;
   rounded?: boolean;

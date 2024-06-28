@@ -1,18 +1,18 @@
 <script setup lang="ts">
+import type { VueComponent } from "@/types";
 import { CloseIcon } from "@bcc-code/icons-vue";
-import type { Component } from "vue";
 import BccButton from "../BccButton/BccButton.vue";
 
 type Action = {
   label: string;
-  icon?: string | Component | Function;
+  icon?: VueComponent;
   onClick?: () => void;
 };
 
 type Props = {
   title: string;
   variant?: keyof typeof variants;
-  icon?: string | Component | Function;
+  icon?: VueComponent;
   closeButton?: boolean;
   closeOnAction?: boolean;
   actions?: Action[];

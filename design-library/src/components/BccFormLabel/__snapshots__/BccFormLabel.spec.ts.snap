@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`BccFormLabel > can render an optional label 1`] = `"<label class=\\"bcc-form-label\\"><span></span><span class=\\"bcc-form-label-optional\\">Custom optional label</span></label>"`;
+exports[`BccFormLabel > can render an optional label 1`] = `"<label class="bcc-form-label"><span></span><span class="bcc-form-label-optional">Custom optional label</span></label>"`;
 
 exports[`BccFormLabel > renders a label 1`] = `
-"<label class=\\"bcc-form-label\\"><span>Test label</span>
+"<label class="bcc-form-label"><span>Test label</span>
   <!--v-if-->
 </label>"
 `;
