@@ -11,7 +11,7 @@ import { CloseIcon } from "@bcc-code/icons-vue";
 import BccFormLabel from "@/components/BccFormLabel/BccFormLabel.vue";
 import BccFormMessage from "@/components/BccFormMessage/BccFormMessage.vue";
 import type { VueComponent } from "@/types";
-import { computed, StyleValue } from "vue";
+import { computed, type StyleValue } from "vue";
 
 type Props = {
   modelValue?: string;
