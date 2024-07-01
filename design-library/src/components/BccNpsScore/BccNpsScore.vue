@@ -25,10 +25,24 @@ const props = withDefaults(defineProps<Props>(), {
   max: 10,
 });
 
+let anim: NodeJS.Timeout | null = null;
 function selected(i: number) {
   if (props.disabled) return;
 
-  modelValue.value = i;
+  if (modelValue.value === null) {
+    modelValue.value = 0;
+  }
+  anim && clearInterval(anim);
+  anim = setInterval(() => {
+    if (modelValue.value === i) {
+      return anim && clearInterval(anim);
+    }
+    if (modelValue.value! < i) {
+      ++modelValue.value!;
+    } else {
+      --modelValue.value!;
+    }
+  }, 20);
 }
 
 const range = computed(() => {
@@ -54,6 +68,7 @@ const range = computed(() => {
         v-for="num in range"
         :key="num"
         @click="selected(num)"
+        :disabled="disabled"
         class="bcc-nps-score--number"
         :class="{
           inactive: modelValue === null || isNaN(modelValue) || modelValue < num,

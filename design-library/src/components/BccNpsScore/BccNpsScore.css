@@ -12,11 +12,8 @@
   }
 
   .bcc-nps-score--bar {
-    @apply flex justify-evenly rounded-xl text-white;
+    @apply flex justify-evenly rounded-xl text-white pointer-events-none;
     @apply bg-gradient-to-r from-red-700 via-yellow-400 via-75% to-green-500;
-  }
-  .bcc-nps-score--bar:not(.disabled) {
-    @apply pointer-events-none cursor-pointer;
   }
 
   .bcc-nps-score--bar.reverse {
@@ -29,16 +26,19 @@
 
   .bcc-nps-score--number {
     @apply flex h-8 flex-1 items-center justify-center border-r-[2px] border-white font-bold text-sm leading-none;
-    @apply pointer-events-auto transition-all duration-200 hover:bg-transparent;
+    @apply pointer-events-auto cursor-pointer transition-all duration-200 hover:bg-transparent;
+  }
+
+  .bcc-nps-score--number:disabled {
+    @apply pointer-events-none cursor-default;
   }
 
   .bcc-nps-score--number.active {
-    @apply pointer-events-none font-medium text-base;
+    @apply pointer-events-none;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 
   .bcc-nps-score--number:has(~ .bcc-nps-score--number.active) {
-    @apply font-medium;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 
