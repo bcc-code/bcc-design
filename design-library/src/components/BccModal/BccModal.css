@@ -1,6 +1,6 @@
 @layer components {
     .bcc-modal {
-        @apply relative flex flex-col gap-6 rounded-lg bg-primary p-6 text-primary shadow-xl sm:min-w-[28.5rem] sm:max-w-[28.5rem] xl:max-w-[32rem] max-h-[80vh];
+        @apply relative flex flex-col gap-6 rounded-lg bg-primary p-4 text-primary shadow-xl sm:min-w-[28.5rem] sm:max-w-[28.5rem] xl:max-w-[32rem] max-h-[80vh];
     }
 
     /* Overlay/Wrapper */
@@ -16,8 +16,12 @@
     }
 
     /* Header */
+    .bcc-modal-header {
+        @apply p-2;
+    }
+
     .bcc-modal-header + .bcc-modal-body {
-        @apply border-t border-on-primary pt-5;
+        @apply border-t border-on-primary pt-4;
     }
 
     /* Body */
@@ -27,10 +31,10 @@
 
     /* Title */
     .bcc-modal-title {
-        @apply text-heading-lg flex justify-between items-start;
+        @apply text-heading-lg flex justify-between items-start p-2;
     }
     .bcc-modal-close-button {
-        @apply text-black;
+        @apply text-black rounded-full;
     }
     .bcc-modal-close-icon {
         @apply h-6 w-6;
@@ -38,16 +42,16 @@
 
     /* Content */
     .bcc-modal-content {
-        @apply text-body overflow-y-auto;
+        @apply text-body overflow-y-auto px-2;
     }
 
     /* Footer */
     .bcc-modal-footer {
-        @apply sticky bottom-0 left-0 right-0 bg-primary;
+        @apply sticky bottom-0 left-0 right-0 bg-primary p-2;
     }
 
     .bcc-modal-footer-content {
-        @apply mb-5;
+        @apply mb-4;
     }
 
     /* Actions */
