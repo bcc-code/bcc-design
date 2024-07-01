@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
   max: 10,
 });
 
-let anim: NodeJS.Timeout | null = null;
+let anim: any = null;
 function selected(i: number) {
   if (props.disabled) return;
 
