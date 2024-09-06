@@ -48,7 +48,7 @@ function selectEmoji(emoji: EmojiStat) {
         <AddReactionIcon v-else class="w-6" />
       </button>
 
-      <div class="bcc-react-list">
+      <div class="bcc-react-list" key="list">
         <template v-if="activeEmojis.length > 0">
           <TransitionGroup name="bcc-explode" appear>
             <template v-for="emoji in activeEmojis" :key="emoji.id">
