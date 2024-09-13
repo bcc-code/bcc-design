@@ -9,13 +9,13 @@ export type Item = Record<string, any>;
 export type SortDirection = "ascending" | "descending";
 </script>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="TItem extends Item">
 import { SwapVertIcon, ArrowUpwardIcon, ArrowDownwardIcon } from "@bcc-code/icons-vue";
 import { computed, toRefs } from "vue";
 
 type Props = {
   columns: Column[];
-  items: Item[];
+  items: TItem[];
   sortBy?: string;
   sortDirection?: SortDirection;
 };
@@ -27,7 +27,7 @@ const { columns, items, sortBy, sortDirection } = toRefs(props);
 
 const emit = defineEmits(["update:sortBy", "update:sortDirection"]);
 
-function getField(item: Item, columnKey: string) {
+function getField(item: TItem, columnKey: string) {
   const segments = columnKey.split(".");
   return segments.reduce((obj, key) => obj[key], item);
 }
