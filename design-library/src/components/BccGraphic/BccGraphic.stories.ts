@@ -1,4 +1,4 @@
-import { CalendarViewDayIcon, ViewAgendaIcon } from "@bcc-code/icons-vue";
+import { CalendarViewDayIcon } from "@bcc-code/icons-vue";
 import BccGraphic from "./BccGraphic.vue";
 
 import { ratioClasses, roundingClasses } from "./BccGraphicPoster.vue";
