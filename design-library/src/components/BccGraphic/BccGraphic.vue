@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { OpenInNewIcon, CheckCircleFillIcon } from "@bcc-code/icons-vue";
 import BccGraphicPoster, { ratioClasses, roundingClasses } from "./BccGraphicPoster.vue";
-import { VueComponent } from "@/types";
+import type { VueComponent } from "@/types";
 
 type Props = {
   bannerSrc?: string;
