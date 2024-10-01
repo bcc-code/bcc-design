@@ -1,3 +1,4 @@
+import { CalendarViewDayIcon, ViewAgendaIcon } from "@bcc-code/icons-vue";
 import BccGraphic from "./BccGraphic.vue";
 
 import { ratioClasses, roundingClasses } from "./BccGraphicPoster.vue";
@@ -79,3 +80,9 @@ export const Checked: StoryFn<typeof BccGraphic> = () => ({
     <BccGraphic checked bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png" />
   `,
 });
+
+export const ExampleWithCustomIcon = Template.bind({});
+ExampleWithCustomIcon.args = {
+  ...Example.args,
+  linkOut: CalendarViewDayIcon,
+};
