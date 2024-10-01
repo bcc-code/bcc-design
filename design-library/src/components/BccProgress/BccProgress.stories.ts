@@ -79,9 +79,10 @@ export const Size: StoryFn<typeof BccProgress> = () => ({
   components: { BccProgress },
   template: `
     <div class="flex flex-col space-y-4">
-      <BccProgress class="w-1/4 bcc-progress-sm" :value="30"/>
-      <BccProgress class="w-1/4 bcc-progress-md" :value="22"/>
+      <BccProgress class="w-1/4 bcc-progress-xs" :value="30"/>
+      <BccProgress class="w-1/4 bcc-progress-sm" :value="22"/>
       <BccProgress class="w-1/4" :value="75"/>
+      <BccProgress class="w-1/4" bcc-progress-base :value="75"/>
       <BccProgress class="w-1/4 bcc-progress-lg" size="lg" :value="22"/>
       <BccProgress class="w-1/4 bcc-progress-xl" size="lg" :value="22"/>
       <BccProgress class="w-1/4 bcc-progress-2xl" size="lg" :value="22"/>
