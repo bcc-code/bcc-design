@@ -12,7 +12,21 @@ export default {
   argTypes: {
     context: {
       description: "Which context color to use for the styling of the pin",
-      options: ["neutral", "danger", "warning", "success", "info"],
+      options: [
+        "neutral",
+        "danger",
+        "warning",
+        "success",
+        "info",
+        "muddy-waters",
+        "mongoose",
+        "brand",
+      ],
+      control: { type: "radio" },
+    },
+    contrast: {
+      description: "contrast",
+      options: ["light", "dark"],
       control: { type: "radio" },
     },
   },
@@ -62,6 +76,32 @@ export const WithIcon: StoryFn<typeof BccPin> = () => ({
       <BccPin context="warning" :icon="CheckCircleIcon" />
       <BccPin context="success" :icon="CheckCircleIcon" />
       <BccPin context="info" :icon="CheckCircleIcon" />
+    </div>
+  `,
+});
+
+/**
+ * Set the `contrast` prop to render a pin with a light or dark contrast
+ */
+export const Contrast: StoryFn<typeof BccPin> = () => ({
+  components: { BccPin },
+  setup() {
+    return { CheckCircleIcon };
+  },
+  template: `
+    <div class="flex items-start space-x-2 mb-2">
+      <BccPin context="neutral" :icon="CheckCircleIcon" contrast="light" />
+      <BccPin context="danger" :icon="CheckCircleIcon" contrast="light" />
+      <BccPin context="warning" :icon="CheckCircleIcon" contrast="light" />
+      <BccPin context="success" :icon="CheckCircleIcon" contrast="light" />
+      <BccPin context="info" :icon="CheckCircleIcon" contrast="light" />
+    </div>
+    <div class="flex items-start space-x-2">
+      <BccPin context="neutral" :icon="CheckCircleIcon" contrast="dark" />
+      <BccPin context="danger" :icon="CheckCircleIcon" contrast="dark" />
+      <BccPin context="warning" :icon="CheckCircleIcon" contrast="dark" />
+      <BccPin context="success" :icon="CheckCircleIcon" contrast="dark" />
+      <BccPin context="info" :icon="CheckCircleIcon" contrast="dark" />
     </div>
   `,
 });
