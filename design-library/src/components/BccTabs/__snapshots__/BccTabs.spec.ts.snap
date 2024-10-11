@@ -1,32 +1,32 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccTabs > renders three tabs 1`] = `
-"<button aria-hidden="true" style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" type="button"></button>
-<div class="bcc-tabs">
-  <div role="tablist" aria-orientation="horizontal" class="bcc-tabs-bar bcc-tabs-bar--3">
-    <div class="bcc-tabs-bar-item bcc-tabs-bar-item--active text-label" id="headlessui-tabs-tab-1" role="tab" aria-selected="true" tabindex="0">
-      <div class="bcc-tabs-bar-icon"><svg aria-hidden="true" viewBox="0 -960 960 960" fill="currentColor">
-          <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"></path>
+"<button aria-hidden=\\"true\\" style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" type=\\"button\\"></button>
+<div class=\\"bcc-tabs\\">
+  <div role=\\"tablist\\" aria-orientation=\\"horizontal\\" class=\\"bcc-tabs-bar bcc-tabs-bar--3\\">
+    <div class=\\"bcc-tabs-bar-item bcc-tabs-bar-item--active text-label\\" id=\\"headlessui-tabs-tab-1\\" role=\\"tab\\" aria-selected=\\"true\\" tabindex=\\"0\\">
+      <div class=\\"bcc-tabs-bar-icon\\"><svg aria-hidden=\\"true\\" viewBox=\\"0 -960 960 960\\" fill=\\"currentColor\\">
+          <path d=\\"M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z\\"></path>
         </svg></div> With icon
       <!--v-if-->
       <!--v-if-->
     </div>
-    <div class="bcc-tabs-bar-item text-label" id="headlessui-tabs-tab-2" role="tab" aria-selected="false" tabindex="-1">
-      <!--v-if--> Using Component <div class="bcc-pin bcc-pin-text bcc-tabs-item-right"><span>5</span></div>
+    <div class=\\"bcc-tabs-bar-item text-label\\" id=\\"headlessui-tabs-tab-2\\" role=\\"tab\\" aria-selected=\\"false\\" tabindex=\\"-1\\">
+      <!--v-if--> Using Component <div class=\\"bcc-pin bcc-pin-neutral-light bcc-pin-text bcc-tabs-item-right\\"><span>5</span></div>
       <!--v-if-->
     </div>
-    <div class="bcc-tabs-bar-item bcc-tabs-bar-item--disabled text-label" disabled="true" id="headlessui-tabs-tab-3" role="tab" aria-selected="false" tabindex="-1">
+    <div class=\\"bcc-tabs-bar-item bcc-tabs-bar-item--disabled text-label\\" disabled=\\"true\\" id=\\"headlessui-tabs-tab-3\\" role=\\"tab\\" aria-selected=\\"false\\" tabindex=\\"-1\\">
       <!--v-if--> Disabled badge
       <!--v-if-->
-      <div class="bcc-badge bcc-badge-info bcc-tabs-item-right" text="new">
-        <!--v-if--><span class="order-2">new</span>
+      <div class=\\"bcc-badge bcc-badge-info-light bcc-badge-xs bcc-tabs-item-right\\" text=\\"new\\">
+        <!--v-if--><span class=\\"order-2\\">new</span>
       </div>
     </div>
   </div>
-  <div class="bcc-tabs-panels">
-    <div id="headlessui-tabs-panel-4" role="tabpanel" tabindex="0" data-headlessui-state="selected" class="bcc-tabs-panel">
+  <div class=\\"bcc-tabs-panels\\">
+    <div id=\\"headlessui-tabs-panel-4\\" role=\\"tabpanel\\" tabindex=\\"0\\" data-headlessui-state=\\"selected\\" class=\\"bcc-tabs-panel\\">
       <!--v-if-->
-    </div><span style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" id="headlessui-tabs-panel-5" role="tabpanel" tabindex="-1" class="bcc-tabs-panel"></span><span style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" id="headlessui-tabs-panel-6" role="tabpanel" tabindex="-1" class="bcc-tabs-panel"></span>
+    </div><span style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" id=\\"headlessui-tabs-panel-5\\" role=\\"tabpanel\\" tabindex=\\"-1\\" class=\\"bcc-tabs-panel\\"></span><span style=\\"position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;\\" id=\\"headlessui-tabs-panel-6\\" role=\\"tabpanel\\" tabindex=\\"-1\\" class=\\"bcc-tabs-panel\\"></span>
   </div>
 </div>"
 `;
