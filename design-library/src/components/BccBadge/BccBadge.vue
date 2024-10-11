@@ -24,10 +24,39 @@ withDefaults(
     context: "neutral",
   }
 );
+
+const themeClass = {
+  light: {
+    neutral: "bcc-badge-neutral-light",
+    danger: "bcc-badge-danger-light",
+    warning: "bcc-badge-warning-light",
+    success: "bcc-badge-success-light",
+    info: "bcc-badge-info-light",
+    "muddy-waters": "bcc-badge-muddy-waters-light",
+    mongoose: "bcc-badge-mongoose-light",
+    brand: "bcc-badge-brand-light",
+  },
+  dark: {
+    neutral: "bcc-badge-neutral-dark",
+    danger: "bcc-badge-danger-dark",
+    warning: "bcc-badge-warning-dark",
+    success: "bcc-badge-success-dark",
+    info: "bcc-badge-info-dark",
+    "muddy-waters": "bcc-badge-muddy-waters-dark",
+    mongoose: "bcc-badge-mongoose-dark",
+    brand: "bcc-badge-brand-dark",
+  },
+};
+
+const sizeClass = {
+  xs: "bcc-badge-xs",
+  sm: "bcc-badge-sm",
+  md: "bcc-badge-md",
+};
 </script>
 
 <template>
-  <div class="bcc-badge" :class="`bcc-badge-${context}-${contrast} bcc-badge-${size}`">
+  <div class="bcc-badge" :class="[themeClass[contrast][context], sizeClass[size]]">
     <component
       v-if="icon"
       :is="icon"
