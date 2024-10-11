@@ -7,6 +7,7 @@ withDefaults(
     iconRight?: boolean;
     size?: "xs" | "sm" | "md";
     contrast?: "light" | "dark";
+    bordered?: boolean;
     context?:
       | "neutral"
       | "danger"
@@ -19,6 +20,7 @@ withDefaults(
   }>(),
   {
     iconRight: false,
+    bordered: false,
     contrast: "light",
     size: "xs",
     context: "neutral",
@@ -26,26 +28,14 @@ withDefaults(
 );
 
 const themeClass = {
-  light: {
-    neutral: "bcc-badge-neutral-light",
-    danger: "bcc-badge-danger-light",
-    warning: "bcc-badge-warning-light",
-    success: "bcc-badge-success-light",
-    info: "bcc-badge-info-light",
-    "muddy-waters": "bcc-badge-muddy-waters-light",
-    mongoose: "bcc-badge-mongoose-light",
-    brand: "bcc-badge-brand-light",
-  },
-  dark: {
-    neutral: "bcc-badge-neutral-dark",
-    danger: "bcc-badge-danger-dark",
-    warning: "bcc-badge-warning-dark",
-    success: "bcc-badge-success-dark",
-    info: "bcc-badge-info-dark",
-    "muddy-waters": "bcc-badge-muddy-waters-dark",
-    mongoose: "bcc-badge-mongoose-dark",
-    brand: "bcc-badge-brand-dark",
-  },
+  neutral: "bcc-badge-neutral",
+  danger: "bcc-badge-danger",
+  warning: "bcc-badge-warning",
+  success: "bcc-badge-success",
+  info: "bcc-badge-info",
+  "muddy-waters": "bcc-badge-muddy-waters",
+  mongoose: "bcc-badge-mongoose",
+  brand: "bcc-badge-brand",
 };
 
 const sizeClass = {
@@ -56,7 +46,7 @@ const sizeClass = {
 </script>
 
 <template>
-  <div class="bcc-badge" :class="[themeClass[contrast][context], sizeClass[size]]">
+  <div class="bcc-badge" :class="[themeClass[context], contrast, sizeClass[size], { bordered }]">
     <component
       v-if="icon"
       :is="icon"

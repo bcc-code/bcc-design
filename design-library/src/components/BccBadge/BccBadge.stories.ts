@@ -42,6 +42,9 @@ export default {
       name: "default slot",
       description: "The badge text",
     },
+    bordered: {
+      control: { type: "boolean", default: false },
+    },
   },
 } as Meta<typeof BccBadge>;
 
