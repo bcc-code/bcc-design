@@ -8,10 +8,10 @@
     @apply text-label-xs px-2 py-0.5;
   }
   .bcc-badge-sm {
-    @apply text-label px-3 py-[3px];
+    @apply text-label-sm leading-4 px-3 py-1;
   }
   .bcc-badge-md {
-    @apply text-label px-4 py-[7px];
+    @apply text-label-sm leading-4 px-4 py-2;
   }
 
   /* Variants light */
@@ -74,6 +74,6 @@
     @apply h-4 w-4;
   }
   .bcc-badge-md .bcc-badge-icon {
-    @apply h-5 w-5;
+    @apply h-4 w-4;
   }
 }
