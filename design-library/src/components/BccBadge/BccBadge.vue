@@ -5,11 +5,21 @@ withDefaults(
   defineProps<{
     icon?: VueComponent;
     iconRight?: boolean;
-    size?: "xs" | "sm";
-    context?: "neutral" | "danger" | "warning" | "success" | "info";
+    size?: "xs" | "sm" | "md";
+    contrast?: "light" | "dark";
+    context?:
+      | "neutral"
+      | "danger"
+      | "warning"
+      | "success"
+      | "info"
+      | "muddy-waters"
+      | "mongoose"
+      | "brand";
   }>(),
   {
     iconRight: false,
+    contrast: "light",
     size: "xs",
     context: "neutral",
   }
@@ -17,16 +27,7 @@ withDefaults(
 </script>
 
 <template>
-  <div
-    class="bcc-badge"
-    :class="{
-      'bcc-badge-sm': size === 'sm',
-      'bcc-badge-danger': context === 'danger',
-      'bcc-badge-warning': context === 'warning',
-      'bcc-badge-success': context === 'success',
-      'bcc-badge-info': context === 'info',
-    }"
-  >
+  <div class="bcc-badge" :class="`bcc-badge-${context}-${contrast} bcc-badge-${size}`">
     <component
       v-if="icon"
       :is="icon"

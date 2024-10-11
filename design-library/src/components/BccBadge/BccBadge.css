@@ -1,36 +1,79 @@
 @layer components {
-    .bcc-badge {
-        @apply inline-flex items-center justify-center rounded-md border font-normal leading-none tracking-wide gap-1;
-        /* Default neutral badge */
-        @apply border-neutral-200 bg-neutral-50 text-neutral-900;
-        /* Default xs badge */
-        @apply text-xs leading-3 px-2 py-0.5;
-    }
+  .bcc-badge {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-md font-normal leading-none tracking-wide;
+  }
 
-    /* Size */
-    .bcc-badge-sm {
-        @apply text-sm leading-5 px-3 py-0.5;
-    }
+  /* Size */
+  .bcc-badge-xs {
+    @apply text-label-xs px-2 py-0.5;
+  }
+  .bcc-badge-sm {
+    @apply text-label-sm leading-4 px-3 py-1;
+  }
+  .bcc-badge-md {
+    @apply text-label-sm leading-4 px-4 py-2;
+  }
 
-    /* Variants */
-    .bcc-badge-danger {
-        @apply border-danger bg-danger text-danger;
-    }
-    .bcc-badge-warning {
-        @apply border-warning bg-warning text-warning;
-    }
-    .bcc-badge-success {
-        @apply border-success bg-success text-success;
-    }
-    .bcc-badge-info {
-        @apply border-info bg-info text-info;
-    }
+  /* Variants light */
+  .bcc-badge-neutral-light {
+    @apply bg-neutral-100 text-neutral-900;
+  }
+  .bcc-badge-danger-light {
+    @apply bg-red-100 text-red-700;
+  }
+  .bcc-badge-warning-light {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  .bcc-badge-success-light {
+    @apply bg-green-100 text-green-800;
+  }
+  .bcc-badge-info-light {
+    @apply bg-blue-100 text-blue-800;
+  }
+  .bcc-badge-muddy-waters-light {
+    @apply bg-muddy-waters-100 text-muddy-waters-600;
+  }
+  .bcc-badge-mongoose-light {
+    @apply bg-mongoose-100 text-mongoose-700;
+  }
+  .bcc-badge-brand-light {
+    @apply bg-brand-100 text-brand-700;
+  }
 
-    /* Icon */
-    .bcc-badge-icon {
-        @apply h-3 w-3;
-    }
-    .bcc-badge-sm .bcc-badge-icon {
-        @apply h-4 w-4;
-    }
+  /* Variants dark */
+  .bcc-badge-neutral-dark {
+    @apply bg-neutral-500 text-neutral-50;
+  }
+  .bcc-badge-danger-dark {
+    @apply bg-red-600 text-red-50;
+  }
+  .bcc-badge-warning-dark {
+    @apply bg-yellow-600 text-yellow-50;
+  }
+  .bcc-badge-success-dark {
+    @apply bg-green-600 text-green-50;
+  }
+  .bcc-badge-info-dark {
+    @apply bg-blue-500 text-blue-50;
+  }
+  .bcc-badge-muddy-waters-dark {
+    @apply bg-muddy-waters-400 text-muddy-waters-50;
+  }
+  .bcc-badge-mongoose-dark {
+    @apply bg-mongoose-400 text-mongoose-50;
+  }
+  .bcc-badge-brand-dark {
+    @apply bg-brand-400 text-brand-50;
+  }
+
+  /* Icon */
+  .bcc-badge-icon {
+    @apply h-3 w-3;
+  }
+  .bcc-badge-sm .bcc-badge-icon {
+    @apply h-4 w-4;
+  }
+  .bcc-badge-md .bcc-badge-icon {
+    @apply h-4 w-4;
+  }
 }
