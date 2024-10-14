@@ -7,5 +7,6 @@ describe("BccBadge", () => {
   it("renders a text from the default slot", () => {
     const wrapper = mount(BccBadge, { slots: { default: "Test Badge" } });
     expect(wrapper.text()).toBe("Test Badge");
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

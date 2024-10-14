@@ -37,16 +37,10 @@ const themeClass = {
   mongoose: "bcc-badge-mongoose",
   brand: "bcc-badge-brand",
 };
-
-const sizeClass = {
-  xs: "bcc-badge-xs",
-  sm: "bcc-badge-sm",
-  md: "bcc-badge-md",
-};
 </script>
 
 <template>
-  <div class="bcc-badge" :class="[themeClass[context], contrast, sizeClass[size], { bordered }]">
+  <div class="bcc-badge" :class="[themeClass[context], contrast, size, { bordered }]">
     <component
       v-if="icon"
       :is="icon"
