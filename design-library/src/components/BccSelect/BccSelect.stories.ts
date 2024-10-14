@@ -1,3 +1,4 @@
+import { ref } from "vue";
 import BccSelect from "./BccSelect.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
@@ -21,19 +22,24 @@ export default {
     showOptionalLabel: {
       description: "Will only take effect when `required` is `false`",
     },
+    multiple: {
+      control: { type: "boolean", default: false },
+    },
   },
 } as Meta<typeof BccSelect>;
 
 const Template: StoryFn<typeof BccSelect> = (args) => ({
   components: { BccSelect },
   setup() {
-    return { args };
+    const selected = ref([]);
+    return { args, selected };
   },
   template: `
-    <BccSelect v-bind="args" class="w-1/4">
+    <BccSelect v-bind="args" v-model="selected" class="w-1/4">
       <option disabled value="">Select an option...</option>
       <option value="one">Option 1</option>
       <option value="two">Option 2</option>
+      <option value="three">Option 3</option>
     </BccSelect>
   `,
 });
@@ -64,11 +70,37 @@ Example.parameters = {
   <option disabled value="">Select an option...</option>
   <option value="one">Option 1</option>
   <option value="two">Option 2</option>
+  <option value="three">Option 3</option>
 </BccSelect>
 `,
     },
   },
 };
+
+/**
+ * Set the `multiple` prop to allow multiple options to be selected.
+ */
+export const Multiple: StoryFn<typeof BccSelect> = () => ({
+  components: { BccSelect },
+  setup() {
+    const selected = ref([]);
+    return { selected };
+  },
+  template: `
+    <div class="flex flex-col space-y-4">
+      <BccSelect multiple class="w-1/4" v-model="selected">
+        <option disabled value="">Select an option...</option>
+        <option value="one">Success</option>
+        <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
+      </BccSelect>
+
+      <br/>
+      <h3>Selected:</h3>
+      <pre>{{ selected }}</pre>
+    </div>
+  `,
+});
 
 /**
  * Set the `state` prop to control how the select is rendered. Set the `disabled` prop to disable the select
@@ -80,26 +112,32 @@ export const State: StoryFn<typeof BccSelect> = () => ({
       <BccSelect class="w-1/4" value="default">
         <option value="default">Default</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
       <BccSelect class="w-1/4" value="default" disabled>
         <option value="default">Default disabled</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
       <BccSelect state="error" class="w-1/4" value="default">
         <option value="default">Error</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
       <BccSelect state="error" class="w-1/4" value="default" disabled>
         <option value="default">Error disabled</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
       <BccSelect state="success" class="w-1/4" value="default">
         <option value="default">Success</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
       <BccSelect state="success" class="w-1/4" value="default" disabled>
         <option value="default">Success disabled</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
     </div>
   `,
@@ -116,6 +154,7 @@ export const Placeholder: StoryFn<typeof BccSelect> = () => ({
         <option disabled value="">Select an option...</option>
         <option value="one">Success</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
     </div>
   `,
@@ -131,14 +170,17 @@ export const Size: StoryFn<typeof BccSelect> = () => ({
       <BccSelect label="label for sm select" size="sm" class="w-1/4" value="default">
         <option value="default">sm select</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
       <BccSelect label="label for base select" size="base" class="w-1/4" value="default">
         <option value="default">base select</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
       <BccSelect label="label for lg select" size="lg" class="w-1/4" value="default">
         <option value="default">lg select</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
     </div>
   `,
@@ -154,10 +196,12 @@ export const WithLabel: StoryFn<typeof BccSelect> = () => ({
       <BccSelect label="Example Label" size="base" value="default">
         <option value="default">base select</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
       <BccSelect label="Example Label that is really long but should still display"  class="w-1/4" value="default">
         <option value="default">base select</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
     </div>
   `,
@@ -173,21 +217,25 @@ export const Optional: StoryFn<typeof BccSelect> = () => ({
       <BccSelect show-optional-label label="Example Label" class="w-1/4" value="default">
         <option value="default">With label and optional</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
 
       <BccSelect show-optional-label label="Example Label" optionalLabel="Optional label that is pretty long and should truncate" class="w-1/4" value="default">
         <option value="default">Long optional label</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
 
       <BccSelect show-optional-label optionalLabel="Optional label that is pretty long and should truncate" class="w-1/4" value="default">
         <option value="default">Without label</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
 
       <BccSelect show-optional-label label="Pretty long label as well" optionalLabel="Optional label that is pretty long and should truncate" class="w-1/4" value="default">
         <option value="default">Long label and optional label</option>
         <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
       </BccSelect>
     </div>
   `,

@@ -19,4 +19,12 @@
     .bcc-select-success {
         @apply border-success focus:outline-success;
     }
+
+    .bcc-select[multiple] {
+        background-image: none;
+        @apply h-auto max-h-full relative p-0 overflow-y-auto;
+    }
+    .bcc-select[multiple]>option {
+        @apply py-2 px-4;
+    }
 }
