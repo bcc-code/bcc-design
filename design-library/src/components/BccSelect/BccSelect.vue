@@ -12,7 +12,6 @@ import BccFormLabel from "@/components/BccFormLabel/BccFormLabel.vue";
 import BccFormMessage from "@/components/BccFormMessage/BccFormMessage.vue";
 
 type Props = {
-  modelValue?: string;
   state?: "default" | "error" | "success";
   size?: "sm" | "base" | "lg";
   disabled?: boolean;
@@ -20,6 +19,7 @@ type Props = {
   showOptionalLabel?: boolean;
   optionalLabel?: string;
   required?: boolean;
+  multiple?: boolean;
 };
 
 const props = withDefaults(defineProps<Props>(), {
@@ -28,12 +28,12 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   required: false,
   showOptionalLabel: false,
+  multiple: false,
   optionalLabel: "Optional",
 });
 
 const id = `bcc-input-${useId()}`;
-
-const emit = defineEmits(["update:modelValue"]);
+const modelValue = defineModel<string | string[] | null>({ default: null });
 
 const showOptionalLabel = computed(() => props.showOptionalLabel && !props.required);
 
@@ -60,10 +60,10 @@ const { attrsWithoutStyles } = useAttrsWithoutStyles();
         'bcc-select-lg': size === 'lg',
       }"
       :id="id"
-      :value="modelValue"
       :disabled="disabled"
       :required="required"
-      @input="emit('update:modelValue', ($event.target as HTMLSelectElement).value)"
+      :multiple="multiple"
+      v-model="modelValue"
       v-bind="attrsWithoutStyles"
     >
       <slot />
