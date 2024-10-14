@@ -1,17 +1,17 @@
 @layer components {
   .bcc-badge {
-    @apply inline-flex items-center justify-center gap-2 rounded-md whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-1 px-2 rounded-md whitespace-nowrap;
   }
 
   /* Size */
   .bcc-badge.xs {
-    @apply text-label-xs leading-none px-2 h-5;
+    @apply text-label-xs leading-none h-5;
   }
   .bcc-badge.sm {
-    @apply text-label-sm leading-none px-3 h-6;
+    @apply text-label-sm leading-none h-6;
   }
   .bcc-badge.md {
-    @apply text-label-sm leading-none px-4 h-8;
+    @apply text-label-sm leading-none h-8;
   }
 
   .bcc-badge.bordered {
