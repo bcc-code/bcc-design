@@ -1,64 +1,94 @@
 @layer components {
   .bcc-pin {
-    @apply inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-semibold shadow-md;
+    @apply inline-flex h-5 w-5 items-center justify-center rounded-full text-label-xs leading-none whitespace-nowrap shadow;
+  }
+  .bcc-pin.sm {
+    @apply w-4 h-4;
+  }
+  .bcc-pin.lg {
+    @apply w-6 h-6;
   }
 
   .bcc-pin-text {
     @apply w-auto px-2;
   }
+  .bcc-pin-text.sm {
+    @apply w-auto px-1;
+  }
+  .bcc-pin-text.lg {
+    @apply w-auto px-3;
+  }
+
   .bcc-pin .bcc-pin-icon {
     @apply h-4 w-4;
+  }
+  .bcc-pin.sm .bcc-pin-icon {
+    @apply h-3 w-3;
+  }
+  .bcc-pin.lg .bcc-pin-icon {
+    @apply h-5 w-5;
+  }
+
+  .bcc-pin.bordered {
+    @apply border;
+  }
+
+  .bcc-pin.squared  {
+    @apply rounded;
+  }
+  .bcc-pin.squared.lg  {
+    @apply rounded-lg;
   }
 
   /* Variants light */
   .bcc-pin-neutral.light {
-    @apply bg-neutral-100 text-neutral-900;
+    @apply bg-neutral-100 text-neutral-900 border-neutral-200;
   }
   .bcc-pin-danger.light {
-    @apply bg-red-100 text-red-700;
+    @apply bg-red-100 text-red-700 border-red-300;
   }
   .bcc-pin-warning.light {
-    @apply bg-yellow-100 text-yellow-800;
+    @apply bg-yellow-100 text-yellow-800 border-yellow-400;
   }
   .bcc-pin-success.light {
-    @apply bg-green-100 text-green-800;
+    @apply bg-green-100 text-green-800 border-green-300;
   }
   .bcc-pin-info.light {
-    @apply bg-blue-100 text-blue-800;
+    @apply bg-blue-100 text-blue-800 border-blue-300;
   }
   .bcc-pin-muddy-waters.light {
-    @apply bg-muddy-waters-100 text-muddy-waters-600;
+    @apply bg-muddy-waters-100 text-muddy-waters-600 border-muddy-waters-200;
   }
   .bcc-pin-mongoose.light {
-    @apply bg-mongoose-100 text-mongoose-700;
+    @apply bg-mongoose-100 text-mongoose-700 border-mongoose-200;
   }
   .bcc-pin-brand.light {
-    @apply bg-brand-100 text-brand-700;
+    @apply bg-brand-100 text-brand-700 border-brand-200;
   }
 
   /* Variants dark */
   .bcc-pin-neutral.dark {
-    @apply bg-neutral-500 text-neutral-50;
+    @apply bg-neutral-500 text-neutral-50 border-neutral-400;
   }
   .bcc-pin-danger.dark {
-    @apply bg-red-600 text-red-50;
+    @apply bg-red-600 text-red-50 border-red-500;
   }
   .bcc-pin-warning.dark {
-    @apply bg-yellow-600 text-yellow-50;
+    @apply bg-yellow-600 text-yellow-50 border-yellow-500;
   }
   .bcc-pin-success.dark {
-    @apply bg-green-600 text-green-50;
+    @apply bg-green-600 text-green-50 border-green-500;
   }
   .bcc-pin-info.dark {
-    @apply bg-blue-500 text-blue-50;
+    @apply bg-blue-500 text-blue-50 border-blue-400;
   }
   .bcc-pin-muddy-waters.dark {
-    @apply bg-muddy-waters-400 text-muddy-waters-50;
+    @apply bg-muddy-waters-400 text-muddy-waters-50 border-muddy-waters-300;
   }
   .bcc-pin-mongoose.dark {
-    @apply bg-mongoose-400 text-mongoose-50;
+    @apply bg-mongoose-400 text-mongoose-50 border-mongoose-300;
   }
   .bcc-pin-brand.dark {
-    @apply bg-brand-400 text-brand-50;
+    @apply bg-brand-400 text-brand-50 border-brand-300;
   }
 }
