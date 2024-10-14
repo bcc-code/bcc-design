@@ -14,11 +14,17 @@ withDefaults(
       | "mongoose"
       | "brand";
     contrast?: "light" | "dark";
+    size?: "sm" | "base" | "lg";
     text?: string;
+    bordered?: boolean;
+    squared?: boolean;
   }>(),
   {
+    bordered: false,
     context: "neutral",
     contrast: "light",
+    size: "base",
+    squared: false,
   }
 );
 
@@ -35,7 +41,19 @@ const themeClass = {
 </script>
 
 <template>
-  <div class="bcc-pin" :class="[themeClass[context], contrast, !icon ? 'bcc-pin-text' : '']">
+  <div
+    class="bcc-pin"
+    :class="[
+      themeClass[context],
+      contrast,
+      size,
+      {
+        bordered,
+        squared,
+        'bcc-pin-text': !icon && text && String(text).length > 1,
+      },
+    ]"
+  >
     <component :is="icon" class="bcc-pin-icon" v-if="icon" />
     <span v-else-if="text">{{ text }}</span>
   </div>
