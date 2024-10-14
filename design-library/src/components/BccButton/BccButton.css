@@ -1,24 +1,24 @@
 @layer components {
     .bcc-button {
-        @apply select-none font-semibold inline-flex items-center tracking-wide border justify-center active:shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-emphasis focus-visible:outline-offset-2;
+        @apply select-none inline-flex items-center border justify-center active:shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-emphasis focus-visible:outline-offset-2;
         @apply cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none;
         
         /* Default base size */
-        @apply text-base leading-5 py-2.5 px-5 gap-x-2 h-10 rounded-lg;
+        @apply text-label leading-none py-2.5 px-5 gap-x-2 h-10 rounded-lg;
     }
 
     /* Size */
     .bcc-button-xs {
-        @apply text-xs leading-3 py-1.5 px-3 gap-x-1.5 h-6 rounded-md;
+        @apply text-label-xs leading-none py-1.5 px-3 gap-x-1.5 h-6 rounded-md;
     }
     .bcc-button-sm {
-        @apply text-sm leading-4 py-2 px-3 gap-x-1.5 h-8 rounded-md;
+        @apply text-label-sm leading-none py-2 px-3 gap-x-1.5 h-8 rounded-md;
     }
     .bcc-button-lg {
-        @apply text-base leading-5 py-3 px-5 gap-x-2.5 h-12 rounded-lg;
+        @apply text-label-lg leading-none py-3 px-5 gap-x-2.5 h-12 rounded-lg;
     }
     .bcc-button-xl {
-        @apply text-xl leading-5 py-4 px-6 gap-x-2.5 h-14 rounded-lg;
+        @apply text-heading-lg leading-none py-4 px-6 gap-x-2.5 h-14 rounded-lg;
     }
 
     /* Rounded */

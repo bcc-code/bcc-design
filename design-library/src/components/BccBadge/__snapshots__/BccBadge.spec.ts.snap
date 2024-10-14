@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccBadge > renders a text from the default slot 1`] = `
+"<div class="bcc-badge bcc-badge-neutral light xs">
+  <!--v-if--><span class="order-2">Test Badge</span>
+</div>"
+`;
