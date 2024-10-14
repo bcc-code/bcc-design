@@ -1,5 +1,5 @@
 import BccBadge from "./BccBadge.vue";
-import { CheckCircleIcon } from "@bcc-code/icons-vue";
+import { CheckCircleIcon, DownloadingIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -81,6 +81,23 @@ Example.parameters = {
     },
   },
 };
+
+/**
+ * Set the `size` prop to control the color of the badge
+ */
+export const Size: StoryFn<typeof BccBadge> = (args) => ({
+  components: { BccBadge },
+  setup() {
+    return { args, DownloadingIcon };
+  },
+  template: `
+    <div class="flex items-start space-x-2">
+      <BccBadge v-bind="args" size="xs" :icon="DownloadingIcon">extra-small</BccBadge>
+      <BccBadge v-bind="args" size="sm" :icon="DownloadingIcon">small</BccBadge>
+      <BccBadge v-bind="args" size="md" :icon="DownloadingIcon">medium</BccBadge>
+    </div>
+  `,
+});
 
 /**
  * Set the `context` prop to control the color of the badge

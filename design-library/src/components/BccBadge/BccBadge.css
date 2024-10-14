@@ -1,27 +1,21 @@
 @layer components {
   .bcc-badge {
-    @apply inline-flex items-center justify-center gap-2.5 rounded-md font-normal leading-none tracking-wide;
+    @apply inline-flex items-center justify-center gap-1 px-2 rounded-md whitespace-nowrap;
   }
 
   /* Size */
-  .bcc-badge-xs {
-    @apply text-label-xs px-2 py-0.5;
+  .bcc-badge.xs {
+    @apply text-label-xs leading-none h-5;
   }
-  .bcc-badge-sm {
-    @apply text-label-sm leading-4 px-3 py-1;
+  .bcc-badge.sm {
+    @apply text-label-sm leading-none h-6;
   }
-  .bcc-badge-md {
-    @apply text-label-sm leading-4 px-4 py-2;
+  .bcc-badge.md {
+    @apply text-label-sm leading-none h-8;
   }
 
-  .bcc-badge-xs.bordered {
-    @apply border py-[1px];
-  }
-  .bcc-badge-sm.bordered {
-    @apply border py-[3px];
-  }
-  .bcc-badge-md.bordered {
-    @apply border py-[7px];
+  .bcc-badge.bordered {
+    @apply border;
   }
 
   /* Variants light */
@@ -80,10 +74,10 @@
   .bcc-badge-icon {
     @apply h-3 w-3;
   }
-  .bcc-badge-sm .bcc-badge-icon {
+  .bcc-badge.sm .bcc-badge-icon {
     @apply h-4 w-4;
   }
-  .bcc-badge-md .bcc-badge-icon {
+  .bcc-badge.md .bcc-badge-icon {
     @apply h-4 w-4;
   }
 }
