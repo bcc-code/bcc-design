@@ -29,7 +29,7 @@ const showCloseButton = computed(() => props.closeButton && !slots.header);
 
 const handleClose = () => {
   if (props.closeOnOutsideClick) {
-    emit('close');
+    emit("close");
   }
 };
 </script>
