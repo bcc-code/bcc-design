@@ -47,7 +47,7 @@ const Template: StoryFn<typeof BccModal> = (args) => ({
 });
 
 /**
- * Control the content of the modal with the `title` prop and the `default` slot. Pass buttons to the `primaryAction` and `secondaryAction` slots. Set `closeButton` to `false` to hide the close button on desktops. The modal emits a `close` event when the user clicks the close button or closes the modal by clicking outside of it or pressing Escape.
+ * Control the content of the modal with the `title` prop and the `default` slot. Pass buttons to the `primaryAction` and `secondaryAction` slots. Set `closeButton` to `false` to hide the close button on desktops. The modal emits a `close` event when the user clicks the close button or closes the modal by clicking outside of it or pressing Escape, unless `disableClickOutsideClose` is set to true.
  */
 export const Example = Template.bind({});
 Example.args = {
