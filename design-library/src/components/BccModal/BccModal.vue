@@ -13,13 +13,13 @@ type Props = {
   open: boolean;
   title?: string;
   closeButton?: boolean;
-  disableClickOutsideClose?: boolean;
+  closeOnOutsideClick?: boolean;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   open: false,
   closeButton: true,
-  disableClickOutsideClose: false,
+  closeOnOutsideClick: true,
 });
 
 const emit = defineEmits(["close"]);
@@ -28,7 +28,7 @@ const slots = useSlots();
 const showCloseButton = computed(() => props.closeButton && !slots.header);
 
 const handleClose = () => {
-  if (!props.disableClickOutsideClose) {
+  if (props.closeOnOutsideClick) {
     emit('close');
   }
 };
