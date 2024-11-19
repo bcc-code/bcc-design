@@ -57,7 +57,6 @@ jobs:
           app_location: "design-library/storybook-static"
           skip_app_build: true
           skip_api_build: true
-          skip_deploy_on_missing_secrets: true
 
   close_pull_request:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
