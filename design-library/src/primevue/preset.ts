@@ -2,7 +2,7 @@ import { definePreset } from "@primevue/themes";
 import Aura from "@primevue/themes/aura";
 
 // default preset until primevue releases converter (planned until end of Q4)
-const preset = definePreset(Aura, {
+const preset = {
   primitive: {
     borderRadius: {
       none: "0",
@@ -658,6 +658,6 @@ const preset = definePreset(Aura, {
       },
     },
   },
-});
+};
 
 export default preset;
