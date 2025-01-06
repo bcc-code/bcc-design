@@ -13,22 +13,30 @@ type Props = {
   open: boolean;
   title?: string;
   closeButton?: boolean;
+  closeOnOutsideClick?: boolean;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   open: false,
   closeButton: true,
+  closeOnOutsideClick: true,
 });
 
 const emit = defineEmits(["close"]);
 
 const slots = useSlots();
 const showCloseButton = computed(() => props.closeButton && !slots.header);
+
+const handleClose = () => {
+  if (props.closeOnOutsideClick) {
+    emit("close");
+  }
+};
 </script>
 
 <template>
   <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="bcc-modal-overlay-wrapper" @close="emit('close')">
+    <Dialog as="div" class="bcc-modal-overlay-wrapper" @close="handleClose">
       <div class="flex h-[100dvh] w-[100dvw] items-center justify-center overflow-hidden">
         <TransitionChild
           as="div"
