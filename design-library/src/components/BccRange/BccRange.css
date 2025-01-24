@@ -1,0 +1,56 @@
+@layer components {
+    .bcc-range {
+        @apply flex flex-col gap-2 w-full;
+    }
+
+    .bcc-range__label {
+        @apply text-base text-center text-gray-900;
+    }
+
+    .bcc-range__container {
+        @apply flex flex-col items-center gap-2 w-full;
+    }
+
+    .bcc-range__slider-container {
+        @apply w-full;
+    }
+
+    .bcc-range__text {
+        @apply text-sm text-gray-700 whitespace-nowrap;
+    }
+
+    .bcc-range__input {
+        @apply w-full h-1 bg-gray-200 rounded appearance-none cursor-pointer;
+        @apply disabled:opacity-50 disabled:cursor-not-allowed;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .bcc-range__labels {
+        @apply flex items-center gap-4 w-full justify-between;
+    }
+
+    .bcc-range__input:disabled {
+        @apply bg-gray-400 cursor-not-allowed;
+    }
+
+    .bcc-range__input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        @apply w-4 h-4 mt-[-6px] rounded-full bg-white cursor-pointer bg-white;
+        box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
+            0 0 0 2px rgba(226, 232, 240, 1);
+    }
+
+    .bcc-range__input::-webkit-slider-runnable-track {
+        @apply h-1 rounded bg-gray-200 border-red-200;
+    }
+
+    .bcc-range__input::-moz-range-thumb {
+        @apply w-4 h-4 rounded-full bg-red-900 cursor-pointer border-0;
+    }
+
+    .bcc-range__input::-moz-range-track {
+        @apply h-1 rounded bg-gray-200;
+    }
+
+}

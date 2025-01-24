@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccRange > renders a label 1`] = `
+"<div class="bcc-range"><label class="bcc-range__label">Test label</label>
+  <div class="bcc-range__container">
+    <div class="bcc-range__slider-container"><input type="range" class="bcc-range__input" min="-10" max="10" step="1"></div>
+    <div class="bcc-range__labels">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`BccRange > renders a range input 1`] = `
+"<div class="bcc-range">
+  <!--v-if-->
+  <div class="bcc-range__container">
+    <div class="bcc-range__slider-container"><input type="range" class="bcc-range__input" min="-100" max="10" step="1"></div>
+    <div class="bcc-range__labels">
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+  </div>
+</div>"
+`;
