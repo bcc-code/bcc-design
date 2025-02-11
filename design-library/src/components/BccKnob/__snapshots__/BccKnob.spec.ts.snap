@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccKnob > renders a knob 1`] = `"<div data-v-7411c299="" class="bcc-knob"><canvas data-v-7411c299="" width="320" height="320"></canvas></div>"`;

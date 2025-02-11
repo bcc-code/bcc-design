@@ -45,3 +45,4 @@ export { default as BccAccordion } from "./components/BccAccordion/BccAccordion.
 export { default as BccPagination } from "./components/BccPagination/BccPagination.vue";
 export { default as BccNpsScore } from "./components/BccNpsScore/BccNpsScore.vue";
 export { default as BccNpsResult } from "./components/BccNpsResult/BccNpsResult.vue";
+export { default as BccKnob } from "./components/BccKnob/BccKnob.vue";
