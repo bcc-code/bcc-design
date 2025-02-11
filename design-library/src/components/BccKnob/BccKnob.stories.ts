@@ -1,6 +1,5 @@
 import { ref } from "vue";
 import BccKnob from "./BccKnob.vue";
-import BccKnobGradientBackground from "./BccKnobGradientBackground.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -27,7 +26,7 @@ export default {
 } as Meta<typeof BccKnob>;
 
 const Template: StoryFn<typeof BccKnob> = (args) => ({
-  components: { BccKnob, BccKnobGradientBackground },
+  components: { BccKnob },
   setup() {
     const value = ref(0);
     return { args, value };
@@ -42,5 +41,10 @@ const Template: StoryFn<typeof BccKnob> = (args) => ({
   `,
 });
 
-export const Example = Template.bind({});
-Example.args = {};
+export const CustomColors = Template.bind({});
+CustomColors.args = {
+  negativeThumb: "#9B4F44",
+  negativeSolid: "#DBBEAC",
+  positiveThumb: "#3E8E75",
+  positiveSolid: "#B1DECC",
+};

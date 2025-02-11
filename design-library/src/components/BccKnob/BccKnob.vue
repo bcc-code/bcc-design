@@ -22,6 +22,10 @@ const props = defineProps({
   thumbColor: { type: String, default: "#437571" },
   min: { type: Number, default: -720 }, // in minutes (-12h)
   max: { type: Number, default: 720 }, // in minutes (+12h)
+  negativeThumb: String,
+  negativeSolid: String,
+  positiveThumb: String,
+  positiveSolid: String,
 });
 
 // Our model value (in minutes)
@@ -56,9 +60,6 @@ const backgroundArcAngle = computed(() =>
     Math.min(359.99, Math.max(minDegrees.value, Math.min(totalAngle.value, maxDegrees.value)))
   )
 );
-
-// Display text (in hours)
-const displayValue = computed(() => (totalAngle.value / 360).toFixed(2) + "h");
 
 /**
  * For canvas.arc we need radians with 0 at the top.
@@ -133,7 +134,8 @@ function drawCanvas() {
       toRad(backgroundArcAngle.value),
       anticlockwise
     );
-    ctx.strokeStyle = props.solidColor;
+    ctx.strokeStyle =
+      (anticlockwise ? props.negativeSolid : props.positiveSolid) || props.solidColor;
     ctx.lineWidth = arcWidth.value;
     ctx.stroke();
   }
@@ -182,10 +184,10 @@ function drawCanvas() {
     center.value,
     center.value
   );
-  grad.addColorStop(0, props.thumbColor);
-  grad.addColorStop(100 / 360, props.solidColor);
-  grad.addColorStop(260 / 360, props.solidColor);
-  grad.addColorStop(1, props.thumbColor);
+  grad.addColorStop(0, props.negativeThumb || props.thumbColor);
+  grad.addColorStop(100 / 360, props.negativeSolid || props.solidColor);
+  grad.addColorStop(260 / 360, props.positiveSolid || props.solidColor);
+  grad.addColorStop(1, props.positiveThumb || props.thumbColor);
   ctx.fillStyle = grad;
   // Fill the entire canvas (only the clipped area is affected).
   ctx.fillRect(0, 0, size.value, size.value);
