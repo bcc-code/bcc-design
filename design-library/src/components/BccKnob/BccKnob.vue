@@ -1,6 +1,6 @@
 <template>
   <div
-    class="knob"
+    class="bcc-knob"
     ref="knobContainer"
     @mousedown="startDrag"
     @touchstart="startDrag"
@@ -280,7 +280,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.knob {
+.bcc-knob {
   display: inline-block;
   user-select: none;
   touch-action: none;
