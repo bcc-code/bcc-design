@@ -1,5 +1,5 @@
 import { BccPin, BccBadge } from "@/index";
-import { VueComponent } from "@/types";
+import type { VueComponent } from "@/types";
 
 export type BccTabsGroup = Array<{
   title: string;

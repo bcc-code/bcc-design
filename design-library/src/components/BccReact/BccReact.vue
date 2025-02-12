@@ -2,7 +2,7 @@
 import { AddReactionFillIcon, AddReactionIcon, KeyboardArrowLeftIcon } from "@bcc-code/icons-vue";
 import { computed, ref } from "vue";
 import BccReactEmoji from "./BccReactEmoji.vue";
-import { BccReactInfo } from "./types";
+import type { BccReactInfo } from "./types";
 
 type Props = {
   emojis: BccReactInfo[];

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { BccReactInfo } from "./types";
+import type { BccReactInfo } from "./types";
 
 const props = defineProps<BccReactInfo>();
 

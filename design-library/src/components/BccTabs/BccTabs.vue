@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { BccBadge, BccPin } from "@/index";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/vue";
-import { BccTabsGroup } from "./types";
+import type { BccTabsGroup } from "./types";
 
 type Props = {
   tabs: BccTabsGroup;

@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="TItem extends BccTableItem">
 import { SwapVertIcon, ArrowUpwardIcon, ArrowDownwardIcon } from "@bcc-code/icons-vue";
 import { computed, toRefs } from "vue";
-import { BccTableColumn, BccTableItem, BccTableSortDirection } from "./types";
+import type { BccTableColumn, BccTableItem, BccTableSortDirection } from "./types";
 
 type Props = {
   columns: BccTableColumn[];
