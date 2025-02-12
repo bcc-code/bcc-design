@@ -20,14 +20,12 @@ import { computed, onMounted, ref } from "vue";
 const props = defineProps({
   size: { type: Number, default: 320 },
   arcWidth: { type: Number, default: 20 },
-  solidColor: { type: String, default: "#A9BABA" },
-  thumbColor: { type: String, default: "#437571" },
   min: { type: Number, default: -720 }, // in minutes (-12h)
   max: { type: Number, default: 720 }, // in minutes (+12h)
-  negativeThumb: String,
-  negativeSolid: String,
-  positiveThumb: String,
-  positiveSolid: String,
+  steps: { type: Number, default: 1 },
+  colored: { type: Boolean, default: false, description: "Use CSS variables for colors" },
+  showHandle: { type: Boolean, default: false },
+  hideArrows: { type: Boolean, default: false },
 });
 const emit = defineEmits<{
   (e: "drag:start"): void;
@@ -35,11 +33,21 @@ const emit = defineEmits<{
   (e: "drag:end"): void;
 }>();
 
+const colors = {
+  arc: "#EFEFEF",
+  head: "#437571",
+  tail: "#A9BABA",
+  leftHead: "#9B4F44",
+  leftTail: "#DBBEAC",
+  rightHead: "#3E8E75",
+  rightTail: "#B1DECC",
+};
+
 // Our model value (in minutes)
 const value = defineModel<number>({ required: true });
 
 // Refs for container and canvas; we'll get the 2D context on mount.
-const knobContainer = ref<HTMLDivElement | null>(null);
+const knobContainer = ref<Element | null>(null);
 const canvasEl = ref<HTMLCanvasElement | null>(null);
 let ctx: CanvasRenderingContext2D | null = null;
 
@@ -90,29 +98,67 @@ function angleToCartesian(angleDeg: number, r: number = radius.value) {
  */
 function drawCanvas() {
   if (!ctx) return;
+
+  const angle = totalAngle.value;
+
   ctx.clearRect(0, 0, props.size, props.size);
 
   // 1. Draw background circle with a subtle drop shadow.
   ctx.save();
   ctx.shadowColor = "rgba(0,0,0,0.2)";
-  ctx.shadowBlur = 10;
-  ctx.shadowOffsetX = 0;
-  ctx.shadowOffsetY = 4;
+  ctx.shadowBlur = 4;
   ctx.beginPath();
   ctx.arc(center.value, center.value, radius.value, 0, 2 * Math.PI);
-  ctx.strokeStyle = "#efefef";
+  ctx.strokeStyle = colors.arc;
   ctx.lineWidth = props.arcWidth;
   ctx.stroke();
   ctx.restore();
 
-  // 2. Draw inner circle.
-  ctx.beginPath();
-  ctx.arc(center.value, center.value, radius.value * 0.2, 0, 2 * Math.PI);
-  ctx.fillStyle = "#fafafa";
-  ctx.fill();
+  // 2. Draw direction arrows
+  if (!props.hideArrows) {
+    ctx.save();
+    ctx.strokeStyle = colors.arc;
+    ctx.lineWidth = 3;
+
+    // Left arrow (anticlockwise)
+    ctx.beginPath();
+    ctx.arc(
+      center.value,
+      center.value,
+      radius.value + 30,
+      toRad(-30), // Start from around 11 o'clock
+      toRad(-60), // End at top
+      true // Draw anticlockwise
+    );
+    // Arrow head at end of arc
+    const leftEnd = angleToCartesian(-60, radius.value + 30);
+    ctx.moveTo(leftEnd.x - 4, leftEnd.y - 16);
+    ctx.lineTo(leftEnd.x - 1, leftEnd.y + 2);
+    ctx.lineTo(leftEnd.x + 16, leftEnd.y - 4);
+    ctx.stroke();
+
+    // Right arrow (clockwise)
+    ctx.beginPath();
+    ctx.arc(
+      center.value,
+      center.value,
+      radius.value + 30,
+      toRad(30), // Start from around 1 o'clock
+      toRad(60), // End at top
+      false // Draw clockwise
+    );
+    // Arrow head at end of arc
+    const rightEnd = angleToCartesian(60, radius.value + 30);
+    ctx.moveTo(rightEnd.x - 16, rightEnd.y - 4);
+    ctx.lineTo(rightEnd.x + 1, rightEnd.y + 2);
+    ctx.lineTo(rightEnd.x + 4, rightEnd.y - 16);
+    ctx.stroke();
+
+    ctx.restore();
+  }
 
   // 3. Draw 12 tick marks.
-  ctx.strokeStyle = "#D4D4D4";
+  ctx.strokeStyle = colors.arc;
   ctx.lineWidth = 4;
   for (let n = 1; n <= 12; n++) {
     const angle = n * 30;
@@ -138,22 +184,24 @@ function drawCanvas() {
       toRad(backgroundArcAngle.value),
       anticlockwise
     );
-    ctx.strokeStyle =
-      (anticlockwise ? props.negativeSolid : props.positiveSolid) || props.solidColor;
+    if (props.colored) {
+      ctx.strokeStyle = anticlockwise ? colors.leftTail : colors.rightTail;
+    } else {
+      ctx.strokeStyle = colors.tail;
+    }
     ctx.lineWidth = props.arcWidth;
     ctx.stroke();
   }
 
   // 5. Draw the gradient “handle” arc using a linear gradient.
   // The handle spans up to 108° (≈30% of a full rotation).
-  const bgAngle = totalAngle.value;
   let handleStartDeg: number;
-  if (Math.abs(bgAngle) < 108) {
+  if (Math.abs(angle) < 108) {
     handleStartDeg = 0;
   } else {
-    handleStartDeg = bgAngle - Math.sign(bgAngle) * 108;
+    handleStartDeg = angle - Math.sign(angle) * 108;
   }
-  const handleEndDeg = bgAngle;
+  const handleEndDeg = angle;
   const thickness = props.arcWidth / 2;
   ctx.save();
   ctx.beginPath();
@@ -183,15 +231,18 @@ function drawCanvas() {
 
   // Gradient for following handle
   // Create the conic gradient with stops matching the original design.
-  const grad = ctx.createConicGradient(
-    ((totalAngle.value - 90) * Math.PI) / 180,
-    center.value,
-    center.value
-  );
-  grad.addColorStop(0, props.negativeThumb || props.thumbColor);
-  grad.addColorStop(100 / 360, props.negativeSolid || props.solidColor);
-  grad.addColorStop(260 / 360, props.positiveSolid || props.solidColor);
-  grad.addColorStop(1, props.positiveThumb || props.thumbColor);
+  const grad = ctx.createConicGradient(((angle - 90) * Math.PI) / 180, center.value, center.value);
+  if (props.colored) {
+    grad.addColorStop(0, colors.leftHead);
+    grad.addColorStop(100 / 360, colors.leftTail);
+    grad.addColorStop(260 / 360, colors.rightTail);
+    grad.addColorStop(1, colors.rightHead);
+  } else {
+    grad.addColorStop(0, colors.head);
+    grad.addColorStop(100 / 360, colors.tail);
+    grad.addColorStop(260 / 360, colors.tail);
+    grad.addColorStop(1, colors.head);
+  }
   ctx.fillStyle = grad;
   // Fill the entire canvas (only the clipped area is affected).
   ctx.fillRect(0, 0, props.size, props.size);
@@ -200,15 +251,27 @@ function drawCanvas() {
 
   // 6. Draw a white circle at the end of the arc (the drag handle).
   // Use totalAngle (instead of the clamped backgroundArcAngle) so that the handle rotates continuously.
-  const handlePos = angleToCartesian(totalAngle.value, radius.value);
-  const handleCircleRadius = props.arcWidth * 0.8; // a bit larger than the stroke.
+  const handlePos = angleToCartesian(angle, radius.value);
+  const handleCircleRadius = props.arcWidth * (props.showHandle ? 0.8 : 0.5);
   ctx.beginPath();
   ctx.arc(handlePos.x, handlePos.y, handleCircleRadius, 0, 2 * Math.PI);
-  ctx.fillStyle = "#fff";
-  ctx.fill();
-  ctx.lineWidth = 2;
-  ctx.strokeStyle = "#ccc";
-  ctx.stroke();
+  if (props.showHandle || !!value.value) {
+    ctx.fillStyle = !value.value
+      ? "#000"
+      : props.colored
+      ? anticlockwise
+        ? colors.leftHead
+        : colors.rightHead
+      : colors.head;
+
+    ctx.fill();
+  }
+
+  if (props.showHandle) {
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "#fff";
+    ctx.stroke();
+  }
 }
 
 /**
@@ -230,10 +293,10 @@ function getMouseAngle(evt: MouseEvent | TouchEvent): number {
     return 0;
   }
   // Ignore input if too close to the center.
-  const distanceFromCenter = Math.sqrt(x * x + y * y);
-  if (distanceFromCenter < props.size * 0.1) {
+  /*const distanceFromCenter = Math.sqrt(x * x + y * y);
+  if (distanceFromCenter < props.size * 0.01) {
     return lastAngle.value;
-  }
+  }*/
   const rad = Math.atan2(x, -y);
   return (rad * 180) / Math.PI;
 }
@@ -264,9 +327,9 @@ function onDrag(e: MouseEvent | TouchEvent) {
         maxAngleReached.value = totalAngle.value;
       }
       lastAngle.value = angle;
-      const inMinutes = Math.round((totalAngle.value / 360) * 60);
+      const inMinutes = Math.round((totalAngle.value / 360) * (60 / props.steps));
       if (inMinutes !== value.value) {
-        value.value = inMinutes;
+        value.value = inMinutes * props.steps;
         emit("drag:update");
       }
       drawCanvas();
@@ -281,19 +344,33 @@ function endDrag() {
 
 // Initialize the canvas context on mount.
 onMounted(() => {
-  if (canvasEl.value) {
-    ctx = canvasEl.value.getContext("2d");
+  loadCssColors();
+  const canvas = canvasEl.value;
+  if (canvas) {
+    const ratio = Math.ceil(window.devicePixelRatio);
+    canvas.width = props.size * ratio;
+    canvas.height = props.size * ratio;
+    canvas.style.width = `${props.size}px`;
+    canvas.style.height = `${props.size}px`;
+    ctx = canvas.getContext("2d");
+    ctx!.setTransform(ratio, 0, 0, ratio, 0, 0);
     drawCanvas();
   }
 });
-</script>
 
-<style scoped>
-.bcc-knob {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-  touch-action: none;
+function loadCssColors() {
+  const el = knobContainer.value as Element;
+  if (el) {
+    const computedColors = getComputedStyle(el);
+    colors.arc = computedColors.getPropertyValue("--bcc-knob-arc-bg");
+    colors.head = computedColors.getPropertyValue("--bcc-knob-head");
+    colors.tail = computedColors.getPropertyValue("--bcc-knob-tail");
+    colors.leftHead = computedColors.getPropertyValue("--bcc-knob-left-head");
+    colors.leftTail = computedColors.getPropertyValue("--bcc-knob-left-tail");
+    colors.rightHead = computedColors.getPropertyValue("--bcc-knob-right-head");
+    colors.rightTail = computedColors.getPropertyValue("--bcc-knob-right-tail");
+
+    console.log(colors);
+  }
 }
-</style>
+</script>

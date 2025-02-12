@@ -38,13 +38,26 @@ const Template: StoryFn<typeof BccKnob> = (args) => ({
         <pre>{{ value }}</pre>
       </div>
     </div>
+
+
+    <pre>
+    Available css variables:
+      --bcc-knob-arc-bg: #D1D5DB;
+      --bcc-knob-head: #437571;
+      --bcc-knob-tail: #A9BABA;
+      --bcc-knob-left-head: #9B4F44;
+      --bcc-knob-left-tail: #DBBEAC;
+      --bcc-knob-right-head: #3E8E75;
+      --bcc-knob-right-tail: #B1DECC;
+    </pre>
   `,
 });
 
+export const Example = Template.bind({});
+Example.args = {};
+
 export const CustomColors = Template.bind({});
 CustomColors.args = {
-  negativeThumb: "#9B4F44",
-  negativeSolid: "#DBBEAC",
-  positiveThumb: "#3E8E75",
-  positiveSolid: "#B1DECC",
+  colored: true,
+  showHandle: true,
 };
