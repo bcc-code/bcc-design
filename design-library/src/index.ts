@@ -9,6 +9,9 @@ export { default as tailwindPlugin } from "./tokens/plugin/tailwindPlugin";
 // Themes
 export { default as bccForbundetTheme } from "./tokens/tailwind/bccForbundetTheme";
 
+// Primevue preset
+export { default as primeVuePreset } from "./primevue/preset";
+
 // Composables
 export { default as useAnimatedNumber } from "./composables/animatedNumber";
 

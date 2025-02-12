@@ -52,7 +52,17 @@
   },
   "peerDependencies": {
     "tailwindcss": "^3.3.2",
-    "vue": "^3.4.0"
+    "vue": "^3.4.0",
+    "primevue": "^4.2.4",
+    "@primevue/themes": "^4.2.4" 
+  },
+  "peerDependenciesMeta": {
+    "primevue": {
+      "optional": true
+    },
+    "@primevue/themes": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",
