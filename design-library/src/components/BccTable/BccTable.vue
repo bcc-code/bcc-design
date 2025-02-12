@@ -48,7 +48,7 @@ const sortedItems = computed(() => {
   });
 });
 
-function sort(column: Column) {
+function sort(column: BccTableColumn) {
   if (column.sortable === false) {
     return;
   }
