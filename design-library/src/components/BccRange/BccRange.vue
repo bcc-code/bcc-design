@@ -1,50 +1,74 @@
 <script setup lang="ts">
-type Props = {
-  modelValue: number;
-  min: number;
-  max: number;
-  step: number;
-  leftLabel?: string;
-  rightLabel?: string;
-  disabled?: boolean;
-};
+import { onMounted, computed } from "vue";
 
-withDefaults(defineProps<Props>(), {
-  min: -10,
-  max: 10,
-  step: 1,
-  disabled: false,
+const props = defineProps({
+  min: { type: Number, default: 0 },
+  max: { type: Number, default: 10 },
+  step: { type: Number, default: 1 },
+  disabled: { type: Boolean, default: false },
+  fromLeft: { type: Boolean, default: true },
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const value = defineModel<number>({ required: true });
 
 const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement;
-  emit("update:modelValue", Number(target.value));
+  value.value = Number(target.value);
 };
+
+onMounted(() => {
+  value.value = props.fromLeft ? props.min : Math.round(props.max / 2);
+});
+
+const valuePosition = computed(() => {
+  const percentage = ((value.value - props.min) / (props.max - props.min)) * 100;
+  const thumbHalfWidth = 8;
+
+  const leftEdgeProximity = Math.max(0, 1 - percentage / 70);
+  const rightEdgeProximity = Math.max(0, 1 - (100 - percentage) / 70);
+
+  const leftOffset = thumbHalfWidth * leftEdgeProximity;
+  const rightOffset = -thumbHalfWidth * rightEdgeProximity;
+
+  console.log(
+    percentage,
+    leftEdgeProximity,
+    rightEdgeProximity,
+    leftOffset,
+    rightOffset,
+    `calc(${percentage}% + ${leftOffset + rightOffset}px)`
+  );
+  return `calc(${percentage}% + ${leftOffset + rightOffset}px)`;
+});
+
+const valueColor = computed(() => {
+  const thirds = (props.max - props.min) / 3;
+  if (value.value < thirds) {
+    return "bg-success text-success";
+  } else if (value.value < thirds * 2) {
+    return "bg-warning text-warning";
+  } else {
+    return "bg-danger text-danger";
+  }
+});
 </script>
 
 <template>
   <div class="bcc-range">
-    <div class="bcc-range__container">
-      <div class="bcc-range__slider-container">
-        <input
-          type="range"
-          class="bcc-range__input"
-          :min="min"
-          :max="max"
-          :step="step"
-          :value="modelValue"
-          :disabled="disabled"
-          @input="handleInput"
-        />
+    <div class="bcc-range__container relative">
+      <div class="bcc-range__value" :class="valueColor" :style="{ left: valuePosition }">
+        {{ value }}
       </div>
-      <div class="bcc-range__labels">
-        <span v-if="leftLabel" class="bcc-range__text bcc-range__text--left">{{ leftLabel }}</span>
-        <span v-if="rightLabel" class="bcc-range__text bcc-range__text--right">{{
-          rightLabel
-        }}</span>
-      </div>
+      <input
+        type="range"
+        class="bcc-range__input"
+        :min="min"
+        :max="max"
+        :step="step"
+        :value="value"
+        :disabled="disabled"
+        @input="handleInput"
+      />
     </div>
   </div>
 </template>

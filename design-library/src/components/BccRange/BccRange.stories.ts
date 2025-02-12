@@ -18,14 +18,11 @@ export default {
     step: {
       description: "The step value of the range slider",
     },
-    leftLabel: {
-      description: "The label of the left side of the range slider",
-    },
-    rightLabel: {
-      description: "The label of the right side of the range slider",
-    },
     disabled: {
       description: "Whether the range slider is disabled",
+    },
+    fromLeft: {
+      description: "Whether the range slider starts from the left or middle",
     },
   },
 } as Meta<typeof BccRange>;
@@ -36,7 +33,7 @@ const Template: StoryFn<typeof BccRange> = (args) => ({
     return { args };
   },
   template: `
-    <BccRange leftLabel="Less people" rightLabel="More people" />
+    <BccRange />
   `,
 });
 
@@ -46,8 +43,6 @@ Example.args = {
   min: -10,
   max: 10,
   step: 1,
-  leftLabel: "Less people",
-  rightLabel: "More people",
   disabled: false,
 };
 Example.parameters = {
@@ -55,7 +50,7 @@ Example.parameters = {
     source: {
       language: "html",
       code: `
-  <BccRange leftLabel="Less people" rightLabel="More people" />`,
+    <BccRange />`,
     },
   },
 };
@@ -63,27 +58,20 @@ Example.parameters = {
 export const Disabled: StoryFn<typeof BccRange> = () => ({
   components: { BccRange },
   template: `
-    <BccRange leftLabel="Less people" rightLabel="More people" disabled />
-  `,
-});
-
-export const WithoutSideLabels: StoryFn<typeof BccRange> = () => ({
-  components: { BccRange },
-  template: `
-    <BccRange leftLabel="Less people" rightLabel="More people" />
+    <BccRange disabled />
   `,
 });
 
 export const WithCustomRange: StoryFn<typeof BccRange> = () => ({
   components: { BccRange },
   template: `
-    <BccRange leftLabel="Less people" rightLabel="More people" min=-100  max=100 step=5 />
+    <BccRange min=0  max=100 step=2 />
   `,
 });
 
-export const StartFromLeft: StoryFn<typeof BccRange> = () => ({
+export const StartFromMiddle: StoryFn<typeof BccRange> = () => ({
   components: { BccRange },
   template: `
-    <BccRange leftLabel="Less people" rightLabel="More people" modelValue=0 min=0 max=10 />
+    <BccRange :fromLeft=false min=0 max=10 />
   `,
 });

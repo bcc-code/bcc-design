@@ -1,18 +1,18 @@
 @layer components {
     .bcc-range {
-        @apply flex flex-col gap-2 w-full;
+        @apply flex flex-col gap-2 p-8 w-full;
     }
 
     .bcc-range__container {
         @apply flex flex-col items-center gap-2 w-full;
     }
 
-    .bcc-range__slider-container {
-        @apply w-full;
-    }
-
     .bcc-range__text {
         @apply text-sm text-gray-700 whitespace-nowrap;
+    }
+
+    .bcc-range__value {
+        @apply flex absolute bottom-4 -translate-x-1/2 bg-danger mb-2 text-sm rounded-lg w-12 h-8 text-center items-center justify-center shadow-md;
     }
 
     .bcc-range__input {
@@ -22,27 +22,29 @@
         appearance: none;
     }
 
-    .bcc-range__labels {
-        @apply flex items-center gap-4 w-full justify-between;
-    }
-
     .bcc-range__input:disabled {
         @apply bg-gray-400 cursor-not-allowed;
     }
 
     .bcc-range__input::-webkit-slider-thumb {
         -webkit-appearance: none;
-        @apply w-4 h-4 mt-[-6px] rounded-full bg-white cursor-pointer bg-white;
+        @apply w-5 h-5 mt-[-8px] rounded-full bg-white cursor-pointer;
         box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
-            0 0 0 2px rgba(226, 232, 240, 1);
+            0 0 0 2px rgba(226, 232, 240, 1),
+            0 0 0 4px rgb(255, 255, 255),
+            0 0 0 5px rgba(62, 142, 117, 1);
     }
 
     .bcc-range__input::-webkit-slider-runnable-track {
-        @apply h-1 rounded bg-gray-200 border-red-200;
+        @apply h-1 rounded bg-gray-200;
     }
 
     .bcc-range__input::-moz-range-thumb {
-        @apply w-4 h-4 rounded-full bg-red-900 cursor-pointer border-0;
+        @apply w-4 h-4 rounded-full bg-white cursor-pointer border-0;
+        box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
+            0 0 0 2px rgba(226, 232, 240, 1),
+            0 0 0 4px rgb(255, 255, 255),
+            0 0 0 5px rgba(62, 142, 117, 1);
     }
 
     .bcc-range__input::-moz-range-track {
