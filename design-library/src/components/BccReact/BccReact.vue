@@ -2,10 +2,10 @@
 import { AddReactionFillIcon, AddReactionIcon, KeyboardArrowLeftIcon } from "@bcc-code/icons-vue";
 import { computed, ref } from "vue";
 import BccReactEmoji from "./BccReactEmoji.vue";
-import type { EmojiStat } from "./BccReactEmoji.vue";
+import type { BccReactInfo } from "./types";
 
 type Props = {
-  emojis: EmojiStat[];
+  emojis: BccReactInfo[];
   top?: boolean;
   placeholder?: string;
 };
@@ -25,7 +25,7 @@ const activeEmojis = computed(() => {
 });
 
 const show = ref(false);
-function selectEmoji(emoji: EmojiStat) {
+function selectEmoji(emoji: BccReactInfo) {
   emit("toggle", emoji.id);
 
   setTimeout(() => {

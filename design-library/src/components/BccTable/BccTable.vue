@@ -1,23 +1,13 @@
-<script lang="ts">
-export type Column = {
-  key: string;
-  text?: string;
-  sortable?: boolean;
-  sortMethod?: (a: Item, b: Item) => number;
-};
-export type Item = Record<string, any>;
-export type SortDirection = "ascending" | "descending";
-</script>
-
-<script setup lang="ts" generic="TItem extends Item">
+<script setup lang="ts" generic="TItem extends BccTableItem">
 import { SwapVertIcon, ArrowUpwardIcon, ArrowDownwardIcon } from "@bcc-code/icons-vue";
 import { computed, toRefs } from "vue";
+import type { BccTableColumn, BccTableItem, BccTableSortDirection } from "./types";
 
 type Props = {
-  columns: Column[];
+  columns: BccTableColumn[];
   items: TItem[];
   sortBy?: string;
-  sortDirection?: SortDirection;
+  sortDirection?: BccTableSortDirection;
 };
 
 const props = withDefaults(defineProps<Props>(), {
@@ -58,7 +48,7 @@ const sortedItems = computed(() => {
   });
 });
 
-function sort(column: Column) {
+function sort(column: BccTableColumn) {
   if (column.sortable === false) {
     return;
   }

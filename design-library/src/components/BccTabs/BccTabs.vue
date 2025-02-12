@@ -1,19 +1,7 @@
-<script lang="ts">
-export type BccTabsGroup = Array<{
-  title: string;
-  icon?: VueComponent;
-  pin?: InstanceType<typeof BccPin>["$props"];
-  badge?: InstanceType<typeof BccBadge>["$props"] & { text: string };
-  as?: VueComponent;
-  disabled?: boolean;
-  loading?: boolean;
-}>;
-</script>
-
 <script setup lang="ts">
 import { BccBadge, BccPin } from "@/index";
-import type { VueComponent } from "@/types";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/vue";
+import type { BccTabsGroup } from "./types";
 
 type Props = {
   tabs: BccTabsGroup;
