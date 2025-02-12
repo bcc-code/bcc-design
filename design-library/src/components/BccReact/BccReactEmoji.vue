@@ -1,16 +1,8 @@
-<script lang="ts">
-export type EmojiStat = {
-  id: string;
-  emoji: string;
-  count?: number;
-  selected?: boolean;
-};
-</script>
-
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import { BccReactInfo } from "./types";
 
-const props = defineProps<EmojiStat>();
+const props = defineProps<BccReactInfo>();
 
 const animate = ref(false);
 watch(

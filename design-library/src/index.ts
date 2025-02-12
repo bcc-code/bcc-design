@@ -1,5 +1,6 @@
 import "./style.css";
 
+// Types
 export * from "./types";
 
 // Tailwind plugin
