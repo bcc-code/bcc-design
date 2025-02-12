@@ -15,9 +15,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 
 const props = defineProps({
+  size: { type: Number, default: 320 },
+  arcWidth: { type: Number, default: 20 },
   solidColor: { type: String, default: "#A9BABA" },
   thumbColor: { type: String, default: "#437571" },
   min: { type: Number, default: -720 }, // in minutes (-12h)
@@ -27,12 +29,14 @@ const props = defineProps({
   positiveThumb: String,
   positiveSolid: String,
 });
+const emit = defineEmits<{
+  (e: "drag:start"): void;
+  (e: "drag:update"): void;
+  (e: "drag:end"): void;
+}>();
 
 // Our model value (in minutes)
 const value = defineModel<number>({ required: true });
-
-const size = ref(320);
-const arcWidth = ref(20);
 
 // Refs for container and canvas; we'll get the 2D context on mount.
 const knobContainer = ref<HTMLDivElement | null>(null);
@@ -46,8 +50,8 @@ const maxAngleReached = ref(0);
 const lastAngle = ref(0);
 
 // Compute center and radius for drawing.
-const center = computed(() => size.value / 2);
-const radius = computed(() => center.value - arcWidth.value);
+const center = computed(() => props.size / 2);
+const radius = computed(() => center.value - props.arcWidth);
 
 // Convert our min/max (in minutes) to degrees.
 const minDegrees = computed(() => (props.min / 60) * 360);
@@ -86,7 +90,7 @@ function angleToCartesian(angleDeg: number, r: number = radius.value) {
  */
 function drawCanvas() {
   if (!ctx) return;
-  ctx.clearRect(0, 0, size.value, size.value);
+  ctx.clearRect(0, 0, props.size, props.size);
 
   // 1. Draw background circle with a subtle drop shadow.
   ctx.save();
@@ -97,7 +101,7 @@ function drawCanvas() {
   ctx.beginPath();
   ctx.arc(center.value, center.value, radius.value, 0, 2 * Math.PI);
   ctx.strokeStyle = "#efefef";
-  ctx.lineWidth = arcWidth.value;
+  ctx.lineWidth = props.arcWidth;
   ctx.stroke();
   ctx.restore();
 
@@ -116,8 +120,8 @@ function drawCanvas() {
     ctx.translate(center.value, center.value);
     ctx.rotate((angle * Math.PI) / 180);
     ctx.beginPath();
-    ctx.moveTo(0, -radius.value + arcWidth.value * 0.8);
-    ctx.lineTo(0, -radius.value + arcWidth.value * 2);
+    ctx.moveTo(0, -radius.value + props.arcWidth * 0.8);
+    ctx.lineTo(0, -radius.value + props.arcWidth * 2);
     ctx.stroke();
     ctx.restore();
   }
@@ -136,7 +140,7 @@ function drawCanvas() {
     );
     ctx.strokeStyle =
       (anticlockwise ? props.negativeSolid : props.positiveSolid) || props.solidColor;
-    ctx.lineWidth = arcWidth.value;
+    ctx.lineWidth = props.arcWidth;
     ctx.stroke();
   }
 
@@ -150,7 +154,7 @@ function drawCanvas() {
     handleStartDeg = bgAngle - Math.sign(bgAngle) * 108;
   }
   const handleEndDeg = bgAngle;
-  const thickness = arcWidth.value / 2;
+  const thickness = props.arcWidth / 2;
   ctx.save();
   ctx.beginPath();
   const anticlockwise = handleEndDeg < handleStartDeg;
@@ -190,14 +194,14 @@ function drawCanvas() {
   grad.addColorStop(1, props.positiveThumb || props.thumbColor);
   ctx.fillStyle = grad;
   // Fill the entire canvas (only the clipped area is affected).
-  ctx.fillRect(0, 0, size.value, size.value);
+  ctx.fillRect(0, 0, props.size, props.size);
   ctx.restore();
   ctx.restore();
 
   // 6. Draw a white circle at the end of the arc (the drag handle).
   // Use totalAngle (instead of the clamped backgroundArcAngle) so that the handle rotates continuously.
   const handlePos = angleToCartesian(totalAngle.value, radius.value);
-  const handleCircleRadius = arcWidth.value * 0.8; // a bit larger than the stroke.
+  const handleCircleRadius = props.arcWidth * 0.8; // a bit larger than the stroke.
   ctx.beginPath();
   ctx.arc(handlePos.x, handlePos.y, handleCircleRadius, 0, 2 * Math.PI);
   ctx.fillStyle = "#fff";
@@ -227,7 +231,7 @@ function getMouseAngle(evt: MouseEvent | TouchEvent): number {
   }
   // Ignore input if too close to the center.
   const distanceFromCenter = Math.sqrt(x * x + y * y);
-  if (distanceFromCenter < size.value * 0.1) {
+  if (distanceFromCenter < props.size * 0.1) {
     return lastAngle.value;
   }
   const rad = Math.atan2(x, -y);
@@ -237,6 +241,7 @@ function getMouseAngle(evt: MouseEvent | TouchEvent): number {
 // ----- Interaction Handlers -----
 function startDrag(e: MouseEvent | TouchEvent) {
   isDragging.value = true;
+  emit("drag:start");
   lastAngle.value = getMouseAngle(e);
 }
 
@@ -262,6 +267,7 @@ function onDrag(e: MouseEvent | TouchEvent) {
       const inMinutes = Math.round((totalAngle.value / 360) * 60);
       if (inMinutes !== value.value) {
         value.value = inMinutes;
+        emit("drag:update");
       }
       drawCanvas();
     }
@@ -270,6 +276,7 @@ function onDrag(e: MouseEvent | TouchEvent) {
 
 function endDrag() {
   isDragging.value = false;
+  emit("drag:end");
 }
 
 // Initialize the canvas context on mount.
@@ -283,7 +290,9 @@ onMounted(() => {
 
 <style scoped>
 .bcc-knob {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   user-select: none;
   touch-action: none;
 }
