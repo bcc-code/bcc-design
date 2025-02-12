@@ -11,14 +11,6 @@ describe("BccRange", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("renders a label", () => {
-    const wrapper = mount(BccRange, {
-      props: { label: "Test label", modelValue: 0, min: -10, max: 10, step: 1 },
-    });
-    expect(wrapper.text()).toBe("Test label");
-    expect(wrapper.html()).toMatchSnapshot();
-  });
-
   it("handles a v-model", async () => {
     const wrapper = mount(BccRange, {
       props: { modelValue: 0, min: -10, max: 10, step: 1 },

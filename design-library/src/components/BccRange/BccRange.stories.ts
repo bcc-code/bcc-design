@@ -18,9 +18,6 @@ export default {
     step: {
       description: "The step value of the range slider",
     },
-    label: {
-      description: "The main label of the range slider",
-    },
     leftLabel: {
       description: "The label of the left side of the range slider",
     },
@@ -39,7 +36,7 @@ const Template: StoryFn<typeof BccRange> = (args) => ({
     return { args };
   },
   template: `
-    <BccRange label="Did you have the correct amount of people?" leftLabel="Less people" rightLabel="More people" />
+    <BccRange leftLabel="Less people" rightLabel="More people" />
   `,
 });
 
@@ -49,7 +46,6 @@ Example.args = {
   min: -10,
   max: 10,
   step: 1,
-  label: "Range Slider",
   leftLabel: "Less people",
   rightLabel: "More people",
   disabled: false,
@@ -59,7 +55,7 @@ Example.parameters = {
     source: {
       language: "html",
       code: `
-  <BccRange label="Did you have the correct amount of people?" leftLabel="Less people" rightLabel="More people" />`,
+  <BccRange leftLabel="Less people" rightLabel="More people" />`,
     },
   },
 };
@@ -67,27 +63,27 @@ Example.parameters = {
 export const Disabled: StoryFn<typeof BccRange> = () => ({
   components: { BccRange },
   template: `
-    <BccRange label="Did you have the correct amount of people?" leftLabel="Less people" rightLabel="More people" disabled />
+    <BccRange leftLabel="Less people" rightLabel="More people" disabled />
   `,
 });
 
 export const WithoutSideLabels: StoryFn<typeof BccRange> = () => ({
   components: { BccRange },
   template: `
-    <BccRange label="Did you have the correct amount of people?" />
+    <BccRange leftLabel="Less people" rightLabel="More people" />
   `,
 });
 
 export const WithCustomRange: StoryFn<typeof BccRange> = () => ({
   components: { BccRange },
   template: `
-    <BccRange label="Did you have the correct amount of people?" leftLabel="Less people" rightLabel="More people" min=-100  max=100 step=5 />
+    <BccRange leftLabel="Less people" rightLabel="More people" min=-100  max=100 step=5 />
   `,
 });
 
 export const StartFromLeft: StoryFn<typeof BccRange> = () => ({
   components: { BccRange },
   template: `
-    <BccRange label="Did you have the correct amount of people?" leftLabel="Less people" rightLabel="More people" modelValue=0 min=0 max=10 />
+    <BccRange leftLabel="Less people" rightLabel="More people" modelValue=0 min=0 max=10 />
   `,
 });

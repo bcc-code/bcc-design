@@ -4,7 +4,6 @@ type Props = {
   min: number;
   max: number;
   step: number;
-  label?: string;
   leftLabel?: string;
   rightLabel?: string;
   disabled?: boolean;
@@ -27,7 +26,6 @@ const handleInput = (event: Event) => {
 
 <template>
   <div class="bcc-range">
-    <label v-if="label" class="bcc-range__label">{{ label }}</label>
     <div class="bcc-range__container">
       <div class="bcc-range__slider-container">
         <input

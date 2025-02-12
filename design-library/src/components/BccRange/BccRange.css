@@ -3,10 +3,6 @@
         @apply flex flex-col gap-2 w-full;
     }
 
-    .bcc-range__label {
-        @apply text-base text-center text-gray-900;
-    }
-
     .bcc-range__container {
         @apply flex flex-col items-center gap-2 w-full;
     }
