@@ -371,15 +371,13 @@ function loadCssColors() {
   const el = knobContainer.value as Element;
   if (el) {
     const computedColors = getComputedStyle(el);
-    colors.arc = computedColors.getPropertyValue("--bcc-knob-arc-bg");
-    colors.head = computedColors.getPropertyValue("--bcc-knob-head");
-    colors.tail = computedColors.getPropertyValue("--bcc-knob-tail");
-    colors.leftHead = computedColors.getPropertyValue("--bcc-knob-left-head");
-    colors.leftTail = computedColors.getPropertyValue("--bcc-knob-left-tail");
-    colors.rightHead = computedColors.getPropertyValue("--bcc-knob-right-head");
-    colors.rightTail = computedColors.getPropertyValue("--bcc-knob-right-tail");
-
-    console.log(colors);
+    colors.arc = computedColors.getPropertyValue("--bcc-knob-arc-bg") || colors.arc;
+    colors.head = computedColors.getPropertyValue("--bcc-knob-head") || colors.head;
+    colors.tail = computedColors.getPropertyValue("--bcc-knob-tail") || colors.tail;
+    colors.leftHead = computedColors.getPropertyValue("--bcc-knob-left-head") || colors.leftHead;
+    colors.leftTail = computedColors.getPropertyValue("--bcc-knob-left-tail") || colors.leftTail;
+    colors.rightHead = computedColors.getPropertyValue("--bcc-knob-right-head") || colors.rightHead;
+    colors.rightTail = computedColors.getPropertyValue("--bcc-knob-right-tail") || colors.rightTail;
   }
 }
 </script>
