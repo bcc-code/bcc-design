@@ -33,10 +33,15 @@ const Template: StoryFn<typeof BccKnob> = (args) => ({
   },
   template: `
     <div class="relative flex flex-col justify-center items-center">
-      <BccKnob v-bind="args" v-model="value" />
-      <div class="absolute inset-0 flex justify-center items-center pointer-events-none">
+      <BccKnob v-bind="args" v-model="value">
+        <template #left>
+          <div class="opacity-40">Less</div>
+        </template>
+        <template #right>
+          <div class="opacity-40">More</div>
+        </template>
         <pre>{{ value }}</pre>
-      </div>
+      </BccKnob>
     </div>
 
 

@@ -11,6 +11,15 @@
     @mouseleave="endDrag"
   >
     <canvas ref="canvasEl" :width="size" :height="size"></canvas>
+    <div class="bcc-knob-top-left">
+      <slot name="left" />
+    </div>
+    <div class="bcc-knob-top-right">
+      <slot name="right" />
+    </div>
+    <div class="bcc-knob-label">
+      <slot />
+    </div>
   </div>
 </template>
 
