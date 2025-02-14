@@ -1,5 +1,25 @@
 @layer components {
     .bcc-knob {
+        @apply relative mx-auto inline-flex touch-none select-none items-center justify-center p-8;
 
+        --bcc-knob-arc-bg: #D1D5DB;
+        --bcc-knob-head: #437571;
+        --bcc-knob-tail: #A9BABA;
+        --bcc-knob-left-head: #9B4F44;
+        --bcc-knob-left-tail: #DBBEAC;
+        --bcc-knob-right-head: #3E8E75;
+        --bcc-knob-right-tail: #B1DECC;
+    }
+
+    .bcc-knob-label {
+        @apply pointer-events-none absolute inset-0 flex select-none flex-col items-center justify-center;
+    }
+
+    .bcc-knob-top-left {
+        @apply absolute top-0 left-0 p-4 text-left;
+    }
+
+    .bcc-knob-top-right {
+        @apply absolute top-0 right-0 p-4 text-right;
     }
 }
