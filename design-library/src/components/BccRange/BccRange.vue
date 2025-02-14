@@ -17,7 +17,7 @@ const handleInput = (event: Event) => {
 };
 
 onMounted(() => {
-  value.value = props.fromLeft ? props.min : Math.round(props.max / 2);
+  value.value = props.fromLeft ? props.min : Math.round((props.max - props.min) / 2);
 });
 
 const valuePosition = computed(() => {
