@@ -4,7 +4,7 @@
     }
 
     .bcc-range__container {
-        @apply flex flex-col items-center gap-2 w-full;
+        @apply flex flex-col items-center gap-2 w-full relative;
     }
 
     .bcc-range__text {

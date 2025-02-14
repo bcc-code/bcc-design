@@ -55,7 +55,7 @@ const valueColor = computed(() => {
 
 <template>
   <div class="bcc-range">
-    <div class="bcc-range__container relative">
+    <div class="bcc-range__container">
       <div class="bcc-range__value" :class="valueColor" :style="{ left: valuePosition }">
         {{ value }}
       </div>
