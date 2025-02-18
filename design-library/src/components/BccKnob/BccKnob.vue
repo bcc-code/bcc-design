@@ -83,13 +83,17 @@ const backgroundArcAngle = computed(() =>
   )
 );
 
-watch(minutes, (mins) => {
-  if (isDragging.value) return;
-  console.log("minutes", mins);
-  const newAngle = (mins / props.steps / 60) * 360;
-  totalAngle.value = newAngle;
-  drawCanvas();
-});
+watch(
+  minutes,
+  (mins) => {
+    if (isDragging.value) return;
+    console.log("minutes", mins);
+    const newAngle = (mins / props.steps / 60) * 360;
+    totalAngle.value = newAngle;
+    drawCanvas();
+  },
+  { immediate: true }
+);
 
 // Initialize the canvas context on mount.
 onMounted(() => {
