@@ -17,11 +17,6 @@ export default {
       description: "Maximum value of the slider",
       defaultValue: 120,
     },
-    modelValue: {
-      control: { type: "number" },
-      description: "Current value of the slider",
-      defaultValue: 50,
-    },
   },
 } as Meta<typeof BccKnob>;
 
@@ -44,6 +39,8 @@ const Template: StoryFn<typeof BccKnob> = (args) => ({
       </BccKnob>
     </div>
 
+    <label for="value">Value</label>
+    <input type="number" id="value" v-model="value" />
 
     <pre>
     Available css variables:
