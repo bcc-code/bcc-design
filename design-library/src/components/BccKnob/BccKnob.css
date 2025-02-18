@@ -1,6 +1,6 @@
 @layer components {
     .bcc-knob {
-        @apply relative mx-auto inline-flex touch-none select-none items-center justify-center p-8;
+        @apply relative mx-auto inline-flex touch-none select-none items-center justify-center p-2;
 
         --bcc-knob-arc-bg: #D1D5DB;
         --bcc-knob-head: #437571;
@@ -16,10 +16,10 @@
     }
 
     .bcc-knob-top-left {
-        @apply absolute top-0 left-0 p-4 text-left;
+        @apply absolute top-0 left-0 p-2 text-left;
     }
 
     .bcc-knob-top-right {
-        @apply absolute top-0 right-0 p-4 text-right;
+        @apply absolute top-0 right-0 p-2 text-right;
     }
 }

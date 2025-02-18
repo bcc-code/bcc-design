@@ -10,7 +10,7 @@
     @touchend="endDrag"
     @mouseleave="endDrag"
   >
-    <canvas ref="canvasEl" :width="size" :height="size"></canvas>
+    <canvas ref="canvasEl" class="object-fit w-full"></canvas>
     <div class="bcc-knob-top-left">
       <slot name="left" />
     </div>
@@ -27,7 +27,7 @@
 import { computed, onMounted, ref } from "vue";
 
 const props = defineProps({
-  size: { type: Number, default: 320 },
+  size: { type: Number, default: 400 },
   arcWidth: { type: Number, default: 20 },
   min: { type: Number, default: -720 }, // in minutes (-12h)
   max: { type: Number, default: 720 }, // in minutes (+12h)
@@ -359,10 +359,8 @@ onMounted(() => {
     const ratio = Math.ceil(window.devicePixelRatio);
     canvas.width = props.size * ratio;
     canvas.height = props.size * ratio;
-    canvas.style.width = `${props.size}px`;
-    canvas.style.height = `${props.size}px`;
     ctx = canvas.getContext("2d");
-    ctx!.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx?.setTransform(ratio, 0, 0, ratio, 0, 0);
     drawCanvas();
   }
 });
