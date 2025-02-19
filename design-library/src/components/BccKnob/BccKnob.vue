@@ -35,6 +35,7 @@ const props = defineProps({
   colored: { type: Boolean, default: false, description: "Use CSS variables for colors" },
   showHandle: { type: Boolean, default: false },
   hideArrows: { type: Boolean, default: false },
+  duration: { type: Number, default: 1000 }, // Animation duration in ms
 });
 const emit = defineEmits<{
   (e: "drag:start"): void;
@@ -87,12 +88,39 @@ watch(
   minutes,
   (mins) => {
     if (isDragging.value) return;
-    const newAngle = (mins / props.steps / 60) * 360;
-    totalAngle.value = newAngle;
-    drawCanvas();
+    const newAngle = (mins / (60 / props.steps)) * 360;
+    animateTo(newAngle);
   },
   { immediate: true }
 );
+
+// Create a ease-in function that takes a start and end angle and returns a function that returns the next angle
+function easeIn(start: number, end: number) {
+  return (t: number) => Math.round(start + (end - start) * t);
+}
+
+// Create animate function that takes 2s to animate from current totalAngle to the target angle using the easeIn function
+function animateTo(angle: number) {
+  if (isDragging.value) return;
+  if (angle === totalAngle.value) return;
+
+  const startTime = performance.now();
+  const easeFn = easeIn(totalAngle.value, angle);
+
+  function animate(currentTime: number) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / props.duration, 1);
+
+    totalAngle.value = easeFn(progress);
+    drawCanvas();
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
 
 // Initialize the canvas context on mount.
 onMounted(() => {

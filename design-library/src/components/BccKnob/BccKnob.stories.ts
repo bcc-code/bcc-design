@@ -1,5 +1,6 @@
 import { ref } from "vue";
 import BccKnob from "./BccKnob.vue";
+import BccInput from "../BccInput/BccInput.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -21,7 +22,7 @@ export default {
 } as Meta<typeof BccKnob>;
 
 const Template: StoryFn<typeof BccKnob> = (args) => ({
-  components: { BccKnob },
+  components: { BccKnob, BccInput },
   setup() {
     const value = ref(0);
     return { args, value };
@@ -39,8 +40,7 @@ const Template: StoryFn<typeof BccKnob> = (args) => ({
       </BccKnob>
     </div>
 
-    <label for="value">Value</label>
-    <input type="number" id="value" v-model="value" />
+    <BccInput v-model="value" label="Minutes" type="number" />
 
     <pre>
     Available css variables:
