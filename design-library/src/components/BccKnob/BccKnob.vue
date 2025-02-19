@@ -10,7 +10,7 @@
     @touchend="endDrag"
     @mouseleave="endDrag"
   >
-    <canvas ref="canvasEl" :width="size" :height="size"></canvas>
+    <canvas ref="canvasEl" class="object-fit w-full"></canvas>
     <div class="bcc-knob-top-left">
       <slot name="left" />
     </div>
@@ -24,10 +24,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 
 const props = defineProps({
-  size: { type: Number, default: 320 },
+  size: { type: Number, default: 400 },
   arcWidth: { type: Number, default: 20 },
   min: { type: Number, default: -720 }, // in minutes (-12h)
   max: { type: Number, default: 720 }, // in minutes (+12h)
@@ -35,6 +35,7 @@ const props = defineProps({
   colored: { type: Boolean, default: false, description: "Use CSS variables for colors" },
   showHandle: { type: Boolean, default: false },
   hideArrows: { type: Boolean, default: false },
+  duration: { type: Number, default: 1000 }, // Animation duration in ms
 });
 const emit = defineEmits<{
   (e: "drag:start"): void;
@@ -53,12 +54,13 @@ const colors = {
 };
 
 // Our model value (in minutes)
-const value = defineModel<number>({ required: true });
+const minutes = defineModel<number>({ required: true });
 
 // Refs for container and canvas; we'll get the 2D context on mount.
-const knobContainer = ref<Element | null>(null);
-const canvasEl = ref<HTMLCanvasElement | null>(null);
+const knobContainer = ref<Pick<Element, "getBoundingClientRect"> | null>(null);
+const canvasEl = ref<Pick<HTMLCanvasElement, "height" | "width" | "getContext"> | null>(null);
 let ctx: CanvasRenderingContext2D | null = null;
+let animationFrame = 0;
 
 // Drag state and angles (all in degrees)
 const isDragging = ref(false);
@@ -81,6 +83,58 @@ const backgroundArcAngle = computed(() =>
     Math.min(359.99, Math.max(minDegrees.value, Math.min(totalAngle.value, maxDegrees.value)))
   )
 );
+
+watch(
+  minutes,
+  (mins) => {
+    if (isDragging.value) return;
+    const newAngle = (mins / (60 / props.steps)) * 360;
+    animateTo(newAngle);
+  },
+  { immediate: true }
+);
+
+// Create a ease-in function that takes a start and end angle and returns a function that returns the next angle
+function easeIn(start: number, end: number) {
+  return (t: number) => Math.round(start + (end - start) * t);
+}
+
+// Create animate function that takes 2s to animate from current totalAngle to the target angle using the easeIn function
+function animateTo(angle: number) {
+  if (isDragging.value) return;
+  if (angle === totalAngle.value) return;
+
+  const startTime = performance.now();
+  const easeFn = easeIn(totalAngle.value, angle);
+
+  function animate(currentTime: number) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / props.duration, 1);
+
+    totalAngle.value = easeFn(progress);
+    drawCanvas();
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+// Initialize the canvas context on mount.
+onMounted(() => {
+  loadCssColors();
+  const canvas = canvasEl.value;
+  if (canvas) {
+    const ratio = Math.ceil(window.devicePixelRatio);
+    canvas.width = props.size * ratio;
+    canvas.height = props.size * ratio;
+    ctx = canvas.getContext("2d");
+    ctx?.setTransform(ratio, 0, 0, ratio, 0, 0);
+    drawCanvas();
+  }
+});
 
 /**
  * For canvas.arc we need radians with 0 at the top.
@@ -264,8 +318,8 @@ function drawCanvas() {
   const handleCircleRadius = props.arcWidth * (props.showHandle ? 0.8 : 0.5);
   ctx.beginPath();
   ctx.arc(handlePos.x, handlePos.y, handleCircleRadius, 0, 2 * Math.PI);
-  if (props.showHandle || !!value.value) {
-    ctx.fillStyle = !value.value
+  if (props.showHandle || !!minutes.value) {
+    ctx.fillStyle = !minutes.value
       ? "#000"
       : props.colored
       ? anticlockwise
@@ -317,7 +371,6 @@ function startDrag(e: MouseEvent | TouchEvent) {
   lastAngle.value = getMouseAngle(e);
 }
 
-let animationFrame = 0;
 function onDrag(e: MouseEvent | TouchEvent) {
   if (!isDragging.value) return;
   if (animationFrame) cancelAnimationFrame(animationFrame);
@@ -337,8 +390,8 @@ function onDrag(e: MouseEvent | TouchEvent) {
       }
       lastAngle.value = angle;
       const inMinutes = Math.round((totalAngle.value / 360) * (60 / props.steps));
-      if (inMinutes !== value.value) {
-        value.value = inMinutes * props.steps;
+      if (inMinutes !== minutes.value) {
+        minutes.value = inMinutes * props.steps;
         emit("drag:update");
       }
       drawCanvas();
@@ -351,26 +404,9 @@ function endDrag() {
   emit("drag:end");
 }
 
-// Initialize the canvas context on mount.
-onMounted(() => {
-  loadCssColors();
-  const canvas = canvasEl.value;
-  if (canvas) {
-    const ratio = Math.ceil(window.devicePixelRatio);
-    canvas.width = props.size * ratio;
-    canvas.height = props.size * ratio;
-    canvas.style.width = `${props.size}px`;
-    canvas.style.height = `${props.size}px`;
-    ctx = canvas.getContext("2d");
-    ctx!.setTransform(ratio, 0, 0, ratio, 0, 0);
-    drawCanvas();
-  }
-});
-
 function loadCssColors() {
-  const el = knobContainer.value as Element;
-  if (el) {
-    const computedColors = getComputedStyle(el);
+  if (knobContainer.value) {
+    const computedColors = getComputedStyle(knobContainer.value as Element);
     colors.arc = computedColors.getPropertyValue("--bcc-knob-arc-bg") || colors.arc;
     colors.head = computedColors.getPropertyValue("--bcc-knob-head") || colors.head;
     colors.tail = computedColors.getPropertyValue("--bcc-knob-tail") || colors.tail;

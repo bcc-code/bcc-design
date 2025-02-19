@@ -1,5 +1,6 @@
 import { ref } from "vue";
 import BccKnob from "./BccKnob.vue";
+import BccInput from "../BccInput/BccInput.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -17,16 +18,11 @@ export default {
       description: "Maximum value of the slider",
       defaultValue: 120,
     },
-    modelValue: {
-      control: { type: "number" },
-      description: "Current value of the slider",
-      defaultValue: 50,
-    },
   },
 } as Meta<typeof BccKnob>;
 
 const Template: StoryFn<typeof BccKnob> = (args) => ({
-  components: { BccKnob },
+  components: { BccKnob, BccInput },
   setup() {
     const value = ref(0);
     return { args, value };
@@ -44,6 +40,7 @@ const Template: StoryFn<typeof BccKnob> = (args) => ({
       </BccKnob>
     </div>
 
+    <BccInput v-model="value" label="Minutes" type="number" />
 
     <pre>
     Available css variables:
