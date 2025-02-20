@@ -4,17 +4,18 @@ export default {
 };
 </script>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="T">
 import { useAttrsWithoutStyles } from "@/composables/attrsWithoutStyles";
 import { computed, type StyleValue } from "vue";
 import { useId } from "@/hooks/use-id";
 
 type Props = {
-  modelValue: string;
-  value: string;
+  value: T;
   label?: string;
   disabled?: boolean;
 };
+
+const modelValue = defineModel<T>();
 
 const props = withDefaults(defineProps<Props>(), {
   disabled: false,
