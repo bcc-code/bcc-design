@@ -6,11 +6,13 @@ const {
   min = 0,
   step = 1,
   disabled = false,
+  hideValue = false,
 } = defineProps<{
   min: number;
   max: number;
   step: number;
   disabled: boolean;
+  hideValue: boolean;
 }>();
 
 const value = defineModel<number>({ required: true, default: 0 });
@@ -50,6 +52,7 @@ function valuePosition(percentage: number) {
   <div class="bcc-range">
     <div class="bcc-range__container">
       <div
+        v-if="!hideValue"
         class="bcc-range__value"
         :class="valueColor"
         :style="{ left: valuePosition(percentage) }"

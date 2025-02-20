@@ -1,6 +1,6 @@
 @layer components {
     .bcc-range {
-        @apply flex flex-col gap-2 p-8 w-full;
+        @apply p-2 w-full;
         --bcc-range-thumb-color: rgb(62, 142, 117);
     }
 
@@ -18,17 +18,7 @@
 
     .bcc-range__input {
         @apply w-full h-1 bg-gray-200 rounded appearance-none cursor-pointer;
-        @apply disabled:opacity-50 disabled:cursor-not-allowed;
-        -webkit-appearance: none;
-        appearance: none;
-    }
-
-    .bcc-range__input:disabled {
-        @apply bg-gray-400 cursor-not-allowed;
-    }
-
-    .bcc-range__input:focus {
-        @apply outline-none;
+        @apply disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none;
     }
 
     .bcc-range__input:focus::-webkit-slider-thumb {
@@ -40,8 +30,7 @@
     }
 
     .bcc-range__input::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        @apply w-5 h-5 mt-[-8px] rounded-full bg-white cursor-pointer;
+        @apply w-5 h-5 mt-[-8px] rounded-full appearance-none bg-white cursor-pointer;
         box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
             0 0 0 2px rgb(226, 232, 240),
             0 0 0 4px rgb(255, 255, 255),
@@ -53,7 +42,7 @@
     }
 
     .bcc-range__input::-moz-range-thumb {
-        @apply w-4 h-4 rounded-full bg-white cursor-pointer border-0;
+        @apply w-4 h-4 rounded-full bg-white appearance-none cursor-pointer border-0;
         box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
             0 0 0 2px rgb(226, 232, 240),
             0 0 0 4px rgb(255, 255, 255),

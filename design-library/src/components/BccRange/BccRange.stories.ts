@@ -1,5 +1,4 @@
 import BccRange from "./BccRange.vue";
-
 import type { Meta, StoryFn } from "@storybook/vue3";
 
 export default {
@@ -26,9 +25,9 @@ export default {
       control: { type: "boolean" },
       description: "Whether the range slider is disabled",
     },
-    fromLeft: {
+    hideValue: {
       control: { type: "boolean" },
-      description: "Whether the range slider starts from the left or middle",
+      description: "Whether to hide the value of the range slider",
     },
   },
 } as Meta<typeof BccRange>;
@@ -39,7 +38,7 @@ const Template: StoryFn<typeof BccRange> = (args) => ({
     return { args };
   },
   template: `
-    <BccRange v-bind="args" />
+    <BccRange v-bind="args" class="pt-12"/>
   `,
 });
 
