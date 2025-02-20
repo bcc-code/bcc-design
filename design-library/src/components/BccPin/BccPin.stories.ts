@@ -1,7 +1,7 @@
 import { CheckCircleIcon } from "@bcc-code/icons-vue";
 import BccPin from "./BccPin.vue";
 
-import type { Meta, setup, StoryFn } from "@storybook/vue3";
+import type { Meta, StoryFn } from "@storybook/vue3";
 
 const ContextOptions = [
   "neutral",

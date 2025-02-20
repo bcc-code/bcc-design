@@ -24,7 +24,13 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits(["close"]);
 
-const slots = useSlots();
+const slots = useSlots() as {
+  default: any;
+  header: any;
+  footer: any;
+  secondaryAction: any;
+  primaryAction: any;
+};
 const showCloseButton = computed(() => props.closeButton && !slots.header);
 
 const handleClose = () => {

@@ -27,7 +27,9 @@ const props = withDefaults(defineProps<Props>(), {
   padding: true,
 });
 
-const slots = useSlots();
+const slots = useSlots() as {
+  default: any;
+};
 const iconOnly = props.icon !== undefined && !slots.default;
 
 const sizes = {
