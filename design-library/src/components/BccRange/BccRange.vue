@@ -1,27 +1,39 @@
 <script setup lang="ts">
-import { onMounted, computed } from "vue";
+import { computed } from "vue";
 
-const props = defineProps({
-  min: { type: Number, default: 0 },
-  max: { type: Number, default: 10 },
-  step: { type: Number, default: 1 },
-  disabled: { type: Boolean, default: false },
-  fromLeft: { type: Boolean, default: true },
+const {
+  max = 10,
+  min = 0,
+  step = 1,
+  disabled = false,
+} = defineProps<{
+  min: number;
+  max: number;
+  step: number;
+  disabled: boolean;
+}>();
+
+const value = defineModel<number>({ required: true, default: 0 });
+const percentage = computed(() => {
+  const p = ((value.value - min) / (max - min)) * 100;
+  return p > 100 ? 100 : p < 0 ? 0 : p;
 });
 
-const value = defineModel<number>({ required: true });
+const valueColor = computed(() => {
+  if (disabled) {
+    return "bg-gray-50 text-gray-400 dark:bg-gray-700";
+  }
 
-const handleInput = (event: Event) => {
-  const target = event.target as HTMLInputElement;
-  value.value = Number(target.value);
-};
-
-onMounted(() => {
-  value.value = props.fromLeft ? props.min : Math.round((props.max - props.min) / 2);
+  if (percentage.value < 33) {
+    return "bg-success text-success";
+  } else if (percentage.value < 66) {
+    return "bg-warning text-warning";
+  } else {
+    return "bg-danger text-danger";
+  }
 });
 
-const valuePosition = computed(() => {
-  const percentage = ((value.value - props.min) / (props.max - props.min)) * 100;
+function valuePosition(percentage: number) {
   const thumbHalfWidth = 8;
 
   const leftEdgeProximity = Math.max(0, 1 - percentage / 70);
@@ -30,33 +42,18 @@ const valuePosition = computed(() => {
   const leftOffset = thumbHalfWidth * leftEdgeProximity;
   const rightOffset = -thumbHalfWidth * rightEdgeProximity;
 
-  console.log(
-    percentage,
-    leftEdgeProximity,
-    rightEdgeProximity,
-    leftOffset,
-    rightOffset,
-    `calc(${percentage}% + ${leftOffset + rightOffset}px)`
-  );
   return `calc(${percentage}% + ${leftOffset + rightOffset}px)`;
-});
-
-const valueColor = computed(() => {
-  const thirds = (props.max - props.min) / 3;
-  if (value.value < thirds) {
-    return "bg-success text-success";
-  } else if (value.value < thirds * 2) {
-    return "bg-warning text-warning";
-  } else {
-    return "bg-danger text-danger";
-  }
-});
+}
 </script>
 
 <template>
   <div class="bcc-range">
     <div class="bcc-range__container">
-      <div class="bcc-range__value" :class="valueColor" :style="{ left: valuePosition }">
+      <div
+        class="bcc-range__value"
+        :class="valueColor"
+        :style="{ left: valuePosition(percentage) }"
+      >
         {{ value }}
       </div>
       <input
@@ -65,9 +62,8 @@ const valueColor = computed(() => {
         :min="min"
         :max="max"
         :step="step"
-        :value="value"
         :disabled="disabled"
-        @input="handleInput"
+        v-model="value"
       />
     </div>
   </div>

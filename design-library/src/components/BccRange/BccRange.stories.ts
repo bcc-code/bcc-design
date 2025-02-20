@@ -7,21 +7,27 @@ export default {
   component: BccRange,
   argTypes: {
     modelValue: {
+      control: { type: "number" },
       description: "The current value of the range slider",
     },
     min: {
+      control: { type: "number" },
       description: "The minimum value of the range slider",
     },
     max: {
+      control: { type: "number" },
       description: "The maximum value of the range slider",
     },
     step: {
+      control: { type: "number" },
       description: "The step value of the range slider",
     },
     disabled: {
+      control: { type: "boolean" },
       description: "Whether the range slider is disabled",
     },
     fromLeft: {
+      control: { type: "boolean" },
       description: "Whether the range slider starts from the left or middle",
     },
   },
@@ -33,7 +39,7 @@ const Template: StoryFn<typeof BccRange> = (args) => ({
     return { args };
   },
   template: `
-    <BccRange />
+    <BccRange v-bind="args" />
   `,
 });
 
