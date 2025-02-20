@@ -1,0 +1,56 @@
+@layer components {
+    .bcc-range {
+        @apply p-2 w-full;
+        --bcc-range-thumb-color: rgb(62, 142, 117);
+    }
+
+    .bcc-range__container {
+        @apply w-full relative;
+    }
+
+    .bcc-range__text {
+        @apply text-sm text-gray-700 whitespace-nowrap;
+    }
+
+    .bcc-range__value {
+        @apply flex absolute bottom-8 -ml-6 text-sm rounded-lg w-12 h-8 text-center items-center justify-center shadow-md;
+    }
+
+    .bcc-range__input {
+        @apply w-full h-1 bg-gray-200 rounded appearance-none cursor-pointer;
+        @apply disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none;
+    }
+
+    .bcc-range__input:focus::-webkit-slider-thumb {
+        box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
+            0 0 0 2px rgb(226, 232, 240),
+            0 0 0 4px rgb(255, 255, 255),
+            0 0 0 5px var(--bcc-range-thumb-color),
+            0 0 1px 6px var(--bcc-range-thumb-color);
+    }
+
+    .bcc-range__input::-webkit-slider-thumb {
+        @apply w-5 h-5 mt-[-8px] rounded-full appearance-none bg-white cursor-pointer;
+        box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
+            0 0 0 2px rgb(226, 232, 240),
+            0 0 0 4px rgb(255, 255, 255),
+            0 0 0 5px var(--bcc-range-thumb-color);
+    }
+
+    .bcc-range__input::-webkit-slider-runnable-track {
+        @apply h-1 rounded bg-gray-200;
+    }
+
+    .bcc-range__input::-moz-range-thumb {
+        @apply w-4 h-4 rounded-full bg-white appearance-none cursor-pointer border-0;
+        box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
+            0 0 0 2px rgb(226, 232, 240),
+            0 0 0 4px rgb(255, 255, 255),
+            0 0 0 5px var(--bcc-range-thumb-color);
+    }
+
+    .bcc-range__input::-moz-range-track {
+        @apply h-1 rounded bg-gray-200;
+    }
+
+}

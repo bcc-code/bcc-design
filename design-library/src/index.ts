@@ -47,3 +47,4 @@ export { default as BccPagination } from "./components/BccPagination/BccPaginati
 export { default as BccNpsScore } from "./components/BccNpsScore/BccNpsScore.vue";
 export { default as BccNpsResult } from "./components/BccNpsResult/BccNpsResult.vue";
 export { default as BccKnob } from "./components/BccKnob/BccKnob.vue";
+export { default as BccRange } from "./components/BccRange/BccRange.vue";

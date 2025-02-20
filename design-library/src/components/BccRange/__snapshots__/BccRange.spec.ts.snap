@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccRange > renders a range input 1`] = `
+"<div class="bcc-range">
+  <div class="bcc-range__container">
+    <div class="bcc-range__value bg-success text-success" style="left: calc(0% + 8px);">0</div><input type="range" class="bcc-range__input" min="0" max="20" step="1">
+  </div>
+</div>"
+`;
