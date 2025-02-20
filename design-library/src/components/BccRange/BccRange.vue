@@ -8,11 +8,11 @@ const {
   disabled = false,
   hideValue = false,
 } = defineProps<{
-  min: number;
-  max: number;
-  step: number;
-  disabled: boolean;
-  hideValue: boolean;
+  min?: number;
+  max?: number;
+  step?: number;
+  disabled?: boolean;
+  hideValue?: boolean;
 }>();
 
 const value = defineModel<number>({ required: true, default: 0 });

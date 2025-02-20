@@ -3,7 +3,15 @@
 exports[`BccRange > renders a range input 1`] = `
 "<div class="bcc-range">
   <div class="bcc-range__container">
-    <div class="bcc-range__value bg-success text-success" style="left: calc(0% + 8px);">0</div><input type="range" class="bcc-range__input" min="0" max="20" step="1">
+    <div class="bcc-range__value bg-warning text-warning" style="left: calc(50% + 0px);">10</div><input type="range" class="bcc-range__input" min="0" max="20" step="1">
+  </div>
+</div>"
+`;
+
+exports[`BccRange > renders a range input with 10 as value 1`] = `
+"<div class="bcc-range">
+  <div class="bcc-range__container">
+    <div class="bcc-range__value bg-warning text-warning" style="left: calc(50% + 0px);">10</div><input type="range" class="bcc-range__input" min="0" max="20" step="1">
   </div>
 </div>"
 `;
