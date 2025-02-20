@@ -38,7 +38,7 @@ const Template: StoryFn<typeof BccRange> = (args) => ({
     return { args };
   },
   template: `
-    <BccRange v-bind="args" class="pt-12"/>
+    <BccRange v-bind="args" class="mt-12"/>
   `,
 });
 
@@ -63,20 +63,20 @@ Example.parameters = {
 export const Disabled: StoryFn<typeof BccRange> = () => ({
   components: { BccRange },
   template: `
-    <BccRange disabled />
+    <BccRange disabled class="mt-12" />
   `,
 });
 
 export const WithCustomRange: StoryFn<typeof BccRange> = () => ({
   components: { BccRange },
   template: `
-    <BccRange min=0  max=100 step=2 />
+    <BccRange min=0 max=100 step=2 class="mt-12" />
   `,
 });
 
 export const StartFromMiddle: StoryFn<typeof BccRange> = () => ({
   components: { BccRange },
   template: `
-    <BccRange :fromLeft=false min=0 max=10 />
+    <BccRange class="mt-12" />
   `,
 });
