@@ -1,7 +1,9 @@
 @layer components {
     .bcc-range {
         @apply p-2 w-full;
-        --bcc-range-thumb-color: rgb(62, 142, 117);
+        --bcc-range-thumb-color-1: rgb(226, 232, 240);
+        --bcc-range-thumb-color-2: rgb(255, 255, 255);
+        --bcc-range-thumb-color-3: rgb(62, 142, 117);
     }
 
     .bcc-range__container {
@@ -23,18 +25,18 @@
 
     .bcc-range__input:focus::-webkit-slider-thumb {
         box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
-            0 0 0 2px rgb(226, 232, 240),
-            0 0 0 4px rgb(255, 255, 255),
-            0 0 0 5px var(--bcc-range-thumb-color),
-            0 0 1px 6px var(--bcc-range-thumb-color);
+            0 0 0 2px var(--bcc-range-thumb-color-1),
+            0 0 0 4px var(--bcc-range-thumb-color-2),
+            0 0 0 5px var(--bcc-range-thumb-color-3),
+            0 0 1px 6px var(--bcc-range-thumb-color-3);
     }
 
     .bcc-range__input::-webkit-slider-thumb {
         @apply w-5 h-5 mt-[-8px] rounded-full appearance-none bg-white cursor-pointer;
         box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
-            0 0 0 2px rgb(226, 232, 240),
-            0 0 0 4px rgb(255, 255, 255),
-            0 0 0 5px var(--bcc-range-thumb-color);
+            0 0 0 2px var(--bcc-range-thumb-color-1),
+            0 0 0 4px var(--bcc-range-thumb-color-2),
+            0 0 0 5px var(--bcc-range-thumb-color-3);
     }
 
     .bcc-range__input::-webkit-slider-runnable-track {
@@ -44,13 +46,13 @@
     .bcc-range__input::-moz-range-thumb {
         @apply w-4 h-4 rounded-full bg-white appearance-none cursor-pointer border-0;
         box-shadow: 0 1px 2px 0px rgba(113, 113, 113, 0.5),
-            0 0 0 2px rgb(226, 232, 240),
-            0 0 0 4px rgb(255, 255, 255),
-            0 0 0 5px var(--bcc-range-thumb-color);
+            0 0 0 2px var(--bcc-range-thumb-color-1),
+            0 0 0 4px var(--bcc-range-thumb-color-2),
+            0 0 0 5px var(--bcc-range-thumb-color-3);
     }
 
     .bcc-range__input::-moz-range-track {
-        @apply h-1 rounded bg-gray-200;
+        @apply h-1 rounded bg-gray-200 dark:bg-gray-800;
     }
 
 }
