@@ -36,6 +36,7 @@ const props = defineProps({
   showHandle: { type: Boolean, default: false },
   hideArrows: { type: Boolean, default: false },
   duration: { type: Number, default: 1000 }, // Animation duration in ms
+  animateRotations: { type: Number, default: 2 }, // 0 or 1 = no limit
 });
 const emit = defineEmits<{
   (e: "drag:start"): void;
@@ -99,10 +100,28 @@ function easeIn(start: number, end: number) {
   return (t: number) => Math.round(start + (end - start) * t);
 }
 
-// Create animate function that takes 2s to animate from current totalAngle to the target angle using the easeIn function
+// Create animate function that takes [duration ms] to animate from current totalAngle to the target angle using the easeIn function
+// If distance is more than 2 rotations, then sprint ahead until we're within 2 rotations
 function animateTo(angle: number) {
   if (isDragging.value) return;
   if (angle === totalAngle.value) return;
+
+  // Normalize angles to be within [animateRotations] rotations of each other
+  const maxRotations = props.animateRotations;
+  if (maxRotations > 1) {
+    let startAngle = totalAngle.value;
+    const rotationDiff = Math.round(Math.abs(startAngle - angle) / 360);
+
+    if (rotationDiff > maxRotations) {
+      // If going backwards (target < current)
+      if (angle < startAngle) {
+        startAngle -= 360 * (rotationDiff - maxRotations);
+      } else {
+        startAngle += 360 * (rotationDiff - maxRotations);
+      }
+      totalAngle.value = startAngle;
+    }
+  }
 
   const startTime = performance.now();
   const easeFn = easeIn(totalAngle.value, angle);
