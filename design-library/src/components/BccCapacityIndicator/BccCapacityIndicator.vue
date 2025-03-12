@@ -66,21 +66,11 @@ const dashArray = Math.PI * 18 * 2;
         stroke-width="4"
       />
       <path
-        d="M 20 2 
-           h 12 
-           a 6 6 0 0 1 6 6 
-           v 24
-           a 6 6 0 0 1 -6 6
-           h -24
-           a 6 6 0 0 1 -6 -6
-           v -24
-           a 6 6 0 0 1 6 -6
-           h 12
-           z"
+        d="M 20 2 h 12 a 6 6 0 0 1 6 6 v 24 a 6 6 0 0 1 -6 6 h -24 a 6 6 0 0 1 -6 -6 v -24 a 6 6 0 0 1 6 -6 h 12 z"
         fill="none"
         stroke-width="4"
-        :stroke-dasharray="132"
-        :stroke-dashoffset="132 * ((100 - progress) / 100)"
+        :stroke-dasharray="134"
+        :stroke-dashoffset="134 * ((100 - progress) / 100)"
         stroke="currentColor"
         class="bcc-capacity-indicator-circle-used"
       />

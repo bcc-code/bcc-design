@@ -55,8 +55,8 @@ export const State: StoryFn<typeof BccCapacityIndicator> = () => ({
       <BccCapacityIndicator :total="200" :used="1" />
       <BccCapacityIndicator :total="20" :used="6" />
       <BccCapacityIndicator :total="20" :used="18" />
+      <BccCapacityIndicator :total="20" :used="19" />
       <BccCapacityIndicator :total="20" :used="20" />
-      <BccCapacityIndicator :total="0" :used="0" />
       <BccCapacityIndicator :total="-1" />
     </div>
   `,
@@ -83,12 +83,13 @@ export const Squared: StoryFn<typeof BccCapacityIndicator> = () => ({
   components: { BccCapacityIndicator },
   template: `
     <div class="flex items-center space-x-4">
-      <BccCapacityIndicator size="sm" squared :total="40" used="1" />
-      <BccCapacityIndicator size="sm" squared :total="40" used="10" />
-      <BccCapacityIndicator size="base" squared :total="40" :used="20" />
-      <BccCapacityIndicator size="base" squared :total="40" :used="30" />
-      <BccCapacityIndicator size="lg" squared :total="40" :used="39" />
-      <BccCapacityIndicator size="lg" squared :total="40" :used="40" />
+      <BccCapacityIndicator squared :total="12" :used="0" />
+      <BccCapacityIndicator size="sm" squared :total="12" :used="1" />
+      <BccCapacityIndicator size="sm" squared :total="12" :used="3" />
+      <BccCapacityIndicator size="base" squared :total="12" :used="6" />
+      <BccCapacityIndicator size="base" squared :total="12" :used="9" />
+      <BccCapacityIndicator size="lg" squared :total="12" :used="11" />
+      <BccCapacityIndicator size="lg" squared :total="12" :used="12" />
     </div>
   `,
 });
