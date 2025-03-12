@@ -17,7 +17,7 @@ export default {
     },
     size: {
       description: "The size of component",
-      options: ["base", "lg"],
+      options: ["xs", "sm", "base", "lg"],
       control: { type: "radio" },
     },
     animationDuration: {
@@ -69,8 +69,26 @@ export const Size: StoryFn<typeof BccCapacityIndicator> = () => ({
   components: { BccCapacityIndicator },
   template: `
     <div class="flex items-center space-x-4">
-      <BccCapacityIndicator size="base" :total="42" />
-      <BccCapacityIndicator size="lg" :total="20" :used="6" />
+      <BccCapacityIndicator size="sm" :total="30" used="7" />
+      <BccCapacityIndicator size="base" :total="30" used="21" />
+      <BccCapacityIndicator size="lg" :total="30" :used="30" />
+    </div>
+  `,
+});
+
+/**
+ * Set the `squared` prop to change the from circle to a square
+ */
+export const Squared: StoryFn<typeof BccCapacityIndicator> = () => ({
+  components: { BccCapacityIndicator },
+  template: `
+    <div class="flex items-center space-x-4">
+      <BccCapacityIndicator size="sm" squared :total="40" used="1" />
+      <BccCapacityIndicator size="sm" squared :total="40" used="10" />
+      <BccCapacityIndicator size="base" squared :total="40" :used="20" />
+      <BccCapacityIndicator size="base" squared :total="40" :used="30" />
+      <BccCapacityIndicator size="lg" squared :total="40" :used="39" />
+      <BccCapacityIndicator size="lg" squared :total="40" :used="40" />
     </div>
   `,
 });

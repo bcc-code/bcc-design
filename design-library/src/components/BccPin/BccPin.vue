@@ -14,7 +14,7 @@ withDefaults(
       | "mongoose"
       | "brand";
     contrast?: "light" | "dark";
-    size?: "sm" | "base" | "lg";
+    size?: "sm" | "base" | "lg" | "xl";
     text?: string;
     bordered?: boolean;
     squared?: boolean;

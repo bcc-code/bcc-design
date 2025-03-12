@@ -2,18 +2,18 @@
 
 exports[`BccModal > renders a modal 1`] = `
 "<anonymous-stub as="template" show="true" unmount="true" appear="false" enter="" enterfrom="" enterto="" entered="" leave="" leavefrom="" leaveto="">
-  <dialog-stub as="div" static="false" unmount="true" open="DC8F892D-2EBD-447C-A4C8-A03058436FF4" id="headlessui-dialog-1" class="bcc-modal-overlay-wrapper">
+  <dialog-stub as="div" static="false" unmount="true" open="DC8F892D-2EBD-447C-A4C8-A03058436FF4" role="dialog" class="bcc-modal-overlay-wrapper">
     <div class="flex h-[100dvh] w-[100dvw] items-center justify-center overflow-hidden">
       <anonymous-stub as="div" unmount="true" appear="false" enter="ease-out duration-300" enterfrom="opacity-0" enterto="opacity-100" entered="" leave="ease-in duration-200" leavefrom="opacity-100" leaveto="opacity-0">
         <div class="bcc-modal-overlay"></div>
       </anonymous-stub>
       <anonymous-stub as="template" unmount="true" appear="false" enter="ease-out duration-300" enterfrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enterto="opacity-100 translate-y-0 sm:scale-100" entered="" leave="ease-in duration-200" leavefrom="opacity-100 translate-y-0 sm:scale-100" leaveto="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
         <div class="bcc-modal-wrapper">
-          <dialog-panel-stub as="div" id="headlessui-dialog-panel-2" class="bcc-modal">
+          <dialog-panel-stub as="div" class="bcc-modal">
             <div class="bcc-modal-header">Header slot</div>
             <div class="bcc-modal-body">
               <div class="bcc-modal-title">
-                <dialog-title-stub as="h3" id="headlessui-dialog-title-3">Modal title</dialog-title-stub>
+                <dialog-title-stub as="h3">Modal title</dialog-title-stub>
                 <!--v-if-->
               </div>
               <div class="bcc-modal-content">Modal content</div>

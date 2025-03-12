@@ -28,7 +28,7 @@ export default {
     },
     size: {
       description: "Size of the pin",
-      options: ["sm", "base", "lg"],
+      options: ["sm", "base", "lg", "xl"],
       default: "base",
       control: { type: "radio" },
     },
@@ -101,12 +101,12 @@ export const Contrast: StoryFn<typeof BccPin> = (args) => ({
   template: `
     <div class="flex items-start space-x-2 mb-2">
       ${ContextOptions.map(
-        (o) => `<BccPin v-bind="args" context="${o}" :icon="CheckCircleIcon" contrast="light" />`
+        (o) => `<BccPin v-bind="args" context="${o}" :icon="CheckCircleIcon" contrast="light" />`,
       ).join("\n")}
     </div>
     <div class="flex items-start space-x-2">
       ${ContextOptions.map(
-        (o) => `<BccPin v-bind="args" context="${o}" :icon="CheckCircleIcon" contrast="dark" />`
+        (o) => `<BccPin v-bind="args" context="${o}" :icon="CheckCircleIcon" contrast="dark" />`,
       ).join("\n")}
     </div>
   `,

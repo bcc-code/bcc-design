@@ -7,13 +7,15 @@ const props = withDefaults(
     // -1 = Infinity
     total: number;
     used?: number;
-    size?: "base" | "lg";
+    size?: "xs" | "sm" | "base" | "lg";
     animationDuration?: number;
+    squared?: boolean;
   }>(),
   {
     used: 0,
     size: "base",
     animationDuration: 1000,
+    squared: false,
   }
 );
 
@@ -45,33 +47,66 @@ const dashArray = Math.PI * 18 * 2;
     height="2em"
     viewBox="0 0 40 40"
     class="bcc-capacity-indicator"
-    :class="{
-      'bcc-capacity-indicator-lg': size == 'lg',
+    :class="[size, {
       'bcc-capacity-indicator-open': total == -1 || (progress >= 0 && progress < 50),
       'bcc-capacity-indicator-warning': progress >= 50 && progress < 100,
       'bcc-capacity-indicator-full': progress >= 100,
-    }"
+    }]"
   >
-    <circle cx="20" cy="20" r="18" fill="none" stroke-width="2" stroke="currentColor" />
-    <circle
-      v-if="progress > -1"
-      cx="20"
-      cy="20"
-      r="18"
-      fill="none"
-      stroke-width="2"
-      :stroke-dasharray="dashArray"
-      :stroke-dashoffset="dashArray * ((100 - progress) / 100)"
-      stroke="currentColor"
-      transform="rotate(-90 20 20)"
-      class="bcc-capacity-indicator-circle-used"
-    />
+    <template v-if="squared">
+      <rect
+        width="36"
+        height="36"
+        x="2"
+        y="2"
+        rx="6"
+        ry="6"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="4"
+      />
+      <path
+        d="M 20 2 
+           h 12 
+           a 6 6 0 0 1 6 6 
+           v 24
+           a 6 6 0 0 1 -6 6
+           h -24
+           a 6 6 0 0 1 -6 -6
+           v -24
+           a 6 6 0 0 1 6 -6
+           h 12
+           z"
+        fill="none"
+        stroke-width="4"
+        :stroke-dasharray="132"
+        :stroke-dashoffset="132 * ((100 - progress) / 100)"
+        stroke="currentColor"
+        class="bcc-capacity-indicator-circle-used"
+      />
+    </template>
+    <template v-else>
+      <circle cx="20" cy="20" r="18" fill="none" stroke-width="3" stroke="currentColor" />
+      <circle
+        v-if="progress > -1"
+        cx="20"
+        cy="20"
+        r="18"
+        fill="none"
+        stroke-width="3"
+        :stroke-dasharray="dashArray"
+        :stroke-dashoffset="dashArray * ((100 - progress) / 100)"
+        stroke="currentColor"
+        transform="rotate(-90 20 20)"
+        class="bcc-capacity-indicator-circle-used"
+      />
+    </template>
     <text
       v-if="progress > -1"
       text-anchor="middle"
       x="20"
-      y="25"
-      font-size="14"
+      :y="squared || size == 'xs' ? 26 : 25"
+      :font-size="squared || size == 'xs' ? 16 : 14"
       font-weight="600"
       fill="currentColor"
       class="bcc-capacity-indicator-text"

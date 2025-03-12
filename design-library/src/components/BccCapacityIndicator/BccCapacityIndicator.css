@@ -3,7 +3,15 @@
         @apply text-base;
     }
 
-    .bcc-capacity-indicator-lg {
+    .bcc-capacity-indicator.xs {
+        @apply text-xs;
+    }
+
+    .bcc-capacity-indicator.sm {
+        @apply text-sm;
+    }
+
+    .bcc-capacity-indicator.lg {
         @apply text-xl;
     }
 

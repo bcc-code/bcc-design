@@ -8,6 +8,9 @@
   .bcc-pin.lg {
     @apply w-6 h-6;
   }
+  .bcc-pin.xl {
+    @apply w-8 h-8;
+  }
 
   .bcc-pin-text {
     @apply w-auto px-2;
@@ -30,14 +33,11 @@
   }
 
   .bcc-pin.bordered {
-    @apply border;
+    @apply border-2;
   }
 
   .bcc-pin.squared  {
-    @apply rounded;
-  }
-  .bcc-pin.squared.lg  {
-    @apply rounded-lg;
+    @apply rounded-md;
   }
 
   /* Variants light */
