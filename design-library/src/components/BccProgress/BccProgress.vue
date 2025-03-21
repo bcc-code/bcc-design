@@ -50,7 +50,7 @@ const percentageSafe = computed(() => {
     <div class="bcc-progress">
       <div
         class="bcc-progress-bar"
-        :class="{ [color]: color }"
+        :class="color"
         :style="{
           width: percentageSafe + '%',
         }"
