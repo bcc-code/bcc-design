@@ -30,6 +30,9 @@ export default {
     showPercentage: {
       description: "Display percentage",
     },
+    color: {
+      description: "Color of the progress bar",
+    },
   },
 } as Meta<typeof BccProgress>;
 
@@ -127,6 +130,18 @@ export const ShowValuesAndOrPercentage: StoryFn<typeof BccProgress> = () => ({
       <BccProgress class="w-1/4" :value="8" :max="10" :showValues="false"/>   
       <BccProgress class="w-1/4" :value="8" :max="10" :showPercentage="false"/>   
       <BccProgress class="w-1/4" :value="8" :max="10" :showValues="false" :showPercentage="false"/>   
+    </div>
+  `,
+});
+
+/**
+ * Set the `color` prop to control the color of the progress bar
+ */
+export const Color: StoryFn<typeof BccProgress> = () => ({
+  components: { BccProgress },
+  template: `
+    <div class="flex flex-col space-y-4">
+      <BccProgress class="w-1/4" :value="8" :max="10" color="bg-red-500"/>
     </div>
   `,
 });
