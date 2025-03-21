@@ -9,6 +9,7 @@ type Props = {
   showValues?: boolean;
   showPercentage?: boolean;
   overflow?: boolean;
+  color?: string;
 };
 
 const props = withDefaults(defineProps<Props>(), {
@@ -18,6 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
   showValues: true,
   showPercentage: true,
   overflow: true,
+  color: undefined,
 });
 
 const percentage = computed(() => {
@@ -46,7 +48,13 @@ const percentageSafe = computed(() => {
     </BccFormLabel>
 
     <div class="bcc-progress">
-      <div class="bcc-progress-bar" :style="{ width: percentageSafe + '%' }" />
+      <div
+        class="bcc-progress-bar"
+        :class="{ [color]: color }"
+        :style="{
+          width: percentageSafe + '%',
+        }"
+      />
     </div>
   </div>
 </template>
