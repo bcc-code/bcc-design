@@ -5,6 +5,7 @@ import {
   CloseIcon,
   ErrorFillIcon,
   InfoFillIcon,
+  InfoIcon,
   NotificationsFillIcon,
   TaskAltIcon,
   WarningFillIcon,
@@ -49,7 +50,7 @@ const ContextIcons: Partial<Record<keyof typeof BCC_CONTEXTS, VueComponent>> = {
     >
       <component
         v-if="icon"
-        :is="typeof icon === 'boolean' ? ContextIcons[context] || ContextIcons.info : icon"
+        :is="typeof icon === 'boolean' ? ContextIcons[context] || InfoIcon : icon"
         class="bcc-alert-icon"
       />
 

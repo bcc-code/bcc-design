@@ -1,34 +1,34 @@
 /* Variants light */
 .bcc-context-neutral.light {
-  @apply border-neutral-200 bg-neutral-100 text-neutral-900;
+  @apply border-neutral-200 bg-neutral-50 text-neutral-900;
 }
 
 .bcc-context-danger.light {
-  @apply border-red-300 bg-red-100 text-red-700;
+  @apply border-danger bg-danger text-danger;
 }
 
 .bcc-context-warning.light {
-  @apply border-yellow-400 bg-yellow-100 text-yellow-800;
+  @apply border-warning bg-warning text-warning;
 }
 
 .bcc-context-success.light {
-  @apply border-green-300 bg-green-100 text-green-800;
+  @apply border-success bg-success text-success;
 }
 
 .bcc-context-info.light {
-  @apply border-blue-300 bg-blue-100 text-blue-800;
+  @apply border-info bg-info text-info;
 }
 
 .bcc-context-muddy-waters.light {
-  @apply border-muddy-waters-200 bg-muddy-waters-100 text-muddy-waters-600;
+  @apply border-muddy-waters-200 bg-muddy-waters-50 text-muddy-waters-600;
 }
 
 .bcc-context-mongoose.light {
-  @apply border-mongoose-200 bg-mongoose-100 text-mongoose-700;
+  @apply border-mongoose-200 bg-mongoose-50 text-mongoose-700;
 }
 
 .bcc-context-brand.light {
-  @apply border-brand-200 bg-brand-100 text-brand-700;
+  @apply border-brand-200 bg-brand-50 text-brand-700;
 }
 
 .bcc-context-gimblet.light {
@@ -89,17 +89,17 @@
 }
 
 .bcc-context-blue.dark {
-  @apply border-blue-300 bg-blue-400 text-blue-50;
+  @apply border-blue-300 bg-blue-500 text-blue-50;
 }
 
 .bcc-context-purple.dark {
-  @apply border-purple-300 bg-purple-400 text-purple-50;
+  @apply border-purple-300 bg-purple-500 text-purple-50;
 }
 
 .bcc-context-red.dark {
-  @apply border-red-300 bg-red-400 text-red-50;
+  @apply border-red-300 bg-red-500 text-red-50;
 }
 
 .bcc-context-green.dark {
-  @apply border-green-300 bg-green-400 text-green-50;
+  @apply border-green-300 bg-green-500 text-green-50;
 }

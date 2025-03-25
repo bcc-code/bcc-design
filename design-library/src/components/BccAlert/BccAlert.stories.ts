@@ -70,10 +70,9 @@ export const Basic: StoryFn<typeof BccAlert> = () => ({
   template: `
     <div class="flex flex-col space-y-4">
       <BccAlert><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
-      <BccAlert context="success"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
-      <BccAlert context="warning"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
-      <BccAlert context="danger"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
-      <BccAlert context="neutral"><strong>Oh snap!</strong> You might want to check this out!</BccAlert>
+      ${ContextOptions.map(
+        (o) => `<BccAlert context="${o}" icon contrast="light" :title="\`This is ${o}\`" />`
+      ).join("\n")}
     </div>
   `,
 });
