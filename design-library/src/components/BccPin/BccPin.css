@@ -18,7 +18,7 @@
   .bcc-pin-text.sm {
     @apply w-auto px-1;
   }
-  .bcc-pin-text.lg {
+  .bcc-pin-text.lg { 
     @apply w-auto px-3;
   }
 

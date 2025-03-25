@@ -1,8 +1,8 @@
+import { BCC_CONTEXTS } from "@/composables/contexts";
+import { Face2Icon } from "@bcc-code/icons-vue";
+import type { Meta, StoryFn } from "@storybook/vue3";
 import BccButton from "../BccButton/BccButton.vue";
 import BccAlert from "./BccAlert.vue";
-import type { Meta, StoryFn } from "@storybook/vue3";
-import { Face2Icon } from "@bcc-code/icons-vue";
-import { BCC_CONTEXTS } from "@/composables/contexts";
 
 const ContextOptions = Object.keys(BCC_CONTEXTS);
 
@@ -140,12 +140,14 @@ export const Contrast: StoryFn<typeof BccAlert> = (args) => ({
   template: `
     <div class="flex items-start space-x-2 mb-2">
       ${ContextOptions.map(
-        (o) => `<BccAlert v-bind="args" context="${o}" icon contrast="light" :title="\`This is ${o}\`" />`
+        (o) =>
+          `<BccAlert v-bind="args" context="${o}" icon contrast="light" :title="\`This is ${o}\`" />`
       ).join("\n")}
     </div>
     <div class="flex items-start space-x-2">
       ${ContextOptions.map(
-        (o) => `<BccAlert v-bind="args" context="${o}" icon contrast="dark" :title="\`This is ${o}\`" />`
+        (o) =>
+          `<BccAlert v-bind="args" context="${o}" icon contrast="dark" :title="\`This is ${o}\`" />`
       ).join("\n")}
     </div>
   `,

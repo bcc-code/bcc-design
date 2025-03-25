@@ -1,6 +1,6 @@
+import { BCC_CONTEXTS } from "@/composables/contexts";
 import { BlockIcon, CheckIcon, DoneAllIcon, ExclamationIcon } from "@bcc-code/icons-vue";
 import BccPin from "./BccPin.vue";
-import { BCC_CONTEXTS } from "@/composables/contexts";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -122,7 +122,6 @@ export const WithText: StoryFn<typeof BccPin> = (args) => ({
     </div>
   `,
 });
-
 
 /**
  * Different states with icons and context

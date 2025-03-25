@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { VueComponent } from "@/types";
 import { BCC_CONTEXTS } from "@/composables/contexts";
+import type { VueComponent } from "@/types";
 
 withDefaults(
   defineProps<{

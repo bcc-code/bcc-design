@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { BCC_CONTEXTS } from "@/composables/contexts";
+import type { VueComponent } from "@/types";
 import {
   CloseIcon,
   ErrorFillIcon,
   InfoFillIcon,
+  NotificationsFillIcon,
   TaskAltIcon,
   WarningFillIcon,
-  NotificationsFillIcon,
 } from "@bcc-code/icons-vue";
-import { BCC_CONTEXTS } from "@/composables/contexts";
-import type { VueComponent } from "@/types";
 
 type Props = {
   context?: keyof typeof BCC_CONTEXTS;

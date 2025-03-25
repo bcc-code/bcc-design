@@ -1,6 +1,6 @@
-import BccBadge from "./BccBadge.vue";
-import { CheckCircleIcon, DownloadingIcon } from "@bcc-code/icons-vue";
 import { BCC_CONTEXTS } from "@/composables/contexts";
+import { CheckCircleIcon, DownloadingIcon } from "@bcc-code/icons-vue";
+import BccBadge from "./BccBadge.vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -120,7 +120,7 @@ export const Contrast: StoryFn<typeof BccBadge> = (args) => ({
   setup() {
     return { args };
   },
-  template: `
+  template: ` 
     <div class="flex items-start space-x-2 mb-2">
       ${ContextOptions.map(
         (o) => `<BccBadge v-bind="args" context="${o}" icon contrast="light">Light</BccBadge>`

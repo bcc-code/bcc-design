@@ -20,7 +20,6 @@ withDefaults(
     squared: false,
   }
 );
-
 </script>
 
 <template>
