@@ -1,22 +1,6 @@
 @layer components {
     .bcc-alert {
         @apply text-body-sm relative px-4 py-3.5 rounded-md flex items-start gap-x-2.5 gap-y-1;
-        /* Default info context */
-        @apply bg-info text-info border border-info;
-    }
-
-    /* Context */
-    .bcc-alert-success {
-        @apply bg-success text-success border-success;
-    }
-    .bcc-alert-warning {
-        @apply bg-warning text-warning border-warning;
-    }
-    .bcc-alert-danger {
-        @apply bg-danger text-danger border-danger;
-    }
-    .bcc-alert-neutral {
-        @apply bg-brand-50 text-brand-600 border-brand-300;
     }
 
     /* Icon */

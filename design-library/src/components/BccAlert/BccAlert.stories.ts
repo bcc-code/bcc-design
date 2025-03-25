@@ -1,8 +1,10 @@
 import BccButton from "../BccButton/BccButton.vue";
 import BccAlert from "./BccAlert.vue";
-
 import type { Meta, StoryFn } from "@storybook/vue3";
 import { Face2Icon } from "@bcc-code/icons-vue";
+import { BCC_CONTEXTS } from "@/composables/contexts";
+
+const ContextOptions = Object.keys(BCC_CONTEXTS);
 
 export default {
   title: "Common/BccAlert",
@@ -123,6 +125,28 @@ export const WithCloseButton: StoryFn<typeof BccAlert> = () => ({
       <BccAlert closeButton icon>You might want to check this out!</BccAlert>
       <BccAlert closeButton title="Well done!">You might want to check this out!</BccAlert>
       <BccAlert closeButton title="Well done!" icon>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</BccAlert>
+    </div>
+  `,
+});
+
+/**
+ * Set the `contrast` prop to render an alert with a light or dark contrast
+ */
+export const Contrast: StoryFn<typeof BccAlert> = (args) => ({
+  components: { BccAlert },
+  setup() {
+    return { args };
+  },
+  template: `
+    <div class="flex items-start space-x-2 mb-2">
+      ${ContextOptions.map(
+        (o) => `<BccAlert v-bind="args" context="${o}" icon contrast="light" :title="\`This is ${o}\`" />`
+      ).join("\n")}
+    </div>
+    <div class="flex items-start space-x-2">
+      ${ContextOptions.map(
+        (o) => `<BccAlert v-bind="args" context="${o}" icon contrast="dark" :title="\`This is ${o}\`" />`
+      ).join("\n")}
     </div>
   `,
 });

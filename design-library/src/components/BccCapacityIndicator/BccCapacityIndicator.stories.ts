@@ -23,6 +23,11 @@ export default {
     animationDuration: {
       description: "How long the animation in `ms` is when the `used` prop is updated",
     },
+    context: {
+      description: "The context of the component",
+      options: ["default", "alternative"],
+      control: { type: "radio" },
+    },
   },
 } as Meta<typeof BccCapacityIndicator>;
 
@@ -69,8 +74,8 @@ export const Size: StoryFn<typeof BccCapacityIndicator> = () => ({
   components: { BccCapacityIndicator },
   template: `
     <div class="flex items-center space-x-4">
-      <BccCapacityIndicator size="sm" :total="30" used="7" />
-      <BccCapacityIndicator size="base" :total="30" used="21" />
+      <BccCapacityIndicator size="sm" :total="30" :used="7" />
+      <BccCapacityIndicator size="base" :total="30" :used="21" />
       <BccCapacityIndicator size="lg" :total="30" :used="30" />
     </div>
   `,
@@ -90,6 +95,23 @@ export const Squared: StoryFn<typeof BccCapacityIndicator> = () => ({
       <BccCapacityIndicator size="base" squared :total="12" :used="9" />
       <BccCapacityIndicator size="lg" squared :total="12" :used="11" />
       <BccCapacityIndicator size="lg" squared :total="12" :used="12" />
+      <BccCapacityIndicator size="lg" squared :total="-1" :used="0" />
+    </div>
+  `,
+});
+
+/**
+ * Set the `context` prop to change the color of the component
+ */
+export const Context: StoryFn<typeof BccCapacityIndicator> = () => ({
+  components: { BccCapacityIndicator },
+  template: `
+    <div class="flex items-center space-x-4">
+      <BccCapacityIndicator context="default" :total="12" :used="0" />
+      <BccCapacityIndicator context="colored" :total="12" :used="1" />
+      <BccCapacityIndicator context="colored" :total="12" :used="6" />
+      <BccCapacityIndicator context="colored" :total="12" :used="12" />
+      <BccCapacityIndicator context="colored" :total="-1" :used="12" />
     </div>
   `,
 });

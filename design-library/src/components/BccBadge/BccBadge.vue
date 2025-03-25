@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { VueComponent } from "@/types";
+import { BCC_CONTEXTS } from "@/composables/contexts";
 
 withDefaults(
   defineProps<{
@@ -8,15 +9,7 @@ withDefaults(
     size?: "xs" | "sm" | "md";
     contrast?: "light" | "dark";
     bordered?: boolean;
-    context?:
-      | "neutral"
-      | "danger"
-      | "warning"
-      | "success"
-      | "info"
-      | "muddy-waters"
-      | "mongoose"
-      | "brand";
+    context?: keyof typeof BCC_CONTEXTS;
   }>(),
   {
     iconRight: false,
@@ -26,21 +19,10 @@ withDefaults(
     context: "neutral",
   }
 );
-
-const themeClass = {
-  neutral: "bcc-badge-neutral",
-  danger: "bcc-badge-danger",
-  warning: "bcc-badge-warning",
-  success: "bcc-badge-success",
-  info: "bcc-badge-info",
-  "muddy-waters": "bcc-badge-muddy-waters",
-  mongoose: "bcc-badge-mongoose",
-  brand: "bcc-badge-brand",
-};
 </script>
 
 <template>
-  <div class="bcc-badge" :class="[themeClass[context], contrast, size, { bordered }]">
+  <div class="bcc-badge" :class="[BCC_CONTEXTS[context], contrast, size, { bordered }]">
     <component
       v-if="icon"
       :is="icon"

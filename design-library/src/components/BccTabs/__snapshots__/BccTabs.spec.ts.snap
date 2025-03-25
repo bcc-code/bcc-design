@@ -12,13 +12,13 @@ exports[`BccTabs > renders three tabs 1`] = `
       <!--v-if-->
     </div>
     <div class="bcc-tabs-bar-item text-label" id="headlessui-tabs-tab-v-1" role="tab" aria-selected="false" tabindex="-1" data-headlessui-state="">
-      <!--v-if--> Using Component <div class="bcc-pin bcc-pin-neutral light base bcc-tabs-item-right"><span>5</span></div>
+      <!--v-if--> Using Component <div class="bcc-pin bcc-context-neutral light base bcc-tabs-item-right"><span>5</span></div>
       <!--v-if-->
     </div>
     <div class="bcc-tabs-bar-item bcc-tabs-bar-item--disabled text-label" disabled="true" id="headlessui-tabs-tab-v-2" role="tab" aria-selected="false" tabindex="-1" data-headlessui-state="disabled">
       <!--v-if--> Disabled badge
       <!--v-if-->
-      <div class="bcc-badge bcc-badge-info light xs bcc-tabs-item-right" text="new">
+      <div class="bcc-badge bcc-context-info light xs bcc-tabs-item-right" text="new">
         <!--v-if--><span class="order-2">new</span>
       </div>
     </div>

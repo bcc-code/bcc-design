@@ -10,12 +10,14 @@ const props = withDefaults(
     size?: "xs" | "sm" | "base" | "lg";
     animationDuration?: number;
     squared?: boolean;
+    context?: "default" | "colored";
   }>(),
   {
     used: 0,
     size: "base",
     animationDuration: 1000,
     squared: false,
+    context: "default",
   }
 );
 
@@ -47,11 +49,17 @@ const dashArray = Math.PI * 18 * 2;
     height="2em"
     viewBox="0 0 40 40"
     class="bcc-capacity-indicator"
-    :class="[size, {
-      'bcc-capacity-indicator-open': total == -1 || (progress >= 0 && progress < 50),
-      'bcc-capacity-indicator-warning': progress >= 50 && progress < 100,
-      'bcc-capacity-indicator-full': progress >= 100,
-    }]"
+    :class="[
+      size,
+      squared ? 'rounded-md' : 'rounded-full',
+      { 'bcc-capacity-indicator-full': progress >= 100 },
+      context === 'default'
+        ? {
+            'bcc-capacity-indicator-open': total == -1 || (progress >= 0 && progress < 50),
+            'bcc-capacity-indicator-warning': progress >= 50 && progress < 100,
+          }
+        : 'bcc-capacity-indicator-colored',
+    ]"
   >
     <template v-if="squared">
       <rect
@@ -66,6 +74,7 @@ const dashArray = Math.PI * 18 * 2;
         stroke-width="4"
       />
       <path
+        v-if="progress > 0"
         d="M 20 2 h 12 a 6 6 0 0 1 6 6 v 24 a 6 6 0 0 1 -6 6 h -24 a 6 6 0 0 1 -6 -6 v -24 a 6 6 0 0 1 6 -6 h 12 z"
         fill="none"
         stroke-width="4"
@@ -78,7 +87,7 @@ const dashArray = Math.PI * 18 * 2;
     <template v-else>
       <circle cx="20" cy="20" r="18" fill="none" stroke-width="3" stroke="currentColor" />
       <circle
-        v-if="progress > -1"
+        v-if="progress > 0"
         cx="20"
         cy="20"
         r="18"

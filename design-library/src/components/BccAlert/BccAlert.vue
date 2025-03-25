@@ -7,14 +7,17 @@ import {
   WarningFillIcon,
   NotificationsFillIcon,
 } from "@bcc-code/icons-vue";
+import { BCC_CONTEXTS } from "@/composables/contexts";
 import type { VueComponent } from "@/types";
 
 type Props = {
-  context?: keyof typeof contexts;
+  context?: keyof typeof BCC_CONTEXTS;
   icon?: boolean | VueComponent;
   title?: string;
   closeButton?: boolean;
   open?: boolean;
+  contrast?: "light" | "dark";
+  noBorder?: boolean;
 };
 
 withDefaults(defineProps<Props>(), {
@@ -22,40 +25,31 @@ withDefaults(defineProps<Props>(), {
   icon: false,
   closeButton: false,
   open: true,
+  noBorder: false,
+  contrast: "light",
 });
 
 const emit = defineEmits(["close"]);
 
-const contexts = {
-  info: {
-    class: "",
-    icon: InfoFillIcon,
-  },
-  success: {
-    class: "bcc-alert-success",
-    icon: TaskAltIcon,
-  },
-  warning: {
-    class: "bcc-alert-warning",
-    icon: WarningFillIcon,
-  },
-  danger: {
-    class: "bcc-alert-danger",
-    icon: ErrorFillIcon,
-  },
-  neutral: {
-    class: "bcc-alert-neutral",
-    icon: NotificationsFillIcon,
-  },
+const ContextIcons: Partial<Record<keyof typeof BCC_CONTEXTS, VueComponent>> = {
+  info: InfoFillIcon,
+  success: TaskAltIcon,
+  warning: WarningFillIcon,
+  danger: ErrorFillIcon,
+  neutral: NotificationsFillIcon,
 };
 </script>
 
 <template>
   <Transition name="bcc-fade">
-    <div v-if="open" class="bcc-alert" :class="contexts[context].class">
+    <div
+      v-if="open"
+      class="bcc-alert"
+      :class="[BCC_CONTEXTS[context], { border: !noBorder }, contrast]"
+    >
       <component
         v-if="icon"
-        :is="typeof icon === 'boolean' ? contexts[context].icon : icon"
+        :is="typeof icon === 'boolean' ? ContextIcons[context] || ContextIcons.info : icon"
         class="bcc-alert-icon"
       />
 

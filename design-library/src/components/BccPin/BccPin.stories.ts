@@ -1,18 +1,10 @@
-import { CheckCircleIcon } from "@bcc-code/icons-vue";
+import { BlockIcon, CheckIcon, DoneAllIcon, ExclamationIcon } from "@bcc-code/icons-vue";
 import BccPin from "./BccPin.vue";
+import { BCC_CONTEXTS } from "@/composables/contexts";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
-const ContextOptions = [
-  "neutral",
-  "danger",
-  "warning",
-  "success",
-  "info",
-  "muddy-waters",
-  "mongoose",
-  "brand",
-];
+const ContextOptions = Object.keys(BCC_CONTEXTS);
 
 /**
  * A companion to the badge component, to render just an icon or a number like "42" or a counter like "4/10". See the `BccBadge` component for a larger, differently styled version to be used with text.
@@ -49,10 +41,10 @@ export default {
 const Template: StoryFn<typeof BccPin> = (args) => ({
   components: { BccPin },
   setup() {
-    return { args, CheckCircleIcon };
+    return { args, CheckIcon };
   },
   template: `
-    <BccPin v-bind="args" :icon="CheckCircleIcon" />
+    <BccPin v-bind="args" :icon="CheckIcon" />
   `,
 });
 
@@ -69,7 +61,7 @@ Example.parameters = {
     source: {
       language: "html",
       code: `
-<BccPin context="success" :icon="CheckCircleIcon" />      
+<BccPin context="success" :icon="CheckIcon" />      
 `,
     },
   },
@@ -81,11 +73,11 @@ Example.parameters = {
 export const WithIcon: StoryFn<typeof BccPin> = () => ({
   components: { BccPin },
   setup() {
-    return { CheckCircleIcon };
+    return { CheckIcon };
   },
   template: `
     <div class="flex items-start space-x-2">
-      ${ContextOptions.map((o) => `<BccPin context="${o}" :icon="CheckCircleIcon" />`).join("\n")}
+      ${ContextOptions.map((o) => `<BccPin context="${o}" :icon="CheckIcon" />`).join("\n")}
     </div>
   `,
 });
@@ -96,17 +88,17 @@ export const WithIcon: StoryFn<typeof BccPin> = () => ({
 export const Contrast: StoryFn<typeof BccPin> = (args) => ({
   components: { BccPin },
   setup() {
-    return { CheckCircleIcon, args };
+    return { CheckIcon, args };
   },
   template: `
     <div class="flex items-start space-x-2 mb-2">
       ${ContextOptions.map(
-        (o) => `<BccPin v-bind="args" context="${o}" :icon="CheckCircleIcon" contrast="light" />`,
+        (o) => `<BccPin v-bind="args" context="${o}" :icon="CheckIcon" contrast="light" />`
       ).join("\n")}
     </div>
     <div class="flex items-start space-x-2">
       ${ContextOptions.map(
-        (o) => `<BccPin v-bind="args" context="${o}" :icon="CheckCircleIcon" contrast="dark" />`,
+        (o) => `<BccPin v-bind="args" context="${o}" :icon="CheckIcon" contrast="dark" />`
       ).join("\n")}
     </div>
   `,
@@ -127,6 +119,30 @@ export const WithText: StoryFn<typeof BccPin> = (args) => ({
       <BccPin v-bind="args" context="warning" text="10" />
       <BccPin v-bind="args" context="success" text="43" />
       <BccPin v-bind="args" context="info" text="4 / 10" />
+    </div>
+  `,
+});
+
+
+/**
+ * Different states with icons and context
+ */
+export const IconStates: StoryFn<typeof BccPin> = (args) => ({
+  components: { BccPin },
+  setup() {
+    return {
+      CheckIcon,
+      DoneAllIcon,
+      ExclamationIcon,
+      BlockIcon,
+    };
+  },
+  template: `
+    <div class="flex items-start space-x-2">
+      <BccPin context="green" bordered squared size="lg" :icon="CheckIcon" />
+      <BccPin context="purple" bordered squared size="lg" :icon="DoneAllIcon" />
+      <BccPin context="gimblet" bordered squared size="lg" :icon="ExclamationIcon" />
+      <BccPin context="red" bordered squared size="lg" :icon="BlockIcon" />
     </div>
   `,
 });

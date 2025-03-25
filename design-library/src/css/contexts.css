@@ -1,0 +1,105 @@
+/* Variants light */
+.bcc-context-neutral.light {
+  @apply border-neutral-200 bg-neutral-100 text-neutral-900;
+}
+
+.bcc-context-danger.light {
+  @apply border-red-300 bg-red-100 text-red-700;
+}
+
+.bcc-context-warning.light {
+  @apply border-yellow-400 bg-yellow-100 text-yellow-800;
+}
+
+.bcc-context-success.light {
+  @apply border-green-300 bg-green-100 text-green-800;
+}
+
+.bcc-context-info.light {
+  @apply border-blue-300 bg-blue-100 text-blue-800;
+}
+
+.bcc-context-muddy-waters.light {
+  @apply border-muddy-waters-200 bg-muddy-waters-100 text-muddy-waters-600;
+}
+
+.bcc-context-mongoose.light {
+  @apply border-mongoose-200 bg-mongoose-100 text-mongoose-700;
+}
+
+.bcc-context-brand.light {
+  @apply border-brand-200 bg-brand-100 text-brand-700;
+}
+
+.bcc-context-gimblet.light {
+  @apply border-gimblet-400 bg-gimblet-50 text-gimblet-800;
+}
+
+.bcc-context-blue.light {
+  @apply border-blue-600 bg-blue-50 text-blue-800;
+}
+
+.bcc-context-purple.light {
+  @apply border-purple-600 bg-purple-50 text-purple-800;
+}
+
+.bcc-context-red.light {
+  @apply border-red-600 bg-red-50 text-red-800;
+}
+
+.bcc-context-green.light {
+  @apply border-green-600 bg-green-50 text-green-800;
+}
+
+/* Variants dark */
+.bcc-context-neutral.dark {
+  @apply border-neutral-400 bg-neutral-500 text-neutral-50;
+}
+
+.bcc-context-danger.dark {
+  @apply border-red-500 bg-red-600 text-red-50;
+}
+
+.bcc-context-warning.dark {
+  @apply border-yellow-500 bg-yellow-600 text-yellow-50;
+}
+
+.bcc-context-success.dark {
+  @apply border-green-500 bg-green-600 text-green-50;
+}
+
+.bcc-context-info.dark {
+  @apply border-blue-400 bg-blue-500 text-blue-50;
+}
+
+.bcc-context-muddy-waters.dark {
+  @apply border-muddy-waters-300 bg-muddy-waters-400 text-muddy-waters-50;
+}
+
+.bcc-context-mongoose.dark {
+  @apply border-mongoose-300 bg-mongoose-400 text-mongoose-50;
+}
+
+.bcc-context-brand.dark {
+  @apply border-brand-300 bg-brand-400 text-brand-50;
+}
+
+.bcc-context-gimblet.dark {
+  @apply border-gimblet-300 bg-gimblet-400 text-gimblet-50;
+}
+
+.bcc-context-blue.dark {
+  @apply border-blue-300 bg-blue-400 text-blue-50;
+}
+
+.bcc-context-purple.dark {
+  @apply border-purple-300 bg-purple-400 text-purple-50;
+}
+
+.bcc-context-red.dark {
+  @apply border-red-300 bg-red-400 text-red-50;
+}
+
+.bcc-context-green.dark {
+  @apply border-green-300 bg-green-400 text-green-50;
+}

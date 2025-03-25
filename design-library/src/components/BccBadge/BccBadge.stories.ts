@@ -1,7 +1,10 @@
 import BccBadge from "./BccBadge.vue";
 import { CheckCircleIcon, DownloadingIcon } from "@bcc-code/icons-vue";
+import { BCC_CONTEXTS } from "@/composables/contexts";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
+
+const ContextOptions = Object.keys(BCC_CONTEXTS);
 
 /**
  * A badge component to be used for informational text, like "new" or "recommended". See the `BccPin` component for a differently styled version for numbers.
@@ -12,16 +15,7 @@ export default {
   argTypes: {
     context: {
       description: "Which context color to use for the styling of the badge",
-      options: [
-        "neutral",
-        "danger",
-        "warning",
-        "success",
-        "info",
-        "muddy-waters",
-        "mongoose",
-        "brand",
-      ],
+      options: ContextOptions,
       control: { type: "radio" },
     },
     size: {
@@ -119,31 +113,23 @@ export const Context: StoryFn<typeof BccBadge> = () => ({
 });
 
 /**
- * Set the `contrast` prop to control the light / dark contrast of the badge
+ * Set the `contrast` prop to render a badge with a light or dark contrast
  */
-export const Contrast: StoryFn<typeof BccBadge> = () => ({
+export const Contrast: StoryFn<typeof BccBadge> = (args) => ({
   components: { BccBadge },
+  setup() {
+    return { args };
+  },
   template: `
     <div class="flex items-start space-x-2 mb-2">
-      <BccBadge context="neutral" contrast="light">Light</BccBadge>
-      <BccBadge context="danger" contrast="light">Light</BccBadge>
-      <BccBadge context="warning" contrast="light">Light</BccBadge>
-      <BccBadge context="success" contrast="light">Light</BccBadge>
-      <BccBadge context="info" contrast="light">Light</BccBadge>
-      <BccBadge context="muddy-waters" contrast="light">Light</BccBadge>
-      <BccBadge context="mongoose" contrast="light">Light</BccBadge>
-      <BccBadge context="brand" contrast="light">Light</BccBadge>
+      ${ContextOptions.map(
+        (o) => `<BccBadge v-bind="args" context="${o}" icon contrast="light">Light</BccBadge>`
+      ).join("\n")}
     </div>
-    
     <div class="flex items-start space-x-2">
-      <BccBadge context="neutral" contrast="dark">Dark</BccBadge>
-      <BccBadge context="danger" contrast="dark">Dark</BccBadge>
-      <BccBadge context="warning" contrast="dark">Dark</BccBadge>
-      <BccBadge context="success" contrast="dark">Dark</BccBadge>
-      <BccBadge context="info" contrast="dark">Dark</BccBadge>
-      <BccBadge context="muddy-waters" contrast="dark">Dark</BccBadge>
-      <BccBadge context="mongoose" contrast="dark">Dark</BccBadge>
-      <BccBadge context="brand" contrast="dark">Dark</BccBadge>
+      ${ContextOptions.map(
+        (o) => `<BccBadge v-bind="args" context="${o}" icon contrast="dark">Dark</BccBadge>`
+      ).join("\n")}
     </div>
   `,
 });

@@ -15,6 +15,16 @@
         @apply text-xl;
     }
 
+    .bcc-capacity-indicator-colored {
+        @apply text-blue-200 bg-blue-50;
+    }    
+    .bcc-capacity-indicator-colored .bcc-capacity-indicator-text {
+        @apply text-blue-800;
+    }
+    .bcc-capacity-indicator-colored .bcc-capacity-indicator-circle-used {
+        @apply text-blue-600;
+    }
+
     .bcc-capacity-indicator-open {
         @apply text-neutral-300;
     }
@@ -37,6 +47,16 @@
 
     .bcc-capacity-indicator-full {
         @apply text-red-900;
+    }
+
+    .bcc-capacity-indicator-colored.bcc-capacity-indicator-full {
+        @apply text-red-200 bg-red-50;
+    }    
+    .bcc-capacity-indicator-colored.bcc-capacity-indicator-full .bcc-capacity-indicator-text {
+        @apply text-red-800;
+    }
+    .bcc-capacity-indicator-colored.bcc-capacity-indicator-full .bcc-capacity-indicator-circle-used {
+        @apply text-red-600;
     }
 
     [data-context="alternative"] .bcc-capacity-indicator-open {
