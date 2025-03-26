@@ -17,6 +17,7 @@
     .bcc-checkbox:checked {
         /* Generated with https://github.com/tigt/mini-svg-data-uri CLI */
         background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M6.45458 9.84532L11.755 4.56004C11.8984 4.41869 12.068 4.34802 12.2639 4.34802C12.4597 4.34802 12.6283 4.41896 12.7697 4.56084C12.911 4.70271 12.9817 4.87334 12.9817 5.07271C12.9817 5.27208 12.911 5.44445 12.7697 5.58984L6.96948 11.39C6.82446 11.5314 6.65191 11.602 6.45182 11.602C6.25174 11.602 6.08102 11.5314 5.93968 11.39L3.21373 8.66408C3.07238 8.51802 3.00171 8.34522 3.00171 8.14566C3.00171 7.94609 3.07265 7.77563 3.21453 7.63429C3.3564 7.49294 3.52702 7.42227 3.7264 7.42227C3.92577 7.42227 4.09815 7.49294 4.24353 7.63429L6.45458 9.84532Z' fill='white'/%3e %3c/svg%3e");
+        border: transparent;
     }
     .bcc-checkbox:indeterminate {
         /* Generated with https://github.com/tigt/mini-svg-data-uri CLI */
