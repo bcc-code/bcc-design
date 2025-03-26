@@ -40,6 +40,6 @@
   }
 
   .bcc-pin.squared  {
-    @apply rounded-md;
+    @apply rounded;
   }
 }

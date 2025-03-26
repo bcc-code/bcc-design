@@ -1,15 +1,15 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BccCheckbox > renders a checked or unchecked checkbox 1`] = `
-"<div class="bcc-checkbox-wrapper"><input type="checkbox" class="bcc-checkbox" id="bcc-checkbox-1">
+"<div class="bcc-checkbox-wrapper"><input type="checkbox" class="bcc-checkbox base" id="bcc-checkbox-1" value="true">
   <!--v-if-->
 </div>"
 `;
 
 exports[`BccCheckbox > renders a checked or unchecked checkbox 2`] = `
-"<div class="bcc-checkbox-wrapper"><input type="checkbox" class="bcc-checkbox" id="bcc-checkbox-1">
+"<div class="bcc-checkbox-wrapper"><input type="checkbox" class="bcc-checkbox base" id="bcc-checkbox-1" value="true">
   <!--v-if-->
 </div>"
 `;
 
-exports[`BccCheckbox > renders a label 1`] = `"<div class="bcc-checkbox-wrapper"><input type="checkbox" class="bcc-checkbox" id="bcc-checkbox-2"><label for="bcc-checkbox-2">Test label</label></div>"`;
+exports[`BccCheckbox > renders a label 1`] = `"<div class="bcc-checkbox-wrapper"><input type="checkbox" class="bcc-checkbox base" id="bcc-checkbox-2" value="true"><label for="bcc-checkbox-2">Test label</label></div>"`;

@@ -8,7 +8,12 @@ import type { Meta, StoryFn } from "@storybook/vue3";
 export default {
   title: "Forms/BccCheckbox",
   component: BccCheckbox,
-  argTypes: {},
+  argTypes: {
+    size: {
+      options: ["base", "lg", "xl"],
+      defaultValue: "base",
+    },
+  },
 } as Meta<typeof BccCheckbox>;
 
 const Template: StoryFn<typeof BccCheckbox> = (args) => ({

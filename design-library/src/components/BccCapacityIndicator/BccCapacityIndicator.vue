@@ -51,7 +51,7 @@ const dashArray = Math.PI * 18 * 2;
     class="bcc-capacity-indicator"
     :class="[
       size,
-      squared ? 'rounded-md' : 'rounded-full',
+      squared ? 'rounded' : 'rounded-full',
       { 'bcc-capacity-indicator-full': progress >= 100 },
       context === 'default'
         ? {
@@ -67,15 +67,14 @@ const dashArray = Math.PI * 18 * 2;
         height="36"
         x="2"
         y="2"
-        rx="6"
-        ry="6"
+        rx="4"
         fill="none"
         stroke="currentColor"
         stroke-width="4"
       />
       <path
         v-if="progress > 0"
-        d="M 20 2 h 12 a 6 6 0 0 1 6 6 v 24 a 6 6 0 0 1 -6 6 h -24 a 6 6 0 0 1 -6 -6 v -24 a 6 6 0 0 1 6 -6 h 12 z"
+        d="M 20 2 h 14 a 4 4 0 0 1 4 4 v 28 a 4 4 0 0 1 -4 4 h -28 a 4 4 0 0 1 -4 -4 v -28 a 4 4 0 0 1 4 -4 h 14 z"
         fill="none"
         stroke-width="4"
         :stroke-dasharray="134"

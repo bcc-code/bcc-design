@@ -1,41 +1,28 @@
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-};
-</script>
-
 <script setup lang="ts">
-import { computed, onMounted, ref, toRefs, watch, type StyleValue } from "vue";
-import { useAttrsWithoutStyles } from "@/composables/attrsWithoutStyles";
 import { useId } from "@/hooks/use-id";
+import { onMounted, ref, toRefs, watch } from "vue";
 
 type Props = {
-  modelValue: boolean;
+  value?: string | number | boolean;
   label?: string;
   disabled?: boolean;
   indeterminate?: boolean;
+  size?: "base" | "lg" | "xl";
 };
 
 const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   indeterminate: false,
+  value: true,
+  size: "base",
 });
 
-const { modelValue, indeterminate } = toRefs(props);
+const modelValue = defineModel<boolean | Array<any>>();
+
+const { indeterminate } = toRefs(props);
 
 const input = ref<HTMLInputElement | null>(null);
 const id = `bcc-checkbox-${useId()}`;
-
-const emit = defineEmits(["update:modelValue"]);
-
-const checked = computed({
-  get() {
-    return !!modelValue.value;
-  },
-  set(value: boolean) {
-    emit("update:modelValue", value);
-  },
-});
 
 onMounted(() => {
   watch(
@@ -49,30 +36,23 @@ onMounted(() => {
     { immediate: true }
   );
 });
-
-const { attrs, attrsWithoutStyles } = useAttrsWithoutStyles();
-
-const wrapperClasses = computed(() => {
-  const classes = [];
-  if (props.disabled) {
-    classes.push("bcc-checkbox-wrapper-disabled");
-  }
-  if (attrs["class"]) {
-    classes.push(attrs["class"]);
-  }
-  return classes;
-});
 </script>
 
 <template>
-  <div class="bcc-checkbox-wrapper" :class="wrapperClasses" :style="$attrs['style'] as StyleValue">
+  <div
+    class="bcc-checkbox-wrapper"
+    :class="{
+      'bcc-checkbox-wrapper-disabled': disabled,
+    }"
+  >
     <input
       type="checkbox"
       class="bcc-checkbox"
+      :class="size"
       :id="id"
       :disabled="disabled"
-      v-model="checked"
-      v-bind="attrsWithoutStyles"
+      v-model="modelValue"
+      :value="value"
       ref="input"
     />
     <label :for="id" v-if="label">{{ label }}</label>
