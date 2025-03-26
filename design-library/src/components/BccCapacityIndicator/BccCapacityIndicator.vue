@@ -77,8 +77,8 @@ const dashArray = Math.PI * 18 * 2;
         d="M 20 2 h 14 a 4 4 0 0 1 4 4 v 28 a 4 4 0 0 1 -4 4 h -28 a 4 4 0 0 1 -4 -4 v -28 a 4 4 0 0 1 4 -4 h 14 z"
         fill="none"
         stroke-width="4"
-        :stroke-dasharray="134"
-        :stroke-dashoffset="134 * ((100 - progress) / 100)"
+        :stroke-dasharray="137"
+        :stroke-dashoffset="137 * ((100 - progress) / 100)"
         stroke="currentColor"
         class="bcc-capacity-indicator-circle-used"
       />
