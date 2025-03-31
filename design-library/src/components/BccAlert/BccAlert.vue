@@ -18,7 +18,7 @@ type Props = {
   closeButton?: boolean;
   open?: boolean;
   contrast?: "light" | "dark";
-  noBorder?: boolean;
+  bordered?: boolean;
 };
 
 withDefaults(defineProps<Props>(), {
@@ -26,7 +26,7 @@ withDefaults(defineProps<Props>(), {
   icon: false,
   closeButton: false,
   open: true,
-  noBorder: false,
+  bordered: false,
   contrast: "light",
 });
 
@@ -43,11 +43,7 @@ const ContextIcons: Partial<Record<keyof typeof BCC_CONTEXTS, VueComponent>> = {
 
 <template>
   <Transition name="bcc-fade">
-    <div
-      v-if="open"
-      class="bcc-alert"
-      :class="[BCC_CONTEXTS[context], { border: !noBorder }, contrast]"
-    >
+    <div v-if="open" class="bcc-alert" :class="[BCC_CONTEXTS[context], { bordered }, contrast]">
       <component
         v-if="icon"
         :is="typeof icon === 'boolean' ? ContextIcons[context] || InfoIcon : icon"

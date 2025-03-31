@@ -3,6 +3,10 @@
         @apply text-body-sm relative px-4 py-3.5 rounded-md flex items-start gap-x-2.5 gap-y-1;
     }
 
+    .bcc-alert.bordered {
+        @apply border;
+    }
+
     /* Icon */
     .bcc-alert-icon {
         @apply h-5 w-5 shrink-0;

@@ -1,6 +1,9 @@
 /* Variants light */
 .bcc-context-neutral.light {
-  @apply border-neutral-200 bg-neutral-50 text-neutral-900;
+  @apply bg-neutral-100 text-neutral-900;
+}
+.bcc-context-neutral.light.bordered {
+  @apply border-neutral-200 bg-neutral-50;
 }
 
 .bcc-context-danger.light {
@@ -20,35 +23,59 @@
 }
 
 .bcc-context-muddy-waters.light {
-  @apply border-muddy-waters-200 bg-muddy-waters-50 text-muddy-waters-600;
+  @apply bg-muddy-waters-100 text-muddy-waters-600;
+}
+.bcc-context-muddy-waters.light.bordered {
+  @apply border-muddy-waters-200 bg-muddy-waters-50;
 }
 
 .bcc-context-mongoose.light {
-  @apply border-mongoose-200 bg-mongoose-50 text-mongoose-700;
+  @apply bg-mongoose-100 text-mongoose-700;
+}
+.bcc-context-mongoose.light.bordered {
+  @apply border-mongoose-200 bg-mongoose-50;
 }
 
 .bcc-context-brand.light {
-  @apply border-brand-300 bg-brand-50 text-brand-700;
+  @apply bg-brand-100 text-brand-700;
+}
+.bcc-context-brand.light.bordered {
+  @apply border-brand-300 bg-brand-50;
 }
 
 .bcc-context-gimblet.light {
-  @apply border-gimblet-400 bg-gimblet-50 text-gimblet-800;
+  @apply bg-gimblet-100 text-gimblet-800;
+}
+.bcc-context-gimblet.light.bordered {
+  @apply border-gimblet-400 bg-gimblet-50;
 }
 
 .bcc-context-blue.light {
-  @apply border-blue-600 bg-blue-50 text-blue-800;
+  @apply bg-blue-100 text-blue-800;
+}
+.bcc-context-blue.light.bordered {
+  @apply border-blue-500 bg-blue-50;
 }
 
 .bcc-context-purple.light {
-  @apply border-purple-600 bg-purple-50 text-purple-800;
+  @apply bg-purple-100 text-purple-800;
+}
+.bcc-context-purple.light.bordered {
+  @apply border-purple-400 bg-purple-50;
 }
 
 .bcc-context-red.light {
-  @apply border-red-600 bg-red-50 text-red-800;
+  @apply bg-red-100 text-red-800;
+}
+.bcc-context-red.light.bordered {
+  @apply border-red-400 bg-red-50;
 }
 
 .bcc-context-green.light {
-  @apply border-green-600 bg-green-50 text-green-800;
+  @apply bg-green-100 text-green-800;
+}
+.bcc-context-green.light.bordered {
+  @apply border-green-600 bg-green-50;
 }
 
 /* Variants dark */
