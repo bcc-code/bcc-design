@@ -12,7 +12,7 @@ type Props = {
   noSwipe?: boolean;
 };
 
-const activeTab = defineModel<number>({ required: true, default: 0 });
+const activeTab = defineModel<number>({ default: 0 });
 
 const props = withDefaults(defineProps<Props>(), {
   size: "base",
