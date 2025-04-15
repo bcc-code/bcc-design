@@ -12,6 +12,11 @@ type Props = {
   noSwipe?: boolean;
 };
 
+const props = withDefaults(defineProps<Props>(), {
+  size: "base",
+  fill: false,
+});
+
 const activeTab = defineModel<number>({ default: 0 });
 watch(
   () => props.tabs.length,
@@ -27,11 +32,6 @@ watch(
     });
   }
 );
-
-const props = withDefaults(defineProps<Props>(), {
-  size: "base",
-  fill: false,
-});
 
 const tabsRef = useTemplateRef<HTMLDivElement>("tabsRef");
 useSwipe(tabsRef, {
