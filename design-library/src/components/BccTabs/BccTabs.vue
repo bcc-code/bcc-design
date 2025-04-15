@@ -2,16 +2,45 @@
 import { BccBadge, BccPin } from "@/index";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/vue";
 import type { BccTabsGroup } from "./types";
+import { useTemplateRef } from "vue";
+import { useSwipe, UseSwipeDirection } from "@vueuse/core";
 
 type Props = {
   tabs: BccTabsGroup;
   size?: keyof typeof sizes;
   fill?: boolean;
+  noSwipe?: boolean;
 };
 
-withDefaults(defineProps<Props>(), {
+const activeTab = defineModel<number>({ required: true, default: 0 });
+
+const props = withDefaults(defineProps<Props>(), {
   size: "base",
   fill: false,
+});
+
+const tabsRef = useTemplateRef<HTMLDivElement>("tabsRef");
+useSwipe(tabsRef, {
+  onSwipeEnd: (e: TouchEvent, direction: UseSwipeDirection) => {
+    if (props.noSwipe) return;
+    let nextTab = null;
+    if (direction === "left") {
+      for (let i = activeTab.value + 1; i < props.tabs.length; i++) {
+        if (!props.tabs[i].disabled) {
+          nextTab = i;
+          break;
+        }
+      }
+    } else if (direction === "right") {
+      for (let i = activeTab.value - 1; i >= 0; i--) {
+        if (!props.tabs[i].disabled) {
+          nextTab = i;
+          break;
+        }
+      }
+    }
+    if (nextTab !== null) activeTab.value = nextTab;
+  },
 });
 
 const sizes = {
@@ -19,10 +48,20 @@ const sizes = {
   base: "text-label",
   lg: "bcc-tabs-lg text-label-lg",
 };
+
+function changeTab(index: number) {
+  activeTab.value = index;
+}
 </script>
 
 <template>
-  <TabGroup as="div" class="bcc-tabs" :class="{ 'bcc-tabs-fill': fill }">
+  <TabGroup
+    as="div"
+    class="bcc-tabs"
+    :class="{ 'bcc-tabs-fill': fill }"
+    :selected-index="activeTab"
+    @change="changeTab"
+  >
     <TabList as="div" class="bcc-tabs-bar" :class="`bcc-tabs-bar--${tabs.length}`">
       <Tab
         v-for="(tab, index) in tabs"
@@ -52,7 +91,7 @@ const sizes = {
         </div>
       </Tab>
     </TabList>
-    <TabPanels class="bcc-tabs-panels">
+    <TabPanels class="bcc-tabs-panels" ref="tabsRef">
       <TabPanel v-for="(tab, index) in tabs" :key="`tab-${index + 1}`" class="bcc-tabs-panel">
         <slot :name="`tab-${index + 1}`" :tab="tab">
           <component v-if="tab.as" :is="tab.as" />

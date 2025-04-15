@@ -54,6 +54,14 @@ Example.args = {
       }),
     },
     {
+      title: "Disabled",
+      disabled: true,
+      badge: {
+        text: "new",
+        context: "info",
+      },
+    },
+    {
       title: "Using Component",
       icon: GroupsFillIcon,
       as: h({
@@ -69,14 +77,6 @@ Example.args = {
           </div>
         `,
       }),
-    },
-    {
-      title: "Disabled",
-      disabled: true,
-      badge: {
-        text: "new",
-        context: "info",
-      },
     },
   ],
   size: "base",

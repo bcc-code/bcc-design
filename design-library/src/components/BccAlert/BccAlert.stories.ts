@@ -14,6 +14,9 @@ export default {
       options: ["info", "success", "warning", "danger", "neutral"],
       control: { type: "radio" },
     },
+    bordered: {
+      control: { type: "boolean" },
+    },
   },
 } as Meta<typeof BccAlert>;
 
