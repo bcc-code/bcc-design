@@ -2,7 +2,7 @@
 import { BccBadge, BccPin } from "@/index";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/vue";
 import type { BccTabsGroup } from "./types";
-import { useTemplateRef } from "vue";
+import { nextTick, useTemplateRef, watch } from "vue";
 import { useSwipe } from "@vueuse/core";
 
 type Props = {
@@ -13,6 +13,20 @@ type Props = {
 };
 
 const activeTab = defineModel<number>({ default: 0 });
+watch(
+  () => props.tabs.length,
+  (after, before) => {
+    let tab = activeTab.value;
+    if (after > before) tab = tab + (after - before);
+    if (before > after) tab = tab - (before - after);
+
+    if (tab < 0 || tab >= after) tab = 0;
+
+    nextTick(() => {
+      activeTab.value = tab;
+    });
+  }
+);
 
 const props = withDefaults(defineProps<Props>(), {
   size: "base",
