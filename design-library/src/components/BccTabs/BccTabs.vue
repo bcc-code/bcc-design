@@ -3,7 +3,7 @@ import { BccBadge, BccPin } from "@/index";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/vue";
 import type { BccTabsGroup } from "./types";
 import { useTemplateRef } from "vue";
-import { useSwipe, UseSwipeDirection } from "@vueuse/core";
+import { useSwipe } from "@vueuse/core";
 
 type Props = {
   tabs: BccTabsGroup;
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const tabsRef = useTemplateRef<HTMLDivElement>("tabsRef");
 useSwipe(tabsRef, {
-  onSwipeEnd: (e: TouchEvent, direction: UseSwipeDirection) => {
+  onSwipeEnd: (_, direction) => {
     if (props.noSwipe) return;
     let nextTab = null;
     if (direction === "left") {
