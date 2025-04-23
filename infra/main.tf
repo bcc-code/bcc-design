@@ -31,7 +31,6 @@ resource "azurerm_static_site_custom_domain" "main" {
 
   timeouts {
     create = "20m"
-    update = "15m"
     delete = "30m"
     read   = "5m"
   }
