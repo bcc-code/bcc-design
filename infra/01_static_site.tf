@@ -1,15 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
-locals {
-  props = merge(jsondecode(var.props), jsondecode(var.deployment_props))
-}
-
-data "azurerm_resource_group" "main" {
-  name = local.props.azure.resource_group
-}
-
 resource "azurerm_static_site" "main" {
   name                = "swa-${local.props.project_name}-${local.props.component_name}-${local.props.app_environment}"
   location            = data.azurerm_resource_group.main.location

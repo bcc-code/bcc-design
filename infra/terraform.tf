@@ -8,3 +8,15 @@ terraform {
     }
   }
 }
+
+provider "azurerm" {
+  features {}
+}
+
+locals {
+  props = merge(jsondecode(var.props), jsondecode(var.deployment_props))
+}
+
+data "azurerm_resource_group" "main" {
+  name = local.props.azure.resource_group
+}
