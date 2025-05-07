@@ -33,8 +33,8 @@ watch(
   }
 );
 
-const tabsRef = useTemplateRef<HTMLDivElement>("tabsRef");
-useSwipe(tabsRef, {
+const tabsRef = useTemplateRef("tabsRef");
+useSwipe(() => tabsRef.value?.$el, {
   onSwipeEnd: (_, direction) => {
     if (props.noSwipe) return;
     let nextTab = null;
