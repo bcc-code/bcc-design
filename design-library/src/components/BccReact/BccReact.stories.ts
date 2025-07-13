@@ -80,7 +80,7 @@ SevenOrFewerEmojis.args = {
   ],
 };
 
-Example.parameters = {
+SevenOrFewerEmojis.parameters = {
   height: "h-20",
   docs: {
     source: {
