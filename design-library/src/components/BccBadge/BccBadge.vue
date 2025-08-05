@@ -29,6 +29,6 @@ withDefaults(
       class="bcc-badge-icon"
       :class="[iconRight ? 'order-3' : 'order-1']"
     />
-    <span class="order-2"><slot></slot></span>
+    <span class="order-2 empty:hidden"><slot></slot></span>
   </div>
 </template>

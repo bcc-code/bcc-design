@@ -2,6 +2,6 @@
 
 exports[`BccBadge > renders a text from the default slot 1`] = `
 "<div class="bcc-badge bcc-context-neutral light xs">
-  <!--v-if--><span class="order-2">Test Badge</span>
+  <!--v-if--><span class="order-2 empty:hidden">Test Badge</span>
 </div>"
 `;
