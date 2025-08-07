@@ -96,40 +96,18 @@ export const Size: StoryFn<typeof BccBadge> = (args) => ({
 /**
  * Set the `context` prop to control the color of the badge
  */
-export const Context: StoryFn<typeof BccBadge> = () => ({
+export const ContextAndContrast: StoryFn<typeof BccBadge> = () => ({
   components: { BccBadge },
   template: `
-    <div class="flex items-start space-x-2">
-      <BccBadge context="neutral">neutral</BccBadge>
-      <BccBadge context="danger">danger</BccBadge>
-      <BccBadge context="warning">warning</BccBadge>
-      <BccBadge context="success">success</BccBadge>
-      <BccBadge context="info">info</BccBadge>
-      <BccBadge context="muddy-waters">muddy-waters</BccBadge>
-      <BccBadge context="mongoose">mongoose</BccBadge>
-      <BccBadge context="brand">brand</BccBadge>
+    Light
+    <div class="flex items-start space-x-2 mb-4">
+      ${ContextOptions.map((o) => `<BccBadge context="${o}">${o}</BccBadge>`).join("\n")}
     </div>
-  `,
-});
-
-/**
- * Set the `contrast` prop to render a badge with a light or dark contrast
- */
-export const Contrast: StoryFn<typeof BccBadge> = (args) => ({
-  components: { BccBadge },
-  setup() {
-    return { args };
-  },
-  template: ` 
-    <div class="flex items-start space-x-2 mb-2">
-      ${ContextOptions.map(
-        (o) => `<BccBadge v-bind="args" context="${o}" icon contrast="light">Light</BccBadge>`
-      ).join("\n")}
-    </div>
+    Dark
     <div class="flex items-start space-x-2">
-      ${ContextOptions.map(
-        (o) => `<BccBadge v-bind="args" context="${o}" icon contrast="dark">Dark</BccBadge>`
-      ).join("\n")}
+      ${ContextOptions.map((o) => `<BccBadge context="${o}" contrast="dark">${o}</BccBadge>`).join(
+        "\n"
+      )}
     </div>
   `,
 });

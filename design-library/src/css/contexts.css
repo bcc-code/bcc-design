@@ -22,6 +22,13 @@
   @apply border-info bg-info text-info;
 }
 
+.bcc-context-viola.light {
+  @apply bg-viola-100 text-viola-800;
+}
+.bcc-context-viola.light.bordered {
+  @apply border-viola-200 bg-viola-50;
+}
+
 .bcc-context-muddy-waters.light {
   @apply bg-muddy-waters-100 text-muddy-waters-600;
 }
@@ -36,11 +43,18 @@
   @apply border-mongoose-200 bg-mongoose-50;
 }
 
-.bcc-context-brand.light {
-  @apply bg-brand-100 text-brand-700;
+.bcc-context-cold-purple.light {
+  @apply bg-cold-purple-100 text-cold-purple-800;
 }
-.bcc-context-brand.light.bordered {
-  @apply border-brand-300 bg-brand-50;
+.bcc-context-cold-purple.light.bordered {
+  @apply border-cold-purple-200 bg-cold-purple-50;
+}
+
+.bcc-context-neptune.light {
+  @apply bg-neptune-100 text-neptune-800;
+}
+.bcc-context-neptune.light.bordered {
+  @apply border-neptune-200 bg-neptune-50;
 }
 
 .bcc-context-gimblet.light {
@@ -48,6 +62,13 @@
 }
 .bcc-context-gimblet.light.bordered {
   @apply border-gimblet-400 bg-gimblet-50;
+}
+
+.bcc-context-brand.light {
+  @apply bg-brand-100 text-brand-700;
+}
+.bcc-context-brand.light.bordered {
+  @apply border-brand-300 bg-brand-50;
 }
 
 .bcc-context-blue.light {
@@ -78,6 +99,13 @@
   @apply border-green-600 bg-green-50;
 }
 
+.bcc-context-yellow.light {
+  @apply bg-yellow-100 text-yellow-800;
+}
+.bcc-context-yellow.light.bordered {
+  @apply border-yellow-400 bg-yellow-50;
+}
+
 /* Variants dark */
 .bcc-context-neutral.dark {
   @apply border-neutral-400 bg-neutral-500 text-neutral-50;
@@ -99,6 +127,10 @@
   @apply border-blue-400 bg-blue-500 text-blue-50;
 }
 
+.bcc-context-viola.dark {
+  @apply border-viola-500 bg-viola-600 text-viola-50;
+}
+
 .bcc-context-muddy-waters.dark {
   @apply border-muddy-waters-300 bg-muddy-waters-400 text-muddy-waters-50;
 }
@@ -107,12 +139,20 @@
   @apply border-mongoose-300 bg-mongoose-400 text-mongoose-50;
 }
 
-.bcc-context-brand.dark {
-  @apply border-brand-500 bg-brand-500 text-white;
+.bcc-context-cold-purple.dark {
+  @apply border-cold-purple-300 bg-cold-purple-500 text-cold-purple-50;
+}
+
+.bcc-context-neptune.dark {
+  @apply border-neptune-300 bg-neptune-500 text-neptune-50;
 }
 
 .bcc-context-gimblet.dark {
   @apply border-gimblet-300 bg-gimblet-400 text-gimblet-50;
+}
+
+.bcc-context-brand.dark {
+  @apply border-brand-500 bg-brand-500 text-white;
 }
 
 .bcc-context-blue.dark {
@@ -129,4 +169,8 @@
 
 .bcc-context-green.dark {
   @apply border-green-300 bg-green-500 text-green-50;
+}
+
+.bcc-context-yellow.dark {
+  @apply border-yellow-300 bg-yellow-500 text-yellow-50;
 }

@@ -18,6 +18,18 @@
     @apply border;
   }
 
+  /* Icon */
+  .bcc-badge-icon {
+    @apply h-3 w-3;
+  }
+  .bcc-badge.sm .bcc-badge-icon {
+    @apply h-4 w-4;
+  }
+  .bcc-badge.md .bcc-badge-icon {
+    @apply h-4 w-4;
+  }
+
+  /* DEPRECATED */
   /* Variants light */
   .bcc-badge-neutral.light {
     @apply bg-neutral-100 text-neutral-900 border-neutral-200;
@@ -44,6 +56,7 @@
     @apply bg-brand-100 text-brand-700 border-brand-200;
   }
 
+  /* DEPRECATED */
   /* Variants dark */
   .bcc-badge-neutral.dark {
     @apply bg-neutral-500 text-neutral-50 border-neutral-400;
@@ -68,16 +81,5 @@
   }
   .bcc-badge-brand.dark {
     @apply bg-brand-400 text-brand-50 border-brand-300;
-  }
-
-  /* Icon */
-  .bcc-badge-icon {
-    @apply h-3 w-3;
-  }
-  .bcc-badge.sm .bcc-badge-icon {
-    @apply h-4 w-4;
-  }
-  .bcc-badge.md .bcc-badge-icon {
-    @apply h-4 w-4;
   }
 }
