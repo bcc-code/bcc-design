@@ -31,7 +31,8 @@ withDefaults(
     <span class="order-2 empty:hidden"><slot></slot></span>
     <component
       v-if="(iconRight && typeof iconRight !== 'boolean') || (icon && iconRight === true)"
-      :is="typeof iconRight !== 'boolean' ? iconRight : icon"
+      v-if="rightIconComponent"
+      :is="rightIconComponent"
       class="bcc-badge-icon order-3"
     />
   </div>
