@@ -5,7 +5,7 @@ import type { VueComponent } from "@/types";
 withDefaults(
   defineProps<{
     icon?: VueComponent;
-    iconRight?: boolean;
+    iconRight?: boolean | VueComponent;
     size?: "xs" | "sm" | "md";
     contrast?: "light" | "dark";
     bordered?: boolean;
@@ -24,11 +24,15 @@ withDefaults(
 <template>
   <div class="bcc-badge" :class="[BCC_CONTEXTS[context], contrast, size, { bordered }]">
     <component
-      v-if="icon"
+      v-if="icon && iconRight === false"
       :is="icon"
-      class="bcc-badge-icon"
-      :class="[iconRight ? 'order-3' : 'order-1']"
+      class="bcc-badge-icon order-1"
     />
     <span class="order-2 empty:hidden"><slot></slot></span>
+    <component
+      v-if="(iconRight && typeof iconRight !== 'boolean') || (icon && iconRight === true)"
+      :is="typeof iconRight !== 'boolean' ? iconRight : icon"
+      class="bcc-badge-icon order-3"
+    />
   </div>
 </template>
