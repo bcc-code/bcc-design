@@ -134,6 +134,39 @@ export const WithIcon: StoryFn<typeof BccBadge> = () => ({
       <BccBadge context="success" size="sm" icon-right :icon="CheckCircleIcon">
         sm, icon right
       </BccBadge>
+      <BccBadge context="warning" size="sm" :icon-right="CheckCircleIcon">
+        sm, icon right
+      </BccBadge>
+    </div>
+  `,
+});
+
+/**
+ * Show icons on both left and right by passing both `icon` and a non-boolean `iconRight` prop
+ */
+export const With2Icons: StoryFn<typeof BccBadge> = () => ({
+  components: { BccBadge },
+  setup() {
+    return { CheckCircleIcon, DownloadingIcon };
+  },
+  template: `
+    <div class="flex items-start space-x-2">
+      <BccBadge
+        context="info"
+        size="md"
+        :icon="CheckCircleIcon"
+        :icon-right="DownloadingIcon"
+      >
+        Both sides
+      </BccBadge>
+      <BccBadge
+        context="warning"
+        size="sm"
+        :icon="DownloadingIcon"
+        :icon-right="CheckCircleIcon"
+      >
+        Both sides
+      </BccBadge>
     </div>
   `,
 });

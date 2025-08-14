@@ -19,7 +19,8 @@ exports[`BccTabs > renders three tabs 1`] = `
       <!--v-if--> Disabled badge
       <!--v-if-->
       <div class="bcc-badge bcc-context-info light xs bcc-tabs-item-right" text="new">
-        <!--v-if--><span class="order-2 empty:hidden">new</span>
+        <!--v-if--><span class="empty:hidden">new</span>
+        <!--v-if-->
       </div>
     </div>
   </div>

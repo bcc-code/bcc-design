@@ -21,23 +21,21 @@ const props = withDefaults(
   }
 );
 
-const shouldShowRightIcon = computed(() => {
-  return (props.iconRight && typeof props.iconRight !== 'boolean') || (props.icon && props.iconRight === true)
-})
+const icons = computed(() => {
+  const iconOnRight = props.iconRight && typeof props.iconRight === "boolean";
+  const hasLeftIcon = props.icon && !iconOnRight;
+
+  return {
+    left: hasLeftIcon ? props.icon : null,
+    right: iconOnRight ? props.icon : props.iconRight,
+  };
+});
 </script>
 
 <template>
   <div class="bcc-badge" :class="[BCC_CONTEXTS[context], contrast, size, { bordered }]">
-    <component
-      v-if="icon && iconRight !== true"
-      :is="icon"
-      class="bcc-badge-icon order-1"
-    />
-    <span class="order-2 empty:hidden"><slot></slot></span>
-    <component
-      v-if="shouldShowRightIcon"
-      :is="typeof iconRight !== 'boolean' ? iconRight : icon"
-      class="bcc-badge-icon order-3"
-    />
+    <component v-if="icons.left" :is="icons.left" class="bcc-badge-icon" />
+    <span class="empty:hidden"><slot></slot></span>
+    <component v-if="icons.right" :is="icons.right" class="bcc-badge-icon" />
   </div>
 </template>
