@@ -24,7 +24,7 @@ withDefaults(
 <template>
   <div class="bcc-badge" :class="[BCC_CONTEXTS[context], contrast, size, { bordered }]">
     <component
-      v-if="icon && iconRight === false"
+      v-if="icon && !iconRight"
       :is="icon"
       class="bcc-badge-icon order-1"
     />
