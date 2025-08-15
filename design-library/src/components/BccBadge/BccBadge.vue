@@ -11,6 +11,8 @@ const props = withDefaults(
     contrast?: "light" | "dark";
     bordered?: boolean;
     context?: keyof typeof BCC_CONTEXTS;
+    iconColor?: string;
+    iconRightColor?: string;
   }>(),
   {
     iconRight: false,
@@ -34,8 +36,8 @@ const icons = computed(() => {
 
 <template>
   <div class="bcc-badge" :class="[BCC_CONTEXTS[context], contrast, size, { bordered }]">
-    <component v-if="icons.left" :is="icons.left" class="bcc-badge-icon" />
+    <component v-if="icons.left" :is="icons.left" class="bcc-badge-icon" :class="{ iconColor }" />
     <span class="empty:hidden"><slot></slot></span>
-    <component v-if="icons.right" :is="icons.right" class="bcc-badge-icon" />
+    <component v-if="icons.right" :is="icons.right" class="bcc-badge-icon" :class="{ iconRightColor }" />
   </div>
 </template>
