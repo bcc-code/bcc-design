@@ -66,14 +66,12 @@ watch(show, async (newVal) => {
   if (newVal) {
     visibleEmojis.value = unselectedEmojis.value.slice(0, MAX_VISIBLE_EMOJIS);
     hiddenEmojis.value = unselectedEmojis.value.slice(MAX_VISIBLE_EMOJIS);
-    await nextTick();
-    checkOpenDirection();
+    await nextTick(checkOpenDirection);
   }
 });
 
 watch(showMore, async (newVal) => {
-  await nextTick();
-  checkOpenDirection();
+  await nextTick(checkOpenDirection);
   if (!selector.value) return;
 
   const el = selector.value;
