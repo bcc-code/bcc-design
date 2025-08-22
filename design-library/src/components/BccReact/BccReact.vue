@@ -5,7 +5,7 @@ import {
   KeyboardArrowDownIcon,
   KeyboardArrowLeftIcon,
 } from "@bcc-code/icons-vue";
-import { computed, ref, watch } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import BccReactEmoji from "./BccReactEmoji.vue";
 import type { BccReactInfo } from "./types";
 
@@ -24,11 +24,14 @@ const emit = defineEmits<{
 }>();
 
 const MAX_VISIBLE_EMOJIS = 7;
+const SELECTOR_HEIGHT = 36;
 
 const show = ref(false);
 const showMore = ref(false);
 const clickedId = ref<string | null>(null);
 const selector = ref<HTMLElement | null>(null);
+const toggleButton = ref<HTMLElement | null>(null);
+const shouldOpenUpwards = ref(false);
 
 const activeEmojis = computed(() => {
   const active = props.emojis.filter((emoji) => emoji.count && emoji.count > 0);
@@ -52,11 +55,63 @@ function selectEmoji(emoji: BccReactInfo) {
   }, 250);
 }
 
-watch(show, (newVal) => {
+function checkOpenDirection() {
+  if (!selector.value) return;
+  const rect = selector.value.getBoundingClientRect();
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  shouldOpenUpwards.value = rect.bottom + 200 > viewportHeight;
+}
+
+watch(show, async (newVal) => {
   if (newVal) {
     visibleEmojis.value = unselectedEmojis.value.slice(0, MAX_VISIBLE_EMOJIS);
     hiddenEmojis.value = unselectedEmojis.value.slice(MAX_VISIBLE_EMOJIS);
+    await nextTick(checkOpenDirection);
   }
+});
+
+watch(showMore, async (newVal) => {
+  await nextTick(checkOpenDirection);
+  if (!selector.value) return;
+
+  const el = selector.value;
+  el.style.transition = "height 0.3s ease, transform 0.3s ease";
+
+  if (newVal) {
+    el.style.height = `${SELECTOR_HEIGHT}px`;
+    el.style.transform = "translateY(0)";
+    void el.offsetHeight;
+    el.style.height = el.scrollHeight + "px";
+    if (shouldOpenUpwards.value) {
+      el.style.transform = `translateY(-${el.scrollHeight - SELECTOR_HEIGHT}px)`;
+    }
+  } else {
+    void el.offsetHeight;
+    el.style.height = el.scrollHeight + "px";
+    el.style.height = `${SELECTOR_HEIGHT}px`;
+    if (shouldOpenUpwards.value) {
+      el.style.transform = `translateY(0)`;
+    }
+  }
+});
+
+onMounted(() => {
+  function onClickOutside(event: MouseEvent) {
+    const target = event.target as Node;
+
+    if (!show.value || selector.value?.contains(target) || toggleButton.value?.contains(target)) {
+      return;
+    }
+
+    show.value = false;
+  }
+
+  document.addEventListener("click", onClickOutside, true);
+
+  onUnmounted(() => {
+    document.removeEventListener("click", onClickOutside, true);
+  });
 });
 </script>
 
@@ -65,6 +120,7 @@ watch(show, (newVal) => {
     <TransitionGroup name="bcc-fade">
       <button
         key="toggle"
+        ref="toggleButton"
         @click="show = !show"
         v-if="show || emojis.some((e) => !e.selected)"
         class="bcc-react-toggle"
@@ -95,17 +151,7 @@ watch(show, (newVal) => {
         class="bcc-react-selector-container"
         :class="{ 'bcc-react-selector-container--top': props.top }"
       >
-        <div
-          ref="selector"
-          class="bcc-react-selector"
-          :class="
-            showMore
-              ? `bcc-react-selector--expanded bcc-react-selector-rows--${Math.ceil(
-                  hiddenEmojis.length / 8
-                )}`
-              : ''
-          "
-        >
+        <div ref="selector" class="bcc-react-selector">
           <div class="bcc-react-selector-emojis-container">
             <template v-for="emoji in visibleEmojis" :key="emoji.id">
               <button
