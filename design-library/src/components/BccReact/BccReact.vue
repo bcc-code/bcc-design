@@ -5,7 +5,7 @@ import {
   KeyboardArrowDownIcon,
   KeyboardArrowLeftIcon,
 } from "@bcc-code/icons-vue";
-import { computed, nextTick, ref, watch } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import BccReactEmoji from "./BccReactEmoji.vue";
 import type { BccReactInfo } from "./types";
 
@@ -30,6 +30,7 @@ const show = ref(false);
 const showMore = ref(false);
 const clickedId = ref<string | null>(null);
 const selector = ref<HTMLElement | null>(null);
+const toggleButton = ref<HTMLElement | null>(null);
 const shouldOpenUpwards = ref(false);
 
 const activeEmojis = computed(() => {
@@ -94,6 +95,24 @@ watch(showMore, async (newVal) => {
     }
   }
 });
+
+onMounted(() => {
+  function onClickOutside(event: MouseEvent) {
+    const target = event.target as Node;
+
+    if (!show.value || selector.value?.contains(target) || toggleButton.value?.contains(target)) {
+      return;
+    }
+
+    show.value = false;
+  }
+
+  document.addEventListener("click", onClickOutside, true);
+
+  onUnmounted(() => {
+    document.removeEventListener("click", onClickOutside, true);
+  });
+});
 </script>
 
 <template>
@@ -101,6 +120,7 @@ watch(showMore, async (newVal) => {
     <TransitionGroup name="bcc-fade">
       <button
         key="toggle"
+        ref="toggleButton"
         @click="show = !show"
         v-if="show || emojis.some((e) => !e.selected)"
         class="bcc-react-toggle"
