@@ -126,7 +126,7 @@ export const WithText: StoryFn<typeof BccPin> = (args) => ({
 /**
  * Different states with icons and context
  */
-export const IconStates: StoryFn<typeof BccPin> = (args) => ({
+export const IconStates: StoryFn<typeof BccPin> = () => ({
   components: { BccPin },
   setup() {
     return {
