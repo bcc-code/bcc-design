@@ -57,6 +57,7 @@ const ContextIcons: Partial<Record<keyof typeof BCC_CONTEXTS, VueComponent>> = {
       <button
         @click.prevent="emit('close')"
         v-if="closeButton"
+        tabindex="-1"
         aria-label="Close alert"
         class="bcc-alert-close-button"
       >

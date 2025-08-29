@@ -13,20 +13,12 @@
     }
 
     /* Close button */
-    .bcc-alert-close-button {
-        @apply absolute right-4 top-4;
-    }
     .bcc-alert-close-icon {
-        @apply h-4 w-4;
+        @apply size-4;
     }
 
     /* Title */
     .bcc-alert-title {
         @apply text-heading-sm;
-    }
-
-    /* Content */
-    .bcc-alert-content {
-        @apply pr-4;
     }
 }
