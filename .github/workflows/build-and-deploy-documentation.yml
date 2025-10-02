@@ -26,8 +26,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build documentation site
-        uses: bcc-code/bcc-documentation-base@v5
+        uses: bcc-code/bcc-developer-docs-deploy@v1
         with:
           title: BCC Design System
           description: Technical documentation and guides to facilitate the correct use of design assets of BCC
-          authentication: 'portal'
+          authentication: "portal"
+          pat: ${{ secrets.DEVELOPER_DOCS_DEPLOY_PAT }}
