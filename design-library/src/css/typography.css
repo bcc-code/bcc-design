@@ -42,10 +42,12 @@
 		font-size: 1.125rem;
 	}
 	.text-heading-sm {
-		font-size: 1rem;
+		font-size: 16px;
+        line-height: 20px;
 	}
 	.text-heading-xs {
-		font-size: 0.875rem;
+		font-size: 14px;
+        line-height: 16px;
     }
 
 
@@ -60,10 +62,12 @@
 		font-size: 1.125rem;
 	}
 	.text-body {
-		font-size: 1rem;
+		font-size: 16px;
+        line-height: 20px;
 	}
 	.text-body-sm {
-		font-size: 0.875rem;
+		font-size: 14px;
+        line-height: 16px;
 	}
 
     /**
@@ -87,11 +91,13 @@
 
     .text-caption-lg,
 	.text-label-lg {
-		font-size: 1rem;
+		font-size: 16px;
+        line-height: 20px;
 	}
     .text-caption,
 	.text-label {
-		font-size: 0.875rem;
+		font-size: 14px;
+        line-height: 16px;
 	}
     .text-caption-sm,
 	.text-label-sm {
