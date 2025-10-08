@@ -9,7 +9,8 @@ type Props = {
   wasToggled?: boolean;
   disabled?: boolean;
   loading?: boolean;
-  withIcon?: boolean | VueComponent;
+  withIcon?: boolean;
+  icon?: VueComponent;
   label?: string;
 };
 
@@ -21,7 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
   label: "",
 });
 
-const { modelValue, wasToggled, disabled, loading } = toRefs(props);
+const { modelValue } = toRefs(props);
 
 const emit = defineEmits(["update:modelValue"]);
 
@@ -45,11 +46,15 @@ const toggled = computed({
     />
     <span class="bcc-toggle-circle" aria-hidden="true">
       <CircleLoader class="size-3" v-if="loading" />
-      <template v-else-if="withIcon === true">
-        <CheckIcon class="hidden size-3 [.bcc-toggle-input:checked~.bcc-toggle-circle>&]:block" />
-        <CloseIcon class="size-3 [.bcc-toggle-input:checked~.bcc-toggle-circle>&]:hidden" />
+      <component v-else-if="icon" :is="icon" class="bcc-toggle-icon size-3" />
+      <template v-else-if="withIcon">
+        <CheckIcon
+          class="bcc-toggle-icon hidden size-3 [.bcc-toggle-input:checked~.bcc-toggle-circle>&]:block"
+        />
+        <CloseIcon
+          class="bcc-toggle-icon size-3 [.bcc-toggle-input:checked~.bcc-toggle-circle>&]:hidden"
+        />
       </template>
-      <component v-else-if="withIcon" :is="withIcon" class="bcc-toggle-icon size-3" />
     </span>
     <span v-if="label" class="bcc-toggle-label">{{ label }}</span>
   </label>
