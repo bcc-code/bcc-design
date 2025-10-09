@@ -1,3 +1,7 @@
+---
+sectionTitle: Design
+---
+
 # Introduction
 
 Here you will find everything you need to get started with the BCC Design System in your product.
