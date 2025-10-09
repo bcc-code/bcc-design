@@ -1,4 +1,5 @@
 import BccToggle from "./BccToggle.vue";
+import { NotificationsFillIcon, NotificationsOffFillIcon } from "@bcc-code/icons-vue";
 
 import type { Meta, StoryFn } from "@storybook/vue3";
 
@@ -98,6 +99,27 @@ export const Loading: StoryFn<typeof BccToggle> = () => ({
       <BccToggle :modelValue="false" loading disabled />
       <BccToggle :modelValue="false" was-toggled loading disabled />
       <BccToggle :modelValue="false" loading disabled was-toggled :label="'Test label'" />
+    </div>
+  `,
+});
+
+export const WithIcon: StoryFn<typeof BccToggle> = () => ({
+  components: { BccToggle, NotificationsFillIcon, NotificationsOffFillIcon },
+  setup() {
+    return { NotificationsFillIcon, NotificationsOffFillIcon };
+  },
+  data() {
+    return {
+      value1: true,
+      value2: false,
+    };
+  },
+  template: `
+    <div class="flex items-center space-x-2">
+      <NotificationsFillIcon class="w-6 h-6" />
+      <NotificationsOffFillIcon class="w-6 h-6" />
+      <BccToggle v-model="value1" :icon="value1 ? NotificationsFillIcon : NotificationsOffFillIcon" />
+      <BccToggle v-model="value2" :icon="value2 ? NotificationsFillIcon : NotificationsOffFillIcon" />
     </div>
   `,
 });
