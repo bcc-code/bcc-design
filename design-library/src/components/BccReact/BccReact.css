@@ -22,7 +22,7 @@
   }
 
   .bcc-react-selector {
-    @apply flex h-9 flex-col overflow-hidden bg-neutral-100 px-0 drop-shadow-md;
+    @apply flex h-9 flex-col overflow-hidden bg-neutral-100 px-0 shadow-md;
     border-radius: 18px;
   }
 
@@ -58,8 +58,7 @@
   }
 
   .bcc-react-selector-item {
-    @apply p-2 text-xl leading-none transition-transform duration-200 ease-out;
-    position: relative;
+    @apply p-2 text-xl leading-none transition-transform duration-200 ease-out h-9 w-9 relative;
   }
 
   .bcc-react-selector-item--clicked {
