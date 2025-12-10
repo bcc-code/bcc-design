@@ -1,27 +1,36 @@
 <script setup lang="ts">
-import { OpenInNewIcon, CheckCircleFillIcon } from "@bcc-code/icons-vue";
-import BccGraphicPoster, { ratioClasses, roundingClasses } from "./BccGraphicPoster.vue";
 import type { VueComponent } from "@/types";
+import { CheckCircleFillIcon, OpenInNewIcon } from "@bcc-code/icons-vue";
+import { computed } from "vue";
+import BccGraphicPoster, {
+  type AspectRatioStyle,
+  getAspectRatioStyle,
+  roundingClasses,
+} from "./BccGraphicPoster.vue";
 
 type Props = {
   bannerSrc?: string;
   logoSrc?: string;
   checked?: boolean;
   linkOut?: boolean | VueComponent;
-  ratio?: keyof typeof ratioClasses;
+  ratio?: AspectRatioStyle;
   rounding?: keyof typeof roundingClasses;
 };
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   ratio: "wide",
   rounding: "xl",
   checked: false,
   linkOut: false,
 });
+
+const aspectRatioStyle = computed(() => {
+  return getAspectRatioStyle(props.ratio);
+});
 </script>
 
 <template>
-  <div class="bcc-graphic" :style="`padding-bottom: ${ratioClasses[ratio]}`">
+  <div class="bcc-graphic" :style="`padding-bottom: ${aspectRatioStyle}`">
     <div class="bcc-graphic-open-in" v-if="linkOut">
       <component
         :is="typeof linkOut === 'boolean' ? OpenInNewIcon : linkOut"
