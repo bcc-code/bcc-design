@@ -14,6 +14,8 @@ export default {
       control: { type: "radio" },
     },
     ratio: {
+      description:
+        "Aspect ratio as predefined key (ultraWide, wide, etc.) or custom format: '16/9' (ratio) or '75%' (percentage)",
       options: Object.keys(ratioClasses),
       control: { type: "radio" },
     },

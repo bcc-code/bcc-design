@@ -14,31 +14,57 @@ export const roundingClasses = {
   md: "rounded-md",
   xl: "rounded-xl",
 };
+
+export type AspectRatioStyle = keyof typeof ratioClasses | string | undefined;
+
+export function getAspectRatioStyle(ratio: AspectRatioStyle) {
+  if (ratio) {
+    if (ratio in ratioClasses) {
+      return ratioClasses[ratio as keyof typeof ratioClasses];
+    }
+
+    const ratioValue = ratio;
+    if (ratioValue.includes("/")) {
+      const [width, height] = ratioValue.split("/").map(Number);
+      if (width && height) {
+        return `${((height / width) * 100).toFixed(2)}%`;
+      }
+    }
+
+    return ratioValue;
+  }
+
+  return ratioClasses.wide;
+}
 </script>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 type Props = {
   bannerSrc?: string;
   logoSrc?: string;
   rounding?: keyof typeof roundingClasses;
-  ratio?: keyof typeof ratioClasses;
+  ratio?: AspectRatioStyle;
 };
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   rounding: "xl",
   ratio: "wide",
 });
 
 const loadedBanner = ref(false);
 const loadedLogo = ref(false);
+
+const aspectRatioStyle = computed(() => {
+  return getAspectRatioStyle(props.ratio);
+});
 </script>
 
 <template>
   <div
     class="bcc-graphic-poster"
-    :style="`padding-bottom: ${ratioClasses[ratio]}`"
+    :style="`padding-bottom: ${aspectRatioStyle}`"
     :class="roundingClasses[rounding]"
   >
     <template v-if="bannerSrc">
