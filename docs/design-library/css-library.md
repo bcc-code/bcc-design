@@ -3,6 +3,10 @@ order: 10
 ---
 # CSS library
 
+::: warning DEPRECATED
+This CSS library is deprecated. Please use [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens) with [PrimeVue](https://primevue.org/) instead. CSS variables and Tailwind v4 utilities are available directly from the design-tokens package.
+:::
+
 [[toc]]
 
 ::: tip

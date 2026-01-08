@@ -1,3 +1,6 @@
+# DEPRECATED: This workflow is deprecated. The design-library is deprecated in favor of @bcc-code/design-tokens.
+# This workflow was already disabled before the deprecation.
+
 # name: Deploy dev Storybook
 
 # on:

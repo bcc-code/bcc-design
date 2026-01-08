@@ -1,13 +1,17 @@
-name: Deploy production Storybook
+# DEPRECATED: This workflow is deprecated. The design-library is deprecated in favor of @bcc-code/design-tokens.
+# Keeping this file for reference but disabling the workflow.
+
+name: Deploy production Storybook (DEPRECATED)
 
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  # Disabled: No longer deploying Storybook on release
+  # release:
+  #   types: [published]
 
 jobs:
   build_and_deploy:
-    if: contains(github.event.release.name, 'design-library') && !contains(github.event.release.name, 'beta')
+    if: false # Disabled - design-library is deprecated
     runs-on: ubuntu-latest
     name: Build and Deploy
     environment:

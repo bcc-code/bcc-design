@@ -1,4 +1,7 @@
 # BCC Design System Library
+
+> **DEPRECATED**: This Vue component library is deprecated. Please use [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens) with [PrimeVue](https://primevue.org/) instead.
+
 This library is a collection of tokens and components that conform to the BCC Design System.
 
 > **Note** This is the Vue implementation, for the CSS-only library [see here](./css-package/README.md)
