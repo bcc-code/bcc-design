@@ -3,6 +3,10 @@ order: 20
 ---
 # Vue components
 
+::: warning DEPRECATED
+This Vue component library is deprecated. Please use [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens) with [PrimeVue](https://primevue.org/) instead.
+:::
+
 [[toc]]
 
 ::: tip
