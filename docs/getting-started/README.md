@@ -1,6 +1,8 @@
 ---
 sectionTitle: Getting Started
 sectionOrder: 10
+title: Overview
+order: 0
 ---
 
 # Getting Started
