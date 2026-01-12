@@ -1,11 +1,11 @@
 ---
 sectionTitle: Assets
-sectionOrder: 40
+sectionOrder: 30
 ---
 
 # Assets
 
-Brand assets for BCC applications.
+Visual assets for BCC applications.
 
-- [Icons](./icons/) - SVG icons based on Material Symbols
-- [Logos](./logos.md) - CDN-hosted logo assets
+- [Icons](./icons.md) - SVG icon library
+- [Logos](./logos.md) - CDN-hosted logo files

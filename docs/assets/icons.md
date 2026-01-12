@@ -1,3 +1,8 @@
+---
+title: Icons
+order: 1
+---
+
 # Icons
 
 SVG icons based on [Material Symbols](https://fonts.google.com/icons) with **Weight 400**, **Grade 0**, **Size 24**.
