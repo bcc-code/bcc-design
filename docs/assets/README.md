@@ -1,6 +1,8 @@
 ---
 sectionTitle: Assets
 sectionOrder: 30
+title: Overview
+order: 0
 ---
 
 # Assets

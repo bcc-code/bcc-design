@@ -1,6 +1,8 @@
 ---
 sectionTitle: Design System 1.0 (old)
 sectionOrder: 40
+title: Overview
+order: 0
 ---
 
 # Design System 1.0 (Deprecated)
