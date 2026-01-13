@@ -5,29 +5,58 @@ order: 4
 
 # Dark Mode
 
-All semantic tokens automatically adapt to dark mode. No additional configuration needed.
+Semantic tokens automatically switch between light and dark values.
+
+---
 
 ## Enable Dark Mode
 
-Add the `dark` class to your HTML element:
+Add `dark` class to the root element:
 
 ```html
 <html class="dark">
+  <!-- All tokens now use dark values -->
+</html>
 ```
 
-## Toggle Programmatically
+---
+
+## Toggle with JavaScript
 
 ```js
-// Toggle dark mode
+// Toggle
 document.documentElement.classList.toggle("dark");
+
+// Set explicitly
+document.documentElement.classList.add("dark");    // Dark mode
+document.documentElement.classList.remove("dark"); // Light mode
 
 // Check current mode
 const isDark = document.documentElement.classList.contains("dark");
 ```
 
-## PrimeVue Setup
+---
 
-If using PrimeVue, configure the dark mode selector:
+## System Preference
+
+Respect user's OS setting:
+
+```js
+// Match system preference
+if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  document.documentElement.classList.add("dark");
+}
+
+// Watch for changes
+window.matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", (e) => {
+    document.documentElement.classList.toggle("dark", e.matches);
+  });
+```
+
+---
+
+## PrimeVue Setup
 
 ```js
 app.use(PrimeVue, {
@@ -38,14 +67,12 @@ app.use(PrimeVue, {
 });
 ```
 
-## Testing
+---
 
-Always test components in both light and dark modes. Hardcoded colors break dark mode.
+## Do's and Don'ts
 
-```html
-<!-- Wrong: breaks in dark mode -->
-<div class="bg-white text-black shadow-lg">
-
-<!-- Right: works in both modes -->
-<div class="bg-elevation-surface-raised text-default shadow-md">
-```
+| Do | Don't |
+|----|-------|
+| Use semantic tokens: `bg-elevation-surface-default` | Use hardcoded colors: `bg-white` |
+| Use `text-default` for text | Use `text-black` or `text-white` |
+| Test in both modes | Assume light mode only |
