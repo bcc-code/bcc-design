@@ -1,8 +1,7 @@
 ---
-sectionTitle: Design System 1.0 (old)
+sectionTitle: Legacy
 sectionOrder: 40
-title: Overview
-order: 0
+title: Design System 1.0
 ---
 
 # Design System 1.0 (Deprecated)

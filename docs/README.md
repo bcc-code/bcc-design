@@ -5,6 +5,8 @@ title: BCC Design System
 
 # BCC Design System
 
+> **Work in Progress** - Documentation is under development.
+
 Design tokens for building consistent BCC applications.
 
 ## Quick Start
@@ -23,15 +25,7 @@ npm install @bcc-code/design-tokens
 </div>
 ```
 
-## Documentation
-
-| Section | Description |
-|---------|-------------|
-| [Getting Started](./getting-started/) | Installation and setup guides |
-| [Core Concepts](./core-concepts/) | Colors, spacing, typography, dark mode |
-| [Assets](./assets/) | Icons and logos |
-
-## Resources
+## Links
 
 | Resource | Link |
 |----------|------|
