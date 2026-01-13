@@ -1,8 +1,9 @@
 ---
-sectionTitle: BCC Tokens 2.0
+sectionTitle: Design
+title: BCC Design System
 ---
 
-# BCC Tokens 2.0
+# BCC Design System
 
 Design tokens for building consistent BCC applications.
 
