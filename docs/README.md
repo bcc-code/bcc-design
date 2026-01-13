@@ -1,6 +1,6 @@
 ---
 sectionTitle: Design
-title: BCC Design System
+title: Overview
 ---
 
 # BCC Design System
@@ -27,8 +27,8 @@ npm install @bcc-code/design-tokens
 
 ## Links
 
-| Resource | Link |
-|----------|------|
-| Figma | [BCC Foundation - Master](https://www.figma.com/file/jtWn3ebee6bJnWpfZrJzq1/BCC-Foundation---Master) |
-| npm | [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens) |
-| GitHub | [bcc-code/bcc-design](https://github.com/bcc-code/bcc-design) |
+| Resource | Link                                                                             |
+| -------- | -------------------------------------------------------------------------------- |
+| Figma    | [BCC Foundation - Master](https://www.figma.com/files/project/13576732)          |
+| npm      | [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens) |
+| GitHub   | [bcc-code/bcc-design](https://github.com/bcc-code/bcc-design)                    |
