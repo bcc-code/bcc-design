@@ -5,30 +5,11 @@ title: Overview
 
 # BCC Design System
 
-> **Work in Progress** - Documentation is under development.
-
-Design tokens for building consistent BCC applications.
-
-## Quick Start
-
-```bash
-npm install @bcc-code/design-tokens
-```
-
-```css
-@import "@bcc-code/design-tokens/tailwind";
-```
-
-```html
-<div class="bg-elevation-surface-default text-default p-200 radius-md">
-  Your content
-</div>
-```
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/FBtplgAcFdKGcuh0oPhhfA/BCC-Tokens-2.0?node-id=2896-2796&embed-host=share" allowfullscreen></iframe>
 
 ## Links
 
 | Resource | Link                                                                             |
 | -------- | -------------------------------------------------------------------------------- |
-| Figma    | [BCC Foundation - Master](https://www.figma.com/files/project/13576732)          |
 | npm      | [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens) |
 | GitHub   | [bcc-code/bcc-design](https://github.com/bcc-code/bcc-design)                    |
