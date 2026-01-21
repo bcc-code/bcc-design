@@ -5,6 +5,8 @@ title: Overview
 
 # BCC Design System
 
+> **Work in Progress** - This documentation reflects the current state of the BCC Design System. Some areas are still being refined as we align design, tokens, and implementation. Updates and improvements will continue as the system evolves.
+
 <iframe
   style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; aspect-ratio: 16 / 9;"
   src="https://embed.figma.com/proto/FBtplgAcFdKGcuh0oPhhfA/BCC-Tokens-2.0

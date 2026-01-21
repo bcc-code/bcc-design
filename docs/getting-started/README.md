@@ -1,7 +1,6 @@
 ---
-sectionTitle: Getting Started
+sectionTitle: Installation
 sectionOrder: 10
-title: Installation
 ---
 
 # Installation

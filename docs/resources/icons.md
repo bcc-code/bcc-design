@@ -1,4 +1,6 @@
 ---
+sectionTitle: Resources
+sectionOrder: 30
 title: Icons
 order: 1
 ---
