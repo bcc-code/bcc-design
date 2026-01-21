@@ -7,7 +7,13 @@ title: Overview
 
 <iframe
   style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; aspect-ratio: 16 / 9;"
-  src="https://embed.figma.com/proto/FBtplgAcFdKGcuh0oPhhfA/BCC-Tokens-2.0?page-id=2896%3A2278&node-id=2896-2796&viewport=968%2C602%2C0.45&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2896%3A2796&embed-host=share"
+  src="https://embed.figma.com/proto/FBtplgAcFdKGcuh0oPhhfA/BCC-Tokens-2.0
+    ?page-id=2896%3A2278
+    &node-id=2896-2796
+    &starting-point-node-id=2896%3A2796
+    &scaling=contain
+    &content-scaling=fixed
+    &embed-host=share"
   allowfullscreen>
 </iframe>
 
