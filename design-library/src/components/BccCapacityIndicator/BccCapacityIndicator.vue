@@ -104,7 +104,7 @@ const dashArray = Math.PI * 18 * 2;
       text-anchor="middle"
       x="20"
       :y="squared || size == 'xs' ? 26 : 25"
-      :font-size="squared || size == 'xs' ? 16 : 14"
+      :font-size="size == 'xs' ? 18 : squared || size == 'sm' ? 16 : 14"
       font-weight="600"
       fill="currentColor"
       class="bcc-capacity-indicator-text"
