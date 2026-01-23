@@ -1,19 +1,25 @@
 ---
-sectionTitle: Installation
+sectionTitle: Get started
 sectionOrder: 10
+title: Get started
+order: 1
 ---
 
-# Installation
+# Get started
 
-```bash
-npm install @bcc-code/design-tokens
-```
+::: warning Work in Progress
+The design system is under active development. APIs may change.
+:::
 
-## Font
+BCC Design System provides design tokens and guidelines for building consistent user interfaces.
 
-Add the Archivo font to your HTML `<head>`:
+## What's included
 
-```html
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200..900&display=swap" rel="stylesheet" />
-```
+- **Design tokens** — Colors, typography, and spacing from Figma
+- **Component guidelines** — How to use PrimeVue with our tokens
+- **Icons and logos** — Official BCC assets
 
+## Quick links
+
+- [Design](/getting-started/design) — For designers using Figma
+- [Develop](/getting-started/develop) — For developers implementing the design system
