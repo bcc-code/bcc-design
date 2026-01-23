@@ -1,36 +1,44 @@
 ---
 sectionTitle: Legacy
-sectionOrder: 40
+sectionOrder: 50
 title: Design System 1.0
 ---
 
 # Design System 1.0 (Deprecated)
 
-> **This library is deprecated.** Please use [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens) with [PrimeVue](https://primevue.org/) instead.
+::: warning Deprecation Notice
+The design-library packages are deprecated. Use **@bcc-code/design-tokens** with **PrimeVue** instead.
+:::
 
 ## Storybook
 
-View the old component library in Storybook:
+- [Production Storybook](https://design.bcc.no/)
+- [Development Storybook](https://developer.bcc.no/design-storybook-dev/)
 
-- [Production Storybook](https://design-library.developer.bcc.no)
-- [Dev Storybook](https://design-library-dev.developer.bcc.no) (unreleased changes)
+## Package Status
 
-## Packages
-
-| Package | Status |
-|---------|--------|
-| `@bcc-code/design-library-vue` | Deprecated |
-| `@bcc-code/design-library-css` | Deprecated |
+| Package | Status | Replacement |
+|---------|--------|-------------|
+| @bcc-code/design-library | Deprecated | @bcc-code/design-tokens + PrimeVue |
+| @bcc-code/design-library-vue | Deprecated | PrimeVue components |
 
 ## Migration
 
-To migrate to the new design tokens:
+1. Remove deprecated packages:
+   ```bash
+   npm uninstall @bcc-code/design-library @bcc-code/design-library-vue
+   ```
 
-1. Install the new package: `npm install @bcc-code/design-tokens`
-2. Replace custom BCC components with PrimeVue components
-3. Use the BCC preset for PrimeVue theming
-4. See [Getting Started](../getting-started/) for setup instructions
+2. Install new packages:
+   ```bash
+   npm install @bcc-code/design-tokens primevue
+   ```
+
+3. Update imports to use PrimeVue components with design tokens
+
+See the [Getting Started](/getting-started/) guide for setup instructions.
 
 ## Source Code
 
-The deprecated design-library source code is available in the [design-library folder](https://github.com/bcc-code/bcc-design/tree/main/design-library) of the bcc-design repository.
+The legacy design-library source is available on GitHub:
+[bcc-code/bcc-design](https://github.com/bcc-code/bcc-design)
