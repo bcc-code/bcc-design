@@ -21,5 +21,5 @@ BCC Design System provides design tokens and guidelines for building consistent 
 
 ## Quick links
 
-- [Design](/getting-started/design) — For designers using Figma
-- [Develop](/getting-started/develop) — For developers implementing the design system
+- [Design](/getting-started/design.html) — For designers using Figma
+- [Develop](/getting-started/develop.html) — For developers implementing the design system
