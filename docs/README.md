@@ -1,27 +1,34 @@
 ---
-sectionTitle: Design
+sectionTitle: Design System
 title: Overview
 ---
 
 # BCC Design System
 
-> **Work in Progress** - This documentation reflects the current state of the BCC Design System. Some areas are still being refined as we align design, tokens, and implementation. Updates and improvements will continue as the system evolves.
+::: warning Work in Progress
+This documentation reflects the current state of the BCC Design System. Some areas are still being refined as we align design, tokens, and implementation.
+:::
 
-<iframe
-  style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; aspect-ratio: 16 / 9;"
-  src="https://embed.figma.com/proto/FBtplgAcFdKGcuh0oPhhfA/BCC-Tokens-2.0
-    ?page-id=2896%3A2278
-    &node-id=2896-2306
-    &starting-point-node-id=2896%3A2306
-    &scaling=contain
-    &content-scaling=fixed
-    &embed-host=share"
-  allowfullscreen>
-</iframe>
+## What's included
 
-## Links
+- Design tokens (colors, typography, spacing)
+- Component guidelines for PrimeVue
+- Icons and logos
 
-| Resource | Link                                                                             |
-| -------- | -------------------------------------------------------------------------------- |
-| npm      | [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens) |
-| GitHub   | [bcc-code/bcc-design](https://github.com/bcc-code/bcc-design)                    |
+## Quick links
+
+| Section | Description |
+|---------|-------------|
+| [Get started](./getting-started/) | Installation and setup |
+| [Foundations](./foundations/) | Tokens, colors, typography, spacing |
+| [Components](./components/) | PrimeVue component styling |
+| [Releases](./releases/) | Changelog |
+
+## Resources
+
+| Resource | Link |
+|----------|------|
+| npm | [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens) |
+| GitHub | [bcc-code/bcc-tokens](https://github.com/bcc-code/bcc-tokens) |
+| Figma | Coming soon |
+| PrimeVue | [PrimeVue Documentation](https://primevue.org/) |
