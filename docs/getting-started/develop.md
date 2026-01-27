@@ -11,10 +11,10 @@ Install the BCC Design System in your project. Choose the method that fits your 
 
 ## Requirements
 
-| Package | Version |
-|---------|---------|
-| PrimeVue | 4.0+ |
-| Tailwind CSS | 4.0+ |
+| Package      | Version |
+| ------------ | ------- |
+| PrimeVue     | 4.0+    |
+| Tailwind CSS | 4.0+    |
 
 ## PrimeVue (Recommended)
 
@@ -119,10 +119,12 @@ For non-Tailwind projects, you can use CSS variables directly:
 Toggle dark mode by adding the `dark` class to the root element:
 
 ```js
-document.documentElement.classList.toggle('dark')
+document.documentElement.classList.toggle("dark");
 ```
 
 ```html
 <html class="dark">
   <!-- Content adapts to dark theme -->
-</html>_
+</html>
+_
+```

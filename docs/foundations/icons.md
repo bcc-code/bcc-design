@@ -17,7 +17,7 @@ SVG icons based on [Material Symbols](https://fonts.google.com/icons) with **Wei
 
 ```vue
 <script setup>
-import { SearchIcon } from '@bcc-code/icons-vue'
+import { SearchIcon } from "@bcc-code/icons-vue";
 </script>
 
 <template>
@@ -35,11 +35,11 @@ npm install @bcc-code/icons-vue
 
 Icons use PascalCase naming with an `Icon` suffix.
 
-| Icon | Import |
-|------|--------|
-| Search | `SearchIcon` |
-| Home | `HomeIcon` |
-| Menu | `MenuIcon` |
+| Icon     | Import         |
+| -------- | -------------- |
+| Search   | `SearchIcon`   |
+| Home     | `HomeIcon`     |
+| Menu     | `MenuIcon`     |
 | Settings | `SettingsIcon` |
 
 ### Sizing and Color

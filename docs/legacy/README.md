@@ -13,30 +13,32 @@ The design-library packages are deprecated. Use **@bcc-code/design-tokens** with
 ## Storybook
 
 - [Production Storybook](https://design.bcc.no/)
-- [Development Storybook](https://developer.bcc.no/design-storybook-dev/)
+- [Development Storybook](./design-storybook-dev/)
 
 ## Package Status
 
-| Package | Status | Replacement |
-|---------|--------|-------------|
-| @bcc-code/design-library | Deprecated | @bcc-code/design-tokens + PrimeVue |
-| @bcc-code/design-library-vue | Deprecated | PrimeVue components |
+| Package                      | Status     | Replacement                        |
+| ---------------------------- | ---------- | ---------------------------------- |
+| @bcc-code/design-library     | Deprecated | @bcc-code/design-tokens + PrimeVue |
+| @bcc-code/design-library-vue | Deprecated | PrimeVue components                |
 
 ## Migration
 
 1. Remove deprecated packages:
+
    ```bash
    npm uninstall @bcc-code/design-library @bcc-code/design-library-vue
    ```
 
 2. Install new packages:
+
    ```bash
    npm install @bcc-code/design-tokens primevue
    ```
 
 3. Update imports to use PrimeVue components with design tokens
 
-See the [Getting Started](/getting-started/) guide for setup instructions.
+See the [Getting Started](./getting-started/) guide for setup instructions.
 
 ## Source Code
 
