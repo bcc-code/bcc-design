@@ -13,7 +13,7 @@ The design-library packages are deprecated. Use **@bcc-code/design-tokens** with
 ## Storybook
 
 - [Production Storybook](https://design.bcc.no/)
-- [Development Storybook](./design-storybook-dev/)
+- [Development Storybook](https://design.bcc.no/design-storybook-dev/)
 
 ## Package Status
 
@@ -38,7 +38,7 @@ The design-library packages are deprecated. Use **@bcc-code/design-tokens** with
 
 3. Update imports to use PrimeVue components with design tokens
 
-See the [Getting Started](./getting-started/) guide for setup instructions.
+See the [Getting Started](../getting-started/) guide for setup instructions.
 
 ## Source Code
 
