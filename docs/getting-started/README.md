@@ -21,5 +21,5 @@ BCC Design System provides design tokens and guidelines for building consistent 
 
 ## Quick links
 
-- [Design](./design) — For designers using Figma
-- [Develop](./develop) — For developers implementing the design system
+- [Design](./design.md) — For designers using Figma
+- [Develop](./develop.md) — For developers implementing the design system
