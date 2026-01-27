@@ -16,6 +16,20 @@ Install the BCC Design System in your project. Choose the method that fits your 
 | PrimeVue     | 4.0+    |
 | Tailwind CSS | 4.0+    |
 
+## Fonts
+
+Include the Archivo font from the CDN.
+
+**HTML**
+```html
+<link rel="stylesheet" href="https://design.bcc.no/fonts/stylesheet.css">
+```
+
+**CSS**
+```css
+@import url("https://design.bcc.no/fonts/stylesheet.css");
+```
+
 ## PrimeVue (Recommended)
 
 **This is the recommended way to use BCC Design System.** PrimeVue provides fully styled components with our design tokens built-in.
@@ -126,5 +140,4 @@ document.documentElement.classList.toggle("dark");
 <html class="dark">
   <!-- Content adapts to dark theme -->
 </html>
-_
 ```
