@@ -1,0 +1,9 @@
+{
+  "globalHeaders": {
+    "Access-Control-Allow-Origin": "*"
+  },
+  "mimeTypes": {
+    ".woff": "font/woff",
+    ".woff2": "font/woff2"
+  }
+}
