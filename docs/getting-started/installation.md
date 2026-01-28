@@ -5,7 +5,7 @@ title: Installation
 order: 3
 ---
 
-# Develop
+# Installation
 
 Install the BCC Design System in your project. Choose the method that fits your stack.
 
