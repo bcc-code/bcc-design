@@ -42,19 +42,22 @@ Icons use PascalCase naming with an `Icon` suffix.
 | Menu     | `MenuIcon`     |
 | Settings | `SettingsIcon` |
 
-### Sizing and Color
+### Sizing
 
-Style icons with Tailwind utility classes:
+Use icon size tokens for consistent sizing:
+
+| Token          | Tailwind  | CSS              | Value |
+| -------------- | --------- | ---------------- | ----- |
+| `icon.size.xs` | `icon-xs` | `--icon-size-xs` | 12px  |
+| `icon.size.sm` | `icon-sm` | `--icon-size-sm` | 16px  |
+| `icon.size.md` | `icon-md` | `--icon-size-md` | 20px  |
+| `icon.size.lg` | `icon-lg` | `--icon-size-lg` | 24px  |
+| `icon.size.xl` | `icon-xl` | `--icon-size-xl` | 32px  |
 
 ```vue
-<!-- Small, gray icon -->
-<SearchIcon class="h-4 w-4 text-neutral-500" />
-
-<!-- Medium, primary color -->
-<SearchIcon class="h-6 w-6 text-primary" />
-
-<!-- Large, custom color -->
-<SearchIcon class="h-8 w-8 text-blue-600" />
+<SearchIcon class="icon-sm text-subtle" />
+<SearchIcon class="icon-md text-default" />
+<SearchIcon class="icon-lg text-brand-default" />
 ```
 
 ## Browse Available Icons
