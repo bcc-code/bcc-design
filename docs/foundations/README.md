@@ -1,7 +1,7 @@
 ---
 sectionTitle: Foundations
 sectionOrder: 20
-title: Foundations
+title: Overview
 order: 1
 ---
 

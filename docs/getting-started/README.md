@@ -1,7 +1,7 @@
 ---
 sectionTitle: Get started
 sectionOrder: 10
-title: Get started
+title: Overview
 order: 1
 ---
 
