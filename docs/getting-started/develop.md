@@ -1,7 +1,7 @@
 ---
 sectionTitle: Get started
 sectionOrder: 10
-title: Develop
+title: Installation
 order: 3
 ---
 
