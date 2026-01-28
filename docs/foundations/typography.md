@@ -2,16 +2,12 @@
 sectionTitle: Foundations
 sectionOrder: 20
 title: Typography
-order: 5
+order: 6
 ---
 
 # Typography
 
-::: warning Work in Progress
-This section is under development.
-:::
-
-Use pre-configured [Headings](#headings) and [Body Text](#body-text) styles instead of combining primitives manually. For text colors, use semantic [tokens](./tokens.md).
+Use pre-configured text styles for consistency. For text colors, use [tokens](./tokens.md).
 
 ## Font Family
 
@@ -19,15 +15,41 @@ Use pre-configured [Headings](#headings) and [Body Text](#body-text) styles inst
 | -------------- | -------------- | ---------------- | ------- |
 | `font.archivo` | `font-archivo` | `--font-archivo` | Archivo |
 
+## Headings
+
+| Token         | Tailwind      | CSS             | Size | Weight | Line Height |
+| ------------- | ------------- | --------------- | ---- | ------ | ----------- |
+| `heading.5xl` | `heading-5xl` | `--heading-5xl` | 60px | 700    | 64px        |
+| `heading.4xl` | `heading-4xl` | `--heading-4xl` | 48px | 700    | 56px        |
+| `heading.3xl` | `heading-3xl` | `--heading-3xl` | 36px | 700    | 40px        |
+| `heading.2xl` | `heading-2xl` | `--heading-2xl` | 32px | 700    | 36px        |
+| `heading.xl`  | `heading-xl`  | `--heading-xl`  | 24px | 700    | 28px        |
+| `heading.lg`  | `heading-lg`  | `--heading-lg`  | 20px | 700    | 24px        |
+| `heading.md`  | `heading-md`  | `--heading-md`  | 16px | 700    | 20px        |
+| `heading.sm`  | `heading-sm`  | `--heading-sm`  | 14px | 700    | 16px        |
+| `heading.xs`  | `heading-xs`  | `--heading-xs`  | 12px | 700    | 14px        |
+
+## Body Text
+
+| Token     | Tailwind  | CSS         | Size | Weight | Line Height |
+| --------- | --------- | ----------- | ---- | ------ | ----------- |
+| `body.lg` | `body-lg` | `--body-lg` | 20px | 400    | 28px        |
+| `body.md` | `body-md` | `--body-md` | 16px | 400    | 24px        |
+| `body.sm` | `body-sm` | `--body-sm` | 14px | 400    | 20px        |
+
 ## Font Weight
 
-| Token                 | Tailwind       | CSS                    | Value |
-| --------------------- | -------------- | ---------------------- | ----- |
-| `font.weight.regular` | `font-regular` | `--font-weight-regular`| 400   |
-| `font.weight.medium`  | `font-medium`  | `--font-weight-medium` | 500   |
-| `font.weight.bold`    | `font-bold`    | `--font-weight-bold`   | 700   |
+| Token                 | Tailwind       | CSS                     | Value |
+| --------------------- | -------------- | ----------------------- | ----- |
+| `font.weight.regular` | `font-regular` | `--font-weight-regular` | 400   |
+| `font.weight.medium`  | `font-medium`  | `--font-weight-medium`  | 500   |
+| `font.weight.bold`    | `font-bold`    | `--font-weight-bold`    | 700   |
 
-## Text Size
+## Primitives
+
+Use only when text styles don't fit your needs.
+
+### Text Size
 
 | Token      | Tailwind   | CSS          | Value           |
 | ---------- | ---------- | ------------ | --------------- |
@@ -40,7 +62,7 @@ Use pre-configured [Headings](#headings) and [Body Text](#body-text) styles inst
 | `text.3xl` | `text-3xl` | `--text-3xl` | 2.25rem (36px)  |
 | `text.4xl` | `text-4xl` | `--text-4xl` | 3rem (48px)     |
 
-## Line Height
+### Line Height
 
 | Token          | Tailwind       | CSS              | Value  |
 | -------------- | -------------- | ---------------- | ------ |
@@ -56,26 +78,21 @@ Use pre-configured [Headings](#headings) and [Body Text](#body-text) styles inst
 | `leading.10`   | `leading-10`   | `--leading-10`   | 64px   |
 | `leading.none` | `leading-none` | `--leading-none` | normal |
 
-## Headings
+## Heading Hierarchy
 
-Pre-configured styles combining weight, size, line-height, and font.
+Use semantic HTML headings (`<h1>` through `<h6>`) in order. One `<h1>` per page.
 
-| Token         | Tailwind      | CSS             | Size | Weight | Line Height |
-| ------------- | ------------- | --------------- | ---- | ------ | ----------- |
-| `heading.xs`  | `heading-xs`  | `--heading-xs`  | 12px | 700    | 14px        |
-| `heading.sm`  | `heading-sm`  | `--heading-sm`  | 14px | 700    | 16px        |
-| `heading.md`  | `heading-md`  | `--heading-md`  | 16px | 700    | 20px        |
-| `heading.lg`  | `heading-lg`  | `--heading-lg`  | 20px | 700    | 24px        |
-| `heading.xl`  | `heading-xl`  | `--heading-xl`  | 24px | 700    | 28px        |
-| `heading.2xl` | `heading-2xl` | `--heading-2xl` | 32px | 700    | 36px        |
-| `heading.3xl` | `heading-3xl` | `--heading-3xl` | 36px | 700    | 40px        |
-| `heading.4xl` | `heading-4xl` | `--heading-4xl` | 48px | 700    | 56px        |
-| `heading.5xl` | `heading-5xl` | `--heading-5xl` | 60px | 700    | 64px        |
+| Element | Typical style | Purpose        |
+| ------- | ------------- | -------------- |
+| `<h1>`  | `heading-2xl` | Page title     |
+| `<h2>`  | `heading-xl`  | Major sections |
+| `<h3>`  | `heading-lg`  | Subsections    |
+| `<h4>`  | `heading-md`  | Group titles   |
 
-## Body Text
+## Guidelines
 
-| Token     | Tailwind  | CSS         | Size | Weight | Line Height |
-| --------- | --------- | ----------- | ---- | ------ | ----------- |
-| `body.sm` | `body-sm` | `--body-sm` | 14px | 400    | 20px        |
-| `body.md` | `body-md` | `--body-md` | 16px | 400    | 24px        |
-| `body.lg` | `body-lg` | `--body-lg` | 20px | 400    | 28px        |
+| Do                                         | Don't                                |
+| ------------------------------------------ | ------------------------------------ |
+| Use text styles (`heading-lg`, `body-md`)  | Combine primitives when styles exist |
+| Use `body.md` (16px) for paragraphs        | Default to smaller text sizes        |
+| Follow heading hierarchy (`h1` → `h2`)     | Skip heading levels                  |

@@ -7,11 +7,7 @@ order: 2
 
 # Tokens
 
-::: warning Work in Progress
-This section is under development.
-:::
-
-Semantic tokens for text, background, border, and icon colors. These adapt to light/dark mode automatically.
+Semantic color tokens for text, background, border, and icon. These adapt to light/dark mode automatically.
 
 ## Text
 
@@ -23,11 +19,6 @@ Semantic tokens for text, background, border, and icon colors. These adapt to li
 | `color.text.disabled` | `text-disabled` | `--color-text-disabled`| `rgba(8,15,33,0.29)` | `rgba(229,233,246,0.25)` |
 | `color.text.inverse`  | `text-inverse`  | `--color-text-inverse` | `#ffffff`            | `#1f1f21`                |
 | `color.text.selected` | `text-selected` | `--color-text-selected`| `#014d49`            | `#51b9cf`                |
-
-- **default**: Primary text for body copy, headers, and buttons
-- **subtle**: Secondary text and descriptions
-- **subtlest**: Tertiary text and placeholders
-- **inverse**: Text on inverted backgrounds
 
 ### Status Text
 
@@ -68,8 +59,6 @@ Semantic tokens for text, background, border, and icon colors. These adapt to li
 | `color.icon.danger`          | `text-icon-danger`          | `--color-icon-danger`            | `#ca414e`            | `#ed6362`                |
 | `color.icon.warning.default` | `text-icon-warning-default` | `--color-icon-warning-default`   | `#b55919`            | `#e9c348`                |
 
-- **inverse**: Icons on inverted backgrounds
-
 ## Border
 
 | Token                   | Tailwind          | CSS                       | Light                 | Dark                     |
@@ -81,9 +70,6 @@ Semantic tokens for text, background, border, and icon colors. These adapt to li
 | `color.border.focused`  | `border-focused`  | `--color-border-focused`  | `#1a9eb7`             | `#a0cec8`                |
 | `color.border.inverse`  | `border-inverse`  | `--color-border-inverse`  | `#ffffff`             | `#18191a`                |
 | `color.border.input`    | `border-input`    | `--color-border-input`    | `#8c8f97`             | `#63666b`                |
-
-- **focused**: Focus ring for accessibility
-- **inverse**: Borders on inverted backgrounds
 
 ### Status Borders
 
@@ -106,10 +92,6 @@ Semantic tokens for text, background, border, and icon colors. These adapt to li
 | `color.elevation.surface.raised`  | `bg-elevation-surface-raised`  | `--color-elevation-surface-raised`   | `#ffffff` | `#242528` |
 | `color.elevation.surface.overlay` | `bg-elevation-surface-overlay` | `--color-elevation-surface-overlay`  | `#ffffff` | `#242528` |
 
-- **sunken**: Recessed areas like sidebars
-- **raised**: Cards and elevated elements
-- **overlay**: Modals, dropdowns, popovers
-
 ## Background - Input
 
 | Token                            | Tailwind           | CSS                               | Light     | Dark      |
@@ -126,8 +108,6 @@ Semantic tokens for text, background, border, and icon colors. These adapt to li
 | `color.background.selected.hovered` | `bg-selected-hovered`      | `--color-background-selected-hovered`  | `#d2eeeb` | `#0b3633` |
 | `color.background.selected.pressed` | `bg-selected-pressed`      | `--color-background-selected-pressed`  | `#a0cec8` | `#014d49` |
 | `color.background.selected.bold`    | `bg-selected-bold-default` | `--color-background-selected-bold`     | `#0c625c` | `#51b9cf` |
-
-- **bold**: For primary buttons and strong selection indicators
 
 ## Background - Status
 

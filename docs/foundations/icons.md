@@ -2,7 +2,7 @@
 sectionTitle: Foundations
 sectionOrder: 20
 title: Icons
-order: 6
+order: 7
 ---
 
 # Icons

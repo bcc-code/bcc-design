@@ -2,7 +2,7 @@
 sectionTitle: Foundations
 sectionOrder: 20
 title: Logos
-order: 7
+order: 8
 ---
 
 # Logos

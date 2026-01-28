@@ -7,15 +7,11 @@ order: 3
 
 # Spacing
 
-Consistent spacing creates visual harmony and helps users understand relationships between elements. Use spacing tokens instead of arbitrary pixel values.
-
-## Base Unit
-
-The spacing scale is built on an **8px base unit**. Token values are multiples of this base (e.g., `spacing.100` = 1× = 8px, `spacing.200` = 2× = 16px).
+Use spacing tokens instead of arbitrary pixel values. The scale is built on an **8px base unit**.
 
 ## Scale
 
-Use the `*-spacing-{value}` pattern where `*` = `p`, `m`, `gap`, `px`, `py`, `mx`, `my`, etc.
+Use `*-spacing-{value}` where `*` = `p`, `m`, `gap`, `px`, `py`, `mx`, `my`, etc.
 
 | Token          | Tailwind         | CSS              | Value          |
 | -------------- | ---------------- | ---------------- | -------------- |
@@ -34,35 +30,17 @@ Use the `*-spacing-{value}` pattern where `*` = `p`, `m`, `gap`, `px`, `py`, `mx
 | `spacing.800`  | `*-spacing-800`  | `--spacing-800`  | 4rem (64px)    |
 | `spacing.1000` | `*-spacing-1000` | `--spacing-1000` | 5rem (80px)    |
 
-## When to Use Each Size
+## When to Use
 
-### Small (2-8px)
-
-Use for tight, related elements:
-
-- Gap between icon and text
-- Padding inside compact components
-- Spacing between form label and input
-
-### Medium (12-24px)
-
-Use for component-level spacing:
-
-- Padding inside buttons and cards
-- Gap between list items
-- Spacing between related form fields
-
-### Large (32-80px)
-
-Use for layout and sections:
-
-- Margins between page sections
-- Padding around main content areas
-- Spacing between unrelated groups
+| Size        | Values  | Use for                                   |
+| ----------- | ------- | ----------------------------------------- |
+| Small       | 2-8px   | Icon-text gaps, compact padding, labels   |
+| Medium      | 12-24px | Button padding, card padding, list gaps   |
+| Large       | 32-80px | Section margins, page padding             |
 
 ## Negative Spacing
 
-Use negative values to pull elements closer or overlap containers. Common for breaking out of parent padding.
+Use negative values to pull elements closer or overlap containers.
 
 | Token                  | Tailwind         | CSS                      | Value            |
 | ---------------------- | ---------------- | ------------------------ | ---------------- |
@@ -78,9 +56,8 @@ Use negative values to pull elements closer or overlap containers. Common for br
 
 ## Guidelines
 
-| Do                                              | Don't                                      |
-| ----------------------------------------------- | ------------------------------------------ |
-| Use spacing tokens (`p-spacing-100`)            | Use arbitrary values (`p-[7px]`)           |
-| Group related items with smaller spacing        | Use the same spacing everywhere            |
-| Increase spacing to separate unrelated sections | Cram elements together to save space       |
-| Be consistent within similar components         | Mix different spacing for the same purpose |
+| Do                                       | Don't                            |
+| ---------------------------------------- | -------------------------------- |
+| Use spacing tokens (`p-spacing-100`)     | Use arbitrary values (`p-[7px]`) |
+| Use smaller spacing for related items    | Use same spacing everywhere      |
+| Use larger spacing between sections      | Cram elements together           |

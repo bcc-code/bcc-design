@@ -13,14 +13,15 @@ This section is under development.
 
 Design tokens and visual styles that form the base of the design system.
 
-| Page                          | Description                                      |
-| ----------------------------- | ------------------------------------------------ |
-| [Tokens](./tokens.md)         | Semantic color tokens (text, background, border) |
-| [Spacing](./spacing.md)       | Padding, margin, gap values                      |
-| [Colors](./colors.md)         | Primitive color palette                          |
-| [Typography](./typography.md) | Font family, sizes, weights, headings            |
-| [Icons](./icons.md)           | Icon library and sizes                           |
-| [Logos](./logos.md)           | Logo assets                                      |
-| [Elevation](./elevation.md)   | Shadows                                          |
-| [Border](./border.md)         | Border width                                     |
-| [Radius](./radius.md)         | Border radius                                    |
+| Page                          | Description                    |
+| ----------------------------- | ------------------------------ |
+| [Tokens](./tokens.md)         | Semantic color tokens          |
+| [Spacing](./spacing.md)       | Padding, margin, gap           |
+| [Colors](./colors.md)         | Color system overview          |
+| [Palette](./palette.md)       | Primitive color scales         |
+| [Typography](./typography.md) | Font, sizes, weights, headings |
+| [Icons](./icons.md)           | Icon library                   |
+| [Logos](./logos.md)           | Logo assets                    |
+| [Elevation](./elevation.md)   | Surfaces and shadows           |
+| [Border](./border.md)         | Border width                   |
+| [Radius](./radius.md)         | Border radius                  |
