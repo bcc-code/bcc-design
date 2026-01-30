@@ -1,43 +1,54 @@
-name: "Design Library: Release"
+name: Design Library: Release
+run-name: Design Library - ${{ github.event_name == 'release' && 'main release version' || 'dev release version' }}
 
 on:
   release:
     types: [published]
+  push:
+    branches: [main]
+    paths:
+      - design-library/**
+      - .github/workflows/design-library-release.yml
 
 permissions:
   contents: read
+  id-token: write  # Required for OIDC
 
 env:
   CI: true
 
 jobs:
-  build:
-    if: contains(github.event.release.name, 'design-library')
+  main-build:
+    if: github.event_name == 'release' && contains(github.event.release.name, 'design-library')
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: design-library
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 9
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version-file: design-library/.node-version
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
           cache-dependency-path: design-library/pnpm-lock.yaml
+      
+      - run: npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: design-library
       
       - name: Build Vue package
         run: pnpm build
-        working-directory: design-library
 
       - name: Build CSS package
         run: pnpm build
@@ -46,16 +57,71 @@ jobs:
       - name: Set release channel
         run: |
           echo "RELEASE_CHANNEL=$(npm run release-channel --silent)" >> $GITHUB_ENV
-        working-directory: design-library
 
       - name: Publish `@bcc-code/design-library-vue`
         run: npm publish --tag ${{ env.RELEASE_CHANNEL }}
-        working-directory: design-library
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish `@bcc-code/design-library`
         run: npm publish ./css-package --tag ${{ env.RELEASE_CHANNEL }}
+
+  
+  test-dev-build:
+    if: github.event_name != 'release'
+    uses: ./.github/workflows/design-library-tests.yml
+
+  dev-build:
+    needs: test-dev-build
+    if: github.event_name != 'release'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
         working-directory: design-library
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: design-library/.node-version
+          registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
+          cache-dependency-path: design-library/pnpm-lock.yaml
+      
+      - run: npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Resolve version
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Restore cached build outputs
+        uses: actions/cache/restore@v5
+        with:
+          fail-on-cache-miss: true
+          path: |
+            design-library/dist
+            design-library/dist_css
+            design-library/dist_types
+            design-library/css-package/dist
+            design-library/css-package/dist_css
+            design-library/css-package/dist_types
+          key: design-library-dist-${{ env.sha_short }}
+
+      - name: Publish `@bcc-code/design-library-vue`
+        run: |
+          npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
+          npm publish --tag dev
+
+      - name: Publish `@bcc-code/design-library`
+        run: |
+          npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
+          npm publish ./css-package --tag dev
