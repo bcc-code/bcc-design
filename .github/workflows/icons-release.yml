@@ -102,6 +102,7 @@ jobs:
           npm publish --tag dev
 
       - name: Publish `@bcc-code/icons-vue`
+        working-directory: icons/vue
         run: |
           npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
-          npm publish ./vue --tag dev
+          npm publish --tag dev
