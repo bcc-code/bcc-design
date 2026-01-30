@@ -1,4 +1,4 @@
-name: Design Library: Release
+name: "Design Library: Release"
 run-name: Design Library - ${{ github.event_name == 'release' && 'main release version' || 'dev release version' }}
 
 on:
