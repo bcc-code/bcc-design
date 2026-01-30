@@ -1,57 +1,107 @@
-name: Release
+name: Icons Release
+run-name: Icons Release - ${{ github.event_name == 'release' && 'main release version' || 'dev release version' }}
 
 on:
   release:
     types: [published]
+  push:
+    branches: [main]
+    paths:
+      - icons/**
+      - .github/workflows/icons-release.yml
 
 permissions:
   contents: read
+  id-token: write  # Required for OIDC
 
 env:
   CI: true
 
 jobs:
-  build:
-    if: contains(github.event.release.name, 'icons')
+  main-build:
+    if: github.event_name == 'release' && contains(github.event.release.name, 'icons')
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: icons
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 9
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version-file: icons/.node-version
           registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
           cache-dependency-path: icons/pnpm-lock.yaml
+      
+      - run: npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: icons
 
       - name: Build
         run: pnpm build
-        working-directory: icons
 
       - name: Set release channel
         run: |
           echo "RELEASE_CHANNEL=$(npm run release-channel --silent)" >> $GITHUB_ENV
-        working-directory: icons
 
       - name: Publish `@bcc-code/icons`
         run: npm publish --tag ${{ env.RELEASE_CHANNEL }}
-        working-directory: icons
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish `@bcc-code/icons-vue`
         run: npm publish ./vue --tag ${{ env.RELEASE_CHANNEL }}
+  
+  dev-build:
+    if: github.event_name != 'release'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
         working-directory: icons
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: icons/.node-version
+          registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
+          cache-dependency-path: icons/pnpm-lock.yaml
+      
+      - run: npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Resolve version
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Publish `@bcc-code/icons`
+        run: |
+          npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
+          npm publish --tag dev
+
+      - name: Publish `@bcc-code/icons-vue`
+        run: |
+          npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
+          npm publish ./vue --tag dev
