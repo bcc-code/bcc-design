@@ -1,0 +1,12 @@
+@utility heading-xs { font: var(--heading-xs); }
+@utility heading-sm { font: var(--heading-sm); }
+@utility heading-md { font: var(--heading-md); }
+@utility heading-lg { font: var(--heading-lg); }
+@utility heading-xl { font: var(--heading-xl); }
+@utility heading-2xl { font: var(--heading-2xl); }
+@utility heading-3xl { font: var(--heading-3xl); }
+@utility heading-4xl { font: var(--heading-4xl); }
+@utility heading-5xl { font: var(--heading-5xl); }
+@utility body-sm { font: var(--body-sm); }
+@utility body-md { font: var(--body-md); }
+@utility body-lg { font: var(--body-lg); }

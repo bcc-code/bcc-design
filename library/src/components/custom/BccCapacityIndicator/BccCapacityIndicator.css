@@ -1,0 +1,48 @@
+@layer components {
+    .bcc-capacity-indicator {
+        @apply text-base;
+    }
+
+    .bcc-capacity-indicator.xs {
+        @apply text-xs;
+    }
+
+    .bcc-capacity-indicator.sm {
+        @apply text-sm;
+    }
+
+    .bcc-capacity-indicator.lg {
+        @apply text-xl;
+    }
+
+    .bcc-capacity-indicator {
+        --ctx-text: var(--color-neutral-500);
+        color: var(--ctx-text);
+    }
+
+    .bcc-capacity-indicator .circle {
+        stroke: color-mix(in srgb, var(--ctx-text) 50%, var(--color-white));
+    }
+    .bcc-capacity-indicator .circle-used {
+        stroke: color-mix(in srgb, var(--ctx-text) 100%, var(--color-black) 10%);
+    }
+    .bcc-capacity-indicator.colored {
+        background: color-mix(in srgb, var(--ctx-text) 10%, var(--color-white));
+    }
+
+    .bcc-capacity-indicator .text {
+        color: var(--ctx-text);
+    }
+
+    .bcc-capacity-indicator.colored {
+        --ctx-text: var(--color-blue-500);
+    }
+
+    .bcc-capacity-indicator.is-warning {
+        --ctx-text: var(--color-yellow-500);
+    }
+
+    .bcc-capacity-indicator.is-full {
+        --ctx-text: var(--color-red-500);
+    }
+}

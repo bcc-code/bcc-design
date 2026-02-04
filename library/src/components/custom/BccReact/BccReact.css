@@ -1,0 +1,87 @@
+@layer components {
+  .bcc-react {
+    @apply relative flex w-full items-center overflow-visible;
+  }
+  .bcc-react-toggle {
+    @apply mr-1 flex shrink-0 cursor-pointer items-center justify-center rounded-full p-1 leading-tight transition;
+  }
+  .bcc-react-list {
+    @apply hide-scrollbar flex flex-1 items-center gap-1 overflow-x-auto overflow-y-hidden rounded-full p-1;
+  }
+  .bcc-react-empty {
+    @apply heading-xs flex items-center;
+  }
+
+  .bcc-react-selector-container {
+    @apply absolute z-50 h-9;
+    @apply top-11 origin-top-left;
+  }
+
+  .bcc-react-selector-container--top {
+    @apply -top-10 origin-bottom-left;
+  }
+
+  .bcc-react-selector {
+    @apply flex h-9 flex-col overflow-hidden bg-neutral-100 px-0 shadow-md;
+    border-radius: 18px;
+  }
+
+  .bcc-react-selector-emojis-container {
+    @apply flex items-center bg-neutral-100 px-1;
+  }
+
+  .bcc-react-selector-more {
+    @apply flex w-9 items-center justify-center;
+  }
+  .bcc-react-selector-more-btn {
+    @apply flex h-7 w-7 items-center justify-center rounded-full bg-slate-200;
+  }
+
+  .bcc-react-dropdown-container {
+    @apply left-0 top-0 -z-10 w-full max-w-full;
+    width: 296px;
+  }
+  .bcc-react-dropdown-container--top {
+    @apply bottom-0 top-auto pb-0;
+  }
+
+  .bcc-react-dropdown {
+    @apply -z-10 flex w-full flex-wrap overflow-hidden px-1;
+  }
+
+  .bcc-react-arrow-down-icon {
+    @apply h-6 w-6 text-slate-600;
+    transition: transform 0.3s ease;
+  }
+  .bcc-react-arrow-down-icon.open {
+    transform: rotate(-180deg);
+  }
+
+  .bcc-react-selector-item {
+    @apply p-2 text-xl leading-none transition-transform duration-200 ease-out h-9 w-9 relative;
+  }
+
+  .bcc-react-selector-item--clicked {
+    animation: scaleFadeOut 300ms forwards;
+  }
+
+  @keyframes scaleFadeOut {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  .bcc-react-emoji-list-item {
+    @apply flex ctx clickable items-center justify-center rounded-full p-1 text-2xl leading-none drop-shadow transition-all hover:scale-105;
+    /* Default --not-selected */
+    @apply ctx-neutral-subtlest;
+  }
+  .bcc-react-emoji-list-item.selected {
+    @apply ctx-neutral-subtle;
+  }
+}
