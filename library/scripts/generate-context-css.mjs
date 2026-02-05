@@ -14,7 +14,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const FIGMA_MODES_DIR = join(ROOT, 'src/figma-modes');
-const OUT_CSS_PATH = join(ROOT, 'src/context.css');
+const OUT_CSS_PATH = join(ROOT, 'src/styles/contexts.css');
 
 /** Slash to hyphen for CSS custom property names: "color/text/inverse" → "color-text-inverse" */
 function toCssVarName(variableName) {
@@ -69,8 +69,39 @@ function modeToContextClass(modeName) {
   return `ctx-${name}`;
 }
 
-/** Emit CSS for one context. */
-function emitContextCss(ctxClass, resolved) {
+/** Emit @utility block for one context (base + hover/pressed vars). */
+function emitUtilityBlock(ctxClass, resolved) {
+  const var_ = (key) => {
+    const v = resolved[key];
+    return v ? `var(--${toCssVarName(v)})` : null;
+  };
+
+  const baseKeys = [
+    'ctx-text',
+    'ctx-background',
+    'ctx-border',
+    'ctx-shadow',
+    'ctx-gradient',
+    'ctx-background-hover',
+    'ctx-background-pressed',
+    'ctx-text-hover',
+    'ctx-text-pressed',
+    'ctx-border-hover',
+    'ctx-border-pressed',
+  ];
+  const decls = baseKeys
+    .map((k) => {
+      const v = var_(k);
+      return v ? `  --${k}: ${v};` : null;
+    })
+    .filter(Boolean);
+  if (decls.length === 0) return '';
+
+  return [`@utility ${ctxClass} {`, ...decls, '}', ''].join('\n');
+}
+
+/** Emit component-layer rules for one context (strong/b, clickable:hover, clickable:active). */
+function emitComponentRules(ctxClass, resolved) {
   const var_ = (key) => {
     const v = resolved[key];
     return v ? `var(--${toCssVarName(v)})` : null;
@@ -78,66 +109,37 @@ function emitContextCss(ctxClass, resolved) {
 
   const lines = [];
 
-  // Base block: default state (no -hover, -pressed, -bold)
-  const baseKeys = ['ctx-text', 'ctx-background', 'ctx-border', 'ctx-shadow', 'ctx-gradient'];
-  const baseVars = baseKeys
-    .map((k) => {
-      const v = var_(k);
-      return v ? `  --${k}: ${v};` : null;
-    })
-    .filter(Boolean);
-  if (baseVars.length) {
-    lines.push(`.${ctxClass} {`);
-    lines.push(...baseVars);
-    lines.push('}');
-    lines.push('');
-  }
-
   // Strong / b: use ctx-text-bold as --ctx-text
   const textBoldVar = var_('ctx-text-bold');
   if (textBoldVar) {
-    lines.push(`.${ctxClass} strong,`);
-    lines.push(`.${ctxClass} b {`);
-    lines.push(`  --ctx-text: ${textBoldVar};`);
-    lines.push('}');
+    lines.push(`  .${ctxClass} strong,`);
+    lines.push(`  .${ctxClass} b {`);
+    lines.push(`    --ctx-text: ${textBoldVar};`);
+    lines.push('  }');
     lines.push('');
   }
 
-  // Hover: clickable
-  const hoverVars = [
-    ['ctx-background-hover', 'ctx-background'],
-    ['ctx-text-hover', 'ctx-text'],
-    ['ctx-border-hover', 'ctx-border'],
-  ];
-  const hoverDecls = hoverVars
-    .map(([from, to]) => {
-      const v = var_(from);
-      return v ? `  --${to}: ${v};` : null;
-    })
-    .filter(Boolean);
-  if (hoverDecls.length) {
-    lines.push(`.clickable.${ctxClass}:hover {`);
-    lines.push(...hoverDecls);
-    lines.push('}');
+  // Hover: map base vars to -hover vars
+  const hasHover =
+    var_('ctx-background-hover') || var_('ctx-text-hover') || var_('ctx-border-hover');
+  if (hasHover) {
+    lines.push(`  .clickable.${ctxClass}:hover {`);
+    if (var_('ctx-background-hover')) lines.push('    --ctx-background: var(--ctx-background-hover);');
+    if (var_('ctx-text-hover')) lines.push('    --ctx-text: var(--ctx-text-hover);');
+    if (var_('ctx-border-hover')) lines.push('    --ctx-border: var(--ctx-border-hover);');
+    lines.push('  }');
     lines.push('');
   }
 
   // Active (pressed)
-  const pressedVars = [
-    ['ctx-background-pressed', 'ctx-background'],
-    ['ctx-text-pressed', 'ctx-text'],
-    ['ctx-border-pressed', 'ctx-border'],
-  ];
-  const pressedDecls = pressedVars
-    .map(([from, to]) => {
-      const v = var_(from);
-      return v ? `  --${to}: ${v};` : null;
-    })
-    .filter(Boolean);
-  if (pressedDecls.length) {
-    lines.push(`.clickable.${ctxClass}:active {`);
-    lines.push(...pressedDecls);
-    lines.push('}');
+  const hasPressed =
+    var_('ctx-background-pressed') || var_('ctx-text-pressed') || var_('ctx-border-pressed');
+  if (hasPressed) {
+    lines.push(`  .clickable.${ctxClass}:active {`);
+    if (var_('ctx-background-pressed')) lines.push('    --ctx-background: var(--ctx-background-pressed);');
+    if (var_('ctx-text-pressed')) lines.push('    --ctx-text: var(--ctx-text-pressed);');
+    if (var_('ctx-border-pressed')) lines.push('    --ctx-border: var(--ctx-border-pressed);');
+    lines.push('  }');
     lines.push('');
   }
 
@@ -187,11 +189,36 @@ function main() {
     return a.ctxClass.localeCompare(b.ctxClass);
   });
 
+  const utilityBlocks = contexts
+    .map(({ ctxClass, resolved }) => emitUtilityBlock(ctxClass, resolved))
+    .filter(Boolean);
+
+  const componentRules = contexts
+    .map(({ ctxClass, resolved }) => emitComponentRules(ctxClass, resolved))
+    .filter(Boolean);
+
+  const layerComponents = [
+    '@layer components {',
+    '  .clickable:disabled,',
+    '  .clickable.disabled {',
+    '    cursor: not-allowed;',
+    '    pointer-events: none;',
+    '  }',
+    '',
+    '  .clickable.flat:hover {',
+    '    background: var(--ctx-background);',
+    '  }',
+    '',
+    ...componentRules,
+    '}',
+  ].join('\n');
+
   const cssParts = [
     '/* Auto-generated from src/figma-modes. Do not edit by hand. */',
     '/* Run: pnpm run generate:context-css */',
     '',
-    ...contexts.map(({ ctxClass, resolved }) => emitContextCss(ctxClass, resolved)),
+    ...utilityBlocks,
+    layerComponents,
   ];
 
   const css = cssParts.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';

@@ -1,0 +1,1813 @@
+/* Auto-generated from src/figma-modes. Do not edit by hand. */
+/* Run: pnpm run generate:context-css */
+
+@utility ctx-default {
+  --ctx-text: var(--color-text-default);
+  --ctx-background: var(--color-elevation-surface-default);
+  --ctx-border: var(--color-border-default);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-elevation-surface-hovered);
+  --ctx-background-hover: var(--color-elevation-surface-hovered);
+  --ctx-background-pressed: var(--color-elevation-surface-pressed);
+  --ctx-text-hover: var(--color-text-default);
+  --ctx-text-pressed: var(--color-text-default);
+  --ctx-border-hover: var(--color-border-default);
+  --ctx-border-pressed: var(--color-border-default);
+}
+
+@utility ctx-blue-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-accent-blue-bolder-default);
+  --ctx-border: var(--color-border-accent-blue);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-blue-bolder-hover);
+  --ctx-background-hover: var(--color-background-accent-blue-bolder-hover);
+  --ctx-background-pressed: var(--color-background-accent-blue-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-accent-blue);
+  --ctx-border-pressed: var(--color-border-accent-blue);
+}
+
+@utility ctx-blue-subtle {
+  --ctx-text: var(--color-text-accent-blue-default);
+  --ctx-background: var(--color-background-accent-blue-subtle-default);
+  --ctx-border: var(--color-border-accent-blue);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-blue-subtle-hover);
+  --ctx-background-hover: var(--color-background-accent-blue-subtle-hover);
+  --ctx-background-pressed: var(--color-background-accent-blue-subtle-pressed);
+  --ctx-text-hover: var(--color-text-accent-blue-default);
+  --ctx-text-pressed: var(--color-text-accent-blue-default);
+  --ctx-border-hover: var(--color-border-accent-blue);
+  --ctx-border-pressed: var(--color-border-accent-blue);
+}
+
+@utility ctx-blue-subtler {
+  --ctx-text: var(--color-text-accent-blue-default);
+  --ctx-background: var(--color-background-accent-blue-subtler-default);
+  --ctx-border: var(--color-border-accent-blue);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-blue-subtler-hover);
+  --ctx-background-hover: var(--color-background-accent-blue-subtler-hover);
+  --ctx-background-pressed: var(--color-background-accent-blue-subtler-pressed);
+  --ctx-text-hover: var(--color-text-accent-blue-default);
+  --ctx-text-pressed: var(--color-text-accent-blue-default);
+  --ctx-border-hover: var(--color-border-accent-blue);
+  --ctx-border-pressed: var(--color-border-accent-blue);
+}
+
+@utility ctx-blue-subtlest {
+  --ctx-text: var(--color-text-accent-blue-default);
+  --ctx-background: var(--color-background-accent-blue-subtlest-default);
+  --ctx-border: var(--color-border-accent-blue);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-blue-subtlest-hover);
+  --ctx-background-hover: var(--color-background-accent-blue-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-accent-blue-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-accent-blue-default);
+  --ctx-text-pressed: var(--color-text-accent-blue-default);
+  --ctx-border-hover: var(--color-border-accent-blue);
+  --ctx-border-pressed: var(--color-border-accent-blue);
+}
+
+@utility ctx-brand-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-brand-bolder-default);
+  --ctx-border: var(--color-border-brand);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-brand-bolder-hover);
+  --ctx-background-hover: var(--color-background-brand-bolder-hover);
+  --ctx-background-pressed: var(--color-background-brand-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-brand);
+  --ctx-border-pressed: var(--color-border-brand);
+}
+
+@utility ctx-brand-boldest {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-brand-boldest-default);
+  --ctx-border: var(--color-border-brand);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-brand-boldest-hover);
+  --ctx-background-hover: var(--color-background-brand-boldest-hover);
+  --ctx-background-pressed: var(--color-background-brand-boldest-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-brand);
+  --ctx-border-pressed: var(--color-border-brand);
+}
+
+@utility ctx-brand-subtle {
+  --ctx-text: var(--color-text-brand-default);
+  --ctx-background: var(--color-background-brand-subtle-default);
+  --ctx-border: var(--color-border-brand);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-brand-subtle-hover);
+  --ctx-background-hover: var(--color-background-brand-subtle-hover);
+  --ctx-background-pressed: var(--color-background-brand-subtle-pressed);
+  --ctx-text-hover: var(--color-text-brand-default);
+  --ctx-text-pressed: var(--color-text-brand-default);
+  --ctx-border-hover: var(--color-border-brand);
+  --ctx-border-pressed: var(--color-border-brand);
+}
+
+@utility ctx-brand-subtler {
+  --ctx-text: var(--color-text-brand-default);
+  --ctx-background: var(--color-background-brand-subtler-default);
+  --ctx-border: var(--color-border-brand);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-brand-subtler-hover);
+  --ctx-background-hover: var(--color-background-brand-subtler-hover);
+  --ctx-background-pressed: var(--color-background-brand-subtler-pressed);
+  --ctx-text-hover: var(--color-text-brand-default);
+  --ctx-text-pressed: var(--color-text-brand-default);
+  --ctx-border-hover: var(--color-border-brand);
+  --ctx-border-pressed: var(--color-border-brand);
+}
+
+@utility ctx-brand-subtlest {
+  --ctx-text: var(--color-text-brand-default);
+  --ctx-background: var(--color-background-brand-subtlest-default);
+  --ctx-border: var(--color-border-brand);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-brand-subtlest-hover);
+  --ctx-background-hover: var(--color-background-brand-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-brand-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-brand-default);
+  --ctx-text-pressed: var(--color-text-brand-default);
+  --ctx-border-hover: var(--color-border-brand);
+  --ctx-border-pressed: var(--color-border-brand);
+}
+
+@utility ctx-brown-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-accent-brown-bolder-default);
+  --ctx-border: var(--color-border-accent-brown);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-brown-bolder-hover);
+  --ctx-background-hover: var(--color-background-accent-brown-bolder-hover);
+  --ctx-background-pressed: var(--color-background-accent-brown-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-accent-brown);
+  --ctx-border-pressed: var(--color-border-accent-brown);
+}
+
+@utility ctx-brown-subtle {
+  --ctx-text: var(--color-text-accent-brown-default);
+  --ctx-background: var(--color-background-accent-brown-subtle-default);
+  --ctx-border: var(--color-border-accent-brown);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-brown-subtle-hover);
+  --ctx-background-hover: var(--color-background-accent-brown-subtle-hover);
+  --ctx-background-pressed: var(--color-background-accent-brown-subtle-pressed);
+  --ctx-text-hover: var(--color-text-accent-brown-default);
+  --ctx-text-pressed: var(--color-text-accent-brown-default);
+  --ctx-border-hover: var(--color-border-accent-brown);
+  --ctx-border-pressed: var(--color-border-accent-brown);
+}
+
+@utility ctx-brown-subtler {
+  --ctx-text: var(--color-text-accent-brown-default);
+  --ctx-background: var(--color-background-accent-brown-subtler-default);
+  --ctx-border: var(--color-border-accent-brown);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-brown-subtler-hover);
+  --ctx-background-hover: var(--color-background-accent-brown-subtler-hover);
+  --ctx-background-pressed: var(--color-background-accent-brown-subtler-pressed);
+  --ctx-text-hover: var(--color-text-accent-brown-default);
+  --ctx-text-pressed: var(--color-text-accent-brown-default);
+  --ctx-border-hover: var(--color-border-accent-brown);
+  --ctx-border-pressed: var(--color-border-accent-brown);
+}
+
+@utility ctx-brown-subtlest {
+  --ctx-text: var(--color-text-accent-brown-default);
+  --ctx-background: var(--color-background-accent-brown-subtlest-default);
+  --ctx-border: var(--color-border-accent-brown);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-brown-subtlest-hover);
+  --ctx-background-hover: var(--color-background-accent-brown-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-accent-brown-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-accent-brown-default);
+  --ctx-text-pressed: var(--color-text-accent-brown-default);
+  --ctx-border-hover: var(--color-border-accent-brown);
+  --ctx-border-pressed: var(--color-border-accent-brown);
+}
+
+@utility ctx-danger {
+  --ctx-text: var(--color-text-danger);
+  --ctx-background: var(--color-background-danger-default);
+  --ctx-border: var(--color-border-danger);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-danger-hover);
+  --ctx-background-hover: var(--color-background-danger-hover);
+  --ctx-background-pressed: var(--color-background-danger-pressed);
+  --ctx-text-hover: var(--color-text-danger);
+  --ctx-text-pressed: var(--color-text-danger);
+  --ctx-border-hover: var(--color-border-danger);
+  --ctx-border-pressed: var(--color-border-danger);
+}
+
+@utility ctx-danger-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-danger-bolder-default);
+  --ctx-border: var(--color-border-danger);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-danger-bolder-hover);
+  --ctx-background-hover: var(--color-background-danger-bolder-hover);
+  --ctx-background-pressed: var(--color-background-danger-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-danger);
+  --ctx-border-pressed: var(--color-border-danger);
+}
+
+@utility ctx-gray-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-accent-gray-bolder-default);
+  --ctx-border: var(--color-border-accent-gray);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-gray-bolder-hover);
+  --ctx-background-hover: var(--color-background-accent-gray-bolder-hover);
+  --ctx-background-pressed: var(--color-background-accent-gray-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-accent-gray);
+  --ctx-border-pressed: var(--color-border-accent-gray);
+}
+
+@utility ctx-gray-subtle {
+  --ctx-text: var(--color-text-accent-gray-default);
+  --ctx-background: var(--color-background-accent-gray-subtle-default);
+  --ctx-border: var(--color-border-accent-gray);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-gray-subtle-hover);
+  --ctx-background-hover: var(--color-background-accent-gray-subtle-hover);
+  --ctx-background-pressed: var(--color-background-accent-gray-subtle-pressed);
+  --ctx-text-hover: var(--color-text-accent-gray-default);
+  --ctx-text-pressed: var(--color-text-accent-gray-default);
+  --ctx-border-hover: var(--color-border-accent-gray);
+  --ctx-border-pressed: var(--color-border-accent-gray);
+}
+
+@utility ctx-gray-subtler {
+  --ctx-text: var(--color-text-accent-gray-default);
+  --ctx-background: var(--color-background-accent-gray-subtler-default);
+  --ctx-border: var(--color-border-accent-gray);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-gray-subtler-hover);
+  --ctx-background-hover: var(--color-background-accent-gray-subtler-hover);
+  --ctx-background-pressed: var(--color-background-accent-gray-subtler-pressed);
+  --ctx-text-hover: var(--color-text-accent-gray-default);
+  --ctx-text-pressed: var(--color-text-accent-gray-default);
+  --ctx-border-hover: var(--color-border-accent-gray);
+  --ctx-border-pressed: var(--color-border-accent-gray);
+}
+
+@utility ctx-gray-subtlest {
+  --ctx-text: var(--color-text-accent-gray-default);
+  --ctx-background: var(--color-background-accent-gray-subtlest-default);
+  --ctx-border: var(--color-border-accent-gray);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-gray-subtlest-hover);
+  --ctx-background-hover: var(--color-background-accent-gray-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-accent-gray-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-accent-gray-default);
+  --ctx-text-pressed: var(--color-text-accent-gray-default);
+  --ctx-border-hover: var(--color-border-accent-gray);
+  --ctx-border-pressed: var(--color-border-accent-gray);
+}
+
+@utility ctx-green-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-accent-green-bolder-default);
+  --ctx-border: var(--color-border-accent-green);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-green-bolder-hover);
+  --ctx-background-hover: var(--color-background-accent-green-bolder-hover);
+  --ctx-background-pressed: var(--color-background-accent-green-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-accent-green);
+  --ctx-border-pressed: var(--color-border-accent-green);
+}
+
+@utility ctx-green-subtle {
+  --ctx-text: var(--color-text-accent-green-default);
+  --ctx-background: var(--color-background-accent-green-subtle-default);
+  --ctx-border: var(--color-border-accent-green);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-green-subtle-hover);
+  --ctx-background-hover: var(--color-background-accent-green-subtle-hover);
+  --ctx-background-pressed: var(--color-background-accent-green-subtle-pressed);
+  --ctx-text-hover: var(--color-text-accent-green-default);
+  --ctx-text-pressed: var(--color-text-accent-green-default);
+  --ctx-border-hover: var(--color-border-accent-green);
+  --ctx-border-pressed: var(--color-border-accent-green);
+}
+
+@utility ctx-green-subtler {
+  --ctx-text: var(--color-text-accent-green-default);
+  --ctx-background: var(--color-background-accent-green-subtler-default);
+  --ctx-border: var(--color-border-accent-green);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-green-subtler-hover);
+  --ctx-background-hover: var(--color-background-accent-green-subtler-hover);
+  --ctx-background-pressed: var(--color-background-accent-green-subtler-pressed);
+  --ctx-text-hover: var(--color-text-accent-green-default);
+  --ctx-text-pressed: var(--color-text-accent-green-default);
+  --ctx-border-hover: var(--color-border-accent-green);
+  --ctx-border-pressed: var(--color-border-accent-green);
+}
+
+@utility ctx-green-subtlest {
+  --ctx-text: var(--color-text-accent-green-default);
+  --ctx-background: var(--color-background-accent-green-subtlest-default);
+  --ctx-border: var(--color-border-accent-green);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-green-subtlest-hover);
+  --ctx-background-hover: var(--color-background-accent-green-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-accent-green-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-accent-green-default);
+  --ctx-text-pressed: var(--color-text-accent-green-default);
+  --ctx-border-hover: var(--color-border-accent-green);
+  --ctx-border-pressed: var(--color-border-accent-green);
+}
+
+@utility ctx-info {
+  --ctx-text: var(--color-text-information);
+  --ctx-background: var(--color-background-information-default);
+  --ctx-border: var(--color-border-information);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-information-hover);
+  --ctx-background-hover: var(--color-background-information-hover);
+  --ctx-background-pressed: var(--color-background-information-pressed);
+  --ctx-text-hover: var(--color-text-information);
+  --ctx-text-pressed: var(--color-text-information);
+  --ctx-border-hover: var(--color-border-information);
+  --ctx-border-pressed: var(--color-border-information);
+}
+
+@utility ctx-info-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-information-bolder-default);
+  --ctx-border: var(--color-border-information);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-information-bolder-hover);
+  --ctx-background-hover: var(--color-background-information-bolder-hover);
+  --ctx-background-pressed: var(--color-background-information-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-information);
+  --ctx-border-pressed: var(--color-border-information);
+}
+
+@utility ctx-magenta-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-accent-magenta-bolder-default);
+  --ctx-border: var(--color-border-accent-magenta);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-magenta-bolder-hover);
+  --ctx-background-hover: var(--color-background-accent-magenta-bolder-hover);
+  --ctx-background-pressed: var(--color-background-accent-magenta-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-accent-magenta);
+  --ctx-border-pressed: var(--color-border-accent-magenta);
+}
+
+@utility ctx-magenta-subtle {
+  --ctx-text: var(--color-text-accent-magenta-default);
+  --ctx-background: var(--color-background-accent-magenta-subtle-default);
+  --ctx-border: var(--color-border-accent-magenta);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-magenta-subtle-hover);
+  --ctx-background-hover: var(--color-background-accent-magenta-subtle-hover);
+  --ctx-background-pressed: var(--color-background-accent-magenta-subtle-pressed);
+  --ctx-text-hover: var(--color-text-accent-magenta-default);
+  --ctx-text-pressed: var(--color-text-accent-magenta-default);
+  --ctx-border-hover: var(--color-border-accent-magenta);
+  --ctx-border-pressed: var(--color-border-accent-magenta);
+}
+
+@utility ctx-magenta-subtler {
+  --ctx-text: var(--color-text-accent-magenta-default);
+  --ctx-background: var(--color-background-accent-magenta-subtler-default);
+  --ctx-border: var(--color-border-accent-magenta);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-magenta-subtler-hover);
+  --ctx-background-hover: var(--color-background-accent-magenta-subtler-hover);
+  --ctx-background-pressed: var(--color-background-accent-magenta-subtler-pressed);
+  --ctx-text-hover: var(--color-text-accent-magenta-default);
+  --ctx-text-pressed: var(--color-text-accent-magenta-default);
+  --ctx-border-hover: var(--color-border-accent-magenta);
+  --ctx-border-pressed: var(--color-border-accent-magenta);
+}
+
+@utility ctx-magenta-subtlest {
+  --ctx-text: var(--color-text-accent-magenta-default);
+  --ctx-background: var(--color-background-accent-magenta-subtlest-default);
+  --ctx-border: var(--color-border-accent-magenta);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-magenta-subtlest-hover);
+  --ctx-background-hover: var(--color-background-accent-magenta-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-accent-magenta-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-accent-magenta-default);
+  --ctx-text-pressed: var(--color-text-accent-magenta-default);
+  --ctx-border-hover: var(--color-border-accent-magenta);
+  --ctx-border-pressed: var(--color-border-accent-magenta);
+}
+
+@utility ctx-neutral-bold {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-neutral-bold-default);
+  --ctx-border: var(--color-border-default);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-neutral-bold-hover);
+  --ctx-background-hover: var(--color-background-neutral-bold-hover);
+  --ctx-background-pressed: var(--color-background-neutral-bold-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-default);
+  --ctx-border-pressed: var(--color-border-default);
+}
+
+@utility ctx-neutral-subtle {
+  --ctx-text: var(--color-text-subtle);
+  --ctx-background: var(--color-background-neutral-subtle-default);
+  --ctx-border: var(--color-border-default);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-neutral-subtle-hover);
+  --ctx-background-hover: var(--color-background-neutral-subtle-hover);
+  --ctx-background-pressed: var(--color-background-neutral-subtle-pressed);
+  --ctx-text-hover: var(--color-text-subtle);
+  --ctx-text-pressed: var(--color-text-subtle);
+  --ctx-border-hover: var(--color-border-default);
+  --ctx-border-pressed: var(--color-border-default);
+}
+
+@utility ctx-neutral-subtler {
+  --ctx-text: var(--color-text-subtle);
+  --ctx-background: var(--color-background-neutral-subtler-default);
+  --ctx-border: var(--color-border-default);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-neutral-subtler-hover);
+  --ctx-background-hover: var(--color-background-neutral-subtler-hover);
+  --ctx-background-pressed: var(--color-background-neutral-subtler-pressed);
+  --ctx-text-hover: var(--color-text-subtle);
+  --ctx-text-pressed: var(--color-text-subtle);
+  --ctx-border-hover: var(--color-border-default);
+  --ctx-border-pressed: var(--color-border-default);
+}
+
+@utility ctx-neutral-subtlest {
+  --ctx-text: var(--color-text-subtlest);
+  --ctx-background: var(--color-background-neutral-subtlest-default);
+  --ctx-border: var(--color-border-default);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-neutral-subtlest-hover);
+  --ctx-background-hover: var(--color-background-neutral-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-neutral-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-subtlest);
+  --ctx-text-pressed: var(--color-text-subtlest);
+  --ctx-border-hover: var(--color-border-default);
+  --ctx-border-pressed: var(--color-border-default);
+}
+
+@utility ctx-orange-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-accent-orange-bolder-default);
+  --ctx-border: var(--color-border-accent-orange);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-orange-bolder-hover);
+  --ctx-background-hover: var(--color-background-accent-orange-bolder-hover);
+  --ctx-background-pressed: var(--color-background-accent-orange-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-accent-orange);
+  --ctx-border-pressed: var(--color-border-accent-orange);
+}
+
+@utility ctx-orange-subtle {
+  --ctx-text: var(--color-text-accent-orange-default);
+  --ctx-background: var(--color-background-accent-orange-subtle-default);
+  --ctx-border: var(--color-border-accent-orange);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-orange-subtle-hover);
+  --ctx-background-hover: var(--color-background-accent-orange-subtle-hover);
+  --ctx-background-pressed: var(--color-background-accent-orange-subtle-pressed);
+  --ctx-text-hover: var(--color-text-accent-orange-default);
+  --ctx-text-pressed: var(--color-text-accent-orange-default);
+  --ctx-border-hover: var(--color-border-accent-orange);
+  --ctx-border-pressed: var(--color-border-accent-orange);
+}
+
+@utility ctx-orange-subtler {
+  --ctx-text: var(--color-text-accent-orange-default);
+  --ctx-background: var(--color-background-accent-orange-subtler-default);
+  --ctx-border: var(--color-border-accent-orange);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-orange-subtler-hover);
+  --ctx-background-hover: var(--color-background-accent-orange-subtler-hover);
+  --ctx-background-pressed: var(--color-background-accent-orange-subtler-pressed);
+  --ctx-text-hover: var(--color-text-accent-orange-default);
+  --ctx-text-pressed: var(--color-text-accent-orange-default);
+  --ctx-border-hover: var(--color-border-accent-orange);
+  --ctx-border-pressed: var(--color-border-accent-orange);
+}
+
+@utility ctx-orange-subtlest {
+  --ctx-text: var(--color-text-accent-orange-default);
+  --ctx-background: var(--color-background-accent-orange-subtlest-default);
+  --ctx-border: var(--color-border-accent-orange);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-orange-subtlest-hover);
+  --ctx-background-hover: var(--color-background-accent-orange-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-accent-orange-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-accent-orange-default);
+  --ctx-text-pressed: var(--color-text-accent-orange-default);
+  --ctx-border-hover: var(--color-border-accent-orange);
+  --ctx-border-pressed: var(--color-border-accent-orange);
+}
+
+@utility ctx-purple-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-accent-purple-bolder-default);
+  --ctx-border: var(--color-border-accent-purple);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-purple-bolder-hover);
+  --ctx-background-hover: var(--color-background-accent-purple-bolder-hover);
+  --ctx-background-pressed: var(--color-background-accent-purple-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-accent-purple);
+  --ctx-border-pressed: var(--color-border-accent-purple);
+}
+
+@utility ctx-purple-subtle {
+  --ctx-text: var(--color-text-accent-purple-default);
+  --ctx-background: var(--color-background-accent-purple-subtle-default);
+  --ctx-border: var(--color-border-accent-purple);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-purple-subtle-hover);
+  --ctx-background-hover: var(--color-background-accent-purple-subtle-hover);
+  --ctx-background-pressed: var(--color-background-accent-purple-subtle-pressed);
+  --ctx-text-hover: var(--color-text-accent-purple-default);
+  --ctx-text-pressed: var(--color-text-accent-purple-default);
+  --ctx-border-hover: var(--color-border-accent-purple);
+  --ctx-border-pressed: var(--color-border-accent-purple);
+}
+
+@utility ctx-purple-subtler {
+  --ctx-text: var(--color-text-accent-purple-default);
+  --ctx-background: var(--color-background-accent-purple-subtler-default);
+  --ctx-border: var(--color-border-accent-purple);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-purple-subtler-hover);
+  --ctx-background-hover: var(--color-background-accent-purple-subtler-hover);
+  --ctx-background-pressed: var(--color-background-accent-purple-subtler-pressed);
+  --ctx-text-hover: var(--color-text-accent-purple-default);
+  --ctx-text-pressed: var(--color-text-accent-purple-default);
+  --ctx-border-hover: var(--color-border-accent-purple);
+  --ctx-border-pressed: var(--color-border-accent-purple);
+}
+
+@utility ctx-purple-subtlest {
+  --ctx-text: var(--color-text-accent-purple-default);
+  --ctx-background: var(--color-background-accent-purple-subtlest-default);
+  --ctx-border: var(--color-border-accent-purple);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-purple-subtlest-hover);
+  --ctx-background-hover: var(--color-background-accent-purple-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-accent-purple-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-accent-purple-default);
+  --ctx-text-pressed: var(--color-text-accent-purple-default);
+  --ctx-border-hover: var(--color-border-accent-purple);
+  --ctx-border-pressed: var(--color-border-accent-purple);
+}
+
+@utility ctx-red-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-accent-red-bolder-default);
+  --ctx-border: var(--color-border-accent-red);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-red-bolder-hover);
+  --ctx-background-hover: var(--color-background-accent-red-bolder-hover);
+  --ctx-background-pressed: var(--color-background-accent-red-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-accent-red);
+  --ctx-border-pressed: var(--color-border-accent-red);
+}
+
+@utility ctx-red-subtle {
+  --ctx-text: var(--color-text-accent-red-default);
+  --ctx-background: var(--color-background-accent-red-subtle-default);
+  --ctx-border: var(--color-border-accent-red);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-red-subtle-hover);
+  --ctx-background-hover: var(--color-background-accent-red-subtle-hover);
+  --ctx-background-pressed: var(--color-background-accent-red-subtle-pressed);
+  --ctx-text-hover: var(--color-text-accent-red-default);
+  --ctx-text-pressed: var(--color-text-accent-red-default);
+  --ctx-border-hover: var(--color-border-accent-red);
+  --ctx-border-pressed: var(--color-border-accent-red);
+}
+
+@utility ctx-red-subtler {
+  --ctx-text: var(--color-text-accent-red-default);
+  --ctx-background: var(--color-background-accent-red-subtler-default);
+  --ctx-border: var(--color-border-accent-red);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-red-subtler-hover);
+  --ctx-background-hover: var(--color-background-accent-red-subtler-hover);
+  --ctx-background-pressed: var(--color-background-accent-red-subtler-pressed);
+  --ctx-text-hover: var(--color-text-accent-red-default);
+  --ctx-text-pressed: var(--color-text-accent-red-default);
+  --ctx-border-hover: var(--color-border-accent-red);
+  --ctx-border-pressed: var(--color-border-accent-red);
+}
+
+@utility ctx-red-subtlest {
+  --ctx-text: var(--color-text-accent-red-default);
+  --ctx-background: var(--color-background-accent-red-subtlest-default);
+  --ctx-border: var(--color-border-accent-red);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-red-subtlest-hover);
+  --ctx-background-hover: var(--color-background-accent-red-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-accent-red-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-accent-red-default);
+  --ctx-text-pressed: var(--color-text-accent-red-default);
+  --ctx-border-hover: var(--color-border-accent-red);
+  --ctx-border-pressed: var(--color-border-accent-red);
+}
+
+@utility ctx-success {
+  --ctx-text: var(--color-text-success);
+  --ctx-background: var(--color-background-success-default);
+  --ctx-border: var(--color-border-success);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-success-hover);
+  --ctx-background-hover: var(--color-background-success-hover);
+  --ctx-background-pressed: var(--color-background-success-pressed);
+  --ctx-text-hover: var(--color-text-success);
+  --ctx-text-pressed: var(--color-text-success);
+  --ctx-border-hover: var(--color-border-success);
+  --ctx-border-pressed: var(--color-border-success);
+}
+
+@utility ctx-success-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-success-bolder-default);
+  --ctx-border: var(--color-border-success);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-success-bolder-hover);
+  --ctx-background-hover: var(--color-background-success-bolder-hover);
+  --ctx-background-pressed: var(--color-background-success-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-success);
+  --ctx-border-pressed: var(--color-border-success);
+}
+
+@utility ctx-teal-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-accent-teal-bolder-default);
+  --ctx-border: var(--color-border-accent-teal);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-teal-bolder-hover);
+  --ctx-background-hover: var(--color-background-accent-teal-bolder-hover);
+  --ctx-background-pressed: var(--color-background-accent-teal-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-accent-teal);
+  --ctx-border-pressed: var(--color-border-accent-teal);
+}
+
+@utility ctx-teal-subtle {
+  --ctx-text: var(--color-text-accent-teal-default);
+  --ctx-background: var(--color-background-accent-teal-subtle-default);
+  --ctx-border: var(--color-border-accent-teal);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-teal-subtle-hover);
+  --ctx-background-hover: var(--color-background-accent-teal-subtle-hover);
+  --ctx-background-pressed: var(--color-background-accent-teal-subtle-pressed);
+  --ctx-text-hover: var(--color-text-accent-teal-default);
+  --ctx-text-pressed: var(--color-text-accent-teal-default);
+  --ctx-border-hover: var(--color-border-accent-teal);
+  --ctx-border-pressed: var(--color-border-accent-teal);
+}
+
+@utility ctx-teal-subtler {
+  --ctx-text: var(--color-text-accent-teal-default);
+  --ctx-background: var(--color-background-accent-teal-subtler-default);
+  --ctx-border: var(--color-border-accent-teal);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-teal-subtler-hover);
+  --ctx-background-hover: var(--color-background-accent-teal-subtler-hover);
+  --ctx-background-pressed: var(--color-background-accent-teal-subtler-pressed);
+  --ctx-text-hover: var(--color-text-accent-teal-default);
+  --ctx-text-pressed: var(--color-text-accent-teal-default);
+  --ctx-border-hover: var(--color-border-accent-teal);
+  --ctx-border-pressed: var(--color-border-accent-teal);
+}
+
+@utility ctx-teal-subtlest {
+  --ctx-text: var(--color-text-accent-teal-default);
+  --ctx-background: var(--color-background-accent-teal-subtlest-default);
+  --ctx-border: var(--color-border-accent-teal);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-teal-subtlest-hover);
+  --ctx-background-hover: var(--color-background-accent-teal-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-accent-teal-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-accent-teal-default);
+  --ctx-text-pressed: var(--color-text-accent-teal-default);
+  --ctx-border-hover: var(--color-border-accent-teal);
+  --ctx-border-pressed: var(--color-border-accent-teal);
+}
+
+@utility ctx-warning {
+  --ctx-text: var(--color-text-warning-default);
+  --ctx-background: var(--color-background-warning-default);
+  --ctx-border: var(--color-border-warning);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-warning-hover);
+  --ctx-background-hover: var(--color-background-warning-hover);
+  --ctx-background-pressed: var(--color-background-warning-pressed);
+  --ctx-text-hover: var(--color-text-warning-default);
+  --ctx-text-pressed: var(--color-text-warning-default);
+  --ctx-border-hover: var(--color-border-warning);
+  --ctx-border-pressed: var(--color-border-warning);
+}
+
+@utility ctx-warning-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-warning-bolder-default);
+  --ctx-border: var(--color-border-warning);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-warning-bolder-hover);
+  --ctx-background-hover: var(--color-background-warning-bolder-hover);
+  --ctx-background-pressed: var(--color-background-warning-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-warning);
+  --ctx-border-pressed: var(--color-border-warning);
+}
+
+@utility ctx-yellow-bolder {
+  --ctx-text: var(--color-text-inverse);
+  --ctx-background: var(--color-background-accent-yellow-bolder-default);
+  --ctx-border: var(--color-border-accent-yellow);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-yellow-bolder-hover);
+  --ctx-background-hover: var(--color-background-accent-yellow-bolder-hover);
+  --ctx-background-pressed: var(--color-background-accent-yellow-bolder-pressed);
+  --ctx-text-hover: var(--color-text-inverse);
+  --ctx-text-pressed: var(--color-text-inverse);
+  --ctx-border-hover: var(--color-border-accent-yellow);
+  --ctx-border-pressed: var(--color-border-accent-yellow);
+}
+
+@utility ctx-yellow-subtle {
+  --ctx-text: var(--color-text-accent-yellow-default);
+  --ctx-background: var(--color-background-accent-yellow-subtle-default);
+  --ctx-border: var(--color-border-accent-yellow);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-yellow-subtle-hover);
+  --ctx-background-hover: var(--color-background-accent-yellow-subtle-hover);
+  --ctx-background-pressed: var(--color-background-accent-yellow-subtle-pressed);
+  --ctx-text-hover: var(--color-text-accent-yellow-default);
+  --ctx-text-pressed: var(--color-text-accent-yellow-default);
+  --ctx-border-hover: var(--color-border-accent-yellow);
+  --ctx-border-pressed: var(--color-border-accent-yellow);
+}
+
+@utility ctx-yellow-subtler {
+  --ctx-text: var(--color-text-accent-yellow-default);
+  --ctx-background: var(--color-background-accent-yellow-subtler-default);
+  --ctx-border: var(--color-border-accent-yellow);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-yellow-subtler-hover);
+  --ctx-background-hover: var(--color-background-accent-yellow-subtler-hover);
+  --ctx-background-pressed: var(--color-background-accent-yellow-subtler-pressed);
+  --ctx-text-hover: var(--color-text-accent-yellow-default);
+  --ctx-text-pressed: var(--color-text-accent-yellow-default);
+  --ctx-border-hover: var(--color-border-accent-yellow);
+  --ctx-border-pressed: var(--color-border-accent-yellow);
+}
+
+@utility ctx-yellow-subtlest {
+  --ctx-text: var(--color-text-accent-yellow-default);
+  --ctx-background: var(--color-background-accent-yellow-subtlest-default);
+  --ctx-border: var(--color-border-accent-yellow);
+  --ctx-shadow: var(--color-neutral-alpha-500A);
+  --ctx-gradient: var(--color-background-accent-yellow-subtlest-hover);
+  --ctx-background-hover: var(--color-background-accent-yellow-subtlest-hover);
+  --ctx-background-pressed: var(--color-background-accent-yellow-subtlest-pressed);
+  --ctx-text-hover: var(--color-text-accent-yellow-default);
+  --ctx-text-pressed: var(--color-text-accent-yellow-default);
+  --ctx-border-hover: var(--color-border-accent-yellow);
+  --ctx-border-pressed: var(--color-border-accent-yellow);
+}
+
+@layer components {
+  .clickable:disabled,
+  .clickable.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .clickable.flat:hover {
+    background: var(--ctx-background);
+  }
+
+  .ctx-default strong,
+  .ctx-default b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-default:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-default:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-blue-bolder strong,
+  .ctx-blue-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-blue-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-blue-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-blue-subtle strong,
+  .ctx-blue-subtle b {
+    --ctx-text: var(--color-text-accent-blue-bold);
+  }
+
+  .clickable.ctx-blue-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-blue-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-blue-subtler strong,
+  .ctx-blue-subtler b {
+    --ctx-text: var(--color-text-accent-blue-bold);
+  }
+
+  .clickable.ctx-blue-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-blue-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-blue-subtlest strong,
+  .ctx-blue-subtlest b {
+    --ctx-text: var(--color-text-accent-blue-bold);
+  }
+
+  .clickable.ctx-blue-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-blue-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-brand-bolder strong,
+  .ctx-brand-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-brand-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-brand-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-brand-boldest strong,
+  .ctx-brand-boldest b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-brand-boldest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-brand-boldest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-brand-subtle strong,
+  .ctx-brand-subtle b {
+    --ctx-text: var(--color-text-brand-bold);
+  }
+
+  .clickable.ctx-brand-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-brand-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-brand-subtler strong,
+  .ctx-brand-subtler b {
+    --ctx-text: var(--color-text-brand-bold);
+  }
+
+  .clickable.ctx-brand-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-brand-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-brand-subtlest strong,
+  .ctx-brand-subtlest b {
+    --ctx-text: var(--color-text-brand-bold);
+  }
+
+  .clickable.ctx-brand-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-brand-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-brown-bolder strong,
+  .ctx-brown-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-brown-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-brown-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-brown-subtle strong,
+  .ctx-brown-subtle b {
+    --ctx-text: var(--color-text-accent-brown-bold);
+  }
+
+  .clickable.ctx-brown-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-brown-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-brown-subtler strong,
+  .ctx-brown-subtler b {
+    --ctx-text: var(--color-text-accent-brown-bold);
+  }
+
+  .clickable.ctx-brown-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-brown-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-brown-subtlest strong,
+  .ctx-brown-subtlest b {
+    --ctx-text: var(--color-text-accent-brown-bold);
+  }
+
+  .clickable.ctx-brown-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-brown-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-danger strong,
+  .ctx-danger b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-danger:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-danger:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-danger-bolder strong,
+  .ctx-danger-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-danger-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-danger-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-gray-bolder strong,
+  .ctx-gray-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-gray-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-gray-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-gray-subtle strong,
+  .ctx-gray-subtle b {
+    --ctx-text: var(--color-text-accent-gray-bold);
+  }
+
+  .clickable.ctx-gray-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-gray-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-gray-subtler strong,
+  .ctx-gray-subtler b {
+    --ctx-text: var(--color-text-accent-gray-bold);
+  }
+
+  .clickable.ctx-gray-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-gray-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-gray-subtlest strong,
+  .ctx-gray-subtlest b {
+    --ctx-text: var(--color-text-accent-gray-bold);
+  }
+
+  .clickable.ctx-gray-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-gray-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-green-bolder strong,
+  .ctx-green-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-green-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-green-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-green-subtle strong,
+  .ctx-green-subtle b {
+    --ctx-text: var(--color-text-accent-green-bold);
+  }
+
+  .clickable.ctx-green-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-green-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-green-subtler strong,
+  .ctx-green-subtler b {
+    --ctx-text: var(--color-text-accent-green-bold);
+  }
+
+  .clickable.ctx-green-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-green-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-green-subtlest strong,
+  .ctx-green-subtlest b {
+    --ctx-text: var(--color-text-accent-green-bold);
+  }
+
+  .clickable.ctx-green-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-green-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-info strong,
+  .ctx-info b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-info:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-info:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-info-bolder strong,
+  .ctx-info-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-info-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-info-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-magenta-bolder strong,
+  .ctx-magenta-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-magenta-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-magenta-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-magenta-subtle strong,
+  .ctx-magenta-subtle b {
+    --ctx-text: var(--color-text-accent-magenta-bold);
+  }
+
+  .clickable.ctx-magenta-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-magenta-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-magenta-subtler strong,
+  .ctx-magenta-subtler b {
+    --ctx-text: var(--color-text-accent-magenta-bold);
+  }
+
+  .clickable.ctx-magenta-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-magenta-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-magenta-subtlest strong,
+  .ctx-magenta-subtlest b {
+    --ctx-text: var(--color-text-accent-magenta-bold);
+  }
+
+  .clickable.ctx-magenta-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-magenta-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-neutral-bold strong,
+  .ctx-neutral-bold b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-neutral-bold:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-neutral-bold:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-neutral-subtle strong,
+  .ctx-neutral-subtle b {
+    --ctx-text: var(--color-text-default);
+  }
+
+  .clickable.ctx-neutral-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-neutral-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-neutral-subtler strong,
+  .ctx-neutral-subtler b {
+    --ctx-text: var(--color-text-default);
+  }
+
+  .clickable.ctx-neutral-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-neutral-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-neutral-subtlest strong,
+  .ctx-neutral-subtlest b {
+    --ctx-text: var(--color-text-subtle);
+  }
+
+  .clickable.ctx-neutral-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-neutral-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-orange-bolder strong,
+  .ctx-orange-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-orange-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-orange-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-orange-subtle strong,
+  .ctx-orange-subtle b {
+    --ctx-text: var(--color-text-accent-orange-bold);
+  }
+
+  .clickable.ctx-orange-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-orange-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-orange-subtler strong,
+  .ctx-orange-subtler b {
+    --ctx-text: var(--color-text-accent-orange-bold);
+  }
+
+  .clickable.ctx-orange-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-orange-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-orange-subtlest strong,
+  .ctx-orange-subtlest b {
+    --ctx-text: var(--color-text-accent-orange-bold);
+  }
+
+  .clickable.ctx-orange-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-orange-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-purple-bolder strong,
+  .ctx-purple-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-purple-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-purple-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-purple-subtle strong,
+  .ctx-purple-subtle b {
+    --ctx-text: var(--color-text-accent-purple-bold);
+  }
+
+  .clickable.ctx-purple-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-purple-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-purple-subtler strong,
+  .ctx-purple-subtler b {
+    --ctx-text: var(--color-text-accent-purple-bold);
+  }
+
+  .clickable.ctx-purple-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-purple-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-purple-subtlest strong,
+  .ctx-purple-subtlest b {
+    --ctx-text: var(--color-text-accent-purple-bold);
+  }
+
+  .clickable.ctx-purple-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-purple-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-red-bolder strong,
+  .ctx-red-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-red-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-red-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-red-subtle strong,
+  .ctx-red-subtle b {
+    --ctx-text: var(--color-text-accent-red-bold);
+  }
+
+  .clickable.ctx-red-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-red-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-red-subtler strong,
+  .ctx-red-subtler b {
+    --ctx-text: var(--color-text-accent-red-bold);
+  }
+
+  .clickable.ctx-red-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-red-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-red-subtlest strong,
+  .ctx-red-subtlest b {
+    --ctx-text: var(--color-text-accent-red-bold);
+  }
+
+  .clickable.ctx-red-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-red-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-success strong,
+  .ctx-success b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-success:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-success:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-success-bolder strong,
+  .ctx-success-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-success-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-success-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-teal-bolder strong,
+  .ctx-teal-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-teal-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-teal-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-teal-subtle strong,
+  .ctx-teal-subtle b {
+    --ctx-text: var(--color-text-accent-teal-bold);
+  }
+
+  .clickable.ctx-teal-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-teal-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-teal-subtler strong,
+  .ctx-teal-subtler b {
+    --ctx-text: var(--color-text-accent-teal-bold);
+  }
+
+  .clickable.ctx-teal-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-teal-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-teal-subtlest strong,
+  .ctx-teal-subtlest b {
+    --ctx-text: var(--color-text-accent-teal-bold);
+  }
+
+  .clickable.ctx-teal-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-teal-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-warning strong,
+  .ctx-warning b {
+    --ctx-text: var(--color-text-warning-inverse);
+  }
+
+  .clickable.ctx-warning:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-warning:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-warning-bolder strong,
+  .ctx-warning-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-warning-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-warning-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-yellow-bolder strong,
+  .ctx-yellow-bolder b {
+    --ctx-text: var(--color-text-inverse);
+  }
+
+  .clickable.ctx-yellow-bolder:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-yellow-bolder:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-yellow-subtle strong,
+  .ctx-yellow-subtle b {
+    --ctx-text: var(--color-text-accent-yellow-bold);
+  }
+
+  .clickable.ctx-yellow-subtle:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-yellow-subtle:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-yellow-subtler strong,
+  .ctx-yellow-subtler b {
+    --ctx-text: var(--color-text-accent-yellow-bold);
+  }
+
+  .clickable.ctx-yellow-subtler:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-yellow-subtler:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+  .ctx-yellow-subtlest strong,
+  .ctx-yellow-subtlest b {
+    --ctx-text: var(--color-text-accent-yellow-bold);
+  }
+
+  .clickable.ctx-yellow-subtlest:hover {
+    --ctx-background: var(--ctx-background-hover);
+    --ctx-text: var(--ctx-text-hover);
+    --ctx-border: var(--ctx-border-hover);
+  }
+
+  .clickable.ctx-yellow-subtlest:active {
+    --ctx-background: var(--ctx-background-pressed);
+    --ctx-text: var(--ctx-text-pressed);
+    --ctx-border: var(--ctx-border-pressed);
+  }
+
+}

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "@bcc-code/design-tokens/css";
 @import "./styles/context.css";
+@import "./styles/contexts.css";
 @import "./styles/fonts.css";
 
 @utility hide-scrollbar {

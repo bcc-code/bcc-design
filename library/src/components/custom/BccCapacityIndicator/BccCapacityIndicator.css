@@ -16,33 +16,37 @@
     }
 
     .bcc-capacity-indicator {
-        --ctx-text: var(--color-neutral-500);
-        color: var(--ctx-text);
-    }
-
-    .bcc-capacity-indicator .circle {
-        stroke: color-mix(in srgb, var(--ctx-text) 50%, var(--color-white));
-    }
-    .bcc-capacity-indicator .circle-used {
-        stroke: color-mix(in srgb, var(--ctx-text) 100%, var(--color-black) 10%);
-    }
-    .bcc-capacity-indicator.colored {
-        background: color-mix(in srgb, var(--ctx-text) 10%, var(--color-white));
+        --bcc-capacity-indicator-background: var(--ctx-background);
+        --bcc-capacity-indicator-text: var(--ctx-text);
+        --bcc-capacity-indicator-circle: var(--ctx-background-pressed);
+        --bcc-capacity-indicator-circle-used: var(--ctx-border);
+        background: var(--bcc-capacity-indicator-background);
     }
 
     .bcc-capacity-indicator .text {
-        color: var(--ctx-text);
+        color: var(--bcc-capacity-indicator-text);
+    }
+    .bcc-capacity-indicator .circle {
+        stroke: var(--bcc-capacity-indicator-circle);
+    }
+    .bcc-capacity-indicator .circle-used {
+        stroke: var(--bcc-capacity-indicator-circle-used);
+    }
+
+    .bcc-capacity-indicator.default {
+        --bcc-capacity-indicator-background: transparent;
+        @apply ctx-gray-subtlest;
     }
 
     .bcc-capacity-indicator.colored {
-        --ctx-text: var(--color-blue-500);
+        @apply ctx-blue-subtlest;
     }
 
     .bcc-capacity-indicator.is-warning {
-        --ctx-text: var(--color-yellow-500);
+        @apply ctx-yellow-subtlest;
     }
 
     .bcc-capacity-indicator.is-full {
-        --ctx-text: var(--color-red-500);
+        @apply ctx-red-subtlest;
     }
 }
