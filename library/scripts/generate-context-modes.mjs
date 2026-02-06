@@ -5,7 +5,7 @@
  * gets a mode file that maps ctx-* variables to the correct semantic tokens.
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -20,44 +20,9 @@ const SEMANTIC_SET_NAME = 'bcc/semantic';
 const PRIMITIVE_SET_ID = 'VariableCollectionId:417c7ac5537f108f00dd75d03fdef006a1a47c4a/-1:-1';
 const PRIMITIVE_SET_NAME = 'bcc/primitive';
 
-/** Get nested value from object by path (e.g. 'color.text.accent.brown.bold') */
-function getByPath(obj, path) {
-  const parts = path.split('.');
-  let cur = obj;
-  for (const p of parts) {
-    if (cur == null || typeof cur !== 'object') return undefined;
-    cur = cur[p];
-  }
-  return cur;
-}
-
 /** Check if node is a token (has $type and $value) */
 function isToken(node) {
   return node && typeof node === 'object' && node.$type === 'color' && node.$value != null;
-}
-
-/** Build a ctx token that references the semantic variable (for Figma mode) */
-function buildCtxToken(token, semanticPath) {
-  if (!token || !token.$value) return null;
-  const value = token.$value;
-  const isRef = typeof value === 'string' && value.startsWith('{');
-  const extensions = {
-    'com.figma.scopes': ['ALL_SCOPES'],
-    'com.figma.isOverride': true,
-  };
-  if (semanticPath && !isRef) {
-    extensions['com.figma.aliasData'] = {
-      targetVariableId: token.$extensions?.['com.figma.aliasData']?.targetVariableId ?? '',
-      targetVariableName: semanticPath.replace(/\./g, '/'),
-      targetVariableSetId: SEMANTIC_SET_ID,
-      targetVariableSetName: SEMANTIC_SET_NAME,
-    };
-  }
-  return {
-    $type: 'color',
-    $value: isRef ? value : (value?.hex ? { ...value } : value),
-    $extensions: extensions,
-  };
 }
 
 /** Clone token for ctx (use primitive alias for shadow; semantic for others when path given).
