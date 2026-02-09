@@ -1,4 +1,4 @@
-import { PinIcon } from '@bcc-code/icons-vue';
+import { PersonIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import BccPin from './BccPin.vue';
 
@@ -37,7 +37,7 @@ export const WithValue: Story = {
 
 export const WithIconOnly: Story = {
 	args: {
-		icon: PinIcon,
+		icon: PersonIcon,
 	},
 };
 
@@ -59,17 +59,17 @@ export const Severities: Story = {
 
 export const Sizes: Story = {
 	render: () => ({
-		components: { BccPin, PinIcon },
+		components: { BccPin, PersonIcon },
 		setup() {
-			return { PinIcon };
+			return { PersonIcon };
 		},
 		template: `
 			<div class="flex flex-wrap gap-2 items-center">
-				<BccPin :icon="PinIcon" size="small" />
+				<BccPin :icon="PersonIcon" size="small" />
 				<BccPin value="M" size="small" />
-				<BccPin :icon="PinIcon" size="large" />
+				<BccPin :icon="PersonIcon" size="large" />
 				<BccPin value="L" size="large" />
-				<BccPin :icon="PinIcon" size="xlarge" />
+				<BccPin :icon="PersonIcon" size="xlarge" />
 				<BccPin value="XL" size="xlarge" />
 			</div>
 		`,

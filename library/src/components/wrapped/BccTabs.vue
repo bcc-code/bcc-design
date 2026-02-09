@@ -54,7 +54,7 @@ const tabsBindings = computed((): Omit<TabsProps, 'value'> => {
 		style="--p-tabs-tablist-border-width: 0; --p-tabs-tab-border-width: 0 0 1px 0"
 	>
 		<PVTabList>
-			<PVTab v-for="(tab, index) in tabs" :key="'tab-' + index" :value="index">
+			<PVTab v-for="(tab, index) in tabs" :key="'tab-' + index" :value="index" class="center gap-2">
 				<component :is="tab.icon" v-if="tab.icon" class="size-4" />
 				<span>{{ tab.title }}</span>
 				<PVPin v-if="tab.pin" :value="tab.pin.text" :severity="tab.pin.context" size="small" />

@@ -1,5 +1,6 @@
 import { LockIcon, MailIcon, PersonIcon, SearchIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { ref } from 'vue';
 import BccInput from './BccInput.vue';
 
 const meta: Meta<typeof BccInput> = {
@@ -8,19 +9,12 @@ const meta: Meta<typeof BccInput> = {
 	tags: ['autodocs'],
 	argTypes: {
 		placeholder: { control: 'text' },
-		label: { control: 'text' },
-		helpText: { control: 'text' },
-		floating: { control: 'boolean' },
 		iconRight: { control: 'boolean' },
 		disabled: { control: 'boolean' },
-		invalid: { control: 'boolean' },
+		loading: { control: 'boolean' },
 		size: {
 			control: 'select',
 			options: ['small', 'large'],
-		},
-		variant: {
-			control: 'select',
-			options: ['outlined', 'filled'],
 		},
 	},
 };
@@ -56,17 +50,26 @@ export const WithRightIcon: Story = {
 	},
 };
 
+export const Loading: Story = {
+	args: {
+		icon: SearchIcon,
+		placeholder: 'Search…',
+		loading: true,
+	},
+};
+
 export const Sizes = {
 	render: () => ({
 		components: { BccInput, SearchIcon },
 		setup() {
-			return { SearchIcon };
+			const val = ref('');
+			return { SearchIcon, val };
 		},
 		template: `
 			<div class="flex flex-col gap-4 max-w-xs">
-				<BccInput placeholder="Small" :icon="SearchIcon" size="small" />
-				<BccInput placeholder="Default size" :icon="SearchIcon" />
-				<BccInput placeholder="Large" :icon="SearchIcon" size="large" />
+				<BccInput placeholder="Small" v-model="val" :icon="SearchIcon" size="small" />
+				<BccInput placeholder="Default size" v-model="val" :icon="SearchIcon" />
+				<BccInput placeholder="Large" v-model="val" :icon="SearchIcon" size="large" />
 			</div>
 		`,
 	}),
@@ -81,53 +84,18 @@ export const IconVariants = {
 		template: `
 			<div class="flex flex-col gap-4 max-w-xs">
 				<BccInput placeholder="Search" :icon="SearchIcon" />
-				<BccInput placeholder="Email" :icon="MailIcon" icon-right />
+				<BccInput placeholder="Email" :icon="MailIcon" :icon-right="true" />
 				<BccInput placeholder="Username" :icon="PersonIcon" />
-				<BccInput placeholder="Password" :icon="LockIcon" icon-right type="password" />
+				<BccInput placeholder="Password" :icon="LockIcon" :icon-right="true" type="password" />
 			</div>
 		`,
 	}),
 } as Story;
-
-export const Invalid: Story = {
-	args: {
-		placeholder: 'Invalid field',
-		invalid: true,
-		modelValue: 'Invalid value',
-	},
-};
 
 export const Disabled: Story = {
 	args: {
 		placeholder: 'Disabled input',
 		disabled: true,
 		modelValue: 'Disabled',
-	},
-};
-
-export const Variants = {
-	render: () => ({
-		components: { BccInput },
-		template: `
-			<div class="flex flex-col gap-4 max-w-xs">
-				<BccInput placeholder="Outlined (default)" variant="outlined" />
-				<BccInput placeholder="Filled" variant="filled" />
-			</div>
-		`,
-	}),
-} as Story;
-
-export const WithFloatingLabel: Story = {
-	args: {
-		label: 'Floating label',
-		floating: true,
-		placeholder: ' ',
-	},
-};
-
-export const WithHelpText: Story = {
-	args: {
-		placeholder: 'With help text',
-		helpText: 'This is additional help text for the input.',
 	},
 };

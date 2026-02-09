@@ -11,10 +11,10 @@ import '../src/style.css';
 // PrimeVue setup for Storybook (see https://github.com/xiscohv/primevue-ts-storybook)
 setup(app => {
 	app.use(PrimeVue, {
-		ripple: true,
 		theme: {
 			preset: BccPreset,
 			options: {
+				prefix: '',
 				darkModeSelector: '.dark',
 				cssLayer: {
 					name: 'primevue',
