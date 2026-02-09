@@ -1,1 +1,1 @@
-export { default as BccCard } from "./BccCard.vue";
+export { default as BccCard } from './BccCard.vue';

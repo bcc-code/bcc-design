@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import PVBadge, { type BadgeProps } from 'primevue/badge';
-import type { Component } from 'vue';
+import { computed, type Component } from 'vue';
 
-const props = defineProps<
-	{
-		icon?: Component;
-		severity?: BadgeProps['severity'];
-	} & BadgeProps
->();
+export type BccPinProps = BadgeProps & {
+	icon?: Component;
+};
+
+const props = defineProps<BccPinProps>();
+
+const badgeBindings = computed((): BadgeProps => {
+	const { icon, ...rest } = props;
+	void icon;
+	return rest as BadgeProps;
+});
 </script>
 
 <template>
-	<PVBadge v-bind="props as BadgeProps">
+	<PVBadge v-bind="badgeBindings">
 		<component
 			:is="icon"
 			v-if="icon && !value"

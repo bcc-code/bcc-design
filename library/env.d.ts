@@ -1,8 +1,13 @@
 /// <reference types="vite/client" />
-/// <reference types="@histoire/plugin-vue/components" />
 
-declare module "*.vue" {
-  import type { DefineComponent } from "vue";
-  const component: DefineComponent<object, object, unknown>;
-  export default component;
+declare module '*.vue' {
+	import type { DefineComponent } from 'vue';
+	const component: DefineComponent<object, object, unknown>;
+	export default component;
 }
+
+// PrimeVue submodules without bundled types
+declare module 'primevue/confirmationeventbus';
+declare module 'primevue/dynamicdialogeventbus';
+declare module 'primevue/overlayeventbus';
+declare module 'primevue/toasteventbus';

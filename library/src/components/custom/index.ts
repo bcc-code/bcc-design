@@ -3,4 +3,9 @@
  * Add new custom components here and export them from this file.
  */
 
-export { BccCard } from "./BccCard";
+export { default as BccCapacityIndicator } from './BccCapacityIndicator/BccCapacityIndicator.vue';
+export { default as BccCard } from './BccCard/BccCard.vue';
+export { default as BccCircleLoader } from './BccCircleLoader/BccCircleLoader.vue';
+export { default as BccReact } from './BccReact/BccReact.vue';
+export { default as BccReactEmoji } from './BccReact/BccReactEmoji.vue';
+export { default as BccToggle } from './BccToggle/BccToggle.vue';

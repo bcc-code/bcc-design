@@ -3,7 +3,7 @@ import PVTab from 'primevue/tab';
 import PVTabList from 'primevue/tablist';
 import PVTabPanel from 'primevue/tabpanel';
 import PVTabPanels from 'primevue/tabpanels';
-import PVTabs from 'primevue/tabs';
+import PVTabs, { type TabsProps } from 'primevue/tabs';
 import type { Component } from 'vue';
 import { computed } from 'vue';
 import PVPin from './BccPin.vue';
@@ -16,14 +16,14 @@ export interface TabItem {
 	value?: string;
 }
 
-interface Props {
+export type BccTabsProps = Omit<TabsProps, 'value'> & {
 	tabs: TabItem[];
 	modelValue?: number;
 	fill?: boolean;
 	noPanels?: boolean;
-}
+};
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<BccTabsProps>(), {
 	fill: false,
 });
 
@@ -35,11 +35,21 @@ const activeIndex = computed({
 	get: () => props.modelValue ?? 0,
 	set: (value: number) => emit('update:modelValue', value),
 });
+
+const tabsBindings = computed((): Omit<TabsProps, 'value'> => {
+	const { tabs, modelValue, fill, noPanels, ...rest } = props;
+	void tabs;
+	void modelValue;
+	void fill;
+	void noPanels;
+	return rest as Omit<TabsProps, 'value'>;
+});
 </script>
 
 <template>
 	<PVTabs
 		v-model:value="activeIndex"
+		v-bind="tabsBindings"
 		:class="{ 'w-full': fill }"
 		style="--p-tabs-tablist-border-width: 0; --p-tabs-tab-border-width: 0 0 1px 0"
 	>

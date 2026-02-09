@@ -1,8 +1,25 @@
+/* Layer order: Tailwind base/utilities first, then PrimeVue so component styles win */
+@layer theme, base, tailwind, primevue;
+
 @import "tailwindcss";
-@import "@bcc-code/design-tokens/css";
+@import "@bcc-code/design-tokens/tailwind";
+@import "@bcc-code/design-tokens/primevue/overrides";
 @import "./styles/context.css";
 @import "./styles/contexts.css";
 @import "./styles/fonts.css";
+
+@theme {
+    --spacing-inset-top: 'env(safe-area-inset-top, var(--safe-area-inset-top, 0px))';
+    --spacing-inset-top-1: 'max(0.25rem, env(safe-area-inset-top, var(--safe-area-inset-top, 0px)))';
+    --spacing-inset-top-2: 'max(0.5rem, env(safe-area-inset-top, var(--safe-area-inset-top, 0px)))';
+    --spacing-inset-top-4: 'max(1rem, env(safe-area-inset-top, var(--safe-area-inset-top, 0px)))';
+    --spacing-inset-bottom: 'env(safe-area-inset-bottom, var(--safe-area-inset-bottom, 0px))';
+    --spacing-inset-bottom-1: 'max(0.25rem, env(safe-area-inset-bottom, var(--safe-area-inset-bottom, 0px)))';
+    --spacing-inset-bottom-2: 'max(0.5rem, env(safe-area-inset-bottom, var(--safe-area-inset-bottom, 0px)))';
+    --spacing-inset-bottom-4: 'max(1rem, env(safe-area-inset-bottom, var(--safe-area-inset-bottom, 0px)))';
+    --spacing-inset-left: 'env(safe-area-inset-left, var(--safe-area-inset-left, 0px))';
+    --spacing-inset-right: 'env(safe-area-inset-right, var(--safe-area-inset-right, 0px))';
+}
 
 @utility hide-scrollbar {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
