@@ -4,7 +4,7 @@ import BccToggle from './BccToggle.vue';
 
 const meta: Meta<typeof BccToggle> = {
 	component: BccToggle,
-	title: 'Custom/BccToggle',
+	title: 'Wrapped/BccToggle',
 	tags: ['autodocs'],
 	argTypes: {
 		modelValue: { control: 'boolean' },

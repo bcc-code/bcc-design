@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { PVDropdown } from '../../index';
 import { ref } from 'vue';
+import { PVSelect } from '../../index';
 
 const cities = [
 	{ name: 'New York', code: 'NY' },
@@ -11,7 +11,7 @@ const cities = [
 ];
 
 const meta = {
-	component: PVDropdown,
+	component: PVSelect,
 	title: 'PrimeVue/Dropdown',
 	tags: ['autodocs'],
 	argTypes: {
@@ -31,13 +31,13 @@ export const Default: Story = {
 		placeholder: 'Select a City',
 	},
 	render: args => ({
-		components: { PVDropdown },
+		components: { PVSelect },
 		setup() {
 			const selected = ref<{ name: string; code: string } | null>(null);
 			return { args, selected, cities };
 		},
 		template: `
-			<PVDropdown v-model="selected" :options="cities" option-label="name" v-bind="args" class="w-full md:w-14rem" />
+			<PVSelect v-model="selected" :options="cities" option-label="name" v-bind="args" class="w-full md:w-14rem" />
 		`,
 	}),
 };
@@ -48,13 +48,13 @@ export const WithFilter: Story = {
 		filter: true,
 	},
 	render: args => ({
-		components: { PVDropdown },
+		components: { PVSelect },
 		setup() {
 			const selected = ref<{ name: string; code: string } | null>(null);
 			return { args, selected, cities };
 		},
 		template: `
-			<PVDropdown v-model="selected" :options="cities" option-label="name" v-bind="args" class="w-full md:w-14rem" />
+			<PVSelect v-model="selected" :options="cities" option-label="name" v-bind="args" class="w-full md:w-14rem" />
 		`,
 	}),
 };
@@ -65,13 +65,13 @@ export const Clearable: Story = {
 		showClear: true,
 	},
 	render: args => ({
-		components: { PVDropdown },
+		components: { PVSelect },
 		setup() {
 			const selected = ref<{ name: string; code: string } | null>(cities[0]);
 			return { args, selected, cities };
 		},
 		template: `
-			<PVDropdown v-model="selected" :options="cities" option-label="name" v-bind="args" class="w-full md:w-14rem" />
+			<PVSelect v-model="selected" :options="cities" option-label="name" v-bind="args" class="w-full md:w-14rem" />
 		`,
 	}),
 };
@@ -82,12 +82,12 @@ export const Disabled: Story = {
 		disabled: true,
 	},
 	render: args => ({
-		components: { PVDropdown },
+		components: { PVSelect },
 		setup() {
 			return { args, cities };
 		},
 		template: `
-			<PVDropdown :options="cities" option-label="name" v-bind="args" class="w-full md:w-14rem" />
+			<PVSelect :options="cities" option-label="name" v-bind="args" class="w-full md:w-14rem" />
 		`,
 	}),
 };

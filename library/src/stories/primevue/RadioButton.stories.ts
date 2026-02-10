@@ -28,11 +28,12 @@ export const Default: Story = {
 			return { args, selected, options };
 		},
 		template: `
-			<div class="flex flex-column gap-2">
+			<div>
 				<div v-for="opt in options" :key="opt.value" class="flex align-items-center gap-2">
 					<PVRadioButton v-model="selected" :input-id="opt.value" name="group" :value="opt.value" v-bind="args" />
 					<label :for="opt.value">{{ opt.name }}</label>
 				</div>
+				<br />
 				<p class="text-sm text-surface-500">Selected: {{ selected }}</p>
 			</div>
 		`,

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { PVCalendar } from '../../index';
 import { ref } from 'vue';
+import { PVDatePicker } from '../../index';
 
 const meta = {
-	component: PVCalendar,
-	title: 'PrimeVue/Calendar',
+	component: PVDatePicker,
+	title: 'PrimeVue/DatePicker',
 	tags: ['autodocs'],
 	argTypes: {
 		showIcon: { control: 'boolean' },
@@ -20,13 +20,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	render: args => ({
-		components: { PVCalendar },
+		components: { PVDatePicker },
 		setup() {
 			const date = ref<Date | null>(null);
 			return { args, date };
 		},
 		template: `
-			<PVCalendar v-model="date" v-bind="args" class="w-full md:w-14rem" />
+			<PVDatePicker v-model="date" v-bind="args" class="w-64" />
 		`,
 	}),
 };
@@ -34,26 +34,26 @@ export const Default: Story = {
 export const WithIcon: Story = {
 	args: { showIcon: true },
 	render: args => ({
-		components: { PVCalendar },
+		components: { PVDatePicker },
 		setup() {
 			const date = ref<Date | null>(null);
 			return { args, date };
 		},
 		template: `
-			<PVCalendar v-model="date" v-bind="args" class="w-full md:w-14rem" />
+			<PVDatePicker v-model="date" v-bind="args" class="w-64" />
 		`,
 	}),
 };
 
 export const WithTime: Story = {
 	render: () => ({
-		components: { PVCalendar },
+		components: { PVDatePicker },
 		setup() {
 			const date = ref<Date | null>(null);
 			return { date };
 		},
 		template: `
-			<PVCalendar v-model="date" show-time hour-format="24" class="w-full md:w-14rem" />
+			<PVDatePicker v-model="date" show-time hour-format="24" class="w-64" />
 		`,
 	}),
 };
@@ -61,13 +61,13 @@ export const WithTime: Story = {
 export const Disabled: Story = {
 	args: { disabled: true },
 	render: args => ({
-		components: { PVCalendar },
+		components: { PVDatePicker },
 		setup() {
 			const date = ref<Date | null>(new Date());
 			return { args, date };
 		},
 		template: `
-			<PVCalendar v-model="date" v-bind="args" class="w-full md:w-14rem" />
+			<PVDatePicker v-model="date" v-bind="args" class="w-64" />
 		`,
 	}),
 };
