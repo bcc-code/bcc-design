@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import PVIconField from 'primevue/iconfield';
 import PVInputIcon from 'primevue/inputicon';
+import PVInputNumber, { type InputNumberProps } from 'primevue/inputnumber';
 import PVInputText, { type InputTextProps } from 'primevue/inputtext';
 import { computed, useAttrs, type Component } from 'vue';
 import { BccCircleLoader } from '../custom';
@@ -14,7 +15,8 @@ export type BccInputProps = {
 	icon?: Component;
 	iconRight?: boolean;
 	loading?: boolean;
-} & /* @vue-ignore */ InputTextProps;
+	numeric?: boolean;
+} & /* @vue-ignore */ (InputTextProps | ({ numeric: true } & /* @vue-ignore */ InputNumberProps));
 
 const props = defineProps<BccInputProps>();
 const attrs = useAttrs();
@@ -37,7 +39,7 @@ const inputBindings = computed(() => {
 		<PVInputIcon v-if="icon && iconRight !== true">
 			<component :is="icon" :class="size === 'small' ? 'size-4' : 'size-5'" />
 		</PVInputIcon>
-		<PVInputText v-model="model" class="w-full" v-bind="inputBindings" />
+		<component :is="numeric ? PVInputNumber : PVInputText" v-model="model" class="w-full" v-bind="inputBindings" />
 		<PVInputIcon v-if="loading" class="pi pi-spin pi-spinner">
 			<BccCircleLoader :class="size === 'small' ? 'size-4' : 'size-5'" />
 		</PVInputIcon>

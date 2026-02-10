@@ -29,8 +29,7 @@
     "./tailwind.css": "./dist-css/tailwind.css"
   },
   "scripts": {
-    "start": "vite",
-    "dev": "storybook dev -p 6006",
+    "start": "storybook dev",
     "build-storybook": "storybook build",
     "build": "run-p typecheck build:types build:vite build:css",
     "build:vite": "rimraf dist && vite build",
@@ -43,7 +42,7 @@
     "lint:fix": "eslint --fix src/**/*.ts src/**/*.vue"
   },
   "dependencies": {
-    "@bcc-code/design-tokens": "^5.0.0",
+    "@bcc-code/design-tokens": "^5.0.2",
     "@bcc-code/icons-vue": "^1.4.0",
     "@primeuix/themes": "^2.0.3",
     "primevue": "^4.5.4",
@@ -55,6 +54,8 @@
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@primevue/auto-import-resolver": "^4.5.4",
+    "@storybook/vue3": "^10.0.0",
+    "@storybook/vue3-vite": "^10.0.0",
     "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^22.0.0",
     "@vitejs/plugin-vue": "^6.0.0",
@@ -73,8 +74,6 @@
     "prettier-plugin-tailwindcss": "^0.7.2",
     "rimraf": "^6.0.0",
     "storybook": "^10.0.0",
-    "@storybook/vue3": "^10.0.0",
-    "@storybook/vue3-vite": "^10.0.0",
     "tailwindcss": "^4.0.0",
     "typescript": "~5.7.0",
     "typescript-eslint": "^8.54.0",

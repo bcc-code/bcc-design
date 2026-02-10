@@ -1,0 +1,44 @@
+@layer components {
+  .bcc-nps-result {
+    @apply relative w-full;
+  }
+
+  .bcc-nps-result .result-gauge-dial {
+    transform-origin: center;
+  }
+
+  .bcc-nps-result.animated .result-gauge-dial {
+    transition-delay: 0.3s;
+    transition: all .7s cubic-bezier(0, 0, 0.3, 1.5);    
+  }
+
+  .bcc-nps-result-labels.lg {
+    @apply bottom-[2em];
+  }
+  .bcc-nps-result-labels {
+    @apply absolute bottom-[1em] flex w-full flex-col items-center justify-center;
+  }
+  .bcc-nps-result-labels.sm {
+    @apply bottom-0;
+  }
+
+  .bcc-nps-result-labels.lg .bcc-nps-result-labels--heading {
+    @apply text-heading-xl leading-tight;
+  }
+  .bcc-nps-result-labels--heading {
+    @apply text-heading-lg leading-none;
+  }
+  .bcc-nps-result-labels.sm .bcc-nps-result-labels--heading {
+    @apply text-heading-md leading-none;
+  }
+
+  .bcc-nps-result-labels.lg .bcc-nps-result-labels--label {
+    @apply text-body-lg opacity-60;
+  }
+  .bcc-nps-result-labels--label {
+    @apply text-body-md opacity-60;
+  }
+  .bcc-nps-result-labels.sm .bcc-nps-result-labels--label {
+    @apply text-body-sm;
+  }
+}

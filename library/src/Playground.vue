@@ -21,6 +21,10 @@ import './style.css';
 					<BccButton label="Secondary" severity="secondary" />
 				</div>
 			</BccCard>
+
+			<div class="text-text-default bg-elevation-surface-default border-default border-1"> hasdd </div>
+
+			<div class="ctx-brand-bolder ctx border-1"> </div>
 		</section>
 	</div>
 </template>

@@ -1,10 +1,10 @@
+import BccPreset from '@bcc-code/design-tokens/primevue';
 import type { Preview } from '@storybook/vue3';
 import { setup } from '@storybook/vue3';
-import BccPreset from '@bcc-code/design-tokens/primevue';
 import PrimeVue from 'primevue/config';
 import ConfirmationService from 'primevue/confirmationservice';
-import ToastService from 'primevue/toastservice';
 import FocusTrap from 'primevue/focustrap';
+import ToastService from 'primevue/toastservice';
 
 import '../src/style.css';
 
@@ -37,11 +37,22 @@ const preview: Preview = {
 				date: /Date$/,
 			},
 		},
+		docs: {
+			// Show story source code in the Code panel (canvas view)
+			codePanel: true,
+		},
 	},
 	decorators: [
 		story => ({
 			components: { story },
-			template: '<div class="ctx ctx-default p-6 font-sans"><story /></div>',
+			setup() {
+				const toggleDarkMode = () => {
+					document.documentElement.classList.toggle('dark');
+				};
+				return { toggleDarkMode };
+			},
+			template:
+				'<div class="ctx ctx-default p-6 font-sans"><story /> <br/> <button @click="toggleDarkMode">🌓</button></div>',
 		}),
 	],
 };

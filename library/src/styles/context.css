@@ -6,6 +6,17 @@
   --color-ctx-border: var(--ctx-border);
   --color-ctx-shadow: var(--ctx-shadow);
   --color-ctx-gradient: var(--ctx-gradient);
+
+  --color-brand-100: var(--color-bcc-100);
+  --color-brand-200: var(--color-bcc-200);
+  --color-brand-300: var(--color-bcc-300);
+  --color-brand-400: var(--color-bcc-400);
+  --color-brand-500: var(--color-bcc-500);
+  --color-brand-600: var(--color-bcc-600);
+  --color-brand-700: var(--color-bcc-700);
+  --color-brand-800: var(--color-bcc-800);
+  --color-brand-900: var(--color-bcc-900);
+  --color-brand-1000: var(--color-bcc-1000);
 }
 
 @utility text-ctx {

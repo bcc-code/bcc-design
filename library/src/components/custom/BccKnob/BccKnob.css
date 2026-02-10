@@ -1,0 +1,27 @@
+@layer components {
+    .bcc-knob {
+        @apply relative mx-auto inline-flex touch-none select-none items-center justify-center p-2;
+
+        --bcc-knob-arc-bg: var(--color-gray-200);
+        --bcc-knob-head: var(--color-brand-700);
+        --bcc-knob-tail: var(--color-brand-200);
+
+        --bcc-knob-left-head: var(--color-background-accent-red-bolder-default);
+        --bcc-knob-left-tail: var(--color-background-accent-red-subtle-default);
+        
+        --bcc-knob-right-head: var(--color-border);
+        --bcc-knob-right-tail: var(--color-green-200);
+    }
+
+    .bcc-knob-label {
+        @apply pointer-events-none absolute inset-0 flex select-none flex-col items-center justify-center;
+    }
+
+    .bcc-knob-top-left {
+        @apply absolute top-0 left-0 p-2 text-left;
+    }
+
+    .bcc-knob-top-right {
+        @apply absolute top-0 right-0 p-2 text-right;
+    }
+}

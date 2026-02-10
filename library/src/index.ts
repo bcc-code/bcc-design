@@ -23,7 +23,7 @@ export { default as BccPreset } from '@bcc-code/design-tokens/primevue';
 // ---------------------------------------------------------------------------
 // Custom BCC components (not based on PrimeVue)
 // ---------------------------------------------------------------------------
-export { BccCard } from './components/custom';
+export * from './components/custom';
 
 // ---------------------------------------------------------------------------
 // Wrapped PrimeVue components (BCC extensions or defaults)
@@ -32,19 +32,19 @@ export {
 	BccButton,
 	BccInput,
 	BccPin,
-	BccTag,
 	BccTabs,
+	BccTag,
 	type BadgeProps,
 	type BccButtonProps,
 	type BccInputProps,
 	type BccPinProps,
-	type BccTagProps,
 	type BccTabsProps,
+	type BccTagProps,
 	type ButtonProps,
 	type InputTextProps,
 	type TabItem,
-	type TagProps,
 	type TabsProps,
+	type TagProps,
 } from './components/wrapped';
 
 // ---------------------------------------------------------------------------
@@ -104,7 +104,6 @@ export { default as PVIconField } from 'primevue/iconfield';
 export { default as PVIftaLabel } from 'primevue/iftalabel';
 export { default as PVImage } from 'primevue/image';
 export { default as PVImageCompare } from 'primevue/imagecompare';
-export { default as PVInlineMessage } from 'primevue/inlinemessage';
 export { default as PVInplace } from 'primevue/inplace';
 export { default as PVInputChips } from 'primevue/inputchips';
 export { default as PVInputGroup } from 'primevue/inputgroup';
@@ -186,3 +185,5 @@ export { default as PVTree } from 'primevue/tree';
 export { default as PVTreeSelect } from 'primevue/treeselect';
 export { default as PVTreeTable } from 'primevue/treetable';
 export { default as PVVirtualScroller } from 'primevue/virtualscroller';
+
+export { useToast } from 'primevue/usetoast';

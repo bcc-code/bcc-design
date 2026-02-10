@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BccNpsScore > renders a nps score 1`] = `
+"<div class="bcc-nps-score">
+  <div class="bcc-nps-score--heading order-1">
+    <p class="bcc-nps-score--label">Not likely</p>
+    <p class="bcc-nps-score--label text-right">Very likely</p>
+  </div>
+  <div class="bcc-nps-score--bar order-2"><button class="bcc-nps-score--number inactive">0</button><button class="bcc-nps-score--number inactive">1</button><button class="bcc-nps-score--number inactive">2</button><button class="bcc-nps-score--number inactive">3</button><button class="bcc-nps-score--number inactive">4</button><button class="bcc-nps-score--number inactive">5</button><button class="bcc-nps-score--number inactive">6</button><button class="bcc-nps-score--number inactive">7</button><button class="bcc-nps-score--number inactive">8</button><button class="bcc-nps-score--number inactive">9</button><button class="bcc-nps-score--number inactive">10</button></div>
+</div>"
+`;

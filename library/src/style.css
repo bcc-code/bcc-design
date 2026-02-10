@@ -32,5 +32,4 @@
     display: none; /* for Chrome, Safari, and Opera */
 }
 
-@import "./components/custom/BccReact/BccReact.css";
-@import "./components/custom/BccCapacityIndicator/BccCapacityIndicator.css";
+@import "./components/custom/styles.css";

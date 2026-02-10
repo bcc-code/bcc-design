@@ -1,17 +1,12 @@
-# DEPRECATED: This workflow is deprecated. The design-library is deprecated in favor of @bcc-code/design-tokens.
-# Keeping this file for reference but disabling the workflow.
-
-name: Deploy production Storybook (DEPRECATED)
+name: Deploy production Storybook (library)
 
 on:
   workflow_dispatch:
-  # Disabled: No longer deploying Storybook on release
   # release:
   #   types: [published]
 
 jobs:
   build_and_deploy:
-    if: false # Disabled - design-library is deprecated
     runs-on: ubuntu-latest
     name: Build and Deploy
     environment:
@@ -30,18 +25,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: design-library/.node-version
+          node-version: "20"
           registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
-          cache-dependency-path: design-library/pnpm-lock.yaml
+          cache-dependency-path: library/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: design-library
+        working-directory: library
 
       - name: Build Storybook
         run: pnpm build-storybook
-        working-directory: design-library
+        working-directory: library
 
       - name: Deploy
         id: builddeploy
@@ -49,6 +44,6 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_DEPLOY_TOKEN }}
           action: "upload"
-          app_location: "design-library/storybook-static"
+          app_location: "library/storybook-static"
           skip_app_build: true
           skip_api_build: true

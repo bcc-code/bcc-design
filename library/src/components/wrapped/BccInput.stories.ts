@@ -1,4 +1,4 @@
-import { LockIcon, MailIcon, PersonIcon, SearchIcon } from '@bcc-code/icons-vue';
+import { LockIcon, MailIcon, NumbersIcon, PersonIcon, SearchIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 import BccInput from './BccInput.vue';
@@ -92,10 +92,17 @@ export const IconVariants = {
 	}),
 } as Story;
 
+export const Numeric: Story = {
+	args: {
+		numeric: true,
+		placeholder: 'Enter a number',
+		icon: NumbersIcon,
+	},
+};
+
 export const Disabled: Story = {
 	args: {
 		placeholder: 'Disabled input',
 		disabled: true,
-		modelValue: 'Disabled',
 	},
 };
