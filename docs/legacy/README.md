@@ -12,8 +12,7 @@ The design-library packages are deprecated. Use **@bcc-code/design-tokens** with
 
 ## Storybook
 
-- [Production Storybook](https://design.bcc.no/)
-- [Development Storybook](https://design.bcc.no/design-storybook-dev/)
+- [Legacy Storybook](https://design-library-dev.developer.bcc.no/)
 
 ## Package Status
 
