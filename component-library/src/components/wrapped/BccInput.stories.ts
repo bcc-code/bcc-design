@@ -71,6 +71,7 @@ export const Sizes: Story = {
 				<BccInput placeholder="Small" v-model="val" :icon="SearchIcon" size="small" />
 				<BccInput placeholder="Default size" v-model="val" :icon="SearchIcon" />
 				<BccInput placeholder="Large" v-model="val" :icon="SearchIcon" size="large" />
+				{{ val }}
 			</div>
 		`,
 		}) as any,

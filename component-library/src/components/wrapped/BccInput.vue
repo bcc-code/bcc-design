@@ -21,13 +21,10 @@ export type InputProps = {
 const props = defineProps<InputProps>();
 const attrs = useAttrs();
 
-const model = defineModel<string>();
-
 const inputBindings = computed((): InputTextProps => {
-	const { icon, iconRight, modelValue, ...rest } = props as InputProps & Record<string, unknown>;
+	const { icon, iconRight, ...rest } = props as InputProps & Record<string, unknown>;
 	void icon;
 	void iconRight;
-	void modelValue;
 	return { ...rest, ...attrs } as InputTextProps;
 });
 </script>
@@ -37,7 +34,7 @@ const inputBindings = computed((): InputTextProps => {
 		<BccInputIcon v-if="icon && iconRight !== true">
 			<component :is="icon" class="size-full" />
 		</BccInputIcon>
-		<component :is="numeric ? BccInputNumber : BccInputText" v-model="model" class="w-full" v-bind="inputBindings" />
+		<component :is="numeric ? BccInputNumber : BccInputText" class="w-full" v-bind="inputBindings" />
 		<BccInputIcon v-if="loading" class="pi pi-spin pi-spinner">
 			<BccCircleLoader class="size-full" />
 		</BccInputIcon>

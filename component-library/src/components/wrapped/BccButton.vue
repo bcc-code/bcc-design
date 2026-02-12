@@ -2,10 +2,10 @@
 import PrimeButton, { type ButtonProps as PrimeButtonProps } from 'primevue/button';
 import { computed, type Component, type FunctionalComponent, type VNode, type VueElement } from 'vue';
 
-export type ButtonProps = Omit<PrimeButtonProps, 'icon' | 'iconPos'> & {
+export type ButtonProps = {
 	icon: Component | FunctionalComponent | VueElement | VNode;
 	iconRight?: boolean;
-};
+} & /* @vue-ignore */ Omit<PrimeButtonProps, 'icon' | 'iconPos'>;
 
 const props = defineProps<ButtonProps>();
 
