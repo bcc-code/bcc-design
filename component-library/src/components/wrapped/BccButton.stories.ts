@@ -1,5 +1,6 @@
 import { CheckIcon, HelpIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { ref } from 'vue';
 import BccButton from './BccButton.vue';
 
 const meta: Meta<typeof BccButton> = {
@@ -103,5 +104,35 @@ export const Disabled: Story = {
 	args: {
 		label: 'Disabled',
 		disabled: true,
+	},
+};
+
+export const WithContext: Story = {
+	render: args => ({
+		components: { BccButton },
+		setup() {
+			const value = ref(false);
+			const context = ref('blue');
+			return { args, context, value };
+		},
+		template: `<div class="flex gap-4">
+	<BccButton @click="value = !value" v-bind="args" label="Switch Me" useCtx :class="value ? 'ctx-' + context + '-bolder' : 'ctx-' + context + '-subtler'" />
+	<select v-model="context">
+		<option value="blue">Blue</option>
+		<option value="green">Green</option>
+		<option value="red">Red</option>
+		<option value="yellow">Yellow</option>
+		<option value="purple">Purple</option>
+		<option value="orange">Orange</option>
+		<option value="magenta">Magenta</option>
+	</select>
+</div>`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<BccButton v-model="value" use-ctx :class="value ? 'ctx-blue-bolder' : 'ctx-blue-subtler'" />`,
+			},
+		},
 	},
 };

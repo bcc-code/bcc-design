@@ -31,10 +31,7 @@ const emit = defineEmits<{
 	(e: 'update:modelValue', value: number): void;
 }>();
 
-const activeIndex = computed({
-	get: () => props.modelValue ?? 0,
-	set: (value: number) => emit('update:modelValue', value),
-});
+const value = defineModel<number>({ default: 0, required: true });
 
 const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {
 	const { tabs, modelValue, fill, noPanels, ...rest } = props;
@@ -48,7 +45,7 @@ const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {
 
 <template>
 	<BccTabs
-		v-model:value="activeIndex"
+		v-model:value="value"
 		v-bind="tabsBindings"
 		:class="{ 'w-full': fill }"
 		style="--p-tabs-tablist-border-width: 0; --p-tabs-tab-border-width: 0 0 1px 0"
