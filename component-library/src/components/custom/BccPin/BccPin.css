@@ -1,0 +1,45 @@
+@layer components {
+  .bcc-pin {
+    @apply inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-label-xs leading-none whitespace-nowrap shadow;
+  }
+  .bcc-pin.sm {
+    @apply w-4 h-4;
+  }
+  .bcc-pin.lg {
+    @apply w-6 h-6;
+  }
+  .bcc-pin.xl {
+    @apply w-8 h-8;
+  }
+
+  .bcc-pin-text {
+    @apply w-auto px-2;
+  }
+  .bcc-pin-text.sm {
+    @apply w-auto px-1;
+  }
+  .bcc-pin-text.lg { 
+    @apply w-auto px-3;
+  }
+
+  .bcc-pin .bcc-pin-icon {
+    @apply h-4 w-4;
+  }
+  .bcc-pin.sm .bcc-pin-icon {
+    @apply h-3 w-3;
+  }
+  .bcc-pin.lg .bcc-pin-icon {
+    @apply h-4 w-4;
+  }
+  .bcc-pin.xl .bcc-pin-icon {
+    @apply h-5 w-5;
+  }
+
+  .bcc-pin.bordered {
+    @apply border-2;
+  }
+
+  .bcc-pin.squared  {
+    @apply rounded;
+  }
+}

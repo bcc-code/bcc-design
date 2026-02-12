@@ -1,0 +1,29 @@
+@layer components {
+    .bcc-frame {
+        @apply ctx ctx-default;
+    }
+
+    .bcc-frame--raised {
+        --ctx-background: var(--color-elevation-surface-raised-default);
+    }
+    .bcc-frame--raised.rounded {
+        @apply rounded;
+    }
+    .bcc-frame--raised.bcc-frame--shadow {
+        @apply shadow-2xs;
+    }
+
+    .bcc-frame--overlay {
+        --ctx-background: var(--color-elevation-surface-overlay-default);
+    }
+    .bcc-frame--overlay.bcc-frame--shadow {
+        @apply shadow-2xl;
+    }
+
+    .bcc-frame--sunken {
+        --ctx-background: var(--color-elevation-surface-sunken-default);
+    }
+    .bcc-frame--sunken.bcc-frame--shadow {
+        @apply shadow-inner;
+    }
+}

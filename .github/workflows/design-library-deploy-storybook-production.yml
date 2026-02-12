@@ -32,11 +32,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: library
+        working-directory: component-library
 
       - name: Build Storybook
         run: pnpm build-storybook
-        working-directory: library
+        working-directory: component-library
 
       - name: Deploy
         id: builddeploy

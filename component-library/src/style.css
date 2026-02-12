@@ -1,0 +1,23 @@
+/* Layer order: Tailwind base/utilities first, then PrimeVue so component styles win */
+@layer theme, base, tailwind, primevue;
+
+@import "tailwindcss";
+@import "@bcc-code/design-tokens/tailwind";
+@import "@bcc-code/design-tokens/primevue/overrides";
+@import "./styles/theme.css";
+@import "./styles/utilities.css";
+@import "./styles/context.css";
+@import "./styles/contexts.css";
+@import "./styles/fonts.css";
+
+@utility hide-scrollbar {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+@import "./components/custom/styles.css";

@@ -1,0 +1,15 @@
+@layer components {
+    .p-toggleswitch.useCtx {
+        --p-toggleswitch-background: var(--ctx-background);
+        --p-toggleswitch-hover-background: var(--ctx-background-hover);
+        --p-toggleswitch-checked-background: var(--ctx-background);
+        --p-toggleswitch-checked-hover-background: var(--ctx-background-hover);
+    }
+    .p-toggleswitch.loading {
+        @apply pointer-events-none;
+    }
+    .p-toggleswitch.toggled:not(.p-toggleswitch-checked) {
+        --p-toggleswitch-background: var(--color-background-danger-bolder-default);
+        --p-toggleswitch-hover-background: var(--color-background-danger-bolder-hover);
+    }
+}
