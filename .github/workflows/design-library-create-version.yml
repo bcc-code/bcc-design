@@ -1,5 +1,5 @@
-name: Create New Design Library Version
-run-name: Create new ${{ github.event.inputs.version }} ${{ github.event.inputs.channel }} design library version
+name: Create New Component Library Version
+run-name: Create new ${{ github.event.inputs.version }} ${{ github.event.inputs.channel }} component library version
 
 on:
   workflow_dispatch:
@@ -35,11 +35,18 @@ jobs:
         with:
           token: ${{ secrets.BCC_BOT_ACCESS_TOKEN }}
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: design-library/.node-version
+          node-version: "20"
           registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
+          cache-dependency-path: component-library/pnpm-lock.yaml
 
       - name: Set commit author to bcc-bot
         run: |
@@ -47,8 +54,8 @@ jobs:
           git config --global user.email "84040471+bcc-bot@users.noreply.github.com"
 
       - name: Version new ${{ github.event.inputs.version }} version
-        run: npm run create-version ${{ github.event.inputs.version }} ${{ github.event.inputs.channel }}
-        working-directory: design-library
+        run: pnpm run create-version ${{ github.event.inputs.version }} ${{ github.event.inputs.channel }}
+        working-directory: component-library
 
       - name: Push
         run: git push --follow-tags

@@ -39,7 +39,10 @@
     "generate:context-css": "node scripts/generate-context-css.mjs",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint src/**/*.ts src/**/*.vue",
-    "lint:fix": "eslint --fix src/**/*.ts src/**/*.vue"
+    "lint:fix": "eslint --fix src/**/*.ts src/**/*.vue",
+    "test:unit": "vitest run",
+    "release-channel": "node ./scripts/release-channel.cjs",
+    "create-version": "node ./scripts/version.cjs"
   },
   "dependencies": {
     "@bcc-code/design-tokens": "^5.0.2",

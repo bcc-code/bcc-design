@@ -1,6 +1,5 @@
 import { CheckIcon, HelpIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import type { ButtonProps } from 'primevue';
 import BccButton from './BccButton.vue';
 
 const meta: Meta<typeof BccButton> = {
@@ -15,7 +14,8 @@ const meta: Meta<typeof BccButton> = {
 		disabled: { control: 'boolean' },
 		loading: { control: 'boolean' },
 		outlined: { control: 'boolean' },
-	} as Record<keyof ButtonProps, object>,
+		icon: { control: 'object' },
+	},
 };
 
 export default meta;
@@ -43,18 +43,58 @@ export const Variants: Story = {
 	}),
 };
 
+export const Sizes: Story = {
+	render: () => ({
+		components: { BccButton },
+		template: `
+			<div class="flex flex-col gap-4 max-w-xs">
+				<BccButton label="Small" size="small" outlined />
+				<BccButton label="Default" />
+				<BccButton label="Large" size="large" outlined />
+			</div>
+		`,
+	}),
+};
+
+export const WithIcon: Story = {
+	args: {
+		label: 'With Icon',
+		icon: CheckIcon,
+	},
+};
+
+export const WithIconRight: Story = {
+	args: {
+		label: 'With Icon Right',
+		iconRight: true,
+		icon: CheckIcon,
+	},
+};
+
 export const Severities: Story = {
 	render: () => ({
 		components: { BccButton, CheckIcon, InfoIcon, WarningIcon, HelpIcon },
+		setup() {
+			return { CheckIcon, InfoIcon, WarningIcon, HelpIcon };
+		},
 		template: `
 			<div class="flex flex-wrap gap-2">
 				<BccButton label="Primary" />
-				<BccButton label="Contrast" severity="contrast" />
-				<BccButton label="Success" severity="success" :icon="CheckIcon" />
-				<BccButton label="Info" severity="info" :icon="InfoIcon" />
-				<BccButton label="Warn" severity="warn" :icon="WarningIcon" />
-				<BccButton label="Help" severity="help" :icon="HelpIcon" />
+				<BccButton label="Contrast" severity="contrast"  />
+				<BccButton label="Success" severity="success" v-bind="{ icon: CheckIcon }" />
+				<BccButton label="Info" severity="info" v-bind="{ icon: InfoIcon }" />
+				<BccButton label="Warn" severity="warn" v-bind="{ icon: WarningIcon }" />
+				<BccButton label="Help" v-bind="{ icon: HelpIcon, severity: 'help' }" />
 			</div>
+		`,
+	}),
+};
+
+export const WithBadge: Story = {
+	render: () => ({
+		components: { BccButton },
+		template: `
+			<BccButton label="Button" badge="3" />
 		`,
 	}),
 };

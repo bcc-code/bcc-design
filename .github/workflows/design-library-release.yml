@@ -1,5 +1,5 @@
-name: "Design Library: Release"
-run-name: Design Library - ${{ github.event_name == 'release' && 'main release version' || 'dev release version' }}
+name: "Component Library: Release"
+run-name: Component Library - ${{ github.event_name == 'release' && 'main release version' || 'dev release version' }}
 
 on:
   release:
@@ -7,7 +7,7 @@ on:
   push:
     branches: [main]
     paths:
-      - design-library/**
+      - component-library/**
       - .github/workflows/design-library-release.yml
 
 permissions:
@@ -19,12 +19,12 @@ env:
 
 jobs:
   main-build:
-    if: github.event_name == 'release' && contains(github.event.release.name, 'design-library')
+    if: github.event_name == 'release' && contains(github.event.release.name, 'component-library')
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
-        working-directory: design-library
+        working-directory: component-library
 
     steps:
       - uses: actions/checkout@v6
@@ -37,32 +37,25 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version-file: design-library/.node-version
+          node-version: "20"
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-          cache-dependency-path: design-library/pnpm-lock.yaml
+          cache-dependency-path: component-library/pnpm-lock.yaml
       
       - run: npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       
-      - name: Build Vue package
+      - name: Build package
         run: pnpm build
-
-      - name: Build CSS package
-        run: pnpm build
-        working-directory: design-library/css-package
 
       - name: Set release channel
         run: |
-          echo "RELEASE_CHANNEL=$(npm run release-channel --silent)" >> $GITHUB_ENV
+          echo "RELEASE_CHANNEL=$(pnpm run release-channel --silent)" >> $GITHUB_ENV
 
-      - name: Publish `@bcc-code/design-library-vue`
+      - name: Publish `@bcc-code/component-library-vue`
         run: npm publish --tag ${{ env.RELEASE_CHANNEL }}
-
-      - name: Publish `@bcc-code/design-library`
-        run: npm publish ./css-package --tag ${{ env.RELEASE_CHANNEL }}
 
   
   test-dev-build:
@@ -76,7 +69,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: design-library
+        working-directory: component-library
 
     steps:
       - uses: actions/checkout@v6
@@ -89,10 +82,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version-file: design-library/.node-version
+          node-version: "20"
           registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
-          cache-dependency-path: design-library/pnpm-lock.yaml
+          cache-dependency-path: component-library/pnpm-lock.yaml
       
       - run: npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
 
@@ -108,21 +101,12 @@ jobs:
         with:
           fail-on-cache-miss: true
           path: |
-            design-library/dist
-            design-library/dist_css
-            design-library/dist_types
-            design-library/css-package/dist
-            design-library/css-package/dist_css
-            design-library/css-package/dist_types
-          key: design-library-dist-${{ env.sha_short }}
+            component-library/dist
+            component-library/dist-types
+            component-library/dist-css
+          key: component-library-dist-${{ env.sha_short }}
 
-      - name: Publish `@bcc-code/design-library-vue`
-        run: |
-          npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
-          npm publish --tag dev
-
-      - name: Publish `@bcc-code/design-library`
-        working-directory: design-library/css-package
+      - name: Publish `@bcc-code/component-library-vue`
         run: |
           npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
           npm publish --tag dev

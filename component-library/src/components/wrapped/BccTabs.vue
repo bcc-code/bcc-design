@@ -6,24 +6,24 @@ import BccTabPanels from 'primevue/tabpanels';
 import BccTabs, { type TabsProps as PrimeTabsProps } from 'primevue/tabs';
 import type { Component } from 'vue';
 import { computed } from 'vue';
-import BccBadge from './BccBadge.vue';
+import BccBadge, { type BadgeProps } from '../custom/BccBadge/BccBadge.vue';
 
 export interface TabItem {
 	title: string;
 	icon?: Component;
-	pin?: { text: string; context?: string };
+	badge?: BadgeProps;
 	as?: Component;
 	value?: string;
 }
 
-export type BccTabsProps = Omit<PrimeTabsProps, 'value'> & {
+export type TabsProps = Omit<PrimeTabsProps, 'value'> & {
 	tabs: TabItem[];
 	modelValue?: number;
 	fill?: boolean;
 	noPanels?: boolean;
 };
 
-const props = withDefaults(defineProps<BccTabsProps>(), {
+const props = withDefaults(defineProps<TabsProps>(), {
 	fill: false,
 });
 
@@ -57,7 +57,7 @@ const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {
 			<BccTab v-for="(tab, index) in tabs" :key="'tab-' + index" :value="index" class="center gap-2">
 				<component :is="tab.icon" v-if="tab.icon" class="size-4" />
 				<span>{{ tab.title }}</span>
-				<BccBadge v-if="tab.pin" :value="tab.pin.text" :severity="tab.pin.context" size="small" />
+				<BccBadge v-if="tab.badge" v-bind="tab.badge" size="sm" />
 			</BccTab>
 		</BccTabList>
 		<BccTabPanels v-if="!noPanels">

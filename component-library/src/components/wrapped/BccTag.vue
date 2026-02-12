@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import BccTag, { type TagProps } from 'primevue/tag';
+import BccTag, { type TagProps as PrimeTagProps } from 'primevue/tag';
 import { computed, type Component } from 'vue';
 
-export type BccTagProps = Omit<TagProps, 'icon'> & {
+export type TagProps = Omit<PrimeTagProps, 'icon'> & {
 	icon?: Component;
 	iconRight?: boolean;
 };
 
-const props = defineProps<BccTagProps>();
+const props = defineProps<TagProps>();
 
-const tagBindings = computed((): TagProps => {
+const tagBindings = computed((): PrimeTagProps => {
 	const { icon, iconRight, ...rest } = props;
 	void icon;
 	void iconRight;
-	return rest as TagProps;
+	return rest as PrimeTagProps;
 });
 </script>
 

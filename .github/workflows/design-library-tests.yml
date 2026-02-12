@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - design-library/**
+      - component-library/**
       - .github/workflows/design-library-tests.yml
   workflow_call:
 
@@ -29,18 +29,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: design-library/.node-version
+          node-version: "20"
           registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
-          cache-dependency-path: design-library/pnpm-lock.yaml
+          cache-dependency-path: component-library/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: design-library
+        working-directory: component-library
 
       - name: Run Unit Tests
-        run: npm run test:unit
-        working-directory: design-library
+        run: pnpm run test:unit
+        working-directory: component-library
 
   lint:
     runs-on: ubuntu-latest
@@ -57,22 +57,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: design-library/.node-version
+          node-version: "20"
           registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
-          cache-dependency-path: design-library/pnpm-lock.yaml
+          cache-dependency-path: component-library/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: design-library
+        working-directory: component-library
 
       - name: Lint
-        run: npm run lint
-        working-directory: design-library
+        run: pnpm run lint
+        working-directory: component-library
 
       - name: Type Check
-        run: npm run type-check
-        working-directory: design-library
+        run: pnpm run typecheck
+        working-directory: component-library
 
   build:
     runs-on: ubuntu-latest
@@ -89,22 +89,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: design-library/.node-version
+          node-version: "20"
           registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
-          cache-dependency-path: design-library/pnpm-lock.yaml
+          cache-dependency-path: component-library/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        working-directory: design-library
+        working-directory: component-library
 
-      - name: Build Vue package
+      - name: Build package
         run: pnpm build
-        working-directory: design-library
-
-      - name: Build CSS package
-        run: pnpm build
-        working-directory: design-library/css-package
+        working-directory: component-library
 
       - name: Resolve version
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
@@ -113,10 +109,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: |
-            design-library/dist
-            design-library/dist_css
-            design-library/dist_types
-            design-library/css-package/dist
-            design-library/css-package/dist_css
-            design-library/css-package/dist_types
-          key: design-library-dist-${{ env.sha_short }}
+            component-library/dist
+            component-library/dist-types
+            component-library/dist-css
+          key: component-library-dist-${{ env.sha_short }}

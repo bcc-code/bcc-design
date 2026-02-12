@@ -1,10 +1,11 @@
-name: "Design Library: Prepare Release"
+name: "Component Library: Prepare Release"
 
 on:
   workflow_dispatch:
   push:
     tags:
       - 'v*'
+      - 'component-library-*'
 
 env:
   CI: true
@@ -27,12 +28,16 @@ jobs:
       - name: Resolve version
         id: vars
         run: |
-          echo "TAG_NAME=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "TAG_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
+          else
+            echo "TAG_NAME=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+          fi
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           draft: true
-          name: "design-library ${{ env.TAG_NAME }}"
+          name: "component-library ${{ env.TAG_NAME }}"
           tag_name: ${{ env.TAG_NAME }}
           generate_release_notes: true

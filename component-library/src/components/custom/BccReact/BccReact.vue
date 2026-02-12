@@ -7,19 +7,7 @@ import {
 } from '@bcc-code/icons-vue';
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 import BccReactEmoji from './BccReactEmoji.vue';
-
-export type ReactInfo = {
-	id: string;
-	emoji: string;
-	count?: number;
-	selected?: boolean;
-};
-
-export type ReactProps = {
-	emojis: ReactInfo[];
-	top?: boolean;
-	placeholder?: string;
-};
+import type { ReactProps } from './types';
 
 const props = withDefaults(defineProps<ReactProps>(), {
 	top: false,

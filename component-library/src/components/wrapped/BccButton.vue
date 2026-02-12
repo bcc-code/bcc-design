@@ -1,33 +1,29 @@
 <script setup lang="ts">
 import PrimeButton, { type ButtonProps as PrimeButtonProps } from 'primevue/button';
-import { computed, useAttrs, type Component } from 'vue';
+import { computed, type Component, type FunctionalComponent, type VNode, type VueElement } from 'vue';
 
-defineOptions({ inheritAttrs: false });
-
-export type ButtonProps = /* @vue-ignore */ Omit<PrimeButtonProps, 'icon' | 'iconPos'> & {
-	icon?: Component;
+export type ButtonProps = Omit<PrimeButtonProps, 'icon' | 'iconPos'> & {
+	icon: Component | FunctionalComponent | VueElement | VNode;
 	iconRight?: boolean;
 };
 
 const props = defineProps<ButtonProps>();
-const attrs = useAttrs();
 
 const buttonBindings = computed((): PrimeButtonProps => {
 	const { icon, iconRight, ...rest } = props;
 	void icon;
 	void iconRight;
-	return { ...rest, ...attrs } as PrimeButtonProps;
+
+	const forward = rest as PrimeButtonProps;
+	if (iconRight) forward.iconPos = 'right';
+	return forward;
 });
 </script>
 
 <template>
 	<PrimeButton v-bind="buttonBindings">
 		<template #icon>
-			<component
-				:is="icon"
-				v-if="icon"
-				:class="[iconClass, { 'order-1': iconRight }, size === 'large' ? 'size-6' : 'size-5']"
-			/>
+			<component :is="icon" :class="[iconClass, { 'order-1': iconRight }, size === 'large' ? 'size-6' : 'size-5']" />
 		</template>
 		<slot />
 	</PrimeButton>

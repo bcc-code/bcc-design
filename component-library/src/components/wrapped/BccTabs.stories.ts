@@ -1,3 +1,4 @@
+import { BCC_CONTEXTS } from '@/contexts';
 import { HomeIcon, PersonIcon, SettingsIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import BccTabs from './BccTabs.vue';
@@ -36,9 +37,9 @@ export const WithIcons: Story = {
 export const WithPins: Story = {
 	args: {
 		tabs: [
-			{ title: 'Inbox', pin: { text: '3', context: 'info' } },
+			{ title: 'Inbox', badge: { value: '3', context: BCC_CONTEXTS.info.default } },
 			{ title: 'Archive' },
-			{ title: 'Spam', pin: { text: '1', context: 'danger' } },
+			{ title: 'Spam', badge: { value: '1', context: BCC_CONTEXTS.danger.default } },
 		],
 	},
 };
@@ -47,7 +48,7 @@ export const WithIconsAndPins: Story = {
 	args: {
 		tabs: [
 			{ title: 'Home', icon: HomeIcon },
-			{ title: 'Profile', icon: PersonIcon, pin: { text: '2' } },
+			{ title: 'Profile', icon: PersonIcon, badge: { value: '2' } },
 			{ title: 'Settings', icon: SettingsIcon },
 		],
 	},

@@ -28,26 +28,7 @@ export * from './components/custom';
 // ---------------------------------------------------------------------------
 // Wrapped PrimeVue components (BCC extensions or defaults)
 // ---------------------------------------------------------------------------
-export {
-	BccBadge,
-	BccButton,
-	BccCheckbox,
-	BccInput,
-	BccTabs,
-	BccTag,
-	type BadgeProps,
-	type BadgeProps,
-	type ButtonProps,
-	type CheckboxProps,
-	type CheckboxProps,
-	type InputProps,
-	type InputTextProps,
-	type TabItem,
-	type TabsProps,
-	type TabsProps,
-	type TagProps,
-	type TagProps,
-} from './components/wrapped';
+export * from './components/wrapped';
 
 // ---------------------------------------------------------------------------
 // PrimeVue components (re-exported as Bcc[ComponentName])

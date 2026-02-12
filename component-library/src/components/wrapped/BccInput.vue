@@ -16,7 +16,7 @@ export type InputProps = {
 	iconRight?: boolean;
 	loading?: boolean;
 	numeric?: boolean;
-} & (InputTextProps | ({ numeric: true } & InputNumberProps));
+} & /* @vue-ignore */ (InputTextProps | ({ numeric: true } & InputNumberProps));
 
 const props = defineProps<InputProps>();
 const attrs = useAttrs();
@@ -24,8 +24,6 @@ const attrs = useAttrs();
 const model = defineModel<string>();
 
 const inputBindings = computed((): InputTextProps => {
-	// Omit BccInput-only props and modelValue (handled by v-model) when forwarding to BccInputText.
-	// Cast to avoid TS2590 (union type too complex) when destructuring.
 	const { icon, iconRight, modelValue, ...rest } = props as InputProps & Record<string, unknown>;
 	void icon;
 	void iconRight;
