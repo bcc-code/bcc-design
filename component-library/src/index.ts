@@ -160,3 +160,4 @@ export { default as BccVirtualScroller } from 'primevue/virtualscroller';
 export { useConfirm } from 'primevue/useconfirm';
 export { useDialog } from 'primevue/usedialog';
 export { useToast } from 'primevue/usetoast';
+export { default as useAnimatedNumber } from './composables/animatedNumber';
