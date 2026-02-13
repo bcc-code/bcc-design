@@ -21,11 +21,12 @@ export default defineConfig({
 			formats: ['es', 'umd'],
 		},
 		rollupOptions: {
-			external: ['vue', 'primevue'],
+			// Only Vue is external; PrimeVue and Tailwind are bundled so consumers need only this lib
+			external: ['vue'],
 			output: {
+				exports: 'named',
 				globals: {
 					vue: 'Vue',
-					primevue: 'PrimeVue',
 				},
 			},
 		},

@@ -1,24 +1,26 @@
 /**
- * @bcc-code/component-library
+ * @bcc-code/component-library-vue
  *
- * Extended Vue component library based on PrimeVue and BCC design tokens.
- * Install this package and use PrimeVue with the BCC preset for full styling.
+ * Vue component library with PrimeVue and BCC design tokens. You only need this
+ * package: no separate Tailwind or PrimeVue install.
  *
- * Usage in app:
- *   import { createApp } from "vue";
- *   import PrimeVue from "primevue/config";
- *   import BCCPreset from "@bcc-code/design-tokens/primevue";
- *   import * as Bcc from "@bcc-code/component-library";
- *   import "@bcc-code/component-library/style.css";
+ * Usage: In your main.ts file, import the library and use the setup function.
+ *  import { BccComponentLibrary } from '@bcc-code/component-library-vue';
+ *  app.use(BccComponentLibrary);
  *
- *   const app = createApp(App);
- *   app.use(PrimeVue, { theme: { preset: BCCPreset } });
- *   // Register components as needed, or use Bcc.* in templates
+ * For styling, you have two options:
+ * 1. Recommended (full Tailwind: utility classes + tree-shaking in your app):
+ *    - vite.config: plugins: [..., tailwindcss()] with import tailwindcss from '@tailwindcss/vite'
+ *    - Main CSS file: @import "@bcc-code/component-library-vue/theme.css";
+ *    Tailwind runs in your build and only bundles classes you use.
+ * 2. Alternative: Pre-built CSS only (no Tailwind in your app; library styles + components only):
+ *    - main.ts: import "@bcc-code/component-library-vue/style.css";
  */
 
 import './style.css';
 
 export { default as BccPreset } from '@bcc-code/design-tokens/primevue';
+export { default as BccComponentLibrary } from './setup';
 
 // ---------------------------------------------------------------------------
 // Custom BCC components (not based on PrimeVue)
@@ -56,8 +58,6 @@ export { default as BccColorPicker } from 'primevue/colorpicker';
 export { default as BccColumn } from 'primevue/column';
 export { default as BccColumnGroup } from 'primevue/columngroup';
 export { default as BccConfig } from 'primevue/config';
-export { default as BccConfirmationEventBus } from 'primevue/confirmationeventbus';
-export { default as BccConfirmationService } from 'primevue/confirmationservice';
 export { default as BccConfirmDialog } from 'primevue/confirmdialog';
 export { default as BccConfirmPopup } from 'primevue/confirmpopup';
 export { default as BccContextMenu } from 'primevue/contextmenu';
@@ -66,12 +66,10 @@ export { default as BccDataView } from 'primevue/dataview';
 export { default as BccDatePicker } from 'primevue/datepicker';
 export { default as BccDeferredContent } from 'primevue/deferredcontent';
 export { default as BccDialog } from 'primevue/dialog';
-export { default as BccDialogService } from 'primevue/dialogservice';
 export { default as BccDivider } from 'primevue/divider';
 export { default as BccDock } from 'primevue/dock';
 export { default as BccDrawer } from 'primevue/drawer';
 export { default as BccDynamicDialog } from 'primevue/dynamicdialog';
-export { default as BccDynamicDialogEventBus } from 'primevue/dynamicdialogeventbus';
 export { default as BccFieldset } from 'primevue/fieldset';
 export { default as BccFileUpload } from 'primevue/fileupload';
 export { default as BccFloatLabel } from 'primevue/floatlabel';
@@ -103,7 +101,6 @@ export { default as BccMultiSelect } from 'primevue/multiselect';
 export { default as BccOrderList } from 'primevue/orderlist';
 export { default as BccOrganizationChart } from 'primevue/organizationchart';
 export { default as BccOverlayBadge } from 'primevue/overlaybadge';
-export { default as BccOverlayEventBus } from 'primevue/overlayeventbus';
 export { default as BccPaginator } from 'primevue/paginator';
 export { default as BccPanel } from 'primevue/panel';
 export { default as BccPanelMenu } from 'primevue/panelmenu';
@@ -149,7 +146,6 @@ export { default as BccTextarea } from 'primevue/textarea';
 export { default as BccTieredMenu } from 'primevue/tieredmenu';
 export { default as BccTimeline } from 'primevue/timeline';
 export { default as BccToast } from 'primevue/toast';
-export { default as BccToastEventBus } from 'primevue/toasteventbus';
 export { default as BccToastService } from 'primevue/toastservice';
 export { default as BccToggleButton } from 'primevue/togglebutton';
 export { default as BccToggleSwitch } from 'primevue/toggleswitch';
@@ -160,4 +156,7 @@ export { default as BccTreeSelect } from 'primevue/treeselect';
 export { default as BccTreeTable } from 'primevue/treetable';
 export { default as BccVirtualScroller } from 'primevue/virtualscroller';
 
+/* Composables */
+export { useConfirm } from 'primevue/useconfirm';
+export { useDialog } from 'primevue/usedialog';
 export { useToast } from 'primevue/usetoast';

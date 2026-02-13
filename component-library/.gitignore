@@ -1,3 +1,10 @@
+# Build
+dist
+dist-types
+dist-css
+dist-ssr
+coverage
+
 # Logs
 logs
 *.log
