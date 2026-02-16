@@ -169,13 +169,14 @@ export const FloatLabelVariants: Story = {
 };
 
 export const FloatLabelWithIcon: Story = {
-	render: () => ({
-		components: { BccInput, BccFloatLabel, MailIcon },
-		setup() {
-			const email = ref('');
-			return { email, MailIcon };
-		},
-		template: `
+	render: () =>
+		({
+			components: { BccInput, BccFloatLabel, MailIcon },
+			setup() {
+				const email = ref('');
+				return { email, MailIcon };
+			},
+			template: `
 			<div class="flex flex-col gap-6 max-w-xs">
 				<BccFloatLabel>
 					<BccInput id="float-email" v-model="email" :icon="MailIcon" icon-right />
@@ -183,17 +184,18 @@ export const FloatLabelWithIcon: Story = {
 				</BccFloatLabel>
 			</div>
 		`,
-	}),
+		}) as any,
 };
 
 export const FloatLabelInvalid: Story = {
-	render: () => ({
-		components: { BccInput, BccFloatLabel },
-		setup() {
-			const value = ref('');
-			return { value };
-		},
-		template: `
+	render: () =>
+		({
+			components: { BccInput, BccFloatLabel },
+			setup() {
+				const value = ref('');
+				return { value };
+			},
+			template: `
 			<div class="max-w-xs">
 				<BccFloatLabel>
 					<BccInput id="float-invalid" v-model="value" :invalid="!value" />
@@ -201,5 +203,5 @@ export const FloatLabelInvalid: Story = {
 				</BccFloatLabel>
 			</div>
 		`,
-	}),
+		}) as any,
 };
