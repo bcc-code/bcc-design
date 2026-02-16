@@ -5,12 +5,12 @@ import { mount } from '@vue/test-utils';
 import BccBadge from './BccBadge.vue';
 
 describe('BccBadge', () => {
-	it('renders a pin', () => {
+	it('renders a badge with icon', () => {
 		expect(BccBadge).toBeTruthy();
 
 		const wrapper = mount(BccBadge, {
 			props: {
-				icon: CheckCircleIcon,
+				value: CheckCircleIcon,
 			},
 		});
 

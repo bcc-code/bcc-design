@@ -95,7 +95,6 @@ export { default as BccListbox } from 'primevue/listbox';
 export { default as BccMegaMenu } from 'primevue/megamenu';
 export { default as BccMenu } from 'primevue/menu';
 export { default as BccMenubar } from 'primevue/menubar';
-export { default as BccMessage } from 'primevue/message';
 export { default as BccMeterGroup } from 'primevue/metergroup';
 export { default as BccMultiSelect } from 'primevue/multiselect';
 export { default as BccOrderList } from 'primevue/orderlist';
