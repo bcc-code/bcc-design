@@ -12,6 +12,7 @@ export { default as BccNpsResult } from './BccNpsResult/BccNpsResult.vue';
 export { default as BccNpsScore } from './BccNpsScore/BccNpsScore.vue';
 export { default as BccReact } from './BccReact/BccReact.vue';
 export { default as BccReactEmoji } from './BccReact/BccReactEmoji.vue';
+export { default as BccTag } from './BccTag.vue/BccTag.vue';
 export { default as BccToggle } from './BccToggle/BccToggle.vue';
 
 // Prop types for consumers (TypeScript / IDE support)
@@ -23,4 +24,5 @@ export type { KnobProps } from './BccKnob/BccKnob.vue';
 export type { NpsResultProps } from './BccNpsResult/BccNpsResult.vue';
 export type { NpsScoreProps } from './BccNpsScore/BccNpsScore.vue';
 export type { ReactInfo, ReactProps } from './BccReact/types';
+export type { TagProps } from './BccTag.vue/BccTag.vue';
 export type { ToggleProps } from './BccToggle/BccToggle.vue';

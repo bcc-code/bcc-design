@@ -1,15 +1,16 @@
+import { BCC_CONTEXT_LIST } from '@/contexts';
 import { CheckCircleIcon, LabelIcon, TagIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import BccTag from './BccTag.vue';
 
 const meta: Meta<typeof BccTag> = {
 	component: BccTag,
-	title: 'Wrapped/BccTag',
+	title: 'Custom/BccTag',
 	argTypes: {
 		value: { control: 'text' },
-		severity: {
+		context: {
 			control: 'select',
-			options: ['secondary', 'success', 'info', 'warn', 'danger', 'contrast'],
+			options: BCC_CONTEXT_LIST,
 		},
 		rounded: { control: 'boolean' },
 		iconRight: { control: 'boolean' },
@@ -41,14 +42,13 @@ export const WithLeftIcon: Story = {
 
 export const WithRightIcon: Story = {
 	args: {
-		icon: CheckCircleIcon,
-		iconRight: true,
+		iconRight: CheckCircleIcon,
 		value: 'Success',
-		severity: 'success',
+		context: 'success',
 	},
 };
 
-export const Severities: Story = {
+export const Contexts: Story = {
 	render: () => ({
 		components: { BccTag, LabelIcon },
 		setup() {
@@ -56,12 +56,12 @@ export const Severities: Story = {
 		},
 		template: `
 			<div class="flex flex-wrap gap-2">
-				<BccTag value="Secondary" severity="secondary" :icon="LabelIcon" />
-				<BccTag value="Success" severity="success" />
-				<BccTag value="Info" severity="info" />
-				<BccTag value="Warn" severity="warn" />
-				<BccTag value="Danger" severity="danger" />
-				<BccTag value="Contrast" severity="contrast" />
+				<BccTag clickable context="brand-bolder" :icon="LabelIcon">Brand</BccTag>
+				<BccTag clickable context="success">Success</BccTag>
+				<BccTag clickable context="info">Info</BccTag>
+				<BccTag clickable context="warning">Warn</BccTag>
+				<BccTag clickable context="danger">Danger</BccTag>
+				<BccTag clickable context="magenta-subtler">Other</BccTag>
 			</div>
 		`,
 	}),
@@ -74,6 +74,19 @@ export const Rounded: Story = {
 	},
 };
 
+export const Sizes: Story = {
+	render: () => ({
+		components: { BccTag },
+		template: `
+			<div class="flex flex-wrap gap-2">
+				<BccTag size="sm">Small</BccTag>
+				<BccTag size="md">Medium</BccTag>
+				<BccTag size="lg">Large</BccTag>
+			</div>
+		`,
+	}),
+};
+
 export const IconVariants: Story = {
 	render: () => ({
 		components: { BccTag, TagIcon, CheckCircleIcon, LabelIcon },
@@ -82,9 +95,9 @@ export const IconVariants: Story = {
 		},
 		template: `
 			<div class="flex flex-wrap gap-2">
-				<BccTag value="Tag icon left" :icon="TagIcon" />
-				<BccTag value="Icon right" :icon="CheckCircleIcon" icon-right />
-				<BccTag value="Label" :icon="LabelIcon" severity="info" />
+				<BccTag :icon="TagIcon">Tag icon left</BccTag>
+				<BccTag :icon="LabelIcon" :icon-right="CheckCircleIcon">Icon right</BccTag>
+				<BccTag :icon="LabelIcon" context="info">Label</BccTag>
 			</div>
 		`,
 	}),

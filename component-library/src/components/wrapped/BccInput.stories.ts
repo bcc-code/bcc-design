@@ -59,14 +59,13 @@ export const Loading: Story = {
 };
 
 export const Sizes: Story = {
-	render: () =>
-		({
-			components: { BccInput, SearchIcon },
-			setup() {
-				const val = ref('');
-				return { SearchIcon, val };
-			},
-			template: `
+	render: () => ({
+		components: { BccInput, SearchIcon },
+		setup() {
+			const val = ref('');
+			return { SearchIcon, val };
+		},
+		template: `
 			<div class="flex flex-col gap-4 max-w-xs">
 				<BccInput placeholder="Small" v-model="val" :icon="SearchIcon" size="small" />
 				<BccInput placeholder="Default size" v-model="val" :icon="SearchIcon" />
@@ -74,25 +73,24 @@ export const Sizes: Story = {
 				{{ val }}
 			</div>
 		`,
-		}) as any,
+	}),
 };
 
 export const IconVariants: Story = {
-	render: () =>
-		({
-			components: { BccInput, SearchIcon, MailIcon, PersonIcon, LockIcon },
-			setup() {
-				return { SearchIcon, MailIcon, PersonIcon, LockIcon };
-			},
-			template: `
+	render: () => ({
+		components: { BccInput, SearchIcon, MailIcon, PersonIcon, LockIcon },
+		setup() {
+			return { SearchIcon, MailIcon, PersonIcon, LockIcon };
+		},
+		template: `
 			<div class="flex flex-col gap-4 max-w-xs">
 				<BccInput placeholder="Search" :icon="SearchIcon" />
-				<BccInput placeholder="Email" :icon="MailIcon" :icon-right="true" />
+				<BccInput placeholder="Email" :icon-right="MailIcon" />
 				<BccInput placeholder="Username" :icon="PersonIcon" />
-				<BccInput placeholder="Password" :icon="LockIcon" :icon-right="true" type="password" />
+				<BccInput placeholder="Password" :icon-right="LockIcon" type="password" />
 			</div>
 		`,
-		}) as any,
+	}),
 };
 
 export const Numeric: Story = {
@@ -111,20 +109,19 @@ export const Disabled: Story = {
 };
 
 export const WithLabel: Story = {
-	render: (args: Record<string, unknown>) =>
-		({
-			components: { BccInput },
-			setup() {
-				const value = ref('');
-				return { args, value };
-			},
-			template: `
+	render: (args: Record<string, unknown>) => ({
+		components: { BccInput },
+		setup() {
+			const value = ref('');
+			return { args, value };
+		},
+		template: `
 			<div class="max-w-xs">
 				<label for="username">Username</label>
 				<BccInput id="username" v-model="value" v-bind="args" />
 			</div>
 		`,
-		}) as any,
+	}),
 	args: {
 		placeholder: 'Enter your username',
 	},
@@ -140,16 +137,15 @@ export const WithLabel: Story = {
 };
 
 export const FloatLabelVariants: Story = {
-	render: () =>
-		({
-			components: { BccInput, BccFloatLabel },
-			setup() {
-				const over = ref('');
-				const inVal = ref('');
-				const onVal = ref('');
-				return { over, inVal, onVal };
-			},
-			template: `
+	render: () => ({
+		components: { BccInput, BccFloatLabel },
+		setup() {
+			const over = ref('');
+			const inVal = ref('');
+			const onVal = ref('');
+			return { over, inVal, onVal };
+		},
+		template: `
 			<div class="flex flex-col gap-6 max-w-xs">
 				<BccFloatLabel>
 					<BccInput id="float-over" v-model="over" />
@@ -165,18 +161,17 @@ export const FloatLabelVariants: Story = {
 				</BccFloatLabel>
 			</div>
 		`,
-		}) as any,
+	}),
 };
 
 export const FloatLabelWithIcon: Story = {
-	render: () =>
-		({
-			components: { BccInput, BccFloatLabel, MailIcon },
-			setup() {
-				const email = ref('');
-				return { email, MailIcon };
-			},
-			template: `
+	render: () => ({
+		components: { BccInput, BccFloatLabel, MailIcon },
+		setup() {
+			const email = ref('');
+			return { email, MailIcon };
+		},
+		template: `
 			<div class="flex flex-col gap-6 max-w-xs">
 				<BccFloatLabel>
 					<BccInput id="float-email" v-model="email" :icon="MailIcon" icon-right />
@@ -184,18 +179,17 @@ export const FloatLabelWithIcon: Story = {
 				</BccFloatLabel>
 			</div>
 		`,
-		}) as any,
+	}),
 };
 
 export const FloatLabelInvalid: Story = {
-	render: () =>
-		({
-			components: { BccInput, BccFloatLabel },
-			setup() {
-				const value = ref('');
-				return { value };
-			},
-			template: `
+	render: () => ({
+		components: { BccInput, BccFloatLabel },
+		setup() {
+			const value = ref('');
+			return { value };
+		},
+		template: `
 			<div class="max-w-xs">
 				<BccFloatLabel>
 					<BccInput id="float-invalid" v-model="value" :invalid="!value" />
@@ -203,5 +197,5 @@ export const FloatLabelInvalid: Story = {
 				</BccFloatLabel>
 			</div>
 		`,
-		}) as any,
+	}),
 };

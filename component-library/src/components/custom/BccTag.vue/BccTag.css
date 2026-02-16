@@ -1,0 +1,15 @@
+
+@layer components {
+	.bcc-tag.bcc-badge {
+		@apply w-auto;
+	}
+	.bcc-tag.bcc-badge.md {
+		@apply text-md font-semibold h-8 py-0.5 px-2;
+	}
+	.bcc-tag.bcc-badge.sm {
+		@apply text-sm font-semibold h-6 py-0.5 px-2;
+	}
+	.bcc-tag.bcc-badge.lg {
+		@apply text-lg font-semibold h-10 py-1 px-2;
+	}
+}

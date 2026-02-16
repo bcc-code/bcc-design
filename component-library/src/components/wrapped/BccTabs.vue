@@ -27,10 +27,6 @@ const props = withDefaults(defineProps<TabsProps>(), {
 	fill: false,
 });
 
-const emit = defineEmits<{
-	(e: 'update:modelValue', value: number): void;
-}>();
-
 const value = defineModel<number>({ default: 0, required: true });
 
 const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {

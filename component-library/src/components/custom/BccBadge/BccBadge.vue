@@ -27,11 +27,13 @@ withDefaults(defineProps<BadgeProps>(), {
 			{
 				bordered,
 				squared,
-				'bcc-badge-text': typeof value === 'string' && String(value).length > 1,
+				'bcc-badge-text': $slots.default || (typeof value === 'string' && String(value).length > 1),
 			},
 		]"
 	>
-		<component :is="value" v-if="typeof value === 'function'" class="bcc-badge-icon" />
-		<span v-else-if="value">{{ value }}</span>
+		<slot>
+			<component :is="value" v-if="typeof value === 'function'" class="bcc-badge-icon" />
+			<span v-else-if="value">{{ value }}</span>
+		</slot>
 	</div>
 </template>

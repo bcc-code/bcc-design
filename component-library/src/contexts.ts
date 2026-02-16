@@ -93,6 +93,10 @@ export const BCC_CONTEXTS = Object.freeze(
 	})()
 );
 
+export const BCC_CONTEXT_LIST = Object.freeze(
+	Array.from(Object.values(BCC_CONTEXTS)).flatMap(ctx => Object.values(ctx)) as BCC_CONTEXT[]
+);
+
 export type BCC_CONTEXT =
 	| ContextToken<AccentColors, AccentLevels>
 	| ContextToken<FullLevelColors, LEVELS>

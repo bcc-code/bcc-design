@@ -1,6 +1,10 @@
 @layer components {
     .bcc-frame {
-        @apply ctx ctx-default;
+        @apply ctx ctx-default w-full;
+    }
+
+    .bcc-frame.bcc-frame--shadow {
+        @apply  shadow-ctx-shadow shadow;
     }
 
     .bcc-frame--raised {
@@ -10,14 +14,14 @@
         @apply rounded;
     }
     .bcc-frame--raised.bcc-frame--shadow {
-        @apply shadow-2xs;
+        @apply shadow-raised;
     }
 
     .bcc-frame--overlay {
         --ctx-background: var(--color-elevation-surface-overlay-default);
     }
     .bcc-frame--overlay.bcc-frame--shadow {
-        @apply shadow-2xl;
+        @apply shadow-overlay;
     }
 
     .bcc-frame--sunken {

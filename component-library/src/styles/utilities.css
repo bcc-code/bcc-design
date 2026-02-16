@@ -1,15 +1,58 @@
 @utility center {
     @apply flex items-center justify-center;
+
+    &.between {
+        @apply justify-between;
+    }
+
+    &.top {
+        @apply items-start;
+    }
+
+    &.bottom {
+        @apply items-end;
+    }
+
+    &.left {
+        @apply justify-start;
+    }
+
+    &.right {
+        @apply justify-end;
+    }
+
+    &stretch {
+        @apply items-stretch;
+    }
 }
 
-@utility center-col {
-    @apply flex flex-col items-center justify-center;
+@utility col {
+    @apply flex flex-col items-center;
+
+    &.between {
+        @apply justify-between;
+    }
+
+    &.left {
+        @apply items-start;
+    }
+
+    &.right {
+        @apply items-end;
+    }
+
+    &.top {
+        @apply justify-start;
+    }
+
+    &.bottom {
+        @apply justify-end;
+    }
 }
 
-@utility between {
-    @apply flex items-center justify-between;
-}
-
-@utility between-col {
-    @apply flex flex-col items-center justify-between;
-}
+@utility capital {
+    /* Capitalize first letter */
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }

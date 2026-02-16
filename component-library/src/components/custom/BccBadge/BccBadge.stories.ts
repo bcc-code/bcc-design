@@ -1,3 +1,4 @@
+import { BCC_CONTEXT_LIST } from '@/contexts';
 import { CheckIcon, CrisisAlertIcon, NotificationsIcon, PersonIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { OverlayBadge } from 'primevue';
@@ -5,15 +6,15 @@ import BccBadge from './BccBadge.vue';
 
 const meta = {
 	component: BccBadge,
-	title: 'Wrapped/BccBadge',
+	title: 'Custom/BccBadge',
 	argTypes: {
 		value: {
 			control: 'text',
 			description: 'Value to display inside the badge',
 		},
-		severity: {
+		context: {
 			control: 'select',
-			options: ['secondary', 'info', 'success', 'warn', 'danger', 'contrast'],
+			options: BCC_CONTEXT_LIST,
 			description: 'Severity type of the badge',
 		},
 		size: {
@@ -38,7 +39,7 @@ export const Default: Story = {
 	},
 };
 
-export const Severities: Story = {
+export const Contexts: Story = {
 	render: () => ({
 		components: { BccBadge },
 		template: `
@@ -56,13 +57,16 @@ export const Severities: Story = {
 
 export const Sizes: Story = {
 	render: () => ({
-		components: { BccBadge },
+		components: { BccBadge, PersonIcon },
+		setup() {
+			return { PersonIcon };
+		},
 		template: `
 			<div class="flex flex-wrap gap-2 align-items-center">
-				<BccBadge value="Small" size="sm" />
-				<BccBadge value="Default" />
-				<BccBadge value="Large" size="lg" />
-				<BccBadge value="XLarge" size="xl" />
+				<BccBadge :value="PersonIcon" size="sm">Small</BccBadge>
+				<BccBadge :value="PersonIcon">Default</BccBadge>
+				<BccBadge :value="PersonIcon" size="lg">Large</BccBadge>
+				<BccBadge :value="PersonIcon" size="xl">XLarge</BccBadge>
 			</div>
 		`,
 	}),
@@ -95,12 +99,12 @@ export const NumericOrTextOrIcon: Story = {
 		},
 		template: `
 			<div class="flex flex-wrap gap-2 align-items-center">
-				<BccBadge :value="1" severity="info" />
-				<BccBadge :value="99" size="xl" severity="info" />
-				<BccBadge squared value="New" severity="secondary" />
-				<BccBadge squared value="Draft" size="xl" severity="secondary" />
-				<BccBadge :value="NotificationsIcon" severity="danger" />
-				<BccBadge :value="CrisisAlertIcon" size="xl" severity="danger" />
+				<BccBadge :value="1" context="info" />
+				<BccBadge :value="99" size="xl" context="info" />
+				<BccBadge squared value="New" context="teal-subtler" />
+				<BccBadge squared value="Draft" size="xl" context="orange-subtler" />
+				<BccBadge :value="NotificationsIcon" context="danger" />
+				<BccBadge :value="CrisisAlertIcon" size="xl" context="danger" />
 			</div>
 		`,
 	}),
@@ -111,7 +115,7 @@ export const AsOverlay: Story = {
 		components: { NotificationsIcon, OverlayBadge },
 		template: `
 		<div class="inline-block">
-			<OverlayBadge value="3" severity="danger" size="sm">
+			<OverlayBadge value="3" context="danger" size="sm">
 				<NotificationsIcon class="size-6" />
 			</OverlayBadge>
 		</div>

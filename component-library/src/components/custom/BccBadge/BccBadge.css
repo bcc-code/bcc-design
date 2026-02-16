@@ -1,43 +1,31 @@
 @layer components {
   .bcc-badge {
-    @apply inline-flex shrink-0 items-center justify-center rounded-full leading-none whitespace-nowrap;
+    @apply inline-flex shrink-0 gap-1 items-center justify-center rounded-full leading-none whitespace-nowrap;
   
     @apply bg-ctx text-ctx;
   }
   .bcc-badge.md {
-    @apply h-5 w-5 text-body-sm;
+    @apply h-5 w-5 text-body-sm p-0.5;
   }
   .bcc-badge.sm {
-    @apply w-4 h-4 text-body-sm;
+    @apply w-4 h-4 text-body-sm p-0.5;
   }
   .bcc-badge.lg {
-    @apply w-6 h-6 text-body-sm;
+    @apply w-6 h-6 text-body-sm p-1;
   }
   .bcc-badge.xl {
-    @apply w-8 h-8 text-body-md;
+    @apply w-8 h-8 text-body-md p-1.5;
   }
 
   .bcc-badge.bcc-badge-text {
     @apply w-auto px-2;
-  }
-  .bcc-badge-text.sm {
-    @apply px-1;
   }
   .bcc-badge-text.lg { 
     @apply px-3;
   }
 
   .bcc-badge .bcc-badge-icon {
-    @apply h-4 w-4;
-  }
-  .bcc-badge.sm .bcc-badge-icon {
-    @apply h-3 w-3;
-  }
-  .bcc-badge.lg .bcc-badge-icon {
-    @apply h-4 w-4;
-  }
-  .bcc-badge.xl .bcc-badge-icon {
-    @apply h-5 w-5;
+    @apply size-full;
   }
 
   .bcc-badge.bordered {
