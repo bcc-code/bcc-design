@@ -13,12 +13,12 @@
     .bcc-avatar.F {
         @apply ctx-purple-subtler;
     }
-    .bcc-avatar.male.is-child,
-    .bcc-avatar.M.is-child {
+    .bcc-avatar.male.child,
+    .bcc-avatar.M.child {
         @apply ctx-teal-subtler;
     }
-    .bcc-avatar.female.is-child,
-    .bcc-avatar.F.is-child {
+    .bcc-avatar.female.child,
+    .bcc-avatar.F.child {
         @apply ctx-magenta-subtler;
     }
 }

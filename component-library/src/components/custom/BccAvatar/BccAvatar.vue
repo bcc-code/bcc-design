@@ -13,7 +13,7 @@ const props = defineProps<AvatarProps>();
 </script>
 
 <template>
-	<PrimeAvatar v-bind="props" class="bcc-avatar" :class="[gender, child ? 'is-child' : '']">
+	<PrimeAvatar v-bind="props" class="bcc-avatar" :class="[gender, { child }]">
 		<template v-if="icon" #icon>
 			<component :is="typeof icon === 'boolean' ? PersonFillIcon : icon" style="width: 1em" />
 		</template>
