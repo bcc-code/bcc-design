@@ -41,10 +41,6 @@
   border-color: var(--ctx-border);
 }
 
-@utility clickable {
-  cursor: pointer;
-}
-
 @utility ctx-gradient {
   background: linear-gradient(225deg, var(--ctx-gradient) 0%, var(--ctx-background) 100%);
 }
@@ -54,24 +50,15 @@
 }
 
 @utility ctx-flat {
-  background: transparent;
+  --ctx-background: transparent;
+
+  @variant hover {
+    --ctx-background: var(--ctx-background-hover);
+  }
 }
 
-
-.clickable:disabled,
-.clickable.disabled {
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.clickable.flat:hover {
-  background: var(--ctx-background);
-}
-
-.bold,
-strong,
-b {
-  --ctx-text: var(--ctx-text-bold);
+@utility clickable {
+  cursor: pointer;
 }
 
 .clickable:hover {
@@ -85,5 +72,3 @@ b {
   --ctx-text: var(--ctx-text-pressed);
   --ctx-border: var(--ctx-border-pressed);
 }
-
-  

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { ref } from 'vue';
 
 /**
  * # Layout & typography utilities
@@ -23,8 +24,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const boxClass =
-	'rounded-lg border border-(--bcc-border-subtle) bg-[var(--bcc-surface-elevated)] p-3 text-sm';
+const boxClass = 'rounded-lg border border-(--bcc-border-subtle) bg-[var(--bcc-surface-elevated)] p-3 text-sm';
 
 /**
  * ## `center`
@@ -127,15 +127,21 @@ export const Col: Story = {
  */
 export const Capital: Story = {
 	render: () => ({
+		setup() {
+			const active = ref(true);
+			return { active };
+		},
 		template: `
-			<div class="space-y-3">
-				<p class="text-sm opacity-80">Applied to inline text:</p>
-				<p><span class="capital">hello world</span></p>
-				<p><span class="capital">status: active</span></p>
-				<p class="text-sm opacity-80 mt-4">Useful for dynamic labels, e.g. <code class="rounded bg-black/10 px-1">capital</code> on a status badge.</p>
-			</div>
+			<button class="ctx clickable ctx-green-subtler rounded p-2" :class="{capital: active}" @click="active = !active">status: {{ active ? 'active' : 'inactive' }}</button>
 		`,
 	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<p class="capital">first letter will be capitalized</p>`,
+			},
+		},
+	},
 };
 
 /**

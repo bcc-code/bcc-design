@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<TabsProps>(), {
 	fill: false,
 });
 
-const value = defineModel<number>({ default: 0, required: true });
+const value = defineModel<number>({ default: 0, required: false });
 
 const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {
 	const { tabs, modelValue, fill, noPanels, ...rest } = props;

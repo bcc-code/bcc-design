@@ -4,7 +4,7 @@ import PrimeButton, { type ButtonProps as PrimeButtonProps } from 'primevue/butt
 import { computed } from 'vue';
 
 export type ButtonProps = {
-	icon: VueComponent;
+	icon?: VueComponent;
 	iconRight?: boolean;
 
 	useCtx?: boolean;

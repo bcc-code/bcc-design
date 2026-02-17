@@ -26,9 +26,6 @@ importers:
       tailwindcss:
         specifier: ^4.0.0
         version: 4.1.18
-      vue:
-        specifier: ^3.5.0
-        version: 3.5.27(typescript@5.7.3)
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.2
@@ -111,6 +108,9 @@ importers:
       vitest:
         specifier: ^4.0.18
         version: 4.0.18(@types/node@22.19.8)(jiti@2.6.1)(jsdom@27.4.0)(lightningcss@1.30.2)(yaml@2.8.2)
+      vue:
+        specifier: ^3.5.0
+        version: 3.5.27(typescript@5.7.3)
       vue-tsc:
         specifier: ^3.2.4
         version: 3.2.4(typescript@5.7.3)
