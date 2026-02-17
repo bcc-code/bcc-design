@@ -1,5 +1,6 @@
 import { GroupsIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { BccAvatarGroup } from '../../../index';
 import BccAvatar from './BccAvatar.vue';
 
 const meta = {
@@ -7,11 +8,11 @@ const meta = {
 	title: 'Wrapped/BccAvatar',
 	argTypes: {
 		icon: { control: 'boolean' },
-		shape: { control: 'select', options: ['circle', 'square'] },
-		size: { control: 'select', options: ['normal', 'large', 'xlarge'] },
+		squared: { control: 'boolean' },
+		size: { control: 'select', options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl'] },
 		gender: {
 			control: 'select',
-			options: ['male', 'female', 'M', 'F', 'unknown', 'U'],
+			options: ['male', 'female', 'unknown'],
 			description:
 				'BCC context styling: blue (male), purple (female), gray (unknown). Child overrides to teal/magenta.',
 		},
@@ -81,9 +82,13 @@ export const Sizes: Story = {
 		components: { BccAvatar },
 		template: `
 			<div class="flex align-items-center gap-2">
-				<BccAvatar label="S" size="normal" />
-				<BccAvatar label="M" size="large" />
-				<BccAvatar label="L" size="xlarge" />
+				<BccAvatar label="xs" size="xs" />
+				<BccAvatar label="sm" size="sm" />
+				<BccAvatar label="md" size="md" />
+				<BccAvatar label="lg" size="lg" />
+				<BccAvatar label="xl" size="xl" />
+				<BccAvatar label="2x" size="xxl" />
+				<BccAvatar label="3x" size="xxxl" />
 			</div>
 		`,
 	}),
@@ -119,14 +124,37 @@ export const Child: Story = {
 		template: `
 			<div class="flex flex-wrap align-items-center gap-3">
 				<div class="flex flex-column align-items-center gap-2">
-					<BccAvatar label="B" gender="male" :child="true" />
+					<BccAvatar label="B" gender="male" child />
 					<span class="text-sm">male + child</span>
 				</div>
 				<div class="flex flex-column align-items-center gap-2">
-					<BccAvatar label="G" gender="female" :child="true" />
+					<BccAvatar label="G" gender="female" child />
 					<span class="text-sm">female + child</span>
 				</div>
 			</div>
+		`,
+	}),
+};
+
+/** BCC extension: `bordered` adds a border to the avatar. */
+export const Bordered: Story = {
+	render: () => ({
+		components: { BccAvatar },
+		template: `<BccAvatar label="B" gender="female" child bordered size="large" shape="circle" />`,
+	}),
+};
+
+/** Group of avatars using BccAvatarGroup (overlapping stack). */
+export const AvatarGroup: Story = {
+	render: () => ({
+		components: { BccAvatar, BccAvatarGroup },
+		template: `
+			<BccAvatarGroup>
+				<BccAvatar label="A" gender="male" />
+				<BccAvatar label="B" gender="female" />
+				<BccAvatar label="C" gender="unknown" />
+				<BccAvatar label="+2" />
+			</BccAvatarGroup>
 		`,
 	}),
 };

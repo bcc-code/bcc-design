@@ -1,3 +1,5 @@
+import BccButton from '@/components/wrapped/BccButton.vue';
+import { OpenInNewIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 /**
@@ -5,7 +7,6 @@ import type { Meta, StoryObj } from '@storybook/vue3';
  * Use the links below to open the official PrimeVue documentation.
  */
 const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string }[] = [
-	{ name: 'AutoComplete', slug: 'autocomplete' },
 	{ name: 'BlockUI', slug: 'blockui' },
 	{ name: 'Button', slug: 'button' },
 	{ name: 'Carousel', slug: 'carousel' },
@@ -61,8 +62,9 @@ type Story = StoryObj<typeof meta>;
 
 export const OtherComponents: Story = {
 	render: () => ({
+		components: { BccButton, OpenInNewIcon },
 		setup() {
-			return { components: COMPONENTS_WITHOUT_STORIES, baseUrl: BASE_URL };
+			return { components: COMPONENTS_WITHOUT_STORIES, baseUrl: BASE_URL, BccButton, OpenInNewIcon };
 		},
 		template: `
 			<div class="space-y-2 max-w-2xl">
@@ -70,19 +72,19 @@ export const OtherComponents: Story = {
 					The following PrimeVue components are available in the library but do not have local stories.
 					Click a link to open the official documentation on primevue.org.
 				</p>
-				<ul class="list-none p-0 m-0 flex flex-wrap gap-x-4 gap-y-2">
-					<li v-for="c in components" :key="c.slug">
-						<a
-							:href="baseUrl + '/' + c.slug"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="text-primary hover:underline inline-flex items-center gap-1"
-						>
-							{{ c.name }}
-							<i class="pi pi-external-link text-xs" />
-						</a>
-					</li>
-				</ul>
+				<div class="flex flex-wrap gap-4">
+					<BccButton v-for="c in components" :key="c.slug"
+						variant="link"
+						as="a"
+						:href="baseUrl + '/' + c.slug"
+						target="_blank"
+						rel="noopener noreferrer"
+						:label="c.name"
+						:icon="OpenInNewIcon"
+						icon-right
+					>					
+					</BccButton>
+				</div>
 			</div>
 		`,
 	}),
