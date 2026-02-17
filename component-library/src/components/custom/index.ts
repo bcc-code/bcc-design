@@ -3,6 +3,7 @@
  * Add new custom components here and export them from this file.
  */
 
+export { default as BccBadge } from './BccBadge/BccBadge.vue';
 export { default as BccCapacityIndicator } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export { default as BccCircleLoader } from './BccCircleLoader/BccCircleLoader.vue';
 export { default as BccFrame } from './BccFrame/BccFrame.vue';

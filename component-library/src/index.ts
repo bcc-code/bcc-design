@@ -17,10 +17,14 @@
  *    - main.ts: import "@bcc-code/component-library-vue/style.css";
  */
 
+import type { Component, FunctionalComponent, RenderFunction, VNode } from 'vue';
 import './style.css';
 
 export { default as BccPreset } from '@bcc-code/design-tokens/primevue';
+export { BCC_CONTEXTS, type BCC_CONTEXT } from './contexts';
 export { default as BccComponentLibrary } from './setup';
+
+export type VueComponent = string | Component | FunctionalComponent | VNode | RenderFunction;
 
 // ---------------------------------------------------------------------------
 // Custom BCC components (not based on PrimeVue)
