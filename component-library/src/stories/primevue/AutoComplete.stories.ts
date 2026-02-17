@@ -33,9 +33,7 @@ function useAutoComplete() {
 		if (!event.query.trim().length) {
 			suggestions.value = [...cities];
 		} else {
-			suggestions.value = cities.filter(c =>
-				c.name.toLowerCase().startsWith(event.query.toLowerCase()),
-			);
+			suggestions.value = cities.filter(c => c.name.toLowerCase().startsWith(event.query.toLowerCase()));
 		}
 	};
 	return { selected, suggestions, search, cities };
