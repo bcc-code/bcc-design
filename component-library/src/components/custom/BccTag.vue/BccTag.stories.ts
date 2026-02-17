@@ -7,7 +7,7 @@ const meta: Meta<typeof BccTag> = {
 	component: BccTag,
 	title: 'Custom/BccTag',
 	argTypes: {
-		value: { control: 'text' },
+		text: { control: 'text' },
 		context: {
 			control: 'select',
 			options: BCC_CONTEXT_LIST,
@@ -23,27 +23,27 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {
-		value: 'Tag',
+		text: 'Tag',
 	},
 };
 
 export const WithValue: Story = {
 	args: {
-		value: 'Label text',
+		text: 'Label text',
 	},
 };
 
 export const WithLeftIcon: Story = {
 	args: {
 		icon: TagIcon,
-		value: 'With icon',
+		text: 'With icon',
 	},
 };
 
 export const WithRightIcon: Story = {
 	args: {
 		iconRight: CheckCircleIcon,
-		value: 'Success',
+		text: 'Success',
 		context: 'success',
 	},
 };
@@ -69,7 +69,7 @@ export const Contexts: Story = {
 
 export const Rounded: Story = {
 	args: {
-		value: 'Rounded tag',
+		text: 'Rounded tag',
 		rounded: true,
 	},
 };

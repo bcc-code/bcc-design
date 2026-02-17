@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import type { VueComponent } from '@/types';
 import PrimeButton, { type ButtonProps as PrimeButtonProps } from 'primevue/button';
-import { computed, type Component, type FunctionalComponent, type VNode, type VueElement } from 'vue';
+import { computed } from 'vue';
 
 export type ButtonProps = {
-	icon: Component | FunctionalComponent | VueElement | VNode;
+	icon: VueComponent;
 	iconRight?: boolean;
 
 	useCtx?: boolean;

@@ -1,18 +1,18 @@
 <script setup lang="ts">
+import type { VueComponent } from '@/types';
 import BccTab from 'primevue/tab';
 import BccTabList from 'primevue/tablist';
 import BccTabPanel from 'primevue/tabpanel';
 import BccTabPanels from 'primevue/tabpanels';
 import BccTabs, { type TabsProps as PrimeTabsProps } from 'primevue/tabs';
-import type { Component } from 'vue';
 import { computed } from 'vue';
 import BccBadge, { type BadgeProps } from '../custom/BccBadge/BccBadge.vue';
 
 export interface TabItem {
 	title: string;
-	icon?: Component;
+	icon?: VueComponent;
 	badge?: BadgeProps;
-	as?: Component;
+	as?: VueComponent;
 	value?: string;
 }
 

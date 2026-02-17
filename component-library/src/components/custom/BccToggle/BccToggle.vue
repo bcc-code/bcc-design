@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import type { VueComponent } from '@/types';
 import { CheckIcon, CloseIcon } from '@bcc-code/icons-vue';
 import { ToggleSwitch, type ToggleSwitchProps } from 'primevue';
-import type { Component } from 'vue';
 import BccCircleLoader from '../BccCircleLoader/BccCircleLoader.vue';
 
 export type ToggleProps = ToggleSwitchProps & {
 	label?: string;
-	icon?: Component;
+	icon?: VueComponent;
 	withIcon?: boolean;
 	loading?: boolean;
 	wasToggled?: boolean;

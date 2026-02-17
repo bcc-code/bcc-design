@@ -10,14 +10,14 @@
 @import "./styles/contexts.css";
 @import "./styles/fonts.css";
 
-@utility hide-scrollbar {
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll;
+
+:host {
+    @apply font-sans antialiased;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+b,
+strong {
+    font-weight: bold;
 }
 
 @import "./components/custom/styles.css";

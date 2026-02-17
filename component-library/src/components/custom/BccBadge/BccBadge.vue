@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { BCC_CONTEXTS, type BCC_CONTEXT } from '@/contexts';
-import type { Component } from 'vue';
+import type { VueComponent } from '@/types';
 
 export type BadgeProps = {
-	value?: string | number | Component;
+	value?: string | number | VueComponent;
 	size?: 'sm' | 'md' | 'lg' | 'xl';
 	bordered?: boolean;
 	squared?: boolean;
@@ -32,7 +32,7 @@ withDefaults(defineProps<BadgeProps>(), {
 		]"
 	>
 		<slot>
-			<component :is="value" v-if="typeof value === 'function'" class="bcc-badge-icon" />
+			<component :is="value" v-if="typeof value === 'function' || typeof value === 'object'" class="bcc-badge-icon" />
 			<span v-else-if="value">{{ value }}</span>
 		</slot>
 	</div>

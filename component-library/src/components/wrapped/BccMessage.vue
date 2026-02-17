@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import type { VueComponent } from '@/types';
 import { CheckIcon, ContrastIcon, ErrorIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
 import BccMessage, { type MessageProps as PrimeMessageProps } from 'primevue/message';
 import { computed, type Component } from 'vue';
 
 export type MessageProps = Omit<PrimeMessageProps, 'icon'> & {
-	icon?: boolean | Component;
-	iconRight?: boolean;
+	icon?: boolean | VueComponent;
+	iconRight?: VueComponent | boolean;
 };
 
 const props = defineProps<MessageProps>();
@@ -33,7 +34,7 @@ const SeverityIcons: Record<NonNullable<PrimeMessageProps['severity']>, Componen
 			<component
 				:is="icon === true ? SeverityIcons[severity || 'info'] : icon"
 				class="w-4"
-				:class="{ 'order-1': iconRight }"
+				:class="{ 'order-1': iconRight === true }"
 			/>
 		</template>
 		<slot />

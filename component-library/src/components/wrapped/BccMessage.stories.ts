@@ -105,7 +105,7 @@ export const CustomIcon: Story = {
 			return { args, CelebrationIcon };
 		},
 		template: `
-			<BccMessage v-bind="args" :icon="CelebrationIcon">Custom icon message content.</BccMessage>
+			<BccMessage v-bind="args" :icon="CelebrationIcon" icon-right>Custom icon message content.</BccMessage>
 		`,
 	}),
 };

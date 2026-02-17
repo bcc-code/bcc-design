@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import type { VueComponent } from '@/types';
 import BccIconField from 'primevue/iconfield';
 import BccInputIcon from 'primevue/inputicon';
 import BccInputNumber, { type InputNumberProps } from 'primevue/inputnumber';
 import BccInputText, { type InputTextProps } from 'primevue/inputtext';
-import { computed, useAttrs, type Component } from 'vue';
+import { computed, useAttrs } from 'vue';
 import { BccCircleLoader } from '../custom';
 
 defineOptions({ inheritAttrs: false });
@@ -12,8 +13,8 @@ export type InputProps = {
 	id?: string;
 	size?: InputTextProps['size'];
 
-	icon?: Component;
-	iconRight?: boolean;
+	icon?: VueComponent;
+	iconRight?: VueComponent | boolean;
 	loading?: boolean;
 	numeric?: boolean;
 } & /* @vue-ignore */ (InputTextProps | ({ numeric: true } & InputNumberProps));

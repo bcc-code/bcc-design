@@ -1,5 +1,3 @@
-
-
 @theme {
     --spacing-inset-top: 'env(safe-area-inset-top, var(--safe-area-inset-top, 0px))';
     --spacing-inset-top-1: 'max(0.25rem, env(safe-area-inset-top, var(--safe-area-inset-top, 0px)))';
