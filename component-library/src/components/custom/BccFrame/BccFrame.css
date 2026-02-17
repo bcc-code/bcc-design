@@ -4,7 +4,7 @@
     }
 
     .bcc-frame.bcc-frame--shadow {
-        @apply  shadow-ctx-shadow shadow;
+        @apply shadow shadow-ctx;
     }
 
     .bcc-frame--raised {

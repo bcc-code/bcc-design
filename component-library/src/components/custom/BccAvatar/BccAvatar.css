@@ -1,0 +1,24 @@
+@layer components {
+    .bcc-avatar {
+        --p-avatar-background: var(--ctx-background);
+        --p-avatar-color: var(--ctx-text);
+        --bcc-avatar-border: var(--ctx-border);
+        @apply ctx-gray-subtler;
+    }
+    .bcc-avatar.male,
+    .bcc-avatar.M {
+        @apply ctx-blue-subtler;
+    }
+    .bcc-avatar.female,
+    .bcc-avatar.F {
+        @apply ctx-purple-subtler;
+    }
+    .bcc-avatar.male.is-child,
+    .bcc-avatar.M.is-child {
+        @apply ctx-teal-subtler;
+    }
+    .bcc-avatar.female.is-child,
+    .bcc-avatar.F.is-child {
+        @apply ctx-magenta-subtler;
+    }
+}

@@ -1,12 +1,5 @@
 
 @theme {
-  --color-ctx-text: var(--ctx-text);
-  --color-ctx-text-bold: var(--ctx-text-bold);
-  --color-ctx-background: var(--ctx-background);
-  --color-ctx-border: var(--ctx-border);
-  --color-ctx-shadow: var(--ctx-shadow);
-  --color-ctx-gradient: var(--ctx-gradient);
-
   --color-brand-100: var(--color-bcc-100);
   --color-brand-200: var(--color-bcc-200);
   --color-brand-300: var(--color-bcc-300);
@@ -33,6 +26,10 @@
 
 @utility border-ctx {
   border-color: var(--ctx-border);
+}
+
+@utility shadow-ctx {
+  --tw-shadow-color: var(--ctx-shadow);
 }
 
 @utility ctx {

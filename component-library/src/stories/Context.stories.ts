@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { BCC_CONTEXT_LIST } from '../contexts';
+import { BCC_CONTEXTS } from '../contexts';
 
 /**
  * # Contexts — context.css & contexts.css
@@ -33,31 +33,31 @@ type Story = StoryObj<typeof meta>;
 
 /** Base box classes: set context, apply ctx (bg + text) and border-ctx, add border and spacing */
 function boxClass(ctx: string) {
-	return `ctx-${ctx} ctx border-2 border-ctx rounded-lg p-4`;
+	return `ctx-${ctx} ctx border-2 border-ctx shadow-lg shadow-ctx rounded-lg p-4`;
 }
 
 /**
- * ## All context tokens
+ * ## All context tokens by color
  *
- * Each box uses a context from `BCC_CONTEXT_LIST`: the class `ctx-<name>` sets the
- * context variables, and `ctx border-ctx` applies background and border from that context.
- * The heading uses normal context text; the bold line uses `text-ctx-bold`.
+ * Grouped by top-level key from `BCC_CONTEXTS` (brand, neutral, success, blue, etc.).
+ * Each box uses `ctx-<name>` plus `ctx border-ctx`; the bold line uses `text-ctx-bold`.
  */
 export const AllContexts: Story = {
 	render: () => ({
 		setup() {
-			return { contexts: BCC_CONTEXT_LIST };
+			return { BCC_CONTEXTS };
 		},
 		template: `
-			<div class="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
-				<div
-					v-for="ctx in contexts"
-					:key="ctx"
-					:class="boxClass(ctx)"
-				>
-					<h3 class="text-sm font-medium">{{ ctx }}</h3>
-					<p class="mt-1 text-sm text-ctx-bold font-bold">Bold context text</p>
-				</div>
+			<div class="space-y-8">
+				<section v-for="(levels, color) in BCC_CONTEXTS" :key="color">
+					<h2 class="mb-4 text-lg font-semibold capitalize">{{ color }}</h2>
+					<div class="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
+						<div v-for="(ctx, level) in levels" :key="level" :class="boxClass(ctx)">
+							<h3 class="text-heading-sm text-ctx-bold capital">{{ level }}</h3>
+							<p class="text-body-sm">ctx-{{ ctx }}</p>
+						</div>
+					</div>
+				</section>
 			</div>
 		`,
 		methods: { boxClass },
