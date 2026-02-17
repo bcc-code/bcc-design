@@ -27,20 +27,25 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 
 export type KnobProps = {
+	/** Canvas size in pixels (width and height); affects resolution and touch target. */
 	size?: number;
+	/** Thickness of the arc stroke in pixels. */
 	arcWidth?: number;
-	/** In minutes (-12h) */
+	/** Minimum value in minutes (e.g. -720 for -12h); maps to the leftmost arc angle. */
 	min?: number;
-	/** In minutes (+12h) */
+	/** Maximum value in minutes (e.g. 720 for +12h); maps to the rightmost arc angle. */
 	max?: number;
+	/** Step size in minutes; value is rounded to multiples of this when dragging. */
 	steps?: number;
-	/** Use CSS variables for colors */
+	/** When true, uses left/right accent colors (e.g. CSS variables) for the arc and handle. */
 	colored?: boolean;
+	/** When true, draws a more prominent handle circle with a white stroke. */
 	showHandle?: boolean;
+	/** When true, hides the direction arrows drawn on the arc. */
 	hideArrows?: boolean;
-	/** Animation duration in ms */
+	/** Duration in ms for the value-change animation (e.g. when model updates). */
 	duration?: number;
-	/** 0 or 1 = no limit */
+	/** Max number of full rotations to animate; 0 or 1 means no rotation limit. */
 	animateRotations?: number;
 };
 

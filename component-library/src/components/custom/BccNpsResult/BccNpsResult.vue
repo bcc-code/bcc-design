@@ -2,12 +2,17 @@
 import { computed, ref } from 'vue';
 
 export type NpsResultProps = {
-	/** Between -100 and 100 */
+	/** NPS score between -100 and 100; drives the gauge needle angle and position. */
 	score: number;
+	/** Controls the size of the gauge and optional text (lg, md, sm, xs). */
 	size?: 'lg' | 'md' | 'sm' | 'xs';
+	/** Text shown as the main heading; defaults to the numeric score when unset. */
 	display?: string;
+	/** Secondary label shown under the main heading. */
 	underline?: string;
+	/** When true, hides the heading and underline so only the gauge is shown. */
 	hideText?: boolean;
+	/** When true, the gauge needle animates to the score on mount/update. */
 	animated?: boolean;
 };
 

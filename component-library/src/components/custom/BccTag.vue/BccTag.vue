@@ -4,12 +4,15 @@ import { computed } from 'vue';
 import BccBadge, { type BadgeProps } from '../BccBadge/BccBadge.vue';
 
 export type TagProps = Omit<BadgeProps, 'value' | 'squared'> & {
+	/** Icon component shown on the left (or right when iconRight is true). */
 	icon?: VueComponent;
+	/** When true, icon slot is on the right; when a component, shows that icon on the right. */
 	iconRight?: VueComponent | boolean;
+	/** When true, tag uses rounded corners; when false, passes squared to BccBadge. */
 	rounded?: boolean;
-	/* Add clickable styles to the tag */
+	/** Applies hover/pointer styles so the tag looks and behaves like a clickable control. */
 	clickable?: boolean;
-	/* Label for the tag instead of using slot */
+	/** Label text for the tag when not using the default slot. */
 	text?: string;
 };
 

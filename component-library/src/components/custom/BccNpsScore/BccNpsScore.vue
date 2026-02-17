@@ -2,12 +2,19 @@
 import { computed } from 'vue';
 
 export type NpsScoreProps = {
+	/** When true, reverses the visual order of the scale (e.g. high-to-low left-to-right). */
 	reverse?: boolean;
+	/** Label at the left end of the scale (e.g. "Not likely"). */
 	leftLabel?: string;
+	/** Label at the right end of the scale (e.g. "Very likely"). */
 	rightLabel?: string;
+	/** Puts the labels above or below the score bar. */
 	labelPosition?: 'top' | 'bottom';
+	/** Minimum selectable score (inclusive). */
 	min?: number;
+	/** Maximum selectable score (inclusive). */
 	max?: number;
+	/** Disables all score buttons and prevents selection. */
 	disabled?: boolean;
 };
 

@@ -5,11 +5,17 @@ import { ToggleSwitch, type ToggleSwitchProps } from 'primevue';
 import BccCircleLoader from '../BccCircleLoader/BccCircleLoader.vue';
 
 export type ToggleProps = ToggleSwitchProps & {
+	/** Text shown next to the switch; also used for the label’s `for` attribute. */
 	label?: string;
+	/** Custom icon component rendered inside the toggle handle (replaces check/cross when set). */
 	icon?: VueComponent;
+	/** When true, shows check/cross icons in the handle based on checked state. */
 	withIcon?: boolean;
+	/** When true, shows a loading spinner in the handle and typically disables interaction. */
 	loading?: boolean;
+	/** Applies “toggled” visual state (e.g. for post-click feedback) independent of current value. */
 	wasToggled?: boolean;
+	/** When true, applies context-aware styling (e.g. from design tokens/theme). */
 	useCtx?: boolean;
 };
 

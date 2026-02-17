@@ -3,12 +3,17 @@ import useAnimatedNumber from '@/composables/animatedNumber';
 import { computed, toRef } from 'vue';
 
 export type CapacityIndicatorProps = {
-	/** -1 = Infinity */
+	/** Total capacity; use -1 for “unlimited” (shows an infinity-style icon instead of a bar). */
 	total: number;
+	/** Amount used; fills the progress arc/bar and drives the displayed remaining value. */
 	used?: number;
+	/** Visual size of the indicator (xs, sm, base, lg); affects SVG and text scale. */
 	size?: 'xs' | 'sm' | 'base' | 'lg';
+	/** Duration in ms for the progress fill animation when `used` changes. */
 	animationDuration?: number;
+	/** When true, uses a rounded square shape instead of a circle for the indicator. */
 	squared?: boolean;
+	/** When true, applies warning/full color states (e.g. color change at high usage). */
 	colored?: boolean;
 };
 

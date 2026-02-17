@@ -3,10 +3,15 @@ import { BCC_CONTEXTS, type BCC_CONTEXT } from '@/contexts';
 import type { VueComponent } from '@/types';
 
 export type BadgeProps = {
+	/** Main content: number, short text, or an icon component. Slot overrides this when provided. */
 	value?: string | number | VueComponent;
+	/** Controls badge dimensions and typography scale (sm through xl). */
 	size?: 'sm' | 'md' | 'lg' | 'xl';
+	/** Adds a border around the badge. */
 	bordered?: boolean;
+	/** Renders with square corners; when false, badge is pill-shaped. */
 	squared?: boolean;
+	/** Design context (e.g. neutral, brand) used for background and text color. */
 	context?: BCC_CONTEXT;
 };
 

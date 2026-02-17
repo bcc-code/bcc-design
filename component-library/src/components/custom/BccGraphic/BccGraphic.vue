@@ -42,10 +42,15 @@ export function getAspectRatioStyle(ratio: AspectRatioStyle) {
 import { computed, ref } from 'vue';
 
 export type GraphicProps = {
+	/** Image URL for the main banner/background; drives aspect-ratio box and loading state. */
 	bannerSrc?: string;
+	/** Image URL for the logo overlay (e.g. centered on the graphic). */
 	logoSrc?: string;
+	/** Border radius preset: none, sm, base, md, xl; applied to banner and container. */
 	rounding?: keyof typeof roundingClasses;
+	/** Aspect ratio of the graphic (e.g. 'wide' for 16:9, or a custom value like '21/9'). */
 	ratio?: AspectRatioStyle;
+	/** When true, renders the banner image in grayscale. */
 	grayscale?: boolean;
 };
 
