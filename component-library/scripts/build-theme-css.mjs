@@ -6,13 +6,16 @@
  * build and they get full utility classes and tree-shaking.
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, cpSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SRC = join(__dirname, '..', 'src');
-const OUT = join(__dirname, '..', 'dist', 'theme.css');
+const DIST = join(__dirname, '..', 'dist');
+const OUT = join(DIST, 'theme.css');
+const ARCHIVO_FONT_SRC = join(SRC, 'styles', 'archivo-font');
+const ARCHIVO_FONT_DIST = join(DIST, 'archivo-font');
 
 function resolveImport(fromPath, importPath) {
 	if (!importPath.startsWith('./') && !importPath.startsWith('../')) return null;
@@ -70,6 +73,10 @@ function main() {
 	mkdirSync(dirname(OUT), { recursive: true });
 	writeFileSync(OUT, output.trimEnd() + '\n');
 	console.log('Wrote dist/theme.css');
+
+	// Copy Archivo font files to dist so theme.css and consumers can load them
+	cpSync(ARCHIVO_FONT_SRC, ARCHIVO_FONT_DIST, { recursive: true });
+	console.log('Copied archivo-font to dist/archivo-font');
 }
 
 main();

@@ -4,6 +4,8 @@
 @import "tailwindcss";
 @import "@bcc-code/design-tokens/tailwind";
 @import "@bcc-code/design-tokens/primevue/overrides";
+@import "./styles/archivo-font.css";
+
 @import "./styles/theme.css";
 @import "./styles/semantic.css";
 @import "./styles/utilities.css";

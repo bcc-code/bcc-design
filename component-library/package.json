@@ -39,7 +39,7 @@
     "generate:semantic-css": "node scripts/generate-semantic-css.mjs",
     "generate:context-modes": "node scripts/generate-context-modes.mjs",
     "generate:context-css": "node scripts/generate-context-css.mjs",
-    "generate:context": "pnpm run generate:semantic && pnpm run generate:context-modes && pnpm run generate:context-css",
+    "generate": "pnpm run generate:semantic && pnpm run generate:semantic-css && pnpm run generate:context-modes && pnpm run generate:context-css",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint src/**/*.ts src/**/*.vue",
     "lint:fix": "eslint --fix src/**/*.ts src/**/*.vue",
