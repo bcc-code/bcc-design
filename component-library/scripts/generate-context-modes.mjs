@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Generates Figma context mode JSON files from the new semantic setup
- * (bcc_semantic with groups default, secondary, tertiary and primitive keys).
+ * (bcc_scheme with groups default, secondary, tertiary and primitive keys).
  * Each context mode maps ctx-* to semantic tokens (color/<group>/<key>).
  * Config: scripts/context-rules.config.json (rules + exceptions per type).
  */
@@ -14,8 +14,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const RULES_CONFIG_PATH = join(__dirname, 'context-rules.config.json');
 
-const SEMANTIC_SET_ID = 'VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1';
-const SEMANTIC_SET_NAME = 'bcc/semantic';
+const SEMANTIC_SET_ID = 'VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1';
+const SEMANTIC_SET_NAME = 'bcc/scheme';
 const PRIMITIVE_SET_ID = 'VariableCollectionId:417c7ac5537f108f00dd75d03fdef006a1a47c4a/-1:-1';
 const PRIMITIVE_SET_NAME = 'bcc/primitive';
 

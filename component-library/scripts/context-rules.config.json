@@ -1,7 +1,7 @@
 {
     "_comment": "Values are full paths: group/key (e.g. default/neutral/1000). Icon uses secondary group, same level as text. Exceptions override any key with another path.",
     "global": {
-      "semanticSource": "src/figma-modes/bcc_semantic/light.tokens.json",
+      "semanticSource": "src/figma-modes/bcc_scheme/light.tokens.json",
       "outputBaseDir": "src/figma-modes",
       "shadowPrimitive": "color/neutral-alpha/500A"
     },

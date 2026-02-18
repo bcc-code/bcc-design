@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generates Tailwind-compatible CSS for bcc_semantic tokens:
+ * Generates Tailwind-compatible CSS for bcc_scheme tokens:
  * - light.tokens.json → :root (light mode)
  * - dark.tokens.json → .dark (dark mode)
  * Resolves semantic aliasData to primitive hex values from primitive.tokens.json.
@@ -15,8 +15,8 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const LIGHT_PATH = join(ROOT, 'src/figma-modes/bcc_semantic/light.tokens.json');
-const DARK_PATH = join(ROOT, 'src/figma-modes/bcc_semantic/dark.tokens.json');
+const LIGHT_PATH = join(ROOT, 'src/figma-modes/bcc_scheme/light.tokens.json');
+const DARK_PATH = join(ROOT, 'src/figma-modes/bcc_scheme/dark.tokens.json');
 const PRIMITIVE_PATH = join(ROOT, 'src/figma-modes/primitive.tokens.json');
 const OUT_PATH = join(ROOT, 'src/styles/semantic.css');
 
@@ -131,7 +131,7 @@ function main() {
 	const darkHex = resolveSemanticToHex(darkAliases, primitiveHex);
 
 	const out = [
-		'/* Auto-generated from bcc_semantic tokens. Do not edit. Run: pnpm run generate:semantic-css */',
+		'/* Auto-generated from bcc_scheme tokens. Do not edit. Run: pnpm run generate:semantic-css */',
 		'/* Light mode from light.tokens.json; dark mode from dark.tokens.json */',
 		'',
 		emitCssBlock(':root', lightHex),

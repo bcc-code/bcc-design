@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generates bcc_semantic light.tokens.json and dark.tokens.json from a config file.
+ * Generates bcc_scheme light.tokens.json and dark.tokens.json from a config file.
  * Config defines groups and light→dark primitive mapping rules. Only primitive
  * variables that exist in primitive.tokens.json are emitted, so semantic tokens
  * always match the correct Figma variables.
@@ -16,7 +16,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const SEMANTIC_DIR = join(ROOT, 'src/figma-modes/bcc_semantic');
+const SEMANTIC_DIR = join(ROOT, 'src/figma-modes/bcc_scheme');
 const LIGHT_PATH = join(SEMANTIC_DIR, 'light.tokens.json');
 const DARK_PATH = join(SEMANTIC_DIR, 'dark.tokens.json');
 const CONFIG_PATH = join(__dirname, 'semantic-primitive-groups.config.json');

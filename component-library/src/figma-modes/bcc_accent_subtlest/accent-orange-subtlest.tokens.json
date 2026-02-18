@@ -18,8 +18,8 @@
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
         "targetVariableName": "color/default/orange/800",
-        "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
-        "targetVariableSetName": "bcc/semantic"
+        "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
+        "targetVariableSetName": "bcc/scheme"
       }
     }
   },
@@ -42,8 +42,8 @@
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
         "targetVariableName": "color/default/orange/900",
-        "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
-        "targetVariableSetName": "bcc/semantic"
+        "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
+        "targetVariableSetName": "bcc/scheme"
       }
     }
   },
@@ -66,8 +66,8 @@
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
         "targetVariableName": "color/default/orange/700",
-        "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
-        "targetVariableSetName": "bcc/semantic"
+        "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
+        "targetVariableSetName": "bcc/scheme"
       }
     }
   },
@@ -90,8 +90,8 @@
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
         "targetVariableName": "color/secondary/orange/800",
-        "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
-        "targetVariableSetName": "bcc/semantic"
+        "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
+        "targetVariableSetName": "bcc/scheme"
       }
     }
   },
@@ -135,8 +135,8 @@
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
         "targetVariableName": "color/default/orange/100",
-        "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
-        "targetVariableSetName": "bcc/semantic"
+        "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
+        "targetVariableSetName": "bcc/scheme"
       }
     }
   },
@@ -160,8 +160,8 @@
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
         "targetVariableName": "color/default/orange/200",
-        "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
-        "targetVariableSetName": "bcc/semantic"
+        "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
+        "targetVariableSetName": "bcc/scheme"
       }
     }
   },
@@ -185,8 +185,8 @@
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
         "targetVariableName": "color/default/orange/300",
-        "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
-        "targetVariableSetName": "bcc/semantic"
+        "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
+        "targetVariableSetName": "bcc/scheme"
       }
     }
   },
@@ -209,8 +209,8 @@
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
         "targetVariableName": "color/default/orange/300",
-        "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
-        "targetVariableSetName": "bcc/semantic"
+        "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
+        "targetVariableSetName": "bcc/scheme"
       }
     }
   },
@@ -233,8 +233,8 @@
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
         "targetVariableName": "color/default/orange/800",
-        "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
-        "targetVariableSetName": "bcc/semantic"
+        "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
+        "targetVariableSetName": "bcc/scheme"
       }
     }
   },
