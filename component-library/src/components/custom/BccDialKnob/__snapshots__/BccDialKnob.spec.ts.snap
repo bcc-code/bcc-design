@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`BccKnob > renders a knob 1`] = `
+exports[`BccDialKnob > renders a knob 1`] = `
 "<div class="bcc-knob"><canvas class="object-fit w-full" width="400" height="400"></canvas>
   <div class="bcc-knob-top-left"></div>
   <div class="bcc-knob-top-right"></div>

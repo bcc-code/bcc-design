@@ -93,7 +93,7 @@ export { default as BccInputNumber } from 'primevue/inputnumber';
 export { default as BccInputOtp } from 'primevue/inputotp';
 export { default as BccInputText } from 'primevue/inputtext';
 export { default as BccKeyFilter } from 'primevue/keyfilter';
-// BccKnob is the custom component from ./components/custom (with left/right/default slots)
+export { default as BccKnob } from 'primevue/knob';
 export { default as BccListbox } from 'primevue/listbox';
 export { default as BccMegaMenu } from 'primevue/megamenu';
 export { default as BccMenu } from 'primevue/menu';

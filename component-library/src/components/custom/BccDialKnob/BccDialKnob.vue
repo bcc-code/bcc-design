@@ -301,7 +301,7 @@ function drawCanvas() {
 		ctx.stroke();
 	}
 
-	// 5. Draw the gradient “handle” arc using a linear gradient.
+	// 5. Draw the gradient "handle" arc using a linear gradient.
 	// The handle spans up to 108° (≈30% of a full rotation).
 	let handleStartDeg: number;
 	if (Math.abs(angle) < 108) {
@@ -383,7 +383,7 @@ function drawCanvas() {
 }
 
 /**
- * Returns the angle (in degrees) relative to 12 o’clock.
+ * Returns the angle (in degrees) relative to 12 o'clock.
  */
 function getMouseAngle(evt: MouseEvent | TouchEvent): number {
 	if (!knobContainer.value) return 0;

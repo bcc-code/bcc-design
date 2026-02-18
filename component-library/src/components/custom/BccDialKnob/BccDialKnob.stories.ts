@@ -1,11 +1,11 @@
 import type { Meta } from '@storybook/vue3';
 import { ref } from 'vue';
 import BccInput from '../../wrapped/BccInput.vue';
-import BccKnob from './BccKnob.vue';
+import BccDialKnob from './BccDialKnob.vue';
 
-const meta: Meta<typeof BccKnob> = {
-	component: BccKnob,
-	title: 'Feedback/BccKnob',
+const meta: Meta<typeof BccDialKnob> = {
+	component: BccDialKnob,
+	title: 'Feedback/BccDialKnob',
 	argTypes: {
 		min: {
 			control: { type: 'number' },
@@ -34,14 +34,14 @@ export const Default = {
 		max: 720,
 	},
 	render: (args: Record<string, unknown>) => ({
-		components: { BccKnob, BccInput },
+		components: { BccDialKnob, BccInput },
 		setup() {
 			const value = ref(0);
 			return { args, value };
 		},
 		template: `
 			<div class="relative flex flex-col w-80 justify-center items-center gap-4">
-				<BccKnob v-bind="args" v-model="value">
+				<BccDialKnob v-bind="args" v-model="value">
 					<template #left>
 						<div class="opacity-40 p-4">Less</div>
 					</template>
@@ -49,7 +49,7 @@ export const Default = {
 						<div class="opacity-40 p-4">More</div>
 					</template>
 					<pre>{{ value }}</pre>
-				</BccKnob>
+				</BccDialKnob>
 				<BccInput v-model="value" label="Minutes" type="number" />
 			</div>
 		`,
@@ -62,14 +62,14 @@ export const Colored = {
 		showHandle: true,
 	},
 	render: (args: Record<string, unknown>) => ({
-		components: { BccKnob, BccInput },
+		components: { BccDialKnob, BccInput },
 		setup() {
 			const value = ref(0);
 			return { args, value };
 		},
 		template: `
 			<div class="relative flex flex-col w-80 justify-center items-center gap-4">
-				<BccKnob v-bind="args" v-model="value">
+				<BccDialKnob v-bind="args" v-model="value">
 					<template #left>
 						<div class="opacity-40 p-4">Less</div>
 					</template>
@@ -77,7 +77,7 @@ export const Colored = {
 						<div class="opacity-40 p-4">More</div>
 					</template>
 					<pre>{{ value }}</pre>
-				</BccKnob>
+				</BccDialKnob>
 				<BccInput v-model="value" label="Minutes" type="number" />
 			</div>
 		`,
@@ -86,7 +86,7 @@ export const Colored = {
 
 export const CssVariables = {
 	render: () => ({
-		components: { BccKnob },
+		components: { BccDialKnob },
 		setup() {
 			const value = ref(0);
 			return { value };
@@ -104,7 +104,7 @@ export const CssVariables = {
 --bcc-knob-right-tail: #B1DECC;
 				</pre>
 				<div class="w-80 p-8">
-					<BccKnob v-model="value" colored show-handle />
+					<BccDialKnob v-model="value" colored show-handle />
 				</div>
 			</div>
 		`,

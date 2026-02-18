@@ -1,13 +1,13 @@
 import { describe, it, expect } from "vitest";
 
 import { mount } from "@vue/test-utils";
-import BccKnob from "./BccKnob.vue";
+import BccDialKnob from "./BccDialKnob.vue";
 
-describe("BccKnob", () => {
+describe("BccDialKnob", () => {
   it("renders a knob", () => {
-    expect(BccKnob).toBeTruthy();
+    expect(BccDialKnob).toBeTruthy();
 
-    const wrapper = mount(BccKnob, {
+    const wrapper = mount(BccDialKnob, {
       props: { modelValue: 30 },
     });
 
