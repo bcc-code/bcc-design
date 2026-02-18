@@ -24,7 +24,7 @@ const FIGMA_SCOPES = {
 	'ctx-text': ['TEXT_FILL'],
 	'ctx-text-bold': ['TEXT_FILL'],
 	'ctx-text-subtle': ['TEXT_FILL'],
-	'ctx-icon': ['TEXT_FILL'],
+	'ctx-icon': ['TEXT_FILL', 'SHAPE_FILL'],
 	'ctx-text-hover': ['TEXT_FILL'],
 	'ctx-text-pressed': ['TEXT_FILL'],
 	'ctx-background': ['FRAME_FILL', 'SHAPE_FILL'],

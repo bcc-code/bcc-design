@@ -85,7 +85,8 @@
     },
     "$extensions": {
       "com.figma.scopes": [
-        "TEXT_FILL"
+        "TEXT_FILL",
+        "SHAPE_FILL"
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
