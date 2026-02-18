@@ -1,0 +1,323 @@
+{
+    "_comment": "Values are full paths: group/key (e.g. default/neutral/1000). Icon uses secondary group, same level as text. Exceptions override any key with another path.",
+    "global": {
+      "semanticSource": "src/figma-modes/bcc_semantic/light.tokens.json",
+      "outputBaseDir": "src/figma-modes",
+      "shadowPrimitive": "color/neutral-alpha/500A"
+    },
+  
+    "neutral": {
+      "description": "Default and neutral variants. Each value is group/key; icon = secondary, same level as text.",
+      "dir": "bcc_neutral",
+      "modes": [
+        {
+            "modeName": "default",
+            "text": "default/neutral/1000",
+            "textBold": "default/neutral/1100",
+            "textSubtle": "default/neutral/900",
+            "icon": "secondary/neutral/1100",
+            "bg": "default/neutral/0",
+            "bgHover": "default/neutral/100",
+            "bgPressed": "default/neutral/200",
+            "border": "default/neutral/300",
+            "borderBold": "default/neutral/800"
+        },
+        {
+          "modeName": "neutral-subtlest",
+          "text": "default/neutral/1000",
+          "textBold": "default/neutral/1100",
+          "textSubtle": "default/neutral/900",
+          "icon": "secondary/neutral/1100",
+          "bg": "default/neutral/0",
+          "bgHover": "default/neutral/100",
+          "bgPressed": "default/neutral/200",
+          "border": "default/neutral/300",
+          "borderBold": "default/neutral/800"
+        },
+        {
+          "modeName": "neutral-subtler",
+          "text": "default/neutral/900",
+          "textBold": "default/neutral/1000",
+          "textSubtle": "default/neutral/800",
+          "icon": "secondary/neutral/1000",
+          "bg": "default/neutral/100",
+          "bgHover": "default/neutral/200",
+          "bgPressed": "default/neutral/300",
+          "border": "default/neutral/400",
+          "borderBold": "default/neutral/700"
+        },
+        {
+          "modeName": "neutral-subtle",
+          "text": "default/neutral/800",
+          "textBold": "default/neutral/900",
+          "textSubtle": "default/neutral/700",
+          "icon": "secondary/neutral/800",
+          "bg": "default/neutral/200",
+          "bgHover": "default/neutral/300",
+          "bgPressed": "default/neutral/400",
+          "border": "default/neutral/500",
+          "borderBold": "default/neutral/600"
+        },
+        {
+          "modeName": "neutral-bold",
+          "text": "default/neutral/300",
+          "textBold": "default/neutral/200",
+          "textSubtle": "default/neutral/400",
+          "icon": "secondary/neutral/200",
+          "bg": "default/neutral/900",
+          "bgHover": "default/neutral/800",
+          "bgPressed": "default/neutral/700",
+          "border": "default/neutral/600",
+          "borderBold": "default/neutral/500"
+        },
+        {
+            "modeName": "neutral-bolder",
+            "text": "default/neutral/200",
+            "textBold": "default/neutral/100",
+            "textSubtle": "default/neutral/300",
+            "icon": "secondary/neutral/100",
+            "bg": "default/neutral/1000",
+            "bgHover": "default/neutral/900",
+            "bgPressed": "default/neutral/800",
+            "border": "default/neutral/700",
+            "borderBold": "default/neutral/400"
+        },
+        {
+          "modeName": "neutral-boldest",
+          "text": "default/neutral/100",
+          "textBold": "default/neutral/0",
+          "textSubtle": "default/neutral/200",
+          "icon": "secondary/neutral/0",
+          "bg": "default/neutral/1100",
+          "bgHover": "default/neutral/1000",
+          "bgPressed": "default/neutral/900",
+          "border": "default/neutral/800",
+          "borderBold": "default/neutral/300"
+        }
+      ],
+      "exceptions": {}
+    },
+  
+    "brand": {
+      "description": "Brand (bcc) contexts. Full paths; icon from secondary, same level as text.",
+      "dir": "bcc_context",
+      "levels": [
+        { "level": "default", "modeName": "brand-default" },
+        { "level": "subtlest", "modeName": "brand-subtlest" },
+        { "level": "subtler", "modeName": "brand-subtler" },
+        { "level": "subtle", "modeName": "brand-subtle" },
+        { "level": "bolder", "modeName": "brand-bolder" },
+        { "level": "bold", "modeName": "brand-bold" },
+        { "level": "boldest", "modeName": "brand-boldest" }
+      ],
+      "rules": {
+        "subtlest": {
+          "bg": "default/bcc/100",
+          "bgHover": "default/bcc/200",
+          "bgPressed": "default/bcc/300",
+          "text": "default/neutral/900",
+          "textBold": "default/bcc/1000",
+          "textSubtle": "default/neutral/800",
+          "icon": "secondary/neutral/1000",
+          "border": "default/bcc/300",
+          "borderBold": "default/bcc/800"
+        },
+        "subtler": {
+          "bg": "default/bcc/200",
+          "bgHover": "default/bcc/300",
+          "bgPressed": "default/bcc/400",
+          "text": "default/neutral/800",
+          "textBold": "default/bcc/900",
+          "textSubtle": "default/neutral/700",
+          "icon": "secondary/neutral/900",
+          "border": "default/bcc/400",
+          "borderBold": "default/bcc/700"
+        },
+        "subtle": {
+          "bg": "default/bcc/300",
+          "bgHover": "default/bcc/400",
+          "bgPressed": "default/bcc/500",
+          "text": "default/neutral/700",
+          "textBold": "default/bcc/800",
+          "textSubtle": "default/neutral/600",
+          "icon": "secondary/neutral/800",
+          "border": "default/bcc/500",
+          "borderBold": "default/bcc/600"
+        },
+        "bold": {
+          "bg": "default/bcc/800",
+          "bgHover": "default/bcc/700",
+          "bgPressed": "default/bcc/600",
+          "text": "default/bcc/200",
+          "textBold": "default/neutral/100",
+          "textSubtle": "default/bcc/300",
+          "icon": "secondary/bcc/100",
+          "border": "default/bcc/600",
+          "borderBold": "default/bcc/500"
+        },
+        "bolder": {
+          "bg": "default/bcc/900",
+          "bgHover": "default/bcc/800",
+          "bgPressed": "default/bcc/700",
+          "text": "default/bcc/100",
+          "textBold": "default/neutral/0",
+          "textSubtle": "default/bcc/200",
+          "icon": "secondary/bcc/100",
+          "border": "default/bcc/700",
+          "borderBold": "default/bcc/400"
+        },
+        "boldest": {
+          "bg": "default/bcc/1000",
+          "bgHover": "default/bcc/900",
+          "bgPressed": "default/bcc/800",
+          "text": "default/neutral/0",
+          "textBold": "default/neutral/0",
+          "textSubtle": "default/bcc/100",
+          "icon": "secondary/neutral/0",
+          "border": "default/bcc/800",
+          "borderBold": "default/bcc/300"
+        }
+      },
+      "exceptions": {}
+    },
+  
+    "accent": {
+      "description": "Accent contexts. Paths use default/{{hue}}/level; icon = secondary/{{hue}}/same level as text.",
+      "hues": ["blue", "gray", "teal", "green", "brown", "yellow", "orange", "red", "magenta", "purple"],
+      "levels": [
+        { "level": "subtlest", "dir": "bcc_accent_subtlest" },
+        { "level": "subtler", "dir": "bcc_accent_subtler" },
+        { "level": "subtle", "dir": "bcc_accent_subtle" },
+        { "level": "bolder", "dir": "bcc_accent_bolder" }
+      ],
+      "rules": {
+        "subtlest": {
+          "bg": "default/{{hue}}/100",
+          "bgHover": "default/{{hue}}/200",
+          "bgPressed": "default/{{hue}}/300",
+          "text": "default/{{hue}}/800",
+          "textBold": "default/{{hue}}/900",
+          "textSubtle": "default/{{hue}}/700",
+          "icon": "secondary/{{hue}}/800",
+          "border": "default/{{hue}}/300",
+          "borderBold": "default/{{hue}}/800"
+        },
+        "subtler": {
+          "bg": "default/{{hue}}/200",
+          "bgHover": "default/{{hue}}/300",
+          "bgPressed": "default/{{hue}}/400",
+          "text": "default/{{hue}}/800",
+          "textBold": "default/{{hue}}/900",
+          "textSubtle": "default/{{hue}}/700",
+          "icon": "secondary/{{hue}}/800",
+          "border": "default/{{hue}}/400",
+          "borderBold": "default/{{hue}}/700"
+        },
+        "subtle": {
+          "bg": "default/{{hue}}/300",
+          "bgHover": "default/{{hue}}/400",
+          "bgPressed": "default/{{hue}}/500",
+          "text": "default/{{hue}}/900",
+          "textBold": "default/{{hue}}/1000",
+          "textSubtle": "default/{{hue}}/800",
+          "icon": "secondary/{{hue}}/800",
+          "border": "default/{{hue}}/500",
+          "borderBold": "default/{{hue}}/600"
+        },
+        "bolder": {
+          "bg": "default/{{hue}}/800",
+          "bgHover": "default/{{hue}}/700",
+          "bgPressed": "default/{{hue}}/600",
+          "text": "default/{{hue}}/200",
+          "textBold": "default/{{hue}}/100",
+          "textSubtle": "default/{{hue}}/300",
+          "icon": "secondary/{{hue}}/100",
+          "border": "default/{{hue}}/700",
+          "borderBold": "default/{{hue}}/400"
+        }
+      },
+      "exceptions": {
+        "accent-gray-subtlest": {
+          "bg": "default/neutral/100",
+          "bgHover": "default/neutral/200",
+          "bgPressed": "default/neutral/300",
+          "text": "default/neutral/800",
+          "textBold": "default/neutral/900",
+          "textSubtle": "default/neutral/700",
+          "icon": "secondary/neutral/800",
+          "border": "default/neutral/300",
+          "borderBold": "default/neutral/800"
+        },
+        "accent-gray-subtler": {
+          "bg": "default/neutral/200",
+          "bgHover": "default/neutral/300",
+          "bgPressed": "default/neutral/400",
+          "text": "default/neutral/800",
+          "textBold": "default/neutral/900",
+          "textSubtle": "default/neutral/700",
+          "icon": "secondary/neutral/800",
+          "border": "default/neutral/400",
+          "borderBold": "default/neutral/700"
+        },
+        "accent-gray-subtle": {
+          "bg": "default/neutral/300",
+          "bgHover": "default/neutral/400",
+          "bgPressed": "default/neutral/500",
+          "text": "default/neutral/900",
+          "textBold": "default/neutral/1000",
+          "textSubtle": "default/neutral/800",
+          "icon": "secondary/neutral/800",
+          "border": "default/neutral/500",
+          "borderBold": "default/neutral/600"
+        },
+        "accent-gray-bolder": {
+          "bg": "default/neutral/800",
+          "bgHover": "default/neutral/700",
+          "bgPressed": "default/neutral/600",
+          "text": "default/neutral/200",
+          "textBold": "default/neutral/100",
+          "textSubtle": "default/neutral/300",
+          "icon": "secondary/neutral/100",
+          "border": "default/neutral/700",
+          "borderBold": "default/neutral/400"
+        }
+      }
+    },
+  
+    "severity": {
+      "description": "Status contexts. Paths use default/{{hue}}/level; icon = secondary/{{hue}}/same level as text.",
+      "dir": "bcc_severity",
+      "modes": [
+        { "name": "information", "hue": "blue" },
+        { "name": "success", "hue": "green" },
+        { "name": "danger", "hue": "red" },
+        { "name": "warning", "hue": "yellow" }
+      ],
+      "variants": ["subtlest", "bolder"],
+      "rules": {
+        "subtlest": {
+          "text": "default/{{hue}}/800",
+          "textBold": "default/{{hue}}/900",
+          "textSubtle": "default/{{hue}}/700",
+          "icon": "secondary/{{hue}}/800",
+          "bg": "default/{{hue}}/100",
+          "bgHover": "default/{{hue}}/200",
+          "bgPressed": "default/{{hue}}/300",
+          "border": "default/{{hue}}/300",
+          "borderBold": "default/{{hue}}/800"
+        },
+        "bolder": {
+          "text": "default/neutral/100",
+          "textBold": "default/neutral/0",
+          "textSubtle": "default/neutral/200",
+          "icon": "secondary/neutral/0",
+          "bg": "default/{{hue}}/800",
+          "bgHover": "default/{{hue}}/700",
+          "bgPressed": "default/{{hue}}/600",
+          "border": "default/{{hue}}/700",
+          "borderBold": "default/{{hue}}/400"
+        }
+      },
+      "exceptions": {}
+    }
+  }

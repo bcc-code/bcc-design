@@ -12,12 +12,18 @@
 }
 
 .ctx-default { @apply ctx-default }
+.ctx-success { @apply ctx-success-subtlest }
+.ctx-danger { @apply ctx-danger-subtlest }
+.ctx-warning { @apply ctx-warning-subtlest }
+.ctx-info { @apply ctx-info-subtlest }
+
 .ctx-blue-bolder { @apply ctx-blue-bolder }
 .ctx-blue-subtle { @apply ctx-blue-subtle }
 .ctx-blue-subtler { @apply ctx-blue-subtler }
 .ctx-blue-subtlest { @apply ctx-blue-subtlest }
-.ctx-brand-bolder { @apply ctx-brand-bolder }
 .ctx-brand-boldest { @apply ctx-brand-boldest }
+.ctx-brand-bolder { @apply ctx-brand-bolder }
+.ctx-brand-bold { @apply ctx-brand-bold }
 .ctx-brand-subtle { @apply ctx-brand-subtle }
 .ctx-brand-subtler { @apply ctx-brand-subtler }
 .ctx-brand-subtlest { @apply ctx-brand-subtlest }
@@ -25,7 +31,7 @@
 .ctx-brown-subtle { @apply ctx-brown-subtle }
 .ctx-brown-subtler { @apply ctx-brown-subtler }
 .ctx-brown-subtlest { @apply ctx-brown-subtlest }
-.ctx-danger { @apply ctx-danger }
+.ctx-danger-subtlest { @apply ctx-danger }
 .ctx-danger-bolder { @apply ctx-danger-bolder }
 .ctx-gray-bolder { @apply ctx-gray-bolder }
 .ctx-gray-subtle { @apply ctx-gray-subtle }
@@ -35,12 +41,14 @@
 .ctx-green-subtle { @apply ctx-green-subtle }
 .ctx-green-subtler { @apply ctx-green-subtler }
 .ctx-green-subtlest { @apply ctx-green-subtlest }
-.ctx-info { @apply ctx-info }
+.ctx-info-subtlest { @apply ctx-info }
 .ctx-info-bolder { @apply ctx-info-bolder }
 .ctx-magenta-bolder { @apply ctx-magenta-bolder }
 .ctx-magenta-subtle { @apply ctx-magenta-subtle }
 .ctx-magenta-subtler { @apply ctx-magenta-subtler }
 .ctx-magenta-subtlest { @apply ctx-magenta-subtlest }
+.ctx-neutral-boldest { @apply ctx-neutral-boldest }
+.ctx-neutral-bolder { @apply ctx-neutral-bolder }
 .ctx-neutral-bold { @apply ctx-neutral-bold }
 .ctx-neutral-subtle { @apply ctx-neutral-subtle }
 .ctx-neutral-subtler { @apply ctx-neutral-subtler }
@@ -57,13 +65,13 @@
 .ctx-red-subtle { @apply ctx-red-subtle }
 .ctx-red-subtler { @apply ctx-red-subtler }
 .ctx-red-subtlest { @apply ctx-red-subtlest }
-.ctx-success { @apply ctx-success }
+.ctx-success-subtlest { @apply ctx-success }
 .ctx-success-bolder { @apply ctx-success-bolder }
 .ctx-teal-bolder { @apply ctx-teal-bolder }
 .ctx-teal-subtle { @apply ctx-teal-subtle }
 .ctx-teal-subtler { @apply ctx-teal-subtler }
 .ctx-teal-subtlest { @apply ctx-teal-subtlest }
-.ctx-warning { @apply ctx-warning }
+.ctx-warning-subtlest { @apply ctx-warning }
 .ctx-warning-bolder { @apply ctx-warning-bolder }
 .ctx-yellow-bolder { @apply ctx-yellow-bolder }
 .ctx-yellow-subtle { @apply ctx-yellow-subtle }

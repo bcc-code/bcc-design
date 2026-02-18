@@ -1,413 +1,297 @@
 #!/usr/bin/env node
 /**
- * Generates Figma context mode JSON files from light.tokens.json.
- * Each context (default, neutral-subtle, neutral-subtlest, warning, brand-*, accent-*-default, accent-*-bold)
- * gets a mode file that maps ctx-* variables to the correct semantic tokens.
+ * Generates Figma context mode JSON files from the new semantic setup
+ * (bcc_semantic with groups default, secondary, tertiary and primitive keys).
+ * Each context mode maps ctx-* to semantic tokens (color/<group>/<key>).
+ * Config: scripts/context-rules.config.json (rules + exceptions per type).
  */
 
-import { readFileSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const LIGHT_TOKENS_PATH = join(ROOT, 'src/modes/light.tokens.json');
-const MODES_DIR = join(ROOT, 'src/modes');
+const RULES_CONFIG_PATH = join(__dirname, 'context-rules.config.json');
 
-// Semantic set name for aliasData (Figma variable collection)
 const SEMANTIC_SET_ID = 'VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1';
 const SEMANTIC_SET_NAME = 'bcc/semantic';
 const PRIMITIVE_SET_ID = 'VariableCollectionId:417c7ac5537f108f00dd75d03fdef006a1a47c4a/-1:-1';
 const PRIMITIVE_SET_NAME = 'bcc/primitive';
 
-/** Check if node is a token (has $type and $value) */
-function isToken(node) {
-  return node && typeof node === 'object' && node.$type === 'color' && node.$value != null;
+/** Figma variable scopes per ctx token: fills (bg*) = frame/shape fill; strokes = border*; text = text* and icon*. */
+const FIGMA_SCOPES = {
+	'ctx-text': ['TEXT_FILL'],
+	'ctx-text-bold': ['TEXT_FILL'],
+	'ctx-text-subtle': ['TEXT_FILL'],
+	'ctx-icon': ['TEXT_FILL'],
+	'ctx-text-hover': ['TEXT_FILL'],
+	'ctx-text-pressed': ['TEXT_FILL'],
+	'ctx-background': ['FRAME_FILL', 'SHAPE_FILL'],
+	'ctx-background-hover': ['FRAME_FILL', 'SHAPE_FILL'],
+	'ctx-background-pressed': ['FRAME_FILL', 'SHAPE_FILL'],
+	'ctx-border': ['STROKE_COLOR'],
+	'ctx-border-bold': ['STROKE_COLOR'],
+	'ctx-border-hover': ['STROKE_COLOR'],
+	'ctx-border-pressed': ['STROKE_COLOR'],
+	'ctx-shadow': ['EFFECT_COLOR'],
+	'ctx-gradient': ['FRAME_FILL', 'SHAPE_FILL'],
+	'ctx-gradient-hover': ['FRAME_FILL', 'SHAPE_FILL'],
+	'ctx-gradient-pressed': ['FRAME_FILL', 'SHAPE_FILL'],
+};
+function getScopesForCtxKey(key) {
+	return FIGMA_SCOPES[key] || ['ALL_SCOPES'];
 }
 
-/** Clone token for ctx (use primitive alias for shadow; semantic for others when path given).
- *  For semantic aliases we set only targetVariableName and set IDs so Figma resolves by name
- *  (the token's aliasData.targetVariableId points at the primitive; we want the semantic variable). */
-function cloneTokenForCtx(token, semanticPath, usePrimitive = false) {
-  if (!token || !token.$value) return null;
-  const ext = token.$extensions || {};
-  const alias = ext['com.figma.aliasData'];
-  const value = token.$value;
-  const isRef = typeof value === 'string' && value.startsWith('{');
-  const semanticName = semanticPath ? semanticPath.replace(/\./g, '/') : null;
-  return {
-    $type: 'color',
-    $value: isRef ? value : (typeof value === 'object' && value.hex ? { ...value } : value),
-    $extensions: {
-      'com.figma.variableId': ext['com.figma.variableId'],
-      'com.figma.scopes': ['ALL_SCOPES'],
-      'com.figma.isOverride': true,
-      ...(semanticName && !usePrimitive
-        ? {
-            'com.figma.aliasData': {
-              targetVariableName: semanticName,
-              targetVariableSetId: SEMANTIC_SET_ID,
-              targetVariableSetName: SEMANTIC_SET_NAME,
-            },
-          }
-        : usePrimitive && alias
-          ? { 'com.figma.aliasData': alias }
-          : {}),
-    },
-  };
+/** Collect all (group, key) pairs from semantic color tree. Structure: color.<group>.<key> (key e.g. "neutral/1000"). */
+function collectSemanticKeys(obj, group = '', out = new Set()) {
+	if (!obj || typeof obj !== 'object') return out;
+	if (obj.$type === 'color') return out;
+	for (const [k, v] of Object.entries(obj)) {
+		if (k.startsWith('$')) continue;
+		if (v && typeof v === 'object' && v.$type === 'color') {
+			out.add(JSON.stringify([group, k]));
+		} else if (v && typeof v === 'object') {
+			// First level under color is group name; next level keys are primitive keys
+			const nextGroup = group || k;
+			collectSemanticKeys(v, nextGroup, out);
+		}
+	}
+	return out;
 }
 
-function collectPaths(obj, prefix = '', out = new Map()) {
-  if (!obj || typeof obj !== 'object') return out;
-  if (isToken(obj)) {
-    out.set(prefix, obj);
-    return out;
-  }
-  for (const [k, v] of Object.entries(obj)) {
-    if (k.startsWith('$')) continue;
-    collectPaths(v, prefix ? `${prefix}.${k}` : k, out);
-  }
-  return out;
+/** Semantic variable name for Figma alias: color/<group>/<key> */
+function semanticName(group, key) {
+	return `color/${group}/${key}`;
+}
+
+/** Parse a full path "group/key" (e.g. "default/neutral/1000") into { group, key }. */
+function parsePath(path) {
+	if (!path || typeof path !== 'string') return null;
+	const idx = path.indexOf('/');
+	if (idx === -1) return null;
+	return { group: path.slice(0, idx), key: path.slice(idx + 1) };
+}
+
+/** Build a ctx token that aliases to a semantic variable. */
+function ctxTokenAlias(semanticVariableName, ctxKey) {
+	return {
+		$type: 'color',
+		$value: { colorSpace: 'srgb', components: [0, 0, 0], alpha: 1, hex: '#000000' },
+		$extensions: {
+			'com.figma.scopes': getScopesForCtxKey(ctxKey),
+			'com.figma.isOverride': true,
+			'com.figma.aliasData': {
+				targetVariableName: semanticVariableName,
+				targetVariableSetId: SEMANTIC_SET_ID,
+				targetVariableSetName: SEMANTIC_SET_NAME,
+			},
+		},
+	};
+}
+
+/** Token that references another ctx variable (e.g. {ctx-text}). */
+function ctxTokenRef(ref, ctxKey) {
+	return {
+		$type: 'color',
+		$value: ref,
+		$extensions: {
+			'com.figma.scopes': getScopesForCtxKey(ctxKey),
+			'com.figma.isOverride': true,
+		},
+	};
+}
+
+/** Shadow: alias to primitive neutral-alpha/500A. */
+function shadowToken(primitivePath, ctxKey = 'ctx-shadow') {
+	return {
+		$type: 'color',
+		$value: { colorSpace: 'srgb', components: [0, 0, 0], alpha: 1, hex: '#000000' },
+		$extensions: {
+			'com.figma.scopes': getScopesForCtxKey(ctxKey),
+			'com.figma.isOverride': true,
+			'com.figma.aliasData': {
+				targetVariableName: primitivePath,
+				targetVariableSetId: PRIMITIVE_SET_ID,
+				targetVariableSetName: PRIMITIVE_SET_NAME,
+			},
+		},
+	};
+}
+
+/** Replace {{hue}} in key (or object values) with actual hue. */
+function resolveKey(key, hue) {
+	if (key == null) return key;
+	if (typeof key !== 'string') return key;
+	return hue ? key.replace(/\{\{hue\}\}/g, hue) : key;
+}
+
+/** Shallow merge: base + overrides (overrides win). */
+function mergeKeys(base, overrides) {
+	if (!overrides || typeof overrides !== 'object') return base;
+	return { ...base, ...overrides };
+}
+
+/**
+ * Expand context-rules.config.json into a flat list of { modeName, dir, group, keys }.
+ * Applies exceptions per mode (override group or any key).
+ */
+function expandContextsFromRules(config) {
+	const contexts = [];
+	const g = config.global || {};
+	const neutral = config.neutral || {};
+	const brand = config.brand || {};
+	const accent = config.accent || {};
+	const severity = config.severity || {};
+
+	const keyFields = ['text', 'textBold', 'textSubtle', 'icon', 'bg', 'bgHover', 'bgPressed', 'border', 'borderBold'];
+
+	// Neutral: each mode has full paths (group/key); exceptions override any key
+	for (const mode of neutral.modes || []) {
+		const modeName = mode.modeName;
+		const baseKeys = {
+			text: mode.text,
+			textBold: mode.textBold,
+			textSubtle: mode.textSubtle,
+			icon: mode.icon,
+			bg: mode.bg,
+			bgHover: mode.bgHover,
+			bgPressed: mode.bgPressed,
+			border: mode.border,
+			borderBold: mode.borderBold,
+		};
+		const except = (neutral.exceptions || {})[modeName] || {};
+		const keys = mergeKeys(baseKeys, except);
+		contexts.push({ modeName, dir: neutral.dir || 'bcc_context', keys });
+	}
+
+	// Brand: levels × rules[level]; exceptions per modeName
+	for (const { level, modeName } of brand.levels || []) {
+		const rule = (brand.rules || {})[level] || {};
+		const except = (brand.exceptions || {})[modeName] || {};
+		const keys = mergeKeys(rule, except);
+		contexts.push({ modeName, dir: brand.dir || 'bcc_context', keys });
+	}
+
+	// Accent: levels × hues; rules[level] with {{hue}} resolved; exceptions per modeName
+	for (const levelSpec of accent.levels || []) {
+		const level = levelSpec.level;
+		const rule = (accent.rules || {})[level] || {};
+		for (const hue of accent.hues || []) {
+			const modeName = `accent-${hue}-${level}`;
+			const except = (accent.exceptions || {})[modeName] || {};
+			const resolvedRule = {};
+			for (const f of keyFields) if (rule[f] != null) resolvedRule[f] = resolveKey(rule[f], hue);
+			const keys = mergeKeys(resolvedRule, except);
+			contexts.push({ modeName, dir: levelSpec.dir || 'bcc_accent_subtle', keys });
+		}
+	}
+
+	// Severity: modes × variants; rules[variant] with {{hue}} resolved; exceptions per name or modeName
+	for (const sev of severity.modes || []) {
+		const name = sev.name;
+		const hue = sev.hue;
+		for (const variant of severity.variants || ['subtlest', 'bolder']) {
+			const modeName = variant === 'default' ? name : `${name}-${variant}`;
+			const rule = (severity.rules || {})[variant] || {};
+			const except = (severity.exceptions || {})[modeName] || (severity.exceptions || {})[name] || {};
+			const resolvedRule = {};
+			for (const f of keyFields) if (rule[f] != null) resolvedRule[f] = resolveKey(rule[f], hue);
+			const keys = mergeKeys(resolvedRule, except);
+			contexts.push({ modeName, dir: severity.dir || 'bcc_severity', keys });
+		}
+	}
+
+	return contexts;
+}
+
+/** Build full ctx block. Each key value is a full path "group/key" (e.g. "default/neutral/1000"). */
+function buildCtxBlock(keys, semanticKeysSet, shadowPrimitive) {
+	const has = (g, k) => semanticKeysSet.has(JSON.stringify([g, k]));
+	const sem = (path, ctxKey) => {
+		const p = parsePath(path);
+		if (!p || !has(p.group, p.key)) return null;
+		return ctxTokenAlias(semanticName(p.group, p.key), ctxKey);
+	};
+
+	const text = sem(keys.text, 'ctx-text');
+	const textBold = sem(keys.textBold, 'ctx-text-bold');
+	const textSubtle = sem(keys.textSubtle, 'ctx-text-subtle');
+	const icon = sem(keys.icon, 'ctx-icon');
+	const bg = sem(keys.bg, 'ctx-background');
+	const bgHover = sem(keys.bgHover, 'ctx-background-hover');
+	const bgPressed = sem(keys.bgPressed, 'ctx-background-pressed');
+	const border = sem(keys.border, 'ctx-border');
+	const borderBold = sem(keys.borderBold, 'ctx-border-bold');
+
+	return {
+		'ctx-text': text ?? textBold ?? ctxTokenAlias(semanticName('default', 'neutral/1000'), 'ctx-text'),
+		'ctx-text-bold': textBold ?? text ?? ctxTokenAlias(semanticName('default', 'neutral/1100'), 'ctx-text-bold'),
+		'ctx-text-subtle': textSubtle ?? text ?? ctxTokenAlias(semanticName('default', 'neutral/900'), 'ctx-text-subtle'),
+		'ctx-icon': icon ?? text ?? ctxTokenAlias(semanticName('secondary', 'neutral/1100'), 'ctx-icon'),
+		'ctx-text-hover': ctxTokenRef('{ctx-text}', 'ctx-text-hover'),
+		'ctx-text-pressed': ctxTokenRef('{ctx-text}', 'ctx-text-pressed'),
+		'ctx-background': bg ?? ctxTokenAlias(semanticName('default', 'neutral/0'), 'ctx-background'),
+		'ctx-background-hover': bgHover ?? ctxTokenRef('{ctx-background}', 'ctx-background-hover'),
+		'ctx-background-pressed': bgPressed ?? ctxTokenRef('{ctx-background}', 'ctx-background-pressed'),
+		'ctx-border': border ?? ctxTokenAlias(semanticName('default', 'neutral/700'), 'ctx-border'),
+		'ctx-border-bold': borderBold ?? border ?? ctxTokenAlias(semanticName('default', 'neutral/800'), 'ctx-border-bold'),
+		'ctx-border-hover': ctxTokenRef('{ctx-border}', 'ctx-border-hover'),
+		'ctx-border-pressed': ctxTokenRef('{ctx-border}', 'ctx-border-pressed'),
+		'ctx-shadow': shadowToken(shadowPrimitive),
+		'ctx-gradient': ctxTokenRef('{ctx-background-hover}', 'ctx-gradient'),
+		'ctx-gradient-hover': ctxTokenRef('{ctx-background-pressed}', 'ctx-gradient-hover'),
+		'ctx-gradient-pressed': ctxTokenRef('{ctx-background-pressed}', 'ctx-gradient-pressed'),
+	};
 }
 
 function main() {
-  const raw = readFileSync(LIGHT_TOKENS_PATH, 'utf8');
-  const light = JSON.parse(raw);
-  const color = light.color || light;
-  const tokensByPath = collectPaths(color, 'color');
+	if (!existsSync(RULES_CONFIG_PATH)) {
+		throw new Error(`Config not found: ${RULES_CONFIG_PATH}`);
+	}
+	const configRaw = readFileSync(RULES_CONFIG_PATH, 'utf8');
+	const config = JSON.parse(configRaw);
 
-  const accentColors = ['gray', 'blue', 'teal', 'green', 'brown', 'yellow', 'orange', 'red', 'magenta', 'purple'];
+	const global = config.global || config;
+	const semanticSource = global.semanticSource || config.semanticSource;
+	const outputBaseDir = global.outputBaseDir || config.outputBaseDir;
+	const shadowPrimitive = global.shadowPrimitive || config.shadowPrimitive || 'color/neutral-alpha/500A';
 
-  /** Resolve semantic path in design tokens (e.g. "color.text.accent.brown.bold" -> token) */
-  function token(path) {
-    const full = path.startsWith('color.') ? path : `color.${path}`;
-    return tokensByPath.get(full);
-  }
+	const semanticPath = join(ROOT, semanticSource);
+	if (!existsSync(semanticPath)) {
+		throw new Error(`Semantic file not found: ${semanticPath}. Run restructure-semantic-primitives.mjs first.`);
+	}
+	const semanticRaw = readFileSync(semanticPath, 'utf8');
+	const semanticJson = JSON.parse(semanticRaw);
+	const colorNode = semanticJson.color || semanticJson;
+	const semanticKeysSet = collectSemanticKeys(colorNode);
+	const semanticKeysByGroup = new Map();
+	for (const entry of semanticKeysSet) {
+		const [g, k] = JSON.parse(entry);
+		if (!semanticKeysByGroup.has(g)) semanticKeysByGroup.set(g, new Set());
+		semanticKeysByGroup.get(g).add(k);
+	}
+	const semanticKeysSetNested = new Set();
+	for (const [group, keys] of semanticKeysByGroup) {
+		for (const k of keys) semanticKeysSetNested.add(JSON.stringify([group, k]));
+	}
 
-  /** Shadow is always neutral-alpha/500A - get that token from overlay or similar */
-  const shadowToken = token('blanket.default');
-  const neutralAlpha500A = shadowToken
-    ? cloneTokenForCtx(shadowToken, null, true)
-    : {
-        $type: 'color',
-        $value: {
-          colorSpace: 'srgb',
-          components: [0.019607843831181526, 0.0470588244497776, 0.12156862765550613],
-          alpha: 0.46,
-          hex: '#050C1F',
-        },
-        $extensions: {
-          'com.figma.scopes': ['ALL_SCOPES'],
-          'com.figma.isOverride': true,
-          'com.figma.aliasData': {
-            targetVariableName: 'color/neutral-alpha/500A',
-            targetVariableSetId: PRIMITIVE_SET_ID,
-            targetVariableSetName: PRIMITIVE_SET_NAME,
-          },
-        },
-      };
+	const outputBase = join(ROOT, outputBaseDir);
+	const contexts = expandContextsFromRules(config);
 
-  /** Build standard ctx block from text, textBold, bg, bgHover, bgPressed, border tokens and semantic paths */
-  function ctxBlock(textTok, textBoldTok, bgTok, bgHoverTok, bgPressedTok, borderTok, semanticText, semanticTextBold, semanticBg, semanticBgHover, semanticBgPressed, semanticBorder) {
-    return {
-      'ctx-text': cloneTokenForCtx(textTok, semanticText),
-      'ctx-text-bold': cloneTokenForCtx(textBoldTok, semanticTextBold),
-      'ctx-text-hover': { $type: 'color', $value: '{ctx-text}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-text-pressed': { $type: 'color', $value: '{ctx-text}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-background': cloneTokenForCtx(bgTok, semanticBg),
-      'ctx-background-hover': cloneTokenForCtx(bgHoverTok, semanticBgHover),
-      'ctx-background-pressed': cloneTokenForCtx(bgPressedTok, semanticBgPressed),
-      'ctx-border': cloneTokenForCtx(borderTok, semanticBorder),
-      'ctx-border-hover': { $type: 'color', $value: '{ctx-border}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-border-pressed': { $type: 'color', $value: '{ctx-border}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-shadow': neutralAlpha500A,
-      'ctx-gradient': { $type: 'color', $value: '{ctx-background-hover}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-gradient-hover': { $type: 'color', $value: '{ctx-background-pressed}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-gradient-pressed': { $type: 'color', $value: '{ctx-background-pressed}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-    };
-  }
+	for (const ctx of contexts) {
+		const { modeName, dir: subdir, keys } = ctx;
+		const ctxBlock = buildCtxBlock(keys || {}, semanticKeysSetNested, shadowPrimitive);
+		ctxBlock['$extensions'] = { 'com.figma.modeName': modeName };
+		const safeName = modeName.replace(/\//g, '-');
+		const outDir = join(outputBase, subdir);
+		mkdirSync(outDir, { recursive: true });
+		const filePath = join(outDir, `${safeName}.tokens.json`);
+		writeFileSync(filePath, JSON.stringify(ctxBlock, null, 2), 'utf8');
+		console.log('Wrote', filePath);
+	}
 
-  const contexts = [];
-
-  // 1) default
-  contexts.push({
-    modeName: 'default',
-    ctx: {
-      'ctx-text': cloneTokenForCtx(token('text.default'), 'color/text/default'),
-      'ctx-text-bold': cloneTokenForCtx(token('text.inverse'), 'color/text/inverse'),
-      'ctx-text-hover': { $type: 'color', $value: '{ctx-text}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-text-pressed': { $type: 'color', $value: '{ctx-text}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-background': cloneTokenForCtx(token('background.input.default'), 'color/background/input/default'),
-      'ctx-background-hover': cloneTokenForCtx(token('background.input.hovered'), 'color/background/input/hovered'),
-      'ctx-background-pressed': cloneTokenForCtx(token('background.input.pressed'), 'color/background/input/pressed'),
-      'ctx-border': cloneTokenForCtx(token('border.default'), 'color/border/default'),
-      'ctx-border-hover': { $type: 'color', $value: '{ctx-border}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-border-pressed': { $type: 'color', $value: '{ctx-border}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-shadow': neutralAlpha500A,
-      'ctx-gradient': { $type: 'color', $value: '{ctx-background-hover}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-gradient-hover': { $type: 'color', $value: '{ctx-background-pressed}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-gradient-pressed': { $type: 'color', $value: '{ctx-background-pressed}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-    },
-  });
-
-  // 2) neutral-subtle
-  contexts.push({
-    modeName: 'neutral-subtle',
-    ctx: {
-      'ctx-text': cloneTokenForCtx(token('text.subtle'), 'color/text/subtle'),
-      'ctx-text-bold': cloneTokenForCtx(token('text.default'), 'color/text/default'),
-      'ctx-text-hover': { $type: 'color', $value: '{ctx-text}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-text-pressed': { $type: 'color', $value: '{ctx-text}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-background': cloneTokenForCtx(token('background.input.default'), 'color/background/input/default'),
-      'ctx-background-hover': cloneTokenForCtx(token('background.input.hovered'), 'color/background/input/hovered'),
-      'ctx-background-pressed': cloneTokenForCtx(token('background.input.pressed'), 'color/background/input/pressed'),
-      'ctx-border': cloneTokenForCtx(token('border.default'), 'color/border/default'),
-      'ctx-border-hover': { $type: 'color', $value: '{ctx-border}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-border-pressed': { $type: 'color', $value: '{ctx-border}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-shadow': neutralAlpha500A,
-      'ctx-gradient': { $type: 'color', $value: '{ctx-background-hover}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-gradient-hover': { $type: 'color', $value: '{ctx-background-pressed}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-gradient-pressed': { $type: 'color', $value: '{ctx-background-pressed}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-    },
-  });
-
-  // 3) neutral-subtlest
-  contexts.push({
-    modeName: 'neutral-subtlest',
-    ctx: {
-      'ctx-text': cloneTokenForCtx(token('text.subtlest'), 'color/text/subtlest'),
-      'ctx-text-bold': cloneTokenForCtx(token('text.subtle'), 'color/text/subtle'),
-      'ctx-text-hover': { $type: 'color', $value: '{ctx-text}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-text-pressed': { $type: 'color', $value: '{ctx-text}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-background': cloneTokenForCtx(token('background.input.default'), 'color/background/input/default'),
-      'ctx-background-hover': cloneTokenForCtx(token('background.input.hovered'), 'color/background/input/hovered'),
-      'ctx-background-pressed': cloneTokenForCtx(token('background.input.pressed'), 'color/background/input/pressed'),
-      'ctx-border': cloneTokenForCtx(token('border.default'), 'color/border/default'),
-      'ctx-border-hover': { $type: 'color', $value: '{ctx-border}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-border-pressed': { $type: 'color', $value: '{ctx-border}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-shadow': neutralAlpha500A,
-      'ctx-gradient': { $type: 'color', $value: '{ctx-background-hover}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-gradient-hover': { $type: 'color', $value: '{ctx-background-pressed}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-      'ctx-gradient-pressed': { $type: 'color', $value: '{ctx-background-pressed}', $extensions: { 'com.figma.scopes': ['ALL_SCOPES'], 'com.figma.isOverride': true } },
-    },
-  });
-
-  // 4) warning (same structure as existing warning.tokens.json - use same mappings)
-  const warningDefault = token('background.warning.default');
-  const warningHover = token('background.warning.hover');
-  const warningPressed = token('background.warning.pressed');
-  contexts.push({
-    modeName: 'warning',
-    ctx: ctxBlock(
-      token('text.warning.default'),
-      token('text.warning.inverse'),
-      warningDefault,
-      warningHover,
-      warningPressed,
-      token('border.warning'),
-      'color/text/warning/default',
-      'color/text/warning/inverse',
-      'color/background/warning/default',
-      'color/background/warning/hover',
-      'color/background/warning/pressed',
-      'color/border/warning'
-    ),
-  });
-
-  // 4b) information, success, danger, warning: base mode plus -subtle and -bolder
-  const statusColors = ['information', 'success', 'danger', 'warning'];
-  for (const name of statusColors) {
-    const borderTok = token(`border.${name}`);
-    const isWarning = name === 'warning';
-    const textDefaultTok = isWarning ? token('text.warning.default') : token(`text.${name}`);
-    const textBoldTok = isWarning ? token('text.warning.inverse') : token('text.inverse');
-
-    // base mode (same as -subtle: default background)
-    const bgDefault = (t) => token(`background.${name}.${t}`);
-    contexts.push({
-      modeName: name,
-      ctx: ctxBlock(
-        textDefaultTok,
-        textBoldTok,
-        bgDefault('default'),
-        bgDefault('hover'),
-        bgDefault('pressed'),
-        borderTok,
-        isWarning ? 'color/text/warning/default' : `color/text/${name}`,
-        isWarning ? 'color/text/warning/inverse' : 'color/text/inverse',
-        `color/background/${name}/default`,
-        `color/background/${name}/hover`,
-        `color/background/${name}/pressed`,
-        `color/border/${name}`
-      ),
-    });
-
-    // {name}-subtle (explicit; same as default)
-    contexts.push({
-      modeName: `${name}-subtle`,
-      ctx: ctxBlock(
-        textDefaultTok,
-        textBoldTok,
-        bgDefault('default'),
-        bgDefault('hover'),
-        bgDefault('pressed'),
-        borderTok,
-        isWarning ? 'color/text/warning/default' : `color/text/${name}`,
-        isWarning ? 'color/text/warning/inverse' : 'color/text/inverse',
-        `color/background/${name}/default`,
-        `color/background/${name}/hover`,
-        `color/background/${name}/pressed`,
-        `color/border/${name}`
-      ),
-    });
-
-    // {name}-bolder (dark background; inverse text)
-    const bgBolder = (t) => token(`background.${name}.bolder.${t}`);
-    contexts.push({
-      modeName: `${name}-bolder`,
-      ctx: ctxBlock(
-        token('text.inverse'),
-        token('text.inverse'),
-        bgBolder('default'),
-        bgBolder('hover'),
-        bgBolder('pressed'),
-        borderTok,
-        'color/text/inverse',
-        'color/text/inverse',
-        `color/background/${name}/bolder/default`,
-        `color/background/${name}/bolder/hover`,
-        `color/background/${name}/bolder/pressed`,
-        `color/border/${name}`
-      ),
-    });
-  }
-
-  // 4c) neutral-subtler, neutral-bold, neutral-boldest (tokens use "bold" not "bolder"; boldest uses bold as fallback)
-  for (const level of ['subtler', 'bold']) {
-    const bg = (t) => token(`background.neutral.${level}.${t}`);
-    const isBold = level === 'bold';
-    contexts.push({
-      modeName: `neutral-${level}`,
-      ctx: ctxBlock(
-        isBold ? token('text.default') : token('text.subtle'),
-        isBold ? token('text.inverse') : token('text.default'),
-        bg('default'),
-        bg('hover'),
-        bg('pressed'),
-        token('border.default'),
-        isBold ? 'color/text/default' : 'color/text/subtle',
-        isBold ? 'color/text/inverse' : 'color/text/default',
-        `color/background/neutral/${level}/default`,
-        `color/background/neutral/${level}/hover`,
-        `color/background/neutral/${level}/pressed`,
-        'color/border/default'
-      ),
-    });
-  }
-  // neutral-boldest (background.neutral has no boldest in tokens; use default = subtlest as fallback)
-  const neutralBoldestBg = (t) => token(`background.neutral.boldest.${t}`) || token(`background.neutral.subtlest.${t}`);
-  contexts.push({
-    modeName: 'neutral-boldest',
-    ctx: ctxBlock(
-      token('text.default'),
-      token('text.inverse'),
-      neutralBoldestBg('default'),
-      neutralBoldestBg('hover'),
-      neutralBoldestBg('pressed'),
-      token('border.default'),
-      'color/text/default',
-      'color/text/inverse',
-      'color/background/neutral/boldest/default',
-      'color/background/neutral/boldest/hover',
-      'color/background/neutral/boldest/pressed',
-      'color/border/default'
-    ),
-  });
-
-  // 5) brand: default, bold, subtlest, subtler, subtle, bolder, boldest
-  const brandLevels = [
-        { mode: 'brand-default', bgLevel: 'subtlest', text: 'default', textBold: 'bold' },
-        { mode: 'brand-bold', bgLevel: 'bolder', text: 'bold', textBold: 'inverse' },
-        { mode: 'brand-subtlest', bgLevel: 'subtlest', text: 'default', textBold: 'bold' },
-        { mode: 'brand-subtler', bgLevel: 'subtler', text: 'default', textBold: 'bold' },
-        { mode: 'brand-subtle', bgLevel: 'subtle', text: 'default', textBold: 'bold' },
-        { mode: 'brand-bolder', bgLevel: 'bolder', text: 'bold', textBold: 'inverse' },
-        { mode: 'brand-boldest', bgLevel: 'boldest', text: 'inverse', textBold: 'inverse' },
-  ];
-  for (const { mode, bgLevel, text, textBold } of brandLevels) {
-    const bg = (t) => token(`background.brand.${bgLevel}.${t}`);
-    const textTok = text === 'inverse' ? token('text.inverse') : text === 'bold' ? token('text.brand.bold') : token('text.brand.default');
-    const textBoldTok = textBold === 'inverse' ? token('text.inverse') : token('text.brand.bold');
-    const semanticText = text === 'inverse' ? 'color/text/inverse' : text === 'bold' ? 'color/text/brand/bold' : 'color/text/brand/default';
-    const semanticTextBold = textBold === 'inverse' ? 'color/text/inverse' : 'color/text/brand/bold';
-    contexts.push({
-      modeName: mode,
-      ctx: ctxBlock(
-        textTok,
-        textBoldTok,
-        bg('default'),
-        bg('hover'),
-        bg('pressed'),
-        token('border.brand'),
-        semanticText,
-        semanticTextBold,
-        `color/background/brand/${bgLevel}/default`,
-        `color/background/brand/${bgLevel}/hover`,
-        `color/background/brand/${bgLevel}/pressed`,
-        'color/border/brand'
-      ),
-    });
-  }
-
-  // 6) accent-{color}: only subtlest, subtler, subtle, bolder. ctx-text = default, ctx-text-bold = bold.
-  const accentLevels = ['subtlest', 'subtler', 'subtle', 'bolder'];
-  for (const accent of accentColors) {
-    const borderAccent = token(`border.accent.${accent}`);
-    const textDefault = token(`text.accent.${accent}.default`);
-    const textBold = token(`text.accent.${accent}.bold`);
-
-    for (const level of accentLevels) {
-      const bg = (t) => token(`background.accent.${accent}.${level}.${t}`);
-      contexts.push({
-        modeName: `accent-${accent}-${level}`,
-        ctx: ctxBlock(
-          textDefault,
-          textBold,
-          bg('default'),
-          bg('hover'),
-          bg('pressed'),
-          borderAccent,
-          `color/text/accent/${accent}/default`,
-          `color/text/accent/${accent}/bold`,
-          `color/background/accent/${accent}/${level}/default`,
-          `color/background/accent/${accent}/${level}/hover`,
-          `color/background/accent/${accent}/${level}/pressed`,
-          `color/border/accent/${accent}`
-        ),
-      });
-    }
-  }
-
-  // Filter out null values and add mode extension
-  const skipExisting = new Set(['warning']); // preserve hand-edited Figma variable IDs
-  for (const { modeName, ctx } of contexts) {
-    const safeName = modeName.replace(/\//g, '-');
-    if (skipExisting.has(modeName)) {
-      console.log('Skipped (preserved)', join(MODES_DIR, `${safeName}.tokens.json`));
-      continue;
-    }
-    const cleaned = {};
-    for (const [k, v] of Object.entries(ctx)) {
-      if (v != null) cleaned[k] = v;
-    }
-    cleaned['$extensions'] = { 'com.figma.modeName': modeName };
-    const out = JSON.stringify(cleaned);
-    const filePath = join(MODES_DIR, `${safeName}.tokens.json`);
-    writeFileSync(filePath, out, 'utf8');
-    console.log('Wrote', filePath);
-  }
-
-  console.log(`Generated ${contexts.length} context mode files.`);
+	console.log(`Generated ${contexts.length} context mode files.`);
 }
 
 main();

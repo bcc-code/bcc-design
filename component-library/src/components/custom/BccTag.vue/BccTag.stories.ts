@@ -1,4 +1,4 @@
-import { BCC_CONTEXT_LIST } from '@/contexts';
+import { BCC_CONTEXT_LIST, BCC_CONTEXTS } from '@/contexts';
 import { CheckCircleIcon, LabelIcon, TagIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import BccTag from './BccTag.vue';
@@ -44,7 +44,7 @@ export const WithRightIcon: Story = {
 	args: {
 		iconRight: CheckCircleIcon,
 		text: 'Success',
-		context: 'success',
+		context: BCC_CONTEXTS.success.subtlest,
 	},
 };
 

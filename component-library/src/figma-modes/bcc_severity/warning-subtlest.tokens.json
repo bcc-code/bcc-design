@@ -17,7 +17,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/purple/900",
+        "targetVariableName": "color/default/yellow/800",
         "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
         "targetVariableSetName": "bcc/semantic"
       }
@@ -41,7 +41,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/purple/1000",
+        "targetVariableName": "color/default/yellow/900",
         "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
         "targetVariableSetName": "bcc/semantic"
       }
@@ -65,7 +65,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/purple/800",
+        "targetVariableName": "color/default/yellow/700",
         "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
         "targetVariableSetName": "bcc/semantic"
       }
@@ -89,7 +89,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/secondary/purple/800",
+        "targetVariableName": "color/secondary/yellow/800",
         "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
         "targetVariableSetName": "bcc/semantic"
       }
@@ -134,7 +134,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/purple/300",
+        "targetVariableName": "color/default/yellow/100",
         "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
         "targetVariableSetName": "bcc/semantic"
       }
@@ -159,7 +159,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/purple/400",
+        "targetVariableName": "color/default/yellow/200",
         "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
         "targetVariableSetName": "bcc/semantic"
       }
@@ -184,7 +184,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/purple/500",
+        "targetVariableName": "color/default/yellow/300",
         "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
         "targetVariableSetName": "bcc/semantic"
       }
@@ -208,7 +208,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/purple/500",
+        "targetVariableName": "color/default/yellow/300",
         "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
         "targetVariableSetName": "bcc/semantic"
       }
@@ -232,7 +232,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/purple/600",
+        "targetVariableName": "color/default/yellow/800",
         "targetVariableSetId": "VariableCollectionId:3c069fd07d1f1e721c71262b40021ae2c49ab1f3/-1:-1",
         "targetVariableSetName": "bcc/semantic"
       }
@@ -316,6 +316,6 @@
     }
   },
   "$extensions": {
-    "com.figma.modeName": "accent-purple-subtle"
+    "com.figma.modeName": "warning-subtlest"
   }
 }

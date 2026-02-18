@@ -49,6 +49,17 @@ export type KnobProps = {
 	animateRotations?: number;
 };
 
+export type KnobSlots = {
+	/* Display a label in the center of the knob */
+	default?: () => unknown;
+	/* Display something in the top-left corner of the knob */
+	left?: () => unknown;
+	/* Display something in the top-right corner of the knob */
+	right?: () => unknown;
+};
+
+defineSlots<KnobSlots>();
+
 const props = withDefaults(defineProps<KnobProps>(), {
 	size: 400,
 	arcWidth: 20,

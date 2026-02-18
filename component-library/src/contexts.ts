@@ -22,7 +22,6 @@ export enum LEVELS {
 	SUBTLEST = 'subtlest',
 	SUBTLER = 'subtler',
 	SUBTLE = 'subtle',
-	DEFAULT = 'default',
 	BOLD = 'bold',
 	BOLDER = 'bolder',
 	BOLDEST = 'boldest',
@@ -41,14 +40,15 @@ type AccentColors =
 	| COLORS.RED
 	| COLORS.PURPLE
 	| COLORS.MAGENTA;
+
 type Severities = COLORS.INFO | COLORS.SUCCESS | COLORS.WARNING | COLORS.DANGER;
-type SeverityLevels = LEVELS.DEFAULT | LEVELS.BOLDER;
+type SeverityLevels = LEVELS.SUBTLEST | LEVELS.BOLDER;
 
 /** Accent colors only have these four levels (no default, bolder, boldest). */
 type AccentLevels = LEVELS.SUBTLEST | LEVELS.SUBTLER | LEVELS.SUBTLE | LEVELS.BOLDER;
 
 /** Context token for color C at level L (helper to avoid ambiguous > in template literal). */
-type ContextToken<C extends COLORS, L extends LEVELS> = L extends LEVELS.DEFAULT ? `${C}` : `${C}-${L}`;
+type ContextToken<C extends COLORS, L extends LEVELS> = `${C}-${L}`;
 
 export type LEVELS_MAP<L extends LEVELS, C extends COLORS> = {
 	[K in L]: ContextToken<C, K>;
@@ -69,7 +69,7 @@ export type ALL_LEVELS = ONLY_LEVELS<AccentLevels, AccentColors> &
 	ONLY_LEVELS<SeverityLevels, Severities>;
 
 const ACCENT_LEVEL_LIST: AccentLevels[] = [LEVELS.SUBTLEST, LEVELS.SUBTLER, LEVELS.SUBTLE, LEVELS.BOLDER];
-const SEVERITY_LEVEL_LIST: SeverityLevels[] = [LEVELS.DEFAULT, LEVELS.BOLDER];
+const SEVERITY_LEVEL_LIST: SeverityLevels[] = [LEVELS.SUBTLEST, LEVELS.BOLDER];
 
 const FULL_LEVEL_COLORS: FullLevelColors[] = [COLORS.BRAND, COLORS.NEUTRAL];
 const SEVERITY_COLORS: Severities[] = [COLORS.INFO, COLORS.SUCCESS, COLORS.WARNING, COLORS.DANGER];
@@ -79,14 +79,20 @@ export const BCC_CONTEXTS = Object.freeze(
 		const contexts: Record<string, Record<string, string>> = {};
 		for (const key of Object.values(COLORS)) {
 			const ctx: Record<string, string> = {};
-			const levels = FULL_LEVEL_COLORS.includes(key as COLORS.BRAND | COLORS.NEUTRAL)
+			const isSeverity = SEVERITY_COLORS.includes(key as Severities);
+			const levels = FULL_LEVEL_COLORS.includes(key as FullLevelColors)
 				? Object.values(LEVELS)
-				: SEVERITY_COLORS.includes(key as Severities)
+				: isSeverity
 					? SEVERITY_LEVEL_LIST
 					: ACCENT_LEVEL_LIST;
 			for (const level of levels) {
-				ctx[level] = level === LEVELS.DEFAULT ? `${key}` : `${key}-${level}`;
+				ctx[level] = `${key}-${level}`;
 			}
+
+			if (isSeverity) {
+				ctx.default = key;
+			}
+
 			contexts[key] = ctx;
 		}
 		return contexts as ALL_LEVELS;
@@ -100,4 +106,5 @@ export const BCC_CONTEXT_LIST = Object.freeze(
 export type BCC_CONTEXT =
 	| ContextToken<AccentColors, AccentLevels>
 	| ContextToken<FullLevelColors, LEVELS>
-	| ContextToken<Severities, SeverityLevels>;
+	| ContextToken<Severities, SeverityLevels>
+	| Severities; // Since severity also has default level

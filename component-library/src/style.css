@@ -5,6 +5,7 @@
 @import "@bcc-code/design-tokens/tailwind";
 @import "@bcc-code/design-tokens/primevue/overrides";
 @import "./styles/theme.css";
+@import "./styles/semantic.css";
 @import "./styles/utilities.css";
 @import "./styles/contexts.css";
 @import "./styles/context.css";

@@ -37,9 +37,9 @@ export const WithIcons: Story = {
 export const WithPins: Story = {
 	args: {
 		tabs: [
-			{ title: 'Inbox', badge: { value: '3', context: BCC_CONTEXTS.info.default } },
+			{ title: 'Inbox', badge: { value: '3', context: BCC_CONTEXTS.info.subtlest } },
 			{ title: 'Archive' },
-			{ title: 'Spam', badge: { value: '1', context: BCC_CONTEXTS.danger.default } },
+			{ title: 'Spam', badge: { value: '1', context: BCC_CONTEXTS.danger.subtlest } },
 		],
 	},
 };

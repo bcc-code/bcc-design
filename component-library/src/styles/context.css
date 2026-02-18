@@ -12,6 +12,15 @@
   --color-brand-1000: var(--color-bcc-1000);
 }
 
+/** DEFAULT CONTEXTS */
+@utility ctx-default {
+  @apply ctx-neutral-subtlest;
+}
+@utility ctx-success { @apply ctx-success-subtlest }
+@utility ctx-danger { @apply ctx-danger-subtlest }
+@utility ctx-warning { @apply ctx-warning-subtlest }
+@utility ctx-info { @apply ctx-info-subtlest }
+
 @utility text-ctx {
   color: var(--ctx-text);
 }
