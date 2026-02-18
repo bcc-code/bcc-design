@@ -4,7 +4,6 @@
 @import "tailwindcss";
 @import "@bcc-code/design-tokens/tailwind";
 @import "@bcc-code/design-tokens/primevue/overrides";
-@import "./styles/archivo-font.css";
 
 @import "./styles/theme.css";
 @import "./styles/semantic.css";
@@ -16,7 +15,9 @@
 @import "./components/custom/styles.css";
 
 :host {
-    @apply font-sans antialiased;
+    @apply font-sans antialiased p-0 m-0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 b,

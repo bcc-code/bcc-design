@@ -155,14 +155,14 @@
 }
 
 @utility ctx-brand-subtle {
-  --ctx-text: var(--color-default-neutral-700);
-  --ctx-text-bold: var(--color-default-bcc-800);
+  --ctx-text: var(--color-default-neutral-900);
+  --ctx-text-bold: var(--color-default-bcc-1000);
   --ctx-background: var(--color-default-bcc-300);
   --ctx-gradient: var(--color-default-bcc-400);
   --ctx-border: var(--color-default-bcc-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
-  --ctx-text-hover: var(--color-default-neutral-700);
-  --ctx-text-pressed: var(--color-default-neutral-700);
+  --ctx-text-hover: var(--color-default-neutral-900);
+  --ctx-text-pressed: var(--color-default-neutral-900);
   --ctx-background-hover: var(--color-default-bcc-400);
   --ctx-background-pressed: var(--color-default-bcc-500);
   --ctx-gradient-hover: var(--color-default-bcc-500);

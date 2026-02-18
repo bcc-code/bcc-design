@@ -6,7 +6,7 @@
  * build and they get full utility classes and tree-shaking.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, cpSync } from 'fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -73,10 +73,6 @@ function main() {
 	mkdirSync(dirname(OUT), { recursive: true });
 	writeFileSync(OUT, output.trimEnd() + '\n');
 	console.log('Wrote dist/theme.css');
-
-	// Copy Archivo font files to dist so theme.css and consumers can load them
-	cpSync(ARCHIVO_FONT_SRC, ARCHIVO_FONT_DIST, { recursive: true });
-	console.log('Copied archivo-font to dist/archivo-font');
 }
 
 main();

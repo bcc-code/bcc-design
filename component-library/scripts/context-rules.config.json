@@ -137,9 +137,9 @@
           "bg": "default/bcc/300",
           "bgHover": "default/bcc/400",
           "bgPressed": "default/bcc/500",
-          "text": "default/neutral/700",
-          "textBold": "default/bcc/800",
-          "textSubtle": "default/neutral/600",
+          "text": "default/neutral/900",
+          "textBold": "default/bcc/1000",
+          "textSubtle": "default/neutral/800",
           "icon": "secondary/neutral/800",
           "border": "default/bcc/500",
           "borderBold": "default/bcc/600"

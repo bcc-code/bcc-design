@@ -94,11 +94,30 @@ const name = ref('');
 </script>
 ```
 
-Or import the whole set:
+# Setup
 
 ```ts
-import * as Bcc from '@bcc-code/component-library-vue';
-// Use Bcc.BccButton, Bcc.BccDialog, etc.
+// main.ts
+import { BccComponentLibrary } from '@bcc-code/component-library-vue';
+
+const app = createApp(…)
+BccComponentLibrary(app);
+```
+
+```css
+/* styles.css */
+@import '@bcc-code/component-library-vue/theme.css';
+
+/* Optional include the archivo font */
+@import '@bcc-code/component-library-vue/archivo-font.css';
+font-family:
+  Archivo,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  'Open Sans',
+  sans-serif;
 ```
 
 The library exports both **custom BCC components** (e.g. `BccBadge`, `BccFrame`, `BccReact`) and **wrapped PrimeVue components** (e.g. `BccButton`, `BccDialog`, `BccDataTable`). PrimeVue services (Toast, Confirm, Dialog) are configured by `BccComponentLibrary`; use the composables `useToast`, `useConfirm`, and `useDialog` from the library when you need them.

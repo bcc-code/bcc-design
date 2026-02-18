@@ -17,7 +17,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/neutral/700",
+        "targetVariableName": "color/default/neutral/900",
         "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
         "targetVariableSetName": "bcc/scheme"
       }
@@ -41,7 +41,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/bcc/800",
+        "targetVariableName": "color/default/bcc/1000",
         "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
         "targetVariableSetName": "bcc/scheme"
       }
@@ -65,7 +65,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/neutral/600",
+        "targetVariableName": "color/default/neutral/800",
         "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
         "targetVariableSetName": "bcc/scheme"
       }

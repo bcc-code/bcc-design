@@ -7,6 +7,7 @@ import FocusTrap from 'primevue/focustrap';
 import ToastService from 'primevue/toastservice';
 
 import '../src/style.css';
+import '../src/styles/archivo-font.css';
 
 // PrimeVue setup for Storybook (see https://github.com/xiscohv/primevue-ts-storybook)
 setup(app => {

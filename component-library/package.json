@@ -27,6 +27,7 @@
     },
     "./style.css": "./dist/index.css",
     "./theme.css": "./dist/theme.css",
+    "./archivo-font.css": "./dist/archivo-font.css",
     "./tailwind.css": "./dist-css/tailwind.css"
   },
   "scripts": {
