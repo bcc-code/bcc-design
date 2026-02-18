@@ -57,19 +57,19 @@ export const Sizes: Story = {
 	}),
 };
 
-export const WithIcon: Story = {
-	args: {
-		label: 'With Icon',
-		icon: CheckIcon,
-	},
-};
-
-export const WithIconRight: Story = {
-	args: {
-		label: 'With Icon Right',
-		iconRight: true,
-		icon: CheckIcon,
-	},
+export const WithIcons: Story = {
+	render: () => ({
+		components: { BccButton },
+		setup() {
+			return { CheckIcon, InfoIcon };
+		},
+		template: `
+			<div class="flex flex-wrap gap-2">
+				<BccButton label="With Icon Left " :icon="CheckIcon" />
+				<BccButton label="With Icon Right" :icon="InfoIcon" icon-right />
+			</div>
+		`,
+	}),
 };
 
 export const Severities: Story = {
