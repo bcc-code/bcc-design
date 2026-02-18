@@ -1,3 +1,5 @@
+@import './archivo-font.css' layer(base);
+
 @utility heading-xs { font: var(--heading-xs); }
 @utility heading-sm { font: var(--heading-sm); }
 @utility heading-md { font: var(--heading-md); }
