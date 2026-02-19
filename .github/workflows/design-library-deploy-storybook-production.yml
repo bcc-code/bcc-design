@@ -1,49 +1,66 @@
-name: Deploy production Storybook (library)
-
+name: "Deploy PROD Storybook (component-library)"
 on:
   workflow_dispatch:
-  # release:
-  #   types: [published]
+
+concurrency:
+  group: storybook-prod-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build_and_deploy:
-    runs-on: ubuntu-latest
-    name: Build and Deploy
+  build-and-deploy:
+    name: "Build and deploy Storybook"
+    runs-on: "ubuntu-latest"
     environment:
-      name: production-storybook
-      url: https://design-library.developer.bcc.no
+      name: prod
+      url: https://components.bcc.no
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./component-library
+
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
+      - uses: actions/checkout@v6
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 9
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v6
         with:
-          node-version: "20"
-          registry-url: "https://registry.npmjs.org"
+          node-version: "22.x"
+          cache-dependency-path: "component-library/pnpm-lock.yaml"
           cache: "pnpm"
-          cache-dependency-path: component-library/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build-storybook
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-        working-directory: component-library
-
-      - name: Build Storybook
-        run: pnpm build-storybook
-        working-directory: component-library
-
-      - name: Deploy
-        id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
+      - id: "auth"
+        uses: "google-github-actions/auth@v3"
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_DEPLOY_TOKEN }}
-          action: "upload"
-          app_location: "component-library/storybook-static"
-          skip_app_build: true
-          skip_api_build: true
+          workload_identity_provider: ${{ vars.GCP_WIDPP_ID_PROD }}
+          service_account: ${{ env.GCP_SA_EMAIL }}
+          project_id: ${{ vars.GCP_PROJECT_ID }}
+
+      - name: Set target hosting site
+        run: |
+          cat <<'EOF' > .firebaserc
+          {
+            "projects": {},
+            "targets": {
+              "${{ vars.GCP_PROJECT_ID }}": {
+                "hosting": {
+                  "default": [
+                    "${{ vars.FIREBASE_HOSTING_SITE_ID }}"
+                  ]
+                }
+              }
+            },
+            "etags": {}
+          }
+          EOF
+
+      - name: Deploy hosting site
+        run: npx firebase deploy --only hosting --project "${{ vars.GCP_PROJECT_ID }}"

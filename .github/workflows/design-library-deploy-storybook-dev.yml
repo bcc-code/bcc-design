@@ -1,74 +1,72 @@
-# DEPRECATED: This workflow is deprecated. The design-library is deprecated in favor of @bcc-code/design-tokens.
-# This workflow was already disabled before the deprecation.
+name: "Deploy DEV Storybook"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "component-library/**"
+      - "!component-library/README.md"
 
-# name: Deploy dev Storybook
+concurrency:
+  group: storybook-${{ github.ref }}
+  cancel-in-progress: true
 
-# on:
-#   workflow_dispatch:
-#   push:
-#     branches:
-#       - main
-#     paths:
-#       - design-library/**
-#       - .github/workflows/design-library-deploy-storybook-dev.yml
-#   pull_request:
-#     types: [opened, synchronize, reopened, closed]
-#     branches:
-#       - main
-#     paths:
-#       - design-library/**
-#       - .github/workflows/design-library-deploy-storybook-dev.yml
+jobs:
+  build-and-deploy:
+    name: "Build and deploy Storybook"
+    runs-on: "ubuntu-latest"
+    environment:
+      name: dev
+      url: https://components.dev.bcc.no
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./component-library
 
-# jobs:
-#   build_and_deploy:
-#     if: github.event_name != 'pull_request' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-#     runs-on: ubuntu-latest
-#     name: Build and Deploy
+    permissions:
+      id-token: write
+      contents: read
 
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v3
+    steps:
+      - uses: actions/checkout@v6
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22.x"
+          cache-dependency-path: "component-library/pnpm-lock.yaml"
+          cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build-storybook
 
-#       - name: Setup pnpm
-#         uses: pnpm/action-setup@v2
-#         with:
-#           version: 9
+      - id: "auth"
+        uses: "google-github-actions/auth@v3"
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIDPP_ID_DEV }}
+          service_account: ${{ env.GCP_SA_EMAIL }}
+          project_id: ${{ vars.GCP_PROJECT_ID }}
 
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version-file: design-library/.node-version
-#           registry-url: "https://registry.npmjs.org"
-#           cache: "pnpm"
-#           cache-dependency-path: design-library/pnpm-lock.yaml
+      - name: Set target hosting site
+        run: |
+          cat <<'EOF' > .firebaserc
+          {
+            "projects": {},
+            "targets": {
+              "${{ vars.GCP_PROJECT_ID }}": {
+                "hosting": {
+                  "default": [
+                    "${{ vars.FIREBASE_HOSTING_SITE_ID }}"
+                  ]
+                }
+              }
+            },
+            "etags": {}
+          }
+          EOF
 
-#       - name: Install dependencies
-#         run: pnpm install --frozen-lockfile
-#         working-directory: design-library
-
-#       - name: Build Storybook
-#         run: pnpm build-storybook
-#         working-directory: design-library
-
-#       - name: Deploy
-#         id: builddeploy
-#         uses: Azure/static-web-apps-deploy@v1
-#         with:
-#           azure_static_web_apps_api_token: ${{ secrets.AZURE_STORYBOOK_DEV_DEPLOY_TOKEN }}
-#           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-#           action: "upload"
-#           app_location: "design-library/storybook-static"
-#           skip_app_build: true
-#           skip_api_build: true
-
-#   close_pull_request:
-#     if: github.event_name == 'pull_request' && github.event.action == 'closed'
-#     runs-on: ubuntu-latest
-#     name: Remove PR deploy
-#     steps:
-#       - name: Close Pull Request
-#         id: closepullrequest
-#         uses: Azure/static-web-apps-deploy@v1
-#         with:
-#           azure_static_web_apps_api_token: ${{ secrets.AZURE_STORYBOOK_DEV_DEPLOY_TOKEN }}
-#           action: "close"
+      - name: Deploy hosting site
+        run: npx firebase deploy --only hosting --project "${{ vars.GCP_PROJECT_ID }}"
