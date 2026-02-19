@@ -3,7 +3,7 @@ import type { VueComponent } from '@/types';
 import { PersonFillIcon } from '@bcc-code/icons-vue';
 import PrimeAvatar, { type AvatarProps as PrimeAvatarProps } from 'primevue/avatar';
 
-export type AvatarProps = Omit<PrimeAvatarProps, 'shape'> & {
+export type AvatarProps = Omit<PrimeAvatarProps, 'shape' | 'size'> & {
 	/** Affects avatar color for gender-specific defaults. */
 	gender?: 'male' | 'female' | 'M' | 'F' | 'unknown' | 'U';
 	/** When true, applies child-specific color */

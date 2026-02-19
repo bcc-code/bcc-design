@@ -3,7 +3,7 @@
         --p-avatar-background: var(--ctx-background);
         --p-avatar-color: var(--ctx-text);
         --bcc-avatar-border: var(--ctx-border);
-        @apply shrink-0 ctx-gray-subtler;
+        @apply overflow-hidden shrink-0 ctx-gray-subtler;
     }
     .bcc-avatar.male,
     .bcc-avatar.M {
@@ -37,12 +37,25 @@
         @apply size-10 text-xl;
     }
     .bcc-avatar.xl {
-        @apply size-12 text-3xl;
+        @apply size-12 text-2xl;
     }
     .bcc-avatar.xxl {
         @apply size-20 text-4xl;
     }
     .bcc-avatar.xxxl {
         @apply size-24 text-5xl;
+    }
+
+    .bcc-avatar.p-avatar-circle.lg {
+        @apply text-lg;
+    }
+    .bcc-avatar.p-avatar-circle.xl {
+        @apply text-xl;
+    }
+    .bcc-avatar.p-avatar-circle.xxl {
+        @apply text-3xl;
+    }
+    .bcc-avatar.p-avatar-circle.xxxl {
+        @apply text-4xl;
     }
 }

@@ -45,7 +45,6 @@ export { default as BccAccordionPanel } from 'primevue/accordionpanel';
 export { default as BccAccordionTab } from 'primevue/accordiontab';
 export { default as BccAnimateOnScroll } from 'primevue/animateonscroll';
 export { default as BccAutoComplete } from 'primevue/autocomplete';
-export { default as BccAvatar } from 'primevue/avatar';
 export { default as BccAvatarGroup } from 'primevue/avatargroup';
 export { default as BccBadgeDirective } from 'primevue/badgedirective';
 export { default as BccBlockUI } from 'primevue/blockui';
