@@ -41,7 +41,7 @@ jobs:
         uses: "google-github-actions/auth@v3"
         with:
           workload_identity_provider: ${{ vars.GCP_WIDPP_ID_PROD }}
-          service_account: ${{ sa-gha-cicd@${{vars.GCP_PROJECT_ID}}.iam.gserviceaccount.com }}
+          service_account: sa-gha-cicd@${{vars.GCP_PROJECT_ID}}.iam.gserviceaccount.com
           project_id: ${{ vars.GCP_PROJECT_ID }}
 
       - name: Set target hosting site
