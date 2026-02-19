@@ -41,7 +41,6 @@ jobs:
           cache-dependency-path: "component-library/pnpm-lock.yaml"
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
-      - run: pnpm install -g firebase-tools
       - run: pnpm run build-storybook
 
       - id: "auth"
@@ -69,5 +68,6 @@ jobs:
           }
           EOF
 
+      - run: pnpm add -g firebase-tools
       - name: Deploy hosting site
-        run: pnpm dlx firebase deploy --only hosting --project "${{ vars.GCP_PROJECT_ID }}"
+        run: firebase deploy --only hosting --project "${{ vars.GCP_PROJECT_ID }}"
