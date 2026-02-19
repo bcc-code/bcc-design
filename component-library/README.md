@@ -2,6 +2,8 @@
 
 Vue 3 component library built on [PrimeVue](https://primevue.org/) and BCC design tokens. You only need this package—no separate Tailwind or PrimeVue install.
 
+## View on with [Storybook](https://components.bcc.no)
+
 ## Install
 
 ```bash
@@ -45,15 +47,15 @@ Use this if you want Tailwind utility classes in your own templates and only shi
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [vue(), tailwindcss()],
-  // ...
+	plugins: [vue(), tailwindcss()],
+	// ...
 });
 ```
 
 2. **Import the theme in your main CSS file** (e.g. `src/main.css` or `src/assets/main.css`):
 
 ```css
-@import "@bcc-code/component-library-vue/theme.css";
+@import '@bcc-code/component-library-vue/theme.css';
 ```
 
 Tailwind will run as part of your build and only include the utility classes that appear in your app and in the library.
@@ -65,7 +67,7 @@ Use this if you don’t want Tailwind in your project and only need the library�
 In your entry file (e.g. `main.ts`), before mounting the app:
 
 ```ts
-import "@bcc-code/component-library-vue/style.css";
+import '@bcc-code/component-library-vue/style.css';
 ```
 
 You get the BCC theme and component styles only; no Tailwind utilities in your app.
@@ -80,10 +82,10 @@ All components are namespaced with `Bcc`. Use them in templates or register them
 
 ```vue
 <template>
-  <div class="flex gap-4 p-4">
-    <BccButton label="Save" />
-    <BccInput v-model="name" placeholder="Name" />
-  </div>
+	<div class="flex gap-4 p-4">
+		<BccButton label="Save" />
+		<BccInput v-model="name" placeholder="Name" />
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -111,13 +113,13 @@ BccComponentLibrary(app);
 /* Optional include the archivo font */
 @import '@bcc-code/component-library-vue/archivo-font.css';
 font-family:
-  Archivo,
-  system-ui,
-  -apple-system,
-  BlinkMacSystemFont,
-  'Segoe UI',
-  'Open Sans',
-  sans-serif;
+	Archivo,
+	system-ui,
+	-apple-system,
+	BlinkMacSystemFont,
+	'Segoe UI',
+	'Open Sans',
+	sans-serif;
 ```
 
 The library exports both **custom BCC components** (e.g. `BccBadge`, `BccFrame`, `BccReact`) and **wrapped PrimeVue components** (e.g. `BccButton`, `BccDialog`, `BccDataTable`). PrimeVue services (Toast, Confirm, Dialog) are configured by `BccComponentLibrary`; use the composables `useToast`, `useConfirm`, and `useDialog` from the library when you need them.
