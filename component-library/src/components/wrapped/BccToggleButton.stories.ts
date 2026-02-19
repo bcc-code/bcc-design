@@ -101,6 +101,24 @@ export const Slot: Story = {
 	}),
 };
 
+export const IconOnly: Story = {
+	render: () => ({
+		components: { BccToggleButton, CheckIcon, CloseIcon },
+		setup() {
+			const checked = ref(false);
+			return { checked, CheckIcon, CloseIcon };
+		},
+		template: `
+			<div class="center gap-2">
+				<BccToggleButton v-model="checked">
+					<CheckIcon v-if="checked" class="size-5" />
+					<CloseIcon v-else class="size-5" />
+				</BccToggleButton>
+			</div>
+		`,
+	}),
+};
+
 export const Checked: Story = {
 	render: () => ({
 		components: { BccToggleButton },
