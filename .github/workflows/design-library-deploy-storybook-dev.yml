@@ -70,6 +70,4 @@ jobs:
 
       - run: pnpm add -g firebase-tools
       - name: Deploy hosting site
-        run: firebase deploy --only hosting:${{ vars.FIREBASE_HOSTING_SITE_ID }} --project "${{ vars.GCP_PROJECT_ID }}"  --debug
-      - name: Deploy hosting site
-        run: firebase deploy --only hosting --project "${{ vars.GCP_PROJECT_ID }}"  --debug
+        run: firebase deploy --only hosting --project "${{ vars.GCP_PROJECT_ID }}"
