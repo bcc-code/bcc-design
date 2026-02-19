@@ -41,7 +41,7 @@ jobs:
         uses: "google-github-actions/auth@v3"
         with:
           workload_identity_provider: ${{ vars.GCP_WIDPP_ID_PROD }}
-          service_account: ${{ env.GCP_SA_EMAIL }}
+          service_account: ${{ sa-gha-cicd@${{vars.GCP_PROJECT_ID}}.iam.gserviceaccount.com }}
           project_id: ${{ vars.GCP_PROJECT_ID }}
 
       - name: Set target hosting site
@@ -64,4 +64,4 @@ jobs:
 
       - run: pnpm add -g firebase-tools
       - name: Deploy hosting site
-        run: firebase deploy --only hosting:${{ vars.FIREBASE_HOSTING_SITE_ID }} --project "${{ vars.GCP_PROJECT_ID }}"
+        run: firebase deploy --only hosting --project "${{ vars.GCP_PROJECT_ID }}"
