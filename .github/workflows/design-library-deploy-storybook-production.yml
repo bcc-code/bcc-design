@@ -35,6 +35,7 @@ jobs:
           cache-dependency-path: "component-library/pnpm-lock.yaml"
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
+      - run: pnpm install -g firebase-tools
       - run: pnpm run build-storybook
 
       - id: "auth"
