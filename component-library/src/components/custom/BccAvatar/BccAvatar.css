@@ -34,28 +34,28 @@
         @apply size-8 text-base;
     }
     .bcc-avatar.lg {
-        @apply size-10 text-xl;
+        @apply size-10 text-lg;
     }
     .bcc-avatar.xl {
-        @apply size-12 text-2xl;
+        @apply size-12 text-xl;
     }
     .bcc-avatar.xxl {
-        @apply size-20 text-4xl;
+        @apply size-20 text-3xl;
     }
     .bcc-avatar.xxxl {
-        @apply size-24 text-5xl;
+        @apply size-24 text-4xl;
     }
 
-    .bcc-avatar.p-avatar-circle.lg {
-        @apply text-lg;
-    }
-    .bcc-avatar.p-avatar-circle.xl {
+    .bcc-avatar.squared.lg {
         @apply text-xl;
     }
-    .bcc-avatar.p-avatar-circle.xxl {
-        @apply text-3xl;
+    .bcc-avatar.squared.xl {
+        @apply text-2xl;
     }
-    .bcc-avatar.p-avatar-circle.xxxl {
+    .bcc-avatar.squared.xxl {
         @apply text-4xl;
+    }
+    .bcc-avatar.squared.xxxl {
+        @apply text-5xl;
     }
 }

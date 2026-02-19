@@ -26,7 +26,7 @@ const props = defineProps<AvatarProps>();
 		v-bind="props"
 		class="bcc-avatar"
 		:shape="squared ? 'square' : 'circle'"
-		:class="[gender, size, { child, bordered }]"
+		:class="[gender, size, { child, bordered, squared }]"
 	>
 		<template v-if="icon" #icon>
 			<component :is="typeof icon === 'boolean' ? PersonFillIcon : icon" style="width: 1em" />
