@@ -33,11 +33,11 @@ const SeverityIcons: Record<NonNullable<PrimeMessageProps['severity']>, Componen
 		<template v-if="icon" #icon>
 			<component
 				:is="icon === true ? SeverityIcons[severity || 'info'] : icon"
-				class="w-4"
+				class="w-4 shrink-0"
 				:class="{ 'order-1': iconRight === true }"
 			/>
 		</template>
 		<slot />
-		<component :is="iconRight" v-if="iconRight && iconRight !== true" class="w-4" />
+		<component :is="iconRight" v-if="iconRight && iconRight !== true" class="w-4 shrink-0" />
 	</BccMessage>
 </template>

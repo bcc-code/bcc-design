@@ -9,6 +9,8 @@
     --spacing-inset-bottom-4: max(1rem, env(safe-area-inset-bottom, var(--safe-area-inset-bottom, 0px)));
     --spacing-inset-left: env(safe-area-inset-left, var(--safe-area-inset-left, 0px));
     --spacing-inset-right: env(safe-area-inset-right, var(--safe-area-inset-right, 0px));
+
+    --spacing-18: 4.5rem;
 }
 
 .ctx-default { @apply ctx-default }

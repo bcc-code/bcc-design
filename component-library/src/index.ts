@@ -149,7 +149,6 @@ export { default as BccTieredMenu } from 'primevue/tieredmenu';
 export { default as BccTimeline } from 'primevue/timeline';
 export { default as BccToast } from 'primevue/toast';
 export { default as BccToastService } from 'primevue/toastservice';
-export { default as BccToggleButton } from 'primevue/togglebutton';
 export { default as BccToggleSwitch } from 'primevue/toggleswitch';
 export { default as BccToolbar } from 'primevue/toolbar';
 export { default as BccTooltip } from 'primevue/tooltip';

@@ -38,7 +38,6 @@ const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string }[] = [
 	{ name: 'Tag', slug: 'tag' },
 	{ name: 'Terminal', slug: 'terminal' },
 	{ name: 'TieredMenu', slug: 'tieredmenu' },
-	{ name: 'ToggleButton', slug: 'togglebutton' },
 	{ name: 'TreeTable', slug: 'treetable' },
 	{ name: 'VirtualScroller', slug: 'virtualscroller' },
 ];

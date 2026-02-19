@@ -1,6 +1,6 @@
 import { GroupsIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { BccAvatarGroup } from '../../../index';
+import { BccAvatarGroup, BccDivider } from '../../../index';
 import BccAvatar from './BccAvatar.vue';
 
 const meta = {
@@ -79,7 +79,7 @@ export const Icon: Story = {
 
 export const Sizes: Story = {
 	render: () => ({
-		components: { BccAvatar },
+		components: { BccAvatar, BccDivider },
 		template: `
 			<div class="flex align-items-center gap-2">
 				<BccAvatar label="xs" size="xs" />
@@ -89,6 +89,18 @@ export const Sizes: Story = {
 				<BccAvatar label="xl" size="xl" />
 				<BccAvatar label="2x" size="xxl" />
 				<BccAvatar label="3x" size="xxxl" />
+			</div>
+			<BccDivider align="left">
+				Squared
+			</BccDivider>
+			<div class="flex align-items-center gap-2">
+				<BccAvatar label="xs" size="xs" squared />
+				<BccAvatar label="sm" size="sm" squared />
+				<BccAvatar label="md" size="md" squared />
+				<BccAvatar label="lg" size="lg" squared />
+				<BccAvatar label="xl" size="xl" squared />
+				<BccAvatar label="2x" size="xxl" squared />
+				<BccAvatar label="3x" size="xxxl" squared />
 			</div>
 		`,
 	}),

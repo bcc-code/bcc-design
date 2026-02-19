@@ -19,21 +19,17 @@ export interface TabItem {
 export type TabsProps = Omit<PrimeTabsProps, 'value'> & {
 	tabs: TabItem[];
 	modelValue?: number;
-	fill?: boolean;
 	noPanels?: boolean;
 };
 
-const props = withDefaults(defineProps<TabsProps>(), {
-	fill: false,
-});
+const props = defineProps<TabsProps>();
 
 const value = defineModel<number>({ default: 0, required: false });
 
 const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {
-	const { tabs, modelValue, fill, noPanels, ...rest } = props;
+	const { tabs, modelValue, noPanels, ...rest } = props;
 	void tabs;
 	void modelValue;
-	void fill;
 	void noPanels;
 	return rest as Omit<PrimeTabsProps, 'value'>;
 });
@@ -43,7 +39,6 @@ const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {
 	<BccTabs
 		v-model:value="value"
 		v-bind="tabsBindings"
-		:class="{ 'w-full': fill }"
 		style="--p-tabs-tablist-border-width: 0; --p-tabs-tab-border-width: 0 0 1px 0"
 	>
 		<BccTabList>

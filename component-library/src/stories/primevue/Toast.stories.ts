@@ -44,7 +44,7 @@ export const AllSeverities: Story = {
 					severity,
 					summary: severity.charAt(0).toUpperCase() + severity.slice(1),
 					detail: `${severity} message`,
-					life: 3000,
+					life: 30000,
 				});
 			};
 			return { show };
@@ -57,6 +57,8 @@ export const AllSeverities: Story = {
 					<BccButton label="Info" severity="info" @click="show('info')" />
 					<BccButton label="Warn" severity="warn" @click="show('warn')" />
 					<BccButton label="Error" severity="danger" @click="show('error')" />
+					<BccButton label="Secondary" severity="secondary" @click="show('secondary')" />
+					<BccButton label="Contrast" severity="contrast" @click="show('contrast')" />
 				</div>
 			</div>
 		`,

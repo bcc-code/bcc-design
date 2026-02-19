@@ -27,7 +27,7 @@
 }
 
 @utility col {
-    @apply flex flex-col items-center;
+    @apply flex flex-col items-center justify-center;
 
     &.between {
         @apply justify-between;

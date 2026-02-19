@@ -3,10 +3,7 @@
         --p-avatar-background: var(--ctx-background);
         --p-avatar-color: var(--ctx-text);
         --bcc-avatar-border: var(--ctx-border);
-        @apply shrink-0 ctx-gray-subtler rounded-full;
-    }
-    .bcc-avatar.squared {
-        border-radius: var(--p-avatar-border-radius);
+        @apply shrink-0 ctx-gray-subtler;
     }
     .bcc-avatar.male,
     .bcc-avatar.M {

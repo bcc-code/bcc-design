@@ -7,7 +7,6 @@ const meta: Meta<typeof BccTabs> = {
 	component: BccTabs,
 	title: 'Wrapped/BccTabs',
 	argTypes: {
-		fill: { control: 'boolean' },
 		noPanels: { control: 'boolean' },
 	},
 };
@@ -51,13 +50,6 @@ export const WithIconsAndPins: Story = {
 			{ title: 'Profile', icon: PersonIcon, badge: { value: '2' } },
 			{ title: 'Settings', icon: SettingsIcon },
 		],
-	},
-};
-
-export const Fill: Story = {
-	args: {
-		tabs: simpleTabs,
-		fill: true,
 	},
 };
 

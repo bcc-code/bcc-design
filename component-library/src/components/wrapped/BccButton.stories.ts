@@ -116,7 +116,7 @@ export const WithContext: Story = {
 			return { args, context, value };
 		},
 		template: `<div class="flex gap-4">
-	<BccButton @click="value = !value" v-bind="args" label="Switch Me" useCtx :class="value ? 'ctx-' + context + '-bolder' : 'ctx-' + context + '-subtler'" />
+	<BccButton @click="value = !value" v-bind="args" label="Switch Me (Subtler/Bolder)" useCtx :class="value ? 'ctx-' + context + '-bolder' : 'ctx-' + context + '-subtler'" />
 	<select v-model="context">
 		<option value="blue">Blue</option>
 		<option value="green">Green</option>

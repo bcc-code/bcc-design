@@ -12,7 +12,7 @@ const cities = [
 
 const meta = {
 	component: BccSelect,
-	title: 'PrimeVue/BccDropdown',
+	title: 'PrimeVue/BccSelect',
 	argTypes: {
 		placeholder: { control: 'text' },
 		disabled: { control: 'boolean' },

@@ -4,11 +4,12 @@ import { BccCheckbox } from './index';
 
 const meta = {
 	component: BccCheckbox,
-	title: 'PrimeVue/BccCheckbox',
+	title: 'Wrapped/BccCheckbox',
 	argTypes: {
 		disabled: { control: 'boolean' },
 		indeterminate: { control: 'boolean' },
 		label: { control: 'text' },
+		size: { control: 'select', options: ['small', 'default', 'large'] },
 	},
 	args: {
 		label: 'I agree',

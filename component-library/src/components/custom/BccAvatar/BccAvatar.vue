@@ -22,7 +22,12 @@ const props = defineProps<AvatarProps>();
 </script>
 
 <template>
-	<PrimeAvatar v-bind="props" class="bcc-avatar" :class="[gender, size, { child, bordered, squared }]">
+	<PrimeAvatar
+		v-bind="props"
+		class="bcc-avatar"
+		:shape="squared ? 'square' : 'circle'"
+		:class="[gender, size, { child, bordered }]"
+	>
 		<template v-if="icon" #icon>
 			<component :is="typeof icon === 'boolean' ? PersonFillIcon : icon" style="width: 1em" />
 		</template>

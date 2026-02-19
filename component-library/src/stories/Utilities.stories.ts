@@ -64,6 +64,12 @@ export const Center: Story = {
 					</div>
 				</div>
 				<div>
+					<p class="mb-2 text-sm font-medium opacity-80">center bottom</p>
+					<div class="center bottom h-24 rounded-lg border border-dashed border-(--bcc-border-subtle)">
+						<span class="${boxClass}">Aligned bottom</span>
+					</div>
+				</div>
+				<div>
 					<p class="mb-2 text-sm font-medium opacity-80">center right</p>
 					<div class="center right h-16 rounded-lg border border-dashed border-(--bcc-border-subtle) px-4">
 						<span class="${boxClass}">Pushed right</span>
