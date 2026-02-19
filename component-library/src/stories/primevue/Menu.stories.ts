@@ -37,7 +37,7 @@ export const Default: Story = {
 		template: `
 			<div>
 				<BccMenu ref="menu" :model="items" popup />
-				<BccButton label="Toggle menu" icon="pi pi-bars" @click="toggle" />
+				<BccButton label="Toggle menu" @click="toggle" />
 			</div>
 		`,
 	}),

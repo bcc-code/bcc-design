@@ -25,15 +25,19 @@ const buttonBindings = computed((): PrimeButtonProps => {
 </script>
 
 <template>
-	<PrimeButton v-bind="buttonBindings" :class="{ useCtx }">
+	<PrimeButton v-bind="buttonBindings" :class="{ useCtx }" class="shrink-0">
 		<template #icon>
-			<component :is="icon" :class="[iconClass, { 'order-1': iconRight }, size === 'large' ? 'size-6' : 'size-5']" />
+			<component
+				:is="icon"
+				class="shrink-0"
+				:class="[iconClass, { 'order-1': iconRight }, size === 'large' ? 'size-6' : 'size-5']"
+			/>
 		</template>
 		<slot />
 	</PrimeButton>
 </template>
 
-<style>
+<style scoped>
 .p-button.useCtx {
 	--p-button-primary-color: var(--ctx-text);
 	--p-button-primary-background: var(--ctx-background);

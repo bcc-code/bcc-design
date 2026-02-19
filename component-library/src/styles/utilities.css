@@ -1,10 +1,6 @@
 @utility center {
     @apply flex items-center justify-center;
-
-    &.between {
-        @apply justify-between;
-    }
-
+    
     &.top {
         @apply items-start;
     }
@@ -29,10 +25,6 @@
 @utility col {
     @apply flex flex-col items-center justify-center;
 
-    &.between {
-        @apply justify-between;
-    }
-
     &.left {
         @apply items-start;
     }
@@ -48,6 +40,10 @@
     &.bottom {
         @apply justify-end;
     }
+}
+
+@utility between {
+    @apply justify-between;
 }
 
 @utility hide-scrollbar {

@@ -1,4 +1,6 @@
 @theme {
+    
+    /* spacing variables */
     --spacing-inset-top: env(safe-area-inset-top, var(--safe-area-inset-top, 0px));
     --spacing-inset-top-1: max(0.25rem, env(safe-area-inset-top, var(--safe-area-inset-top, 0px)));
     --spacing-inset-top-2: max(0.5rem, env(safe-area-inset-top, var(--safe-area-inset-top, 0px)));
@@ -11,6 +13,9 @@
     --spacing-inset-right: env(safe-area-inset-right, var(--safe-area-inset-right, 0px));
 
     --spacing-18: 4.5rem;
+
+    /* color variables */
+    --color-overlay: rgba(17, 24, 39, 0.85);
 }
 
 .ctx-default { @apply ctx-default }

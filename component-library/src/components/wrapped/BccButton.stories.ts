@@ -61,11 +61,12 @@ export const WithIcons: Story = {
 	render: () => ({
 		components: { BccButton },
 		setup() {
-			return { CheckIcon, InfoIcon };
+			return { CheckIcon, InfoIcon, HelpIcon };
 		},
 		template: `
 			<div class="flex flex-wrap gap-2">
 				<BccButton label="With Icon Left " :icon="CheckIcon" />
+				<BccButton :icon="HelpIcon" />
 				<BccButton label="With Icon Right" :icon="InfoIcon" icon-right />
 			</div>
 		`,
