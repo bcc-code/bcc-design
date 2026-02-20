@@ -16,7 +16,7 @@
     @apply bottom-4 left-4;
   }
   .bcc-graphic .center-slot {
-    @apply inset-1/4 h-1/2 w-1/2 flex items-center justify-center
+    @apply inset-1/4 h-1/2 w-1/2 flex items-center justify-center;
   }
 
   .bcc-graphic {
@@ -24,16 +24,16 @@
   }
 
   .bcc-graphic-banner {
-    @apply absolute inset-0 h-full w-full object-cover object-center
+    @apply absolute inset-0 h-full w-full object-cover object-center;
   }
   .bcc-graphic-banner--loading {
-    @apply animate-pulse bg-linear-to-tr from-background-brand-bolder-default to-background-brand-subtle-default
+    @apply animate-pulse bg-linear-to-tr from-background-brand-bolder-default to-background-brand-subtle-default;
   }
 
   .bcc-graphic-logo {
-    @apply absolute inset-1/4 h-1/2 w-1/2 object-contain object-center
+    @apply absolute inset-1/4 h-1/2 w-1/2 object-contain object-center;
   }
   .bcc-graphic-logo--loading {
-    @apply animate-pulse bg-black opacity-10 blur-sm
+    @apply animate-pulse bg-black opacity-10 blur-sm;
   }
 }
