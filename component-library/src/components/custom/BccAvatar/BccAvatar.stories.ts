@@ -1,6 +1,6 @@
 import { GroupsIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { BccAvatarGroup, BccDivider } from '../../../index';
+import { BccAvatarGroup, BccDivider, BccOverlayBadge } from '../../../index';
 import BccAvatar from './BccAvatar.vue';
 
 const meta = {
@@ -167,6 +167,17 @@ export const AvatarGroup: Story = {
 				<BccAvatar label="C" gender="unknown" />
 				<BccAvatar label="+2" />
 			</BccAvatarGroup>
+		`,
+	}),
+};
+
+export const WithBadge: Story = {
+	render: () => ({
+		components: { BccAvatar, BccOverlayBadge },
+		template: `
+			<BccOverlayBadge value="3" class="inline-block">
+				<BccAvatar label="B" gender="female" child size="xxl" shape="circle" />
+			</BccOverlayBadge>
 		`,
 	}),
 };

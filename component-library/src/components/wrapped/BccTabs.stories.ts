@@ -78,3 +78,29 @@ export const WithPanelContent: Story = {
 		`,
 	}),
 };
+
+export const Fill: Story = {
+	args: {
+		tabs: simpleTabs,
+		fill: true,
+	},
+	render: args => ({
+		components: { BccTabs },
+		setup() {
+			return { args };
+		},
+		template: `
+			<div class="h-32">
+				<BccTabs v-bind="args">
+					<template #tab-1>
+						${Array.from({ length: 100 })
+							.map((_, index) => `<p>Content for tab ${index + 1}</p>`)
+							.join('\n')}
+					</template>
+					<template #tab-2>Content for second tab</template>
+					<template #tab-3>Content for third tab</template>
+				</BccTabs>
+			</div>
+		`,
+	}),
+};

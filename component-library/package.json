@@ -5,6 +5,9 @@
   "description": "Extended Vue component library based on PrimeVue and BCC design tokens",
   "repository": "https://github.com/bcc-code/bcc-design.git",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "packageManager": "pnpm@9.15.0",
   "files": [
     "dist",

@@ -7,7 +7,9 @@ export type BadgeProps = {
 	value?: string | number | VueComponent;
 	/** Controls badge dimensions and typography scale (sm through xl). */
 	size?: 'sm' | 'md' | 'lg' | 'xl';
-	/** Adds a border around the badge. */
+	/** Adds a 1px border around the badge. */
+	border?: boolean;
+	/** Adds a 2px border around the badge. */
 	bordered?: boolean;
 	/** Renders with square corners; when false, badge is pill-shaped. */
 	squared?: boolean;
@@ -17,9 +19,7 @@ export type BadgeProps = {
 
 withDefaults(defineProps<BadgeProps>(), {
 	context: BCC_CONTEXTS.neutral.subtle,
-	bordered: false,
 	size: 'md',
-	squared: false,
 });
 </script>
 
@@ -30,6 +30,7 @@ withDefaults(defineProps<BadgeProps>(), {
 			`ctx-${context}`,
 			size,
 			{
+				border,
 				bordered,
 				squared,
 				'bcc-badge-text': $slots.default || (typeof value === 'string' && String(value).length > 1),

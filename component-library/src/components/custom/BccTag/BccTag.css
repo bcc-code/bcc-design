@@ -12,4 +12,7 @@
 	.bcc-tag.bcc-badge.lg {
 		@apply text-lg font-semibold h-10 py-1 px-2;
 	}
+	.bcc-tag.bcc-badge.xl {
+		@apply text-xl font-semibold h-12 py-1.5 px-2;
+	}
 }

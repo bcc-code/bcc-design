@@ -58,4 +58,11 @@
     .bcc-avatar.squared.xxxl {
         @apply text-5xl;
     }
+
+
+    .p-overlaybadge .bcc-avatar.p-avatar-circle.xxxl~.p-badge,
+    .p-overlaybadge .bcc-avatar.p-avatar-circle.xxl~.p-badge,
+    .p-overlaybadge .bcc-avatar.p-avatar-circle.xl~.p-badge {
+        transform: translate(25%, -25%);
+    }
 }

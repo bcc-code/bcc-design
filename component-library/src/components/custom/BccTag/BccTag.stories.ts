@@ -12,6 +12,7 @@ const meta: Meta<typeof BccTag> = {
 			control: 'select',
 			options: BCC_CONTEXT_LIST,
 		},
+		size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },
 		rounded: { control: 'boolean' },
 		iconRight: { control: 'boolean' },
 	},
@@ -82,6 +83,7 @@ export const Sizes: Story = {
 				<BccTag size="sm">Small</BccTag>
 				<BccTag size="md">Medium</BccTag>
 				<BccTag size="lg">Large</BccTag>
+				<BccTag size="xl">Extra Large</BccTag>
 			</div>
 		`,
 	}),

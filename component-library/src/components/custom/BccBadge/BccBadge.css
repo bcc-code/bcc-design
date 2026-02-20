@@ -28,6 +28,10 @@
     @apply size-full;
   }
 
+  .bcc-badge.border {
+    @apply border-1;
+    border-color: var(--ctx-background-pressed);
+  }
   .bcc-badge.bordered {
     @apply border-2;
     border-color: var(--ctx-background-pressed);
