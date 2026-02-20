@@ -1,10 +1,11 @@
-@import "./BccReact/BccReact.css";
+@import "./BccAvatar/BccAvatar.css";
+@import "./BccBadge/BccBadge.css";
 @import "./BccCapacityIndicator/BccCapacityIndicator.css";
 @import "./BccDialKnob/BccDialKnob.css";
-@import "./BccNpsScore/BccNpsScore.css";
-@import "./BccNpsResult/BccNpsResult.css";
-@import "./BccGraphic/BccGraphic.css";
 @import "./BccFrame/BccFrame.css";
+@import "./BccGraphic/BccGraphic.css";
+@import "./BccNpsResult/BccNpsResult.css";
+@import "./BccNpsScore/BccNpsScore.css";
+@import "./BccReact/BccReact.css";
+@import "./BccTabs/BccTabs.css";
 @import "./BccToggle/BccToggle.css";
-@import "./BccBadge/BccBadge.css";
-@import "./BccAvatar/BccAvatar.css";

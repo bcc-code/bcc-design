@@ -1,0 +1,18 @@
+@layer components {
+    .bcc-tabs-fill.p-tabs {
+        height: 100%;
+        overflow: hidden;
+    }
+    .bcc-tabs-fill.p-tabs > .p-tablist {
+        flex-shrink: 0;
+    }
+    .bcc-tabs-fill.p-tabs > .p-tabpanels {
+        height: 100%;
+        overflow: hidden;
+        padding: 0;
+    }
+    .bcc-tabs-fill.p-tabs > .p-tabpanels:deep(.p-tabpanel) {
+        height: 100%;
+        overflow: auto;
+    }
+}

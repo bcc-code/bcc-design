@@ -6,7 +6,7 @@ import BccTabPanel from 'primevue/tabpanel';
 import BccTabPanels from 'primevue/tabpanels';
 import BccTabs, { type TabsProps as PrimeTabsProps } from 'primevue/tabs';
 import { computed } from 'vue';
-import BccBadge, { type BadgeProps } from '../custom/BccBadge/BccBadge.vue';
+import BccBadge, { type BadgeProps } from '../BccBadge/BccBadge.vue';
 
 export interface TabItem {
 	title: string;
@@ -58,22 +58,3 @@ const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {
 		</BccTabPanels>
 	</BccTabs>
 </template>
-
-<style scoped>
-.bcc-tabs-fill.p-tabs {
-	height: 100%;
-	overflow: hidden;
-}
-.bcc-tabs-fill.p-tabs > .p-tablist {
-	flex-shrink: 0;
-}
-.bcc-tabs-fill.p-tabs > .p-tabpanels {
-	height: 100%;
-	overflow: hidden;
-	padding: 0;
-}
-.bcc-tabs-fill.p-tabs > .p-tabpanels:deep(.p-tabpanel) {
-	height: 100%;
-	overflow: auto;
-}
-</style>
