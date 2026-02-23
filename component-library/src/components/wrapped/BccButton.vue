@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { VueComponent } from '@/types';
 import PrimeButton, { type ButtonProps as PrimeButtonProps } from 'primevue/button';
-import { computed } from 'vue';
+import { computed, useAttrs } from 'vue';
 
 export type ButtonProps = {
 	icon?: VueComponent;
@@ -12,6 +12,7 @@ export type ButtonProps = {
 } & /* @vue-ignore */ Omit<PrimeButtonProps, 'icon' | 'iconPos'>;
 
 const props = defineProps<ButtonProps>();
+const attrs = useAttrs();
 
 const buttonBindings = computed((): PrimeButtonProps => {
 	const { icon, iconRight, useCtx, ...rest } = props;
@@ -21,7 +22,7 @@ const buttonBindings = computed((): PrimeButtonProps => {
 	const forward = rest as PrimeButtonProps;
 	if (iconRight) forward.iconPos = 'right';
 	if (useCtx) forward.severity = 'primary';
-	return forward;
+	return { ...forward, ...attrs } as PrimeButtonProps;
 });
 </script>
 
