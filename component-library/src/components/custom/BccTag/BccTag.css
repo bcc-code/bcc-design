@@ -4,15 +4,15 @@
 		@apply w-auto;
 	}
 	.bcc-tag.bcc-badge.md {
-		@apply text-md h-8 py-0.5 px-2;
+		@apply text-md font-regular h-8 py-0.5 px-2;
 	}
 	.bcc-tag.bcc-badge.sm {
-		@apply text-sm h-6 py-0.5 px-2;
+		@apply text-sm font-regular h-6 py-0.5 px-2;
 	}
 	.bcc-tag.bcc-badge.lg {
-		@apply text-lg h-10 py-1 px-2;
+		@apply text-lg font-regular h-10 py-1 px-2;
 	}
 	.bcc-tag.bcc-badge.xl {
-		@apply text-xl h-12 py-1.5 px-2;
+		@apply text-xl font-regular h-12 py-1.5 px-2;
 	}
 }
