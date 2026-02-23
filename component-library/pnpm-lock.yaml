@@ -30,8 +30,8 @@ importers:
         version: 4.1.18
     devDependencies:
       '@bcc-code/design-tokens':
-        specifier: ^5.0.3
-        version: 5.0.3(@primeuix/themes@2.0.3)
+        specifier: ^5.1.0
+        version: 5.1.0(@primeuix/themes@2.0.3)
       '@eslint/js':
         specifier: ^9.39.2
         version: 9.39.2
@@ -162,8 +162,8 @@ packages:
     resolution: {integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A==}
     engines: {node: '>=6.9.0'}
 
-  '@bcc-code/design-tokens@5.0.3':
-    resolution: {integrity: sha512-u9RAiEGha4NXv3OZW5lKTgveaLuajcc5cOM4PKHYMeigT56fwmHffCg7jd7lV1ClfMlrBzSmoMMU3dP01bifKg==}
+  '@bcc-code/design-tokens@5.1.0':
+    resolution: {integrity: sha512-zCtMpYNAwOZ0vluvLeR9XDQi8Hzc096KVBTH7wkX+PsNro/rEPlli+mTTHj71rcNmg4mnH1GrKZYYZPVirTR4w==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@primeuix/themes': ^2.0.0
@@ -3007,7 +3007,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@bcc-code/design-tokens@5.0.3(@primeuix/themes@2.0.3)':
+  '@bcc-code/design-tokens@5.1.0(@primeuix/themes@2.0.3)':
     dependencies:
       '@primeuix/themes': 2.0.3
 
