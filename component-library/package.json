@@ -60,11 +60,11 @@
     "tailwindcss": "^4.0.0"
   },
   "peerDependencies": {
-    "@bcc-code/design-tokens": "^5.0.3",
+    "@bcc-code/design-tokens": "^5.1.0",
     "vue": "^3.5.0"
   },
   "devDependencies": {
-    "@bcc-code/design-tokens": "^5.0.3",
+    "@bcc-code/design-tokens": "^5.1.0",
     "@eslint/js": "^9.39.2",
     "@primevue/auto-import-resolver": "^4.5.4",
     "@storybook/addon-docs": "^10.2.8",

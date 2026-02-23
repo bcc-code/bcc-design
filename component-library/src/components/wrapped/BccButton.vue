@@ -6,6 +6,7 @@ import { computed } from 'vue';
 export type ButtonProps = {
 	icon?: VueComponent;
 	iconRight?: boolean;
+	size?: PrimeButtonProps['size'];
 
 	useCtx?: boolean;
 } & /* @vue-ignore */ Omit<PrimeButtonProps, 'icon' | 'iconPos'>;

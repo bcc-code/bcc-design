@@ -1,9 +1,10 @@
-import { CheckIcon, HelpIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
+import { CheckIcon, ErrorIcon, HelpIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
+import type { ButtonProps } from './BccButton.vue';
 import BccButton from './BccButton.vue';
 
-const meta: Meta<typeof BccButton> = {
+const meta = {
 	component: BccButton,
 	title: 'Wrapped/BccButton',
 	argTypes: {
@@ -13,20 +14,19 @@ const meta: Meta<typeof BccButton> = {
 			options: ['secondary', 'success', 'info', 'warn', 'help', 'danger', 'contrast'],
 		},
 		disabled: { control: 'boolean' },
+		rounded: { control: 'boolean' },
 		loading: { control: 'boolean' },
 		outlined: { control: 'boolean' },
 		icon: { control: 'object' },
 	},
-};
+} as Meta<typeof BccButton>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: {
-		label: 'Button',
-	},
+	args: { label: 'Button' } as unknown as Story['args'],
 };
 
 export const Variants: Story = {
@@ -65,7 +65,7 @@ export const WithIcons: Story = {
 		},
 		template: `
 			<div class="flex flex-wrap gap-2">
-				<BccButton label="With Icon Left " :icon="CheckIcon" />
+				<BccButton label="With Icon Left" :icon="CheckIcon" />
 				<BccButton :icon="HelpIcon" />
 				<BccButton label="With Icon Right" :icon="InfoIcon" icon-right />
 			</div>
@@ -73,11 +73,27 @@ export const WithIcons: Story = {
 	}),
 };
 
+export const Rounded: Story = {
+	render: () => ({
+		components: { BccButton },
+		setup() {
+			return { CheckIcon, InfoIcon, HelpIcon };
+		},
+		template: `
+			<div class="flex flex-wrap gap-2">
+				<BccButton :icon="CheckIcon" size="small" rounded />
+				<BccButton :icon="HelpIcon" rounded />
+				<BccButton :icon="InfoIcon" size="large" rounded />
+			</div>
+		`,
+	}),
+};
+
 export const Severities: Story = {
 	render: () => ({
-		components: { BccButton, CheckIcon, InfoIcon, WarningIcon, HelpIcon },
+		components: { BccButton, CheckIcon, InfoIcon, WarningIcon, ErrorIcon, HelpIcon },
 		setup() {
-			return { CheckIcon, InfoIcon, WarningIcon, HelpIcon };
+			return { CheckIcon, InfoIcon, WarningIcon, ErrorIcon, HelpIcon };
 		},
 		template: `
 			<div class="flex flex-wrap gap-2">
@@ -86,6 +102,7 @@ export const Severities: Story = {
 				<BccButton label="Success" severity="success" v-bind="{ icon: CheckIcon }" />
 				<BccButton label="Info" severity="info" v-bind="{ icon: InfoIcon }" />
 				<BccButton label="Warn" severity="warn" v-bind="{ icon: WarningIcon }" />
+				<BccButton label="Danger" severity="danger" v-bind="{ icon: ErrorIcon }" />
 				<BccButton label="Help" v-bind="{ icon: HelpIcon, severity: 'help' }" />
 			</div>
 		`,
@@ -102,14 +119,11 @@ export const WithBadge: Story = {
 };
 
 export const Disabled: Story = {
-	args: {
-		label: 'Disabled',
-		disabled: true,
-	},
+	args: { label: 'Disabled', disabled: true } as unknown as Story['args'],
 };
 
 export const WithContext: Story = {
-	render: args => ({
+	render: (args: Partial<ButtonProps>) => ({
 		components: { BccButton },
 		setup() {
 			const value = ref(false);
