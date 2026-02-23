@@ -10,6 +10,7 @@ const meta = {
 			control: 'select',
 			options: ['success', 'info', 'warn', 'error', 'secondary', 'contrast'],
 		},
+		closable: { control: 'boolean' },
 		icon: { control: 'boolean' },
 		iconRight: { control: 'boolean' },
 	},
@@ -20,14 +21,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Info: Story = {
-	args: { severity: 'info' },
+	args: { severity: 'info', icon: true },
 	render: args => ({
 		components: { BccMessage },
 		setup() {
 			return { args };
 		},
 		template: `
-			<BccMessage v-bind="args">Info message content.</BccMessage>
+			<BccMessage v-bind="args">
+				<b>Info message content.</b><br />
+				Multiple lines of text are also supported
+			</BccMessage>
 		`,
 	}),
 };
