@@ -18,6 +18,7 @@ const meta = {
 		disabled: { control: 'boolean' },
 		dropdown: { control: 'boolean' },
 		showClear: { control: 'boolean' },
+		size: { control: 'select', options: ['small', 'default', 'large'] },
 		forceSelection: { control: 'boolean' },
 	},
 } as Meta;

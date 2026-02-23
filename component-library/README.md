@@ -135,6 +135,50 @@ pnpm run build        # Typecheck, types, and Vite build
 pnpm run build:vite   # Vite build only (includes theme.css)
 ```
 
+### Patching PrimeVue icons
+
+Some PrimeVue icons are replaced with [@bcc-code/icons-vue](https://www.npmjs.com/package/@bcc-code/icons-vue) so the library uses BCC iconography. The patch is maintained with pnpm’s built-in patching.
+
+**1. Start or re-enter the patch**
+
+```bash
+pnpm patch @primevue/icons
+```
+
+pnpm will print a path to a writable copy of the package (e.g. `node_modules/.pnpm_patches/@primevue/icons@4.5.4`).
+
+**2. Edit the icon mappings**
+
+- **Main barrel:** Edit `index.mjs` in that folder. Each line that re-exports from `@bcc-code/icons-vue` defines one override, e.g.:
+
+  ```js
+  export { ExpandMoreIcon as ChevronDownIcon } from '@bcc-code/icons-vue';
+  ```
+
+- **Per-icon files:** After changing the main `index.mjs`, run the sync script so each icon’s own `index.mjs` (e.g. `chevrondown/index.mjs`) is updated to use the same BCC component:
+
+  ```bash
+  pnpm run sync:primevue-icon-patches
+  ```
+
+  That way both `@primevue/icons` and `@primevue/icons/chevrondown` (and other overridden icons) use the BCC icon.
+
+**3. Save the patch**
+
+From the **project root** (where `package.json` lives), run:
+
+```bash
+pnpm patch-commit <path-pnpm-printed-in-step-1>
+```
+
+Example, if pnpm printed `~/Projects/bcc-design/component-library/node_modules/.pnpm_patches/@primevue/icons@4.5.4`:
+
+```bash
+pnpm patch-commit node_modules/.pnpm_patches/@primevue/icons@4.5.4
+```
+
+The patch is written to `patches/@primevue__icons.patch` and applied automatically on `pnpm install`.
+
 ## License
 
 Apache-2.0

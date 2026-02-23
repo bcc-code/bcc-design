@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@primevue/icons':
+    hash: wxehdusg7nkwq2p5dioeozbldy
+    path: patches/@primevue__icons.patch
+
 importers:
 
   .:
@@ -3247,7 +3252,7 @@ snapshots:
       '@primeuix/utils': 0.6.4
       vue: 3.5.27(typescript@5.7.3)
 
-  '@primevue/icons@4.5.4(vue@3.5.27(typescript@5.7.3))':
+  '@primevue/icons@4.5.4(patch_hash=wxehdusg7nkwq2p5dioeozbldy)(vue@3.5.27(typescript@5.7.3))':
     dependencies:
       '@primeuix/utils': 0.6.4
       '@primevue/core': 4.5.4(vue@3.5.27(typescript@5.7.3))
@@ -5085,7 +5090,7 @@ snapshots:
       '@primeuix/styles': 2.0.3
       '@primeuix/utils': 0.6.4
       '@primevue/core': 4.5.4(vue@3.5.27(typescript@5.7.3))
-      '@primevue/icons': 4.5.4(vue@3.5.27(typescript@5.7.3))
+      '@primevue/icons': 4.5.4(patch_hash=wxehdusg7nkwq2p5dioeozbldy)(vue@3.5.27(typescript@5.7.3))
     transitivePeerDependencies:
       - vue
 

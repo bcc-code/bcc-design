@@ -1,0 +1,1767 @@
+diff --git a/angledoubledown/index.mjs b/angledoubledown/index.mjs
+index bfbd9bf374294bc96d129d747fdb5f22927c341e..2b1c1a529399876ece8797f030266eecbd8b4fea 100644
+--- a/angledoubledown/index.mjs
++++ b/angledoubledown/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { KeyboardDoubleArrowDownIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'AngleDoubleDownIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M6.70786 6.59831C6.80043 6.63674 6.89974 6.65629 6.99997 6.65581C7.19621 6.64081 7.37877 6.54953 7.50853 6.40153L11.0685 2.8416C11.1364 2.69925 11.1586 2.53932 11.132 2.38384C11.1053 2.22837 11.0311 2.08498 10.9195 1.97343C10.808 1.86188 10.6646 1.78766 10.5091 1.76099C10.3536 1.73431 10.1937 1.75649 10.0513 1.82448L6.99997 4.87585L3.9486 1.82448C3.80625 1.75649 3.64632 1.73431 3.49084 1.76099C3.33536 1.78766 3.19197 1.86188 3.08043 1.97343C2.96888 2.08498 2.89466 2.22837 2.86798 2.38384C2.84131 2.53932 2.86349 2.69925 2.93147 2.8416L6.46089 6.43205C6.53132 6.50336 6.61528 6.55989 6.70786 6.59831ZM6.70786 12.1925C6.80043 12.2309 6.89974 12.2505 6.99997 12.25C7.10241 12.2465 7.20306 12.2222 7.29575 12.1785C7.38845 12.1348 7.47124 12.0726 7.53905 11.9957L11.0685 8.46629C11.1614 8.32292 11.2036 8.15249 11.1881 7.98233C11.1727 7.81216 11.1005 7.6521 10.9833 7.52781C10.866 7.40353 10.7104 7.3222 10.5415 7.29688C10.3725 7.27155 10.1999 7.30369 10.0513 7.38814L6.99997 10.4395L3.9486 7.38814C3.80006 7.30369 3.62747 7.27155 3.45849 7.29688C3.28951 7.3222 3.13393 7.40353 3.01667 7.52781C2.89942 7.6521 2.82729 7.81216 2.81184 7.98233C2.79639 8.15249 2.83852 8.32292 2.93148 8.46629L6.4609 12.0262C6.53133 12.0975 6.61529 12.1541 6.70786 12.1925Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(KeyboardDoubleArrowDownIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/angledoubleleft/index.mjs b/angledoubleleft/index.mjs
+index 880e05e46eb2b326bf832fe513fd95e12ac30a1e..1771cd860fb3f58a61da0283a88d9d67e5fba021 100644
+--- a/angledoubleleft/index.mjs
++++ b/angledoubleleft/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { KeyboardDoubleArrowLeftIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'AngleDoubleLeftIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M5.71602 11.164C5.80782 11.2021 5.9063 11.2215 6.00569 11.221C6.20216 11.2301 6.39427 11.1612 6.54025 11.0294C6.68191 10.8875 6.76148 10.6953 6.76148 10.4948C6.76148 10.2943 6.68191 10.1021 6.54025 9.96024L3.51441 6.9344L6.54025 3.90855C6.624 3.76126 6.65587 3.59011 6.63076 3.42254C6.60564 3.25498 6.525 3.10069 6.40175 2.98442C6.2785 2.86815 6.11978 2.79662 5.95104 2.7813C5.78229 2.76598 5.61329 2.80776 5.47112 2.89994L1.97123 6.39983C1.82957 6.54167 1.75 6.73393 1.75 6.9344C1.75 7.13486 1.82957 7.32712 1.97123 7.46896L5.47112 10.9991C5.54096 11.0698 5.62422 11.1259 5.71602 11.164ZM11.0488 10.9689C11.1775 11.1156 11.3585 11.2061 11.5531 11.221C11.7477 11.2061 11.9288 11.1156 12.0574 10.9689C12.1815 10.8302 12.25 10.6506 12.25 10.4645C12.25 10.2785 12.1815 10.0989 12.0574 9.96024L9.03158 6.93439L12.0574 3.90855C12.1248 3.76739 12.1468 3.60881 12.1204 3.45463C12.0939 3.30045 12.0203 3.15826 11.9097 3.04765C11.7991 2.93703 11.6569 2.86343 11.5027 2.83698C11.3486 2.81053 11.19 2.83252 11.0488 2.89994L7.51865 6.36957C7.37699 6.51141 7.29742 6.70367 7.29742 6.90414C7.29742 7.1046 7.37699 7.29686 7.51865 7.4387L11.0488 10.9689Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(KeyboardDoubleArrowLeftIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/angledoubleright/index.mjs b/angledoubleright/index.mjs
+index 88d81869dd4f1c09a9158b44eca8fec0bc8225db..b7a87243907a22d2bb2ca12c0e19d96b7a8c27c6 100644
+--- a/angledoubleright/index.mjs
++++ b/angledoubleright/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { KeyboardDoubleArrowRightIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'AngleDoubleRightIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M7.68757 11.1451C7.7791 11.1831 7.8773 11.2024 7.9764 11.2019C8.07769 11.1985 8.17721 11.1745 8.26886 11.1312C8.36052 11.088 8.44238 11.0265 8.50943 10.9505L12.0294 7.49085C12.1707 7.34942 12.25 7.15771 12.25 6.95782C12.25 6.75794 12.1707 6.56622 12.0294 6.42479L8.50943 2.90479C8.37014 2.82159 8.20774 2.78551 8.04633 2.80192C7.88491 2.81833 7.73309 2.88635 7.6134 2.99588C7.4937 3.10541 7.41252 3.25061 7.38189 3.40994C7.35126 3.56927 7.37282 3.73423 7.44337 3.88033L10.4605 6.89748L7.44337 9.91463C7.30212 10.0561 7.22278 10.2478 7.22278 10.4477C7.22278 10.6475 7.30212 10.8393 7.44337 10.9807C7.51301 11.0512 7.59603 11.1071 7.68757 11.1451ZM1.94207 10.9505C2.07037 11.0968 2.25089 11.1871 2.44493 11.2019C2.63898 11.1871 2.81949 11.0968 2.94779 10.9505L6.46779 7.49085C6.60905 7.34942 6.68839 7.15771 6.68839 6.95782C6.68839 6.75793 6.60905 6.56622 6.46779 6.42479L2.94779 2.90479C2.80704 2.83757 2.6489 2.81563 2.49517 2.84201C2.34143 2.86839 2.19965 2.94178 2.08936 3.05207C1.97906 3.16237 1.90567 3.30415 1.8793 3.45788C1.85292 3.61162 1.87485 3.76975 1.94207 3.9105L4.95922 6.92765L1.94207 9.9448C1.81838 10.0831 1.75 10.2621 1.75 10.4477C1.75 10.6332 1.81838 10.8122 1.94207 10.9505Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(KeyboardDoubleArrowRightIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/angledoubleup/index.mjs b/angledoubleup/index.mjs
+index 06a1d6f0de04eddec2b8b7458bf31f1a698694b0..1f8701c02f501cbbc0973ee171cf08a1578927eb 100644
+--- a/angledoubleup/index.mjs
++++ b/angledoubleup/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { KeyboardDoubleArrowUpIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'AngleDoubleUpIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M10.1504 6.67719C10.2417 6.71508 10.3396 6.73436 10.4385 6.73389C10.6338 6.74289 10.8249 6.67441 10.97 6.54334C11.1109 6.4023 11.19 6.21112 11.19 6.01178C11.19 5.81245 11.1109 5.62127 10.97 5.48023L7.45977 1.96998C7.31873 1.82912 7.12755 1.75 6.92821 1.75C6.72888 1.75 6.5377 1.82912 6.39666 1.96998L2.9165 5.45014C2.83353 5.58905 2.79755 5.751 2.81392 5.91196C2.83028 6.07293 2.89811 6.22433 3.00734 6.34369C3.11656 6.46306 3.26137 6.54402 3.42025 6.57456C3.57914 6.60511 3.74364 6.5836 3.88934 6.51325L6.89813 3.50446L9.90691 6.51325C9.97636 6.58357 10.0592 6.6393 10.1504 6.67719ZM9.93702 11.9993C10.065 12.1452 10.245 12.2352 10.4385 12.25C10.632 12.2352 10.812 12.1452 10.9399 11.9993C11.0633 11.8614 11.1315 11.6828 11.1315 11.4978C11.1315 11.3128 11.0633 11.1342 10.9399 10.9963L7.48987 7.48609C7.34883 7.34523 7.15765 7.26611 6.95832 7.26611C6.75899 7.26611 6.5678 7.34523 6.42677 7.48609L2.91652 10.9963C2.84948 11.1367 2.82761 11.2944 2.85391 11.4477C2.88022 11.601 2.9534 11.7424 3.06339 11.8524C3.17338 11.9624 3.31477 12.0356 3.46808 12.0619C3.62139 12.0882 3.77908 12.0663 3.91945 11.9993L6.92823 8.99048L9.93702 11.9993Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(KeyboardDoubleArrowUpIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/angledown/index.mjs b/angledown/index.mjs
+index 1675b46cedd45353ea791ec144e8460e1260b1ca..60b0b58c7c727ed6c77905500d9ef8958dccf6a5 100644
+--- a/angledown/index.mjs
++++ b/angledown/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { KeyboardArrowDownIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'AngleDownIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M3.58659 4.5007C3.68513 4.50023 3.78277 4.51945 3.87379 4.55723C3.9648 4.59501 4.04735 4.65058 4.11659 4.7207L7.11659 7.7207L10.1166 4.7207C10.2619 4.65055 10.4259 4.62911 10.5843 4.65956C10.7427 4.69002 10.8871 4.77074 10.996 4.88976C11.1049 5.00877 11.1726 5.15973 11.1889 5.32022C11.2052 5.48072 11.1693 5.6422 11.0866 5.7807L7.58659 9.2807C7.44597 9.42115 7.25534 9.50004 7.05659 9.50004C6.85784 9.50004 6.66722 9.42115 6.52659 9.2807L3.02659 5.7807C2.88614 5.64007 2.80725 5.44945 2.80725 5.2507C2.80725 5.05195 2.88614 4.86132 3.02659 4.7207C3.09932 4.64685 3.18675 4.58911 3.28322 4.55121C3.37969 4.51331 3.48305 4.4961 3.58659 4.5007Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(KeyboardArrowDownIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/angleleft/index.mjs b/angleleft/index.mjs
+index e92ebf38b8b98f7f558c6e510c64394d290218e6..0854289de9d47f36a7b9ab6335ac345ee2e9c228 100644
+--- a/angleleft/index.mjs
++++ b/angleleft/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { KeyboardArrowLeftIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'AngleLeftIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M8.75 11.185C8.65146 11.1854 8.55381 11.1662 8.4628 11.1284C8.37179 11.0906 8.28924 11.0351 8.22 10.965L4.72 7.46496C4.57955 7.32433 4.50066 7.13371 4.50066 6.93496C4.50066 6.73621 4.57955 6.54558 4.72 6.40496L8.22 2.93496C8.36095 2.84357 8.52851 2.80215 8.69582 2.81733C8.86312 2.83252 9.02048 2.90344 9.14268 3.01872C9.26487 3.134 9.34483 3.28696 9.36973 3.4531C9.39463 3.61924 9.36303 3.78892 9.28 3.93496L6.28 6.93496L9.28 9.93496C9.42045 10.0756 9.49934 10.2662 9.49934 10.465C9.49934 10.6637 9.42045 10.8543 9.28 10.995C9.13526 11.1257 8.9448 11.1939 8.75 11.185Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(KeyboardArrowLeftIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/angleright/index.mjs b/angleright/index.mjs
+index 370016e20060037a37349ed86d88ef2edc73972d..afc0c74068b1ade70c6e97705f8db13f1f0845c0 100644
+--- a/angleright/index.mjs
++++ b/angleright/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { KeyboardArrowRightIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'AngleRightIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M5.25 11.1728C5.14929 11.1694 5.05033 11.1455 4.9592 11.1025C4.86806 11.0595 4.78666 10.9984 4.72 10.9228C4.57955 10.7822 4.50066 10.5916 4.50066 10.3928C4.50066 10.1941 4.57955 10.0035 4.72 9.86283L7.72 6.86283L4.72 3.86283C4.66067 3.71882 4.64765 3.55991 4.68275 3.40816C4.71785 3.25642 4.79932 3.11936 4.91585 3.01602C5.03238 2.91268 5.17819 2.84819 5.33305 2.83149C5.4879 2.81479 5.64411 2.84671 5.78 2.92283L9.28 6.42283C9.42045 6.56346 9.49934 6.75408 9.49934 6.95283C9.49934 7.15158 9.42045 7.34221 9.28 7.48283L5.78 10.9228C5.71333 10.9984 5.63193 11.0595 5.5408 11.1025C5.44966 11.1455 5.35071 11.1694 5.25 11.1728Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(KeyboardArrowRightIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/angleup/index.mjs b/angleup/index.mjs
+index db60945ce0067ab76c6da06d4eb24f55a5c256e9..525f0f648b1a2a7a8ec5190a93e21ccb648ed4b2 100644
+--- a/angleup/index.mjs
++++ b/angleup/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { KeyboardArrowUpIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'AngleUpIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M10.4134 9.49931C10.3148 9.49977 10.2172 9.48055 10.1262 9.44278C10.0352 9.405 9.95263 9.34942 9.88338 9.27931L6.88338 6.27931L3.88338 9.27931C3.73811 9.34946 3.57409 9.3709 3.41567 9.34044C3.25724 9.30999 3.11286 9.22926 3.00395 9.11025C2.89504 8.99124 2.82741 8.84028 2.8111 8.67978C2.79478 8.51928 2.83065 8.35781 2.91338 8.21931L6.41338 4.71931C6.55401 4.57886 6.74463 4.49997 6.94338 4.49997C7.14213 4.49997 7.33276 4.57886 7.47338 4.71931L10.9734 8.21931C11.1138 8.35994 11.1927 8.55056 11.1927 8.74931C11.1927 8.94806 11.1138 9.13868 10.9734 9.27931C10.9007 9.35315 10.8132 9.41089 10.7168 9.44879C10.6203 9.48669 10.5169 9.5039 10.4134 9.49931Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(KeyboardArrowUpIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/arrowdown/index.mjs b/arrowdown/index.mjs
+index 3fcd3adb1d6bf61fa75a6ad39f6c519cef51637d..dd479407cda02d6e1d6a510fbedcf4d0863fe134 100644
+--- a/arrowdown/index.mjs
++++ b/arrowdown/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { ArrowDownwardFillIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'ArrowDownIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M6.99994 14C6.91097 14.0004 6.82281 13.983 6.74064 13.9489C6.65843 13.9148 6.58387 13.8646 6.52133 13.8013L1.10198 8.38193C0.982318 8.25351 0.917175 8.08367 0.920272 7.90817C0.923368 7.73267 0.994462 7.56523 1.11858 7.44111C1.24269 7.317 1.41014 7.2459 1.58563 7.2428C1.76113 7.23971 1.93098 7.30485 2.0594 7.42451L6.32263 11.6877V0.677419C6.32263 0.497756 6.394 0.325452 6.52104 0.198411C6.64808 0.0713706 6.82039 0 7.00005 0C7.17971 0 7.35202 0.0713706 7.47906 0.198411C7.6061 0.325452 7.67747 0.497756 7.67747 0.677419V11.6877L11.9407 7.42451C12.0691 7.30485 12.2389 7.23971 12.4144 7.2428C12.5899 7.2459 12.7574 7.317 12.8815 7.44111C13.0056 7.56523 13.0767 7.73267 13.0798 7.90817C13.0829 8.08367 13.0178 8.25351 12.8981 8.38193L7.47875 13.8013C7.41621 13.8646 7.34164 13.9148 7.25944 13.9489C7.17727 13.983 7.08912 14.0004 7.00015 14C7.00012 14 7.00009 14 7.00005 14C7.00001 14 6.99998 14 6.99994 14Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(ArrowDownwardFillIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/arrowup/index.mjs b/arrowup/index.mjs
+index 3d3aeaf410210105290247c1c4fe13de95406e66..a0cd044ec788d902eb1c4f2fc24a9e80a51a2d6b 100644
+--- a/arrowup/index.mjs
++++ b/arrowup/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { ArrowUpwardFillIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'ArrowUpIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M6.51551 13.799C6.64205 13.9255 6.813 13.9977 6.99193 14C7.17087 13.9977 7.34182 13.9255 7.46835 13.799C7.59489 13.6725 7.66701 13.5015 7.66935 13.3226V2.31233L11.9326 6.57554C11.9951 6.63887 12.0697 6.68907 12.1519 6.72319C12.2341 6.75731 12.3223 6.77467 12.4113 6.77425C12.5003 6.77467 12.5885 6.75731 12.6707 6.72319C12.7529 6.68907 12.8274 6.63887 12.89 6.57554C13.0168 6.44853 13.0881 6.27635 13.0881 6.09683C13.0881 5.91732 13.0168 5.74514 12.89 5.61812L7.48846 0.216594C7.48274 0.210436 7.4769 0.204374 7.47094 0.198411C7.3439 0.0713707 7.1716 0 6.99193 0C6.81227 0 6.63997 0.0713707 6.51293 0.198411C6.50704 0.204296 6.50128 0.210278 6.49563 0.216354L1.09386 5.61812C0.974201 5.74654 0.909057 5.91639 0.912154 6.09189C0.91525 6.26738 0.986345 6.43483 1.11046 6.55894C1.23457 6.68306 1.40202 6.75415 1.57752 6.75725C1.75302 6.76035 1.92286 6.6952 2.05128 6.57554L6.31451 2.31231V13.3226C6.31685 13.5015 6.38898 13.6725 6.51551 13.799Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(ArrowUpwardFillIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/ban/index.mjs b/ban/index.mjs
+index 313b6caa178926f95cec5ceeb2a1160b735312cf..0bc216eb26a2b3992c517f6ecbebde79220db8af 100644
+--- a/ban/index.mjs
++++ b/ban/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { BlockIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'BanIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M7 0C5.61553 0 4.26215 0.410543 3.11101 1.17971C1.95987 1.94888 1.06266 3.04213 0.532846 4.32122C0.00303296 5.6003 -0.13559 7.00776 0.134506 8.36563C0.404603 9.7235 1.07129 10.9708 2.05026 11.9497C3.02922 12.9287 4.2765 13.5954 5.63437 13.8655C6.99224 14.1356 8.3997 13.997 9.67879 13.4672C10.9579 12.9373 12.0511 12.0401 12.8203 10.889C13.5895 9.73785 14 8.38447 14 7C14 5.14348 13.2625 3.36301 11.9497 2.05025C10.637 0.737498 8.85652 0 7 0ZM1.16667 7C1.16549 5.65478 1.63303 4.35118 2.48889 3.31333L10.6867 11.5111C9.83309 12.2112 8.79816 12.6544 7.70243 12.789C6.60669 12.9236 5.49527 12.744 4.49764 12.2713C3.50001 11.7986 2.65724 11.0521 2.06751 10.1188C1.47778 9.18558 1.16537 8.10397 1.16667 7ZM11.5111 10.6867L3.31334 2.48889C4.43144 1.57388 5.84966 1.10701 7.29265 1.1789C8.73565 1.2508 10.1004 1.85633 11.1221 2.87795C12.1437 3.89956 12.7492 5.26435 12.8211 6.70735C12.893 8.15034 12.4261 9.56856 11.5111 10.6867Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(BlockIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/bars/index.mjs b/bars/index.mjs
+index f89fc5aa931403062e3f6411e67c4cc26fa9519c..e1d7932a54dfd2314e919fb6214021559c040153 100644
+--- a/bars/index.mjs
++++ b/bars/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { MenuIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'BarsIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M13.3226 3.6129H0.677419C0.497757 3.6129 0.325452 3.54152 0.198411 3.41448C0.0713707 3.28744 0 3.11514 0 2.93548C0 2.75581 0.0713707 2.58351 0.198411 2.45647C0.325452 2.32943 0.497757 2.25806 0.677419 2.25806H13.3226C13.5022 2.25806 13.6745 2.32943 13.8016 2.45647C13.9286 2.58351 14 2.75581 14 2.93548C14 3.11514 13.9286 3.28744 13.8016 3.41448C13.6745 3.54152 13.5022 3.6129 13.3226 3.6129ZM13.3226 7.67741H0.677419C0.497757 7.67741 0.325452 7.60604 0.198411 7.479C0.0713707 7.35196 0 7.17965 0 6.99999C0 6.82033 0.0713707 6.64802 0.198411 6.52098C0.325452 6.39394 0.497757 6.32257 0.677419 6.32257H13.3226C13.5022 6.32257 13.6745 6.39394 13.8016 6.52098C13.9286 6.64802 14 6.82033 14 6.99999C14 7.17965 13.9286 7.35196 13.8016 7.479C13.6745 7.60604 13.5022 7.67741 13.3226 7.67741ZM0.677419 11.7419H13.3226C13.5022 11.7419 13.6745 11.6706 13.8016 11.5435C13.9286 11.4165 14 11.2442 14 11.0645C14 10.8848 13.9286 10.7125 13.8016 10.5855C13.6745 10.4585 13.5022 10.3871 13.3226 10.3871H0.677419C0.497757 10.3871 0.325452 10.4585 0.198411 10.5855C0.0713707 10.7125 0 10.8848 0 11.0645C0 11.2442 0.0713707 11.4165 0.198411 11.5435C0.325452 11.6706 0.497757 11.7419 0.677419 11.7419Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(MenuIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/calendar/index.mjs b/calendar/index.mjs
+index 84978accae7edf2b565f84439f2de0a2e93c56a7..949bb373050eaf5824becf951e7439a3cc78ea46 100644
+--- a/calendar/index.mjs
++++ b/calendar/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { CalendarTodayIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'CalendarIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M10.7838 1.51351H9.83783V0.567568C9.83783 0.417039 9.77804 0.272676 9.6716 0.166237C9.56516 0.0597971 9.42079 0 9.27027 0C9.11974 0 8.97538 0.0597971 8.86894 0.166237C8.7625 0.272676 8.7027 0.417039 8.7027 0.567568V1.51351H5.29729V0.567568C5.29729 0.417039 5.2375 0.272676 5.13106 0.166237C5.02462 0.0597971 4.88025 0 4.72973 0C4.5792 0 4.43484 0.0597971 4.3284 0.166237C4.22196 0.272676 4.16216 0.417039 4.16216 0.567568V1.51351H3.21621C2.66428 1.51351 2.13494 1.73277 1.74467 2.12305C1.35439 2.51333 1.13513 3.04266 1.13513 3.59459V11.9189C1.13513 12.4709 1.35439 13.0002 1.74467 13.3905C2.13494 13.7807 2.66428 14 3.21621 14H10.7838C11.3357 14 11.865 13.7807 12.2553 13.3905C12.6456 13.0002 12.8649 12.4709 12.8649 11.9189V3.59459C12.8649 3.04266 12.6456 2.51333 12.2553 2.12305C11.865 1.73277 11.3357 1.51351 10.7838 1.51351ZM3.21621 2.64865H4.16216V3.59459C4.16216 3.74512 4.22196 3.88949 4.3284 3.99593C4.43484 4.10237 4.5792 4.16216 4.72973 4.16216C4.88025 4.16216 5.02462 4.10237 5.13106 3.99593C5.2375 3.88949 5.29729 3.74512 5.29729 3.59459V2.64865H8.7027V3.59459C8.7027 3.74512 8.7625 3.88949 8.86894 3.99593C8.97538 4.10237 9.11974 4.16216 9.27027 4.16216C9.42079 4.16216 9.56516 4.10237 9.6716 3.99593C9.77804 3.88949 9.83783 3.74512 9.83783 3.59459V2.64865H10.7838C11.0347 2.64865 11.2753 2.74831 11.4527 2.92571C11.6301 3.10311 11.7297 3.34371 11.7297 3.59459V5.67568H2.27027V3.59459C2.27027 3.34371 2.36993 3.10311 2.54733 2.92571C2.72473 2.74831 2.96533 2.64865 3.21621 2.64865ZM10.7838 12.8649H3.21621C2.96533 12.8649 2.72473 12.7652 2.54733 12.5878C2.36993 12.4104 2.27027 12.1698 2.27027 11.9189V6.81081H11.7297V11.9189C11.7297 12.1698 11.6301 12.4104 11.4527 12.5878C11.2753 12.7652 11.0347 12.8649 10.7838 12.8649Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(CalendarTodayIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/check/index.mjs b/check/index.mjs
+index 39abae5f6a34c53f39c9f74583a0716da5d7ff14..af78ced2fcdfb78ef874211c853708543912789d 100644
+--- a/check/index.mjs
++++ b/check/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { CheckIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'CheckIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M4.86199 11.5948C4.78717 11.5923 4.71366 11.5745 4.64596 11.5426C4.57826 11.5107 4.51779 11.4652 4.46827 11.4091L0.753985 7.69483C0.683167 7.64891 0.623706 7.58751 0.580092 7.51525C0.536478 7.44299 0.509851 7.36177 0.502221 7.27771C0.49459 7.19366 0.506156 7.10897 0.536046 7.03004C0.565935 6.95111 0.613367 6.88 0.674759 6.82208C0.736151 6.76416 0.8099 6.72095 0.890436 6.69571C0.970973 6.67046 1.05619 6.66385 1.13966 6.67635C1.22313 6.68886 1.30266 6.72017 1.37226 6.76792C1.44186 6.81567 1.4997 6.8786 1.54141 6.95197L4.86199 10.2503L12.6397 2.49483C12.7444 2.42694 12.8689 2.39617 12.9932 2.40745C13.1174 2.41873 13.2343 2.47141 13.3251 2.55705C13.4159 2.64268 13.4753 2.75632 13.4938 2.87973C13.5123 3.00315 13.4888 3.1292 13.4271 3.23768L5.2557 11.4091C5.20618 11.4652 5.14571 11.5107 5.07801 11.5426C5.01031 11.5745 4.9368 11.5923 4.86199 11.5948Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(CheckIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/chevrondown/ChevronDownIcon.vue b/chevrondown/ChevronDownIcon.vue
+index 5d2edb29977bba3eaafdee9da5c1422affce86a9..fec5d110230186a9ee9b8f55c1eda5784b9b66dc 100644
+--- a/chevrondown/ChevronDownIcon.vue
++++ b/chevrondown/ChevronDownIcon.vue
+@@ -1,13 +1,9 @@
+ <template>
+-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" v-bind="pti()">
+-        <path
+-            d="M7.01744 10.398C6.91269 10.3985 6.8089 10.378 6.71215 10.3379C6.61541 10.2977 6.52766 10.2386 6.45405 10.1641L1.13907 4.84913C1.03306 4.69404 0.985221 4.5065 1.00399 4.31958C1.02276 4.13266 1.10693 3.95838 1.24166 3.82747C1.37639 3.69655 1.55301 3.61742 1.74039 3.60402C1.92777 3.59062 2.11386 3.64382 2.26584 3.75424L7.01744 8.47394L11.769 3.75424C11.9189 3.65709 12.097 3.61306 12.2748 3.62921C12.4527 3.64535 12.6199 3.72073 12.7498 3.84328C12.8797 3.96582 12.9647 4.12842 12.9912 4.30502C13.0177 4.48162 12.9841 4.662 12.8958 4.81724L7.58083 10.1322C7.50996 10.2125 7.42344 10.2775 7.32656 10.3232C7.22968 10.3689 7.12449 10.3944 7.01744 10.398Z"
+-            fill="currentColor"
+-        />
+-    </svg>
++    <ExpandMoreIcon v-bind="pti()" />
+ </template>
+ <script>
+ import BaseIcon from '@primevue/icons/baseicon';
++import { ExpandMoreIcon } from '@bcc-code/icons-vue';
+ 
+ export default {
+     name: 'ChevronDownIcon',
+diff --git a/chevrondown/index.mjs b/chevrondown/index.mjs
+index 3de2a8a6de578c1e6e55be48cdb1241ee5122d8c..6605be4971c240b63eda2b3288468e30c4365845 100644
+--- a/chevrondown/index.mjs
++++ b/chevrondown/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { ExpandMoreIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'ChevronDownIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M7.01744 10.398C6.91269 10.3985 6.8089 10.378 6.71215 10.3379C6.61541 10.2977 6.52766 10.2386 6.45405 10.1641L1.13907 4.84913C1.03306 4.69404 0.985221 4.5065 1.00399 4.31958C1.02276 4.13266 1.10693 3.95838 1.24166 3.82747C1.37639 3.69655 1.55301 3.61742 1.74039 3.60402C1.92777 3.59062 2.11386 3.64382 2.26584 3.75424L7.01744 8.47394L11.769 3.75424C11.9189 3.65709 12.097 3.61306 12.2748 3.62921C12.4527 3.64535 12.6199 3.72073 12.7498 3.84328C12.8797 3.96582 12.9647 4.12842 12.9912 4.30502C13.0177 4.48162 12.9841 4.662 12.8958 4.81724L7.58083 10.1322C7.50996 10.2125 7.42344 10.2775 7.32656 10.3232C7.22968 10.3689 7.12449 10.3944 7.01744 10.398Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(ExpandMoreIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/chevronleft/index.mjs b/chevronleft/index.mjs
+index e6208a5195bc17e9b0fceceb27b68931304e259e..ea8992855993b78076eef1e68c55ba87bf9696eb 100644
+--- a/chevronleft/index.mjs
++++ b/chevronleft/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { ChevronLeftIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'ChevronLeftIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M9.61296 13C9.50997 13.0005 9.40792 12.9804 9.3128 12.9409C9.21767 12.9014 9.13139 12.8433 9.05902 12.7701L3.83313 7.54416C3.68634 7.39718 3.60388 7.19795 3.60388 6.99022C3.60388 6.78249 3.68634 6.58325 3.83313 6.43628L9.05902 1.21039C9.20762 1.07192 9.40416 0.996539 9.60724 1.00012C9.81032 1.00371 10.0041 1.08597 10.1477 1.22959C10.2913 1.37322 10.3736 1.56698 10.3772 1.77005C10.3808 1.97313 10.3054 2.16968 10.1669 2.31827L5.49496 6.99022L10.1669 11.6622C10.3137 11.8091 10.3962 12.0084 10.3962 12.2161C10.3962 12.4238 10.3137 12.6231 10.1669 12.7701C10.0945 12.8433 10.0083 12.9014 9.91313 12.9409C9.81801 12.9804 9.71596 13.0005 9.61296 13Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(ChevronLeftIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/chevronright/index.mjs b/chevronright/index.mjs
+index fa3cd0c028b2f4dcfa88dee0d743ff46e583b422..c35b465f35ea29f0d3aa57853a1caa2e6130897c 100644
+--- a/chevronright/index.mjs
++++ b/chevronright/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { ChevronRightIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'ChevronRightIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M4.38708 13C4.28408 13.0005 4.18203 12.9804 4.08691 12.9409C3.99178 12.9014 3.9055 12.8433 3.83313 12.7701C3.68634 12.6231 3.60388 12.4238 3.60388 12.2161C3.60388 12.0084 3.68634 11.8091 3.83313 11.6622L8.50507 6.99022L3.83313 2.31827C3.69467 2.16968 3.61928 1.97313 3.62287 1.77005C3.62645 1.56698 3.70872 1.37322 3.85234 1.22959C3.99596 1.08597 4.18972 1.00371 4.3928 1.00012C4.59588 0.996539 4.79242 1.07192 4.94102 1.21039L10.1669 6.43628C10.3137 6.58325 10.3962 6.78249 10.3962 6.99022C10.3962 7.19795 10.3137 7.39718 10.1669 7.54416L4.94102 12.7701C4.86865 12.8433 4.78237 12.9014 4.68724 12.9409C4.59212 12.9804 4.49007 13.0005 4.38708 13Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(ChevronRightIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/chevronup/index.mjs b/chevronup/index.mjs
+index 7c5f289556de49cd6570976858ba6a70054c190d..c1c1d07d32db8fe44d6cd90e94539b10eb9cd398 100644
+--- a/chevronup/index.mjs
++++ b/chevronup/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { ExpandLessIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'ChevronUpIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M12.2097 10.4113C12.1057 10.4118 12.0027 10.3915 11.9067 10.3516C11.8107 10.3118 11.7237 10.2532 11.6506 10.1792L6.93602 5.46461L2.22139 10.1476C2.07272 10.244 1.89599 10.2877 1.71953 10.2717C1.54307 10.2556 1.3771 10.1808 1.24822 10.0593C1.11933 9.93766 1.035 9.77633 1.00874 9.6011C0.982477 9.42587 1.0158 9.2469 1.10338 9.09287L6.37701 3.81923C6.52533 3.6711 6.72639 3.58789 6.93602 3.58789C7.14565 3.58789 7.3467 3.6711 7.49502 3.81923L12.7687 9.09287C12.9168 9.24119 13 9.44225 13 9.65187C13 9.8615 12.9168 10.0626 12.7687 10.2109C12.616 10.3487 12.4151 10.4207 12.2097 10.4113Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(ExpandLessIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/exclamationtriangle/index.mjs b/exclamationtriangle/index.mjs
+index 7289c9ff0f1f90fec328dc086004848f98b1918d..155095234d8226b454ec87d793dc055836ca6779 100644
+--- a/exclamationtriangle/index.mjs
++++ b/exclamationtriangle/index.mjs
+@@ -1,37 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { WarningIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'ExclamationTriangleIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M13.4018 13.1893H0.598161C0.49329 13.189 0.390283 13.1615 0.299143 13.1097C0.208003 13.0578 0.131826 12.9832 0.0780112 12.8932C0.0268539 12.8015 0 12.6982 0 12.5931C0 12.4881 0.0268539 12.3848 0.0780112 12.293L6.47985 1.08982C6.53679 1.00399 6.61408 0.933574 6.70484 0.884867C6.7956 0.836159 6.897 0.810669 7 0.810669C7.103 0.810669 7.2044 0.836159 7.29516 0.884867C7.38592 0.933574 7.46321 1.00399 7.52015 1.08982L13.922 12.293C13.9731 12.3848 14 12.4881 14 12.5931C14 12.6982 13.9731 12.8015 13.922 12.8932C13.8682 12.9832 13.792 13.0578 13.7009 13.1097C13.6097 13.1615 13.5067 13.189 13.4018 13.1893ZM1.63046 11.989H12.3695L7 2.59425L1.63046 11.989Z",
+-    fill: "currentColor"
+-  }, null, -1), createElementVNode("path", {
+-    d: "M6.99996 8.78801C6.84143 8.78594 6.68997 8.72204 6.57787 8.60993C6.46576 8.49782 6.40186 8.34637 6.39979 8.18784V5.38703C6.39979 5.22786 6.46302 5.0752 6.57557 4.96265C6.68813 4.85009 6.84078 4.78686 6.99996 4.78686C7.15914 4.78686 7.31179 4.85009 7.42435 4.96265C7.5369 5.0752 7.60013 5.22786 7.60013 5.38703V8.18784C7.59806 8.34637 7.53416 8.49782 7.42205 8.60993C7.30995 8.72204 7.15849 8.78594 6.99996 8.78801Z",
+-    fill: "currentColor"
+-  }, null, -1), createElementVNode("path", {
+-    d: "M6.99996 11.1887C6.84143 11.1866 6.68997 11.1227 6.57787 11.0106C6.46576 10.8985 6.40186 10.7471 6.39979 10.5885V10.1884C6.39979 10.0292 6.46302 9.87658 6.57557 9.76403C6.68813 9.65147 6.84078 9.58824 6.99996 9.58824C7.15914 9.58824 7.31179 9.65147 7.42435 9.76403C7.5369 9.87658 7.60013 10.0292 7.60013 10.1884V10.5885C7.59806 10.7471 7.53416 10.8985 7.42205 11.0106C7.30995 11.1227 7.15849 11.1866 6.99996 11.1887Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(WarningIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/eye/index.mjs b/eye/index.mjs
+index e1d891a52511d833ebbdee1d4184d58cbf5d6ad0..21e69acdd160c97cf97f4cbc444a584f0988206b 100644
+--- a/eye/index.mjs
++++ b/eye/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { VisibilityIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'EyeIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M0.0535499 7.25213C0.208567 7.59162 2.40413 12.4 7 12.4C11.5959 12.4 13.7914 7.59162 13.9465 7.25213C13.9487 7.2471 13.9506 7.24304 13.952 7.24001C13.9837 7.16396 14 7.08239 14 7.00001C14 6.91762 13.9837 6.83605 13.952 6.76001C13.9506 6.75697 13.9487 6.75292 13.9465 6.74788C13.7914 6.4084 11.5959 1.60001 7 1.60001C2.40413 1.60001 0.208567 6.40839 0.0535499 6.74788C0.0512519 6.75292 0.0494023 6.75697 0.048 6.76001C0.0163137 6.83605 0 6.91762 0 7.00001C0 7.08239 0.0163137 7.16396 0.048 7.24001C0.0494023 7.24304 0.0512519 7.2471 0.0535499 7.25213ZM7 11.2C3.664 11.2 1.736 7.92001 1.264 7.00001C1.736 6.08001 3.664 2.80001 7 2.80001C10.336 2.80001 12.264 6.08001 12.736 7.00001C12.264 7.92001 10.336 11.2 7 11.2ZM5.55551 9.16182C5.98308 9.44751 6.48576 9.6 7 9.6C7.68891 9.59789 8.349 9.32328 8.83614 8.83614C9.32328 8.349 9.59789 7.68891 9.59999 7C9.59999 6.48576 9.44751 5.98308 9.16182 5.55551C8.87612 5.12794 8.47006 4.7947 7.99497 4.59791C7.51988 4.40112 6.99711 4.34963 6.49276 4.44995C5.98841 4.55027 5.52513 4.7979 5.16152 5.16152C4.7979 5.52513 4.55027 5.98841 4.44995 6.49276C4.34963 6.99711 4.40112 7.51988 4.59791 7.99497C4.7947 8.47006 5.12794 8.87612 5.55551 9.16182ZM6.2222 5.83594C6.45243 5.6821 6.7231 5.6 7 5.6C7.37065 5.6021 7.72553 5.75027 7.98762 6.01237C8.24972 6.27446 8.39789 6.62934 8.4 7C8.4 7.27689 8.31789 7.54756 8.16405 7.77779C8.01022 8.00802 7.79157 8.18746 7.53575 8.29343C7.27994 8.39939 6.99844 8.42711 6.72687 8.37309C6.4553 8.31908 6.20584 8.18574 6.01005 7.98994C5.81425 7.79415 5.68091 7.54469 5.6269 7.27312C5.57288 7.00155 5.6006 6.72006 5.70656 6.46424C5.81253 6.20842 5.99197 5.98977 6.2222 5.83594Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(VisibilityIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/eyeslash/index.mjs b/eyeslash/index.mjs
+index 109a88731db481b3e258134ba0dba580734e92f3..360e6ba6895694e45d8e3e4318c06bf04e6022b7 100644
+--- a/eyeslash/index.mjs
++++ b/eyeslash/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { VisibilityOffIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'EyeSlashIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M13.9414 6.74792C13.9437 6.75295 13.9455 6.757 13.9469 6.76003C13.982 6.8394 14.0001 6.9252 14.0001 7.01195C14.0001 7.0987 13.982 7.1845 13.9469 7.26386C13.6004 8.00059 13.1711 8.69549 12.6674 9.33515C12.6115 9.4071 12.54 9.46538 12.4582 9.50556C12.3765 9.54574 12.2866 9.56678 12.1955 9.56707C12.0834 9.56671 11.9737 9.53496 11.8788 9.47541C11.7838 9.41586 11.7074 9.3309 11.6583 9.23015C11.6092 9.12941 11.5893 9.01691 11.6008 8.90543C11.6124 8.79394 11.6549 8.68793 11.7237 8.5994C12.1065 8.09726 12.4437 7.56199 12.7313 6.99995C12.2595 6.08027 10.3402 2.8014 6.99732 2.8014C6.63723 2.80218 6.27816 2.83969 5.92569 2.91336C5.77666 2.93304 5.62568 2.89606 5.50263 2.80972C5.37958 2.72337 5.29344 2.59398 5.26125 2.44714C5.22907 2.30031 5.2532 2.14674 5.32885 2.01685C5.40451 1.88696 5.52618 1.79021 5.66978 1.74576C6.10574 1.64961 6.55089 1.60134 6.99732 1.60181C11.5916 1.60181 13.7864 6.40856 13.9414 6.74792ZM2.20333 1.61685C2.35871 1.61411 2.5091 1.67179 2.6228 1.77774L12.2195 11.3744C12.3318 11.4869 12.3949 11.6393 12.3949 11.7983C12.3949 11.9572 12.3318 12.1097 12.2195 12.2221C12.107 12.3345 11.9546 12.3976 11.7956 12.3976C11.6367 12.3976 11.4842 12.3345 11.3718 12.2221L10.5081 11.3584C9.46549 12.0426 8.24432 12.4042 6.99729 12.3981C2.403 12.3981 0.208197 7.59135 0.0532336 7.25198C0.0509364 7.24694 0.0490875 7.2429 0.0476856 7.23986C0.0162332 7.16518 3.05176e-05 7.08497 3.05176e-05 7.00394C3.05176e-05 6.92291 0.0162332 6.8427 0.0476856 6.76802C0.631261 5.47831 1.46902 4.31959 2.51084 3.36119L1.77509 2.62545C1.66914 2.51175 1.61146 2.36136 1.61421 2.20597C1.61695 2.05059 1.6799 1.90233 1.78979 1.79244C1.89968 1.68254 2.04794 1.6196 2.20333 1.61685ZM7.45314 8.35147L5.68574 6.57609V6.5361C5.5872 6.78938 5.56498 7.06597 5.62183 7.33173C5.67868 7.59749 5.8121 7.84078 6.00563 8.03158C6.19567 8.21043 6.43052 8.33458 6.68533 8.39089C6.94014 8.44721 7.20543 8.43359 7.45314 8.35147ZM1.26327 6.99994C1.7351 7.91163 3.64645 11.1985 6.99729 11.1985C7.9267 11.2048 8.8408 10.9618 9.64438 10.4947L8.35682 9.20718C7.86027 9.51441 7.27449 9.64491 6.69448 9.57752C6.11446 9.51014 5.57421 9.24881 5.16131 8.83592C4.74842 8.42303 4.4871 7.88277 4.41971 7.30276C4.35232 6.72274 4.48282 6.13697 4.79005 5.64041L3.35855 4.2089C2.4954 5.00336 1.78523 5.94935 1.26327 6.99994Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(VisibilityOffIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/filter/index.mjs b/filter/index.mjs
+index 29825da3524f5db1792e90bc24417786284a8f2c..15155a7eeae6f4b983b48a740b6142ddb63106a7 100644
+--- a/filter/index.mjs
++++ b/filter/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { FilterAltIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'FilterIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M8.64708 14H5.35296C5.18981 13.9979 5.03395 13.9321 4.91858 13.8167C4.8032 13.7014 4.73745 13.5455 4.73531 13.3824V7L0.329431 0.98C0.259794 0.889466 0.217389 0.780968 0.20718 0.667208C0.19697 0.553448 0.219379 0.439133 0.271783 0.337647C0.324282 0.236453 0.403423 0.151519 0.500663 0.0920138C0.597903 0.0325088 0.709548 0.000692754 0.823548 0H13.1765C13.2905 0.000692754 13.4021 0.0325088 13.4994 0.0920138C13.5966 0.151519 13.6758 0.236453 13.7283 0.337647C13.7807 0.439133 13.8031 0.553448 13.7929 0.667208C13.7826 0.780968 13.7402 0.889466 13.6706 0.98L9.26472 7V13.3824C9.26259 13.5455 9.19683 13.7014 9.08146 13.8167C8.96609 13.9321 8.81022 13.9979 8.64708 14ZM5.97061 12.7647H8.02943V6.79412C8.02878 6.66289 8.07229 6.53527 8.15296 6.43177L11.9412 1.23529H2.05884L5.86355 6.43177C5.94422 6.53527 5.98773 6.66289 5.98708 6.79412L5.97061 12.7647Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(FilterAltIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/filterfill/index.mjs b/filterfill/index.mjs
+index 35622cf855df4801094be32580535ea9cb898f84..8f57949c91505d26d818631ba457551d2308cc69 100644
+--- a/filterfill/index.mjs
++++ b/filterfill/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { FilterAltFillIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'FilterFillIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M13.7274 0.33847C13.6228 0.130941 13.4095 0 13.1764 0H0.82351C0.590451 0 0.377157 0.130941 0.272568 0.33847C0.167157 0.545999 0.187746 0.795529 0.325275 0.98247L4.73527 6.99588V13.3824C4.73527 13.7233 5.01198 14 5.35292 14H8.64704C8.98798 14 9.26469 13.7233 9.26469 13.3824V6.99588L13.6747 0.98247C13.8122 0.795529 13.8328 0.545999 13.7274 0.33847Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(FilterAltFillIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/filterslash/index.mjs b/filterslash/index.mjs
+index dc76d8ef5338146eed395de3df100d1e4c245d0e..cee541ea7d1b1251fd12312cb8de55c2381be474 100644
+--- a/filterslash/index.mjs
++++ b/filterslash/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { FilterAltOffIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'FilterSlashIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M13.4994 0.0920138C13.5967 0.151519 13.6758 0.236453 13.7283 0.337647C13.7807 0.439133 13.8031 0.553448 13.7929 0.667208C13.7827 0.780968 13.7403 0.889466 13.6707 0.98L11.406 4.06823C11.3099 4.19928 11.1656 4.28679 11.005 4.3115C10.8444 4.33621 10.6805 4.2961 10.5495 4.2C10.4184 4.1039 10.3309 3.95967 10.3062 3.79905C10.2815 3.63843 10.3216 3.47458 10.4177 3.34353L11.9412 1.23529H7.41184C7.24803 1.23529 7.09093 1.17022 6.97509 1.05439C6.85926 0.938558 6.79419 0.781457 6.79419 0.617647C6.79419 0.453837 6.85926 0.296736 6.97509 0.180905C7.09093 0.0650733 7.24803 0 7.41184 0H13.1765C13.2905 0.000692754 13.4022 0.0325088 13.4994 0.0920138ZM4.20008 0.181168H4.24126L13.2013 9.03411C13.3169 9.14992 13.3819 9.3069 13.3819 9.47058C13.3819 9.63426 13.3169 9.79124 13.2013 9.90705C13.1445 9.96517 13.0766 10.0112 13.0016 10.0423C12.9266 10.0735 12.846 10.0891 12.7648 10.0882C12.6836 10.0886 12.6032 10.0728 12.5283 10.0417C12.4533 10.0106 12.3853 9.96479 12.3283 9.90705L9.3142 6.92587L9.26479 6.99999V13.3823C9.26265 13.5455 9.19689 13.7014 9.08152 13.8167C8.96615 13.9321 8.81029 13.9979 8.64714 14H5.35302C5.18987 13.9979 5.03401 13.9321 4.91864 13.8167C4.80327 13.7014 4.73751 13.5455 4.73537 13.3823V6.99999L0.329492 1.02117C0.259855 0.930634 0.21745 0.822137 0.207241 0.708376C0.197031 0.594616 0.21944 0.480301 0.271844 0.378815C0.324343 0.277621 0.403484 0.192687 0.500724 0.133182C0.597964 0.073677 0.709609 0.041861 0.823609 0.0411682H3.86243C3.92448 0.0461551 3.9855 0.060022 4.04361 0.0823446C4.10037 0.10735 4.15311 0.140655 4.20008 0.181168ZM8.02949 6.79411C8.02884 6.66289 8.07235 6.53526 8.15302 6.43176L8.42478 6.05293L3.55773 1.23529H2.0589L5.84714 6.43176C5.92781 6.53526 5.97132 6.66289 5.97067 6.79411V12.7647H8.02949V6.79411Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(FilterAltOffIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/index.mjs b/index.mjs
+index 02ae3e153cea65a8974385f4b2954d267c7eb017..b6a880501db0f6c6f38b4b8b9177da04c44096fd 100644
+--- a/index.mjs
++++ b/index.mjs
+@@ -1,73 +1,41 @@
+-export * from '@primevue/icons/angledoubledown';
+-export { default as AngleDoubleDownIcon } from '@primevue/icons/angledoubledown';
+-export * from '@primevue/icons/angledoubleleft';
+-export { default as AngleDoubleLeftIcon } from '@primevue/icons/angledoubleleft';
+-export * from '@primevue/icons/angledoubleright';
+-export { default as AngleDoubleRightIcon } from '@primevue/icons/angledoubleright';
+-export * from '@primevue/icons/angledoubleup';
+-export { default as AngleDoubleUpIcon } from '@primevue/icons/angledoubleup';
+-export * from '@primevue/icons/angledown';
+-export { default as AngleDownIcon } from '@primevue/icons/angledown';
+-export * from '@primevue/icons/angleleft';
+-export { default as AngleLeftIcon } from '@primevue/icons/angleleft';
+-export * from '@primevue/icons/angleright';
+-export { default as AngleRightIcon } from '@primevue/icons/angleright';
+-export * from '@primevue/icons/angleup';
+-export { default as AngleUpIcon } from '@primevue/icons/angleup';
+-export * from '@primevue/icons/arrowdown';
+-export { default as ArrowDownIcon } from '@primevue/icons/arrowdown';
+-export * from '@primevue/icons/arrowup';
+-export { default as ArrowUpIcon } from '@primevue/icons/arrowup';
+-export * from '@primevue/icons/ban';
+-export { default as BanIcon } from '@primevue/icons/ban';
+-export * from '@primevue/icons/bars';
+-export { default as BarsIcon } from '@primevue/icons/bars';
++export { KeyboardDoubleArrowDownIcon as AngleDoubleDownIcon } from '@bcc-code/icons-vue';
++export { KeyboardDoubleArrowLeftIcon as AngleDoubleLeftIcon } from '@bcc-code/icons-vue';
++export { KeyboardDoubleArrowRightIcon as AngleDoubleRightIcon } from '@bcc-code/icons-vue';
++export { KeyboardDoubleArrowUpIcon as AngleDoubleUpIcon } from '@bcc-code/icons-vue';
++export { KeyboardArrowDownIcon as AngleDownIcon } from '@bcc-code/icons-vue';
++export { KeyboardArrowLeftIcon as AngleLeftIcon } from '@bcc-code/icons-vue';
++export { KeyboardArrowRightIcon as AngleRightIcon } from '@bcc-code/icons-vue';
++export { KeyboardArrowUpIcon as AngleUpIcon } from '@bcc-code/icons-vue';
++export { ArrowDownwardFillIcon as ArrowDownIcon } from '@bcc-code/icons-vue';
++export { ArrowUpwardFillIcon as ArrowUpIcon } from '@bcc-code/icons-vue';
++export { BlockIcon as BanIcon } from '@bcc-code/icons-vue';
++export { MenuIcon as BarsIcon } from '@bcc-code/icons-vue';
+ export * from '@primevue/icons/baseicon';
+ export { default as BaseIcon } from '@primevue/icons/baseicon';
+ export * from '@primevue/icons/baseicon/style';
+ export { default as BaseIconStyle } from '@primevue/icons/baseicon/style';
+ export * from '@primevue/icons/blank';
+ export { default as BlankIcon } from '@primevue/icons/blank';
+-export * from '@primevue/icons/calendar';
+-export { default as CalendarIcon } from '@primevue/icons/calendar';
+-export * from '@primevue/icons/check';
+-export { default as CheckIcon } from '@primevue/icons/check';
+-export * from '@primevue/icons/chevrondown';
+-export { default as ChevronDownIcon } from '@primevue/icons/chevrondown';
+-export * from '@primevue/icons/chevronleft';
+-export { default as ChevronLeftIcon } from '@primevue/icons/chevronleft';
+-export * from '@primevue/icons/chevronright';
+-export { default as ChevronRightIcon } from '@primevue/icons/chevronright';
+-export * from '@primevue/icons/chevronup';
+-export { default as ChevronUpIcon } from '@primevue/icons/chevronup';
+-export * from '@primevue/icons/exclamationtriangle';
+-export { default as ExclamationTriangleIcon } from '@primevue/icons/exclamationtriangle';
+-export * from '@primevue/icons/eye';
+-export { default as EyeIcon } from '@primevue/icons/eye';
+-export * from '@primevue/icons/eyeslash';
+-export { default as EyeSlashIcon } from '@primevue/icons/eyeslash';
+-export * from '@primevue/icons/filter';
+-export { default as FilterIcon } from '@primevue/icons/filter';
+-export * from '@primevue/icons/filterfill';
+-export { default as FilterFillIcon } from '@primevue/icons/filterfill';
+-export * from '@primevue/icons/filterslash';
+-export { default as FilterSlashIcon } from '@primevue/icons/filterslash';
+-export * from '@primevue/icons/infocircle';
+-export { default as InfoCircleIcon } from '@primevue/icons/infocircle';
+-export * from '@primevue/icons/minus';
+-export { default as MinusIcon } from '@primevue/icons/minus';
+-export * from '@primevue/icons/pencil';
+-export { default as PencilIcon } from '@primevue/icons/pencil';
+-export * from '@primevue/icons/plus';
+-export { default as PlusIcon } from '@primevue/icons/plus';
+-export * from '@primevue/icons/refresh';
+-export { default as RefreshIcon } from '@primevue/icons/refresh';
+-export * from '@primevue/icons/search';
+-export { default as SearchIcon } from '@primevue/icons/search';
+-export * from '@primevue/icons/searchminus';
+-export { default as SearchMinusIcon } from '@primevue/icons/searchminus';
+-export * from '@primevue/icons/searchplus';
+-export { default as SearchPlusIcon } from '@primevue/icons/searchplus';
++export { CalendarTodayIcon as CalendarIcon } from '@bcc-code/icons-vue';
++export { CheckIcon as CheckIcon } from '@bcc-code/icons-vue';
++export { ExpandMoreIcon as ChevronDownIcon } from '@bcc-code/icons-vue';
++export { ChevronLeftIcon as ChevronLeftIcon } from '@bcc-code/icons-vue';
++export { ChevronRightIcon as ChevronRightIcon } from '@bcc-code/icons-vue';
++export { ExpandLessIcon as ChevronUpIcon } from '@bcc-code/icons-vue';
++export { WarningIcon as ExclamationTriangleIcon } from '@bcc-code/icons-vue';
++export { VisibilityIcon as EyeIcon } from '@bcc-code/icons-vue';
++export { VisibilityOffIcon as EyeSlashIcon } from '@bcc-code/icons-vue';
++export { FilterAltIcon as FilterIcon } from '@bcc-code/icons-vue';
++export { FilterAltFillIcon as FilterFillIcon } from '@bcc-code/icons-vue';
++export { FilterAltOffIcon as FilterSlashIcon } from '@bcc-code/icons-vue';
++export { InfoIcon as InfoCircleIcon } from '@bcc-code/icons-vue';
++export { RemoveIcon as MinusIcon } from '@bcc-code/icons-vue';
++export { EditIcon as PencilIcon } from '@bcc-code/icons-vue';
++export { AddIcon as PlusIcon } from '@bcc-code/icons-vue';
++export { RefreshIcon as RefreshIcon } from '@bcc-code/icons-vue';
++export { SearchIcon as SearchIcon } from '@bcc-code/icons-vue';
++export { ZoomOutIcon as SearchMinusIcon } from '@bcc-code/icons-vue';
++export { ZoomInIcon as SearchPlusIcon } from '@bcc-code/icons-vue';
+ export * from '@primevue/icons/sortalt';
+ export { default as SortAltIcon } from '@primevue/icons/sortalt';
+ export * from '@primevue/icons/sortamountdown';
+@@ -76,22 +44,14 @@ export * from '@primevue/icons/sortamountupalt';
+ export { default as SortAmountUpAltIcon } from '@primevue/icons/sortamountupalt';
+ export * from '@primevue/icons/spinner';
+ export { default as SpinnerIcon } from '@primevue/icons/spinner';
+-export * from '@primevue/icons/star';
+-export { default as StarIcon } from '@primevue/icons/star';
+-export * from '@primevue/icons/starfill';
+-export { default as StarFillIcon } from '@primevue/icons/starfill';
+-export * from '@primevue/icons/thlarge';
+-export { default as ThLargeIcon } from '@primevue/icons/thlarge';
+-export * from '@primevue/icons/times';
+-export { default as TimesIcon } from '@primevue/icons/times';
+-export * from '@primevue/icons/timescircle';
+-export { default as TimesCircleIcon } from '@primevue/icons/timescircle';
+-export * from '@primevue/icons/trash';
+-export { default as TrashIcon } from '@primevue/icons/trash';
+-export * from '@primevue/icons/undo';
+-export { default as UndoIcon } from '@primevue/icons/undo';
+-export * from '@primevue/icons/upload';
+-export { default as UploadIcon } from '@primevue/icons/upload';
++export { StarIcon as StarIcon } from '@bcc-code/icons-vue';
++export { StarFillIcon as StarFillIcon } from '@bcc-code/icons-vue';
++export { GridViewIcon as ThLargeIcon } from '@bcc-code/icons-vue';
++export { CloseIcon as TimesIcon } from '@bcc-code/icons-vue';
++export { CancelIcon as TimesCircleIcon } from '@bcc-code/icons-vue';
++export { DeleteIcon as TrashIcon } from '@bcc-code/icons-vue';
++export { UndoIcon as UndoIcon } from '@bcc-code/icons-vue';
++export { UploadIcon as UploadIcon } from '@bcc-code/icons-vue';
+ export * from '@primevue/icons/windowmaximize';
+ export { default as WindowMaximizeIcon } from '@primevue/icons/windowmaximize';
+ export * from '@primevue/icons/windowminimize';
+diff --git a/infocircle/index.mjs b/infocircle/index.mjs
+index d7d7585275d9475d3df848005ba14a065e0d6f90..5ad2df983b91ed59746145ee5f601900b3d89753 100644
+--- a/infocircle/index.mjs
++++ b/infocircle/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { InfoIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'InfoCircleIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M3.11101 12.8203C4.26215 13.5895 5.61553 14 7 14C8.85652 14 10.637 13.2625 11.9497 11.9497C13.2625 10.637 14 8.85652 14 7C14 5.61553 13.5895 4.26215 12.8203 3.11101C12.0511 1.95987 10.9579 1.06266 9.67879 0.532846C8.3997 0.00303296 6.99224 -0.13559 5.63437 0.134506C4.2765 0.404603 3.02922 1.07129 2.05026 2.05026C1.07129 3.02922 0.404603 4.2765 0.134506 5.63437C-0.13559 6.99224 0.00303296 8.3997 0.532846 9.67879C1.06266 10.9579 1.95987 12.0511 3.11101 12.8203ZM3.75918 2.14976C4.71846 1.50879 5.84628 1.16667 7 1.16667C8.5471 1.16667 10.0308 1.78125 11.1248 2.87521C12.2188 3.96918 12.8333 5.45291 12.8333 7C12.8333 8.15373 12.4912 9.28154 11.8502 10.2408C11.2093 11.2001 10.2982 11.9478 9.23232 12.3893C8.16642 12.8308 6.99353 12.9463 5.86198 12.7212C4.73042 12.4962 3.69102 11.9406 2.87521 11.1248C2.05941 10.309 1.50384 9.26958 1.27876 8.13803C1.05367 7.00647 1.16919 5.83358 1.61071 4.76768C2.05222 3.70178 2.79989 2.79074 3.75918 2.14976ZM7.00002 4.8611C6.84594 4.85908 6.69873 4.79698 6.58977 4.68801C6.48081 4.57905 6.4187 4.43185 6.41669 4.27776V3.88888C6.41669 3.73417 6.47815 3.58579 6.58754 3.4764C6.69694 3.367 6.84531 3.30554 7.00002 3.30554C7.15473 3.30554 7.3031 3.367 7.4125 3.4764C7.52189 3.58579 7.58335 3.73417 7.58335 3.88888V4.27776C7.58134 4.43185 7.51923 4.57905 7.41027 4.68801C7.30131 4.79698 7.1541 4.85908 7.00002 4.8611ZM7.00002 10.6945C6.84594 10.6925 6.69873 10.6304 6.58977 10.5214C6.48081 10.4124 6.4187 10.2652 6.41669 10.1111V6.22225C6.41669 6.06754 6.47815 5.91917 6.58754 5.80977C6.69694 5.70037 6.84531 5.63892 7.00002 5.63892C7.15473 5.63892 7.3031 5.70037 7.4125 5.80977C7.52189 5.91917 7.58335 6.06754 7.58335 6.22225V10.1111C7.58134 10.2652 7.51923 10.4124 7.41027 10.5214C7.30131 10.6304 7.1541 10.6925 7.00002 10.6945Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(InfoIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/minus/index.mjs b/minus/index.mjs
+index 7f350456189505fc9af2f0fa3b487a40ad3c257b..ebe55bb889ab4e3c76d08fb7dadbd6e85eea05db 100644
+--- a/minus/index.mjs
++++ b/minus/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { RemoveIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'MinusIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M13.2222 7.77778H0.777778C0.571498 7.77778 0.373667 7.69584 0.227806 7.54998C0.0819442 7.40412 0 7.20629 0 7.00001C0 6.79373 0.0819442 6.5959 0.227806 6.45003C0.373667 6.30417 0.571498 6.22223 0.777778 6.22223H13.2222C13.4285 6.22223 13.6263 6.30417 13.7722 6.45003C13.9181 6.5959 14 6.79373 14 7.00001C14 7.20629 13.9181 7.40412 13.7722 7.54998C13.6263 7.69584 13.4285 7.77778 13.2222 7.77778Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(RemoveIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/pencil/index.mjs b/pencil/index.mjs
+index 7d0b0dfc15eeaf5e833daf5a44e40cbe1f25a274..610932bf0ec3b0cb194fd4f016f49ae98aaaced8 100644
+--- a/pencil/index.mjs
++++ b/pencil/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { EditIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'PencilIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M0.609628 13.959C0.530658 13.9599 0.452305 13.9451 0.379077 13.9156C0.305849 13.8861 0.239191 13.8424 0.18294 13.787C0.118447 13.7234 0.0688234 13.6464 0.0376166 13.5614C0.00640987 13.4765 -0.00560954 13.3857 0.00241768 13.2956L0.25679 10.1501C0.267698 10.0041 0.331934 9.86709 0.437312 9.76516L9.51265 0.705715C10.0183 0.233014 10.6911 -0.0203041 11.3835 0.00127367C12.0714 0.00660201 12.7315 0.27311 13.2298 0.746671C13.7076 1.23651 13.9824 1.88848 13.9992 2.57201C14.0159 3.25554 13.7733 3.92015 13.32 4.4327L4.23648 13.5331C4.13482 13.6342 4.0017 13.6978 3.85903 13.7133L0.667067 14L0.609628 13.959ZM1.43018 10.4696L1.25787 12.714L3.50619 12.5092L12.4502 3.56444C12.6246 3.35841 12.7361 3.10674 12.7714 2.83933C12.8067 2.57193 12.7644 2.30002 12.6495 2.05591C12.5346 1.8118 12.3519 1.60575 12.1231 1.46224C11.8943 1.31873 11.6291 1.2438 11.3589 1.24633C11.1813 1.23508 11.0033 1.25975 10.8355 1.31887C10.6677 1.37798 10.5136 1.47033 10.3824 1.59036L1.43018 10.4696Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(EditIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/plus/index.mjs b/plus/index.mjs
+index 33fd48339688f82bdf20d9131d04fc5334105996..249d847c6ae7fdab38f1323943714284387f2a12 100644
+--- a/plus/index.mjs
++++ b/plus/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { AddIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'PlusIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M7.67742 6.32258V0.677419C7.67742 0.497757 7.60605 0.325452 7.47901 0.198411C7.35197 0.0713707 7.17966 0 7 0C6.82034 0 6.64803 0.0713707 6.52099 0.198411C6.39395 0.325452 6.32258 0.497757 6.32258 0.677419V6.32258H0.677419C0.497757 6.32258 0.325452 6.39395 0.198411 6.52099C0.0713707 6.64803 0 6.82034 0 7C0 7.17966 0.0713707 7.35197 0.198411 7.47901C0.325452 7.60605 0.497757 7.67742 0.677419 7.67742H6.32258V13.3226C6.32492 13.5015 6.39704 13.6725 6.52358 13.799C6.65012 13.9255 6.82106 13.9977 7 14C7.17966 14 7.35197 13.9286 7.47901 13.8016C7.60605 13.6745 7.67742 13.5022 7.67742 13.3226V7.67742H13.3226C13.5022 7.67742 13.6745 7.60605 13.8016 7.47901C13.9286 7.35197 14 7.17966 14 7C13.9977 6.82106 13.9255 6.65012 13.799 6.52358C13.6725 6.39704 13.5015 6.32492 13.3226 6.32258H7.67742Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(AddIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/refresh/index.mjs b/refresh/index.mjs
+index 4dad5f9efb3b568a6e2a98c8e9be4b91f945119c..f2747d0a8e0a0694f3cdd3bd1bd0c86897a322e2 100644
+--- a/refresh/index.mjs
++++ b/refresh/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { RefreshIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'RefreshIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M6.77051 5.96336C6.84324 5.99355 6.92127 6.00891 7.00002 6.00854C7.07877 6.00891 7.1568 5.99355 7.22953 5.96336C7.30226 5.93317 7.36823 5.88876 7.42357 5.83273L9.82101 3.43529C9.93325 3.32291 9.99629 3.17058 9.99629 3.01175C9.99629 2.85292 9.93325 2.70058 9.82101 2.5882L7.42357 0.190763C7.3687 0.131876 7.30253 0.0846451 7.22901 0.0518865C7.15549 0.019128 7.07612 0.00151319 6.99564 9.32772e-05C6.91517 -0.00132663 6.83523 0.0134773 6.7606 0.0436218C6.68597 0.0737664 6.61817 0.118634 6.56126 0.175548C6.50435 0.232462 6.45948 0.300257 6.42933 0.374888C6.39919 0.449519 6.38439 0.529456 6.38581 0.609933C6.38722 0.690409 6.40484 0.769775 6.4376 0.843296C6.47036 0.916817 6.51759 0.982986 6.57647 1.03786L7.95103 2.41241H6.99998C5.46337 2.41241 3.98969 3.02283 2.90314 4.10938C1.81659 5.19593 1.20618 6.66961 1.20618 8.20622C1.20618 9.74283 1.81659 11.2165 2.90314 12.3031C3.98969 13.3896 5.46337 14 6.99998 14C8.53595 13.9979 10.0084 13.3868 11.0945 12.3007C12.1806 11.2146 12.7917 9.74218 12.7938 8.20622C12.7938 8.04726 12.7306 7.89481 12.6182 7.78241C12.5058 7.67001 12.3534 7.60686 12.1944 7.60686C12.0355 7.60686 11.883 7.67001 11.7706 7.78241C11.6582 7.89481 11.5951 8.04726 11.5951 8.20622C11.5951 9.11504 11.3256 10.0035 10.8207 10.7591C10.3157 11.5148 9.59809 12.1037 8.75845 12.4515C7.9188 12.7993 6.99489 12.8903 6.10353 12.713C5.21217 12.5357 4.3934 12.0981 3.75077 11.4554C3.10813 10.8128 2.67049 9.99404 2.49319 9.10268C2.31589 8.21132 2.40688 7.2874 2.75468 6.44776C3.10247 5.60811 3.69143 4.89046 4.44709 4.38554C5.20275 3.88063 6.09116 3.61113 6.99998 3.61113H7.95098L6.57647 4.98564C6.46423 5.09802 6.40119 5.25035 6.40119 5.40918C6.40119 5.56801 6.46423 5.72035 6.57647 5.83273C6.63181 5.88876 6.69778 5.93317 6.77051 5.96336Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(RefreshIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/search/index.mjs b/search/index.mjs
+index 3d071440cc10b0995d99269f4319fd10e835f916..915063d0a730617f7398bf6601da870b165efcec 100644
+--- a/search/index.mjs
++++ b/search/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { SearchIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'SearchIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M2.67602 11.0265C3.6661 11.688 4.83011 12.0411 6.02086 12.0411C6.81149 12.0411 7.59438 11.8854 8.32483 11.5828C8.87005 11.357 9.37808 11.0526 9.83317 10.6803L12.9769 13.8241C13.0323 13.8801 13.0983 13.9245 13.171 13.9548C13.2438 13.985 13.3219 14.0003 13.4007 14C13.4795 14.0003 13.5575 13.985 13.6303 13.9548C13.7031 13.9245 13.7691 13.8801 13.8244 13.8241C13.9367 13.7116 13.9998 13.5592 13.9998 13.4003C13.9998 13.2414 13.9367 13.089 13.8244 12.9765L10.6807 9.8328C11.053 9.37773 11.3573 8.86972 11.5831 8.32452C11.8857 7.59408 12.0414 6.81119 12.0414 6.02056C12.0414 4.8298 11.6883 3.66579 11.0268 2.67572C10.3652 1.68564 9.42494 0.913972 8.32483 0.45829C7.22472 0.00260857 6.01418 -0.116618 4.84631 0.115686C3.67844 0.34799 2.60568 0.921393 1.76369 1.76338C0.921698 2.60537 0.348296 3.67813 0.115991 4.84601C-0.116313 6.01388 0.00291375 7.22441 0.458595 8.32452C0.914277 9.42464 1.68595 10.3649 2.67602 11.0265ZM3.35565 2.0158C4.14456 1.48867 5.07206 1.20731 6.02086 1.20731C7.29317 1.20731 8.51338 1.71274 9.41304 2.6124C10.3127 3.51206 10.8181 4.73226 10.8181 6.00457C10.8181 6.95337 10.5368 7.88088 10.0096 8.66978C9.48251 9.45868 8.73328 10.0736 7.85669 10.4367C6.98011 10.7997 6.01554 10.8947 5.08496 10.7096C4.15439 10.5245 3.2996 10.0676 2.62869 9.39674C1.95778 8.72583 1.50089 7.87104 1.31579 6.94046C1.13068 6.00989 1.22568 5.04532 1.58878 4.16874C1.95187 3.29215 2.56675 2.54292 3.35565 2.0158Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(SearchIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/searchminus/index.mjs b/searchminus/index.mjs
+index c5f41ab5977426ff6978bcfa80680254b253f69f..bd75cf956d76906d780ce216b8df47a24f70e28b 100644
+--- a/searchminus/index.mjs
++++ b/searchminus/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { ZoomOutIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'SearchMinusIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M6.0208 12.0411C4.83005 12.0411 3.66604 11.688 2.67596 11.0265C1.68589 10.3649 0.914216 9.42464 0.458534 8.32452C0.00285271 7.22441 -0.116374 6.01388 0.11593 4.84601C0.348235 3.67813 0.921637 2.60537 1.76363 1.76338C2.60562 0.921393 3.67838 0.34799 4.84625 0.115686C6.01412 -0.116618 7.22466 0.00260857 8.32477 0.45829C9.42488 0.913972 10.3652 1.68564 11.0267 2.67572C11.6883 3.66579 12.0414 4.8298 12.0414 6.02056C12.0395 7.41563 11.5542 8.76029 10.6783 9.8305L13.8244 12.9765C13.9367 13.089 13.9997 13.2414 13.9997 13.4003C13.9997 13.5592 13.9367 13.7116 13.8244 13.8241C13.769 13.8801 13.703 13.9245 13.6302 13.9548C13.5575 13.985 13.4794 14.0003 13.4006 14C13.3218 14.0003 13.2437 13.985 13.171 13.9548C13.0982 13.9245 13.0322 13.8801 12.9768 13.8241L9.83082 10.678C8.76059 11.5539 7.4159 12.0393 6.0208 12.0411ZM6.0208 1.20731C5.07199 1.20731 4.14449 1.48867 3.35559 2.0158C2.56669 2.54292 1.95181 3.29215 1.58872 4.16874C1.22562 5.04532 1.13062 6.00989 1.31572 6.94046C1.50083 7.87104 1.95772 8.72583 2.62863 9.39674C3.29954 10.0676 4.15433 10.5245 5.0849 10.7096C6.01548 10.8947 6.98005 10.7997 7.85663 10.4367C8.73322 10.0736 9.48244 9.45868 10.0096 8.66978C10.5367 7.88088 10.8181 6.95337 10.8181 6.00457C10.8181 4.73226 10.3126 3.51206 9.41297 2.6124C8.51331 1.71274 7.29311 1.20731 6.0208 1.20731ZM4.00591 6.60422H8.00362C8.16266 6.60422 8.31518 6.54104 8.42764 6.42859C8.5401 6.31613 8.60328 6.1636 8.60328 6.00456C8.60328 5.84553 8.5401 5.693 8.42764 5.58054C8.31518 5.46809 8.16266 5.40491 8.00362 5.40491H4.00591C3.84687 5.40491 3.69434 5.46809 3.58189 5.58054C3.46943 5.693 3.40625 5.84553 3.40625 6.00456C3.40625 6.1636 3.46943 6.31613 3.58189 6.42859C3.69434 6.54104 3.84687 6.60422 4.00591 6.60422Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(ZoomOutIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/searchplus/index.mjs b/searchplus/index.mjs
+index 913aafd5826c11360edd37439f55459664d89f5b..50203c0ed2fb9b18cc13973cdb71230d75bf9e11 100644
+--- a/searchplus/index.mjs
++++ b/searchplus/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { ZoomInIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'SearchPlusIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M2.67596 11.0265C3.66604 11.688 4.83005 12.0411 6.0208 12.0411C6.81143 12.0411 7.59432 11.8854 8.32477 11.5828C8.86999 11.357 9.37802 11.0526 9.83311 10.6803L12.9768 13.8241C13.0322 13.8801 13.0982 13.9245 13.171 13.9548C13.2437 13.985 13.3218 14.0003 13.4006 14C13.4794 14.0003 13.5575 13.985 13.6302 13.9548C13.703 13.9245 13.769 13.8801 13.8244 13.8241C13.9367 13.7116 13.9997 13.5592 13.9997 13.4003C13.9997 13.2414 13.9367 13.089 13.8244 12.9765L10.6806 9.8328C11.0529 9.37773 11.3572 8.86972 11.5831 8.32452C11.8856 7.59408 12.0414 6.81119 12.0414 6.02056C12.0414 4.8298 11.6883 3.66579 11.0267 2.67572C10.3652 1.68564 9.42488 0.913972 8.32477 0.45829C7.22466 0.00260857 6.01412 -0.116618 4.84625 0.115686C3.67838 0.34799 2.60562 0.921393 1.76363 1.76338C0.921637 2.60537 0.348235 3.67813 0.11593 4.84601C-0.116374 6.01388 0.00285271 7.22441 0.458534 8.32452C0.914216 9.42464 1.68589 10.3649 2.67596 11.0265ZM3.35559 2.0158C4.14449 1.48867 5.07199 1.20731 6.0208 1.20731C7.29311 1.20731 8.51331 1.71274 9.41297 2.6124C10.3126 3.51206 10.8181 4.73226 10.8181 6.00457C10.8181 6.95337 10.5367 7.88088 10.0096 8.66978C9.48244 9.45868 8.73322 10.0736 7.85663 10.4367C6.98005 10.7997 6.01548 10.8947 5.0849 10.7096C4.15433 10.5245 3.29954 10.0676 2.62863 9.39674C1.95772 8.72583 1.50083 7.87104 1.31572 6.94046C1.13062 6.00989 1.22562 5.04532 1.58872 4.16874C1.95181 3.29215 2.56669 2.54292 3.35559 2.0158ZM6.00481 8.60309C5.84641 8.60102 5.69509 8.53718 5.58308 8.42517C5.47107 8.31316 5.40722 8.16183 5.40515 8.00344V6.60422H4.00591C3.84687 6.60422 3.69434 6.54104 3.58189 6.42859C3.46943 6.31613 3.40625 6.1636 3.40625 6.00456C3.40625 5.84553 3.46943 5.693 3.58189 5.58054C3.69434 5.46809 3.84687 5.40491 4.00591 5.40491H5.40515V4.00572C5.40515 3.84668 5.46833 3.69416 5.58079 3.5817C5.69324 3.46924 5.84577 3.40607 6.00481 3.40607C6.16385 3.40607 6.31637 3.46924 6.42883 3.5817C6.54129 3.69416 6.60447 3.84668 6.60447 4.00572V5.40491H8.00362C8.16266 5.40491 8.31518 5.46809 8.42764 5.58054C8.5401 5.693 8.60328 5.84553 8.60328 6.00456C8.60328 6.1636 8.5401 6.31613 8.42764 6.42859C8.31518 6.54104 8.16266 6.60422 8.00362 6.60422H6.60447V8.00344C6.60239 8.16183 6.53855 8.31316 6.42654 8.42517C6.31453 8.53718 6.1632 8.60102 6.00481 8.60309Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(ZoomInIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/star/index.mjs b/star/index.mjs
+index 9c9e3c145e6abc41493cbc0fd47e444b2adca0b7..800ee54ec6fad398cc9c670de379fd59bb65db41 100644
+--- a/star/index.mjs
++++ b/star/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { StarIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'StarIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M10.9741 13.6721C10.8806 13.6719 10.7886 13.6483 10.7066 13.6033L7.00002 11.6545L3.29345 13.6033C3.19926 13.6539 3.09281 13.6771 2.98612 13.6703C2.87943 13.6636 2.77676 13.6271 2.6897 13.5651C2.60277 13.5014 2.53529 13.4147 2.4948 13.3148C2.45431 13.215 2.44241 13.1058 2.46042 12.9995L3.17881 8.87264L0.167699 5.95324C0.0922333 5.8777 0.039368 5.78258 0.0150625 5.67861C-0.00924303 5.57463 -0.00402231 5.46594 0.030136 5.36477C0.0621323 5.26323 0.122141 5.17278 0.203259 5.10383C0.284377 5.03488 0.383311 4.99023 0.488681 4.97501L4.63087 4.37126L6.48797 0.618832C6.54083 0.530159 6.61581 0.456732 6.70556 0.405741C6.79532 0.35475 6.89678 0.327942 7.00002 0.327942C7.10325 0.327942 7.20471 0.35475 7.29447 0.405741C7.38422 0.456732 7.4592 0.530159 7.51206 0.618832L9.36916 4.37126L13.5114 4.97501C13.6167 4.99023 13.7157 5.03488 13.7968 5.10383C13.8779 5.17278 13.9379 5.26323 13.9699 5.36477C14.0041 5.46594 14.0093 5.57463 13.985 5.67861C13.9607 5.78258 13.9078 5.8777 13.8323 5.95324L10.8212 8.87264L11.532 12.9995C11.55 13.1058 11.5381 13.215 11.4976 13.3148C11.4571 13.4147 11.3896 13.5014 11.3027 13.5651C11.2059 13.632 11.0917 13.6692 10.9741 13.6721ZM7.00002 10.4393C7.09251 10.4404 7.18371 10.4613 7.2675 10.5005L10.2098 12.029L9.65193 8.75036C9.6368 8.6584 9.64343 8.56418 9.6713 8.47526C9.69918 8.38633 9.74751 8.30518 9.81242 8.23832L12.1969 5.94559L8.90298 5.45648C8.81188 5.44198 8.72555 5.406 8.65113 5.35152C8.57671 5.29703 8.51633 5.2256 8.475 5.14314L7.00002 2.1626L5.52503 5.15078C5.4837 5.23324 5.42332 5.30467 5.3489 5.35916C5.27448 5.41365 5.18815 5.44963 5.09705 5.46412L1.80318 5.94559L4.18761 8.23832C4.25252 8.30518 4.30085 8.38633 4.32873 8.47526C4.3566 8.56418 4.36323 8.6584 4.3481 8.75036L3.7902 12.0519L6.73253 10.5234C6.81451 10.4762 6.9058 10.4475 7.00002 10.4393Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(StarIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/starfill/index.mjs b/starfill/index.mjs
+index 23df8779ee8a25246c6e6af40f631887568c6c5d..c19f1be60e6c859743e7b488989089cdebfb7f2c 100644
+--- a/starfill/index.mjs
++++ b/starfill/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { StarFillIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'StarFillIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M13.9718 5.36453C13.9398 5.26298 13.8798 5.17252 13.7986 5.10356C13.7175 5.0346 13.6186 4.98994 13.5132 4.97472L9.37043 4.37088L7.51307 0.617955C7.46021 0.529271 7.38522 0.455834 7.29545 0.404836C7.20568 0.353838 7.1042 0.327026 7.00096 0.327026C6.89771 0.327026 6.79624 0.353838 6.70647 0.404836C6.6167 0.455834 6.54171 0.529271 6.48885 0.617955L4.63149 4.37088L0.488746 4.97472C0.383363 4.98994 0.284416 5.0346 0.203286 5.10356C0.122157 5.17252 0.0621407 5.26298 0.03014 5.36453C-0.00402286 5.46571 -0.00924428 5.57442 0.0150645 5.67841C0.0393733 5.7824 0.0922457 5.87753 0.167722 5.95308L3.17924 8.87287L2.4684 13.0003C2.45038 13.1066 2.46229 13.2158 2.50278 13.3157C2.54328 13.4156 2.61077 13.5022 2.6977 13.5659C2.78477 13.628 2.88746 13.6644 2.99416 13.6712C3.10087 13.678 3.20733 13.6547 3.30153 13.6042L7.00096 11.6551L10.708 13.6042C10.79 13.6491 10.882 13.6728 10.9755 13.673C11.0958 13.6716 11.2129 13.6343 11.3119 13.5659C11.3988 13.5022 11.4663 13.4156 11.5068 13.3157C11.5473 13.2158 11.5592 13.1066 11.5412 13.0003L10.8227 8.87287L13.8266 5.95308C13.9033 5.87835 13.9577 5.7836 13.9833 5.67957C14.009 5.57554 14.005 5.4664 13.9718 5.36453Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(StarFillIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/thlarge/index.mjs b/thlarge/index.mjs
+index d6c32a22a6033af798699e3ed65585aa68e14065..4dbe13f5d9df04b959dccc537fb66ab399d2d5d7 100644
+--- a/thlarge/index.mjs
++++ b/thlarge/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { GridViewIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'ThLargeIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M1.90909 6.36364H4.45455C4.96087 6.36364 5.44645 6.1625 5.80448 5.80448C6.1625 5.44645 6.36364 4.96087 6.36364 4.45455V1.90909C6.36364 1.40277 6.1625 0.917184 5.80448 0.55916C5.44645 0.201136 4.96087 0 4.45455 0H1.90909C1.40277 0 0.917184 0.201136 0.55916 0.55916C0.201136 0.917184 0 1.40277 0 1.90909V4.45455C0 4.96087 0.201136 5.44645 0.55916 5.80448C0.917184 6.1625 1.40277 6.36364 1.90909 6.36364ZM1.46154 1.46154C1.58041 1.34268 1.741 1.27492 1.90909 1.27273H4.45455C4.62264 1.27492 4.78322 1.34268 4.90209 1.46154C5.02096 1.58041 5.08871 1.741 5.09091 1.90909V4.45455C5.08871 4.62264 5.02096 4.78322 4.90209 4.90209C4.78322 5.02096 4.62264 5.08871 4.45455 5.09091H1.90909C1.741 5.08871 1.58041 5.02096 1.46154 4.90209C1.34268 4.78322 1.27492 4.62264 1.27273 4.45455V1.90909C1.27492 1.741 1.34268 1.58041 1.46154 1.46154ZM1.90909 14H4.45455C4.96087 14 5.44645 13.7989 5.80448 13.4408C6.1625 13.0828 6.36364 12.5972 6.36364 12.0909V9.54544C6.36364 9.03912 6.1625 8.55354 5.80448 8.19551C5.44645 7.83749 4.96087 7.63635 4.45455 7.63635H1.90909C1.40277 7.63635 0.917184 7.83749 0.55916 8.19551C0.201136 8.55354 0 9.03912 0 9.54544V12.0909C0 12.5972 0.201136 13.0828 0.55916 13.4408C0.917184 13.7989 1.40277 14 1.90909 14ZM1.46154 9.0979C1.58041 8.97903 1.741 8.91128 1.90909 8.90908H4.45455C4.62264 8.91128 4.78322 8.97903 4.90209 9.0979C5.02096 9.21677 5.08871 9.37735 5.09091 9.54544V12.0909C5.08871 12.259 5.02096 12.4196 4.90209 12.5384C4.78322 12.6573 4.62264 12.7251 4.45455 12.7273H1.90909C1.741 12.7251 1.58041 12.6573 1.46154 12.5384C1.34268 12.4196 1.27492 12.259 1.27273 12.0909V9.54544C1.27492 9.37735 1.34268 9.21677 1.46154 9.0979ZM12.0909 6.36364H9.54544C9.03912 6.36364 8.55354 6.1625 8.19551 5.80448C7.83749 5.44645 7.63635 4.96087 7.63635 4.45455V1.90909C7.63635 1.40277 7.83749 0.917184 8.19551 0.55916C8.55354 0.201136 9.03912 0 9.54544 0H12.0909C12.5972 0 13.0828 0.201136 13.4408 0.55916C13.7989 0.917184 14 1.40277 14 1.90909V4.45455C14 4.96087 13.7989 5.44645 13.4408 5.80448C13.0828 6.1625 12.5972 6.36364 12.0909 6.36364ZM9.54544 1.27273C9.37735 1.27492 9.21677 1.34268 9.0979 1.46154C8.97903 1.58041 8.91128 1.741 8.90908 1.90909V4.45455C8.91128 4.62264 8.97903 4.78322 9.0979 4.90209C9.21677 5.02096 9.37735 5.08871 9.54544 5.09091H12.0909C12.259 5.08871 12.4196 5.02096 12.5384 4.90209C12.6573 4.78322 12.7251 4.62264 12.7273 4.45455V1.90909C12.7251 1.741 12.6573 1.58041 12.5384 1.46154C12.4196 1.34268 12.259 1.27492 12.0909 1.27273H9.54544ZM9.54544 14H12.0909C12.5972 14 13.0828 13.7989 13.4408 13.4408C13.7989 13.0828 14 12.5972 14 12.0909V9.54544C14 9.03912 13.7989 8.55354 13.4408 8.19551C13.0828 7.83749 12.5972 7.63635 12.0909 7.63635H9.54544C9.03912 7.63635 8.55354 7.83749 8.19551 8.19551C7.83749 8.55354 7.63635 9.03912 7.63635 9.54544V12.0909C7.63635 12.5972 7.83749 13.0828 8.19551 13.4408C8.55354 13.7989 9.03912 14 9.54544 14ZM9.0979 9.0979C9.21677 8.97903 9.37735 8.91128 9.54544 8.90908H12.0909C12.259 8.91128 12.4196 8.97903 12.5384 9.0979C12.6573 9.21677 12.7251 9.37735 12.7273 9.54544V12.0909C12.7251 12.259 12.6573 12.4196 12.5384 12.5384C12.4196 12.6573 12.259 12.7251 12.0909 12.7273H9.54544C9.37735 12.7251 9.21677 12.6573 9.0979 12.5384C8.97903 12.4196 8.91128 12.259 8.90908 12.0909V9.54544C8.91128 9.37735 8.97903 9.21677 9.0979 9.0979Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(GridViewIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/times/index.mjs b/times/index.mjs
+index 89eecd5b2f950c605bae3070c4987ee01c565b42..cdcb13f68f51f70ecb9b2f0fea76c274c7e9462b 100644
+--- a/times/index.mjs
++++ b/times/index.mjs
+@@ -1,31 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { CloseIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'TimesIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    d: "M8.01186 7.00933L12.27 2.75116C12.341 2.68501 12.398 2.60524 12.4375 2.51661C12.4769 2.42798 12.4982 2.3323 12.4999 2.23529C12.5016 2.13827 12.4838 2.0419 12.4474 1.95194C12.4111 1.86197 12.357 1.78024 12.2884 1.71163C12.2198 1.64302 12.138 1.58893 12.0481 1.55259C11.9581 1.51625 11.8617 1.4984 11.7647 1.50011C11.6677 1.50182 11.572 1.52306 11.4834 1.56255C11.3948 1.60204 11.315 1.65898 11.2488 1.72997L6.99067 5.98814L2.7325 1.72997C2.59553 1.60234 2.41437 1.53286 2.22718 1.53616C2.03999 1.53946 1.8614 1.61529 1.72901 1.74767C1.59663 1.88006 1.5208 2.05865 1.5175 2.24584C1.5142 2.43303 1.58368 2.61419 1.71131 2.75116L5.96948 7.00933L1.71131 11.2675C1.576 11.403 1.5 11.5866 1.5 11.7781C1.5 11.9696 1.576 12.1532 1.71131 12.2887C1.84679 12.424 2.03043 12.5 2.2219 12.5C2.41338 12.5 2.59702 12.424 2.7325 12.2887L6.99067 8.03052L11.2488 12.2887C11.3843 12.424 11.568 12.5 11.7594 12.5C11.9509 12.5 12.1346 12.424 12.27 12.2887C12.4053 12.1532 12.4813 11.9696 12.4813 11.7781C12.4813 11.5866 12.4053 11.403 12.27 11.2675L8.01186 7.00933Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(CloseIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/timescircle/index.mjs b/timescircle/index.mjs
+index f5599a1b0eff79fcda73f11cd9f663aa0046363a..075b3b3b117c1f701e136608d7bad6b16fee6a22 100644
+--- a/timescircle/index.mjs
++++ b/timescircle/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { CancelIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'TimesCircleIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M7 14C5.61553 14 4.26215 13.5895 3.11101 12.8203C1.95987 12.0511 1.06266 10.9579 0.532846 9.67879C0.00303296 8.3997 -0.13559 6.99224 0.134506 5.63437C0.404603 4.2765 1.07129 3.02922 2.05026 2.05026C3.02922 1.07129 4.2765 0.404603 5.63437 0.134506C6.99224 -0.13559 8.3997 0.00303296 9.67879 0.532846C10.9579 1.06266 12.0511 1.95987 12.8203 3.11101C13.5895 4.26215 14 5.61553 14 7C14 8.85652 13.2625 10.637 11.9497 11.9497C10.637 13.2625 8.85652 14 7 14ZM7 1.16667C5.84628 1.16667 4.71846 1.50879 3.75918 2.14976C2.79989 2.79074 2.05222 3.70178 1.61071 4.76768C1.16919 5.83358 1.05367 7.00647 1.27876 8.13803C1.50384 9.26958 2.05941 10.309 2.87521 11.1248C3.69102 11.9406 4.73042 12.4962 5.86198 12.7212C6.99353 12.9463 8.16642 12.8308 9.23232 12.3893C10.2982 11.9478 11.2093 11.2001 11.8502 10.2408C12.4912 9.28154 12.8333 8.15373 12.8333 7C12.8333 5.45291 12.2188 3.96918 11.1248 2.87521C10.0308 1.78125 8.5471 1.16667 7 1.16667ZM4.66662 9.91668C4.58998 9.91704 4.51404 9.90209 4.44325 9.87271C4.37246 9.84333 4.30826 9.8001 4.2544 9.74557C4.14516 9.6362 4.0838 9.48793 4.0838 9.33335C4.0838 9.17876 4.14516 9.0305 4.2544 8.92113L6.17553 7L4.25443 5.07891C4.15139 4.96832 4.09529 4.82207 4.09796 4.67094C4.10063 4.51982 4.16185 4.37563 4.26872 4.26876C4.3756 4.16188 4.51979 4.10066 4.67091 4.09799C4.82204 4.09532 4.96829 4.15142 5.07887 4.25446L6.99997 6.17556L8.92106 4.25446C9.03164 4.15142 9.1779 4.09532 9.32903 4.09799C9.48015 4.10066 9.62434 4.16188 9.73121 4.26876C9.83809 4.37563 9.89931 4.51982 9.90198 4.67094C9.90464 4.82207 9.84855 4.96832 9.74551 5.07891L7.82441 7L9.74554 8.92113C9.85478 9.0305 9.91614 9.17876 9.91614 9.33335C9.91614 9.48793 9.85478 9.6362 9.74554 9.74557C9.69168 9.8001 9.62748 9.84333 9.55669 9.87271C9.4859 9.90209 9.40996 9.91704 9.33332 9.91668C9.25668 9.91704 9.18073 9.90209 9.10995 9.87271C9.03916 9.84333 8.97495 9.8001 8.9211 9.74557L6.99997 7.82444L5.07884 9.74557C5.02499 9.8001 4.96078 9.84333 4.88999 9.87271C4.81921 9.90209 4.74326 9.91704 4.66662 9.91668Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(CancelIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/trash/index.mjs b/trash/index.mjs
+index 76795b2062faa9f0ba7f683012e5c40193daa310..d6d7a293f9e1c4405fc669198de5f49b5bbb8eb1 100644
+--- a/trash/index.mjs
++++ b/trash/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { DeleteIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'TrashIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M3.44802 13.9955H10.552C10.8056 14.0129 11.06 13.9797 11.3006 13.898C11.5412 13.8163 11.7632 13.6877 11.9537 13.5196C12.1442 13.3515 12.2995 13.1473 12.4104 12.9188C12.5213 12.6903 12.5858 12.442 12.6 12.1884V4.36041H13.4C13.5591 4.36041 13.7117 4.29722 13.8243 4.18476C13.9368 4.07229 14 3.91976 14 3.76071C14 3.60166 13.9368 3.44912 13.8243 3.33666C13.7117 3.22419 13.5591 3.16101 13.4 3.16101H12.0537C12.0203 3.1557 11.9863 3.15299 11.952 3.15299C11.9178 3.15299 11.8838 3.1557 11.8503 3.16101H11.2285C11.2421 3.10893 11.2487 3.05513 11.248 3.00106V1.80966C11.2171 1.30262 10.9871 0.828306 10.608 0.48989C10.229 0.151475 9.73159 -0.0236625 9.22402 0.00257442H4.77602C4.27251 -0.0171866 3.78126 0.160868 3.40746 0.498617C3.03365 0.836366 2.807 1.30697 2.77602 1.80966V3.00106C2.77602 3.0556 2.78346 3.10936 2.79776 3.16101H0.6C0.521207 3.16101 0.443185 3.17652 0.37039 3.20666C0.297595 3.2368 0.231451 3.28097 0.175736 3.33666C0.120021 3.39235 0.0758251 3.45846 0.0456722 3.53121C0.0155194 3.60397 0 3.68196 0 3.76071C0 3.83946 0.0155194 3.91744 0.0456722 3.9902C0.0758251 4.06296 0.120021 4.12907 0.175736 4.18476C0.231451 4.24045 0.297595 4.28462 0.37039 4.31476C0.443185 4.3449 0.521207 4.36041 0.6 4.36041H1.40002V12.1884C1.41426 12.442 1.47871 12.6903 1.58965 12.9188C1.7006 13.1473 1.85582 13.3515 2.04633 13.5196C2.23683 13.6877 2.45882 13.8163 2.69944 13.898C2.94005 13.9797 3.1945 14.0129 3.44802 13.9955ZM2.60002 4.36041H11.304V12.1884C11.304 12.5163 10.952 12.7961 10.504 12.7961H3.40002C2.97602 12.7961 2.60002 12.5163 2.60002 12.1884V4.36041ZM3.95429 3.16101C3.96859 3.10936 3.97602 3.0556 3.97602 3.00106V1.80966C3.97602 1.48183 4.33602 1.20197 4.77602 1.20197H9.24802C9.66403 1.20197 10.048 1.48183 10.048 1.80966V3.00106C10.0473 3.05515 10.054 3.10896 10.0678 3.16101H3.95429ZM5.57571 10.997C5.41731 10.995 5.26597 10.9311 5.15395 10.8191C5.04193 10.7071 4.97808 10.5558 4.97601 10.3973V6.77517C4.97601 6.61612 5.0392 6.46359 5.15166 6.35112C5.26413 6.23866 5.41666 6.17548 5.57571 6.17548C5.73476 6.17548 5.8873 6.23866 5.99976 6.35112C6.11223 6.46359 6.17541 6.61612 6.17541 6.77517V10.3894C6.17647 10.4688 6.16174 10.5476 6.13208 10.6213C6.10241 10.695 6.05841 10.762 6.00261 10.8186C5.94682 10.8751 5.88035 10.92 5.80707 10.9506C5.73378 10.9813 5.65514 10.9971 5.57571 10.997ZM7.99968 10.8214C8.11215 10.9339 8.26468 10.997 8.42373 10.997C8.58351 10.9949 8.73604 10.93 8.84828 10.8163C8.96052 10.7025 9.02345 10.5491 9.02343 10.3894V6.77517C9.02343 6.61612 8.96025 6.46359 8.84778 6.35112C8.73532 6.23866 8.58278 6.17548 8.42373 6.17548C8.26468 6.17548 8.11215 6.23866 7.99968 6.35112C7.88722 6.46359 7.82404 6.61612 7.82404 6.77517V10.3973C7.82404 10.5564 7.88722 10.7089 7.99968 10.8214Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(DeleteIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/undo/index.mjs b/undo/index.mjs
+index b51e61e4991c347997c08c6a01b58573e3208744..bc72a8fbce02fe78d043e87c46479ab45f7614f9 100644
+--- a/undo/index.mjs
++++ b/undo/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { UndoIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'UndoIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M6.77042 5.96336C6.84315 5.99355 6.92118 6.00891 6.99993 6.00854C7.07868 6.00891 7.15671 5.99355 7.22944 5.96336C7.30217 5.93317 7.36814 5.88876 7.42348 5.83273C7.53572 5.72035 7.59876 5.56801 7.59876 5.40918C7.59876 5.25035 7.53572 5.09802 7.42348 4.98564L6.04897 3.61113H6.99998C7.9088 3.61113 8.79722 3.88063 9.55288 4.38554C10.3085 4.89046 10.8975 5.60811 11.2453 6.44776C11.5931 7.2874 11.6841 8.21132 11.5068 9.10268C11.3295 9.99404 10.8918 10.8128 10.2492 11.4554C9.60657 12.0981 8.7878 12.5357 7.89644 12.713C7.00508 12.8903 6.08116 12.7993 5.24152 12.4515C4.40188 12.1037 3.68422 11.5148 3.17931 10.7591C2.67439 10.0035 2.4049 9.11504 2.4049 8.20622C2.4049 8.04726 2.34175 7.89481 2.22935 7.78241C2.11695 7.67001 1.9645 7.60686 1.80554 7.60686C1.64658 7.60686 1.49413 7.67001 1.38172 7.78241C1.26932 7.89481 1.20618 8.04726 1.20618 8.20622C1.20829 9.74218 1.81939 11.2146 2.90548 12.3007C3.99157 13.3868 5.46402 13.9979 6.99998 14C8.5366 14 10.0103 13.3896 11.0968 12.3031C12.1834 11.2165 12.7938 9.74283 12.7938 8.20622C12.7938 6.66961 12.1834 5.19593 11.0968 4.10938C10.0103 3.02283 8.5366 2.41241 6.99998 2.41241H6.04892L7.42348 1.03786C7.48236 0.982986 7.5296 0.916817 7.56235 0.843296C7.59511 0.769775 7.61273 0.690409 7.61415 0.609933C7.61557 0.529456 7.60076 0.449519 7.57062 0.374888C7.54047 0.300257 7.49561 0.232462 7.43869 0.175548C7.38178 0.118634 7.31398 0.0737664 7.23935 0.0436218C7.16472 0.0134773 7.08478 -0.00132663 7.00431 9.32772e-05C6.92383 0.00151319 6.84447 0.019128 6.77095 0.0518865C6.69742 0.0846451 6.63126 0.131876 6.57638 0.190763L4.17895 2.5882C4.06671 2.70058 4.00366 2.85292 4.00366 3.01175C4.00366 3.17058 4.06671 3.32291 4.17895 3.43529L6.57638 5.83273C6.63172 5.88876 6.69769 5.93317 6.77042 5.96336Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(UndoIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map
+diff --git a/upload/index.mjs b/upload/index.mjs
+index 8ee8752b6069c56daa1068d990d7291600aa3c7f..cd63f6eb866532318d92bb5dfcdd8c4d7454d775 100644
+--- a/upload/index.mjs
++++ b/upload/index.mjs
+@@ -1,33 +1,16 @@
+ import BaseIcon from '@primevue/icons/baseicon';
+-import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
++import { h } from 'vue';
++import { UploadIcon } from '@bcc-code/icons-vue';
+ 
+ var script = {
+   name: 'UploadIcon',
+   "extends": BaseIcon
+ };
+ 
+-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ function render(_ctx, _cache, $props, $setup, $data, $options) {
+-  return openBlock(), createElementBlock("svg", mergeProps({
+-    width: "14",
+-    height: "14",
+-    viewBox: "0 0 14 14",
+-    fill: "none",
+-    xmlns: "http://www.w3.org/2000/svg"
+-  }, _ctx.pti()), _toConsumableArray(_cache[0] || (_cache[0] = [createElementVNode("path", {
+-    "fill-rule": "evenodd",
+-    "clip-rule": "evenodd",
+-    d: "M6.58942 9.82197C6.70165 9.93405 6.85328 9.99793 7.012 10C7.17071 9.99793 7.32234 9.93405 7.43458 9.82197C7.54681 9.7099 7.61079 9.55849 7.61286 9.4V2.04798L9.79204 4.22402C9.84752 4.28011 9.91365 4.32457 9.98657 4.35479C10.0595 4.38502 10.1377 4.40039 10.2167 4.40002C10.2956 4.40039 10.3738 4.38502 10.4467 4.35479C10.5197 4.32457 10.5858 4.28011 10.6413 4.22402C10.7538 4.11152 10.817 3.95902 10.817 3.80002C10.817 3.64102 10.7538 3.48852 10.6413 3.37602L7.45127 0.190618C7.44656 0.185584 7.44176 0.180622 7.43687 0.175736C7.32419 0.063214 7.17136 0 7.012 0C6.85264 0 6.69981 0.063214 6.58712 0.175736C6.58181 0.181045 6.5766 0.186443 6.5715 0.191927L3.38282 3.37602C3.27669 3.48976 3.2189 3.6402 3.22165 3.79564C3.2244 3.95108 3.28746 4.09939 3.39755 4.20932C3.50764 4.31925 3.65616 4.38222 3.81182 4.38496C3.96749 4.3877 4.11814 4.33001 4.23204 4.22402L6.41113 2.04807V9.4C6.41321 9.55849 6.47718 9.7099 6.58942 9.82197ZM11.9952 14H2.02883C1.751 13.9887 1.47813 13.9228 1.22584 13.8061C0.973545 13.6894 0.746779 13.5241 0.558517 13.3197C0.370254 13.1154 0.22419 12.876 0.128681 12.6152C0.0331723 12.3545 -0.00990605 12.0775 0.0019109 11.8V9.40005C0.0019109 9.24092 0.065216 9.08831 0.1779 8.97579C0.290584 8.86326 0.443416 8.80005 0.602775 8.80005C0.762134 8.80005 0.914966 8.86326 1.02765 8.97579C1.14033 9.08831 1.20364 9.24092 1.20364 9.40005V11.8C1.18295 12.0376 1.25463 12.274 1.40379 12.4602C1.55296 12.6463 1.76817 12.7681 2.00479 12.8H11.9952C12.2318 12.7681 12.447 12.6463 12.5962 12.4602C12.7453 12.274 12.817 12.0376 12.7963 11.8V9.40005C12.7963 9.24092 12.8596 9.08831 12.9723 8.97579C13.085 8.86326 13.2378 8.80005 13.3972 8.80005C13.5565 8.80005 13.7094 8.86326 13.8221 8.97579C13.9347 9.08831 13.998 9.24092 13.998 9.40005V11.8C14.022 12.3563 13.8251 12.8996 13.45 13.3116C13.0749 13.7236 12.552 13.971 11.9952 14Z",
+-    fill: "currentColor"
+-  }, null, -1)])), 16);
++  return h(UploadIcon, _ctx.pti());
+ }
+ 
+ script.render = render;
+ 
+ export { script as default };
+-//# sourceMappingURL=index.mjs.map

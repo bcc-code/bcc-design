@@ -11,6 +11,7 @@
 @import "./styles/contexts.css";
 @import "./styles/context.css";
 @import "./styles/fonts.css";
+@import "./styles/component-overrides.css";
 
 @import "./components/custom/styles.css";
 

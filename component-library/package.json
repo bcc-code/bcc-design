@@ -1,6 +1,6 @@
 {
   "name": "@bcc-code/component-library-vue",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "type": "module",
   "description": "Extended Vue component library based on PrimeVue and BCC design tokens",
   "repository": "https://github.com/bcc-code/bcc-design.git",
@@ -44,6 +44,7 @@
     "generate:context-modes": "node scripts/generate-context-modes.mjs",
     "generate:context-css": "node scripts/generate-context-css.mjs",
     "generate": "pnpm run generate:semantic && pnpm run generate:semantic-css && pnpm run generate:context-modes && pnpm run generate:context-css",
+    "sync:primevue-icon-patches": "node scripts/sync-primevue-icon-patches.mjs",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint src/**/*.ts src/**/*.vue",
     "lint:fix": "eslint --fix src/**/*.ts src/**/*.vue",
@@ -59,8 +60,8 @@
     "tailwindcss": "^4.0.0"
   },
   "peerDependencies": {
-    "vue": "^3.5.0",
-    "@bcc-code/design-tokens": "^5.0.3"
+    "@bcc-code/design-tokens": "^5.0.3",
+    "vue": "^3.5.0"
   },
   "devDependencies": {
     "@bcc-code/design-tokens": "^5.0.3",
@@ -93,5 +94,10 @@
     "vitest": "^4.0.18",
     "vue": "^3.5.0",
     "vue-tsc": "^3.2.4"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@primevue/icons": "patches/@primevue__icons.patch"
+    }
   }
 }
