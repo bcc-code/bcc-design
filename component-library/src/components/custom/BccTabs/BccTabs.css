@@ -11,7 +11,7 @@
         overflow: hidden;
         padding: 0;
     }
-    .bcc-tabs-fill.p-tabs > .p-tabpanels:deep(.p-tabpanel) {
+    .bcc-tabs-fill.p-tabs > .p-tabpanels > .p-tabpanel {
         height: 100%;
         overflow: auto;
     }

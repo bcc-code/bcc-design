@@ -47,9 +47,8 @@ const dashArray = Math.PI * 18 * 2;
 		class="bcc-capacity-indicator"
 		:class="[
 			size,
-			colored,
 			squared ? 'rounded' : 'rounded-full',
-			{ 'is-full': progress >= 100, 'is-warning': progress >= 50 && progress < 100 },
+			{ colored, 'is-full': progress >= 100, 'is-warning': progress >= 50 && progress < 100 },
 		]"
 	>
 		<template v-if="squared">

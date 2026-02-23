@@ -19,7 +19,7 @@ const meta = {
 		},
 		size: {
 			control: 'select',
-			options: ['sm', 'lg', 'xl'],
+			options: ['sm', 'md', 'lg', 'xl'],
 			description: 'Size of the badge',
 		},
 		icon: {
@@ -62,12 +62,31 @@ export const Sizes: Story = {
 			return { PersonIcon };
 		},
 		template: `
-			<div class="flex flex-wrap gap-2 align-items-center">
-				<BccBadge :value="PersonIcon" size="sm">Small</BccBadge>
-				<BccBadge :value="PersonIcon">Default</BccBadge>
-				<BccBadge :value="PersonIcon" size="lg">Large</BccBadge>
-				<BccBadge :value="PersonIcon" size="xl">XLarge</BccBadge>
-			</div>
+			<table>
+				<thead>
+					<tr>
+						<th class="pr-2">Small</th>
+						<th class="pr-2">Default</th>
+						<th class="pr-2">Large</th>
+						<th class="pr-2">XLarge</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><BccBadge :value="PersonIcon" size="sm" /></td>
+						<td><BccBadge :value="PersonIcon" /></td>
+						<td><BccBadge :value="PersonIcon" size="lg" /></td>
+						<td><BccBadge :value="PersonIcon" size="xl" /></td>
+					</tr>
+					<tr><td colspan="4">Squared</td></tr>
+					<tr>
+						<td><BccBadge :value="PersonIcon" size="sm" squared /></td>
+						<td><BccBadge :value="PersonIcon" squared /></td>
+						<td><BccBadge :value="PersonIcon" size="lg" squared /></td>
+						<td><BccBadge :value="PersonIcon" size="xl" squared /></td>
+					</tr>
+				</tbody>
+			</table>
 		`,
 	}),
 };

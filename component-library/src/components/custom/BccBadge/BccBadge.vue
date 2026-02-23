@@ -33,7 +33,8 @@ withDefaults(defineProps<BadgeProps>(), {
 				border,
 				bordered,
 				squared,
-				'bcc-badge-text': $slots.default || (typeof value === 'string' && String(value).length > 1),
+				'bcc-badge-text':
+					$slots.default || ((typeof value === 'string' || typeof value === 'number') && String(value).length > 2),
 			},
 		]"
 	>
