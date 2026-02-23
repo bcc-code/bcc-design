@@ -1,5 +1,5 @@
 import { BCC_CONTEXT_LIST, BCC_CONTEXTS } from '@/contexts';
-import { CheckCircleIcon, LabelIcon, TagIcon } from '@bcc-code/icons-vue';
+import { CheckCircleIcon, LabelIcon, LocationOnFillIcon, TagIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import BccTag from './BccTag.vue';
 
@@ -77,13 +77,16 @@ export const Rounded: Story = {
 
 export const Sizes: Story = {
 	render: () => ({
-		components: { BccTag },
+		components: { BccTag, LocationOnFillIcon },
+		setup() {
+			return { LocationOnFillIcon };
+		},
 		template: `
 			<div class="flex flex-wrap gap-2">
-				<BccTag size="sm">Small</BccTag>
-				<BccTag size="md">Medium</BccTag>
-				<BccTag size="lg">Large</BccTag>
-				<BccTag size="xl">Extra Large</BccTag>
+				<BccTag size="sm" :icon="LocationOnFillIcon">Small</BccTag>
+				<BccTag size="md" :icon="LocationOnFillIcon">Medium</BccTag>
+				<BccTag size="lg" :icon="LocationOnFillIcon">Large</BccTag>
+				<BccTag size="xl" :icon="LocationOnFillIcon">Extra Large</BccTag>
 			</div>
 		`,
 	}),
