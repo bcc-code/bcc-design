@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { IInterval } from '@/types';
 import { computed } from 'vue';
 
 export type NpsScoreProps = {
@@ -32,7 +33,7 @@ const props = withDefaults(defineProps<NpsScoreProps>(), {
 	max: 10,
 });
 
-let anim: any = null;
+let anim: IInterval | null = null;
 function selected(i: number) {
 	if (props.disabled) return;
 
