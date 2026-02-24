@@ -1,5 +1,5 @@
 import { BCC_CONTEXT_LIST, BCC_CONTEXTS } from '@/contexts';
-import { CheckCircleIcon, LabelIcon, LocationOnFillIcon, TagIcon } from '@bcc-code/icons-vue';
+import { CheckCircleIcon, LabelIcon, LocationOnFillIcon, StarFillIcon, TagIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import BccTag from './BccTag.vue';
 
@@ -68,25 +68,35 @@ export const Contexts: Story = {
 	}),
 };
 
-export const Rounded: Story = {
-	args: {
-		text: 'Rounded tag',
-		rounded: true,
-	},
-};
-
 export const Sizes: Story = {
 	render: () => ({
-		components: { BccTag, LocationOnFillIcon },
+		components: { BccTag, LocationOnFillIcon, StarFillIcon },
 		setup() {
-			return { LocationOnFillIcon };
+			return { LocationOnFillIcon, StarFillIcon };
 		},
 		template: `
 			<div class="flex flex-wrap gap-2">
 				<BccTag size="sm" :icon="LocationOnFillIcon">Small</BccTag>
-				<BccTag size="md" :icon="LocationOnFillIcon">Medium</BccTag>
+				<BccTag size="md" :icon="StarFillIcon">Medium</BccTag>
 				<BccTag size="lg" :icon="LocationOnFillIcon">Large</BccTag>
-				<BccTag size="xl" :icon="LocationOnFillIcon">Extra Large</BccTag>
+				<BccTag size="xl" :icon="StarFillIcon">Extra Large</BccTag>
+			</div>
+		`,
+	}),
+};
+
+export const Rounded: Story = {
+	render: () => ({
+		components: { BccTag, LocationOnFillIcon, StarFillIcon },
+		setup() {
+			return { LocationOnFillIcon, StarFillIcon };
+		},
+		template: `
+			<div class="flex flex-wrap gap-2">
+				<BccTag size="sm" rounded :icon="LocationOnFillIcon">Small</BccTag>
+				<BccTag size="md" rounded :icon="StarFillIcon">Medium</BccTag>
+				<BccTag size="lg" rounded :icon="LocationOnFillIcon">Large</BccTag>
+				<BccTag size="xl" rounded :icon="StarFillIcon">Extra Large</BccTag>
 			</div>
 		`,
 	}),

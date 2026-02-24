@@ -30,8 +30,8 @@ const badgeBindings = computed((): BadgeProps => {
 
 <template>
 	<BccBadge class="bcc-tag" :class="{ clickable }" v-bind="badgeBindings" :squared="!rounded">
-		<component :is="icon" v-if="icon" class="h-full" :class="{ 'order-1': iconRight === true }" />
+		<component :is="icon" v-if="icon" class="bcc-badge-icon" :class="{ 'order-1': iconRight === true }" />
 		<slot>{{ text }}</slot>
-		<component :is="iconRight" v-if="iconRight && typeof iconRight !== 'boolean'" class="h-full" />
+		<component :is="iconRight" v-if="iconRight && typeof iconRight !== 'boolean'" class="bcc-badge-icon" />
 	</BccBadge>
 </template>
