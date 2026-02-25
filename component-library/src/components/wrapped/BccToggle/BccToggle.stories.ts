@@ -9,6 +9,7 @@ const meta: Meta<typeof BccToggle> = {
 	argTypes: {
 		defaultValue: { control: 'boolean' },
 		disabled: { control: 'boolean' },
+		label: { control: 'text' },
 		loading: { control: 'boolean' },
 		wasToggled: { control: 'boolean' },
 		withIcon: { control: 'boolean' },
@@ -26,6 +27,7 @@ export const Default: Story = {
 		loading: false,
 		wasToggled: false,
 		withIcon: true,
+		label: 'With label options',
 	},
 	render: args => ({
 		components: { BccToggle },

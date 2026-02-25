@@ -1,5 +1,15 @@
+/** Our icons are a bit smaller that Primevue's default */
 .p-autocomplete .p-icon {
-    --p-icon-size: 20px;
-    --p-form-field-sm-font-size: 20px;
-    --p-form-field-lg-font-size: 24px;
+    --p-icon-size: var(--icon-size-sm);
+    --p-form-field-sm-font-size: var(--icon-size-sm);
+    --p-form-field-lg-font-size: var(--icon-size-md);
+}
+
+.p-autocomplete-clearable .p-inputtext {
+    flex-grow: 1;
+}
+
+/** Primevue 's component is missing the gap between input and dropdown */
+.p-autocomplete-overlay {
+    margin-top: var(--p-anchor-gutter);
 }

@@ -1,4 +1,3 @@
-@import "./BccAvatar/BccAvatar.css";
 @import "./BccBadge/BccBadge.css";
 @import "./BccCapacityIndicator/BccCapacityIndicator.css";
 @import "./BccDialKnob/BccDialKnob.css";
@@ -7,6 +6,4 @@
 @import "./BccNpsResult/BccNpsResult.css";
 @import "./BccNpsScore/BccNpsScore.css";
 @import "./BccReact/BccReact.css";
-@import "./BccTabs/BccTabs.css";
 @import "./BccTag/BccTag.css";
-@import "./BccToggle/BccToggle.css";

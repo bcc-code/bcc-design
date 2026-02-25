@@ -2,7 +2,7 @@
 import type { VueComponent } from '@/types';
 import { CheckIcon, CloseIcon } from '@bcc-code/icons-vue';
 import { ToggleSwitch, type ToggleSwitchProps } from 'primevue';
-import BccCircleLoader from '../BccCircleLoader/BccCircleLoader.vue';
+import { BccCircleLoader } from '../../custom';
 
 export type ToggleProps = ToggleSwitchProps & {
 	/** Text shown next to the switch; also used for the label’s `for` attribute. */

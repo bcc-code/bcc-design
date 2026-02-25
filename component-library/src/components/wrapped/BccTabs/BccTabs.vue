@@ -6,7 +6,7 @@ import BccTabPanel from 'primevue/tabpanel';
 import BccTabPanels from 'primevue/tabpanels';
 import BccTabs, { type TabsProps as PrimeTabsProps } from 'primevue/tabs';
 import { computed } from 'vue';
-import BccBadge, { type BadgeProps } from '../BccBadge/BccBadge.vue';
+import { BccBadge, type BadgeProps } from '../../custom';
 
 export interface TabItem {
 	title: string;

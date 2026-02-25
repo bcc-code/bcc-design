@@ -1,0 +1,46 @@
+@layer components {
+    .bcc-stepper-container {
+      @apply flex flex-col;
+    }
+  
+    .bcc-stepper-header {
+      @apply mb-2 text-left;
+    }
+  
+    .bcc-stepper-current-step {
+      @apply text-label-sm font-semibold;
+    }
+  
+    .bcc-stepper-current-label {
+      @apply text-caption-sm pl-2 text-secondary;
+    }
+  
+    .bcc-stepper-indicators {
+      @apply flex justify-start gap-2;
+    }
+  
+    .bcc-stepper-indicator-container {
+      @apply flex flex-col items-center justify-center;
+    }
+  
+    .bcc-stepper-indicator {
+      @apply h-[6px] rounded-[8px] duration-300;
+    }
+  
+    .bcc-stepper-indicator-active {
+      @apply w-[24px];
+    }
+  
+    .bcc-stepper-indicator-inactive {
+      @apply w-[6px];
+    }
+  
+    .bcc-stepper-indicator-completed {
+      @apply bg-button-primary;
+    }
+  
+    .bcc-stepper-indicator-pending {
+      @apply bg-tertiary;
+    }
+  }
+  
