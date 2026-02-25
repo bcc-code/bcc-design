@@ -1,5 +1,6 @@
 /* Layer order: Tailwind base/utilities first, then PrimeVue so component styles win */
 @layer theme, base, tailwind, primevue;
+@import "@bcc-code/design-tokens/css";
 
 @import "tailwindcss";
 @import "@bcc-code/design-tokens/tailwind";
