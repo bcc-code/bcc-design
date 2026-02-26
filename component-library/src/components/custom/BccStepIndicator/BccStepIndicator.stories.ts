@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import BccStepper from './BccStepper.vue';
+import BccStepIndicator from './BccStepIndicator.vue';
 
-const meta: Meta<typeof BccStepper> = {
-	component: BccStepper,
-	title: 'Custom/BccStepper',
+const meta: Meta<typeof BccStepIndicator> = {
+	component: BccStepIndicator,
+	title: 'Custom/BccStepIndicator',
 	argTypes: {
-		currentStep: {
+		modelValue: {
 			control: { type: 'number' },
 			description: 'The current active step, zero-based index.',
 		},
@@ -22,8 +22,7 @@ const meta: Meta<typeof BccStepper> = {
 			description: 'Whether to show the step label.',
 		},
 		headingFn: {
-			description:
-				"Function for formatting the 'Step 1 of 2' string, e.g. with a translated string.",
+			description: "Function for formatting the 'Step 1 of 2' string, e.g. with a translated string.",
 		},
 	},
 };
@@ -47,7 +46,7 @@ const exampleSteps = [
 
 export const Default: Story = {
 	args: {
-		currentStep: 0,
+		modelValue: 0,
 		steps: exampleSteps,
 		additionalText: true,
 		showStepLabel: true,
@@ -56,7 +55,7 @@ export const Default: Story = {
 
 export const SecondStep: Story = {
 	args: {
-		currentStep: 1,
+		modelValue: 1,
 		steps: exampleSteps,
 		additionalText: true,
 		showStepLabel: true,
@@ -65,7 +64,7 @@ export const SecondStep: Story = {
 
 export const IndicatorsOnly: Story = {
 	args: {
-		currentStep: 2,
+		modelValue: 2,
 		steps: exampleSteps,
 		additionalText: false,
 		showStepLabel: false,
@@ -74,7 +73,7 @@ export const IndicatorsOnly: Story = {
 
 export const WithoutStepLabel: Story = {
 	args: {
-		currentStep: 0,
+		modelValue: 0,
 		steps: exampleSteps,
 		additionalText: true,
 		showStepLabel: false,
@@ -83,30 +82,30 @@ export const WithoutStepLabel: Story = {
 
 export const CustomLabels: Story = {
 	args: {
-		currentStep: 0,
+		modelValue: 0,
 		steps: exampleSteps,
 		additionalText: true,
 		showStepLabel: false,
 	},
 	render: args => ({
-		components: { BccStepper },
+		components: { BccStepIndicator },
 		setup() {
-			function dutchFn(currentStep: number, totalSteps: number) {
-				return `Vraag ${currentStep} van de ${totalSteps}`;
+			function dutchFn(modelValue: number, totalSteps: number) {
+				return `Vraag ${modelValue} van de ${totalSteps}`;
 			}
-			function englishFn(currentStep: number, totalSteps: number) {
-				return `Question ${currentStep} of ${totalSteps}`;
+			function englishFn(modelValue: number, totalSteps: number) {
+				return `Question ${modelValue} of ${totalSteps}`;
 			}
-			function norwegianFn(currentStep: number, totalSteps: number) {
-				return `Spørsmål ${currentStep} av ${totalSteps}`;
+			function norwegianFn(modelValue: number, totalSteps: number) {
+				return `Spørsmål ${modelValue} av ${totalSteps}`;
 			}
 			return { args, dutchFn, englishFn, norwegianFn };
 		},
 		template: `
 			<div class="flex flex-col gap-4">
-				<BccStepper v-bind="args" :heading-fn="norwegianFn" />
-				<BccStepper v-bind="args" :heading-fn="englishFn" />
-				<BccStepper v-bind="args" :heading-fn="dutchFn" />
+				<BccStepIndicator v-bind="args" :heading-fn="norwegianFn" />
+				<BccStepIndicator v-bind="args" :heading-fn="englishFn" />
+				<BccStepIndicator v-bind="args" :heading-fn="dutchFn" />
 			</div>
 		`,
 	}),

@@ -1,6 +1,6 @@
 @layer components {
 	.bcc-stepper-container {
-		@apply flex flex-col;
+		@apply col left;
 	}
 
 	.bcc-stepper-header {
@@ -20,7 +20,7 @@
 	}
 
 	.bcc-stepper-indicator-container {
-		@apply flex flex-col items-center justify-center;
+		@apply col;
 	}
 
 	.bcc-stepper-indicator {
