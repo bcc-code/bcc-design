@@ -15,6 +15,7 @@ const meta = {
 		allowEmpty: { control: 'boolean' },
 		disabled: { control: 'boolean' },
 		multiple: { control: 'boolean' },
+		invalid: { control: 'boolean' },
 	},
 } as Meta;
 
@@ -51,6 +52,20 @@ export const Multiple: Story = {
 
 export const Disabled: Story = {
 	args: { disabled: true },
+	render: args => ({
+		components: { BccSelectButton },
+		setup() {
+			const value = ref('center');
+			return { args, value, options };
+		},
+		template: `
+			<BccSelectButton v-model="value" :options="options" option-label="label" option-value="value" v-bind="args" />
+		`,
+	}),
+};
+
+export const invalid: Story = {
+	args: { invalid: true },
 	render: args => ({
 		components: { BccSelectButton },
 		setup() {
