@@ -17,17 +17,19 @@
 @import "./components/custom/styles.css";
 @import "./components/wrapped/styles.css";
 
-:host {
-    @apply font-sans antialiased p-0 m-0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+:root, :host {
+	--font-sans: 'Archivo', system-ui, sans-serif;
+  @apply font-sans antialiased p-0 m-0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
 }
 
 b,
 strong,
 .bold {
-    font-weight: bold;
-    --ctx-text: var(--ctx-text-bold);
+  font-weight: bold;
+  --ctx-text: var(--ctx-text-bold);
 }
 
 /* Disable state */
