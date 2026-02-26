@@ -13,7 +13,7 @@ export { default as BccNpsResult } from './BccNpsResult/BccNpsResult.vue';
 export { default as BccNpsScore } from './BccNpsScore/BccNpsScore.vue';
 export { default as BccReact } from './BccReact/BccReact.vue';
 export { default as BccReactEmoji } from './BccReact/BccReactEmoji.vue';
-export { default as BccStepper } from './BccStepper/BccStepper.vue';
+export { default as BccStepIndicator } from './BccStepIndicator/BccStepIndicator.vue';
 export { default as BccTag } from './BccTag/BccTag.vue';
 
 // Prop types for consumers (TypeScript / IDE support)
@@ -25,5 +25,5 @@ export type { GraphicProps } from './BccGraphic/BccGraphic.vue';
 export type { NpsResultProps } from './BccNpsResult/BccNpsResult.vue';
 export type { NpsScoreProps } from './BccNpsScore/BccNpsScore.vue';
 export type { ReactInfo, ReactProps } from './BccReact/types';
-export type { StepperProps } from './BccStepper/BccStepper.vue';
+export type { StepIndicatorProps } from './BccStepIndicator/BccStepIndicator.vue';
 export type { TagProps } from './BccTag/BccTag.vue';

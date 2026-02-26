@@ -2,7 +2,7 @@
 import { BCC_CONTEXTS, type BCC_CONTEXT } from '@/contexts';
 import { computed } from 'vue';
 
-export type StepperProps = {
+export type StepIndicatorProps = {
 	steps: string[];
 	additionalText?: boolean;
 	showStepLabel?: boolean;
@@ -12,7 +12,7 @@ export type StepperProps = {
 	headingFn?: (currentStep: number, totalSteps: number) => string;
 };
 
-const props = withDefaults(defineProps<StepperProps>(), {
+const props = withDefaults(defineProps<StepIndicatorProps>(), {
 	additionalText: true,
 	showStepLabel: true,
 	context: BCC_CONTEXTS.brand.bold,
