@@ -90,7 +90,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/secondary/green/800",
+        "targetVariableName": "color/secondary/green/1000",
         "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
         "targetVariableSetName": "bcc/scheme"
       }
@@ -135,7 +135,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/green/300",
+        "targetVariableName": "color/default/green/400",
         "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
         "targetVariableSetName": "bcc/scheme"
       }
@@ -160,7 +160,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/green/400",
+        "targetVariableName": "color/default/green/300",
         "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
         "targetVariableSetName": "bcc/scheme"
       }
@@ -185,7 +185,7 @@
       ],
       "com.figma.isOverride": true,
       "com.figma.aliasData": {
-        "targetVariableName": "color/default/green/500",
+        "targetVariableName": "color/default/green/200",
         "targetVariableSetId": "VariableCollectionId:e28a14a5264389e942ac6df24b37345ca2ca8c68/-1:-1",
         "targetVariableSetName": "bcc/scheme"
       }

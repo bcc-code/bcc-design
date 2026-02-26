@@ -1,6 +1,6 @@
 @layer components {
 	.bcc-stepper-container {
-		@apply col left;
+		@apply flex flex-col;
 	}
 
 	.bcc-stepper-header {

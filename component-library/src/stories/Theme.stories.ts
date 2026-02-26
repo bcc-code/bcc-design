@@ -35,8 +35,6 @@ type Story = StoryObj<typeof meta>;
 const contentClass = 'rounded-lg border border-(--bcc-border-subtle) bg-[var(--bcc-surface-elevated)] p-4 text-sm';
 
 /**
- * ## Why safe area spacing?
- *
  * On iOS and Android, the viewport can extend under the status bar, notch, and
  * bottom home/nav bar. If you don’t add padding, your headers and buttons sit
  * under that system UI. The theme variables read the platform’s safe area
@@ -61,8 +59,6 @@ export const WhySafeAreaSpacing: Story = {
 };
 
 /**
- * ## Available variables
- *
  * Defined in `theme.css` under `@theme`. All use `env(safe-area-inset-*, …)` with
  * a fallback so they’re `0` in the browser.
  *
@@ -124,7 +120,7 @@ export const AvailableVariables: Story = {
 export const FullHeightLayout: Story = {
 	render: () => ({
 		template: `
-			<div class="rounded-xl border border-(--bcc-border-subtle) overflow-hidden" style="max-width: 320px; height: 560px;">
+			<div class="col between rounded-xl border border-(--bcc-border-subtle) overflow-hidden" style="max-width: 320px; height: 560px;">
 				<!-- Simulated top bar (status bar / notch) -->
 				<div class="h-12 bg-(--bcc-border-subtle) center text-xs opacity-60">Status bar</div>
 				<!-- Main content: use theme vars in real app: pt-[var(--spacing-inset-top)] pb-[var(--spacing-inset-bottom)] -->
@@ -161,8 +157,6 @@ export const FullHeightLayout: Story = {
 };
 
 /**
- * ## Usage in Tailwind
- *
  * The theme exposes these as spacing utilities. For a full-screen view that
  * respects safe areas, use the inset utilities:
  *
