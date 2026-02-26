@@ -18,10 +18,10 @@
     }
 
     .bcc-knob-top-left {
-        @apply absolute top-0 left-0 p-2 text-left;
+        @apply absolute top-0 left-0 text-left;
     }
 
     .bcc-knob-top-right {
-        @apply absolute top-0 right-0 p-2 text-right;
+        @apply absolute top-0 right-0 text-right;
     }
 }
