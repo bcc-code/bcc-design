@@ -1,3 +1,9 @@
+/** Custom styles to fix primevue components that are not custom or wrapped. */
+
+/**
+.BccAutocomplete
+**/
+
 /** Our icons are a bit smaller that Primevue's default */
 .p-autocomplete .p-icon {
     --p-icon-size: var(--icon-size-sm);

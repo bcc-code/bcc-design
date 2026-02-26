@@ -39,20 +39,6 @@ export const Default: Story = {
 	}),
 };
 
-export const Single: Story = {
-	render: () => ({
-		components: { BccAccordion, BccAccordionPanel, BccAccordionHeader, BccAccordionContent },
-		template: `
-			<BccAccordionPanel >
-				<BccAccordionHeader>Header I</BccAccordionHeader>
-				<BccAccordionContent>
-					<p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-				</BccAccordionContent>
-			</BccAccordionPanel>
-		`,
-	}),
-};
-
 export const Multiple: Story = {
 	render: () => ({
 		components: { BccAccordion, BccAccordionPanel, BccAccordionHeader, BccAccordionContent },

@@ -58,7 +58,7 @@
 
 /* Capitalize first letter */
 @utility capital {
-    display: inline-flex;
+    display: inline-block;
     &::first-letter {
         text-transform: uppercase;
     }
