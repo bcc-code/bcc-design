@@ -9,7 +9,7 @@ on:
       - "!component-library/README.md"
 
 concurrency:
-  group: storybook-${{ github.ref }}
+  group: storybook-dev-deploy
   cancel-in-progress: true
 
 jobs:

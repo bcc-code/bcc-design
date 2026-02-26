@@ -1,9 +1,12 @@
 name: "Deploy PROD Storybook (component-library)"
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 concurrency:
-  group: storybook-prod-${{ github.ref }}
+  group: storybook-prod-deploy
   cancel-in-progress: true
 
 jobs:
