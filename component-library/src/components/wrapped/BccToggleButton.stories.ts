@@ -1,4 +1,4 @@
-import { CheckIcon, CloseIcon } from '@bcc-code/icons-vue';
+import { CheckIcon, CloseIcon, QuestionMarkIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 import { BccToggleButton } from './index';
@@ -35,7 +35,6 @@ export const Default: Story = {
 		template: `
 			<div class="center gap-2">
 				<BccToggleButton v-model="checked" v-bind="args" />
-				<span>{{ checked ? 'On' : 'Off' }}</span>
 			</div>
 		`,
 	}),
@@ -55,7 +54,6 @@ export const WithLabels: Story = {
 		template: `
 			<div class="center gap-2">
 				<BccToggleButton v-model="checked" v-bind="args" />
-				<span>{{ checked ? 'On' : 'Off' }}</span>
 			</div>
 		`,
 	}),
@@ -71,8 +69,8 @@ export const WithIcons: Story = {
 		template: `
 			<div class="center gap-2">
 				<BccToggleButton v-model="checked"
-					:iconOn="CheckIcon"
-					:iconOff="CloseIcon"
+					:onIcon="CheckIcon"
+					:offIcon="CloseIcon"
 				/>
 				<span>{{ checked ? 'Checked' : 'Unchecked' }}</span>
 			</div>
@@ -82,18 +80,19 @@ export const WithIcons: Story = {
 
 export const Slot: Story = {
 	render: () => ({
-		components: { BccToggleButton, CheckIcon, CloseIcon },
+		components: { BccToggleButton, QuestionMarkIcon, CheckIcon, CloseIcon },
 		setup() {
 			const checked = ref(false);
-			return { checked, CheckIcon, CloseIcon };
+			return { checked, QuestionMarkIcon, CheckIcon, CloseIcon };
 		},
 		template: `
 			<div class="center gap-2">
 				<BccToggleButton v-model="checked">
 					<div class="center gap-2">
+						<QuestionMarkIcon class="size-5" />
+						<span>{{ checked ? 'Checked' : 'Unchecked' }}</span>
 						<CheckIcon v-if="checked" class="size-5" />
 						<CloseIcon v-else class="size-5" />
-						<span>{{ checked ? 'Checked' : 'Unchecked' }}</span>
 					</div>
 				</BccToggleButton>
 			</div>
