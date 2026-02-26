@@ -131,7 +131,6 @@ export { default as BccStepItem } from 'primevue/stepitem';
 export { default as BccStepList } from 'primevue/steplist';
 export { default as BccStepPanel } from 'primevue/steppanel';
 export { default as BccStepPanels } from 'primevue/steppanels';
-export { default as BccStepper } from 'primevue/stepper';
 export { default as BccSteps } from 'primevue/steps';
 export { default as BccStyleClass } from 'primevue/styleclass';
 export { default as BccTab } from 'primevue/tab';

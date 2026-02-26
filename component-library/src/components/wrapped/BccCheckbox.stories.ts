@@ -9,6 +9,7 @@ const meta = {
 		disabled: { control: 'boolean' },
 		indeterminate: { control: 'boolean' },
 		label: { control: 'text' },
+		labelLeft: { control: 'boolean' },
 		size: { control: 'select', options: ['small', 'default', 'large'] },
 	},
 	args: {

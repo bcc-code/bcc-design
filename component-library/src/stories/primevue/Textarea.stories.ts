@@ -9,6 +9,9 @@ const meta = {
 		disabled: { control: 'boolean' },
 		rows: { control: { type: 'number' } },
 		autoResize: { control: 'boolean' },
+		placeholder: { control: 'text' },
+		invalid: { control: 'boolean' },
+		size: { control: 'select', options: ['small', 'default', 'large'] },
 	},
 } as Meta;
 
@@ -42,4 +45,8 @@ export const Disabled: Story = {
 			<BccTextarea v-model="value" v-bind="args" class="w-full" />
 		`,
 	}),
+};
+
+export const Invalid: Story = {
+	args: { invalid: true, placeholder: 'Something is required...' },
 };

@@ -7,6 +7,7 @@ defineOptions({ inheritAttrs: false });
 
 export type CheckboxProps = PrimeCheckboxProps & {
 	label?: string;
+	labelLeft?: boolean;
 };
 
 const props = defineProps<CheckboxProps>();
@@ -25,8 +26,8 @@ const bindings = computed((): PrimeCheckboxProps => {
 <template>
 	<div class="flex items-center gap-2">
 		<PrimeCheckbox v-bind="bindings">
-			<template #icon="{ checked, indeterminate }">
-				<CheckIcon v-if="checked" class="text-icon-inverse size-full" />
+			<template #icon="{ checked, indeterminate, class: IconClass }">
+				<CheckIcon v-if="checked" class="text-icon-inverse size-full" :class="IconClass" />
 				<CheckIndeterminateSmallIcon v-else-if="indeterminate" class="text-icon-subtlest size-full" />
 			</template>
 			<slot />
@@ -34,7 +35,11 @@ const bindings = computed((): PrimeCheckboxProps => {
 		<label
 			v-if="label"
 			:for="inputId"
-			:class="[size === 'large' ? 'text-body-lg' : 'text-body-md', { 'text-disabled': disabled }]"
+			:class="[
+				size === 'large' ? 'text-body-lg' : 'text-body-md',
+				{ 'text-disabled': disabled },
+				{ '-order-1': labelLeft },
+			]"
 		>
 			{{ label }}
 		</label>

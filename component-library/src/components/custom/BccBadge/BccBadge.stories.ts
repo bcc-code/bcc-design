@@ -45,11 +45,15 @@ export const Contexts: Story = {
 		template: `
 			<div class="flex flex-wrap gap-2 align-items-center">
 				<BccBadge value="Default" />
+				<BccBadge value="Info" context="info" />
+				<BccBadge value="Success" context="success" />
+				<BccBadge value="Warning" context="warning" />
+				<BccBadge value="Danger" context="danger" />
 				<BccBadge value="Info" context="info-bolder" />
 				<BccBadge value="Success" context="success-bolder" />
 				<BccBadge value="Warning" context="warning-bolder" />
 				<BccBadge value="Danger" context="danger-bolder" />
-				<BccBadge value="Magenta" context="magenta-bolder" />
+				<BccBadge value="Other: blue-subtle" context="blue-subtle" />
 			</div>
 		`,
 	}),
