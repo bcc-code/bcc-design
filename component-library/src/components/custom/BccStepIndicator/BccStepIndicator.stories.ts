@@ -24,6 +24,10 @@ const meta: Meta<typeof BccStepIndicator> = {
 		headingFn: {
 			description: "Function for formatting the 'Step 1 of 2' string, e.g. with a translated string.",
 		},
+		clickable: {
+			control: { type: 'boolean' },
+			description: 'Whether the indicators are clickable.',
+		},
 	},
 };
 

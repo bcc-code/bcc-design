@@ -10,12 +10,13 @@ export type StepIndicatorProps = {
 	right?: boolean;
 	context?: BCC_CONTEXT;
 	headingFn?: (currentStep: number, totalSteps: number) => string;
+	clickable?: boolean;
 };
 
 const props = withDefaults(defineProps<StepIndicatorProps>(), {
 	additionalText: true,
 	showStepLabel: true,
-	context: BCC_CONTEXTS.brand.bold,
+	context: BCC_CONTEXTS.brand.bolder,
 	headingFn: (currentStep, totalSteps) => `Step ${currentStep} of ${totalSteps}`,
 });
 
@@ -38,14 +39,15 @@ const state = computed(() => ({
 			<div
 				v-for="(_step, index) in props.steps"
 				:key="index"
-				class="bcc-stepper-indicator"
+				class="bg-ctx h-1.5 rounded-lg duration-300"
 				:class="[
 					index === currentStep ? 'w-6' : 'w-1.5',
 					{
-						'bg-ctx': index <= currentStep,
-						'bg-alpha-subtle-default': index > currentStep,
+						clickable,
+						'ctx-gray-subtle': index > currentStep,
 					},
 				]"
+				@click="clickable ? (currentStep = index) : null"
 			>
 			</div>
 		</div>
