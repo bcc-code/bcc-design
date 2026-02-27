@@ -1,3 +1,4 @@
+import { BCC_CONTEXT_LIST } from '@/contexts';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import BccStepIndicator from './BccStepIndicator.vue';
 
@@ -20,6 +21,11 @@ const meta: Meta<typeof BccStepIndicator> = {
 		showStepLabel: {
 			control: { type: 'boolean' },
 			description: 'Whether to show the step label.',
+		},
+		context: {
+			control: { type: 'select' },
+			description: 'The context of the step indicator.',
+			options: BCC_CONTEXT_LIST.filter(ctx => !ctx.includes('subtler') && !ctx.includes('subtlest')),
 		},
 		headingFn: {
 			description: "Function for formatting the 'Step 1 of 2' string, e.g. with a translated string.",
