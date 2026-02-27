@@ -52,7 +52,7 @@ jobs:
 
       - name: Set release channel
         run: |
-          echo "RELEASE_CHANNEL=$(pnpm run release-channel --silent)" >> $GITHUB_ENV
+          echo "RELEASE_CHANNEL=$(pnpm --silent run release-channel)" >> $GITHUB_ENV
 
       - name: Publish `@bcc-code/component-library-vue`
         run: npm publish --tag ${{ env.RELEASE_CHANNEL }}
