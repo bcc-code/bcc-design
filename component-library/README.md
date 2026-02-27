@@ -16,6 +16,15 @@ yarn add @bcc-code/component-library-vue
 
 **Peer dependency:** Vue 3.
 
+**pnpm and BCC packages:** The library depends on `@bcc-code/icons-vue` and `@bcc-code/design-tokens`. To use them in your app (e.g. `import { CheckIcon } from '@bcc-code/icons-vue'` or design token imports) without adding those packages to your own `package.json`, add this to your project’s **`.npmrc`** so pnpm hoists them:
+
+```ini
+public-hoist-pattern[]=@bcc-code/icons-vue
+public-hoist-pattern[]=@bcc-code/design-tokens
+```
+
+Then run `pnpm install` again. With npm or Yarn this is not needed.
+
 ## Quick start
 
 1. **Register the library** in your app (e.g. `main.ts`):

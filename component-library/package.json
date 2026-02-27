@@ -61,7 +61,6 @@
     "tailwindcss": "^4.0.0"
   },
   "peerDependencies": {
-    "@bcc-code/design-tokens": "^5.1.0",
     "vue": "^3.5.0"
   },
   "devDependencies": {
