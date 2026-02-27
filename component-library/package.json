@@ -53,6 +53,7 @@
     "create-version": "node ./scripts/version.cjs"
   },
   "dependencies": {
+    "@bcc-code/design-tokens": "^5.1.0",
     "@bcc-code/icons-vue": "^1.4.0",
     "@primeuix/themes": "^2.0.3",
     "@tailwindcss/vite": "^4.1.18",
@@ -64,7 +65,6 @@
     "vue": "^3.5.0"
   },
   "devDependencies": {
-    "@bcc-code/design-tokens": "^5.1.0",
     "@eslint/js": "^9.39.2",
     "@primevue/auto-import-resolver": "^4.5.4",
     "@storybook/addon-docs": "^10.2.8",
