@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
-import { BccCheckbox } from './index';
+import BccCheckbox from './BccCheckbox.vue';
 
 const meta = {
 	component: BccCheckbox,

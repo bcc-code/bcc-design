@@ -1,7 +1,7 @@
 import { CheckIcon, CloseIcon, QuestionMarkIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
-import { BccToggleButton } from './index';
+import BccToggleButton from './BccToggleButton.vue';
 
 const meta = {
 	component: BccToggleButton,

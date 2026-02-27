@@ -1,6 +1,6 @@
 import { CelebrationIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { BccMessage } from '../../index';
+import BccMessage from './BccMessage.vue';
 
 const meta = {
 	component: BccMessage,
