@@ -4,6 +4,14 @@ import { BccFieldset } from '../../index';
 const meta = {
 	component: BccFieldset,
 	title: 'PrimeVue/BccFieldset',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Grouped content with optional toggleable legend. [Read more on PrimeVue →](https://primevue.org/fieldset/)',
+			},
+		},
+	},
 	argTypes: {
 		toggleable: { control: 'boolean' },
 		collapsed: { control: 'boolean' },

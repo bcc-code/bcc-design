@@ -7,6 +7,14 @@ import BccButton from './BccButton.vue';
 const meta = {
 	component: BccButton,
 	title: 'Wrapped/BccButton',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Button for actions and navigation. **Why wrapped:** Vue component icons (e.g. from `@bcc-code/icons-vue`) via `icon` and `iconRight`, plus `useCtx` for context-aware styling (e.g. `ctx-blue-subtler`). [Read more on PrimeVue →](https://primevue.org/button/)',
+			},
+		},
+	},
 	argTypes: {
 		label: { control: 'text' },
 		severity: {

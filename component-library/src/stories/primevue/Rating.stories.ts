@@ -5,6 +5,14 @@ import { BccRating } from '../../index';
 const meta = {
 	component: BccRating,
 	title: 'PrimeVue/BccRating',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Star (or custom) rating input. [Read more on PrimeVue →](https://primevue.org/rating/)',
+			},
+		},
+	},
 	argTypes: {
 		disabled: { control: 'boolean' },
 		readonly: { control: 'boolean' },

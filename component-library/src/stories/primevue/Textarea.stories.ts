@@ -5,6 +5,14 @@ import { BccTextarea } from '../../index';
 const meta = {
 	component: BccTextarea,
 	title: 'PrimeVue/BccTextarea',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Multi-line text input with optional auto-resize. [Read more on PrimeVue →](https://primevue.org/textarea/)',
+			},
+		},
+	},
 	argTypes: {
 		disabled: { control: 'boolean' },
 		rows: { control: { type: 'number' } },

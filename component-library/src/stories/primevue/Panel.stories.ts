@@ -4,6 +4,14 @@ import { BccPanel } from '../../index';
 const meta = {
 	component: BccPanel,
 	title: 'PrimeVue/BccPanel',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Container with optional header and toggle. [Read more on PrimeVue →](https://primevue.org/panel/)',
+			},
+		},
+	},
 	argTypes: {
 		toggleable: { control: 'boolean' },
 	},

@@ -13,6 +13,14 @@ const cities = [
 const meta = {
 	component: BccAutoComplete,
 	title: 'PrimeVue/BccAutoComplete',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Text input with suggestions from a list. [Read more on PrimeVue →](https://primevue.org/autocomplete/)',
+			},
+		},
+	},
 	argTypes: {
 		placeholder: { control: 'text' },
 		disabled: { control: 'boolean' },

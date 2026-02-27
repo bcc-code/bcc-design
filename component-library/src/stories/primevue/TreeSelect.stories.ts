@@ -30,6 +30,14 @@ const nodes = [
 const meta = {
 	component: BccTreeSelect,
 	title: 'PrimeVue/BccTreeSelect',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Dropdown to select from a tree structure. [Read more on PrimeVue →](https://primevue.org/treeselect/)',
+			},
+		},
+	},
 	argTypes: {
 		placeholder: { control: 'text' },
 		selectionMode: { control: 'select', options: ['single', 'multiple', 'checkbox'] },

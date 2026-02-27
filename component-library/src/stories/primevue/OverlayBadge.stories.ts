@@ -4,6 +4,14 @@ import { BccOverlayBadge } from '../../index';
 const meta = {
 	component: BccOverlayBadge,
 	title: 'PrimeVue/BccOverlayBadge',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Badge overlay for another element (e.g. icons or buttons). [Read more on PrimeVue →](https://primevue.org/badge/)',
+			},
+		},
+	},
 	argTypes: {
 		value: { control: 'text' },
 		severity: {

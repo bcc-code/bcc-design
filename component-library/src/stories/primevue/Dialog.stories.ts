@@ -5,6 +5,14 @@ import { BccButton, BccDialog } from '../../index';
 const meta = {
 	component: BccDialog,
 	title: 'PrimeVue/BccDialog',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Modal dialog for focused user interaction. [Read more on PrimeVue →](https://primevue.org/dialog/)',
+			},
+		},
+	},
 	argTypes: {
 		visible: { control: 'boolean' },
 		modal: { control: 'boolean' },

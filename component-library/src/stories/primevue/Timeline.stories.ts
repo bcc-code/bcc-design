@@ -11,6 +11,14 @@ const events = [
 const meta = {
 	component: BccTimeline,
 	title: 'PrimeVue/BccTimeline',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Vertical or horizontal timeline display. [Read more on PrimeVue →](https://primevue.org/timeline/)',
+			},
+		},
+	},
 	argTypes: {
 		align: { control: 'select', options: ['left', 'right', 'alternate'] },
 		layout: { control: 'select', options: ['vertical', 'horizontal'] },

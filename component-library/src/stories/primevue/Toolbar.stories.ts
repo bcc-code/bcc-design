@@ -4,6 +4,14 @@ import { BccButton, BccToolbar } from '../../index';
 const meta = {
 	component: BccToolbar,
 	title: 'PrimeVue/BccToolbar',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Container for action buttons and controls. [Read more on PrimeVue →](https://primevue.org/toolbar/)',
+			},
+		},
+	},
 } as Meta;
 
 export default meta;

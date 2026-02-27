@@ -6,6 +6,14 @@ import BccToggle from './BccToggle.vue';
 const meta: Meta<typeof BccToggle> = {
 	component: BccToggle,
 	title: 'Wrapped/BccToggle',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Switch to toggle a boolean value. **Why wrapped:** Label support, optional check/cross icons in the handle, loading state, `wasToggled` for feedback, and `useCtx` for context-aware styling. [Read more on PrimeVue →](https://primevue.org/toggleswitch/)',
+			},
+		},
+	},
 	argTypes: {
 		defaultValue: { control: 'boolean' },
 		disabled: { control: 'boolean' },

@@ -5,6 +5,14 @@ import { BccRadioButton } from '../../index';
 const meta = {
 	component: BccRadioButton,
 	title: 'PrimeVue/BccRadioButton',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Single selection from a set of options. [Read more on PrimeVue →](https://primevue.org/radiobutton/)',
+			},
+		},
+	},
 	argTypes: {
 		disabled: { control: 'boolean' },
 	},

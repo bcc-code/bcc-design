@@ -49,7 +49,8 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component: 'Links to PrimeVue documentation for components that do not have local stories in this library.',
+				component:
+					'Links to PrimeVue documentation for components that do not have local stories in this library. [Browse PrimeVue docs →](https://primevue.org)',
 			},
 		},
 	},

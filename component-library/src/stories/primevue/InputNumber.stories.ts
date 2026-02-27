@@ -5,6 +5,14 @@ import { BccInputNumber } from '../../index';
 const meta = {
 	component: BccInputNumber,
 	title: 'PrimeVue/BccInputNumber',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Numeric input with optional spinner buttons. [Read more on PrimeVue →](https://primevue.org/inputnumber/)',
+			},
+		},
+	},
 	argTypes: {
 		disabled: { control: 'boolean' },
 		showButtons: { control: 'boolean' },

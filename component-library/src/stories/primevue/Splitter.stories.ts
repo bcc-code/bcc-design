@@ -4,6 +4,14 @@ import { BccSplitter, BccSplitterPanel } from '../../index';
 const meta = {
 	component: BccSplitter,
 	title: 'PrimeVue/BccSplitter',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Resizable split panels. [Read more on PrimeVue →](https://primevue.org/splitter/)',
+			},
+		},
+	},
 } as Meta;
 
 export default meta;

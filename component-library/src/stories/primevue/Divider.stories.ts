@@ -4,6 +4,14 @@ import { BccDivider } from '../../index';
 const meta = {
 	component: BccDivider,
 	title: 'PrimeVue/BccDivider',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Visual separator between content sections. [Read more on PrimeVue →](https://primevue.org/divider/)',
+			},
+		},
+	},
 	argTypes: {
 		layout: { control: 'select', options: ['horizontal', 'vertical'] },
 		type: { control: 'select', options: ['solid', 'dashed', 'dotted'] },

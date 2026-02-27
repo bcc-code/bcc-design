@@ -4,6 +4,14 @@ import { BccCard } from '../../index';
 const meta = {
 	component: BccCard,
 	title: 'PrimeVue/BccCard',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Container with optional header and footer. [Read more on PrimeVue →](https://primevue.org/card/)',
+			},
+		},
+	},
 } as Meta;
 
 export default meta;

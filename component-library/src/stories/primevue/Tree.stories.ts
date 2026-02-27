@@ -30,6 +30,14 @@ const nodes = [
 const meta = {
 	component: BccTree,
 	title: 'PrimeVue/BccTree',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Hierarchical data as an expandable tree. [Read more on PrimeVue →](https://primevue.org/tree/)',
+			},
+		},
+	},
 	argTypes: {
 		selectionMode: { control: 'select', options: [null, 'single', 'multiple', 'checkbox'] },
 		filter: { control: 'boolean' },

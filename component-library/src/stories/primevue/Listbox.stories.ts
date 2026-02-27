@@ -13,6 +13,14 @@ const options = [
 const meta = {
 	component: BccListbox,
 	title: 'PrimeVue/BccListbox',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'List component for single or multiple selection. [Read more on PrimeVue →](https://primevue.org/listbox/)',
+			},
+		},
+	},
 	argTypes: {
 		disabled: { control: 'boolean' },
 		filter: { control: 'boolean' },

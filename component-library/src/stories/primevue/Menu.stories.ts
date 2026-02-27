@@ -18,6 +18,14 @@ const items = [
 const meta = {
 	component: BccMenu,
 	title: 'PrimeVue/BccMenu',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Overlay menu with a list of actions. [Read more on PrimeVue →](https://primevue.org/menu/)',
+			},
+		},
+	},
 } as Meta;
 
 export default meta;

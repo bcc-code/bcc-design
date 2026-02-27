@@ -4,6 +4,14 @@ import { BccProgressBar } from '../../index';
 const meta = {
 	component: BccProgressBar,
 	title: 'PrimeVue/BccProgressBar',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Progress indicator bar. [Read more on PrimeVue →](https://primevue.org/progressbar/)',
+			},
+		},
+	},
 	argTypes: {
 		value: { control: { type: 'number', min: 0, max: 100 } },
 		showValue: { control: 'boolean' },

@@ -4,6 +4,14 @@ import { BccButton, BccToast, useToast } from '../../index';
 const meta = {
 	component: BccToast,
 	title: 'PrimeVue/BccToast',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Notification messages (toast). [Read more on PrimeVue →](https://primevue.org/toast/)',
+			},
+		},
+	},
 } as Meta;
 
 export default meta;

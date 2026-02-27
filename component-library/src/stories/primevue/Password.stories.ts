@@ -5,6 +5,14 @@ import { BccPassword } from '../../index';
 const meta = {
 	component: BccPassword,
 	title: 'PrimeVue/BccPassword',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Password input with optional visibility toggle. [Read more on PrimeVue →](https://primevue.org/password/)',
+			},
+		},
+	},
 	argTypes: {
 		disabled: { control: 'boolean' },
 		toggleMask: { control: 'boolean' },

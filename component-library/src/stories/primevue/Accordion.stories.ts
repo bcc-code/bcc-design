@@ -5,6 +5,14 @@ import { BccAccordion, BccAccordionContent, BccAccordionHeader, BccAccordionPane
 const meta = {
 	component: BccAccordion,
 	title: 'PrimeVue/BccAccordion',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Expandable panels to show and hide content. [Read more on PrimeVue →](https://primevue.org/accordion/)',
+			},
+		},
+	},
 } as Meta;
 
 export default meta;

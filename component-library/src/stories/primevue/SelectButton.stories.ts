@@ -11,6 +11,14 @@ const options = [
 const meta = {
 	component: BccSelectButton,
 	title: 'PrimeVue/BccSelectButton',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Button group for selecting one or more options. [Read more on PrimeVue →](https://primevue.org/selectbutton/)',
+			},
+		},
+	},
 	argTypes: {
 		allowEmpty: { control: 'boolean' },
 		disabled: { control: 'boolean' },

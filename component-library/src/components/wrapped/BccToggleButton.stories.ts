@@ -6,6 +6,14 @@ import BccToggleButton from './BccToggleButton.vue';
 const meta = {
 	component: BccToggleButton,
 	title: 'Wrapped/BccToggleButton',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Button that toggles between on and off states. **Why wrapped:** `onIcon` and `offIcon` accept Vue components (e.g. from `@bcc-code/icons-vue`) instead of icon name strings. [Read more on PrimeVue →](https://primevue.org/togglebutton/)',
+			},
+		},
+	},
 	argTypes: {
 		disabled: { control: 'boolean' },
 		invalid: { control: 'boolean' },

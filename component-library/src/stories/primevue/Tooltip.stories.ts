@@ -8,6 +8,14 @@ import { BccButton } from '../../index';
 const meta = {
 	component: BccButton,
 	title: 'PrimeVue/BccTooltip',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Short hint on hover or focus. [Read more on PrimeVue →](https://primevue.org/tooltip/)',
+			},
+		},
+	},
 } as Meta;
 
 export default meta;

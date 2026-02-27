@@ -11,6 +11,14 @@ const products = [
 const meta = {
 	component: BccDataTable,
 	title: 'PrimeVue/BccDataTable',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Table component with sorting, filtering and pagination. [Read more on PrimeVue →](https://primevue.org/datatable/)',
+			},
+		},
+	},
 	argTypes: {
 		stripedRows: { control: 'boolean' },
 		showGridlines: { control: 'boolean' },

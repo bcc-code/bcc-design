@@ -5,6 +5,14 @@ import { BccPaginator } from '../../index';
 const meta = {
 	component: BccPaginator,
 	title: 'PrimeVue/BccPaginator',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Pagination controls for paged data. [Read more on PrimeVue →](https://primevue.org/paginator/)',
+			},
+		},
+	},
 	argTypes: {
 		rows: { control: { type: 'number', min: 1 } },
 		totalRecords: { control: { type: 'number', min: 0 } },

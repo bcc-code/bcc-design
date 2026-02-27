@@ -13,6 +13,14 @@ const cities = [
 const meta = {
 	component: BccMultiSelect,
 	title: 'PrimeVue/BccMultiSelect',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Dropdown to select multiple options. [Read more on PrimeVue →](https://primevue.org/multiselect/)',
+			},
+		},
+	},
 	argTypes: {
 		placeholder: { control: 'text' },
 		disabled: { control: 'boolean' },

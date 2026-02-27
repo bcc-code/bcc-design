@@ -5,6 +5,14 @@ import { BccButton, BccDrawer } from '../../index';
 const meta = {
 	component: BccDrawer,
 	title: 'PrimeVue/BccDrawer',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Side panel that slides in from an edge. [Read more on PrimeVue →](https://primevue.org/drawer/)',
+			},
+		},
+	},
 	argTypes: {
 		position: { control: 'select', options: ['left', 'right', 'top', 'bottom'] },
 		modal: { control: 'boolean' },

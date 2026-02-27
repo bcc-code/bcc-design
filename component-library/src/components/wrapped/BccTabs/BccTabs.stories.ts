@@ -6,6 +6,14 @@ import BccTabs from './BccTabs.vue';
 const meta: Meta<typeof BccTabs> = {
 	component: BccTabs,
 	title: 'Wrapped/BccTabs',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Tabbed content panels with optional icons and badges. **Why wrapped:** Declarative `tabs` array with title, icon, and badge per tab, optional `fill` layout and `noPanels` for tab-only navigation. [Read more on PrimeVue →](https://primevue.org/tabs/)',
+			},
+		},
+	},
 	argTypes: {
 		noPanels: { control: 'boolean' },
 	},

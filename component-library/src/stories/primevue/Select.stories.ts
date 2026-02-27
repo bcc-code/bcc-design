@@ -13,6 +13,14 @@ const cities = [
 const meta = {
 	component: BccSelect,
 	title: 'PrimeVue/BccSelect',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Dropdown for single selection from a list. [Read more on PrimeVue →](https://primevue.org/select/)',
+			},
+		},
+	},
 	argTypes: {
 		placeholder: { control: 'text' },
 		disabled: { control: 'boolean' },

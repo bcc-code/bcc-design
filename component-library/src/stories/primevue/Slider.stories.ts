@@ -5,6 +5,14 @@ import { BccSlider } from '../../index';
 const meta = {
 	component: BccSlider,
 	title: 'PrimeVue/BccSlider',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Numeric input via a draggable slider. [Read more on PrimeVue →](https://primevue.org/slider/)',
+			},
+		},
+	},
 	argTypes: {
 		disabled: { control: 'boolean' },
 		min: { control: { type: 'number' } },

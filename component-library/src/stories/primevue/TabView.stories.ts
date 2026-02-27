@@ -4,6 +4,14 @@ import { BccTab, BccTabList, BccTabPanel, BccTabPanels, BccTabs } from '../../in
 const meta = {
 	component: BccTabs,
 	title: 'PrimeVue/BccTabView',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Tabbed content panels. [Read more on PrimeVue →](https://primevue.org/tabview/)',
+			},
+		},
+	},
 } as Meta;
 
 export default meta;

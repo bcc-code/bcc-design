@@ -4,6 +4,14 @@ import { BccSkeleton } from '../../index';
 const meta = {
 	component: BccSkeleton,
 	title: 'PrimeVue/BccSkeleton',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Placeholder while content is loading. [Read more on PrimeVue →](https://primevue.org/skeleton/)',
+			},
+		},
+	},
 	argTypes: {
 		shape: { control: 'select', options: ['rectangle', 'circle'] },
 		size: { control: 'select', options: ['normal', 'large'] },

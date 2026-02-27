@@ -5,6 +5,14 @@ import BccCheckbox from './BccCheckbox.vue';
 const meta = {
 	component: BccCheckbox,
 	title: 'Wrapped/BccCheckbox',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Checkbox for single or multiple selection. **Why wrapped:** Custom check/indeterminate icons from the design system, and built-in label with optional `labelLeft` placement. [Read more on PrimeVue →](https://primevue.org/checkbox/)',
+			},
+		},
+	},
 	argTypes: {
 		disabled: { control: 'boolean' },
 		indeterminate: { control: 'boolean' },

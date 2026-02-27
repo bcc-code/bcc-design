@@ -7,6 +7,14 @@ import BccInput from './BccInput.vue';
 const meta: Meta<typeof BccInput> = {
 	component: BccInput,
 	title: 'Wrapped/BccInput',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Text or numeric input with optional icons. **Why wrapped:** Unified text/numeric input with left/right icon slots, loading state with spinner, and consistent icon sizing. [Read more on PrimeVue →](https://primevue.org/inputtext/)',
+			},
+		},
+	},
 	argTypes: {
 		placeholder: { control: 'text' },
 		iconRight: { control: 'boolean' },

@@ -6,6 +6,14 @@ const items = [{ label: 'Home', to: '#' }, { label: 'Components', to: '#' }, { l
 const meta = {
 	component: BccBreadcrumb,
 	title: 'PrimeVue/BccBreadcrumb',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Navigation breadcrumbs showing the current path. [Read more on PrimeVue →](https://primevue.org/breadcrumb/)',
+			},
+		},
+	},
 } as Meta;
 
 export default meta;

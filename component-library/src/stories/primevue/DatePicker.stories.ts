@@ -5,6 +5,14 @@ import { BccDatePicker } from '../../index';
 const meta = {
 	component: BccDatePicker,
 	title: 'PrimeVue/BccDatePicker',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Form component for date and time input. [Read more on PrimeVue →](https://primevue.org/datepicker/)',
+			},
+		},
+	},
 	argTypes: {
 		showIcon: { control: 'boolean' },
 		showButtonBar: { control: 'boolean' },

@@ -4,6 +4,14 @@ import { BccChip } from '../../index';
 const meta = {
 	component: BccChip,
 	title: 'PrimeVue/BccChip',
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Small element for labels, tags or input tokens. [Read more on PrimeVue →](https://primevue.org/chip/)',
+			},
+		},
+	},
 	argTypes: {
 		removable: { control: 'boolean' },
 	},
