@@ -1,6 +1,6 @@
 @layer components {
   .bcc-nps-score {
-    @apply min-w-[280px] p-4 text-body-sm flex flex-col gap-y-2;
+    @apply min-w-[280px] p-4 text-body-sm flex flex-col gap-y-2 select-none;
   }
 
   .bcc-nps-score--heading {
@@ -21,7 +21,7 @@
   }
 
   .bcc-nps-score--bar.disabled .bcc-nps-score--number.inactive {
-    @apply bg-ctx ctx-gray-subtler text-disabled;
+    @apply bg-ctx ctx-gray-subtlest text-disabled;
   }
 
   .bcc-nps-score--number {
@@ -31,7 +31,7 @@
   }
 
   .bcc-nps-score--number:disabled {
-    @apply pointer-events-none cursor-default;
+    @apply cursor-not-allowed;
   }
 
   .bcc-nps-score--number.active {
@@ -44,7 +44,7 @@
   }
 
   .bcc-nps-score--number.inactive {
-    @apply bg-ctx text-ctx ctx-gray-subtle;
+    @apply bg-ctx text-ctx ctx-gray-subtler;
   }
 
   .bcc-nps-score--number:first-child {
