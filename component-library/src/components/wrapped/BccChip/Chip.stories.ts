@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { BccChip } from '../../index';
+import BccChip from './BccChip.vue';
+import { CheckIcon } from '@bcc-code/icons-vue';
 
 const meta = {
 	component: BccChip,
@@ -22,19 +23,26 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	render: () => ({
+	args: { removable: false },
+	render: args => ({
 		components: { BccChip },
+		setup() {
+			return { args };
+		},
 		template: `
-			<BccChip label="Default chip" />
+			<BccChip v-bind="args" label="Default chip" />
 		`,
 	}),
 };
 
 export const WithIcon: Story = {
 	render: () => ({
-		components: { BccChip },
+		components: { BccChip, CheckIcon },
+		setup() {
+			return { CheckIcon };
+		},
 		template: `
-			<BccChip label="With icon" icon="pi pi-check" />
+			<BccChip label="With icon" :icon="CheckIcon" />
 		`,
 	}),
 };
