@@ -8,8 +8,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component:
-					'Side panel that slides in from an edge. [Read more on PrimeVue →](https://primevue.org/drawer/)',
+				component: 'Side panel that slides in from an edge. [Read more on PrimeVue →](https://primevue.org/drawer/)',
 			},
 		},
 	},

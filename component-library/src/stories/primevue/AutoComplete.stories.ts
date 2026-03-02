@@ -8,6 +8,15 @@ const cities = [
 	{ name: 'London', code: 'LDN' },
 	{ name: 'Istanbul', code: 'IST' },
 	{ name: 'Paris', code: 'PRS' },
+	{ name: 'Oslo', code: 'OSL' },
+	{ name: 'Stockholm', code: 'STO' },
+	{ name: 'Copenhagen', code: 'CPH' },
+	{ name: 'Berlin', code: 'BER' },
+	{ name: 'Madrid', code: 'MAD' },
+	{ name: 'Rome', code: 'RM' },
+	{ name: 'London', code: 'LDN' },
+	{ name: 'Istanbul', code: 'IST' },
+	{ name: 'Paris', code: 'PRS' },
 ];
 
 const meta = {
@@ -27,6 +36,7 @@ const meta = {
 		dropdown: { control: 'boolean' },
 		showClear: { control: 'boolean' },
 		size: { control: 'select', options: ['small', 'default', 'large'] },
+		multiple: { control: 'boolean' },
 		forceSelection: { control: 'boolean' },
 	},
 } as Meta;
@@ -91,7 +101,6 @@ export const WithDropdown: Story = {
 				:suggestions="suggestions"
 				@complete="search"
 				v-bind="args"
-				class="w-full md:w-14rem"
 			/>
 		`,
 	}),
@@ -115,7 +124,6 @@ export const ForceSelection: Story = {
 				:suggestions="suggestions"
 				@complete="search"
 				v-bind="args"
-				class="w-full md:w-14rem"
 			/>
 		`,
 	}),
@@ -141,7 +149,6 @@ export const Clearable: Story = {
 					:suggestions="suggestions"
 					@complete="search"
 					v-bind="args"
-					class="w-full"
 				/>
 			</div>
 		`,
@@ -168,7 +175,6 @@ export const Disabled: Story = {
 				:suggestions="suggestions"
 				@complete="search"
 				v-bind="args"
-				class="w-full md:w-14rem"
 			/>
 		`,
 	}),

@@ -1,0 +1,41 @@
+{
+	"prettier.configPath": "./prettier.config.mjs",
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.preferences.preferTypeOnlyAutoImports": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "explicit",
+		"source.fixAll.eslint": "explicit"
+	},
+	"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[vue]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"yaml.schemas": {
+		"https://json.schemastore.org/github-workflow.json": ".github/workflows/*.yml"
+	},
+	"[github-actions-workflow]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true,
+		"editor.insertSpaces": true,
+		"editor.detectIndentation": true
+	},
+	"eslint.format.enable": true,
+	"editor.formatOnSave": true,
+	"eslint.lintTask.enable": true,
+	"vitest.vitestPackagePath": "./node_modules/vitest/package.json",
+	"[css]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+}
