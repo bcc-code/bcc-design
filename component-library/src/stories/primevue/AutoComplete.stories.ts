@@ -59,14 +59,16 @@ export const Default: Story = {
 			return { args, selected, suggestions, search };
 		},
 		template: `
+		<div class="max-w-sm mx-auto">
 			<BccAutoComplete
 				v-model="selected"
 				option-label="name"
 				:suggestions="suggestions"
 				@complete="search"
 				v-bind="args"
-				class="w-full md:w-14rem"
+				fluid
 			/>
+		</div>
 		`,
 	}),
 };
