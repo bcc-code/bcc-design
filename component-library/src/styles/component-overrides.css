@@ -15,16 +15,15 @@
     flex-grow: 1;
 }
 
-/** Primevue 's component is missing the gap between input and dropdown */
-.p-autocomplete-overlay {
-    margin: var(--p-anchor-gutter) 0;
-}
 
 /**
-.BccSelect
-**/
-
-/** Primevue 's component is missing the gap between input and dropdown */
-.p-select-overlay.p-component {
+GUTTER FIX
+* Primevue's dropwdown components are all missing the gap between input and dropdown
+**/ 
+.p-autocomplete-overlay,
+.p-menu-overlay,
+.p-multiselect-overlay,
+.p-select-overlay,
+.p-treeselect-overlay {
     margin: var(--p-anchor-gutter) 0;
 }

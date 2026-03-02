@@ -3,7 +3,8 @@ import type { Preview } from '@storybook/vue3';
 import { setup } from '@storybook/vue3';
 import PrimeVue from 'primevue/config';
 import ConfirmationService from 'primevue/confirmationservice';
-import FocusTrap from 'primevue/focustrap';
+import FocusTrapDirective from 'primevue/focustrap';
+import TooltipDirective from 'primevue/tooltip';
 import ToastService from 'primevue/toastservice';
 
 import '../src/style.css';
@@ -25,7 +26,8 @@ setup(app => {
 	});
 	app.use(ConfirmationService);
 	app.use(ToastService);
-	app.directive('focus-trap', FocusTrap);
+	app.directive('tooltip', TooltipDirective);
+	app.directive('focus-trap', FocusTrapDirective);
 });
 
 const preview: Preview = {
