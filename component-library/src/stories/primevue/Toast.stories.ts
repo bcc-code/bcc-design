@@ -7,8 +7,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component:
-					'Notification messages (toast). [Read more on PrimeVue →](https://primevue.org/toast/)',
+				component: 'Notification messages (toast). [Read more on PrimeVue →](https://primevue.org/toast/)',
 			},
 		},
 	},

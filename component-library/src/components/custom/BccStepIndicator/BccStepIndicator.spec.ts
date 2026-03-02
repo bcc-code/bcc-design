@@ -7,48 +7,50 @@ describe('BccStepIndicator', () => {
 		const steps = ['Step 1', 'Step 2', 'Step 3'];
 		const wrapper = mount(BccStepIndicator, {
 			props: {
-				currentStep: 1,
+				modelValue: 1,
 				steps: steps,
 				additionalText: true,
 			},
 		});
-		expect(wrapper.findAll('.bcc-stepper-indicator').length).toBe(steps.length);
+		const indicators = wrapper.find('.bcc-step-indicator').findAll('div.bg-ctx');
+		expect(indicators.length).toBe(steps.length);
 		expect(wrapper.text()).toContain('Step 2 of 3'); // Checking for the header text
 	});
 
 	it('applies active class to the current step indicator', () => {
 		const wrapper = mount(BccStepIndicator, {
 			props: {
-				currentStep: 0,
+				modelValue: 0,
 				steps: ['Step 1', 'Step 2'],
 				additionalText: false,
 			},
 		});
-		const indicators = wrapper.findAll('.bcc-stepper-indicator');
-		expect(indicators[0].classes()).toContain('bcc-stepper-indicator-active');
-		expect(indicators[1].classes()).not.toContain('bcc-stepper-indicator-active');
+		const indicators = wrapper.find('.bcc-step-indicator').findAll('div.bg-ctx');
+		expect(indicators[0].classes()).toContain('w-6'); // active step is wider
+		expect(indicators[1].classes()).toContain('w-1.5'); // inactive step
 	});
 
 	it('does not display step titles when additionalText is false', () => {
 		const wrapper = mount(BccStepIndicator, {
 			props: {
-				currentStep: 1,
+				modelValue: 1,
 				steps: ['Step 1', 'Step 2', 'Step 3'],
 				additionalText: false,
 			},
 		});
-		expect(wrapper.find('.bcc-stepper-current-label').exists()).toBe(false);
+		expect(wrapper.find('.text-body-sm.text-text-subtlest').exists()).toBe(false);
 	});
 
 	it('displays step titles when additionalText is true', () => {
 		const wrapper = mount(BccStepIndicator, {
 			props: {
-				currentStep: 1,
+				modelValue: 1,
 				steps: ['Step 1', 'Step 2', 'Step 3'],
 				additionalText: true,
 			},
 		});
-		expect(wrapper.find('.bcc-stepper-current-label').exists()).toBe(true);
-		expect(wrapper.find('.bcc-stepper-current-label').text()).toBe('Step 2');
+		const label = wrapper.find('.text-body-sm.text-text-subtlest');
+		expect(label.exists()).toBe(true);
+		expect(label.text()).toBe('Step 2');
 	});
 });
