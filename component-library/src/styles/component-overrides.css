@@ -17,5 +17,14 @@
 
 /** Primevue 's component is missing the gap between input and dropdown */
 .p-autocomplete-overlay {
-    margin-top: var(--p-anchor-gutter);
+    margin: var(--p-anchor-gutter) 0;
+}
+
+/**
+.BccSelect
+**/
+
+/** Primevue 's component is missing the gap between input and dropdown */
+.p-select-overlay.p-component {
+    margin: var(--p-anchor-gutter) 0;
 }
