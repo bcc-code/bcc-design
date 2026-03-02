@@ -25,7 +25,13 @@ const meta = {
 		rounded: { control: 'boolean' },
 		loading: { control: 'boolean' },
 		outlined: { control: 'boolean' },
-		icon: { control: 'object' },
+		text: { control: 'boolean' },
+		raised: { control: 'boolean' },
+		iconRight: { control: 'boolean' },
+		size: {
+			control: 'select',
+			options: ['small', 'default', 'large'],
+		},
 	},
 } as Meta<typeof BccButton>;
 
@@ -34,19 +40,19 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: { label: 'Button' } as unknown as Story['args'],
-};
-
-export const Variants: Story = {
-	render: () => ({
+	args: { label: 'Default', icon: CheckIcon } as unknown as Story['args'],
+	render: args => ({
 		components: { BccButton },
+		setup() {
+			return { args };
+		},
 		template: `
-			<div class="flex flex-wrap gap-2">
-				<BccButton label="Default" />
-				<BccButton label="Outlined" outlined />
-				<BccButton label="Text" text />
-				<BccButton label="Rounded" rounded />
-				<BccButton label="Rounded Outlined" rounded outlined />
+			<div class="flex flex-wrap gap-2 p-2">
+				<BccButton v-bind="args" />
+				<BccButton v-bind="args" label="Outlined" outlined />
+				<BccButton v-bind="args" label="Text" text />
+				<BccButton v-bind="args" label="Rounded" rounded />
+				<BccButton v-bind="args" label="Rounded Outlined" rounded outlined />
 			</div>
 		`,
 	}),
