@@ -4,7 +4,7 @@ import BccChip from './BccChip.vue';
 
 const meta = {
 	component: BccChip,
-	title: 'PrimeVue/BccChip',
+	title: 'Wrapped/BccChip',
 	parameters: {
 		docs: {
 			description: {
