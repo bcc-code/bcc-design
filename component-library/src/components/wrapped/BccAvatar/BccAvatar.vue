@@ -14,7 +14,7 @@ export type AvatarProps = Omit<PrimeAvatarProps, 'shape' | 'size'> & {
 	squared?: boolean;
 	/** Adds a visible border around the avatar. */
 	bordered?: boolean;
-	/** Controls the avatar dimensions; maps to CSS size classes (xs through xxl). */
+	/** Controls the avatar dimensions; maps to CSS size classes (xs through xxl). Default: md */
 	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 };
 

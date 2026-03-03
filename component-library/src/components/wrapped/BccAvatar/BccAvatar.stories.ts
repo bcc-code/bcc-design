@@ -180,11 +180,24 @@ export const AvatarGroup: Story = {
 };
 
 export const WithBadge: Story = {
-	render: () => ({
+	args: { label: 'B', gender: 'female', child: true, size: 'xxl' },
+	render: args => ({
 		components: { BccAvatar, BccOverlayBadge },
+		setup() {
+			const sizeMap = {
+				xs: 'small',
+				sm: 'small',
+				md: 'medium',
+				lg: 'large',
+				xl: 'large',
+				xxl: 'xlarge',
+				xxxl: 'xlarge',
+			};
+			return { args, sizeMap };
+		},
 		template: `
-			<BccOverlayBadge value="3" class="inline-block">
-				<BccAvatar label="B" gender="female" child size="xxl" shape="circle" />
+			<BccOverlayBadge value="3" :size="sizeMap[args.size]">
+				<BccAvatar v-bind="args" />
 			</BccOverlayBadge>
 		`,
 	}),

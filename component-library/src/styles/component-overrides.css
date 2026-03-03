@@ -33,3 +33,8 @@ GUTTER FIX
 .p-treeselect-overlay {
     margin: var(--p-anchor-gutter) 0;
 }
+
+/* This fix is to ensure overlay badge is contained within the size of the component it wraps */
+.p-overlaybadge {
+    display: inline-block;
+}
