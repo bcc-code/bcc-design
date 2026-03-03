@@ -4,6 +4,10 @@
   
     @apply bg-ctx text-ctx;
   }
+
+  .bcc-badge.capital {
+    @apply inline-flex;
+  }
   .bcc-badge.sm {
     @apply w-4 h-4 text-heading-xs;
   }
@@ -14,7 +18,7 @@
     @apply w-6 h-6 text-heading-md;
   }
   .bcc-badge.xl {
-    @apply w-8 h-8 text-heading-lg;
+    @apply w-8 h-8 text-heading-md;
   }
 
   .bcc-badge .bcc-badge-icon {
