@@ -51,6 +51,6 @@
   }
 
   .bcc-badge.squared  {
-    @apply rounded;
+    @apply rounded-sm;
   }
 }
