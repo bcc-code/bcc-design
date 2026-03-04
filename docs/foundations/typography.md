@@ -19,31 +19,32 @@ Use pre-configured text styles for consistency. For text colors, use [tokens](./
 
 | Token         | Tailwind      | CSS             | Size | Weight | Line Height |
 | ------------- | ------------- | --------------- | ---- | ------ | ----------- |
-| `heading.5xl` | `heading-5xl` | `--heading-5xl` | 60px | 700    | 64px        |
-| `heading.4xl` | `heading-4xl` | `--heading-4xl` | 48px | 700    | 56px        |
-| `heading.3xl` | `heading-3xl` | `--heading-3xl` | 36px | 700    | 40px        |
-| `heading.2xl` | `heading-2xl` | `--heading-2xl` | 32px | 700    | 36px        |
-| `heading.xl`  | `heading-xl`  | `--heading-xl`  | 24px | 700    | 28px        |
-| `heading.lg`  | `heading-lg`  | `--heading-lg`  | 20px | 700    | 24px        |
-| `heading.md`  | `heading-md`  | `--heading-md`  | 16px | 700    | 20px        |
-| `heading.sm`  | `heading-sm`  | `--heading-sm`  | 14px | 700    | 16px        |
-| `heading.xs`  | `heading-xs`  | `--heading-xs`  | 12px | 700    | 14px        |
+| `heading.5xl` | `heading-5xl` | `--heading-5xl` | 56px | 600    | 64px        |
+| `heading.4xl` | `heading-4xl` | `--heading-4xl` | 48px | 600    | 56px        |
+| `heading.3xl` | `heading-3xl` | `--heading-3xl` | 36px | 600    | 40px        |
+| `heading.2xl` | `heading-2xl` | `--heading-2xl` | 32px | 600    | 32px        |
+| `heading.xl`  | `heading-xl`  | `--heading-xl`  | 24px | 600    | 28px        |
+| `heading.lg`  | `heading-lg`  | `--heading-lg`  | 20px | 600    | 24px        |
+| `heading.md`  | `heading-md`  | `--heading-md`  | 16px | 600    | 20px        |
+| `heading.sm`  | `heading-sm`  | `--heading-sm`  | 14px | 600    | 16px        |
+| `heading.xs`  | `heading-xs`  | `--heading-xs`  | 12px | 600    | 14px        |
 
 ## Body Text
 
 | Token     | Tailwind  | CSS         | Size | Weight | Line Height |
 | --------- | --------- | ----------- | ---- | ------ | ----------- |
-| `body.lg` | `body-lg` | `--body-lg` | 20px | 400    | 28px        |
-| `body.md` | `body-md` | `--body-md` | 16px | 400    | 24px        |
-| `body.sm` | `body-sm` | `--body-sm` | 14px | 400    | 20px        |
+| `body.lg` | `body-lg` | `--body-lg` | 16px | 400    | 24px        |
+| `body.md` | `body-md` | `--body-md` | 14px | 400    | 20px        |
+| `body.sm` | `body-sm` | `--body-sm` | 12px | 400    | 16px        |
 
 ## Font Weight
 
 | Token                 | Tailwind       | CSS                     | Value |
 | --------------------- | -------------- | ----------------------- | ----- |
-| `font.weight.regular` | `font-regular` | `--font-weight-regular` | 400   |
-| `font.weight.medium`  | `font-medium`  | `--font-weight-medium`  | 500   |
-| `font.weight.bold`    | `font-bold`    | `--font-weight-bold`    | 700   |
+| `font.weight.regular`  | `font-regular`  | `--font-weight-regular`  | 400   |
+| `font.weight.medium`   | `font-medium`   | `--font-weight-medium`   | 500   |
+| `font.weight.semibold` | `font-semibold` | `--font-weight-semibold` | 600   |
+| `font.weight.bold`     | `font-bold`     | `--font-weight-bold`     | 700   |
 
 ## Primitives
 
@@ -61,6 +62,7 @@ Use only when text styles don't fit your needs.
 | `text.2xl` | `text-2xl` | `--text-2xl` | 2rem (32px)     |
 | `text.3xl` | `text-3xl` | `--text-3xl` | 2.25rem (36px)  |
 | `text.4xl` | `text-4xl` | `--text-4xl` | 3rem (48px)     |
+| `text.5xl` | `text-5xl` | `--text-5xl` | 3.5rem (56px)   |
 
 ### Line Height
 
@@ -94,5 +96,5 @@ Use semantic HTML headings (`<h1>` through `<h6>`) in order. One `<h1>` per page
 | Do                                         | Don't                                |
 | ------------------------------------------ | ------------------------------------ |
 | Use text styles (`heading-lg`, `body-md`)  | Combine primitives when styles exist |
-| Use `body.md` (16px) for paragraphs        | Default to smaller text sizes        |
+| Use `body.lg` (16px) for paragraphs        | Default to smaller text sizes        |
 | Follow heading hierarchy (`h1` → `h2`)     | Skip heading levels                  |

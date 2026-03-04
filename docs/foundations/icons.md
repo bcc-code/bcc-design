@@ -48,11 +48,11 @@ Use icon size tokens for consistent sizing:
 
 | Token          | Tailwind  | CSS              | Value |
 | -------------- | --------- | ---------------- | ----- |
-| `icon.size.xs` | `icon-xs` | `--icon-size-xs` | 12px  |
-| `icon.size.sm` | `icon-sm` | `--icon-size-sm` | 16px  |
-| `icon.size.md` | `icon-md` | `--icon-size-md` | 20px  |
-| `icon.size.lg` | `icon-lg` | `--icon-size-lg` | 24px  |
-| `icon.size.xl` | `icon-xl` | `--icon-size-xl` | 32px  |
+| `icon.size.xs` | `icon-xs` | `--icon-size-xs` | 16px  |
+| `icon.size.sm` | `icon-sm` | `--icon-size-sm` | 20px  |
+| `icon.size.md` | `icon-md` | `--icon-size-md` | 24px  |
+| `icon.size.lg` | `icon-lg` | `--icon-size-lg` | 32px  |
+| `icon.size.xl` | `icon-xl` | `--icon-size-xl` | 48px  |
 
 ```vue
 <SearchIcon class="icon-sm text-subtle" />
