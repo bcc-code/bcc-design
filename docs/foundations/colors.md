@@ -62,3 +62,10 @@ Accent colors categorize content without semantic meaning. Use for tags, labels,
 | Match color role to purpose                     | Use brand color for errors            |
 | Pair accent foreground/background from same family | Mix blue background with red text  |
 | Test in both light and dark mode                | Assume light mode only                |
+
+## Figma
+
+<!-- TODO: Replace with Figma embed URL -->
+<!-- <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="FIGMA_EMBED_URL" allowfullscreen></iframe> -->
+
+See the design specs in Figma (link coming soon).

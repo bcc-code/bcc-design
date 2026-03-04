@@ -61,3 +61,10 @@ Use negative values to pull elements closer or overlap containers.
 | Use spacing tokens (`p-spacing-100`)     | Use arbitrary values (`p-[7px]`) |
 | Use smaller spacing for related items    | Use same spacing everywhere      |
 | Use larger spacing between sections      | Cram elements together           |
+
+## Figma
+
+<!-- TODO: Replace with Figma embed URL -->
+<!-- <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="FIGMA_EMBED_URL" allowfullscreen></iframe> -->
+
+See the design specs in Figma (link coming soon).

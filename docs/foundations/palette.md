@@ -216,3 +216,10 @@ Semi-transparent neutrals for overlays and layered surfaces.
 | `color.brown.800`  | `#553d28` |
 | `color.brown.900`  | `#3f2c1e` |
 | `color.brown.1000` | `#2e1b0f` |
+
+## Figma
+
+<!-- TODO: Replace with Figma embed URL -->
+<!-- <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="FIGMA_EMBED_URL" allowfullscreen></iframe> -->
+
+See the design specs in Figma (link coming soon).

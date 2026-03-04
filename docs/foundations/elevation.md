@@ -49,3 +49,10 @@ Surfaces and shadows create depth. Pair surface colors with shadows.
 | Pair raised surfaces with `shadow-raised` | Use raised surfaces without shadows   |
 | Use overlay for floating UI only          | Stack multiple overlays               |
 | Use sunken for recessed backgrounds       | Put sunken on top of raised           |
+
+## Figma
+
+<!-- TODO: Replace with Figma embed URL -->
+<!-- <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="FIGMA_EMBED_URL" allowfullscreen></iframe> -->
+
+See the design specs in Figma (link coming soon).

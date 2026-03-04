@@ -44,3 +44,10 @@ Border radius tokens for consistent corner roundness.
 | Use consistent radius within component families | Mix different radii on similar components   |
 | Match nested element radii to their container   | Use sharp corners inside rounded containers |
 | Use `rounded-full` for circular elements only   | Apply `rounded-full` to rectangular content |
+
+## Figma
+
+<!-- TODO: Replace with Figma embed URL -->
+<!-- <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="FIGMA_EMBED_URL" allowfullscreen></iframe> -->
+
+See the design specs in Figma (link coming soon).

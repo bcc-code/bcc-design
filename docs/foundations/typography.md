@@ -98,3 +98,10 @@ Use semantic HTML headings (`<h1>` through `<h6>`) in order. One `<h1>` per page
 | Use text styles (`heading-lg`, `body-md`)  | Combine primitives when styles exist |
 | Use `body.lg` (16px) for paragraphs        | Default to smaller text sizes        |
 | Follow heading hierarchy (`h1` → `h2`)     | Skip heading levels                  |
+
+## Figma
+
+<!-- TODO: Replace with Figma embed URL -->
+<!-- <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="FIGMA_EMBED_URL" allowfullscreen></iframe> -->
+
+See the design specs in Figma (link coming soon).

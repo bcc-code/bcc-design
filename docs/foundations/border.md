@@ -33,3 +33,10 @@ Border width tokens. For border colors, see [Tokens](./tokens.md#border).
 | Use `border-2` with `border-selected` for selection  | Mix border widths inconsistently              |
 | Use `border-2` with `border-focused` for focus rings | Skip focus indicators on interactive elements |
 | Keep default borders at 1px                          | Use thick borders for standard UI             |
+
+## Figma
+
+<!-- TODO: Replace with Figma embed URL -->
+<!-- <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="FIGMA_EMBED_URL" allowfullscreen></iframe> -->
+
+See the design specs in Figma (link coming soon).
