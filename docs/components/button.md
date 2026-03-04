@@ -3,13 +3,16 @@ title: Button
 order: 2
 ---
 
+<script setup>
+import { BccButton } from "@bcc-code/component-library-vue";
+import { CheckIcon, ArrowForwardIcon } from "@bcc-code/icons-vue";
+</script>
+
 # Button
 
 Triggers an action or event. Supports icons, severities, sizes, and context-aware styling.
 
-## Preview
-
-[Open in Storybook →](https://components.bcc.no/?path=/docs/wrapped-bccbutton--docs)
+<a href="https://components.bcc.no/?path=/docs/wrapped-bccbutton--docs" target="_blank"><BccButton label="Open in Storybook" severity="secondary" /></a>
 
 ## When to use
 
@@ -17,51 +20,47 @@ Triggers an action or event. Supports icons, severities, sizes, and context-awar
 - As a call-to-action in forms or pages
 - For navigation when styled as a link button
 
-## Usage
+## Default
 
-```vue
-<template>
+Standard button variants for primary and secondary actions.
+
+<div class="component-preview">
   <Button label="Save" />
   <Button label="Cancel" severity="secondary" outlined />
   <Button label="Delete" severity="danger" />
-</template>
-```
+</div>
 
-### With icons
+## With icons
 
-```vue
-<script setup>
-import { CheckIcon } from "@bcc-code/icons-vue";
-</script>
+Use `BccButton` for Vue component icons via the `icon` prop.
 
-<template>
+<div class="component-preview">
   <BccButton label="Confirm" :icon="CheckIcon" />
   <BccButton label="Next" :icon="ArrowForwardIcon" icon-right />
-</template>
-```
+</div>
 
-### Sizes
+## Sizes
 
-```vue
-<template>
+Three sizes for different contexts.
+
+<div class="component-preview">
   <Button label="Small" size="small" />
   <Button label="Default" />
   <Button label="Large" size="large" />
-</template>
-```
+</div>
 
-### Severities
+## Severities
 
-```vue
-<template>
+Semantic colors to communicate intent.
+
+<div class="component-preview">
   <Button label="Primary" />
   <Button label="Contrast" severity="contrast" />
   <Button label="Success" severity="success" />
   <Button label="Info" severity="info" />
   <Button label="Warning" severity="warn" />
   <Button label="Danger" severity="danger" />
-</template>
-```
+</div>
 
 ## Do's and Don'ts
 
@@ -73,7 +72,7 @@ import { CheckIcon } from "@bcc-code/icons-vue";
 
 ## Links
 
-- [Storybook →](https://components.bcc.no/?path=/docs/wrapped-bccbutton--docs)
-- [PrimeVue Button Docs →](https://primevue.org/button/)
-
-<!-- TODO: Add Figma embed -->
+<div style="display: flex; gap: 8px; flex-wrap: wrap;">
+  <a href="https://components.bcc.no/?path=/docs/wrapped-bccbutton--docs" target="_blank"><BccButton label="Storybook" severity="secondary" /></a>
+  <a href="https://primevue.org/button/" target="_blank"><BccButton label="PrimeVue Docs" severity="secondary" /></a>
+</div>
