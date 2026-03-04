@@ -163,8 +163,10 @@ export { default as useAnimatedNumber } from './composables/animatedNumber';
 import { useConfirm as _useConfirm } from 'primevue/useconfirm';
 import type { VueComponent } from './types';
 
-interface UseConfirmOptions extends Omit<ConfirmationOptions, 'icon'> {
+interface UseConfirmOptions extends Omit<ConfirmationOptions, 'icon' | 'acceptIcon' | 'rejectIcon'> {
 	icon?: VueComponent | undefined;
+	acceptIcon?: VueComponent | undefined;
+	rejectIcon?: VueComponent | undefined;
 }
 
 type UseConfirmReturn = {

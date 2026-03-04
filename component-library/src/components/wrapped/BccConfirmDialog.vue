@@ -51,11 +51,35 @@ onUnmounted(() => {
 		<template v-if="$slots.container" #container="slotProps">
 			<slot name="container" v-bind="slotProps" />
 		</template>
-		<template v-if="$slots.accepticon" #accepticon>
-			<slot name="accepticon" />
+		<template #accepticon>
+			<slot name="accepticon" :confirmation="currentConfirmation">
+				<template v-if="currentConfirmation?.acceptIcon || (currentConfirmation?.acceptProps as any)?.icon">
+					<component
+						:is="currentConfirmation?.acceptIcon || (currentConfirmation?.acceptProps as any)?.icon"
+						v-if="isIconComponent(currentConfirmation?.acceptIcon || (currentConfirmation?.acceptProps as any)?.icon)"
+						class="p-icon"
+					/>
+					<span
+						v-else
+						:class="[currentConfirmation?.acceptIcon || (currentConfirmation?.acceptProps as any)?.icon, 'p-icon']"
+					/>
+				</template>
+			</slot>
 		</template>
-		<template v-if="$slots.rejecticon" #rejecticon>
-			<slot name="rejecticon" />
+		<template #rejecticon>
+			<slot name="rejecticon" :confirmation="currentConfirmation">
+				<template v-if="currentConfirmation?.rejectIcon || (currentConfirmation?.rejectProps as any)?.icon">
+					<component
+						:is="currentConfirmation?.rejectIcon || (currentConfirmation?.rejectProps as any)?.icon"
+						v-if="isIconComponent(currentConfirmation?.rejectIcon || (currentConfirmation?.rejectProps as any)?.icon)"
+						class="p-icon"
+					/>
+					<span
+						v-else
+						:class="[currentConfirmation?.rejectIcon || (currentConfirmation?.rejectProps as any)?.icon, 'p-icon']"
+					/>
+				</template>
+			</slot>
 		</template>
 	</PrimeConfirmDialog>
 </template>

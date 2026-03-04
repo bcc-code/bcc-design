@@ -1,4 +1,4 @@
-import { CheckIcon } from '@bcc-code/icons-vue';
+import { CancelIcon, CheckIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { BccButton, BccConfirmDialog, useConfirm } from '../../index';
 
@@ -217,6 +217,110 @@ const open = () => {
     message: 'Are you sure you want to proceed?',
     header: 'Confirmation',
     icon: CheckIcon,
+    accept: () => {},
+    reject: () => {},
+  });
+};
+</script>`,
+			},
+		},
+	},
+};
+
+export const WithButtonIcons: Story = {
+	render: () => ({
+		components: { BccButton },
+		setup() {
+			const confirm = useConfirm();
+			const open = () => {
+				confirm.require({
+					message: 'Are you sure you want to proceed?',
+					header: 'Confirmation',
+					acceptIcon: CheckIcon,
+					rejectIcon: CancelIcon,
+					accept: () => {},
+					reject: () => {},
+				});
+			};
+			return { open, CheckIcon };
+		},
+		template: `<div><BccButton label="Confirm" :icon="CheckIcon" @click="open" /></div>`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<template>
+  <div>
+    <BccConfirmDialog />
+    <BccButton label="Confirm" @click="open" />
+  </div>
+</template>
+
+<script setup>
+import { CheckIcon, CancelIcon } from '@bcc-code/icons-vue';
+import { BccButton, BccConfirmDialog, useConfirm } from '@bcc-code/component-library';
+
+const confirm = useConfirm();
+const open = () => {
+  confirm.require({
+    message: 'Are you sure you want to proceed?',
+    header: 'Confirmation',
+    acceptIcon: CheckIcon,
+    rejectIcon: CancelIcon,
+    accept: () => {},
+    reject: () => {},
+  });
+};
+</script>`,
+			},
+		},
+	},
+};
+
+export const WithButtonIconsUsingProps: Story = {
+	render: () => ({
+		components: { BccButton },
+		setup() {
+			const confirm = useConfirm();
+			const open = () => {
+				confirm.require({
+					message: 'Are you sure you want to proceed?',
+					header: 'Confirmation',
+					acceptProps: {
+						icon: CheckIcon,
+					},
+					rejectProps: {
+						icon: CancelIcon,
+					},
+					accept: () => {},
+					reject: () => {},
+				});
+			};
+			return { open };
+		},
+		template: `<div><BccButton label="Confirm" @click="open" /></div>`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<template>
+  <div>
+    <BccConfirmDialog />
+    <BccButton label="Confirm" @click="open" />
+  </div>
+</template>
+
+<script setup>
+import { CheckIcon, CancelIcon } from '@bcc-code/icons-vue';
+import { BccButton, BccConfirmDialog, useConfirm } from '@bcc-code/component-library';
+
+const confirm = useConfirm();
+const open = () => {
+  confirm.require({
+    message: 'Are you sure you want to proceed?',
+    header: 'Confirmation',
+    acceptProps: { icon: CheckIcon },
+    rejectProps: { icon: CancelIcon },
     accept: () => {},
     reject: () => {},
   });
