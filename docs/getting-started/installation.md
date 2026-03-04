@@ -119,6 +119,13 @@ For non-Tailwind projects, you can use CSS variables directly:
 @import "@bcc-code/design-tokens/css";
 ```
 
+You can also import light or dark theme separately:
+
+```css
+@import "@bcc-code/design-tokens/css/light";
+@import "@bcc-code/design-tokens/css/dark";
+```
+
 ```css
 .my-element {
   color: var(--color-text-default);
