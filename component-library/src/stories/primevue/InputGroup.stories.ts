@@ -1,4 +1,4 @@
-import { ApprovalIcon, CancelIcon, PersonSearchIcon, SearchIcon, StarFillIcon } from '@bcc-code/icons-vue';
+import { CancelIcon, CheckCircleIcon, MapIcon, PersonSearchIcon, SearchIcon, StarFillIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 import {
@@ -79,6 +79,7 @@ export const WithSelectInput: Story = {
 			BccInputGroup,
 			BccInputGroupAddon,
 			BccSelect,
+			MapIcon,
 		},
 		setup() {
 			const selectedCity = ref<{ name: string; code: string } | null>(null);
@@ -87,7 +88,7 @@ export const WithSelectInput: Story = {
 		template: `
 			<BccInputGroup>
 				<BccInputGroupAddon>
-					<i class="pi pi-map-marker"></i>
+					<MapIcon />
 				</BccInputGroupAddon>
 				<BccSelect
 					v-model="selectedCity"
@@ -152,10 +153,9 @@ export const WithIconButtonAfter: Story = {
 			BccInputGroupAddon,
 			BccButton,
 			BccInputText,
-			SearchIcon,
 		},
 		setup() {
-			return {};
+			return { SearchIcon };
 		},
 		template: `
 			<BccInputGroup>
@@ -175,12 +175,13 @@ export const WithIconButtonsAround: Story = {
 			BccInputGroupAddon,
 			BccButton,
 			BccInputText,
-			ApprovalIcon,
-			CancelIcon,
+		},
+		setup() {
+			return { CheckCircleIcon, CancelIcon };
 		},
 		template: `
 			<BccInputGroup>
-				<BccButton :icon="ApprovalIcon" severity="warn" />
+				<BccButton :icon="CheckCircleIcon" severity="success" />
 				<BccInputText placeholder="Search" />
 				<BccButton :icon="CancelIcon" severity="warn" />
 			</BccInputGroup>
