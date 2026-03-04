@@ -135,6 +135,30 @@ You can also import light or dark theme separately:
 }
 ```
 
+## Component Library (Optional)
+
+For custom BCC components (BccBadge, BccStepIndicator, BccDialKnob, etc.), install the component library:
+
+```bash
+npm install @bcc-code/component-library-vue
+```
+
+Import and use components individually:
+
+```vue
+<script setup>
+import { BccBadge, BccStepIndicator } from "@bcc-code/component-library-vue";
+</script>
+
+<template>
+  <BccBadge value="3" context="info" />
+</template>
+```
+
+> PrimeVue components (Button, Select, etc.) are styled automatically via design tokens — they don't require this package.
+
+See the full [component list](../components/) and interactive previews in [Storybook](https://components.bcc.no).
+
 ## Dark Mode
 
 Toggle dark mode by adding the `dark` class to the root element:

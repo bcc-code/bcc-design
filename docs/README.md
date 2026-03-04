@@ -11,9 +11,10 @@ This documentation reflects the current state of the BCC Design System. Some are
 
 ## What's included
 
-- Design tokens (colors, typography, spacing)
-- Component guidelines for PrimeVue
-- Icons and logos
+- **Design tokens** — colors, typography, spacing, and more
+- **Components** — PrimeVue components styled with BCC tokens + custom BCC components
+- **Component library** — reusable Vue components available via npm and previewed in [Storybook](https://components.bcc.no)
+- **Icons and logos** — icon library and brand assets
 
 ## Quick links
 
@@ -26,9 +27,12 @@ This documentation reflects the current state of the BCC Design System. Some are
 
 ## Resources
 
-| Resource | Link                                                                             |
-| -------- | -------------------------------------------------------------------------------- |
-| npm      | [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens) |
-| GitHub   | [bcc-code/bcc-tokens](https://github.com/bcc-code/bcc-tokens)                    |
-| Figma    | Coming soon                                                                      |
-| PrimeVue | [PrimeVue Documentation](https://primevue.org/)                                  |
+| Resource            | Link                                                                                                     |
+| ------------------- | -------------------------------------------------------------------------------------------------------- |
+| npm (tokens)        | [@bcc-code/design-tokens](https://www.npmjs.com/package/@bcc-code/design-tokens)                         |
+| npm (components)    | [@bcc-code/component-library-vue](https://www.npmjs.com/package/@bcc-code/component-library-vue)         |
+| Storybook           | [components.bcc.no](https://components.bcc.no)                                                           |
+| GitHub (tokens)     | [bcc-code/bcc-tokens](https://github.com/bcc-code/bcc-tokens)                                            |
+| GitHub (components) | [bcc-code/bcc-design](https://github.com/bcc-code/bcc-design)                                            |
+| Figma               | Coming soon                                                                                              |
+| PrimeVue            | [PrimeVue Documentation](https://primevue.org/)                                                          |
