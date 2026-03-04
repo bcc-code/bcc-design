@@ -5,7 +5,7 @@ export type NpsResultProps = {
 	/** NPS score between -100 and 100; drives the gauge needle angle and position. */
 	score: number;
 	/** Controls the size of the gauge and optional text (lg, md, sm, xs). */
-	size?: 'lg' | 'md' | 'sm' | 'xs';
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 	/** Text shown as the main heading; defaults to the numeric score when unset. */
 	display?: string;
 	/** Secondary label shown under the main heading. */
@@ -50,8 +50,8 @@ const degrees = computed(() => {
 </script>
 
 <template>
-	<div class="bcc-nps-result" :class="{ animated }">
-		<svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<div class="bcc-nps-result" :class="[size, { animated }]">
+		<svg class="bcc-nps-result-gauge" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				d="M12.0577 135C2.5704 118.567 -1.48062 99.5568 0.48344 80.6841C2.4475 61.8114 10.3261 44.0423 22.9937 29.9154L49.7962 53.9492C42.1957 62.4254 37.4685 73.0868 36.2901 84.4105C35.1116 95.7341 37.5422 107.14 43.2346 117L12.0577 135Z"
 				fill="var(--color-background-accent-red-subtler-default)"
@@ -88,12 +88,12 @@ const degrees = computed(() => {
 			<path
 				d="M146.5 32L92.4146 83.7224C91.5428 83.4105 90.5855 83.2889 89.604 83.4079C86.2246 83.8174 83.816 86.8938 84.226 90.2769C84.636 93.66 87.7097 96.072 91.089 95.6625C94.4684 95.253 96.877 92.1766 96.4671 88.7934C96.4262 88.4565 96.3578 88.1295 96.2663 87.8141L147.5 33C148.638 31.7164 147.776 30.8506 146.5 32Z"
 				fill="currentColor"
-				class="result-gauge-dial"
+				class="bcc-nps-result-gauge-dial"
 				:style="`transform: rotate(${degrees}deg)`"
 			/>
 		</svg>
 
-		<div v-if="!hideText && size !== 'xs'" class="bcc-nps-result-labels" :class="size">
+		<div v-if="!hideText && size !== 'xs'" class="bcc-nps-result-labels">
 			<h3 class="bcc-nps-result-labels--heading">{{ display ?? score }}</h3>
 			<label class="bcc-nps-result-labels--label">{{ underline }}</label>
 		</div>
