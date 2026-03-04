@@ -126,6 +126,7 @@ export { default as BccSpeedDial } from 'primevue/speeddial';
 export { default as BccSplitButton } from 'primevue/splitbutton';
 export { default as BccSplitter } from 'primevue/splitter';
 export { default as BccSplitterPanel } from 'primevue/splitterpanel';
+export { default as BccStepper } from 'primevue/stepper';
 export { default as BccStep } from 'primevue/step';
 export { default as BccStepItem } from 'primevue/stepitem';
 export { default as BccStepList } from 'primevue/steplist';

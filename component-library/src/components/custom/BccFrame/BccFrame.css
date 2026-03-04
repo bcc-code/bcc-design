@@ -10,8 +10,8 @@
     .bcc-frame--raised {
         --ctx-background: var(--color-elevation-surface-raised-default);
     }
-    .bcc-frame--raised.rounded {
-        @apply rounded;
+    .bcc-frame--rounded {
+        @apply rounded-md;
     }
     .bcc-frame--raised.bcc-frame--shadow {
         @apply shadow-raised;

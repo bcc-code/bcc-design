@@ -8,7 +8,6 @@ import type { Meta, StoryObj } from '@storybook/vue3';
  */
 const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string }[] = [
 	{ name: 'BlockUI', slug: 'blockui' },
-	{ name: 'Button', slug: 'button' },
 	{ name: 'Carousel', slug: 'carousel' },
 	{ name: 'CascadeSelect', slug: 'cascadeselect' },
 	{ name: 'ColorPicker', slug: 'colorpicker' },
@@ -44,7 +43,7 @@ const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string }[] = [
 const BASE_URL = 'https://primevue.org';
 
 const meta = {
-	title: 'PrimeVue/BccReference',
+	title: 'PrimeVue/AllOtherComponents',
 	parameters: {
 		docs: {
 			description: {

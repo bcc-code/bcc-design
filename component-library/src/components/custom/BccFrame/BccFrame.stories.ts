@@ -30,6 +30,16 @@ export const Default: Story = {
 	args: {
 		raised: false,
 		overlay: false,
+		center: false,
+		sunken: false,
+		rounded: false,
+		between: false,
+		right: false,
+		left: false,
+		top: false,
+		bottom: false,
+		stretch: false,
+		shadow: false,
 	},
 	render: args => ({
 		components: { BccFrame, BccButton },
@@ -38,7 +48,7 @@ export const Default: Story = {
 			<BccFrame v-bind="args" class="p-4 gap-4">
 				<h1>Default frame content</h1>
 				<p>This is a default frame content</p>
-				<BccButton label="Click me" />
+				<BccButton label="I am a button" />
 			</BccFrame>
 		`,
 	}),
