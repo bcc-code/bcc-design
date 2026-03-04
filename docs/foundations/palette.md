@@ -26,6 +26,47 @@ Primitive color values. Use [Tokens](./tokens.md) for UI—primitives don't adap
 | `color.neutral.1000` | `#292a2e` |
 | `color.neutral.1100` | `#1e1f21` |
 
+## Dark Neutral
+
+Used as the neutral scale in dark mode.
+
+| Token                     | Hex         |
+| ------------------------- | ----------- |
+| `color.dark-neutral.0`    | `#18191a`   |
+| `color.dark-neutral.100`  | `#1f1f21`   |
+| `color.dark-neutral.200`  | `#242528`   |
+| `color.dark-neutral.300`  | `#303134`   |
+| `color.dark-neutral.400`  | `#4b4d51`   |
+| `color.dark-neutral.500`  | `#63666b`   |
+| `color.dark-neutral.600`  | `#7e8188`   |
+| `color.dark-neutral.700`  | `#96999e`   |
+| `color.dark-neutral.800`  | `#a9abaf`   |
+| `color.dark-neutral.900`  | `#bfc1c4`   |
+| `color.dark-neutral.1000` | `#cecfd2`   |
+| `color.dark-neutral.1100` | `#e2e3e4`   |
+
+## Neutral Alpha
+
+Semi-transparent neutrals for overlays and layered surfaces.
+
+| Token                       | Hex          |
+| --------------------------- | ------------ |
+| `color.neutral-alpha.100A`  | `#17171708`  |
+| `color.neutral-alpha.200A`  | `#0515240f`  |
+| `color.neutral-alpha.300A`  | `#0b120e24`  |
+| `color.neutral-alpha.400A`  | `#080f214a`  |
+| `color.neutral-alpha.500A`  | `#050c1f75`  |
+
+## Dark Neutral Alpha
+
+| Token                            | Hex          |
+| -------------------------------- | ------------ |
+| `color.dark-neutral-alpha.100A`  | `#bdbdbd0a`  |
+| `color.dark-neutral-alpha.200A`  | `#ceced912`  |
+| `color.dark-neutral-alpha.300A`  | `#e3e4f21f`  |
+| `color.dark-neutral-alpha.400A`  | `#e5e9f640`  |
+| `color.dark-neutral-alpha.500A`  | `#e9f0fb5c`  |
+
 ## BCC (Brand)
 
 | Token            | Hex       |

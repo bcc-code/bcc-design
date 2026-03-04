@@ -156,3 +156,120 @@ Semantic color tokens for text, background, border, and icon. These adapt to lig
 | `color.background.brand.subtle`   | `bg-brand-subtle-default`   | `--color-background-brand-subtle`    | `#51b9cf` | `#014d49` |
 | `color.background.brand.bolder`   | `bg-brand-bolder-default`   | `--color-background-brand-bolder`    | `#0c625c` | `#51b9cf` |
 | `color.background.brand.boldest`  | `bg-brand-boldest-default`  | `--color-background-brand-boldest`   | `#012320` | `#a0cec8` |
+
+## Accent Text
+
+Per-color text tokens for colored labels, tags, and highlights.
+
+| Token                            | Light     | Dark      |
+| -------------------------------- | --------- | --------- |
+| `color.text.accent.gray.default`    | `#505258` | `#a9abaf` |
+| `color.text.accent.gray.bold`       | `#1e1f21` | `#e2e3e4` |
+| `color.text.accent.blue.default`    | `#273c8f` | `#a6cdfd` |
+| `color.text.accent.blue.bold`       | `#212c64` | `#d9ecff` |
+| `color.text.accent.teal.default`    | `#09486b` | `#82d3e3` |
+| `color.text.accent.teal.bold`       | `#0d324d` | `#c3f2f8` |
+| `color.text.accent.green.default`   | `#094c3b` | `#83d895` |
+| `color.text.accent.green.bold`      | `#073734` | `#cbf3c9` |
+| `color.text.accent.brown.default`   | `#553d28` | `#d1c5b0` |
+| `color.text.accent.brown.bold`      | `#3f2c1e` | `#ece8dc` |
+| `color.text.accent.yellow.default`  | `#653805` | `#e9c348` |
+| `color.text.accent.yellow.bold`     | `#4b2c04` | `#f8e6a0` |
+| `color.text.accent.orange.default`  | `#782612` | `#f6b981` |
+| `color.text.accent.orange.bold`     | `#5d1712` | `#fee3c1` |
+| `color.text.accent.red.default`     | `#811436` | `#fab6ad` |
+| `color.text.accent.red.bold`        | `#630d2e` | `#fee2dd` |
+| `color.text.accent.magenta.default` | `#751f57` | `#f3b4e2` |
+| `color.text.accent.magenta.bold`    | `#5b1043` | `#fce0f8` |
+| `color.text.accent.purple.default`  | `#493481` | `#c9c3ec` |
+| `color.text.accent.purple.bold`     | `#352465` | `#e3e3fe` |
+
+## Accent Icon
+
+| Token                            | Light     | Dark      |
+| -------------------------------- | --------- | --------- |
+| `color.icon.accent.gray.default`    | `#505258` | `#7e8188` |
+| `color.icon.accent.gray.bold`       | `#1e1f21` | `#96999e` |
+| `color.icon.accent.blue.default`    | `#273c8f` | `#608ef6` |
+| `color.icon.accent.blue.bold`       | `#212c64` | `#7cabf9` |
+| `color.icon.accent.teal.default`    | `#09486b` | `#1a9eb7` |
+| `color.icon.accent.teal.bold`       | `#0d324d` | `#51b9cf` |
+| `color.icon.accent.green.default`   | `#094c3b` | `#1ca673` |
+| `color.icon.accent.green.bold`      | `#073734` | `#32c180` |
+| `color.icon.accent.brown.default`   | `#553d28` | `#a98c66` |
+| `color.icon.accent.brown.bold`      | `#3f2c1e` | `#bea889` |
+| `color.icon.accent.yellow.default`  | `#653805` | `#e9c348` |
+| `color.icon.accent.yellow.bold`     | `#4b2c04` | `#f8e6a0` |
+| `color.icon.accent.orange.default`  | `#782612` | `#da772e` |
+| `color.icon.accent.orange.bold`     | `#5d1712` | `#f19457` |
+| `color.icon.accent.red.default`     | `#811436` | `#ca414e` |
+| `color.icon.accent.red.bold`        | `#630d2e` | `#ed6362` |
+| `color.icon.accent.magenta.default` | `#751f57` | `#de66b0` |
+| `color.icon.accent.magenta.bold`    | `#5b1043` | `#eb8acf` |
+| `color.icon.accent.purple.default`  | `#493481` | `#9a82da` |
+| `color.icon.accent.purple.bold`     | `#352465` | `#afa0e0` |
+
+## Accent Border
+
+| Token                          | Light     | Dark      |
+| ------------------------------ | --------- | --------- |
+| `color.border.accent.gray`    | `#7d818a` | `#7e8188` |
+| `color.border.accent.blue`    | `#446add` | `#608ef6` |
+| `color.border.accent.teal`    | `#0b7da1` | `#1a9eb7` |
+| `color.border.accent.green`   | `#09825d` | `#1ca673` |
+| `color.border.accent.brown`   | `#8b6d45` | `#a98c66` |
+| `color.border.accent.yellow`  | `#a4670b` | `#bc870d` |
+| `color.border.accent.orange`  | `#b55919` | `#da772e` |
+| `color.border.accent.red`     | `#ca414e` | `#ed6362` |
+| `color.border.accent.magenta` | `#be428f` | `#de66b0` |
+| `color.border.accent.purple`  | `#8360c3` | `#9a82da` |
+
+## Background - Alpha
+
+Transparent overlays for layered UI elements.
+
+| Token                                     | Light       | Dark        |
+| ----------------------------------------- | ----------- | ----------- |
+| `color.background.alpha.subtlest.default` | `#00000000` | `#00000000` |
+| `color.background.alpha.subtler.default`  | `#17171708` | `#bdbdbd0a` |
+| `color.background.alpha.subtle.default`   | `#0515240f` | `#ceced912` |
+| `color.background.alpha.default`          | `#0b120e24` | `#e3e4f21f` |
+| `color.background.alpha.bold.default`     | `#050c1f75` | `#e9f0fb5c` |
+
+## Background - Inverse Subtle
+
+For content on inverted (dark-on-light / light-on-dark) surfaces.
+
+| Token                                     | Light       | Dark        |
+| ----------------------------------------- | ----------- | ----------- |
+| `color.background.inverse.subtle.default` | `#00000029` | `#ffffff29` |
+| `color.background.inverse.subtle.hovered` | `#0000003d` | `#ffffff3d` |
+| `color.background.inverse.subtle.pressed` | `#00000052` | `#ffffff52` |
+
+## Blanket
+
+Modal backdrop overlays.
+
+| Token                    | Light       | Dark        |
+| ------------------------ | ----------- | ----------- |
+| `color.blanket.default`  | `#050c1f75` | `#10121499` |
+| `color.blanket.selected` | `#388bff14` | `#1d7afc14` |
+| `color.blanket.danger`   | `#ef5c4814` | `#e3493514` |
+
+## Interaction
+
+Hover and press state overlays.
+
+| Token                       | Light       | Dark        |
+| --------------------------- | ----------- | ----------- |
+| `color.interaction.hovered` | `#00000029` | `#ffffff33` |
+| `color.interaction.pressed` | `#00000052` | `#ffffff5c` |
+
+## Skeleton
+
+Loading placeholder colors.
+
+| Token                    | Light       | Dark        |
+| ------------------------ | ----------- | ----------- |
+| `color.skeleton.default` | `#0515240f` | `#ceced912` |
+| `color.skeleton.subtle`  | `#17171708` | `#bdbdbd0a` |
