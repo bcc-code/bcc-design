@@ -17,32 +17,28 @@ For component documentation, see [PrimeVue Documentation](https://primevue.org/)
 
 The following PrimeVue components have BCC Design tokens applied:
 
-| Component       | PrimeVue Docs                                            |
-| --------------- | -------------------------------------------------------- |
-| Button          | [Button](https://primevue.org/button/)                   |
-| Badge           | [Badge](https://primevue.org/badge/)                     |
-| Tag             | [Tag](https://primevue.org/tag/)                         |
-| Chip            | [Chip](https://primevue.org/chip/)                       |
-| Message         | [Message](https://primevue.org/message/)                 |
-| Toast           | [Toast](https://primevue.org/toast/)                     |
-| Tooltip         | [Tooltip](https://primevue.org/tooltip/)                 |
-| Autocomplete    | [AutoComplete](https://primevue.org/autocomplete/)       |
-| DatePicker      | [DatePicker](https://primevue.org/datepicker/)           |
-| ColorPicker     | [ColorPicker](https://primevue.org/colorpicker/)         |
-| InputNumber     | [InputNumber](https://primevue.org/inputnumber/)         |
-| Listbox         | [Listbox](https://primevue.org/listbox/)                 |
-| Password        | [Password](https://primevue.org/password/)               |
-| Slider          | [Slider](https://primevue.org/slider/)                   |
-| ToggleSwitch    | [ToggleSwitch](https://primevue.org/toggleswitch/)       |
-| ToggleButton    | [ToggleButton](https://primevue.org/togglebutton/)       |
-| SelectButton    | [SelectButton](https://primevue.org/selectbutton/)       |
-| DataTable       | [DataTable](https://primevue.org/datatable/)             |
-| TreeTable       | [TreeTable](https://primevue.org/treetable/)             |
-| DataView        | [DataView](https://primevue.org/dataview/)               |
-| Carousel        | [Carousel](https://primevue.org/carousel/)               |
-| Galleria        | [Galleria](https://primevue.org/galleria/)               |
-| Tabs            | [Tabs](https://primevue.org/tabs/)                       |
-| ScrollPanel     | [ScrollPanel](https://primevue.org/scrollpanel/)         |
-| Skeleton        | [Skeleton](https://primevue.org/skeleton/)               |
-| ProgressSpinner | [ProgressSpinner](https://primevue.org/progressspinner/) |
-| Ripple          | [Ripple](https://primevue.org/ripple/)                   |
+| Component    | PrimeVue Docs                                      |
+| ------------ | -------------------------------------------------- |
+| Accordion    | [Accordion](https://primevue.org/accordion/)       |
+| AutoComplete | [AutoComplete](https://primevue.org/autocomplete/) |
+| Avatar       | [Avatar](https://primevue.org/avatar/)             |
+| Badge        | [Badge](https://primevue.org/badge/)               |
+| Button       | [Button](https://primevue.org/button/)             |
+| Checkbox     | [Checkbox](https://primevue.org/checkbox/)         |
+| Chip         | [Chip](https://primevue.org/chip/)                 |
+| Divider      | [Divider](https://primevue.org/divider/)           |
+| InputGroup   | [InputGroup](https://primevue.org/inputgroup/)     |
+| InputText    | [InputText](https://primevue.org/inputtext/)       |
+| Listbox      | [Listbox](https://primevue.org/listbox/)           |
+| Message      | [Message](https://primevue.org/message/)           |
+| MultiSelect  | [MultiSelect](https://primevue.org/multiselect/)   |
+| ProgressBar  | [ProgressBar](https://primevue.org/progressbar/)   |
+| RadioButton  | [RadioButton](https://primevue.org/radiobutton/)   |
+| Select       | [Select](https://primevue.org/select/)             |
+| SelectButton | [SelectButton](https://primevue.org/selectbutton/) |
+| Tabs         | [Tabs](https://primevue.org/tabs/)                 |
+| Tag          | [Tag](https://primevue.org/tag/)                   |
+| Textarea     | [Textarea](https://primevue.org/textarea/)         |
+| Toast        | [Toast](https://primevue.org/toast/)               |
+| ToggleButton | [ToggleButton](https://primevue.org/togglebutton/) |
+| ToggleSwitch | [ToggleSwitch](https://primevue.org/toggleswitch/) |
