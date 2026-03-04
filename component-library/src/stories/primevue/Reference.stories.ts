@@ -12,7 +12,6 @@ const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string }[] = [
 	{ name: 'Carousel', slug: 'carousel' },
 	{ name: 'CascadeSelect', slug: 'cascadeselect' },
 	{ name: 'ColorPicker', slug: 'colorpicker' },
-	{ name: 'ConfirmDialog', slug: 'confirmdialog' },
 	{ name: 'ConfirmPopup', slug: 'confirmpopup' },
 	{ name: 'ContextMenu', slug: 'contextmenu' },
 	{ name: 'DataView', slug: 'dataview' },

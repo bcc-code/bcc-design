@@ -1,3 +1,4 @@
+import { AddIcon, CheckIcon, MoreVertIcon, SearchIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { BccButton, BccToolbar } from '../../index';
 
@@ -21,15 +22,18 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	render: () => ({
 		components: { BccToolbar, BccButton },
+		setup() {
+			return { AddIcon, CheckIcon, SearchIcon, MoreVertIcon };
+		},
 		template: `
 			<BccToolbar>
 				<template #start>
-					<BccButton label="New" icon="pi pi-plus" class="mr-2" />
-					<BccButton label="Save" icon="pi pi-check" severity="secondary" class="mr-2" />
+					<BccButton label="New" :icon="AddIcon" class="mr-2" />
+					<BccButton label="Save" :icon="CheckIcon" severity="secondary" class="mr-2" />
 				</template>
 				<template #end>
-					<BccButton icon="pi pi-search" rounded class="mr-2" />
-					<BccButton icon="pi pi-ellipsis-v" rounded severity="secondary" />
+					<BccButton :icon="SearchIcon" rounded class="mr-2" />
+					<BccButton :icon="MoreVertIcon" rounded severity="secondary" />
 				</template>
 			</BccToolbar>
 		`,
@@ -39,13 +43,16 @@ export const Default: Story = {
 export const WithTitle: Story = {
 	render: () => ({
 		components: { BccToolbar, BccButton },
+		setup() {
+			return { CheckIcon };
+		},
 		template: `
 			<BccToolbar>
 				<template #start>
 					<span class="font-semibold text-lg">Toolbar title</span>
 				</template>
 				<template #end>
-					<BccButton label="Action" icon="pi pi-check" />
+					<BccButton label="Action" :icon="CheckIcon" />
 				</template>
 			</BccToolbar>
 		`,

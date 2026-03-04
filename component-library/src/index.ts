@@ -17,6 +17,7 @@
  *    - main.ts: import "@bcc-code/component-library-vue/style.css";
  */
 
+import type { ConfirmationOptions } from 'primevue/confirmationoptions';
 import './style.css';
 
 export { default as BccPreset } from '@bcc-code/design-tokens/primevue';
@@ -60,7 +61,6 @@ export { default as BccColorPicker } from 'primevue/colorpicker';
 export { default as BccColumn } from 'primevue/column';
 export { default as BccColumnGroup } from 'primevue/columngroup';
 export { default as BccConfig } from 'primevue/config';
-export { default as BccConfirmDialog } from 'primevue/confirmdialog';
 export { default as BccConfirmPopup } from 'primevue/confirmpopup';
 export { default as BccContextMenu } from 'primevue/contextmenu';
 export { default as BccDataTable } from 'primevue/datatable';
@@ -152,10 +152,25 @@ export { default as BccTooltip } from 'primevue/tooltip';
 export { default as BccTree } from 'primevue/tree';
 export { default as BccTreeSelect } from 'primevue/treeselect';
 export { default as BccTreeTable } from 'primevue/treetable';
-export { default as BccVirtualScroller } from 'primevue/virtualscroller';
 
 /* Composables */
-export { useConfirm } from 'primevue/useconfirm';
 export { useDialog } from 'primevue/usedialog';
 export { useToast } from 'primevue/usetoast';
+export { default as BccVirtualScroller } from 'primevue/virtualscroller';
 export { default as useAnimatedNumber } from './composables/animatedNumber';
+
+import { useConfirm as _useConfirm } from 'primevue/useconfirm';
+import type { VueComponent } from './types';
+
+interface UseConfirmOptions extends Omit<ConfirmationOptions, 'icon'> {
+	icon?: VueComponent | undefined;
+}
+
+type UseConfirmReturn = {
+	require: (option: UseConfirmOptions) => void;
+	close: () => void;
+};
+
+export function useConfirm(): UseConfirmReturn {
+	return _useConfirm() as UseConfirmReturn;
+}
