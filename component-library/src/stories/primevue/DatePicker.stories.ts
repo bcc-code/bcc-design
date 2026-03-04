@@ -33,7 +33,7 @@ export const Default: Story = {
 			return { args, date };
 		},
 		template: `
-			<BccDatePicker v-model="date" v-bind="args" class="w-64" />
+			<BccDatePicker v-model="date" v-bind="args" />
 		`,
 	}),
 };
@@ -47,7 +47,7 @@ export const WithIcon: Story = {
 			return { args, date };
 		},
 		template: `
-			<BccDatePicker v-model="date" v-bind="args" class="w-64" />
+			<BccDatePicker v-model="date" v-bind="args" />
 		`,
 	}),
 };
@@ -60,9 +60,25 @@ export const WithTime: Story = {
 			return { date };
 		},
 		template: `
-			<BccDatePicker v-model="date" show-time hour-format="24" class="w-64" />
+			<BccDatePicker v-model="date" show-time />
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Show time picker with 24-hour format.',
+			},
+			source: {
+				code: `<script setup>
+				const date = ref<Date | null>(null);
+				</script>
+				
+				<template>
+					<BccDatePicker v-model="date" show-time />
+				</template>`,
+			},
+		},
+	},
 };
 
 export const Disabled: Story = {
@@ -74,7 +90,21 @@ export const Disabled: Story = {
 			return { args, date };
 		},
 		template: `
-			<BccDatePicker v-model="date" v-bind="args" class="w-64" />
+			<BccDatePicker v-model="date" v-bind="args" />
+		`,
+	}),
+};
+
+export const Inline: Story = {
+	args: { inline: true },
+	render: args => ({
+		components: { BccDatePicker },
+		setup() {
+			const date = ref<Date | null>(null);
+			return { args, date };
+		},
+		template: `
+			<BccDatePicker v-model="date" v-bind="args" />
 		`,
 	}),
 };
