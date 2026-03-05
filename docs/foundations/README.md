@@ -7,21 +7,24 @@ order: 1
 
 # Foundations
 
-::: warning Work in Progress
-This section is under development.
-:::
+Foundations documentation (tokens, colors, typography, spacing, icons, logos, elevation, border, radius) is now part of the **component library Storybook**.
 
-Design tokens and visual styles that form the base of the design system.
+View the full foundations docs here:
 
-| Page                          | Description                    |
-| ----------------------------- | ------------------------------ |
-| [Tokens](./tokens.md)         | Semantic color tokens          |
-| [Spacing](./spacing.md)       | Padding, margin, gap           |
-| [Colors](./colors.md)         | Color system overview          |
-| [Palette](./palette.md)       | Primitive color scales         |
-| [Typography](./typography.md) | Font, sizes, weights, headings |
-| [Icons](./icons.md)           | Icon library                   |
-| [Logos](./logos.md)           | Logo assets                    |
-| [Elevation](./elevation.md)   | Surfaces and shadows           |
-| [Border](./border.md)         | Border width                   |
-| [Radius](./radius.md)         | Border radius                  |
+**[Foundations in Storybook →](https://components.bcc.no)**
+
+In Storybook, open the **Foundations** section in the sidebar for:
+
+- Overview
+- Tokens (semantic colors)
+- Spacing
+- Colors
+- Palette
+- Typography
+- Icons
+- Logos
+- Elevation
+- Border
+- Radius
+
+To run Storybook locally: from the `component-library` directory, run `pnpm start`.

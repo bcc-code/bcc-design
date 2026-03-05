@@ -16,8 +16,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component:
-					'Dropdown for single selection from a list. [Read more on PrimeVue →](https://primevue.org/select/)',
+				component: 'Dropdown for single selection from a list. [Read more on PrimeVue →](https://primevue.org/select/)',
 			},
 		},
 	},
@@ -26,6 +25,7 @@ const meta = {
 		disabled: { control: 'boolean' },
 		filter: { control: 'boolean' },
 		showClear: { control: 'boolean' },
+		variant: { control: 'select', options: ['outlined', 'filled'] },
 	},
 } as Meta;
 
@@ -97,4 +97,56 @@ export const Disabled: Story = {
 			<BccSelect :options="cities" option-label="name" v-bind="args" class="w-full md:w-14rem" />
 		`,
 	}),
+};
+
+const InlineCode = `<p>I live in <BccSelect :options="cities" option-label="name" v-bind="args" class="inline" />, which is the best.</p>`;
+export const Inline: Story = {
+	args: {
+		placeholder: 'Select a City',
+	},
+	render: args => ({
+		components: { BccSelect },
+		setup() {
+			return { args, cities };
+		},
+		template: InlineCode,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'When using within or ontop of another element, add `inline` class to have the select fit together with the text.',
+			},
+			source: {
+				language: 'html',
+				code: InlineCode,
+			},
+		},
+	},
+};
+
+const InlineInverseCode = `<p class="bg-brand-800 p-4 rounded text-white text-xl">The best city is <BccSelect :options="cities" option-label="name" v-bind="args" class="inline inverse" /></p>`;
+export const InlineInverse: Story = {
+	args: {
+		placeholder: 'Select a City',
+	},
+	render: args => ({
+		components: { BccSelect },
+		setup() {
+			return { args, cities };
+		},
+		template: InlineInverseCode,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'If used on a dark background, add the `inverse` class to the select to ensure the text is readable.',
+			},
+			source: {
+				language: 'html',
+				code: InlineInverseCode,
+			},
+		},
+	},
 };

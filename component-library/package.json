@@ -1,104 +1,105 @@
 {
-  "name": "@bcc-code/component-library-vue",
-  "version": "0.7.6",
-  "type": "module",
-  "description": "Extended Vue component library based on PrimeVue and BCC design tokens",
-  "repository": "https://github.com/bcc-code/bcc-design.git",
-  "license": "Apache-2.0",
-  "publishConfig": {
-    "access": "public"
-  },
-  "packageManager": "pnpm@9.15.0",
-  "files": [
-    "dist",
-    "dist-types",
-    "dist-css"
-  ],
-  "main": "./dist/component-library.umd.cjs",
-  "module": "./dist/component-library.js",
-  "types": "./dist-types/index.d.ts",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist-types/index.d.ts",
-        "default": "./dist/component-library.js"
-      },
-      "require": {
-        "types": "./dist-types/index.d.ts",
-        "default": "./dist/component-library.umd.cjs"
-      }
-    },
-    "./style.css": "./dist/index.css",
-    "./theme.css": "./dist/theme.css",
-    "./archivo-font.css": "./dist/archivo-font.css",
-    "./tailwind.css": "./dist-css/tailwind.css"
-  },
-  "scripts": {
-    "start": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "build": "run-p typecheck build:types build:vite",
-    "build:vite": "rimraf dist && vite build && node scripts/build-theme-css.mjs",
-    "build:types": "rimraf dist-types && vue-tsc -p tsconfig.build.json",
-    "generate:semantic": "node scripts/restructure-semantic-primitives.mjs",
-    "generate:semantic-css": "node scripts/generate-semantic-css.mjs",
-    "generate:context-modes": "node scripts/generate-context-modes.mjs",
-    "generate:context-css": "node scripts/generate-context-css.mjs",
-    "generate": "pnpm run generate:semantic && pnpm run generate:semantic-css && pnpm run generate:context-modes && pnpm run generate:context-css",
-    "sync:primevue-icon-patches": "node scripts/sync-primevue-icon-patches.mjs",
-    "typecheck": "vue-tsc --noEmit",
-    "lint": "eslint src/**/*.ts src/**/*.vue",
-    "lint:fix": "eslint --fix src/**/*.ts src/**/*.vue",
-    "test:unit": "vitest run",
-    "release-channel": "node ./scripts/release-channel.cjs",
-    "create-version": "node ./scripts/version.cjs"
-  },
-  "dependencies": {
-    "@bcc-code/design-tokens": "^5.1.34",
-    "@bcc-code/icons-vue": "^1.4.0",
-    "@primeuix/themes": "^2.0.3",
-    "@tailwindcss/vite": "^4.1.18",
-    "primevue": "^4.5.4",
-    "tailwindcss": "^4.0.0"
-  },
-  "peerDependencies": {
-    "vue": "^3.5.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "@primevue/auto-import-resolver": "^4.5.4",
-    "@storybook/addon-docs": "^10.2.8",
-    "@storybook/manager-api": "^8.6.14",
-    "@storybook/theming": "^8.6.14",
-    "@storybook/vue3": "^10.0.0",
-    "@storybook/vue3-vite": "^10.0.0",
-    "@types/node": "^22.0.0",
-    "@vitejs/plugin-vue": "^6.0.0",
-    "@vue/eslint-config-prettier": "^10.2.0",
-    "@vue/test-utils": "^2.4.6",
-    "@vue/tsconfig": "^0.7.0",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.39.2",
-    "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-vue": "^10.7.0",
-    "globals": "^17.3.0",
-    "jiti": "^2.6.1",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.49",
-    "prettier": "^3.8.1",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "rimraf": "^6.0.0",
-    "storybook": "^10.0.0",
-    "typescript": "~5.7.0",
-    "typescript-eslint": "^8.54.0",
-    "unplugin-vue-components": "^31.0.0",
-    "vite": "^7.3.0",
-    "vitest": "^4.0.18",
-    "vue": "^3.5.0",
-    "vue-tsc": "^3.2.4"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "@primevue/icons": "patches/@primevue__icons.patch"
-    }
-  }
+	"name": "@bcc-code/component-library-vue",
+	"version": "0.7.7",
+	"type": "module",
+	"description": "Extended Vue component library based on PrimeVue and BCC design tokens",
+	"repository": "https://github.com/bcc-code/bcc-design.git",
+	"license": "Apache-2.0",
+	"publishConfig": {
+		"access": "public"
+	},
+	"packageManager": "pnpm@9.15.0",
+	"files": [
+		"dist",
+		"dist-types",
+		"dist-css"
+	],
+	"main": "./dist/component-library.umd.cjs",
+	"module": "./dist/component-library.js",
+	"types": "./dist-types/index.d.ts",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist-types/index.d.ts",
+				"default": "./dist/component-library.js"
+			},
+			"require": {
+				"types": "./dist-types/index.d.ts",
+				"default": "./dist/component-library.umd.cjs"
+			}
+		},
+		"./style.css": "./dist/index.css",
+		"./theme.css": "./dist/theme.css",
+		"./archivo-font.css": "./dist/archivo-font.css",
+		"./tailwind.css": "./dist-css/tailwind.css"
+	},
+	"scripts": {
+		"start": "storybook dev -p 6006",
+		"build-storybook": "storybook build",
+		"build": "run-p typecheck build:types build:vite",
+		"build:vite": "rimraf dist && vite build && node scripts/build-theme-css.mjs",
+		"build:types": "rimraf dist-types && vue-tsc -p tsconfig.build.json",
+		"generate:semantic": "node scripts/restructure-semantic-primitives.mjs",
+		"generate:semantic-css": "node scripts/generate-semantic-css.mjs",
+		"generate:context-modes": "node scripts/generate-context-modes.mjs",
+		"generate:context-css": "node scripts/generate-context-css.mjs",
+		"generate": "pnpm run generate:semantic && pnpm run generate:semantic-css && pnpm run generate:context-modes && pnpm run generate:context-css",
+		"sync:primevue-icon-patches": "node scripts/sync-primevue-icon-patches.mjs",
+		"typecheck": "vue-tsc --noEmit",
+		"lint": "eslint src/**/*.ts src/**/*.vue",
+		"lint:fix": "eslint --fix src/**/*.ts src/**/*.vue",
+		"test:unit": "vitest run",
+		"release-channel": "node ./scripts/release-channel.cjs",
+		"create-version": "node ./scripts/version.cjs"
+	},
+	"dependencies": {
+		"@bcc-code/design-tokens": "^5.1.34",
+		"@bcc-code/icons-vue": "^1.4.0",
+		"@primeuix/themes": "^2.0.3",
+		"@tailwindcss/vite": "^4.1.18",
+		"primevue": "^4.5.4",
+		"tailwindcss": "^4.0.0"
+	},
+	"peerDependencies": {
+		"vue": "^3.5.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.39.2",
+		"@primevue/auto-import-resolver": "^4.5.4",
+		"@storybook/addon-docs": "^10.2.8",
+		"@storybook/manager-api": "^8.6.14",
+		"@storybook/theming": "^8.6.14",
+		"@storybook/vue3": "^10.0.0",
+		"@storybook/vue3-vite": "^10.0.0",
+		"@types/node": "^22.0.0",
+		"@vitejs/plugin-vue": "^6.0.0",
+		"@vue/eslint-config-prettier": "^10.2.0",
+		"@vue/test-utils": "^2.4.6",
+		"@vue/tsconfig": "^0.7.0",
+		"autoprefixer": "^10.4.20",
+		"eslint": "^9.39.2",
+		"eslint-plugin-prettier": "^5.5.5",
+		"eslint-plugin-vue": "^10.7.0",
+		"globals": "^17.3.0",
+		"jiti": "^2.6.1",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.4.49",
+		"prettier": "^3.8.1",
+		"prettier-plugin-tailwindcss": "^0.7.2",
+		"remark-gfm": "^4.0.0",
+		"rimraf": "^6.0.0",
+		"storybook": "^10.0.0",
+		"typescript": "~5.7.0",
+		"typescript-eslint": "^8.54.0",
+		"unplugin-vue-components": "^31.0.0",
+		"vite": "^7.3.0",
+		"vitest": "^4.0.18",
+		"vue": "^3.5.0",
+		"vue-tsc": "^3.2.4"
+	},
+	"pnpm": {
+		"patchedDependencies": {
+			"@primevue/icons": "patches/@primevue__icons.patch"
+		}
+	}
 }

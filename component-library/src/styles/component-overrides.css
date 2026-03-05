@@ -1,40 +1,66 @@
 /** Custom styles to fix primevue components that are not custom or wrapped. */
 
-/**
-.BccAutocomplete
-**/
-
-/** Our icons are a bit smaller that Primevue's default */
-.p-autocomplete .p-icon {
-    --p-icon-size: var(--icon-size-sm);
-    --p-form-field-sm-font-size: var(--icon-size-sm);
-    --p-form-field-lg-font-size: var(--icon-size-md);
-}
-
-.p-autocomplete-clearable .p-inputtext {
-    flex-grow: 1;
-}
-
-.p-autocomplete-chip.p-chip {
-    padding-block-start: calc(var(--p-autocomplete-padding-y) / 2);
-    padding-block-end: calc(var(--p-autocomplete-padding-y) / 2);
-    border-radius: var(--p-autocomplete-chip-border-radius);
-}
-
 
 /**
-GUTTER FIX
+* GUTTER FIX
 * Primevue's dropwdown components are all missing the gap between input and dropdown
-**/ 
+**/
 .p-autocomplete-overlay,
 .p-menu-overlay,
 .p-multiselect-overlay,
 .p-select-overlay,
 .p-treeselect-overlay {
-    margin: var(--p-anchor-gutter) 0;
+	margin: var(--p-anchor-gutter) 0;
 }
 
 /* This fix is to ensure overlay badge is contained within the size of the component it wraps */
 .p-overlaybadge {
-    display: inline-block;
+	display: inline-block;
+}
+
+/**
+* BccAutocomplete
+**/
+
+/** Our icons are a bit smaller that Primevue's default */
+.p-autocomplete .p-icon {
+	--p-icon-size: var(--icon-size-sm);
+	--p-form-field-sm-font-size: var(--icon-size-sm);
+	--p-form-field-lg-font-size: var(--icon-size-md);
+}
+
+.p-autocomplete-clearable .p-inputtext {
+	flex-grow: 1;
+}
+
+.p-autocomplete-chip.p-chip {
+	padding-block-start: calc(var(--p-autocomplete-padding-y) / 2);
+	padding-block-end: calc(var(--p-autocomplete-padding-y) / 2);
+	border-radius: var(--p-autocomplete-chip-border-radius);
+}
+
+/**
+* BccSelect
+**/ 
+.p-select {
+	--p-icon-size: var(--icon-size-sm);
+}
+
+.p-select.inline {
+	@apply inline-flex items-center mx-auto w-auto border-0 bg-transparent shadow-none;
+	--p-icon-size: 1.25em;
+    --p-select-dropdown-width: 1.5em;
+    --p-select-min-height: auto;
+}
+
+.p-select.inline .p-select-label {
+    @apply font-semibold inline-block;
+    font-size: inherit;
+    padding: 0 0 0 0.25em;
+}
+
+.p-select.inline.inverse {
+    --p-select-color: var(--color-neutral-0);
+	--p-select-dropdown-color: var(--color-neutral-0);
+    --p-select-placeholder-color: var(--color-dark-neutral-1000);
 }
