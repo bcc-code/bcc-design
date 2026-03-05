@@ -179,3 +179,72 @@ export const Disabled: Story = {
 		`,
 	}),
 };
+
+export const Multiple: Story = {
+	args: {
+		placeholder: 'Search for a city',
+		multiple: true,
+	},
+	render: args => ({
+		components: { BccAutoComplete },
+		setup() {
+			const { selected, suggestions, search } = useAutoComplete();
+			return { args, selected, suggestions, search };
+		},
+		template: `
+			<BccAutoComplete
+				v-model="selected"
+				option-label="name"
+				:suggestions="suggestions"
+				@complete="search"
+				v-bind="args"
+			/>
+		`,
+	}),
+};
+
+export const SmallSize: Story = {
+	args: {
+		placeholder: 'Search for a city',
+		size: 'small',
+	},
+	render: args => ({
+		components: { BccAutoComplete },
+		setup() {
+			const { selected, suggestions, search } = useAutoComplete();
+			return { args, selected, suggestions, search };
+		},
+		template: `
+			<BccAutoComplete
+				v-model="selected"
+				option-label="name"
+				:suggestions="suggestions"
+				@complete="search"
+				v-bind="args"
+			/>
+		`,
+	}),
+};
+
+export const LargeSize: Story = {
+	args: {
+		placeholder: 'Search for a city',
+		size: 'large',
+	},
+	render: args => ({
+		components: { BccAutoComplete },
+		setup() {
+			const { selected, suggestions, search } = useAutoComplete();
+			return { args, selected, suggestions, search };
+		},
+		template: `
+			<BccAutoComplete
+				v-model="selected"
+				option-label="name"
+				:suggestions="suggestions"
+				@complete="search"
+				v-bind="args"
+			/>
+		`,
+	}),
+};
