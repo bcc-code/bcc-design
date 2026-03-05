@@ -29,7 +29,6 @@ const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string; description: str
 		description: 'Floating label that moves when the input is focused or filled.',
 	},
 	{ name: 'Galleria', slug: 'galleria', description: 'Image gallery with thumbnails and full-screen view.' },
-	{ name: 'Image', slug: 'image', description: 'Image with preview, zoom, and lazy loading.' },
 	{ name: 'Inplace', slug: 'inplace', description: 'Inline editing: display content that becomes editable on click.' },
 	{ name: 'InputMask', slug: 'inputmask', description: 'Text input with a mask for dates, phone numbers, etc.' },
 	{ name: 'InputText', slug: 'inputtext', description: 'Basic single-line text input.' },
