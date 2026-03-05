@@ -5,6 +5,7 @@
 
 export { default as BccAvatar } from './BccAvatar/BccAvatar.vue';
 export { default as BccButton } from './BccButton.vue';
+export { default as BccConfirmDialog } from './BccConfirmDialog.vue';
 export { default as BccCheckbox } from './BccCheckbox.vue';
 export { default as BccChip } from './BccChip/BccChip.vue';
 export { default as BccInput } from './BccInput.vue';
