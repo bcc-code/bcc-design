@@ -99,7 +99,7 @@ export const Disabled: Story = {
 	}),
 };
 
-const InlineCode = `<p>I live in <BccSelect :options="cities" option-label="name" v-bind="args" class="inline" />, which is the best.</p>`;
+const InlineCode = `<p>I live in <BccSelect :options="cities" option-label="name" v-bind="args" class="inline-select" />, which is the best.</p>`;
 export const Inline: Story = {
 	args: {
 		placeholder: 'Select a City',
@@ -115,7 +115,7 @@ export const Inline: Story = {
 		docs: {
 			description: {
 				component:
-					'When using within or ontop of another element, add `inline` class to have the select fit together with the text.',
+					'When using within or ontop of another element, add `inline-select` class to have the select fit together with the text.',
 			},
 			source: {
 				language: 'html',
@@ -125,7 +125,7 @@ export const Inline: Story = {
 	},
 };
 
-const InlineInverseCode = `<p class="bg-brand-800 p-4 rounded text-white text-xl">The best city is <BccSelect :options="cities" option-label="name" v-bind="args" class="inline inverse" /></p>`;
+const InlineInverseCode = `<p class="bg-brand-800 p-4 rounded text-white text-xl">The best city is <BccSelect :options="cities" option-label="name" v-bind="args" class="inline-select inverse" /></p>`;
 export const InlineInverse: Story = {
 	args: {
 		placeholder: 'Select a City',
@@ -141,7 +141,7 @@ export const InlineInverse: Story = {
 		docs: {
 			description: {
 				component:
-					'If used on a dark background, add the `inverse` class to the select to ensure the text is readable.',
+					'If used on a dark background, add the `inline-select inverse` class to the select to ensure the text is readable.',
 			},
 			source: {
 				language: 'html',

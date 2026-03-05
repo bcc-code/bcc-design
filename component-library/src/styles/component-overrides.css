@@ -1,6 +1,5 @@
 /** Custom styles to fix primevue components that are not custom or wrapped. */
 
-
 /**
 * GUTTER FIX
 * Primevue's dropwdown components are all missing the gap between input and dropdown
@@ -41,26 +40,26 @@
 
 /**
 * BccSelect
-**/ 
+**/
 .p-select {
 	--p-icon-size: var(--icon-size-sm);
 }
 
-.p-select.inline {
-	@apply inline-flex items-center mx-auto w-auto border-0 bg-transparent shadow-none;
+.p-select.inline-select {
+	@apply mx-auto inline-flex w-auto items-center border-0 bg-transparent shadow-none;
 	--p-icon-size: 1.25em;
-    --p-select-dropdown-width: 1.5em;
-    --p-select-min-height: auto;
+	--p-select-dropdown-width: 1.5em;
+	--p-select-min-height: auto;
 }
 
-.p-select.inline .p-select-label {
-    @apply font-semibold inline-block;
-    font-size: inherit;
-    padding: 0 0 0 0.25em;
+.p-select.inline-select .p-select-label {
+	@apply inline-block font-semibold;
+	font-size: inherit;
+	padding: 0 0 0 0.25em;
 }
 
-.p-select.inline.inverse {
-    --p-select-color: var(--color-neutral-0);
+.p-select.inline-select.inverse {
+	--p-select-color: var(--color-neutral-0);
 	--p-select-dropdown-color: var(--color-neutral-0);
-    --p-select-placeholder-color: var(--color-dark-neutral-1000);
+	--p-select-placeholder-color: var(--color-dark-neutral-1000);
 }
