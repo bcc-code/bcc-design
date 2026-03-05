@@ -23,11 +23,6 @@ const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string; description: str
 	{ name: 'DataView', slug: 'dataview', description: 'Displays data in grid or list layout with pagination.' },
 	{ name: 'Dock', slug: 'dock', description: 'Dock bar for quick access to items (e.g. macOS-style).' },
 	{ name: 'FileUpload', slug: 'fileupload', description: 'File upload with drag & drop, progress, and validation.' },
-	{
-		name: 'FloatLabel',
-		slug: 'floatlabel',
-		description: 'Floating label that moves when the input is focused or filled.',
-	},
 	{ name: 'Galleria', slug: 'galleria', description: 'Image gallery with thumbnails and full-screen view.' },
 	{ name: 'Inplace', slug: 'inplace', description: 'Inline editing: display content that becomes editable on click.' },
 	{ name: 'InputMask', slug: 'inputmask', description: 'Text input with a mask for dates, phone numbers, etc.' },
