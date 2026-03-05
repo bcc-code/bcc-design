@@ -28,6 +28,12 @@
 	--p-form-field-lg-font-size: var(--icon-size-md);
 }
 
+.p-autocomplete .p-autocomplete-clear-icon {
+	/** middle-align the icon */
+	top: calc(50% - var(--icon-size-sm) / 2);
+	margin-top: 0;
+}
+
 .p-autocomplete-clearable .p-inputtext {
 	flex-grow: 1;
 }
