@@ -1,6 +1,6 @@
 import { CancelIcon, CheckIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { BccButton, BccConfirmDialog, useConfirm } from '../../index';
+import { BccButton, BccConfirmDialog, useConfirm } from '../../../index';
 
 const meta = {
 	component: BccConfirmDialog,
