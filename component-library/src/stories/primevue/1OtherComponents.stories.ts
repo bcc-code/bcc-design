@@ -8,7 +8,6 @@ import type { Meta, StoryObj } from '@storybook/vue3';
  */
 const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string; description: string }[] = [
 	{ name: 'BlockUI', slug: 'blockui', description: 'Blocks the page or a container while content is loading.' },
-	{ name: 'Carousel', slug: 'carousel', description: 'Content slider with optional indicators and navigation.' },
 	{
 		name: 'CascadeSelect',
 		slug: 'cascadeselect',

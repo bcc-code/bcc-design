@@ -4,6 +4,7 @@ dist-types
 dist-css
 dist-ssr
 coverage
+.env
 
 # Logs
 logs

@@ -12,6 +12,14 @@ import '../src/styles/archivo-font.css';
 
 // PrimeVue setup for Storybook (see https://github.com/xiscohv/primevue-ts-storybook)
 setup(app => {
+	// Avoid useId() conflicts when multiple Vue apps exist (e.g. in Docs with multiple stories).
+	// All Storybook-generated IDs (and PrimeVue’s $attrSelector e.g. pc0) will use this prefix.
+	const random = Array.from(
+		{ length: 5 },
+		() => 'abcdefghijklmnopqrstuvwxyz0123456789'[Math.floor(Math.random() * 36)]
+	).join('');
+	app.config.idPrefix = `sb-${random}-`;
+
 	app.use(PrimeVue, {
 		theme: {
 			preset: BccPreset,
