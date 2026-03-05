@@ -36,7 +36,7 @@ const inputBindings = computed((): InputTextProps => {
 			<component :is="icon" class="size-full" />
 		</BccInputIcon>
 		<component :is="numeric ? BccInputNumber : BccInputText" class="w-full" v-bind="inputBindings" />
-		<BccInputIcon v-if="loading" class="pi pi-spin pi-spinner">
+		<BccInputIcon v-if="loading">
 			<BccCircleLoader class="size-full" />
 		</BccInputIcon>
 		<BccInputIcon v-else-if="iconRight === true ? icon : iconRight">
