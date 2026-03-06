@@ -69,3 +69,10 @@
 	--p-select-dropdown-color: var(--color-neutral-0);
 	--p-select-placeholder-color: var(--color-dark-neutral-1000);
 }
+
+/** 
+* Fix issue with icons inside Input within an InputGroup being hidden when Input is in focus
+**/
+.p-inputicon {
+	z-index: 2;
+}
