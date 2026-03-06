@@ -4,8 +4,8 @@ import { computed } from 'vue';
 
 export type StepIndicatorProps = {
 	steps: string[];
-	additionalText?: boolean;
-	showStepLabel?: boolean;
+	hideText?: boolean;
+	hideLabel?: boolean;
 	left?: boolean;
 	right?: boolean;
 	context?: BCC_CONTEXT;
@@ -14,8 +14,8 @@ export type StepIndicatorProps = {
 };
 
 const props = withDefaults(defineProps<StepIndicatorProps>(), {
-	additionalText: true,
-	showStepLabel: true,
+	hideText: false,
+	hideLabel: true,
 	context: BCC_CONTEXTS.brand.bolder,
 	headingFn: (currentStep, totalSteps) => `Step ${currentStep} of ${totalSteps}`,
 });
@@ -31,9 +31,9 @@ const state = computed(() => ({
 
 <template>
 	<div class="bcc-step-indicator col gap-2" :class="[{ left, right }, `ctx-${context}`]">
-		<div v-if="props.additionalText" class="flex gap-2">
+		<div v-if="!props.hideText" class="flex gap-2">
 			<span class="text-heading-sm text-default">{{ props.headingFn(state.current, state.total) }}</span>
-			<span v-if="props.showStepLabel" class="text-body-sm text-text-subtlest">{{ state.label }}</span>
+			<span v-if="!props.hideLabel" class="text-body-sm text-text-subtlest">{{ state.label }}</span>
 		</div>
 		<div class="center gap-2">
 			<div

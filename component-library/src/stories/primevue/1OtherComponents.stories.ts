@@ -38,7 +38,6 @@ const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string; description: str
 	},
 	{ name: 'PanelMenu', slug: 'panelmenu', description: 'Vertical menu with expandable panels.' },
 	{ name: 'PickList', slug: 'picklist', description: 'Transfer list to move items between source and target.' },
-	{ name: 'Popover', slug: 'popover', description: 'Overlay panel attached to a trigger element.' },
 	{ name: 'SpeedDial', slug: 'speeddial', description: 'FAB that expands to show multiple action buttons.' },
 	{ name: 'SplitButton', slug: 'splitbutton', description: 'Button with a dropdown for secondary actions.' },
 	{ name: 'Steps', slug: 'steps', description: 'Stepper / wizard indicator for multi-step flows.' },

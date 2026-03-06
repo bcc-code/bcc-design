@@ -14,13 +14,13 @@ const meta: Meta<typeof BccStepIndicator> = {
 			control: { type: 'object' },
 			description: 'An array of step labels.',
 		},
-		additionalText: {
+		hideText: {
 			control: { type: 'boolean' },
-			description: 'Whether to show the step number and title alongside the indicators.',
+			description: 'Whether to hide all text and only show the indicators.',
 		},
-		showStepLabel: {
+		hideLabel: {
 			control: { type: 'boolean' },
-			description: 'Whether to show the step label.',
+			description: 'Whether to show the step label. Hidden if `hideText` is true.',
 		},
 		context: {
 			control: { type: 'select' },
@@ -58,8 +58,7 @@ export const Default: Story = {
 	args: {
 		modelValue: 0,
 		steps: exampleSteps,
-		additionalText: true,
-		showStepLabel: true,
+		hideText: false,
 	},
 };
 
@@ -67,8 +66,7 @@ export const SecondStep: Story = {
 	args: {
 		modelValue: 1,
 		steps: exampleSteps,
-		additionalText: true,
-		showStepLabel: true,
+		hideText: false,
 	},
 };
 
@@ -76,8 +74,8 @@ export const IndicatorsOnly: Story = {
 	args: {
 		modelValue: 2,
 		steps: exampleSteps,
-		additionalText: false,
-		showStepLabel: false,
+		hideText: true,
+		hideLabel: true,
 	},
 };
 
@@ -85,8 +83,8 @@ export const WithoutStepLabel: Story = {
 	args: {
 		modelValue: 0,
 		steps: exampleSteps,
-		additionalText: true,
-		showStepLabel: false,
+		hideText: false,
+		hideLabel: true,
 	},
 };
 
@@ -94,8 +92,8 @@ export const CustomLabels: Story = {
 	args: {
 		modelValue: 0,
 		steps: exampleSteps,
-		additionalText: true,
-		showStepLabel: false,
+		hideText: false,
+		hideLabel: true,
 	},
 	render: args => ({
 		components: { BccStepIndicator },

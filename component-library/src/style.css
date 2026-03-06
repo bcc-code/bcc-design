@@ -1,40 +1,44 @@
 /* Layer order: Tailwind base/utilities first, then PrimeVue so component styles win */
 @layer theme, base, tailwind, primevue;
-@import "@bcc-code/design-tokens/css";
+@import '@bcc-code/design-tokens/css';
 
-@import "tailwindcss";
-@import "@bcc-code/design-tokens/tailwind";
-@import "@bcc-code/design-tokens/primevue/overrides";
+@import 'tailwindcss';
+@import '@bcc-code/design-tokens/tailwind';
+@import '@bcc-code/design-tokens/primevue/overrides';
 
-@import "./styles/theme.css";
-@import "./styles/semantic.css";
-@import "./styles/utilities.css";
-@import "./styles/contexts.css";
-@import "./styles/context.css";
-@import "./styles/fonts.css";
-@import "./styles/component-overrides.css";
+@import './styles/theme.css';
+@import './styles/semantic.css';
+@import './styles/utilities.css';
+@import './styles/contexts.css';
+@import './styles/context.css';
+@import './styles/fonts.css';
+@import './styles/component-overrides.css';
 
-@import "./components/custom/styles.css";
-@import "./components/wrapped/styles.css";
+@import './components/custom/styles.css';
+@import './components/wrapped/styles.css';
 
-:root, :host {
+:root,
+:host {
 	--font-sans: 'Archivo', system-ui, sans-serif;
-  @apply font-sans antialiased p-0 m-0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	@apply m-0 p-0 font-sans antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 
+hr {
+	border-color: var(--color-border-default);
 }
 
 b,
 strong,
 .bold {
-  font-weight: bold;
-  --ctx-text: var(--ctx-text-bold);
+	font-weight: bold;
+	--ctx-text: var(--ctx-text-bold);
 }
 
 /* Disable state */
 :disabled,
 .disabled {
-  cursor: not-allowed;
-  pointer-events: none;
+	cursor: not-allowed;
+	pointer-events: none;
 }
