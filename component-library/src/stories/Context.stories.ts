@@ -20,7 +20,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Context tokens from contexts.css set CSS variables; context.css utilities (ctx, border-ctx, text-ctx-bold) consume them. Combine e.g. ctx-<name> with ctx border-ctx for boxes.',
+					'Context tokens from contexts.css set CSS variables; context.css utilities (ctx, border-ctx, text-ctx-bold) consume them. Combine e.g. ctx-<name> with `ctx` for boxes.',
 			},
 		},
 	},
@@ -40,7 +40,7 @@ function boxClass(ctx: string) {
  * ## All context tokens by color
  *
  * Grouped by top-level key from `BCC_CONTEXTS` (brand, neutral, success, blue, etc.).
- * Each box uses `ctx-<name>` plus `ctx border-ctx`; the bold line uses `text-ctx-bold`.
+ * Each box uses `ctx-<name>` plus `ctx`; the bold text uses `text-ctx-bold`.
  */
 export const AllContexts: Story = {
 	render: () => ({

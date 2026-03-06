@@ -3,7 +3,7 @@ import { BCC_CONTEXTS, type BCC_CONTEXT } from '@/contexts';
 import { computed } from 'vue';
 
 export type StepIndicatorProps = {
-	steps: string[];
+	steps: string[] | number;
 	hideText?: boolean;
 	hideLabel?: boolean;
 	left?: boolean;
@@ -24,8 +24,8 @@ const currentStep = defineModel<number>({ default: 0, required: false });
 
 const state = computed(() => ({
 	current: currentStep.value + 1,
-	total: props.steps.length,
-	label: props.steps[currentStep.value] ?? '',
+	total: Array.isArray(props.steps) ? props.steps.length : props.steps,
+	label: Array.isArray(props.steps) ? (props.steps[currentStep.value] ?? '') : '',
 }));
 </script>
 
