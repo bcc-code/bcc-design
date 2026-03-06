@@ -15,7 +15,7 @@ const meta: Meta<typeof BccToggle> = {
 		},
 	},
 	argTypes: {
-		defaultValue: { control: 'boolean' },
+		defaultValue: { control: 'boolean', defaultValue: undefined },
 		disabled: { control: 'boolean' },
 		label: { control: 'text' },
 		loading: { control: 'boolean' },
@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {
-		defaultValue: false,
+		defaultValue: undefined,
 		disabled: false,
 		loading: false,
 		wasToggled: false,
@@ -64,13 +64,12 @@ export const Default: Story = {
 
 export const Loading: Story = {
 	args: {
-		defaultValue: true,
 		loading: true,
 	},
 	render: args => ({
 		components: { BccToggle },
 		setup() {
-			const value = ref(args.defaultValue);
+			const value = ref(true);
 			return { args, value };
 		},
 		template: '<BccToggle v-model="value" v-bind="args" />',
@@ -79,13 +78,12 @@ export const Loading: Story = {
 
 export const WasToggled: Story = {
 	args: {
-		defaultValue: true,
 		wasToggled: true,
 	},
 	render: args => ({
 		components: { BccToggle },
 		setup() {
-			const value = ref(args.defaultValue);
+			const value = ref(true);
 			return { args, value };
 		},
 		template: '<BccToggle v-model="value" v-bind="args" />',

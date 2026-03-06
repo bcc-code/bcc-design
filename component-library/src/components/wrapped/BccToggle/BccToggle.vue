@@ -19,12 +19,22 @@ export type ToggleProps = ToggleSwitchProps & {
 	useCtx?: boolean;
 };
 
-const props = defineProps<ToggleProps>();
+const props = withDefaults(defineProps<ToggleProps>(), {
+	defaultValue: undefined,
+});
+const emit = defineEmits<{
+	(e: 'update:modelValue', value: boolean | string | undefined): void;
+}>();
 </script>
 
 <template>
 	<div class="flex items-center gap-2">
-		<ToggleSwitch v-bind="{ ...props, ...$attrs }" :class="{ toggled: wasToggled, loading, useCtx }" class="clickable">
+		<ToggleSwitch
+			v-bind="{ ...props, ...$attrs }"
+			:class="{ toggled: wasToggled, loading, useCtx }"
+			class="clickable"
+			@update:model-value="emit('update:modelValue', $event)"
+		>
 			<template #handle="{ checked }">
 				<BccCircleLoader v-if="loading" class="size-3" />
 				<component :is="icon" v-else-if="icon" class="size-3" />

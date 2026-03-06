@@ -95,7 +95,6 @@ export { default as BccKeyFilter } from 'primevue/keyfilter';
 export { default as BccKnob } from 'primevue/knob';
 export { default as BccListbox } from 'primevue/listbox';
 export { default as BccMegaMenu } from 'primevue/megamenu';
-export { BccMenu, type BccMenuItem } from './components/wrapped';
 export { default as BccMenubar } from 'primevue/menubar';
 export { default as BccMeterGroup } from 'primevue/metergroup';
 export { default as BccMultiSelect } from 'primevue/multiselect';
