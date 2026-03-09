@@ -1,11 +1,28 @@
 <script setup lang="ts">
 import type { VueComponent } from '@/types';
-import PrimeMenu from 'primevue/menu';
+import PrimeMenu, { type MenuProps as PrimeMenuProps } from 'primevue/menu';
 import type { MenuItem } from 'primevue/menuitem';
-import { ref } from 'vue';
+import { computed, ref, useAttrs } from 'vue';
+
+/** Menu item model for BccMenu: icon can be a PrimeVue icon class string or a Vue icon component. */
+export type BccMenuItem = Omit<MenuItem, 'icon' | 'items'> & {
+	icon?: VueComponent;
+	items?: BccMenuItem[];
+};
+
+export type MenuProps = {
+	model?: BccMenuItem[];
+} & Omit<PrimeMenuProps, 'model'>;
 
 defineOptions({
 	inheritAttrs: false,
+});
+
+const props = defineProps<MenuProps>();
+const attrs = useAttrs();
+
+const menuBindings = computed((): PrimeMenuProps => {
+	return { ...props, ...attrs } as PrimeMenuProps;
 });
 
 const primeMenuRef = ref<InstanceType<typeof PrimeMenu> | null>(null);
@@ -16,19 +33,13 @@ defineExpose({
 	hide: () => primeMenuRef.value?.hide(),
 });
 
-/** Menu item model for BccMenu: icon can be a PrimeVue icon class string or a Vue icon component. */
-export type BccMenuItem = Omit<MenuItem, 'icon' | 'items'> & {
-	icon?: string | VueComponent;
-	items?: BccMenuItem[];
-};
-
 function isIconComponent(icon: unknown): icon is VueComponent {
 	return typeof icon === 'function' || (typeof icon === 'object' && icon !== null);
 }
 </script>
 
 <template>
-	<PrimeMenu ref="primeMenuRef" v-bind="$attrs">
+	<PrimeMenu ref="primeMenuRef" v-bind="menuBindings">
 		<template #itemicon="{ item, class: itemIconClass }">
 			<component
 				:is="item.icon"

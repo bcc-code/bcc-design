@@ -20,7 +20,7 @@ export type { ButtonProps } from './BccButton.vue';
 export type { CheckboxProps } from './BccCheckbox.vue';
 export type { ChipProps } from './BccChip/BccChip.vue';
 export type { InputProps } from './BccInput.vue';
-export type { BccMenuItem } from './BccMenu/BccMenu.vue';
+export type { BccMenuItem, MenuProps } from './BccMenu/BccMenu.vue';
 export type { MessageProps } from './BccMessage.vue';
 export type { TabItem, TabsProps } from './BccTabs/BccTabs.vue';
 export type { ToggleProps } from './BccToggle/BccToggle.vue';
