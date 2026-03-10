@@ -88,6 +88,9 @@ export const Icon: Story = {
 export const Sizes: Story = {
 	render: () => ({
 		components: { BccAvatar, BccDivider },
+		setup() {
+			return { GroupsIcon };
+		},
 		template: `
 			<div class="flex align-items-center gap-2">
 				<BccAvatar label="xs" size="xs" />
@@ -109,6 +112,54 @@ export const Sizes: Story = {
 				<BccAvatar label="xl" size="xl" squared />
 				<BccAvatar label="2x" size="xxl" squared />
 				<BccAvatar label="3x" size="xxxl" squared />
+			</div>
+			<BccDivider align="left">
+				With icon
+			</BccDivider>
+			<div class="flex align-items-center gap-2">
+				<BccAvatar size="xs" :icon="GroupsIcon" />
+				<BccAvatar size="sm" :icon="GroupsIcon" />
+				<BccAvatar size="md" :icon="GroupsIcon" />
+				<BccAvatar size="lg" :icon="GroupsIcon" />
+				<BccAvatar size="xl" :icon="GroupsIcon" />
+				<BccAvatar size="xxl" :icon="GroupsIcon" />
+				<BccAvatar size="xxxl" :icon="GroupsIcon" />
+			</div>
+			<BccDivider align="left">
+				Squared with icon
+			</BccDivider>
+			<div class="flex align-items-center gap-2">
+				<BccAvatar size="xs" :icon="GroupsIcon" squared />
+				<BccAvatar size="sm" :icon="GroupsIcon" squared />
+				<BccAvatar size="md" :icon="GroupsIcon" squared />
+				<BccAvatar size="lg" :icon="GroupsIcon" squared />
+				<BccAvatar size="xl" :icon="GroupsIcon" squared />
+				<BccAvatar size="xxl" :icon="GroupsIcon" squared />
+				<BccAvatar size="xxxl" :icon="GroupsIcon" squared />
+			</div>
+			<BccDivider align="left">
+				With image
+			</BccDivider>
+			<div class="flex align-items-center gap-2">
+				<BccAvatar size="xs" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
+				<BccAvatar size="sm" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
+				<BccAvatar size="md" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
+				<BccAvatar size="lg" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
+				<BccAvatar size="xl" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
+				<BccAvatar size="xxl" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
+				<BccAvatar size="xxxl" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
+			</div>
+			<BccDivider align="left">
+				Squared with image
+			</BccDivider>
+			<div class="flex align-items-center gap-2">
+				<BccAvatar size="xs" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" squared />
+				<BccAvatar size="sm" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" squared />
+				<BccAvatar size="md" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" squared />
+				<BccAvatar size="lg" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" squared />
+				<BccAvatar size="xl" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" squared />
+				<BccAvatar size="xxl" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" squared />
+				<BccAvatar size="xxxl" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" squared />
 			</div>
 		`,
 	}),

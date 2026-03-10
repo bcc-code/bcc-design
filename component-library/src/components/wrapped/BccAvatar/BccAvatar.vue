@@ -16,7 +16,7 @@ export type AvatarProps = Omit<PrimeAvatarProps, 'shape' | 'size'> & {
 	/** Adds a visible border around the avatar. */
 	bordered?: boolean;
 	/** Controls the avatar dimensions; maps to CSS size classes (xs through xxl). Default: md */
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
 };
 
 const props = defineProps<AvatarProps>();
@@ -36,7 +36,7 @@ const bindings = computed(() => {
 		:class="[gender, size, { child, bordered, squared }]"
 	>
 		<template v-if="icon" #icon>
-			<component :is="typeof icon === 'boolean' ? PersonFillIcon : icon" style="width: 1em" />
+			<component :is="typeof icon === 'boolean' ? PersonFillIcon : icon" class="icon" />
 		</template>
 	</PrimeAvatar>
 </template>

@@ -3,8 +3,13 @@
         --p-avatar-background: var(--ctx-background);
         --p-avatar-color: var(--ctx-text);
         --bcc-avatar-border: var(--ctx-border);
-        @apply overflow-hidden shrink-0 ctx-gray-subtler;
+        @apply overflow-hidden shrink-0 ctx-gray-subtler text-sm;
     }
+
+    .bcc-avatar .icon {
+        height: var(--icon-size-sm);
+    }
+
     .bcc-avatar.male,
     .bcc-avatar.M {
         @apply ctx-blue-subtler;
@@ -27,36 +32,44 @@
     .bcc-avatar.xs {
         @apply size-5 text-xs;
     }
+    .bcc-avatar.xs .icon {
+        height: var(--icon-size-xs);
+    }
     .bcc-avatar.sm {
-        @apply size-6 text-sm;
+        @apply size-6 text-xs;
+    }
+    .bcc-avatar.sm .icon {
+        height: var(--icon-size-xs);
     }
     .bcc-avatar.md {
-        @apply size-8 text-base;
+        /* same as default */
+    }
+    .bcc-avatar.md .icon {
+        /* same as default */
     }
     .bcc-avatar.lg {
-        @apply size-10 text-lg;
+        @apply size-10 text-md;
+    }
+    .bcc-avatar.lg .icon {
+        height: var(--icon-size-md);
     }
     .bcc-avatar.xl {
         @apply size-12 text-xl;
     }
+    .bcc-avatar.xl .icon {
+        height: var(--icon-size-lg);
+    }
     .bcc-avatar.xxl {
         @apply size-20 text-3xl;
+    }
+    .bcc-avatar.xxl .icon {
+        height: var(--icon-size-xl);
     }
     .bcc-avatar.xxxl {
         @apply size-24 text-4xl;
     }
-
-    .bcc-avatar.squared.lg {
-        @apply text-xl;
-    }
-    .bcc-avatar.squared.xl {
-        @apply text-2xl;
-    }
-    .bcc-avatar.squared.xxl {
-        @apply text-4xl;
-    }
-    .bcc-avatar.squared.xxxl {
-        @apply text-5xl;
+    .bcc-avatar.xxxl .icon {
+        height: var(--icon-size-xl);
     }
 
     .p-overlaybadge .bcc-avatar.p-avatar-circle.lg~.p-badge,
