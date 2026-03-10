@@ -87,9 +87,3 @@ onUnmounted(() => {
 		</template>
 	</PrimeConfirmDialog>
 </template>
-
-<style lang="css">
-.p-dialog .p-button-icon:empty {
-	display: none;
-}
-</style>

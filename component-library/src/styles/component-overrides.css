@@ -76,3 +76,11 @@
 .p-inputicon {
 	z-index: 2;
 }
+
+.p-dialog-close-button .p-icon {
+	height: var(--icon-size-sm);
+	width: var(--icon-size-sm);
+}
+.p-dialog .p-button-icon:empty {
+	display: none;
+}
