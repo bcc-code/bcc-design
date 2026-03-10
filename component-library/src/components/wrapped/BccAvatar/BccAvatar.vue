@@ -2,6 +2,7 @@
 import type { VueComponent } from '@/types';
 import { PersonFillIcon } from '@bcc-code/icons-vue';
 import PrimeAvatar, { type AvatarProps as PrimeAvatarProps } from 'primevue/avatar';
+import { computed } from 'vue';
 
 export type AvatarProps = Omit<PrimeAvatarProps, 'shape' | 'size'> & {
 	/** Affects avatar color for gender-specific defaults. */
@@ -19,11 +20,17 @@ export type AvatarProps = Omit<PrimeAvatarProps, 'shape' | 'size'> & {
 };
 
 const props = defineProps<AvatarProps>();
+
+const bindings = computed(() => {
+	const { icon, ...rest } = props;
+	void icon;
+	return rest;
+});
 </script>
 
 <template>
 	<PrimeAvatar
-		v-bind="props"
+		v-bind="bindings"
 		class="bcc-avatar"
 		:shape="squared ? 'square' : 'circle'"
 		:class="[gender, size, { child, bordered, squared }]"
