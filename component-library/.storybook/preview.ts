@@ -6,9 +6,31 @@ import ConfirmationService from 'primevue/confirmationservice';
 import FocusTrapDirective from 'primevue/focustrap';
 import TooltipDirective from 'primevue/tooltip';
 import ToastService from 'primevue/toastservice';
+import { onMounted, onUnmounted, ref } from 'vue';
 
+import { BccConfirmDialog } from '../src/index';
 import '../src/style.css';
 import '../src/styles/archivo-font.css';
+
+/** Only one BccConfirmDialog is mounted across all story instances (avoids 5 dialogs on docs page). */
+let confirmDialogSlotClaimed = false;
+const ConfirmDialogSingleton = {
+	components: { BccConfirmDialog },
+	template: '<BccConfirmDialog v-if="claimed" />',
+	setup() {
+		const claimed = ref(false);
+		onMounted(() => {
+			if (!confirmDialogSlotClaimed) {
+				confirmDialogSlotClaimed = true;
+				claimed.value = true;
+			}
+		});
+		onUnmounted(() => {
+			if (claimed.value) confirmDialogSlotClaimed = false;
+		});
+		return { claimed };
+	},
+};
 
 // PrimeVue setup for Storybook (see https://github.com/xiscohv/primevue-ts-storybook)
 setup(app => {
@@ -55,7 +77,7 @@ const preview: Preview = {
 	},
 	decorators: [
 		story => ({
-			components: { story },
+			components: { story, ConfirmDialogSingleton },
 			setup() {
 				const toggleDarkMode = () => {
 					document.documentElement.classList.toggle('dark');
@@ -63,7 +85,7 @@ const preview: Preview = {
 				return { toggleDarkMode };
 			},
 			template:
-				'<div class="ctx ctx-default p-6 font-sans"><story /> <br/> <button @click="toggleDarkMode">🌓</button></div>',
+				'<div class="ctx ctx-default p-6 font-sans"><ConfirmDialogSingleton /><story /> <br/> <button @click="toggleDarkMode">🌓</button></div>',
 		}),
 	],
 };
