@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<ToggleProps>(), {
 	defaultValue: undefined,
 });
 const emit = defineEmits<{
-	(e: 'update:modelValue', value: boolean | string | undefined): void;
+	(e: 'update:modelValue', value: boolean): void;
 }>();
 </script>
 
