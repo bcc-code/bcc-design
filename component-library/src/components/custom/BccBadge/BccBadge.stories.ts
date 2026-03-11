@@ -145,3 +145,30 @@ export const AsOverlay: Story = {
 		`,
 	}),
 };
+
+export const Gradient: Story = {
+	render: () => ({
+		components: { BccBadge },
+		setup() {
+			return { PersonIcon };
+		},
+		template: `
+			<BccBadge :value="PersonIcon" gradient size="xl" squared />
+			<BccBadge :value="PersonIcon" gradient size="xl" squared context="info-subtler" />
+			<BccBadge :value="PersonIcon" gradient size="xl" squared context="success-subtler" />
+			<BccBadge :value="PersonIcon" gradient size="xl" squared context="warning-subtler" />
+			<BccBadge :value="PersonIcon" gradient size="xl" squared context="danger-subtler" />
+			<BccBadge :value="PersonIcon" gradient size="xl" squared context="info-bolder" />
+			<BccBadge :value="PersonIcon" gradient size="xl" squared context="success-bolder" />
+			<BccBadge :value="PersonIcon" gradient size="xl" squared context="warning-bolder" />
+			<BccBadge :value="PersonIcon" gradient size="xl" squared context="danger-bolder" />
+		`,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				component: 'Badge with gradient background color',
+			},
+		},
+	},
+};

@@ -8,6 +8,9 @@
   .bcc-badge.capital {
     @apply inline-flex;
   }
+  .bcc-badge.gradient {
+    @apply ctx-gradient;
+  }
   .bcc-badge.sm {
     @apply w-4 h-4 text-heading-xs;
   }

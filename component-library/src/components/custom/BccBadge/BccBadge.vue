@@ -15,11 +15,14 @@ export type BadgeProps = {
 	squared?: boolean;
 	/** Design context (e.g. neutral, brand) used for background and text color. */
 	context?: BCC_CONTEXT;
+
+	gradient?: boolean;
 };
 
 withDefaults(defineProps<BadgeProps>(), {
 	context: BCC_CONTEXTS.neutral.subtle,
 	size: 'md',
+	gradient: false,
 });
 </script>
 
@@ -33,6 +36,7 @@ withDefaults(defineProps<BadgeProps>(), {
 				border,
 				bordered,
 				squared,
+				gradient,
 				'bcc-badge-text':
 					$slots.default || ((typeof value === 'string' || typeof value === 'number') && String(value).length > 2),
 			},
