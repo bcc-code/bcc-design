@@ -15,6 +15,7 @@ const meta: Meta<typeof BccTag> = {
 		size: { control: 'select', options: ['sm', 'md', 'lg', 'xl'] },
 		rounded: { control: 'boolean' },
 		iconRight: { control: 'boolean' },
+		bordered: { control: 'boolean' },
 	},
 };
 
@@ -25,6 +26,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	args: {
 		text: 'Tag',
+		bordered: false,
 	},
 };
 
