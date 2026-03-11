@@ -57,6 +57,7 @@
 		"@bcc-code/icons-vue": "^1.4.0",
 		"@primeuix/themes": "^2.0.3",
 		"@tailwindcss/vite": "^4.1.18",
+		"@vueuse/core": "^14.2.1",
 		"primevue": "^4.5.4",
 		"tailwindcss": "^4.0.0"
 	},
