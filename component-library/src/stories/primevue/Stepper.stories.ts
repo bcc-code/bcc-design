@@ -46,7 +46,7 @@ export const Default: Story = {
 				<BccStepPanels>
 					<BccStepPanel v-slot="{ activateCallback }" value="1">
 						<div class="flex flex-col gap-4">
-							<div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 p-6 flex justify-center items-center font-medium min-h-32">
+							<div class="border-2 border-dashed border-default rounded p-6 flex justify-center items-center font-medium min-h-32">
 								Content I
 							</div>
 							<div class="flex justify-end">
@@ -56,7 +56,7 @@ export const Default: Story = {
 					</BccStepPanel>
 					<BccStepPanel v-slot="{ activateCallback }" value="2">
 						<div class="flex flex-col gap-4">
-							<div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 p-6 flex justify-center items-center font-medium min-h-32">
+							<div class="border-2 border-dashed border-default rounded p-6 flex justify-center items-center font-medium min-h-32">
 								Content II
 							</div>
 							<div class="flex justify-between">
@@ -67,7 +67,7 @@ export const Default: Story = {
 					</BccStepPanel>
 					<BccStepPanel v-slot="{ activateCallback }" value="3">
 						<div class="flex flex-col gap-4">
-							<div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 p-6 flex justify-center items-center font-medium min-h-32">
+							<div class="border-2 border-dashed border-default rounded p-6 flex justify-center items-center font-medium min-h-32">
 								Content III
 							</div>
 							<div>
@@ -94,7 +94,7 @@ export const Vertical: Story = {
 					<BccStep>Header I</BccStep>
 					<BccStepPanel v-slot="{ activateCallback }">
 						<div class="flex flex-col gap-4">
-							<div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 p-6 flex justify-center items-center font-medium min-h-32">
+							<div class="border-2 border-dashed border-default rounded p-6 flex justify-center items-center font-medium min-h-32">
 								Content I
 							</div>
 							<div>
@@ -107,7 +107,7 @@ export const Vertical: Story = {
 					<BccStep>Header II</BccStep>
 					<BccStepPanel v-slot="{ activateCallback }">
 						<div class="flex flex-col gap-4">
-							<div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 p-6 flex justify-center items-center font-medium min-h-32">
+							<div class="border-2 border-dashed border-default rounded p-6 flex justify-center items-center font-medium min-h-32">
 								Content II
 							</div>
 							<div class="flex gap-2">
@@ -121,7 +121,7 @@ export const Vertical: Story = {
 					<BccStep>Header III</BccStep>
 					<BccStepPanel v-slot="{ activateCallback }">
 						<div class="flex flex-col gap-4">
-							<div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 p-6 flex justify-center items-center font-medium min-h-32">
+							<div class="border-2 border-dashed border-default rounded p-6 flex justify-center items-center font-medium min-h-32">
 								Content III
 							</div>
 							<div>
@@ -161,7 +161,7 @@ export const Linear: Story = {
 				<BccStepPanels>
 					<BccStepPanel v-slot="{ activateCallback }" value="1">
 						<div class="flex flex-col gap-4">
-							<div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 p-6 flex justify-center items-center font-medium min-h-32">
+							<div class="border-2 border-dashed border-default rounded p-6 flex justify-center items-center font-medium min-h-32">
 								Content I
 							</div>
 							<div class="flex justify-end">
@@ -171,7 +171,7 @@ export const Linear: Story = {
 					</BccStepPanel>
 					<BccStepPanel v-slot="{ activateCallback }" value="2">
 						<div class="flex flex-col gap-4">
-							<div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 p-6 flex justify-center items-center font-medium min-h-32">
+							<div class="border-2 border-dashed border-default rounded p-6 flex justify-center items-center font-medium min-h-32">
 								Content II
 							</div>
 							<div class="flex justify-between">
@@ -182,7 +182,7 @@ export const Linear: Story = {
 					</BccStepPanel>
 					<BccStepPanel v-slot="{ activateCallback }" value="3">
 						<div class="flex flex-col gap-4">
-							<div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 p-6 flex justify-center items-center font-medium min-h-32">
+							<div class="border-2 border-dashed border-default rounded p-6 flex justify-center items-center font-medium min-h-32">
 								Content III
 							</div>
 							<div>

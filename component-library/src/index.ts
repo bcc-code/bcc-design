@@ -80,7 +80,6 @@ export { default as BccFocusTrap } from 'primevue/focustrap';
 export { default as BccGalleria } from 'primevue/galleria';
 export { default as BccIconField } from 'primevue/iconfield';
 export { default as BccIftaLabel } from 'primevue/iftalabel';
-export { default as BccImage } from 'primevue/image';
 export { default as BccImageCompare } from 'primevue/imagecompare';
 export { default as BccInplace } from 'primevue/inplace';
 export { default as BccInputChips } from 'primevue/inputchips';
