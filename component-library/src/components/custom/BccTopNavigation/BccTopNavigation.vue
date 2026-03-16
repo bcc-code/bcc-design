@@ -59,8 +59,8 @@ const heading = computed((): { title: string; subtitle: string } => {
 						<button
 							type="button"
 							class="btn-nav-back center shrink-0 gap-1 p-2"
-							@click="emit('back')"
 							:aria-label="backTitle ? undefined : 'Back'"
+							@click="emit('back')"
 						>
 							<ArrowBackIosNewIcon class="w-6" />
 							<h3 v-if="backTitle" class="text-heading-md">

@@ -16,7 +16,7 @@ const meta: Meta<typeof BccAppNavigation> = {
 	},
 	argTypes: {
 		items: { control: false },
-		modelValue: { control: 'text', description: 'Active item key' },
+		activeKey: { control: 'text', description: 'Active item key' },
 	},
 };
 
@@ -81,7 +81,7 @@ export const ManyItems: Story = {
 		},
 		template: `
 			<div class="relative min-h-[280px] bg-surface-100 dark:bg-surface-900">
-				<BccAppNavigation v-model="current" :items="items" />
+				<BccAppNavigation :active-key="current" @select="item => current = item.key" :items="items" />
 			</div>
 		`,
 	}),
@@ -115,7 +115,7 @@ export const WithPins: Story = {
 		},
 		template: `
 			<div class="relative min-h-[280px] bg-surface-100 dark:bg-surface-900">
-				<BccAppNavigation v-model="current" :items="items" />
+				<BccAppNavigation :active-key="current" @select="item => current = item.key" :items="items" />
 			</div>
 		`,
 	}),
