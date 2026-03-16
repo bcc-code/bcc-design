@@ -1,6 +1,6 @@
 @layer components {
     .bcc-app-navigation {
-        @apply justify-center items-center flex pb-inset-bottom-2 absolute inset-x-0 bottom-0 z-20 w-full overflow-visible
+        @apply justify-center items-center flex pb-inset-bottom-2 absolute inset-x-0 bottom-0 z-20 w-full overflow-visible;
     }
     .bcc-app-navigation .nav {
         @apply justify-center items-center flex dark:border-default mx-auto border border-white p-0.5;
