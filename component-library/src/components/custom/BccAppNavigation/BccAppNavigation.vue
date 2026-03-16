@@ -1,24 +1,36 @@
 <script setup lang="ts">
+import type { VueComponent } from '@/types';
 import { computed, type Component } from 'vue';
 import BccBadge from '../BccBadge/BccBadge.vue';
 
 export type BccAppNavigationItem = {
 	key: string;
-	link?: string;
 	title: string;
 	icon: Component;
 	pin?: number;
+
+	/** Any additional properties will be passed to the component.
+	 * @example
+	 * {
+	 *   href: '/',
+	 *   target: '_blank',
+	 * } or for router link:
+	 * {
+	 *   to: '/',
+	 *   replace: true,
+	 * }
+	 */
+	[key: string]: unknown;
 };
 
-export type BccAppNavigationProps = {
+const props = defineProps<{
 	items: BccAppNavigationItem[];
-	modelValue: BccAppNavigationItem['key'] | null;
-};
+	linkComponent?: VueComponent;
+	activeKey?: BccAppNavigationItem['key'] | null;
+}>();
 
-const props = defineProps<BccAppNavigationProps>();
-
-const emit = defineEmits<{
-	(e: 'update:modelValue', value: BccAppNavigationItem['key']): void;
+const emits = defineEmits<{
+	(e: 'select', item: BccAppNavigationItem): void;
 }>();
 
 const itemWidth = computed(() => {
@@ -34,32 +46,33 @@ const itemWidth = computed(() => {
 </script>
 
 <template>
-	<div class="bcc-app-navigation">
-		<div class="nav">
-			<a
-				v-for="item in items"
-				:key="item.key"
-				class="navbar-btn cursor-pointer"
-				:href="item.link ?? undefined"
-				active-class="navbar-btn--active"
-				:class="{ 'navbar-btn--active': modelValue === item.key, [itemWidth]: true }"
-				@click="emit('update:modelValue', item.key)"
-			>
-				<div class="navbar-btn-icon relative px-3">
-					<component :is="item.icon" class="size-6" />
-					<Transition name="bounce-in">
-						<BccBadge
-							v-if="item.pin && item.pin > 0"
-							class="absolute top-0 right-1"
-							size="sm"
-							context="brand-bolder"
-							bordered
-							:value="String(item.pin)"
-						/>
-					</Transition>
-				</div>
-				<div class="text-heading-xs text-center">{{ item.title }}</div>
-			</a>
+	<div class="bcc-app-nav">
+		<div class="bcc-app-nav-container">
+			<template v-for="item in items" :key="item.key">
+				<component
+					:is="linkComponent ?? 'a'"
+					v-bind="item"
+					class="bcc-app-nav-item"
+					active-class="bcc-app-nav-item--active"
+					:class="{ 'bcc-app-nav-item--active': activeKey === item.key, [itemWidth]: true }"
+					@click="emits('select', item)"
+				>
+					<div class="relative px-3">
+						<component :is="item.icon" class="size-6" />
+						<Transition name="bounce-in">
+							<BccBadge
+								v-if="item.pin && item.pin > 0"
+								class="absolute top-0 right-1"
+								size="sm"
+								context="brand-bolder"
+								bordered
+								:value="String(item.pin)"
+							/>
+						</Transition>
+					</div>
+					<div class="text-heading-xs text-center">{{ item.title }}</div>
+				</component>
+			</template>
 		</div>
 	</div>
 </template>

@@ -52,7 +52,7 @@ export const Default: Story = {
 		},
 		template: `
 			<div class="relative min-h-[280px] bg-surface-100 dark:bg-surface-900">
-				<BccAppNavigation v-model="current" :items="items" />
+				<BccAppNavigation :active-key="current" @select="item => current = item.key" :items="items" />
 			</div>
 		`,
 	}),
