@@ -36,7 +36,7 @@ const bindings = computed(() => {
 		:class="[gender, size, { child, bordered, squared }]"
 	>
 		<template v-if="icon" #icon>
-			<component :is="typeof icon === 'boolean' ? PersonFillIcon : icon" class="icon" />
+			<component :is="typeof icon === 'boolean' ? PersonFillIcon : icon" class="p-icon" />
 		</template>
 	</PrimeAvatar>
 </template>
