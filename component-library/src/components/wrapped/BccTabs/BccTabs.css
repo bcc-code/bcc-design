@@ -15,4 +15,7 @@
         height: 100%;
         overflow: auto;
     }
+    .bcc-tabs-fluid.p-tabs {
+        width: 100%;
+    }
 }

@@ -21,6 +21,7 @@ export type TabsProps = Omit<PrimeTabsProps, 'value'> & {
 	fill?: boolean;
 	modelValue?: number;
 	noPanels?: boolean;
+	fluid?: boolean;
 };
 
 const props = defineProps<TabsProps>();
@@ -28,11 +29,21 @@ const props = defineProps<TabsProps>();
 const value = defineModel<number>({ default: 0, required: false });
 
 const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {
-	const { tabs, modelValue, noPanels, ...rest } = props;
+	const { tabs, modelValue, noPanels, fluid, ...rest } = props;
 	void tabs;
 	void modelValue;
 	void noPanels;
+	void fluid;
 	return rest as Omit<PrimeTabsProps, 'value'>;
+});
+
+const tabItemStyles = computed(() => {
+	if (!props.fluid) return {};
+
+	const widthPercentage = 100 / props.tabs.length;
+	return {
+		width: `${widthPercentage}%`,
+	};
 });
 </script>
 
@@ -40,11 +51,17 @@ const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {
 	<BccTabs
 		v-model:value="value"
 		v-bind="tabsBindings"
-		:class="{ 'bcc-tabs-fill': fill }"
+		:class="{ 'bcc-tabs-fill': fill, 'bcc-tabs-fluid': fluid }"
 		style="--p-tabs-tablist-border-width: 0; --p-tabs-tab-border-width: 0 0 1px 0"
 	>
 		<BccTabList>
-			<BccTab v-for="(tab, index) in tabs" :key="'tab-' + index" :value="index" class="center gap-2">
+			<BccTab
+				v-for="(tab, index) in tabs"
+				:key="'tab-' + index"
+				:value="index"
+				class="center gap-2"
+				:style="tabItemStyles"
+			>
 				<component :is="tab.icon" v-if="tab.icon" class="size-4" />
 				<span>{{ tab.title }}</span>
 				<BccBadge v-if="tab.badge" v-bind="tab.badge" size="sm" />

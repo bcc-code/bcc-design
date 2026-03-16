@@ -112,3 +112,23 @@ export const Fill: Story = {
 		`,
 	}),
 };
+
+export const Fluid: Story = {
+	args: {
+		tabs: simpleTabs,
+		fluid: true,
+	},
+	render: args => ({
+		components: { BccTabs },
+		setup() {
+			return { args };
+		},
+		template: `
+			<BccTabs v-bind="args">
+				<template #tab-1>Content for first tab</template>
+				<template #tab-2>Content for second tab</template>
+				<template #tab-3>Content for third tab</template>
+			</BccTabs>
+		`,
+	}),
+};
