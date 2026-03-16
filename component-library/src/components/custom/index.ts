@@ -3,6 +3,7 @@
  * Add new custom components here and export them from this file.
  */
 
+export { default as BccAppNavigation } from './BccAppNavigation/BccAppNavigation.vue';
 export { default as BccBadge } from './BccBadge/BccBadge.vue';
 export { default as BccCapacityIndicator } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export { default as BccCircleLoader } from './BccCircleLoader/BccCircleLoader.vue';
@@ -18,6 +19,7 @@ export { default as BccTag } from './BccTag/BccTag.vue';
 export { default as BccTopNavigation } from './BccTopNavigation/BccTopNavigation.vue';
 
 // Prop types for consumers (TypeScript / IDE support)
+export type { BccAppNavigationItem, BccAppNavigationProps } from './BccAppNavigation/BccAppNavigation.vue';
 export type { BadgeProps } from './BccBadge/BccBadge.vue';
 export type { CapacityIndicatorProps } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export type { KnobProps, KnobSlots } from './BccDialKnob/BccDialKnob.vue';

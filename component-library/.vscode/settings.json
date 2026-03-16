@@ -32,6 +32,7 @@
 	"editor.formatOnSave": true,
 	"eslint.lintTask.enable": true,
 	"vitest.vitestPackagePath": "./node_modules/vitest/package.json",
+	"css.lint.unknownAtRules": "ignore",
 	"[css]": {
 		"editor.defaultFormatter": "stylelint.vscode-stylelint"
 	},
