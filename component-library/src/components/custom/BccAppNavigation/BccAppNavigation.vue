@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, type Component } from 'vue';
-import { BccBadge } from '../../../index';
+import BccBadge from '../BccBadge/BccBadge.vue';
 
 export type BccAppNavigationItem = {
 	key: string;
