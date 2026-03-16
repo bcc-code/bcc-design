@@ -132,3 +132,23 @@ export const Fluid: Story = {
 		`,
 	}),
 };
+
+export const Bold: Story = {
+	args: {
+		tabs: simpleTabs,
+		bold: true,
+	},
+	render: args => ({
+		components: { BccTabs },
+		setup() {
+			return { args };
+		},
+		template: `
+			<BccTabs v-bind="args">
+				<template #tab-1>Content for first tab</template>
+				<template #tab-2>Content for second tab</template>
+				<template #tab-3>Content for third tab</template>
+			</BccTabs>
+		`,
+	}),
+};

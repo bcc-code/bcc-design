@@ -5,7 +5,7 @@ import BccTabList from 'primevue/tablist';
 import BccTabPanel from 'primevue/tabpanel';
 import BccTabPanels from 'primevue/tabpanels';
 import BccTabs, { type TabsProps as PrimeTabsProps } from 'primevue/tabs';
-import { computed } from 'vue';
+import { computed, type CSSProperties } from 'vue';
 import { BccBadge, type BadgeProps } from '../../custom';
 
 export interface TabItem {
@@ -22,6 +22,7 @@ export type TabsProps = Omit<PrimeTabsProps, 'value'> & {
 	modelValue?: number;
 	noPanels?: boolean;
 	fluid?: boolean;
+	bold?: boolean;
 };
 
 const props = defineProps<TabsProps>();
@@ -38,12 +39,16 @@ const tabsBindings = computed((): Omit<PrimeTabsProps, 'value'> => {
 });
 
 const tabItemStyles = computed(() => {
-	if (!props.fluid) return {};
+	const styles: CSSProperties = {};
 
-	const widthPercentage = 100 / props.tabs.length;
-	return {
-		width: `${widthPercentage}%`,
-	};
+	if (props.fluid) {
+		const widthPercentage = 100 / props.tabs.length;
+		styles.width = `${widthPercentage}%`;
+	}
+	if (props.bold) {
+		styles.fontWeight = 'var(--font-weight-bold)';
+	}
+	return styles;
 });
 </script>
 
