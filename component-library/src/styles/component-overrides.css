@@ -8,6 +8,7 @@
 .p-menu-overlay,
 .p-multiselect-overlay,
 .p-select-overlay,
+.p-datepicker-panel,
 .p-treeselect-overlay {
 	margin: var(--p-anchor-gutter) 0;
 }
@@ -77,9 +78,8 @@
 	z-index: 2;
 }
 
-.p-dialog-close-button .p-icon {
-	height: var(--icon-size-sm);
-	width: var(--icon-size-sm);
+.p-dialog-close-button {
+	--p-icon-size: var(--icon-size-sm);
 }
 .p-dialog .p-button-icon:empty {
 	display: none;
