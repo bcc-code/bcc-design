@@ -86,7 +86,7 @@ export const WasToggled: Story = {
 			const value = ref(true);
 			return { args, value };
 		},
-		template: '<BccToggle v-model="value" v-bind="args" />',
+		template: `<BccToggle v-model="value" v-bind="args" :label="value ? 'Registered' : 'Sure you want to unregister?'" />`,
 	}),
 };
 

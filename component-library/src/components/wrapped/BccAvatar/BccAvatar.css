@@ -1,84 +1,66 @@
 @layer components {
-    .bcc-avatar {
-        --p-avatar-background: var(--ctx-background);
-        --p-avatar-color: var(--ctx-text);
-        --bcc-avatar-border: var(--ctx-border);
-        @apply overflow-hidden shrink-0 ctx-gray-subtler text-sm;
-    }
+	.bcc-avatar {
+		--p-avatar-background: var(--ctx-background);
+		--p-avatar-color: var(--ctx-text);
+		--bcc-avatar-border: var(--ctx-border);
+		--p-icon-size: var(--icon-size-sm);
+		@apply ctx-gray-subtler shrink-0 overflow-hidden text-sm;
+	}
 
-    .bcc-avatar .icon {
-        height: var(--icon-size-sm);
-    }
+	.bcc-avatar.male,
+	.bcc-avatar.M {
+		@apply ctx-blue-subtler;
+	}
+	.bcc-avatar.female,
+	.bcc-avatar.F {
+		@apply ctx-purple-subtler;
+	}
+	.bcc-avatar.male.child,
+	.bcc-avatar.M.child {
+		@apply ctx-teal-subtler;
+	}
+	.bcc-avatar.female.child,
+	.bcc-avatar.F.child {
+		@apply ctx-magenta-subtler;
+	}
+	.bcc-avatar.bordered {
+		@apply border-ctx border-2;
+	}
+	.bcc-avatar.xs {
+		@apply size-5 text-xs;
+		--p-icon-size: var(--icon-size-xs);
+	}
+	.bcc-avatar.sm {
+		@apply size-6 text-xs;
+		--p-icon-size: var(--icon-size-xs);
+	}
+	/* .bcc-avatar.md {
+        same as default 
+    }*/
+	.bcc-avatar.lg {
+		@apply text-md size-10;
+		--p-icon-size: var(--icon-size-md);
+	}
+	.bcc-avatar.xl {
+		@apply size-12 text-xl;
+		--p-icon-size: var(--icon-size-lg);
+	}
+	.bcc-avatar.xxl {
+		@apply size-20 text-3xl;
+		--p-icon-size: var(--icon-size-xl);
+	}
+	.bcc-avatar.xxxl {
+		@apply size-24 text-4xl;
+		--p-icon-size: var(--icon-size-xl);
+	}
 
-    .bcc-avatar.male,
-    .bcc-avatar.M {
-        @apply ctx-blue-subtler;
-    }
-    .bcc-avatar.female,
-    .bcc-avatar.F {
-        @apply ctx-purple-subtler;
-    }
-    .bcc-avatar.male.child,
-    .bcc-avatar.M.child {
-        @apply ctx-teal-subtler;
-    }
-    .bcc-avatar.female.child,
-    .bcc-avatar.F.child {
-        @apply ctx-magenta-subtler;
-    }
-    .bcc-avatar.bordered {
-        @apply border-2 border-ctx;
-    }
-    .bcc-avatar.xs {
-        @apply size-5 text-xs;
-    }
-    .bcc-avatar.xs .icon {
-        height: var(--icon-size-xs);
-    }
-    .bcc-avatar.sm {
-        @apply size-6 text-xs;
-    }
-    .bcc-avatar.sm .icon {
-        height: var(--icon-size-xs);
-    }
-    .bcc-avatar.md {
-        /* same as default */
-    }
-    .bcc-avatar.md .icon {
-        /* same as default */
-    }
-    .bcc-avatar.lg {
-        @apply size-10 text-md;
-    }
-    .bcc-avatar.lg .icon {
-        height: var(--icon-size-md);
-    }
-    .bcc-avatar.xl {
-        @apply size-12 text-xl;
-    }
-    .bcc-avatar.xl .icon {
-        height: var(--icon-size-lg);
-    }
-    .bcc-avatar.xxl {
-        @apply size-20 text-3xl;
-    }
-    .bcc-avatar.xxl .icon {
-        height: var(--icon-size-xl);
-    }
-    .bcc-avatar.xxxl {
-        @apply size-24 text-4xl;
-    }
-    .bcc-avatar.xxxl .icon {
-        height: var(--icon-size-xl);
-    }
+	.p-overlaybadge .bcc-avatar.p-avatar-circle.lg ~ .p-badge,
+	.p-overlaybadge .bcc-avatar.p-avatar-circle.xl ~ .p-badge {
+		transform: translate(40%, -40%);
+	}
 
-    .p-overlaybadge .bcc-avatar.p-avatar-circle.lg~.p-badge,
-    .p-overlaybadge .bcc-avatar.p-avatar-circle.xl~.p-badge {
-        transform: translate(40%, -40%);
-    }
-
-    .p-overlaybadge .bcc-avatar.p-avatar-circle.xxxl~.p-badge,
-    .p-overlaybadge .bcc-avatar.p-avatar-circle.xxl~.p-badge {
-        transform: translate(20%, -20%);
-    }
+	.p-overlaybadge .bcc-avatar.p-avatar-circle.xxxl ~ .p-badge,
+	.p-overlaybadge .bcc-avatar.p-avatar-circle.xxl ~ .p-badge {
+		transform: translate(20%, -20%);
+	}
 }
