@@ -27,20 +27,17 @@ type Story = StoryObj<typeof meta>;
 const baseItems: BccAppNavigationItem[] = [
 	{
 		key: 'home',
-		link: '/home',
 		title: 'Home',
 		icon: HomeIcon,
 	},
 	{
 		key: 'events',
-		link: '/events',
 		title: 'Events',
 		icon: CalendarTodayIcon,
 		pin: 3,
 	},
 	{
 		key: 'profile',
-		link: '/profile',
 		title: 'Profile',
 		icon: PersonIcon,
 	},
@@ -69,14 +66,12 @@ export const ManyItems: Story = {
 				...baseItems,
 				{
 					key: 'tasks',
-					link: '/tasks',
 					title: 'Tasks',
 					icon: CalendarTodayIcon,
 					pin: 1,
 				},
 				{
 					key: 'settings',
-					link: '/settings',
 					title: 'Settings',
 					icon: PersonIcon,
 				},
@@ -99,21 +94,18 @@ export const WithPins: Story = {
 			const items: BccAppNavigationItem[] = [
 				{
 					key: 'inbox',
-					link: '/inbox',
 					title: 'Inbox',
 					icon: HomeIcon,
 					pin: 12,
 				},
 				{
 					key: 'alerts',
-					link: '/alerts',
 					title: 'Alerts',
 					icon: CalendarTodayIcon,
 					pin: 99,
 				},
 				{
 					key: 'me',
-					link: '/me',
 					title: 'Me',
 					icon: PersonIcon,
 				},
