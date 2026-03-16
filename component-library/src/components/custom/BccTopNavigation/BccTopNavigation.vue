@@ -56,7 +56,12 @@ const heading = computed((): { title: string; subtitle: string } => {
 			<slot :title="heading">
 				<div class="center h-full w-full px-4 sm:px-6">
 					<template v-if="!hideBack">
-						<button class="btn-nav-back center shrink-0 gap-1 p-2" @click="emit('back')">
+						<button
+							type="button"
+							class="btn-nav-back center shrink-0 gap-1 p-2"
+							@click="emit('back')"
+							:aria-label="backTitle ? undefined : 'Back'"
+						>
 							<ArrowBackIosNewIcon class="w-6" />
 							<h3 v-if="backTitle" class="text-heading-md">
 								{{ backTitle }}
