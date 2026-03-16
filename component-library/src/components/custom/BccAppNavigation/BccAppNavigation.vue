@@ -23,7 +23,13 @@ const emit = defineEmits<{
 
 const itemWidth = computed(() => {
 	const count = props.items.length;
-	return ['w-full', 'w-1/2', 'w-1/3', 'w-1/4', 'w-1/5', 'w-1/6'][count] || 'flex-1';
+	const widthClasses = ['w-full', 'w-1/2', 'w-1/3', 'w-1/4', 'w-1/5', 'w-1/6'];
+
+	if (count >= 1 && count <= widthClasses.length) {
+		return widthClasses[count - 1];
+	}
+
+	return 'flex-1';
 });
 </script>
 
