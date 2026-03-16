@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { VueComponent } from '@/types';
-import PrimeMenu, { type MenuProps as PrimeMenuProps } from 'primevue/menu';
+import PrimeMenu, { type MenuMethods as PrimeMenuMethods, type MenuProps as PrimeMenuProps } from 'primevue/menu';
 import type { MenuItem } from 'primevue/menuitem';
 import { computed, ref, useAttrs } from 'vue';
 
@@ -14,10 +14,6 @@ export type MenuProps = {
 	model?: BccMenuItem[];
 } & Omit<PrimeMenuProps, 'model'>;
 
-defineOptions({
-	inheritAttrs: false,
-});
-
 const props = defineProps<MenuProps>();
 const attrs = useAttrs();
 
@@ -27,11 +23,12 @@ const menuBindings = computed((): PrimeMenuProps => {
 
 const primeMenuRef = ref<InstanceType<typeof PrimeMenu> | null>(null);
 
-defineExpose({
-	toggle: (event: Event, target?: unknown) => primeMenuRef.value?.toggle(event, target),
-	show: (event: Event, target?: unknown) => primeMenuRef.value?.show(event, target),
+const exposed: PrimeMenuMethods = {
+	toggle: (event, target) => primeMenuRef.value?.toggle(event, target),
+	show: (event, target) => primeMenuRef.value?.show(event, target),
 	hide: () => primeMenuRef.value?.hide(),
-});
+};
+defineExpose(exposed);
 
 function isIconComponent(icon: unknown): icon is VueComponent {
 	return typeof icon === 'function' || (typeof icon === 'object' && icon !== null);
