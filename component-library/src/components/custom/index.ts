@@ -3,6 +3,7 @@
  * Add new custom components here and export them from this file.
  */
 
+export { default as BccAppNavigation } from './BccAppNavigation/BccAppNavigation.vue';
 export { default as BccBadge } from './BccBadge/BccBadge.vue';
 export { default as BccCapacityIndicator } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export { default as BccCircleLoader } from './BccCircleLoader/BccCircleLoader.vue';
@@ -15,8 +16,10 @@ export { default as BccReact } from './BccReact/BccReact.vue';
 export { default as BccReactEmoji } from './BccReact/BccReactEmoji.vue';
 export { default as BccStepIndicator } from './BccStepIndicator/BccStepIndicator.vue';
 export { default as BccTag } from './BccTag/BccTag.vue';
+export { default as BccTopNavigation } from './BccTopNavigation/BccTopNavigation.vue';
 
 // Prop types for consumers (TypeScript / IDE support)
+export type { BccAppNavigationItem, BccAppNavigationProps } from './BccAppNavigation/BccAppNavigation.vue';
 export type { BadgeProps } from './BccBadge/BccBadge.vue';
 export type { CapacityIndicatorProps } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export type { KnobProps, KnobSlots } from './BccDialKnob/BccDialKnob.vue';
@@ -27,3 +30,4 @@ export type { NpsScoreProps } from './BccNpsScore/BccNpsScore.vue';
 export type { ReactInfo, ReactProps } from './BccReact/types';
 export type { StepIndicatorProps } from './BccStepIndicator/BccStepIndicator.vue';
 export type { TagProps } from './BccTag/BccTag.vue';
+export type { TopNavigationProps } from './BccTopNavigation/BccTopNavigation.vue';

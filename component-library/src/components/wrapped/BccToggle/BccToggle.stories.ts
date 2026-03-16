@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { expect, waitFor } from 'storybook/test';
 import { ref } from 'vue';
-import BccToggle from './BccToggle.vue';
+import { BccToggle } from '../../../index';
 
 const meta: Meta<typeof BccToggle> = {
 	component: BccToggle,
