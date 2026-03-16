@@ -4,7 +4,7 @@ import BccBadge from '../BccBadge/BccBadge.vue';
 
 export type BccAppNavigationItem = {
 	key: string;
-	link: string;
+	link?: string;
 	title: string;
 	icon: Component;
 	pin?: number;
@@ -36,11 +36,11 @@ const itemWidth = computed(() => {
 <template>
 	<div class="bcc-app-navigation">
 		<div class="nav">
-			<RouterLink
+			<a
 				v-for="item in items"
 				:key="item.key"
-				class="navbar-btn"
-				:to="item.link"
+				class="navbar-btn cursor-pointer"
+				:href="item.link ?? undefined"
 				active-class="navbar-btn--active"
 				:class="{ 'navbar-btn--active': modelValue === item.key, [itemWidth]: true }"
 				@click="emit('update:modelValue', item.key)"
@@ -59,7 +59,7 @@ const itemWidth = computed(() => {
 					</Transition>
 				</div>
 				<div class="text-heading-xs text-center">{{ item.title }}</div>
-			</RouterLink>
+			</a>
 		</div>
 	</div>
 </template>
