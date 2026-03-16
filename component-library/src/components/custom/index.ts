@@ -19,7 +19,7 @@ export { default as BccTag } from './BccTag/BccTag.vue';
 export { default as BccTopNavigation } from './BccTopNavigation/BccTopNavigation.vue';
 
 // Prop types for consumers (TypeScript / IDE support)
-export type { BccAppNavigationItem, BccAppNavigationProps } from './BccAppNavigation/BccAppNavigation.vue';
+export type { BccAppNavigationItem } from './BccAppNavigation/BccAppNavigation.vue';
 export type { BadgeProps } from './BccBadge/BccBadge.vue';
 export type { CapacityIndicatorProps } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export type { KnobProps, KnobSlots } from './BccDialKnob/BccDialKnob.vue';
