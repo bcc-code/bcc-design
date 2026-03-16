@@ -28,8 +28,6 @@
 	}
 	.bcc-avatar.xs {
 		@apply size-5 text-xs;
-	}
-	.bcc-avatar.xs .icon {
 		--p-icon-size: var(--icon-size-xs);
 	}
 	.bcc-avatar.sm {
