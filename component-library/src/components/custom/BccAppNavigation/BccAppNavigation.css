@@ -1,6 +1,6 @@
 @layer components {
 	.bcc-app-nav {
-		@apply sticky inset-x-0 bottom-0 z-20 overflow-visible bg-white shadow-md sm:rounded-t-xl;
+		@apply sticky inset-x-0 bottom-0 z-20 overflow-visible bg-elevation-surface-default shadow-md sm:rounded-t-xl;
 	}
 	.bcc-app-nav .bcc-app-nav-container {
 		@apply center pb-inset-bottom-1 mx-auto max-w-lg pt-1;
@@ -12,18 +12,6 @@
 	}
 
 	.bcc-app-nav .bcc-app-nav-item--active {
-		@apply text-brand-700 opacity-100;
-	}
-
-	.dark .bcc-app-nav {
-		@apply bg-neutral-900;
-	}
-
-	.dark .bcc-app-nav .bcc-app-nav-item {
-		@apply opacity-70 text-gray-400;
-	}
-
-	.dark .bcc-app-nav .bcc-app-nav-item--active {
-		@apply text-white;
+		@apply text-selected opacity-100;
 	}
 }
