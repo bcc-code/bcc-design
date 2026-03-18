@@ -7,6 +7,9 @@ import { computed, type Component } from 'vue';
 export type MessageProps = Omit<PrimeMessageProps, 'icon'> & {
 	icon?: boolean | VueComponent;
 	iconRight?: VueComponent | boolean;
+
+	title?: string;
+	message?: string;
 };
 
 const props = defineProps<MessageProps>();
@@ -33,11 +36,18 @@ const SeverityIcons: Record<NonNullable<PrimeMessageProps['severity']>, Componen
 		<template v-if="icon" #icon>
 			<component
 				:is="icon === true ? SeverityIcons[severity || 'info'] : icon"
-				class="w-4 shrink-0"
+				class="w-4 shrink-0 self-start pt-1"
 				:class="{ 'order-1': iconRight === true }"
 			/>
+			<component :is="iconRight" v-if="iconRight && iconRight !== true" class="order-1 w-4 shrink-0 self-start pt-1" />
 		</template>
-		<slot />
-		<component :is="iconRight" v-if="iconRight && iconRight !== true" class="w-4 shrink-0" />
+		<slot>
+			<div>
+				<p v-if="title">
+					<b>{{ title }}</b>
+				</p>
+				<p v-if="message">{{ message }}</p>
+			</div>
+		</slot>
 	</BccMessage>
 </template>

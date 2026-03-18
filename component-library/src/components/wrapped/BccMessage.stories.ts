@@ -1,4 +1,4 @@
-import { CelebrationIcon } from '@bcc-code/icons-vue';
+import { CelebrationIcon, InfoIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import BccMessage from './BccMessage.vue';
 
@@ -21,6 +21,8 @@ const meta = {
 		closable: { control: 'boolean' },
 		icon: { control: 'boolean' },
 		iconRight: { control: 'boolean' },
+		title: { control: 'text' },
+		message: { control: 'text' },
 	},
 } satisfies Meta<typeof BccMessage>;
 
@@ -28,20 +30,47 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Info: Story = {
-	args: { severity: 'info', icon: true },
+export const Default: Story = {
+	args: {
+		severity: 'info',
+		icon: true,
+		title: 'Info message content.',
+		message: 'Multiple lines of text are also supported',
+	},
 	render: args => ({
 		components: { BccMessage },
 		setup() {
 			return { args };
 		},
 		template: `
-			<BccMessage v-bind="args">
+			<BccMessage v-bind="args" />
+		`,
+	}),
+};
+
+export const Info: Story = {
+	render: () => ({
+		components: { BccMessage },
+		template: `
+			<BccMessage severity="info" icon>
 				<b>Info message content.</b><br />
 				Multiple lines of text are also supported
 			</BccMessage>
 		`,
 	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<template>
+				<BccMessage severity="info" icon>
+					<b>Info message content.</b><br />
+					Multiple lines of text are also supported
+				</BccMessage>
+			</template>
+			`,
+			},
+		},
+	},
 };
 
 export const Success: Story = {
@@ -117,7 +146,19 @@ export const CustomIcon: Story = {
 			return { args, CelebrationIcon };
 		},
 		template: `
-			<BccMessage v-bind="args" :icon="CelebrationIcon" icon-right>Custom icon message content.</BccMessage>
+			<BccMessage v-bind="args" :icon="CelebrationIcon" icon-right message="Custom icon message content." />
+		`,
+	}),
+};
+
+export const TwoIcons: Story = {
+	render: () => ({
+		components: { BccMessage, CelebrationIcon, InfoIcon },
+		setup() {
+			return { CelebrationIcon, InfoIcon };
+		},
+		template: `
+			<BccMessage severity="info" :icon="InfoIcon" :icon-right="CelebrationIcon" title="Info message content." message="Multiple lines of text are also supported" />
 		`,
 	}),
 };
