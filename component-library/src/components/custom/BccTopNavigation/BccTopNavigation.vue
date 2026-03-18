@@ -79,7 +79,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 
 					<div
 						:key="String(heading.title)"
-						class="col pointer-events-none flex-1 truncate px-2"
+						class="col pointer-events-none flex-1 gap-(--space-negative-25) truncate px-2"
 						:class="titleLeft ? 'items-start text-left' : 'text-center'"
 					>
 						<h1
