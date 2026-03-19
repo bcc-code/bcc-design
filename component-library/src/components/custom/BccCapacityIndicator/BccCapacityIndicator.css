@@ -41,6 +41,7 @@
 
     .bcc-capacity-indicator.is-warning {
         @apply ctx-yellow-subtlest;
+        --bcc-capacity-indicator-circle: var(--ctx-background);
     }
 
     .bcc-capacity-indicator.is-full {
