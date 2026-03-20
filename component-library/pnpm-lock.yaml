@@ -14,8 +14,8 @@ importers:
   .:
     dependencies:
       '@bcc-code/design-tokens':
-        specifier: ^5.1.45
-        version: 5.1.45(@primeuix/themes@2.0.3)
+        specifier: ^5.1.49
+        version: 5.1.49(@primeuix/themes@2.0.3)
       '@bcc-code/icons-vue':
         specifier: ^1.4.0
         version: 1.4.0(vue@3.5.27(typescript@5.7.3))
@@ -171,8 +171,8 @@ packages:
     resolution: {integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A==}
     engines: {node: '>=6.9.0'}
 
-  '@bcc-code/design-tokens@5.1.45':
-    resolution: {integrity: sha512-WVH81UTkuqOxCJgb0f4fnKcYCmxcdUvD2ZTRHqFlpJYv3mZqN6uoMWYbCnWHqHTsJ8YUh77SGkx+HPJHS4l6Bw==}
+  '@bcc-code/design-tokens@5.1.49':
+    resolution: {integrity: sha512-h3mv0XefSQsLllwC2HKiYcSLIarXtlW1qoVWAIWdv8vjYTkFH3Si1x18m58191C92/ZFddTf6d62A4QbjN6hUw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@primeuix/themes': ^2.0.0
@@ -3203,8 +3203,8 @@ packages:
   vue-component-type-helpers@2.2.12:
     resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==}
 
-  vue-component-type-helpers@3.2.5:
-    resolution: {integrity: sha512-tkvNr+bU8+xD/onAThIe7CHFvOJ/BO6XCOrxMzeytJq40nTfpGDJuVjyCM8ccGZKfAbGk2YfuZyDMXM56qheZQ==}
+  vue-component-type-helpers@3.2.6:
+    resolution: {integrity: sha512-O02tnvIfOQVmnvoWwuSydwRoHjZVt8UEBR+2p4rT35p8GAy5VTlWP8o5qXfJR/GWCN0nVZoYWsVUvx2jwgdBmQ==}
 
   vue-docgen-api@4.79.2:
     resolution: {integrity: sha512-n9ENAcs+40awPZMsas7STqjkZiVlIjxIKgiJr5rSohDP0/JCrD9VtlzNojafsA1MChm/hz2h3PDtUedx3lbgfA==}
@@ -3393,7 +3393,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@bcc-code/design-tokens@5.1.45(@primeuix/themes@2.0.3)':
+  '@bcc-code/design-tokens@5.1.49(@primeuix/themes@2.0.3)':
     dependencies:
       '@primeuix/themes': 2.0.3
 
@@ -3893,7 +3893,7 @@ snapshots:
       storybook: 10.2.10(@testing-library/dom@10.4.0)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       type-fest: 2.19.0
       vue: 3.5.27(typescript@5.7.3)
-      vue-component-type-helpers: 3.2.5
+      vue-component-type-helpers: 3.2.6
 
   '@tailwindcss/node@4.1.18':
     dependencies:
@@ -6625,7 +6625,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.12: {}
 
-  vue-component-type-helpers@3.2.5: {}
+  vue-component-type-helpers@3.2.6: {}
 
   vue-docgen-api@4.79.2(vue@3.5.27(typescript@5.7.3)):
     dependencies:

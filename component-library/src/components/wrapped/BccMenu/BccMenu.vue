@@ -41,7 +41,7 @@ function isIconComponent(icon: unknown): icon is VueComponent {
 			<component
 				:is="item.icon"
 				v-if="item?.icon && isIconComponent(item.icon)"
-				:class="[itemIconClass, 'size-5 shrink-0']"
+				:class="[itemIconClass, '-my-0.5 size-5 shrink-0']"
 			/>
 			<span v-else-if="item?.icon && typeof item.icon === 'string'" :class="[itemIconClass, item.icon]" />
 		</template>

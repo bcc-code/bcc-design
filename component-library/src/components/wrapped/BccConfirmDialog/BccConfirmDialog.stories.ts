@@ -30,6 +30,7 @@ export const Default: Story = {
 					header: 'Confirmation',
 					accept: () => {},
 					reject: () => {},
+					rejectProps: { outlined: true },
 				});
 			};
 			return { open };
@@ -185,6 +186,7 @@ export const WithIconComponent: Story = {
 					message: 'Are you sure you want to proceed?',
 					header: 'Confirmation',
 					icon: CheckIcon,
+					rejectProps: { outlined: true },
 					accept: () => {},
 					reject: () => {},
 				});
@@ -238,6 +240,7 @@ export const WithButtonIcons: Story = {
 					header: 'Confirmation',
 					acceptIcon: CheckIcon,
 					rejectIcon: CancelIcon,
+					rejectProps: { outlined: true },
 					accept: () => {},
 					reject: () => {},
 				});
@@ -291,6 +294,7 @@ export const WithButtonIconsUsingProps: Story = {
 					},
 					rejectProps: {
 						icon: CancelIcon,
+						outlined: true,
 					},
 					accept: () => {},
 					reject: () => {},
