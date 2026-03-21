@@ -30,7 +30,6 @@ const bindings = computed((): PrimeCheckboxProps => {
 				<CheckIcon v-if="checked" class="text-icon-inverse size-full" :class="IconClass" />
 				<CheckIndeterminateSmallIcon v-else-if="indeterminate" class="text-icon-subtlest size-full" />
 			</template>
-			<slot />
 		</PrimeCheckbox>
 		<label
 			v-if="label"
@@ -41,7 +40,7 @@ const bindings = computed((): PrimeCheckboxProps => {
 				{ '-order-1': labelLeft },
 			]"
 		>
-			{{ label }}
+			<slot>{{ label }}</slot>
 		</label>
 	</div>
 </template>

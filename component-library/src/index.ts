@@ -109,7 +109,6 @@ export { default as BccPopover } from 'primevue/popover';
 export { default as BccPortal } from 'primevue/portal';
 export { default as BccProgressBar } from 'primevue/progressbar';
 export { default as BccProgressSpinner } from 'primevue/progressspinner';
-export { default as BccRadioButton } from 'primevue/radiobutton';
 export { default as BccRadioButtonGroup } from 'primevue/radiobuttongroup';
 export { default as BccRating } from 'primevue/rating';
 export { default as BccRipple } from 'primevue/ripple';
