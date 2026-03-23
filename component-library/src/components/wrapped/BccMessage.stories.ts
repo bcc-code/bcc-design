@@ -23,6 +23,7 @@ const meta = {
 		iconRight: { control: 'boolean' },
 		title: { control: 'text' },
 		message: { control: 'text' },
+		size: { control: 'select', options: ['default', 'small', 'large'] },
 	},
 } satisfies Meta<typeof BccMessage>;
 
@@ -159,6 +160,16 @@ export const TwoIcons: Story = {
 		},
 		template: `
 			<BccMessage severity="info" :icon="InfoIcon" :icon-right="CelebrationIcon" title="Info message content." message="Multiple lines of text are also supported" />
+		`,
+	}),
+};
+
+export const Sizes: Story = {
+	render: () => ({
+		components: { BccMessage },
+		template: `
+			<BccMessage severity="info" icon size="small" title="Small message content." message="Multiple lines of text are also supported" />
+			<BccMessage severity="info" icon size="large" title="Large message content." message="Multiple lines of text are also supported" />
 		`,
 	}),
 };

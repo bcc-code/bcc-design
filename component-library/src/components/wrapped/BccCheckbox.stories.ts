@@ -61,7 +61,7 @@ export const MultipleOptions: Story = {
 			return { checked };
 		},
 		template: `
-			<div class="flex flex-col gap-4 max-w-xs">
+			<div class="flex flex-col gap-8 max-w-xs">
 				<BccCheckbox v-model="checked" value="Pizza" input-id="cb2" label="Pizza" />
 				<BccCheckbox v-model="checked" value="Pasta" input-id="cb3" label="Pasta" />
 				<BccCheckbox v-model="checked" value="Salad" input-id="cb4" label="Salad" />
@@ -86,6 +86,19 @@ export const Disabled: Story = {
 		},
 		template: `
 			<BccCheckbox v-model="checked" :value="true" disabled input-id="cb3" label="Disabled" />
+		`,
+	}),
+};
+
+export const Sizes: Story = {
+	render: () => ({
+		components: { BccCheckbox },
+		template: `
+			<div class="flex gap-8 max-w-xs">
+				<BccCheckbox :value="true" size="small" input-id="cb4" label="Small" />
+				<BccCheckbox :value="true" size="default" input-id="cb5" label="Default" />
+				<BccCheckbox :value="true" size="large" input-id="cb6" label="Large" />
+			</div>
 		`,
 	}),
 };

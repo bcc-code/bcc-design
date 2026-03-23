@@ -29,17 +29,52 @@ const SeverityIcons: Record<NonNullable<PrimeMessageProps['severity']>, Componen
 	secondary: InfoIcon,
 	contrast: ContrastIcon,
 };
+
+const sizeClass = computed(() => {
+	return `w-${props.size === 'small' ? '4' : props.size === 'large' ? '6' : '5'}`;
+});
+
+const iconClass = computed(() => {
+	return {
+		[sizeClass.value]: true,
+		'shrink-0': true,
+		flex: true,
+		'items-center': true,
+	};
+});
+
+const iconLeftClass = computed(() => {
+	return {
+		...iconClass.value,
+		'self-start': props.iconRight !== true,
+		'pt-1': props.iconRight !== true && props.title && props.message,
+		'order-1': props.iconRight === true,
+	};
+});
+
+const iconRightClass = computed(() => {
+	return {
+		...iconClass.value,
+		'order-1': true,
+	};
+});
+
+const iconWrapperStyles = computed(() => {
+	return {
+		height: 'var(--p-message-text-line-height)',
+	};
+});
 </script>
 
 <template>
 	<BccMessage v-bind="messageBindings">
 		<template v-if="icon" #icon>
-			<component
-				:is="icon === true ? SeverityIcons[severity || 'info'] : icon"
-				class="w-4 shrink-0 self-start pt-1"
-				:class="{ 'order-1': iconRight === true }"
-			/>
-			<component :is="iconRight" v-if="iconRight && iconRight !== true" class="order-1 w-4 shrink-0 self-start pt-1" />
+			<div :class="iconLeftClass" :style="iconWrapperStyles">
+				<component :is="icon === true ? SeverityIcons[severity || 'info'] : icon" />
+			</div>
+			<div v-if="iconRight && iconRight !== true" :class="iconRightClass" :style="iconWrapperStyles">
+				<component :is="iconRight" />
+			</div>
 		</template>
 		<slot>
 			<div>
