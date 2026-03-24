@@ -41,6 +41,8 @@ const buttonBindings = computed((): PrimeButtonProps => {
 </template>
 
 <style scoped>
+@reference '../../style.css';
+
 .p-button.useCtx {
 	--p-button-primary-color: var(--ctx-text);
 	--p-button-primary-background: var(--ctx-background);
@@ -51,5 +53,9 @@ const buttonBindings = computed((): PrimeButtonProps => {
 	--p-button-primary-active-background: var(--ctx-background-pressed);
 	--p-button-primary-active-border-color: var(--ctx-border-pressed);
 	--p-button-primary-active-color: var(--ctx-text-pressed);
+}
+
+.p-button-sm :deep(.p-button-label) {
+	@apply pt-0.5; /* small button label looks like it's slightly too high without this */
 }
 </style>

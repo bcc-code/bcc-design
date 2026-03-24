@@ -1,4 +1,4 @@
-import { CheckIcon, ErrorIcon, HelpIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
+import { CheckIcon, ErrorIcon, HelpIcon, InfoIcon, OpenInBrowserIcon, WarningIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 import type { ButtonProps } from './BccButton.vue';
@@ -82,6 +82,65 @@ export const WithIcons: Story = {
 				<BccButton label="With Icon Left" :icon="CheckIcon" />
 				<BccButton :icon="HelpIcon" />
 				<BccButton label="With Icon Right" :icon="InfoIcon" icon-right />
+			</div>
+		`,
+	}),
+};
+
+export const WithIconsAndSizes: Story = {
+	render: () => ({
+		components: { BccButton },
+		setup() {
+			return { OpenInBrowserIcon };
+		},
+		template: `
+			<div class="flex flex-wrap gap-2">
+				<BccButton
+					label="Small outlined"
+					outlined use-ctx
+					:icon="OpenInBrowserIcon"
+					size="small"
+					class="ctx-neutral-subtle border-0"
+				/>
+				<BccButton
+					label="Small"
+					use-ctx
+					:icon="OpenInBrowserIcon"
+					size="small"
+					class="ctx-neutral-subtle border-0"
+				/>
+			</div>
+			<div class="flex flex-wrap gap-2 mt-2">
+				<BccButton
+					label="Default outlined"
+					outlined use-ctx
+					:icon="OpenInBrowserIcon"
+					size="default"
+					class="ctx-neutral-subtle border-0"
+				/>
+				<BccButton
+					label="Default"
+					use-ctx
+					:icon="OpenInBrowserIcon"
+					size="default"
+					class="ctx-neutral-subtle border-0"
+				/>
+			</div>
+			<div class="flex flex-wrap gap-2 mt-2">
+				<BccButton
+					label="Large outlined"
+					outlined use-ctx
+					:icon="OpenInBrowserIcon"
+					size="large"
+					class="ctx-neutral-subtle border-0"
+				/>
+				<BccButton
+					label="Large"
+					use-ctx
+					:icon="OpenInBrowserIcon"
+					size="large"
+					class="ctx-neutral-subtle border-0"
+				/>
 			</div>
 		`,
 	}),
