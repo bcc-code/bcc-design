@@ -1,17 +1,34 @@
 @layer components {
 	.bcc-app-nav {
-		@apply sticky inset-x-0 bottom-0 z-20 overflow-visible bg-elevation-surface-default shadow-md sm:rounded-t-xl;
+		@apply bg-elevation-surface-default dark:border-brand-800 sticky inset-x-0 bottom-0 z-20 overflow-visible shadow-md sm:rounded-t-xl dark:border-t;
 	}
-	.bcc-app-nav .bcc-app-nav-container {
+	.bcc-app-nav-container {
 		@apply center pb-inset-bottom-1 mx-auto max-w-lg pt-1;
 	}
 
-	.bcc-app-nav .bcc-app-nav-item {
-		@apply flex flex-col items-center justify-center relative h-12 flex-1 gap-1 ctx-gray-subtlest transition-colors focus:outline-none focus:ring-0 text-ctx;
-		@apply opacity-50;
+	.bcc-app-nav-item {
+		@apply ctx-gray-subtlest text-ctx relative flex h-12 flex-1 flex-col items-center justify-center gap-1 transition-colors focus:ring-0 focus:outline-none;
 	}
 
-	.bcc-app-nav .bcc-app-nav-item--active {
-		@apply text-selected opacity-100;
+	.bcc-nav-item-icon {
+		@apply size-6 opacity-50;
+	}
+
+	.bcc-nav-item-badge {
+		@apply absolute top-0 right-1 opacity-75;
+	}
+
+	.bcc-nav-item-title {
+		@apply text-heading-xs text-center opacity-50;
+	}
+
+	.bcc-app-nav-item--active {
+		@apply text-selected;
+	}
+
+	.bcc-app-nav-item--active .bcc-nav-item-icon,
+	.bcc-app-nav-item--active .bcc-nav-item-badge,
+	.bcc-app-nav-item--active .bcc-nav-item-title {
+		@apply opacity-100;
 	}
 }

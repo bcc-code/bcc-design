@@ -58,19 +58,19 @@ const itemWidth = computed(() => {
 					@click="emits('select', item)"
 				>
 					<div class="relative px-3">
-						<component :is="item.icon" class="size-6" />
+						<component :is="item.icon" class="bcc-nav-item-icon" />
 						<Transition name="bounce-in">
 							<BccBadge
 								v-if="item.pin && item.pin > 0"
-								class="absolute top-0 right-1"
+								class="bcc-nav-item-badge"
 								size="sm"
 								context="brand-bolder"
-								bordered
+								border
 								:value="String(item.pin)"
 							/>
 						</Transition>
 					</div>
-					<div class="text-heading-xs text-center">{{ item.title }}</div>
+					<div class="bcc-nav-item-title">{{ item.title }}</div>
 				</component>
 			</template>
 		</div>

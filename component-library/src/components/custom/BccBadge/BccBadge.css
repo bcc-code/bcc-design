@@ -1,63 +1,66 @@
 @layer components {
-  .bcc-badge {
-    @apply inline-flex shrink-0 gap-1 items-center justify-center rounded-full leading-none whitespace-nowrap;
-  
-    @apply bg-ctx text-ctx;
-  }
+	.bcc-badge {
+		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none whitespace-nowrap;
 
-  .bcc-badge.capital {
-    @apply inline-flex;
-  }
-  .bcc-badge.gradient {
-    @apply ctx-gradient;
-  }
-  .bcc-badge.sm {
-    @apply w-4 h-4 text-heading-xs;
-  }
-  .bcc-badge.md {
-    @apply h-5 w-5 text-heading-sm;
-  }
-  .bcc-badge.lg {
-    @apply w-6 h-6 text-heading-md;
-  }
-  .bcc-badge.xl {
-    @apply w-8 h-8 text-heading-md;
-  }
+		@apply bg-ctx text-ctx;
+	}
 
-  .bcc-badge .bcc-badge-icon {
-    @apply size-4;
-  }
-  .bcc-badge.lg .bcc-badge-icon {
-    @apply size-5;
-  }
-  .bcc-badge.xl .bcc-badge-icon {
-    @apply size-6;
-  }
+	.bcc-badge.capital {
+		@apply inline-flex;
+	}
+	.bcc-badge.gradient {
+		@apply ctx-gradient;
+	}
+	.bcc-badge.sm {
+		@apply text-heading-xs h-4 w-4;
+	}
+	.bcc-badge.md {
+		@apply text-heading-sm h-5 w-5;
+	}
+	.bcc-badge.lg {
+		@apply text-heading-md h-6 w-6;
+	}
+	.bcc-badge.xl {
+		@apply text-heading-md h-8 w-8;
+	}
 
-  .bcc-badge.bcc-badge-text {
-    @apply w-auto px-2;
-  }
-  .bcc-badge-text.lg, .bcc-badge-text.xl { 
-    @apply px-3;
-  }
-  .bcc-badge-text.border.lg, .bcc-badge-text.border.xl { 
-    @apply px-2;
-  }
-  .bcc-badge-text.bordered.lg, .bcc-badge-text.bordered.xl { 
-    @apply px-1;
-  }
+	.bcc-badge .bcc-badge-icon {
+		@apply size-4;
+	}
+	.bcc-badge.lg .bcc-badge-icon {
+		@apply size-5;
+	}
+	.bcc-badge.xl .bcc-badge-icon {
+		@apply size-6;
+	}
 
-  .bcc-badge.border {
-    @apply border-1;
-    border-color: var(--ctx-background-pressed);
-  }
+	.bcc-badge.bcc-badge-text {
+		@apply w-auto px-2;
+	}
+	.bcc-badge-text.lg,
+	.bcc-badge-text.xl {
+		@apply px-3;
+	}
+	.bcc-badge-text.border.lg,
+	.bcc-badge-text.border.xl {
+		@apply px-2;
+	}
+	.bcc-badge-text.bordered.lg,
+	.bcc-badge-text.bordered.xl {
+		@apply px-1;
+	}
 
-  .bcc-badge.bordered {
-    @apply border-2;
-    border-color: var(--ctx-background-pressed);
-  }
+	.bcc-badge.border {
+		@apply border-1;
+		border-color: var(--ctx-background-pressed);
+	}
 
-  .bcc-badge.squared  {
-    @apply rounded-sm;
-  }
+	.bcc-badge.bordered {
+		@apply border-2;
+		border-color: var(--ctx-background-pressed);
+	}
+
+	.bcc-badge.squared {
+		@apply rounded-sm;
+	}
 }
