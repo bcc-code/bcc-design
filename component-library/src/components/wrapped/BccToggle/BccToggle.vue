@@ -24,6 +24,8 @@ const props = withDefaults(defineProps<ToggleProps>(), {
 });
 
 const modelValue = defineModel<boolean>({ required: true });
+
+const iconSize = 'size-4';
 </script>
 
 <template>
@@ -36,10 +38,10 @@ const modelValue = defineModel<boolean>({ required: true });
 		>
 			<template #handle="{ checked }">
 				<BccCircleLoader v-if="loading" class="size-3" />
-				<component :is="icon" v-else-if="icon" class="size-3" />
+				<component :is="icon" v-else-if="icon" :class="iconSize" />
 				<template v-else-if="withIcon">
-					<CheckIcon v-if="checked" class="size-3" />
-					<CloseIcon v-else class="size-3" />
+					<CheckIcon v-if="checked" :class="iconSize" />
+					<CloseIcon v-else :class="iconSize" />
 				</template>
 			</template>
 		</ToggleSwitch>

@@ -82,7 +82,7 @@ export const Sizes: Story = {
 				{{ val }}
 			</div>
 		`,
-		}) as any,
+		}) as unknown as Story,
 };
 
 export const IconVariants: Story = {
@@ -100,7 +100,7 @@ export const IconVariants: Story = {
 				<BccInput placeholder="Password" :icon-right="LockIcon" type="password" />
 			</div>
 		`,
-		}) as any,
+		}) as unknown as Story,
 };
 
 export const Numeric: Story = {
@@ -132,7 +132,7 @@ export const WithLabel: Story = {
 				<BccInput id="username" v-model="value" v-bind="args" />
 			</div>
 		`,
-		}) as any,
+		}) as unknown as Story,
 	args: {
 		placeholder: 'Enter your username',
 	},
@@ -173,7 +173,7 @@ export const FloatLabelVariants: Story = {
 				</BccFloatLabel>
 			</div>
 		`,
-		}) as any,
+		}) as unknown as Story,
 };
 
 export const FloatLabelWithIcon: Story = {
@@ -192,7 +192,7 @@ export const FloatLabelWithIcon: Story = {
 				</BccFloatLabel>
 			</div>
 		`,
-		}) as any,
+		}) as unknown as Story,
 };
 
 export const FloatLabelInvalid: Story = {
@@ -211,5 +211,5 @@ export const FloatLabelInvalid: Story = {
 				</BccFloatLabel>
 			</div>
 		`,
-		}) as any,
+		}) as unknown as Story,
 };

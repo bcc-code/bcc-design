@@ -119,3 +119,18 @@ export const CustomContext: Story = {
 		},
 	},
 };
+
+export const Invalid: Story = {
+	args: {
+		invalid: true,
+		withIcon: true,
+	},
+	render: args => ({
+		components: { BccToggle },
+		setup() {
+			const value = ref(false);
+			return { args, value };
+		},
+		template: '<BccToggle v-model="value" v-bind="args" />',
+	}),
+};

@@ -18,6 +18,9 @@ const meta = {
 		showButtonBar: { control: 'boolean' },
 		dateFormat: { control: 'text' },
 		disabled: { control: 'boolean' },
+		showWeek: { control: 'boolean' },
+		showTime: { control: 'boolean' },
+		hourFormat: { control: 'select', options: ['12', '24'] },
 	},
 } as Meta;
 

@@ -84,3 +84,16 @@
 .p-dialog .p-button-icon:empty {
 	display: none;
 }
+
+.p-togglebutton {
+	font-size: var(--text-sm);
+	border: 0;
+}
+
+.p-togglebutton-sm {
+	font-size: var(--text-sm);
+}
+
+.p-togglebutton-lg {
+	font-size: var(--text-md);
+}

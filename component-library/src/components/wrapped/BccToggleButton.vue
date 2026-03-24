@@ -3,8 +3,6 @@ import type { VueComponent } from '@/types';
 import PrimeToggleButton, { type ToggleButtonProps as PrimeToggleButtonProps } from 'primevue/togglebutton';
 import { computed, useAttrs } from 'vue';
 
-defineOptions({ inheritAttrs: false });
-
 export type ToggleButtonProps = Omit<PrimeToggleButtonProps, 'onIcon' | 'offIcon'> & {
 	/** Custom icon component rendered inside the button when checked. */
 	onIcon?: VueComponent;

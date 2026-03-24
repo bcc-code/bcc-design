@@ -150,3 +150,34 @@ export const InlineInverse: Story = {
 		},
 	},
 };
+
+export const Invalid: Story = {
+	args: {
+		invalid: true,
+		placeholder: 'Selection required',
+	},
+	render: args => ({
+		components: { BccSelect },
+		setup() {
+			const selected = ref<{ name: string; code: string } | null>(null);
+			return { args, selected, cities };
+		},
+		template: `
+			<BccSelect
+				v-model="selected"
+				:options="cities"
+				option-label="name"
+				v-bind="args"
+				class="w-full md:w-14rem"
+			/>
+		`,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Shows the invalid state for the select dropdown, typically used for form validation cases where a selection is required.',
+			},
+		},
+	},
+};

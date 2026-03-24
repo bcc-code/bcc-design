@@ -36,12 +36,12 @@ function isIconComponent(icon: unknown): icon is VueComponent {
 </script>
 
 <template>
-	<PrimeMenu ref="primeMenuRef" v-bind="menuBindings">
+	<PrimeMenu ref="primeMenuRef" v-bind="menuBindings" class="text-sm">
 		<template #itemicon="{ item, class: itemIconClass }">
 			<component
 				:is="item.icon"
 				v-if="item?.icon && isIconComponent(item.icon)"
-				:class="[itemIconClass, '-my-0.5 size-5 shrink-0']"
+				:class="[itemIconClass, 'p-icon -my-0.5 size-4 shrink-0']"
 			/>
 			<span v-else-if="item?.icon && typeof item.icon === 'string'" :class="[itemIconClass, item.icon]" />
 		</template>
