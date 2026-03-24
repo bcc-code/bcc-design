@@ -53,12 +53,7 @@ const tabItemStyles = computed(() => {
 </script>
 
 <template>
-	<BccTabs
-		v-model:value="value"
-		v-bind="tabsBindings"
-		:class="{ 'bcc-tabs-fill': fill, 'bcc-tabs-fluid': fluid }"
-		style="--p-tabs-tablist-border-width: 0; --p-tabs-tab-border-width: 0 0 1px 0"
-	>
+	<BccTabs v-model:value="value" v-bind="tabsBindings" :class="{ 'bcc-tabs-fill': fill, 'bcc-tabs-fluid': fluid }">
 		<BccTabList>
 			<BccTab
 				v-for="(tab, index) in tabs"

@@ -16,6 +16,7 @@ const meta: Meta<typeof BccTabs> = {
 	},
 	argTypes: {
 		noPanels: { control: 'boolean' },
+		fluid: { control: 'boolean' },
 	},
 };
 
@@ -28,6 +29,7 @@ const simpleTabs = [{ title: 'Tab 1' }, { title: 'Tab 2' }, { title: 'Tab 3' }];
 export const Default: Story = {
 	args: {
 		tabs: simpleTabs,
+		fluid: true,
 	},
 };
 
