@@ -63,3 +63,25 @@ export const AllContexts: Story = {
 		methods: { boxClass },
 	}),
 };
+
+export const ContextGradient: Story = {
+	render: () => ({
+		setup() {
+			return { BCC_CONTEXTS };
+		},
+		template: `
+			<div class="space-y-8">
+				<section v-for="(levels, color) in BCC_CONTEXTS" :key="color">
+					<h2 class="mb-4 text-lg font-semibold capitalize">{{ color }}</h2>
+					<div class="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
+						<div v-for="(ctx, level) in levels" :key="level" :class="boxClass(ctx)" class="ctx-gradient">
+							<h3 class="text-heading-sm text-ctx-bold capital">{{ level }}</h3>
+							<p class="text-body-sm">ctx-{{ ctx }}</p>
+						</div>
+					</div>
+				</section>
+			</div>
+		`,
+		methods: { boxClass },
+	}),
+};

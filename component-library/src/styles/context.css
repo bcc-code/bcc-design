@@ -1,80 +1,93 @@
-
 @theme {
-  --color-brand-100: var(--color-bcc-100);
-  --color-brand-200: var(--color-bcc-200);
-  --color-brand-300: var(--color-bcc-300);
-  --color-brand-400: var(--color-bcc-400);
-  --color-brand-500: var(--color-bcc-500);
-  --color-brand-600: var(--color-bcc-600);
-  --color-brand-700: var(--color-bcc-700);
-  --color-brand-800: var(--color-bcc-800);
-  --color-brand-900: var(--color-bcc-900);
-  --color-brand-1000: var(--color-bcc-1000);
+	--color-brand-100: var(--color-bcc-100);
+	--color-brand-200: var(--color-bcc-200);
+	--color-brand-300: var(--color-bcc-300);
+	--color-brand-400: var(--color-bcc-400);
+	--color-brand-500: var(--color-bcc-500);
+	--color-brand-600: var(--color-bcc-600);
+	--color-brand-700: var(--color-bcc-700);
+	--color-brand-800: var(--color-bcc-800);
+	--color-brand-900: var(--color-bcc-900);
+	--color-brand-1000: var(--color-bcc-1000);
 }
 
 /** DEFAULT CONTEXTS */
 @utility ctx-default {
-  @apply ctx-neutral-subtlest;
+	@apply ctx-neutral-subtlest;
 }
-@utility ctx-success { @apply ctx-success-subtlest; }
-@utility ctx-danger { @apply ctx-danger-subtlest; }
-@utility ctx-warning { @apply ctx-warning-subtlest; }
-@utility ctx-info { @apply ctx-info-subtlest; }
+@utility ctx-success {
+	@apply ctx-success-subtlest;
+}
+@utility ctx-danger {
+	@apply ctx-danger-subtlest;
+}
+@utility ctx-warning {
+	@apply ctx-warning-subtlest;
+}
+@utility ctx-info {
+	@apply ctx-info-subtlest;
+}
 
 @utility text-ctx {
-  color: var(--ctx-text);
+	color: var(--ctx-text);
 }
 
 @utility text-ctx-bold {
-  color: var(--ctx-text-bold);
+	color: var(--ctx-text-bold);
 }
 
 @utility bg-ctx {
-  background-color: var(--ctx-background);
+	background-color: var(--ctx-background);
 }
 
 @utility border-ctx {
-  border-color: var(--ctx-border);
+	border-color: var(--ctx-border);
 }
 
 @utility shadow-ctx {
-  --tw-shadow-color: var(--ctx-shadow);
+	--tw-shadow-color: var(--ctx-shadow);
 }
 
 @utility ctx {
-  background-color: var(--ctx-background);
-  color: var(--ctx-text);
-  border-color: var(--ctx-border);
+	background-color: var(--ctx-background);
+	color: var(--ctx-text);
+	border-color: var(--ctx-border);
 }
 
 @utility ctx-gradient {
-  background: linear-gradient(225deg, var(--ctx-background) 0%, var(--ctx-gradient) 100%);
+	background: linear-gradient(225deg, var(--ctx-background) 0%, var(--ctx-gradient) 100%);
+
+	@variant dark {
+		background: linear-gradient(225deg, var(--ctx-gradient) 0%, var(--ctx-background) 100%);
+	}
 }
 
 @utility ctx-raised {
-  box-shadow: 0 1px 1px 0 var(--ctx-shadow), 0 0 1px 0 var(--ctx-shadow);
+	box-shadow:
+		0 1px 1px 0 var(--ctx-shadow),
+		0 0 1px 0 var(--ctx-shadow);
 }
 
 @utility ctx-flat {
-  --ctx-background: transparent;
+	--ctx-background: transparent;
 
-  @variant hover {
-    --ctx-background: var(--ctx-background-hover);
-  }
+	@variant hover {
+		--ctx-background: var(--ctx-background-hover);
+	}
 }
 
 @utility clickable {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .clickable:hover {
-  --ctx-background: var(--ctx-background-hover);
-  --ctx-text: var(--ctx-text-hover);
-  --ctx-border: var(--ctx-border-hover);
+	--ctx-background: var(--ctx-background-hover);
+	--ctx-text: var(--ctx-text-hover);
+	--ctx-border: var(--ctx-border-hover);
 }
 
 .clickable:active {
-  --ctx-background: var(--ctx-background-pressed);
-  --ctx-text: var(--ctx-text-pressed);
-  --ctx-border: var(--ctx-border-pressed);
+	--ctx-background: var(--ctx-background-pressed);
+	--ctx-text: var(--ctx-text-pressed);
+	--ctx-border: var(--ctx-border-pressed);
 }
