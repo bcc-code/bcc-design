@@ -1,71 +1,75 @@
 @utility center {
-    @apply flex items-center justify-center;
-    
-    &.top {
-        @apply items-start;
-    }
+	@apply flex items-center justify-center;
 
-    &.bottom {
-        @apply items-end;
-    }
+	&.top {
+		@apply items-start;
+	}
 
-    &.left {
-        @apply justify-start;
-    }
+	&.bottom {
+		@apply items-end;
+	}
 
-    &.right {
-        @apply justify-end;
-    }
+	&.left {
+		@apply justify-start;
+	}
 
-    &.stretch {
-        @apply items-stretch;
-    }
+	&.right {
+		@apply justify-end;
+	}
+
+	&.stretch {
+		@apply items-stretch;
+	}
 }
 
 @utility col {
-    @apply flex flex-col items-center justify-center;
+	@apply flex flex-col items-center justify-center;
 
-    &.left {
-        @apply items-start;
-    }
+	&.left {
+		@apply items-start;
+	}
 
-    &.right {
-        @apply items-end;
-    }
+	&.right {
+		@apply items-end;
+	}
 
-    &.top {
-        @apply justify-start;
-    }
+	&.top {
+		@apply justify-start;
+	}
 
-    &.bottom {
-        @apply justify-end;
-    }
+	&.bottom {
+		@apply justify-end;
+	}
 }
 
 @utility between {
-    @apply justify-between;
+	@apply justify-between;
 }
 
 @utility hide-scrollbar {
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll;
+	-ms-overflow-style: none; /* for Internet Explorer, Edge */
+	scrollbar-width: none; /* for Firefox */
+	overflow-y: scroll;
 
-    &::-webkit-scrollbar {
-        display: none; /* for Chrome, Safari, and Opera */
-    }
+	&::-webkit-scrollbar {
+		display: none; /* for Chrome, Safari, and Opera */
+	}
 }
 
 /* Capitalize first letter */
 @utility capital {
-    @apply inline-block;
+	@apply inline-block;
 
-    &::first-letter {
-        text-transform: uppercase;
-    }
+	&::first-letter {
+		text-transform: uppercase;
+	}
+
+	&.bcc-badge {
+		@apply inline-flex;
+	}
 }
 
 /* Inset 0 */
 @utility inset-0 {
-	@apply left-0 right-0 top-0 bottom-0;
+	@apply top-0 right-0 bottom-0 left-0;
 }

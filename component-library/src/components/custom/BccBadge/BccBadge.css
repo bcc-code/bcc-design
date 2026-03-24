@@ -4,10 +4,6 @@
 
 		@apply bg-ctx text-ctx;
 	}
-
-	.bcc-badge.capital {
-		@apply inline-flex;
-	}
 	.bcc-badge.gradient {
 		@apply ctx-gradient;
 	}
