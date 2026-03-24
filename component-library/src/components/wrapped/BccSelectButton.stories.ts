@@ -129,3 +129,17 @@ export const WithIcons: Story = {
 		`,
 	}),
 };
+
+export const WithStringArrayOptions: Story = {
+	render: () => ({
+		components: { BccSelectButton },
+		setup() {
+			const value = ref('left');
+			const options = ['left', 'center', 'right'];
+			return { value, options };
+		},
+		template: `
+			<BccSelectButton v-model="value" :options="options" />
+		`,
+	}),
+};

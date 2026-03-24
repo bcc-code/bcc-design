@@ -13,6 +13,7 @@ function isIconComponent(icon: unknown): icon is object {
 	return typeof icon === 'function' || (typeof icon === 'object' && icon !== null);
 }
 function getOptionLabel(option: unknown): string | VueComponent | null {
+	if (typeof option === 'string') return option;
 	if (!props.optionLabel) return null;
 	if (typeof props.optionLabel === 'function') return props.optionLabel(option);
 	return (option as Record<string, string>)[props.optionLabel as string];
