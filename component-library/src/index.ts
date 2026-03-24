@@ -116,7 +116,6 @@ export { default as BccRow } from 'primevue/row';
 export { default as BccScrollPanel } from 'primevue/scrollpanel';
 export { default as BccScrollTop } from 'primevue/scrolltop';
 export { default as BccSelect } from 'primevue/select';
-export { default as BccSelectButton } from 'primevue/selectbutton';
 export { default as BccSkeleton } from 'primevue/skeleton';
 export { default as BccSlider } from 'primevue/slider';
 export { default as BccSpeedDial } from 'primevue/speeddial';

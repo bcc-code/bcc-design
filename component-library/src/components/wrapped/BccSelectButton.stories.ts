@@ -1,3 +1,4 @@
+import { CheckIcon, CloseIcon, InfoIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 import { BccSelectButton } from '../../index';
@@ -10,7 +11,7 @@ const options = [
 
 const meta = {
 	component: BccSelectButton,
-	title: 'PrimeVue/BccSelectButton',
+	title: 'Wrapped/BccSelectButton',
 	parameters: {
 		docs: {
 			description: {
@@ -42,6 +43,31 @@ export const Default: Story = {
 			<BccSelectButton v-model="value" :options="options" option-label="label" option-value="value" v-bind="args" />
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Button group for selecting one or more options. [Read more on PrimeVue →](https://primevue.org/selectbutton/)',
+			},
+			source: {
+				code: `
+					<script setup>
+						const value = ref('left');
+						const options = [
+							{ label: 'Left', value: 'left' },
+							{ label: 'Center', value: 'center' },
+							{ label: 'Right', value: 'right' },
+						];
+					</script>
+					<template>
+						<BccSelectButton v-model="value" :options="options" 
+							option-label="label" option-value="value"
+						/>
+					</template>
+				`,
+			},
+		},
+	},
 };
 
 export const Multiple: Story = {
@@ -82,6 +108,24 @@ export const invalid: Story = {
 		},
 		template: `
 			<BccSelectButton v-model="value" :options="options" option-label="label" option-value="value" v-bind="args" />
+		`,
+	}),
+};
+
+export const WithIcons: Story = {
+	render: () => ({
+		components: { BccSelectButton },
+		setup() {
+			const value = ref('left');
+			const options = [
+				{ value: 'left', icon: CheckIcon },
+				{ value: 'center', icon: CloseIcon },
+				{ value: 'right', icon: InfoIcon },
+			];
+			return { value, options, CheckIcon, CloseIcon };
+		},
+		template: `
+			<BccSelectButton v-model="value" :options="options" option-label="icon" option-value="value" />
 		`,
 	}),
 };
