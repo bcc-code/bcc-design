@@ -80,14 +80,16 @@
 	cursor: pointer;
 }
 
-.clickable:hover {
-	--ctx-background: var(--ctx-background-hover);
-	--ctx-text: var(--ctx-text-hover);
-	--ctx-border: var(--ctx-border-hover);
-}
+@media (hover: hover) and (pointer: fine) {
+	.clickable:hover {
+		--ctx-background: var(--ctx-background-hover);
+		--ctx-text: var(--ctx-text-hover);
+		--ctx-border: var(--ctx-border-hover);
+	}
 
-.clickable:active {
-	--ctx-background: var(--ctx-background-pressed);
-	--ctx-text: var(--ctx-text-pressed);
-	--ctx-border: var(--ctx-border-pressed);
+	.clickable:active {
+		--ctx-background: var(--ctx-background-pressed);
+		--ctx-text: var(--ctx-text-pressed);
+		--ctx-border: var(--ctx-border-pressed);
+	}
 }
