@@ -34,11 +34,24 @@ export const Default: Story = {
 		},
 		template: `
 			<div>
-				<BccToast />
 				<BccButton label="Show toast" @click="show" />
 			</div>
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'A toast is a message that appears at the bottom of the screen to notify the user of a success, error, or warning. [Read more on PrimeVue →](https://primevue.org/toast/)',
+			},
+			source: {
+				code: `
+					<BccToast />
+					<BccButton label="Show toast" @click="show" />
+				`,
+			},
+		},
+	},
 };
 
 export const AllSeverities: Story = {
@@ -58,7 +71,6 @@ export const AllSeverities: Story = {
 		},
 		template: `
 			<div>
-				<BccToast />
 				<div class="flex flex-wrap gap-2">
 					<BccButton label="Success" severity="success" @click="show('success')" />
 					<BccButton label="Info" severity="info" @click="show('info')" />

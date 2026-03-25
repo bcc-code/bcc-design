@@ -1,5 +1,9 @@
 /** Custom styles to fix primevue components that are not custom or wrapped. */
 
+:root {
+	--p-toast-width: min(85vw, 400px);
+}
+
 /**
 * GUTTER FIX
 * Primevue's dropwdown components are all missing the gap between input and dropdown

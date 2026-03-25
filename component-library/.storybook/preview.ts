@@ -8,7 +8,7 @@ import TooltipDirective from 'primevue/tooltip';
 import ToastService from 'primevue/toastservice';
 import { onMounted, onUnmounted, ref } from 'vue';
 
-import { BccConfirmDialog } from '../src/index';
+import { BccConfirmDialog, BccToast } from '../src/index';
 import '../src/style.css';
 import '../src/styles/archivo-font.css';
 
@@ -27,6 +27,25 @@ const ConfirmDialogSingleton = {
 		});
 		onUnmounted(() => {
 			if (claimed.value) confirmDialogSlotClaimed = false;
+		});
+		return { claimed };
+	},
+};
+
+let toastSlotClaimed = false;
+const ToastSingleton = {
+	components: { BccToast },
+	template: '<BccToast v-if="claimed" />',
+	setup() {
+		const claimed = ref(false);
+		onMounted(() => {
+			if (!toastSlotClaimed) {
+				toastSlotClaimed = true;
+				claimed.value = true;
+			}
+		});
+		onUnmounted(() => {
+			if (claimed.value) toastSlotClaimed = false;
 		});
 		return { claimed };
 	},
@@ -77,7 +96,7 @@ const preview: Preview = {
 	},
 	decorators: [
 		story => ({
-			components: { story, ConfirmDialogSingleton },
+			components: { story, ConfirmDialogSingleton, ToastSingleton },
 			setup() {
 				const toggleDarkMode = () => {
 					document.documentElement.classList.toggle('dark');
@@ -85,7 +104,7 @@ const preview: Preview = {
 				return { toggleDarkMode };
 			},
 			template:
-				'<div class="ctx ctx-default p-6 font-sans"><ConfirmDialogSingleton /><story /> <br/> <button @click="toggleDarkMode">🌓</button></div>',
+				'<div class="ctx ctx-default p-6 font-sans"><ConfirmDialogSingleton /><ToastSingleton /><story /> <br/> <button @click="toggleDarkMode">🌓</button></div>',
 		}),
 	],
 };

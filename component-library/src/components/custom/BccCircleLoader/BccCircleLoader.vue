@@ -1,5 +1,37 @@
+<script setup>
+import { computed } from 'vue';
+
+const sizes = {
+	sm: 'size-4',
+	md: 'size-6',
+	base: 'size-8',
+	lg: 'size-10',
+	xl: 'size-12',
+	'2xl': 'size-14',
+	'3xl': 'size-16',
+};
+
+const props = defineProps({
+	icon: String,
+	size: {
+		default: 'base',
+		type: String,
+	},
+	left: Boolean,
+	right: Boolean,
+});
+
+const sizeClass = computed(() => sizes[props.size] ?? props.size);
+</script>
+
 <template>
-	<svg fill="none" viewBox="0 0 58 58" aria-hidden="true" class="size-3">
+	<svg
+		fill="none"
+		viewBox="0 0 58 58"
+		aria-hidden="true"
+		class="inline-block transition-all"
+		:class="[sizeClass, { 'ml-4': left, 'mr-4': right }]"
+	>
 		<g transform="translate(2 1)" stroke="currentColor" stroke-width="1.5">
 			<circle cx="42.601" cy="11.462" r="5" fill-opacity="1" fill="currentColor">
 				<animate
