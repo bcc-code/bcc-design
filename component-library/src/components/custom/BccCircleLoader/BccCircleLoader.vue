@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 
 const sizes = {
@@ -11,15 +11,17 @@ const sizes = {
 	'3xl': 'size-16',
 };
 
-const props = defineProps({
-	icon: String,
-	size: {
-		default: 'base',
-		type: String,
-	},
-	left: Boolean,
-	right: Boolean,
-});
+const props = withDefaults(
+	defineProps<{
+		icon?: string;
+		size?: 'sm' | 'md' | 'base' | 'lg' | 'xl' | '2xl' | '3xl';
+		left?: boolean;
+		right?: boolean;
+	}>(),
+	{
+		size: 'base',
+	}
+);
 
 const sizeClass = computed(() => sizes[props.size] ?? props.size);
 </script>
