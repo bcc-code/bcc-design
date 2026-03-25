@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - 'v*'
-      - 'component-library-*'
+      - "v*"
+      - "component-library-*"
 
 env:
   CI: true
@@ -16,12 +16,12 @@ permissions:
 jobs:
   build:
     permissions:
-      contents: write  # for softprops/action-gh-release to create GitHub release
+      contents: write # for softprops/action-gh-release to create GitHub release
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - run: git fetch --tags -f
 
@@ -29,15 +29,15 @@ jobs:
         id: vars
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            echo "TAG_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
+            echo "TAG_NAME=${{ github.ref_name }}" >> $GITHUB_OUTPUT
           else
-            echo "TAG_NAME=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+            echo "TAG_NAME=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
           fi
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           draft: true
-          name: "component-library ${{ env.TAG_NAME }}"
-          tag_name: ${{ env.TAG_NAME }}
+          name: "component-library ${{ steps.vars.outputs.TAG_NAME }}"
+          tag_name: ${{ steps.vars.outputs.TAG_NAME }}
           generate_release_notes: true
