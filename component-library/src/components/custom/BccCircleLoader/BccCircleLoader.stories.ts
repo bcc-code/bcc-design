@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import type { Component } from 'vue';
-import BccCircleLoader from './BccCircleLoader.vue';
+import { BccCircleLoader } from '../../../index';
 
 const CircleLoaderComponent: Component = BccCircleLoader as unknown as Component;
 
@@ -70,4 +70,3 @@ export const WithSpacingHelpers: Story = {
 		`,
 	}),
 };
-
