@@ -35,7 +35,8 @@ const selectButtonBindings = computed((): PrimeSelectButtonProps => {
 				<component
 					:is="getOptionLabel(option)"
 					v-if="optionLabelIsIcon(option)"
-					class="p-icon -my-0.5 size-4 shrink-0"
+					class="p-icon -my-0.5 shrink-0"
+					:class="[size === 'small' ? 'size-4' : 'size-5']"
 				/>
 				<template v-else>
 					{{ getOptionLabel(option) }}
