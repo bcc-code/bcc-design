@@ -172,7 +172,7 @@ export const Popup: Story = {
 };
 
 export const WithCustomItemTemplate = {
-	render: args => ({
+	render: () => ({
 		components: { BccMenu, BccButton, AddIcon, FolderOpenIcon, CheckIcon, CloseIcon },
 		setup() {
 			const menu = ref();
@@ -223,7 +223,7 @@ const items = [
 	{ separator: true },
 	{ label: 'Quit', icon: CloseIcon, info: 'Exit application' },
 ];
-<\/script>
+</script>
 <template>
 	<div>
 		<BccMenu ref="menu" :model="items" popup>
