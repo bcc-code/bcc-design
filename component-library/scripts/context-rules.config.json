@@ -156,10 +156,10 @@
           "borderBold": "default/bcc/500"
         },
         "bolder": {
-          "bg": "default/bcc/700",
-          "bgHover": "default/bcc/800",
-          "bgPressed": "default/bcc/900",
-          "text": "default/bcc/100",
+          "bg": "default/bcc/800",
+          "bgHover": "default/bcc/900",
+          "bgPressed": "default/bcc/1000",
+          "text": "default/neutral/0",
           "textBold": "default/neutral/0",
           "textSubtle": "default/bcc/200",
           "icon": "secondary/bcc/100",
