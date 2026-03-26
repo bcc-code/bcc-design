@@ -170,3 +170,76 @@ export const Popup: Story = {
 		},
 	},
 };
+
+export const WithCustomItemTemplate = {
+	render: args => ({
+		components: { BccMenu, BccButton, AddIcon, FolderOpenIcon, CheckIcon, CloseIcon },
+		setup() {
+			const menu = ref();
+			const toggle = (event: Event) => {
+				menu.value?.toggle(event);
+			};
+			const items: BccMenuItem[] = [
+				{ label: 'New', icon: AddIcon, info: 'Create new file' },
+				{ label: 'Open', icon: FolderOpenIcon, info: 'Open existing file' },
+				{ label: 'Save', icon: CheckIcon, info: 'Save your progress' },
+				{ separator: true },
+				{ label: 'Quit', icon: CloseIcon, info: 'Exit application' },
+			];
+			return { menu, toggle, items };
+		},
+		template: `
+			<div>
+				<BccMenu ref="menu" :model="items" popup>
+					<template #item="{ item, props }">
+						<div v-bind="props.action" class="flex items-center gap-2 px-3 py-2 hover:bg-brand-100 rounded cursor-pointer">
+							<component :is="item.icon" class="w-5 h-5 opacity-70" v-if="item.icon" />
+							<span class="font-medium">{{ item.label }}</span>
+							<span v-if="item.info" class="ml-auto text-xs text-neutral-500">{{ item.info }}</span>
+						</div>
+					</template>
+				</BccMenu>
+				<BccButton label="Toggle menu" @click="toggle" />
+			</div>
+		`,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Demonstrates how to use a custom #item template for BccMenu.',
+			},
+			source: {
+				code: `
+<script setup>
+import { ref } from 'vue'
+import { BccMenu, BccButton } from '../../index'
+import { AddIcon, FolderOpenIcon, CheckIcon, CloseIcon } from '@bcc-code/icons-vue'
+const menu = ref();
+const toggle = (event) => menu.value?.toggle(event);
+const items = [
+	{ label: 'New', icon: AddIcon, info: 'Create new file' },
+	{ label: 'Open', icon: FolderOpenIcon, info: 'Open existing file' },
+	{ label: 'Save', icon: CheckIcon, info: 'Save your progress' },
+	{ separator: true },
+	{ label: 'Quit', icon: CloseIcon, info: 'Exit application' },
+];
+<\/script>
+<template>
+	<div>
+		<BccMenu ref="menu" :model="items" popup>
+			<template #item="{ item, props }">
+				<div v-bind="props.action" class="flex items-center gap-2 px-3 py-2 hover:bg-brand-100 rounded cursor-pointer">
+					<component :is="item.icon" class="w-5 h-5 opacity-70" v-if="item.icon" />
+					<span class="font-medium">{{ item.label }}</span>
+					<span v-if="item.info" class="ml-auto text-xs text-neutral-500">{{ item.info }}</span>
+				</div>
+			</template>
+		</BccMenu>
+		<BccButton label="Toggle menu" @click="toggle" />
+	</div>
+</template>
+				`,
+			},
+		},
+	},
+};

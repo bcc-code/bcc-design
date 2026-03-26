@@ -45,5 +45,9 @@ function isIconComponent(icon: unknown): icon is VueComponent {
 			/>
 			<span v-else-if="item?.icon && typeof item.icon === 'string'" :class="[itemIconClass, item.icon]" />
 		</template>
+
+		<template v-if="$slots.item" #item="{ item, label, props: itemProps }">
+			<slot name="item" :item="item" :label="label" :props="itemProps" />
+		</template>
 	</PrimeMenu>
 </template>
