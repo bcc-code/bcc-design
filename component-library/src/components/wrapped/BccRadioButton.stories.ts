@@ -97,3 +97,89 @@ export const WithRadioButtonGroup: Story = {
 		`,
 	}),
 };
+
+export const JustifyBetweenWithCustomSlot: Story = {
+	render: () => ({
+		components: { BccRadioButton },
+		setup() {
+			const selected = ref('left');
+			return { selected };
+		},
+		template: `
+			<div class="w-full max-w-xl">
+				<BccRadioButton
+					justify="between"
+					v-model="selected"
+					value="left"
+					label="Left"
+				>
+					<template #default>
+						<span>
+							<strong>Left-aligned</strong>
+							<br />
+							<small class="text-xs text-neutral-500">Choose this for left</small>
+						</span>
+					</template>
+				</BccRadioButton>
+				<BccRadioButton
+					justify="between"
+					v-model="selected"
+					value="right"
+					label="Right"
+				>
+					<template #default>
+						<span>
+							<strong>Right-aligned</strong>
+							<br />
+							<small class="text-xs text-neutral-500">Choose this for right</small>
+						</span>
+					</template>
+				</BccRadioButton>
+			</div>
+		`,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Demonstrates use of `justify="between"` and custom slot HTML with rich content.',
+			},
+			source: {
+				code: `
+<script setup>
+import { ref } from 'vue';
+import { BccRadioButton } from '../../../index';
+const selected = ref('left');
+</script>
+<template>
+	<div class="w-full max-w-xl">
+		<BccRadioButton
+			justify="between"
+			v-model="selected"
+			value="left"
+			label="Left"
+		>
+			<span>
+				<strong>Left-aligned</strong>
+				<br />
+				<small class="text-xs text-neutral-500">Choose this for left</small>
+			</span>
+		</BccRadioButton>
+		<BccRadioButton
+			justify="between"
+			v-model="selected"
+			value="right"
+			label="Right"
+		>
+			<span>
+				<strong>Right-aligned</strong>
+				<br />
+				<small class="text-xs text-neutral-500">Choose this for right</small>
+			</span>
+		</BccRadioButton>
+	</div>
+</template>
+				`,
+			},
+		},
+	},
+};
