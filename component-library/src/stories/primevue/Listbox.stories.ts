@@ -138,3 +138,63 @@ export const WithCheckmark: Story = {
 		},
 	},
 };
+
+export const CustomOptionSlot: Story = {
+	args: {},
+	name: 'Custom Option Slot',
+	render: args => ({
+		components: { BccListbox },
+		setup() {
+			const selected = ref<(typeof options)[0] | null>(null);
+			return { args, selected, options };
+		},
+		template: `
+			<BccListbox
+				v-model="selected"
+				:options="options"
+				option-label="name"
+				v-bind="args"
+				class="w-full md:w-14rem"
+			>
+				<template #option="{ option, index, selected }">
+					<div class="flex items-center gap-2">
+						<span>{{ index + 1 }}.</span>
+						<strong>{{ option.name }}</strong>
+						<span v-if="selected" style="color: var(--green-600)">✓</span>
+						<em class="text-surface-400 ml-2">({{ option.code }})</em>
+					</div>
+				</template>
+			</BccListbox>
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `
+<script setup>
+	const options = [
+		{ name: 'New York', code: 'NY' },
+		{ name: 'Rome', code: 'RM' },
+		{ name: 'London', code: 'LDN' },
+		{ name: 'Istanbul', code: 'IST' },
+		{ name: 'Paris', code: 'PRS' },
+	];
+	const selected = ref<(typeof options)[0] | null>(null);
+</script>
+<template>
+	<BccListbox v-model="selected" :options="options" option-label="name" class="w-full md:w-14rem">
+		<template #option="{ option, index, selected }">
+			<div class="flex items-center gap-2">
+				<span>{{ index + 1 }}.</span>
+				<strong>{{ option.name }}</strong>
+				<span v-if="selected" style="color: var(--green-600)">✓</span>
+				<em class="text-surface-400 ml-2">({{ option.code }})</em>
+			</div>
+		</template>
+	</BccListbox>
+</template>
+				`,
+			},
+		},
+	},
+};
