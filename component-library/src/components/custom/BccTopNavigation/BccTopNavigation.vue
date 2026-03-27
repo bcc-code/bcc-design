@@ -101,7 +101,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 						<div v-if="right || left" class="flex w-10 items-center justify-end">
 							<component :is="right" />
 						</div>
-						<div v-else-if="hideBack || $slots.left" class="w-10"></div>
+						<div v-else-if="!hideBack || $slots.left" class="w-10"></div>
 					</slot>
 				</div>
 			</slot>

@@ -181,3 +181,86 @@ export const Padded: Story = {
 		`,
 	}),
 };
+
+export const TitleAndSubtitleSlots: Story = {
+	args: {
+		title: 'Slotted Title',
+		subtitle: 'Slotted subtitle is here',
+	},
+	render: args => ({
+		components,
+		setup() {
+			return { args };
+		},
+		template: `
+			<BccTopNavigation v-bind="args" @back="() => {}">
+				<template #title="{ title }">
+					<span class="text-brand-300 font-bold tracking-wider">
+						⚡&nbsp;{{ title.toUpperCase() }}&nbsp;⚡
+					</span>
+				</template>
+				<template #subtitle="{ subtitle }">
+					<span class="italic text-brand-100">
+						🔎 {{ subtitle }}
+					</span>
+				</template>
+			</BccTopNavigation>
+		`,
+	}),
+};
+
+export const OnlySubtitleSlot: Story = {
+	args: {
+		title: 'Normal Title',
+		subtitle: 'Custom subtitle',
+	},
+	render: args => ({
+		components,
+		setup() {
+			return { args };
+		},
+		template: `
+			<BccTopNavigation v-bind="args" @back="() => {}">
+				<template #subtitle="{ subtitle }">
+					<span class="text-default bg-elevation-surface-default rounded px-2 py-0.5 font-mono">
+						{{ subtitle }} — via slot
+					</span>
+				</template>
+			</BccTopNavigation>
+		`,
+	}),
+};
+
+export const OverrideAllViaDefaultSlot: Story = {
+	args: {
+		title: 'Should not appear',
+		subtitle: 'Should not appear',
+	},
+	render: args => ({
+		components,
+		setup() {
+			return { args };
+		},
+		template: `
+			<BccTopNavigation v-bind="args" @back="() => {}">
+				<template #default>
+					<div class="flex items-center gap-4 px-6 py-3 bg-linear-to-r from-brand-800 to-brand-400 rounded shadow-lg w-full">
+						<BccButton icon="back" size="sm" @click="() => {}">Go Back</BccButton>
+						<div class="flex-1">
+							<h2 class="text-white font-extrabold text-xl">⚡ All via default slot! ⚡</h2>
+							<p class="text-brand-100 font-mono">This replaces the <strong>entire</strong> top navigation content via <code>&lt;template #default&gt;</code>.</p>
+						</div>
+						<BccButton icon="user" size="sm" />
+					</div>
+				</template>
+			</BccTopNavigation>
+		`,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Demonstrates overriding *all* layout/content in `<BccTopNavigation>` using the default slot.',
+			},
+		},
+	},
+};
