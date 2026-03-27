@@ -19,6 +19,10 @@ on:
           - release
           - beta
         default: release
+      whats_new:
+        description: What is new in this version?
+        type: string
+        required: false
 
 env:
   CI: true
@@ -54,7 +58,7 @@ jobs:
           git config --global user.email "84040471+bcc-bot@users.noreply.github.com"
 
       - name: Version new ${{ github.event.inputs.version }} version
-        run: pnpm run create-version ${{ github.event.inputs.version }} ${{ github.event.inputs.channel }}
+        run: pnpm run create-version "${{ github.event.inputs.version }}" "${{ github.event.inputs.channel }}" "${{ github.event.inputs.whats_new }}"
         working-directory: component-library
 
       - name: Push

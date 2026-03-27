@@ -29,15 +29,25 @@ jobs:
         id: vars
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            echo "TAG_NAME=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+            TAG_NAME="${{ github.ref_name }}"
           else
-            echo "TAG_NAME=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+            TAG_NAME="$(git describe --tags --abbrev=0)"
           fi
+
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_OUTPUT
+
+          RELEASE_DESCRIPTION="$(git tag -l --format='%(contents)' "$TAG_NAME" | sed '1,/^$/d')"
+          {
+            echo "RELEASE_DESCRIPTION<<EOF"
+            echo "$RELEASE_DESCRIPTION"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          draft: true
+          draft: false
           name: "component-library ${{ steps.vars.outputs.TAG_NAME }}"
           tag_name: ${{ steps.vars.outputs.TAG_NAME }}
+          body: ${{ steps.vars.outputs.RELEASE_DESCRIPTION }}
           generate_release_notes: true
