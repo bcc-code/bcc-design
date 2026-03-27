@@ -10,6 +10,7 @@ import BccReactEmoji from './BccReactEmoji.vue';
 import type { ReactInfo, ReactProps } from './types';
 
 const props = withDefaults(defineProps<ReactProps>(), {
+	emojis: () => [],
 	top: false,
 	placeholder: 'Be the first to react 😉',
 });
@@ -113,7 +114,7 @@ onMounted(() => {
 	<div class="bcc-react">
 		<TransitionGroup name="bcc-fade">
 			<button
-				v-if="show || emojis.some(e => !e.selected)"
+				v-if="show || props.emojis.some(e => !e.selected)"
 				key="toggle"
 				ref="toggleButton"
 				class="bcc-react-toggle"

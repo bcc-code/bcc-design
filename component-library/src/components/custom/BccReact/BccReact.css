@@ -77,9 +77,12 @@
 	}
 
 	.bcc-react-emoji-list-item {
-		@apply ctx clickable flex items-center justify-center rounded-full p-1 text-2xl leading-none drop-shadow transition-all hover:scale-105;
+		@apply ctx clickable center h-7 min-w-7 shrink-0 rounded-full p-1 text-lg leading-none drop-shadow transition-all hover:scale-105;
 		/* Default --not-selected */
 		@apply ctx-neutral-subtlest;
+	}
+	.bcc-react-emoji-list-item span {
+		@apply leading-none;
 	}
 	.bcc-react-emoji-list-item.selected {
 		@apply ctx-neutral-subtle;
