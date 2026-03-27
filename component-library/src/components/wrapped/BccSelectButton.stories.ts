@@ -125,7 +125,7 @@ export const WithIcons: Story = {
 			return { value, options, CheckIcon, CloseIcon };
 		},
 		template: `
-			<BccSelectButton v-model="value" :options="options" option-label="icon" option-value="value" />
+			<BccSelectButton v-model="value" :options="options" option-icon="icon" option-value="value" />
 		`,
 	}),
 };
