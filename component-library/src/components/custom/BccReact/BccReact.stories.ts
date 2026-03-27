@@ -36,15 +36,12 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	args: {
-		emojis: baseEmojis,
-		placeholder: 'Be the first to react 😉',
-	},
-	render: args => ({
+function createInteractiveRender(fallbackArgs: { emojis: ReactInfo[]; top?: boolean; placeholder?: string }) {
+	return (storyArgs?: Partial<typeof fallbackArgs>) => ({
 		components: { BccReact },
 		setup() {
-			const emojis = structuredClone(args.emojis);
+			const resolvedArgs = { ...fallbackArgs, ...(storyArgs ?? {}) };
+			const emojis = structuredClone(resolvedArgs.emojis ?? fallbackArgs.emojis);
 
 			function onToggle(id: string) {
 				const target = emojis.find(emoji => emoji.id === id);
@@ -59,13 +56,24 @@ export const Default: Story = {
 				}
 			}
 
-			return { args, emojis, onToggle };
+			return { resolvedArgs, emojis, onToggle };
 		},
 		template: `
 			<div class="py-8">
-				<BccReact v-bind="args" :emojis="emojis" @toggle="onToggle" />
+				<BccReact v-bind="resolvedArgs" :emojis="emojis" @toggle="onToggle" />
 			</div>
 		`,
+	});
+}
+
+export const Default: Story = {
+	args: {
+		emojis: baseEmojis,
+		placeholder: 'Be the first to react 😉',
+	},
+	render: createInteractiveRender({
+		emojis: baseEmojis,
+		placeholder: 'Be the first to react 😉',
 	}),
 };
 
@@ -74,31 +82,9 @@ export const TopPositioned: Story = {
 		emojis: baseEmojis,
 		top: true,
 	},
-	render: args => ({
-		components: { BccReact },
-		setup() {
-			const emojis = structuredClone(args.emojis);
-
-			function onToggle(id: string) {
-				const target = emojis.find(emoji => emoji.id === id);
-				if (!target) return;
-
-				if (target.selected) {
-					target.selected = false;
-					target.count = Math.max(0, (target.count ?? 0) - 1);
-				} else {
-					target.selected = true;
-					target.count = (target.count ?? 0) + 1;
-				}
-			}
-
-			return { args, emojis, onToggle };
-		},
-		template: `
-			<div class="py-16">
-				<BccReact v-bind="args" :emojis="emojis" @toggle="onToggle" />
-			</div>
-		`,
+	render: createInteractiveRender({
+		emojis: baseEmojis,
+		top: true,
 	}),
 };
 

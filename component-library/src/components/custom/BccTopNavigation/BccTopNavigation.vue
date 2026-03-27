@@ -82,10 +82,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 						class="col pointer-events-none flex-1 gap-(--space-negative-25) truncate px-2"
 						:class="titleLeft ? 'items-start text-left' : 'text-center'"
 					>
-						<h1
-							class="truncate leading-tight"
-							:class="heading.title.length > 24 ? 'text-heading-md' : 'text-heading-lg'"
-						>
+						<h1 class="truncate" :class="heading.title.length > 24 ? 'text-heading-md' : 'text-heading-lg'">
 							<slot name="title" :title="heading.title">
 								{{ heading.title }}
 							</slot>
