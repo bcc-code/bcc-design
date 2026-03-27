@@ -93,3 +93,48 @@ export const WithFilter: Story = {
 		`,
 	}),
 };
+
+export const WithCheckmark: Story = {
+	args: {
+		checkmark: true, // assuming BccListbox supports a prop to show checkmark
+		multiple: true,
+	},
+	name: 'With Checkmark',
+	render: args => ({
+		components: { BccListbox },
+		setup() {
+			const selected = ref<(typeof options)[0] | null>(null);
+			return { args, selected, options };
+		},
+		template: `
+			<BccListbox
+				v-model="selected"
+				:options="options"
+				option-label="name"
+				v-bind="args"
+				class="w-full md:w-14rem"
+			/>
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `
+<script setup>
+	const options = [
+		{ name: 'New York', code: 'NY' },
+		{ name: 'Rome', code: 'RM' },
+		{ name: 'London', code: 'LDN' },
+		{ name: 'Istanbul', code: 'IST' },
+		{ name: 'Paris', code: 'PRS' },
+	];
+	const selected = ref<(typeof options)[0] | null>(null);
+</script>
+<template>
+	<BccListbox v-model="selected" :options="options" option-label="name" checkmark class="w-full md:w-14rem" />
+</template>
+				`,
+			},
+		},
+	},
+};
