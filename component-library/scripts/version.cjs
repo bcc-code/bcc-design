@@ -2,7 +2,7 @@ const { exec } = require('node:child_process');
 const { exit } = require('node:process');
 const currentVersion = require('../package.json').version;
 
-const increment = process.argv[2];
+let increment = process.argv[2];
 const channel = process.argv[3] ?? 'release';
 const whatsNew = process.argv[4]?.trim();
 
