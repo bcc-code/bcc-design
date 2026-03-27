@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CheckIcon, CheckIndeterminateSmallIcon } from '@bcc-code/icons-vue';
 import PrimeCheckbox, { type CheckboxProps as PrimeCheckboxProps } from 'primevue/checkbox';
-import { computed, useAttrs } from 'vue';
+import { computed, useAttrs, useId } from 'vue';
 
 defineOptions({ inheritAttrs: false });
 
@@ -19,6 +19,9 @@ const bindings = computed((): PrimeCheckboxProps => {
 	if (typeof rest.value === 'undefined') {
 		rest.binary = true;
 	}
+	if (!rest.inputId) {
+		rest.inputId = `checkbox-${useId()}`;
+	}
 	return { ...rest, ...attrs } as PrimeCheckboxProps;
 });
 </script>
@@ -33,7 +36,7 @@ const bindings = computed((): PrimeCheckboxProps => {
 		</PrimeCheckbox>
 		<label
 			v-if="label"
-			:for="inputId"
+			:for="bindings.inputId"
 			:class="[
 				size === 'large' ? 'text-body-lg' : 'text-body-md',
 				{ 'text-disabled': disabled },
