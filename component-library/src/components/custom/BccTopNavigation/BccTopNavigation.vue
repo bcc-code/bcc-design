@@ -86,10 +86,14 @@ const heading = computed((): { title: string; subtitle: string } => {
 							class="truncate leading-tight"
 							:class="heading.title.length > 24 ? 'text-heading-md' : 'text-heading-lg'"
 						>
-							{{ heading.title }}
+							<slot name="title" :title="heading.title">
+								{{ heading.title }}
+							</slot>
 						</h1>
 						<h2 v-if="heading.subtitle" class="text-body-sm truncate leading-none opacity-75">
-							{{ heading.subtitle }}
+							<slot name="subtitle" :subtitle="heading.subtitle">
+								{{ heading.subtitle }}
+							</slot>
 						</h2>
 					</div>
 
