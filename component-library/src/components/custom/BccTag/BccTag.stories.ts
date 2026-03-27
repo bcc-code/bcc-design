@@ -119,3 +119,21 @@ export const IconVariants: Story = {
 		`,
 	}),
 };
+
+export const Truncate: Story = {
+	render: () => ({
+		components: { BccTag },
+		setup() {
+			return { CheckCircleIcon };
+		},
+		template: `
+			<div class="flex flex-col gap-2">
+				<BccTag truncate class="max-w-49">Short text</BccTag>
+				<BccTag truncate class="max-w-49">This is a very long tag that should be truncated</BccTag>
+				<BccTag truncate class="max-w-49" text="Short text" />
+				<BccTag truncate class="max-w-49" text="This is a very long tag that should be truncated" />
+				<BccTag truncate class="max-w-49" text="This is a very long tag that should be truncated" :icon="CheckCircleIcon" />
+			</div>
+		`,
+	}),
+};

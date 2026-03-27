@@ -14,16 +14,19 @@ export type TagProps = Omit<BadgeProps, 'value' | 'squared'> & {
 	clickable?: boolean;
 	/** Label text for the tag when not using the default slot. */
 	text?: string;
+
+	truncate?: boolean;
 };
 
 const props = defineProps<TagProps>();
 
 const badgeBindings = computed((): BadgeProps => {
-	const { text, icon, iconRight, rounded, ...rest } = props;
+	const { text, icon, iconRight, rounded, truncate, ...rest } = props;
 	void text;
 	void icon;
 	void rounded;
 	void iconRight;
+	void truncate;
 	return rest as BadgeProps;
 });
 </script>
@@ -31,7 +34,9 @@ const badgeBindings = computed((): BadgeProps => {
 <template>
 	<BccBadge class="bcc-tag" :class="{ clickable }" v-bind="badgeBindings" :squared="!rounded">
 		<component :is="icon" v-if="icon" class="bcc-badge-icon" :class="{ 'order-1': iconRight === true }" />
-		<slot>{{ text }}</slot>
+		<span :class="{ truncate }">
+			<slot>{{ text }}</slot>
+		</span>
 		<component :is="iconRight" v-if="iconRight && typeof iconRight !== 'boolean'" class="bcc-badge-icon" />
 	</BccBadge>
 </template>
