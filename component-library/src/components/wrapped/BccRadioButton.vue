@@ -33,7 +33,7 @@ const radioButtonBindings = computed(() => {
 	<div class="flex items-center gap-2" :class="justifyClass">
 		<PrimeRadioButton v-bind="radioButtonBindings" />
 		<label
-			v-if="label"
+			v-if="label || $slots.default"
 			:for="radioButtonBindings.inputId"
 			:class="[
 				size === 'large' ? 'text-body-lg' : 'text-body-md',

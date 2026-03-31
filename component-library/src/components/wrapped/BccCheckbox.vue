@@ -35,7 +35,7 @@ const bindings = computed((): PrimeCheckboxProps => {
 			</template>
 		</PrimeCheckbox>
 		<label
-			v-if="label"
+			v-if="label || $slots.default"
 			:for="bindings.inputId"
 			:class="[
 				size === 'large' ? 'text-body-lg' : 'text-body-md',
