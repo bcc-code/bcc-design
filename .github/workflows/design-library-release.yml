@@ -6,6 +6,8 @@ on:
     types: [published, released, prereleased]
   push:
     branches: [main]
+    tags:
+      - "component-library-*"
     paths:
       - component-library/**
       - .github/workflows/design-library-release.yml
@@ -19,7 +21,7 @@ env:
 
 jobs:
   main-build:
-    if: github.event_name == 'release' && contains(github.event.release.name, 'component-library')
+    if: (github.event_name == 'release' && contains(github.event.release.name, 'component-library')) || (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/component-library-'))
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -56,6 +58,31 @@ jobs:
 
       - name: Publish `@bcc-code/component-library-vue`
         run: npm publish --tag ${{ env.RELEASE_CHANNEL }}
+
+      - name: Resolve release metadata from tag
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/component-library-')
+        id: release_vars
+        run: |
+          TAG_NAME="${{ github.ref_name }}"
+          RELEASE_DESCRIPTION="$(git tag -l --format='%(contents)' "$TAG_NAME" | sed '1,/^$/d')"
+          {
+            echo "TAG_NAME=$TAG_NAME"
+            echo "RELEASE_DESCRIPTION<<EOF"
+            echo "$RELEASE_DESCRIPTION"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+        working-directory: .
+
+      - name: Create GitHub release
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/component-library-')
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.BCC_BOT_ACCESS_TOKEN }}
+          draft: false
+          name: "component-library ${{ steps.release_vars.outputs.TAG_NAME }}"
+          tag_name: ${{ steps.release_vars.outputs.TAG_NAME }}
+          body: ${{ steps.release_vars.outputs.RELEASE_DESCRIPTION }}
+          generate_release_notes: true
 
   test-dev-build:
     if: github.event_name != 'release'

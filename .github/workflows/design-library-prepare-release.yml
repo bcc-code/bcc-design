@@ -2,10 +2,6 @@ name: "Component Library: Prepare Release"
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - "v*"
-      - "component-library-*"
 
 env:
   CI: true
