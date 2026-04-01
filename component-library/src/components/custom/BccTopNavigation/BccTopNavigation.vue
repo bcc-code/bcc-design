@@ -69,13 +69,15 @@ const heading = computed((): { title: string; subtitle: string } => {
 						</button>
 					</template>
 
-					<svg v-if="left === 'event-logo'" class="h-6 w-20" xmlns="http://www.w3.org/2000/svg">
-						<use xlink:href="#svg-splash-icon"></use>
-					</svg>
+					<slot name="left">
+						<svg v-if="left === 'event-logo'" class="h-6 w-20" xmlns="http://www.w3.org/2000/svg">
+							<use xlink:href="#svg-splash-icon"></use>
+						</svg>
 
-					<div v-else-if="left || (hideBack && !titleLeft && (right || $slots.right))" class="flex w-10 items-center">
-						<component :is="left" />
-					</div>
+						<div v-else-if="left || (hideBack && !titleLeft && (right || $slots.right))" class="flex w-10 items-center">
+							<component :is="left" />
+						</div>
+					</slot>
 
 					<div
 						:key="String(heading.title)"
