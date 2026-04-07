@@ -118,3 +118,27 @@ export const CustomLabels: Story = {
 		`,
 	}),
 };
+
+export const UndefinedModelValue: Story = {
+	args: {
+		steps: exampleSteps,
+		hideText: false,
+		hideLabel: false,
+		modelValue: null,
+	},
+	render: args => ({
+		components: { BccStepIndicator },
+		setup() {
+			return { args };
+		},
+		template: `<BccStepIndicator v-bind="args" />`,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'Shows usage of BccStepIndicator when `modelValue` is not defined. Useful to see default step selection behavior.',
+			},
+		},
+	},
+};
