@@ -19,10 +19,13 @@ import '../src/styles/archivo-font.css';
 
 function hexToRgb(hex: string) {
 	hex = hex.replace('#', '');
-	if (hex.length > 6) hex = hex.substring(0, 6);
 	const r = parseInt(hex.substring(0, 2), 16);
 	const g = parseInt(hex.substring(2, 4), 16);
 	const b = parseInt(hex.substring(4, 6), 16);
+	if (hex.length === 8) {
+		const a = parseInt(hex.substring(6, 8), 16) / 255;
+		return `rgba(${r}, ${g}, ${b}, ${parseFloat(a.toFixed(2))})`;
+	}
 	return `rgb(${r}, ${g}, ${b})`;
 }
 
@@ -49,27 +52,39 @@ document.addEventListener('mouseover', (e) => {
 
 	let hex = swatch.getAttribute('data-hex');
 	const token = swatch.getAttribute('data-token');
-	if (!hex && !token) return;
+	const tw = swatch.getAttribute('data-tw');
+	if (!hex && !token && !tw) return;
 
-	if (hex && hex.startsWith('var(')) {
+	// Resolve hex from computed background only for actual color swatches
+	if (hex && hex.startsWith('#')) {
+		// Already a hex value — keep it
+	} else if (hex && hex.startsWith('var(')) {
 		const computed = getComputedStyle(swatch).backgroundColor;
-		const match = computed.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+		const match = computed.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
 		if (match) {
 			hex = '#' + [match[1], match[2], match[3]].map(x => parseInt(x).toString(16).padStart(2, '0')).join('');
+			if (match[4] && parseFloat(match[4]) < 1) {
+				hex += Math.round(parseFloat(match[4]) * 255).toString(16).padStart(2, '0');
+			}
+		} else {
+			hex = null;
 		}
+	} else {
+		hex = null;
 	}
 
 	const rgb = hex ? hexToRgb(hex) : '';
 	const items: { label: string; value: string }[] = [];
 	if (token) items.push({ label: 'Token', value: token });
+	if (tw) items.push({ label: 'Tailwind', value: tw });
 	if (hex) items.push({ label: 'Hex', value: hex });
 	if (rgb) items.push({ label: 'RGB', value: rgb });
 
 	const html = items.map(item =>
-		`<button class="color-copy-btn" data-value="${item.value}">` +
+		`<div class="color-copy-row">` +
 		`<span class="color-copy-label">${item.label}</span>` +
-		`<code class="color-copy-value">${item.value}</code>` +
-		`</button>`
+		`<button class="color-copy-btn" data-value="${item.value}">${item.value}</button>` +
+		`</div>`
 	).join('');
 
 	tippy(swatch, {

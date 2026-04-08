@@ -5,6 +5,17 @@
     font-family: 'Archivo', sans-serif !important;
   }
 
+  /* Reset Storybook's 14px font-size override on docs content */
+  .sbdocs.sbdocs-content :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+  .sbdocs.sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  .sbdocs.sbdocs-content :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) code,
+  .sbdocs.sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) code {
+    font-size: 1em;
+  }
+
 
   /* Lightbox */
   .lightbox-overlay {
@@ -54,10 +65,13 @@
   /* Clickable color swatches */
   .color-swatch {
     cursor: pointer;
-    transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s cubic-bezier(0.2, 0, 0, 1);
   }
-  .color-swatch:hover {
-    box-shadow: inset 2px 0 0 #ffffff, inset -2px 0 0 #ffffff;
+  .color-swatch[data-hex] {
+    transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), outline 0.25s cubic-bezier(0.2, 0, 0, 1);
+  }
+  .color-swatch[data-hex]:hover {
+    outline: 1.5px solid rgba(0, 0, 0, 0.2);
+    outline-offset: -1.5px;
     transform: scale(1.05);
     z-index: 1;
     position: relative;
@@ -78,34 +92,39 @@
     border-bottom-color: #dddee1;
     top: -1px;
   }
-  .color-copy-btn {
+  .color-copy-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 12px;
     padding: 8px 12px;
-    border: none;
-    background: none;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
     font-family: 'Archivo', sans-serif;
   }
-  .color-copy-btn:hover {
-    background: #f8f8f8;
+  .color-copy-row + .color-copy-row {
+    border-top: 1px solid #eee;
+    margin-top: 2px;
+    padding-top: 10px;
   }
   .color-copy-label {
     font-size: 12px;
     color: #6b6e76;
     font-weight: 500;
     flex-shrink: 0;
-    width: 40px;
+    width: 52px;
   }
-  .color-copy-value {
+  .color-copy-btn {
+    display: inline-flex;
+    border: none;
+    background: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 8px;
+    margin: -4px -8px;
+    font-family: monospace;
     font-size: 12px;
     color: #292a2e;
-    font-family: monospace;
+  }
+  .color-copy-btn:hover {
+    background: #f0f1f2;
   }
 </style>
 <script>
