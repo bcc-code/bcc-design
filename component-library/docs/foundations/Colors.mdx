@@ -1,498 +1,128 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
+import * as ColorStories from './Color.stories';
 
 <Meta title="Foundations/Colors" />
 
-# Color
+<Unstyled>
+<div className="font-archivo flex flex-col gap-spacing-600">
 
-<p class="body-lg text-subtle">Color distinguishes our brand, reinforces consistent experiences, and communicates meaning. The BCC color system is built on semantic tokens that adapt to light and dark mode automatically.</p>
+  <div>
+    <h1 className="heading-2xl text-default">Color</h1>
+    <p className="body-lg text-subtle mt-spacing-100">Color distinguishes our brand, reinforces consistent experiences, and communicates meaning. The BCC color system is built on semantic tokens that adapt to light and dark mode automatically.</p>
+  </div>
 
-<br />
-
-## Saturated colors
-
-Saturated colors can infuse meaning to an experience, highlight UI, or create associations with similar colored UI.
-
-<div style={{ marginTop: '24px' }}>
-{(() => {
-  const ramps = [
-    { label: 'Blue', token: 'color.blue', colors: ['#f6fbff','#d9ecff','#a6cdfd','#7cabf9','#608ef6','#446add','#274eb5','#273c8f','#212c64','#091e47'] },
-    { label: 'Teal', token: 'color.teal', colors: ['#f6fbff','#c3f2f8','#82d3e3','#51b9cf','#1a9eb7','#0b7da1','#005b81','#09486b','#0d324d','#0c2132'] },
-    { label: 'Green', token: 'color.green', colors: ['#efffed','#cbf3c9','#83d895','#32c180','#1ca673','#09825d','#0c6241','#094c3b','#073734','#032429'] },
-    { label: 'Brown', token: 'color.brown', colors: ['#f9faf4','#ece8dc','#d1c5b0','#bea889','#a98c66','#8b6d45','#6e5232','#553d28','#3f2c1e','#2e1b0f'] },
-    { label: 'Yellow', token: 'color.yellow', colors: ['#fdf8e9','#f8e6a0','#e9c348','#d5a406','#bc870d','#a4670b','#854901','#653805','#4b2c04','#2d1f00'] },
-    { label: 'Orange', token: 'color.orange', colors: ['#fffaed','#fee3c1','#f6b981','#f19457','#da772e','#b55919','#943a14','#782612','#5d1712','#420e0d'] },
-    { label: 'Red', token: 'color.red', colors: ['#fff8f3','#fee2dd','#fab6ad','#fa877e','#ed6362','#ca414e','#a42237','#811436','#630d2e','#440223'] },
-    { label: 'Magenta', token: 'color.magenta', colors: ['#fff8ff','#fce0f8','#f3b4e2','#eb8acf','#de66b0','#be428f','#952e70','#751f57','#5b1043','#3f0534'] },
-    { label: 'Purple', token: 'color.purple', colors: ['#f6f9ff','#e3e3fe','#c9c3ec','#afa0e0','#9a82da','#8360c3','#61479c','#493481','#352465','#241850'] },
-    { label: 'Brand', token: 'color.bcc', colors: ['#f0fcfa','#d2eeeb','#a0cec8','#6fb5ad','#3e9f97','#1d7f78','#0c625c','#014d49','#0b3633','#012320'] },
-  ];
-  const steps = [100,200,300,400,500,600,700,800,900,1000];
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-      {ramps.map(r => (
-        <div key={r.label} style={{ display: 'flex', alignItems: 'center' }}>
-          <span style={{ width: '72px', fontSize: '13px', fontWeight: 600, flexShrink: 0, color: 'var(--color-text-subtle)' }}>{r.label}</span>
-          <div style={{ display: 'flex', flex: 1 }}>
-            {r.colors.map((c, i) => (
-              <div key={i} style={{ flex: 1 }}>
-                <div class="color-swatch" data-token={`${r.token}.${steps[i]}`} data-hex={c} style={{ width: '100%', height: '36px', backgroundColor: c, borderRadius: i === 0 ? '6px 0 0 6px' : i === r.colors.length - 1 ? '0 6px 6px 0' : '0' }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <span style={{ width: '72px', flexShrink: 0 }} />
-        <div style={{ display: 'flex', flex: 1 }}>
-          {steps.map(s => (
-            <div key={s} style={{ flex: 1, textAlign: 'center', fontSize: '10px', color: 'var(--color-text-subtlest)' }}>{s}</div>
-          ))}
-        </div>
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Saturated colors</h2>
+        <p className="body-md text-subtle mt-spacing-50">Saturated colors can infuse meaning to an experience, highlight UI, or create associations with similar colored UI.</p>
       </div>
+      <Story of={ColorStories.SaturatedColors} sourceState="none" />
     </div>
-  );
-})()}
-</div>
 
-<br />
-
-## Neutral colors
-
-Neutral colors apply to most backgrounds, text, and shapes in our experiences. They don't typically have a meaning associated with them, though they can imply things like disabled states.
-
-<div style={{ marginTop: '24px' }}>
-{(() => {
-  const light = ['#ffffff','#f8f8f8','#f0f1f2','#dddee1','#b7b9be','#8c8f97','#7d818a','#6b6e76','#505258','#3b3d42','#292a2e','#1e1f21'];
-  const dark = ['#18191a','#1f1f21','#242528','#303134','#4b4d51','#63666b','#7e8188','#96999e','#a9abaf','#bfc1c4','#cecfd2','#e2e3e4'];
-  const steps = [0,100,200,300,400,500,600,700,800,900,1000,1100];
-  const ramps = [{ label: 'Light', token: 'color.neutral', colors: light }, { label: 'Dark', token: 'color.dark-neutral', colors: dark }];
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-      {ramps.map(r => (
-        <div key={r.label} style={{ display: 'flex', alignItems: 'center' }}>
-          <span style={{ width: '72px', fontSize: '13px', fontWeight: 600, flexShrink: 0, color: 'var(--color-text-subtle)' }}>{r.label}</span>
-          <div style={{ display: 'flex', flex: 1 }}>
-            {r.colors.map((c, i) => (
-              <div key={i} style={{ flex: 1 }}>
-                <div class="color-swatch" data-token={`${r.token}.${steps[i]}`} data-hex={c} style={{ width: '100%', height: '36px', backgroundColor: c, borderRadius: i === 0 ? '6px 0 0 6px' : i === r.colors.length - 1 ? '0 6px 6px 0' : '0' }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <span style={{ width: '72px', flexShrink: 0 }} />
-        <div style={{ display: 'flex', flex: 1 }}>
-          {steps.map(s => (
-            <div key={s} style={{ flex: 1, textAlign: 'center', fontSize: '10px', color: 'var(--color-text-subtlest)' }}>{s}</div>
-          ))}
-        </div>
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Neutral colors</h2>
+        <p className="body-md text-subtle mt-spacing-50">Neutral colors apply to most backgrounds, text, and shapes in our experiences. They don't typically have a meaning associated with them, though they can imply things like disabled states.</p>
       </div>
+      <Story of={ColorStories.NeutralColors} sourceState="none" />
     </div>
-  );
-})()}
-</div>
 
-<br />
-
-## Alpha colors
-
-Alpha colors have varying levels of transparency or opacity. Transparency helps UI to adapt to different background colors and elevations.
-
-<div style={{ marginTop: '24px' }}>
-{(() => {
-  const lightAlpha = ['#17171708','#0515240f','#0b120e24','#080f214a','#050c1f75'];
-  const darkAlpha = ['#bdbdbd0a','#ceced912','#e3e4f21f','#e5e9f640','#e9f0fb5c'];
-  const steps = ['100A','200A','300A','400A','500A'];
-  const ramps = [{ label: 'Light', token: 'color.neutral-alpha', colors: lightAlpha, bg: '#ffffff' }, { label: 'Dark', token: 'color.dark-neutral-alpha', colors: darkAlpha, bg: '#1f1f21' }];
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-      {ramps.map(r => (
-        <div key={r.label} style={{ display: 'flex', alignItems: 'center' }}>
-          <span style={{ width: '72px', fontSize: '13px', fontWeight: 600, flexShrink: 0, color: 'var(--color-text-subtle)' }}>{r.label}</span>
-          <div style={{ display: 'flex', flex: 1, backgroundColor: r.bg, borderRadius: '6px' }}>
-            {r.colors.map((c, i) => (
-              <div key={i} style={{ flex: 1 }}>
-                <div class="color-swatch" data-token={`${r.token}.${steps[i]}`} data-hex={c} style={{ width: '100%', height: '36px', backgroundColor: c, borderRadius: i === 0 ? '6px 0 0 6px' : i === r.colors.length - 1 ? '0 6px 6px 0' : '0' }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <span style={{ width: '72px', flexShrink: 0 }} />
-        <div style={{ display: 'flex', flex: 1 }}>
-          {steps.map(s => (
-            <div key={s} style={{ flex: 1, textAlign: 'center', fontSize: '10px', color: 'var(--color-text-subtlest)' }}>{s}</div>
-          ))}
-        </div>
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Alpha colors</h2>
+        <p className="body-md text-subtle mt-spacing-50">Alpha colors have varying levels of transparency or opacity. Transparency helps UI to adapt to different background colors and elevations.</p>
       </div>
-    </div>
-  );
-})()}
-</div>
-
-<br />
-
-## Applying color with design tokens
-
-For most BCC product surfaces, color is applied through our design tokens. Instead of picking a specific hex value or shade from the palette, you choose a semantic token that already carries the right meaning and behavior across light and dark themes.
-
-<div style={{ backgroundColor: 'var(--color-neutral-100)', borderRadius: '12px', padding: '32px', marginTop: '32px', display: 'flex', gap: '24px', justifyContent: 'center', alignItems: 'flex-start', border: '1px solid var(--color-border-default)' }}>
-  <img src="/tokens-in-context-parking.png" alt="Parking app screen annotated with semantic tokens" class="lightbox-trigger" style={{ maxWidth: '48%', height: 'auto' }} onClick={() => openLightbox('/tokens-in-context-parking.png')} />
-  <img src="/tokens-in-context-event.png" alt="Event app screen annotated with semantic tokens" class="lightbox-trigger" style={{ maxWidth: '48%', height: 'auto' }} onClick={() => openLightbox('/tokens-in-context-event.png')} />
-</div>
-
-<br />
-
-### Token anatomy
-
-All tokens in the system follow a consistent naming pattern. While the structure stays the same, the actual token applied can vary from one component to another depending on what the component needs.
-
-{(() => {
-  const segments = [
-    { text: 'color', label: 'Category', color: '#6b6e76' },
-    { text: 'background', label: 'Property', color: '#446add' },
-    { text: 'danger', label: 'Role', color: '#0c625c' },
-    { text: 'bold', label: 'Emphasis', color: '#ca414e' },
-    { text: 'hovered', label: 'State', color: '#a4670b' },
-  ];
-  return (
-    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', margin: '40px 0 32px' }}>
-      {segments.map((s, i) => (
-        <div key={i} style={{ display: 'flex', alignItems: 'flex-start' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-            <span style={{ backgroundColor: s.color, color: '#fff', padding: '7px 14px', borderRadius: '999px', fontSize: '14px', fontFamily: 'monospace', fontWeight: 500, lineHeight: 1 }}>{s.text}</span>
-            <span style={{ fontSize: '11px', color: s.color, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{s.label}</span>
-          </div>
-          {i < segments.length - 1 && <div style={{ width: '12px', height: '1.5px', backgroundColor: 'var(--color-text-subtlest)', marginTop: '13px', flexShrink: 0 }} />}
-        </div>
-      ))}
-    </div>
-  );
-})()}
-
-{(() => {
-  const parts = [
-    { label: 'Category', color: '#6b6e76', desc: 'Top-level group', examples: ['color'] },
-    { label: 'Property', color: '#446add', desc: 'Functional area', examples: ['text', 'background', 'border', 'elevation', 'icon'] },
-    { label: 'Role', color: '#0c625c', desc: 'Purpose of the token', examples: ['brand', 'danger', 'success', 'neutral', 'accent-blue'] },
-    { label: 'Emphasis', color: '#ca414e', desc: 'Intensity level', examples: ['subtlest', 'subtler', 'subtle', 'bold', 'bolder'] },
-    { label: 'State', color: '#a4670b', desc: 'Interaction state', examples: ['default', 'hovered', 'pressed'] },
-  ];
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '0', margin: '0 0 24px', borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--color-border-default)' }}>
-      {parts.map((p, idx) => (
-        <div key={p.label} style={{ display: 'flex', alignItems: 'center', gap: '0', borderTop: idx > 0 ? '1px solid var(--color-border-default)' : 'none' }}>
-          <div style={{ width: '4px', alignSelf: 'stretch', backgroundColor: p.color, flexShrink: 0 }} />
-          <div style={{ padding: '12px 16px', width: '130px', flexShrink: 0 }}>
-            <span style={{ fontWeight: 600, fontSize: '13px' }}>{p.label}</span>
-          </div>
-          <div style={{ padding: '12px 0', width: '150px', flexShrink: 0 }}>
-            <span style={{ fontSize: '13px', color: 'var(--color-text-subtle)' }}>{p.desc}</span>
-          </div>
-          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', padding: '12px 16px' }}>
-            {p.examples.map(e => (
-              <code key={e} style={{ fontSize: '12px', padding: '3px 10px', borderRadius: '999px', backgroundColor: p.color + '14', color: p.color, fontWeight: 500 }}>{e}</code>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-})()}
-
-Not every token has all parts — simpler tokens like `color.text.default` omit emphasis and state.
-
-
-<br />
-
-## Color roles
-
-Color roles describe the intention behind the color. For example, color roles are applied to buttons to differentiate between primary, secondary, warning, or dangerous actions.
-
-{(() => {
-  const roles = [
-    { name: 'neutral', color: 'var(--color-neutral-600)', description: 'Use for default text and secondary UI elements, such as secondary buttons or navigation elements.' },
-    { name: 'brand', color: 'var(--color-bcc-600)', description: 'Use for primary actions or elements that communicate the BCC brand.' },
-    { name: 'danger', color: 'var(--color-red-600)', description: 'Errors, destructive actions, or critical warnings.' },
-    { name: 'warning', color: 'var(--color-yellow-500)', description: 'Cautions that need attention but are not critical.' },
-    { name: 'success', color: 'var(--color-green-600)', description: 'Positive feedback, completed actions, or valid states.' },
-    { name: 'information', color: 'var(--color-blue-600)', description: 'Neutral tips, contextual help, or informational banners.' },
-    { name: 'accent', color: 'var(--color-purple-500)', description: 'Categorization without semantic meaning — tags, labels, project icons.' },
-    { name: 'inverse', color: 'var(--color-neutral-1100)', description: 'Use for UI elements that sit on bold emphasis backgrounds.', border: true },
-  ];
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', margin: '32px 0' }}>
-      {roles.map(r => (
-        <div key={r.name} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '150px', flexShrink: 0 }}>
-            <div style={{ width: '14px', height: '14px', borderRadius: '50%', backgroundColor: r.color, flexShrink: 0, border: r.border ? '2px solid var(--color-border-default)' : 'none' }} />
-            <span style={{ fontWeight: 600, fontSize: '14px' }}>{r.name}</span>
-          </div>
-          <span style={{ fontSize: '14px', color: 'var(--color-text-subtle)', lineHeight: '1.5' }}>{r.description}</span>
-        </div>
-      ))}
-    </div>
-  );
-})()}
-
-### Use the right color role
-
-<div style={{ display: 'flex', gap: '16px', margin: '32px 0' }}>
-  <div style={{ flex: 1, borderRadius: '10px', overflow: 'hidden' }}>
-    <div style={{ backgroundColor: 'var(--color-neutral-100)', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', minHeight: '72px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', backgroundColor: 'var(--color-elevation-surface-default)', border: '1px solid var(--color-border-default)', borderRadius: '999px', padding: '6px 14px' }}>
-        <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'var(--color-icon-danger)' }} />
-        <code style={{ fontSize: '12px' }}>color.icon.danger</code>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', backgroundColor: 'var(--color-background-danger-default)', border: '1px solid var(--color-border-danger)', borderRadius: '6px', padding: '6px 12px' }}>
-        <div style={{ width: '14px', height: '14px', borderRadius: '50%', backgroundColor: 'var(--color-icon-danger)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ color: '#fff', fontSize: '10px', fontWeight: 700, lineHeight: 1 }}>!</span>
-        </div>
-        <span style={{ fontSize: '12px', color: 'var(--color-text-danger)' }}>Message Content</span>
-      </div>
-    </div>
-    <div style={{ borderTop: '3px solid var(--color-border-success)' }} />
-    <div style={{ backgroundColor: 'var(--color-background-success-default)', padding: '14px 20px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-        <span style={{ color: 'var(--color-icon-success)', fontSize: '16px', lineHeight: 1 }}>&#10004;</span>
-        <strong style={{ fontSize: '15px' }}>Do</strong>
-      </div>
-      <span style={{ fontSize: '13px', color: 'var(--color-text-subtle)' }}>Use the right color role for your situation.</span>
+      <Story of={ColorStories.AlphaColors} sourceState="none" />
     </div>
   </div>
-  <div style={{ flex: 1, borderRadius: '10px', overflow: 'hidden' }}>
-    <div style={{ backgroundColor: 'var(--color-neutral-100)', padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', minHeight: '72px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', backgroundColor: 'var(--color-elevation-surface-default)', border: '1px solid var(--color-border-default)', borderRadius: '999px', padding: '6px 14px' }}>
-        <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'var(--color-icon-accent-red-default)' }} />
-        <code style={{ fontSize: '12px' }}>color.icon.accent.red</code>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', backgroundColor: 'var(--color-background-accent-red-subtlest-default)', border: '1px solid var(--color-border-accent-red)', borderRadius: '6px', padding: '6px 12px' }}>
-        <div style={{ width: '14px', height: '14px', borderRadius: '50%', backgroundColor: 'var(--color-icon-accent-red-default)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ color: '#fff', fontSize: '10px', fontWeight: 700, lineHeight: 1 }}>!</span>
-        </div>
-        <span style={{ fontSize: '12px', color: 'var(--color-text-accent-red-default)' }}>Message Content</span>
-      </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-300">
+    <div>
+      <h2 className="heading-xl text-default">Applying color with design tokens</h2>
+      <p className="body-md text-subtle mt-spacing-50">For most BCC product surfaces, color is applied through our design tokens. Instead of picking a specific hex value or shade from the palette, you choose a semantic token that already carries the right meaning and behavior across light and dark themes.</p>
     </div>
-    <div style={{ borderTop: '3px solid var(--color-border-danger)' }} />
-    <div style={{ backgroundColor: 'var(--color-background-danger-default)', padding: '14px 20px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-        <span style={{ color: 'var(--color-icon-danger)', fontSize: '16px', lineHeight: 1 }}>&#10006;</span>
-        <strong style={{ fontSize: '15px' }}>Don't</strong>
-      </div>
-      <span style={{ fontSize: '13px', color: 'var(--color-text-subtle)' }}>Don't use an accent when the color has semantic meaning.</span>
+    <div className="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-300 justify-center items-start border border-default">
+      <img src="/tokens-in-context-parking.png" alt="Parking app screen annotated with semantic tokens" className="lightbox-trigger max-w-[48%] h-auto" onClick={() => openLightbox('/tokens-in-context-parking.png')} />
+      <img src="/tokens-in-context-event.png" alt="Event app screen annotated with semantic tokens" className="lightbox-trigger max-w-[48%] h-auto" onClick={() => openLightbox('/tokens-in-context-event.png')} />
     </div>
+    <div>
+      <h3 className="heading-lg text-default">Token anatomy</h3>
+      <p className="body-md text-subtle mt-spacing-50">All tokens in the system follow a consistent naming pattern. While the structure stays the same, the actual token applied can vary from one component to another depending on what the component needs.</p>
+    </div>
+    <Story of={ColorStories.TokenAnatomy} sourceState="none" />
+    <p className="body-sm text-subtlest">Not every token has all parts — simpler tokens like <code>color.text.default</code> omit emphasis and state.</p>
   </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-200">
+    <div>
+      <h2 className="heading-xl text-default">Color roles</h2>
+      <p className="body-md text-subtle mt-spacing-50">Color roles describe the intention behind the color. For example, color roles are applied to buttons to differentiate between primary, secondary, warning, or dangerous actions.</p>
+    </div>
+    <Story of={ColorStories.ColorRoles} sourceState="none" />
+    <h3 className="heading-lg text-default mt-spacing-100">Use the right color role</h3>
+    <Story of={ColorStories.DoColorRole} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-200">
+    <div>
+      <h2 className="heading-xl text-default">Background accent tokens</h2>
+      <p className="body-md text-subtle mt-spacing-50">There are four accent shades of each background color.</p>
+    </div>
+    <Story of={ColorStories.AccentBackgroundGrid} sourceState="none" />
+
+    <div className="mt-spacing-100">
+      <h3 className="heading-lg text-default">Text accent tokens</h3>
+      <p className="body-md text-subtle mt-spacing-50">Text accent tokens have two emphasis levels — default and bolder.</p>
+    </div>
+    <Story of={ColorStories.TextAccentTokens} sourceState="none" />
+
+    <div className="mt-spacing-100">
+      <h3 className="heading-lg text-default">Icon accent tokens</h3>
+      <p className="body-md text-subtle mt-spacing-50">Icon accent, similar to text accent, tokens have two emphasis levels — default and bolder.</p>
+    </div>
+    <Story of={ColorStories.IconAccentTokens} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-200">
+    <div>
+      <h3 className="heading-lg text-default">Accent color accessibility</h3>
+      <p className="body-md text-subtle mt-spacing-50">When pairing accent text or icon colors against backgrounds, make sure they meet minimum contrast requirements:</p>
+      <ul className="body-md text-subtle mt-spacing-100 pl-spacing-250 list-disc">
+        <li><strong>Must pass 3:1 contrast:</strong> Any UI essential to understanding the experience and text 24px or larger (WCAG 1.4.11)</li>
+        <li><strong>Must pass 4.5:1:</strong> Text smaller than 24px (WCAG 1.4.3)</li>
+      </ul>
+    </div>
+    <div>
+      <h4 className="heading-md text-default">Rules for pairing accent text or icon color</h4>
+      <ul className="body-md text-subtle mt-spacing-100 pl-spacing-250 list-disc">
+        <li>Pair default or bolder accent text or icons with subtlest and subtler accent backgrounds</li>
+        <li>Pair bolder accent text or icons with subtle accent backgrounds</li>
+        <li>Pair inverse text or icons with bolder accent backgrounds</li>
+      </ul>
+    </div>
+    <Story of={ColorStories.AccentPairingCards} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-200">
+    <div>
+      <h3 className="heading-lg text-default">Avoid mixing different accent colors</h3>
+      <p className="body-md text-subtle mt-spacing-50">Maintain visual harmony by combining foreground and background elements with colors from the same family.</p>
+    </div>
+    <Story of={ColorStories.DoAccentMixing} sourceState="none" />
+  </div>
+
+  <p className="body-sm text-subtlest">For the full list of token values and hex codes, see <a href="?path=/docs/foundations-tokens--docs">Tokens</a>.</p>
+
 </div>
-
-<br />
-
-## Background accent tokens
-
-There are four accent shades of each background color.
-
-<div style={{ marginTop: '24px' }}>
-{(() => {
-  const hues = ['gray','blue','teal','green','brown','yellow','orange','red','magenta','purple'];
-  const levels = ['subtlest','subtler','subtle','bolder'];
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-      {levels.map(level => (
-        <div key={level} style={{ display: 'flex', alignItems: 'center' }}>
-          <span style={{ width: '72px', fontSize: '13px', fontWeight: 600, flexShrink: 0, color: 'var(--color-text-subtle)', textTransform: 'capitalize' }}>{level}</span>
-          <div style={{ display: 'flex', flex: 1 }}>
-            {hues.map((hue, i) => (
-              <div key={hue} style={{ flex: 1 }}>
-                <div class="color-swatch" data-token={`color.background.accent.${hue}.${level}`} data-hex={`var(--color-background-accent-${hue}-${level}-default)`} style={{
-                  width: '100%',
-                  height: '36px',
-                  backgroundColor: `var(--color-background-accent-${hue}-${level}-default)`,
-                  borderRadius: i === 0 ? '6px 0 0 6px' : i === hues.length - 1 ? '0 6px 6px 0' : '0',
-                }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <span style={{ width: '72px', flexShrink: 0 }} />
-        <div style={{ display: 'flex', flex: 1 }}>
-          {hues.map(hue => (
-            <div key={hue} style={{ flex: 1, textAlign: 'center', fontSize: '10px', color: 'var(--color-text-subtlest)', textTransform: 'capitalize' }}>{hue}</div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-})()}
-</div>
-
-### Text accent tokens
-
-Text accent tokens have two emphasis levels — default and bolder.
-
-<div style={{ display: 'flex', gap: '0', borderRadius: '10px', overflow: 'hidden', margin: '24px 0', backgroundColor: 'var(--color-neutral-100)' }}>
-  <div style={{ flex: 1, padding: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', border: '1px solid var(--color-border-default)', borderRadius: '999px', padding: '6px 14px', backgroundColor: 'var(--color-elevation-surface-default)' }}>
-      <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: 'var(--color-icon-accent-blue-default)' }} />
-      <code style={{ fontSize: '12px' }}>color.text.accent.blue.default</code>
-    </div>
-    <span style={{ color: 'var(--color-text-accent-blue-default)', fontSize: '16px', fontWeight: 600 }}>Text</span>
-    <span style={{ color: 'var(--color-text-accent-blue-default)', fontSize: '14px', fontWeight: 500 }}>Text</span>
-  </div>
-  <div style={{ width: '1px', backgroundColor: 'var(--color-border-default)' }} />
-  <div style={{ flex: 1, padding: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', border: '1px solid var(--color-border-default)', borderRadius: '999px', padding: '6px 14px', backgroundColor: 'var(--color-elevation-surface-default)' }}>
-      <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: 'var(--color-icon-accent-blue-bold)' }} />
-      <code style={{ fontSize: '12px' }}>color.text.accent.blue.bolder</code>
-    </div>
-    <span style={{ color: 'var(--color-text-accent-blue-bold)', fontSize: '16px', fontWeight: 600 }}>Text</span>
-    <span style={{ color: 'var(--color-text-accent-blue-bold)', fontSize: '14px', fontWeight: 500 }}>Text</span>
-  </div>
-</div>
-
-### Icon accent tokens
-
-Icon accent, similar to text accent, tokens have two emphasis levels — default and bolder.
-
-<div style={{ display: 'flex', gap: '0', borderRadius: '10px', overflow: 'hidden', margin: '24px 0', backgroundColor: 'var(--color-neutral-100)' }}>
-  <div style={{ flex: 1, padding: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', border: '1px solid var(--color-border-default)', borderRadius: '999px', padding: '6px 14px', backgroundColor: 'var(--color-elevation-surface-default)' }}>
-      <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: 'var(--color-icon-accent-blue-default)' }} />
-      <code style={{ fontSize: '12px' }}>color.icon.accent.blue.default</code>
-    </div>
-    <span style={{ fontFamily: "'Material Symbols Outlined'", color: 'var(--color-icon-accent-blue-default)', fontSize: '28px', fontVariationSettings: "'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24", lineHeight: 1 }}>auto_fix_high</span>
-    <span style={{ fontFamily: "'Material Symbols Outlined'", color: 'var(--color-icon-accent-blue-default)', fontSize: '28px', fontVariationSettings: "'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24", lineHeight: 1 }}>auto_fix_high</span>
-  </div>
-  <div style={{ width: '1px', backgroundColor: 'var(--color-border-default)' }} />
-  <div style={{ flex: 1, padding: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', border: '1px solid var(--color-border-default)', borderRadius: '999px', padding: '6px 14px', backgroundColor: 'var(--color-elevation-surface-default)' }}>
-      <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: 'var(--color-icon-accent-blue-bold)' }} />
-      <code style={{ fontSize: '12px' }}>color.icon.accent.blue.bolder</code>
-    </div>
-    <span style={{ fontFamily: "'Material Symbols Outlined'", color: 'var(--color-icon-accent-blue-bold)', fontSize: '28px', fontVariationSettings: "'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24", lineHeight: 1 }}>auto_fix_high</span>
-    <span style={{ fontFamily: "'Material Symbols Outlined'", color: 'var(--color-icon-accent-blue-bold)', fontSize: '28px', fontVariationSettings: "'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24", lineHeight: 1 }}>auto_fix_high</span>
-  </div>
-</div>
-
-<br />
-
-### Accent color accessibility
-
-When pairing accent text or icon colors against backgrounds, make sure they meet minimum contrast requirements:
-
-- **Must pass 3:1 contrast:** Any UI essential to understanding the experience and text 24px or larger (WCAG 1.4.11)
-- **Must pass 4.5:1:** Text smaller than 24px (WCAG 1.4.3)
-
-#### Rules for pairing accent text or icon color
-
-- Pair default or bolder accent text or icons with subtlest and subtler accent backgrounds
-- Pair bolder accent text or icons with subtle accent backgrounds
-- Pair inverse text or icons with bolder accent backgrounds
-
-{(() => {
-  const iconStyle = (color) => ({ fontFamily: "'Material Symbols Outlined'", color, fontSize: '24px', fontVariationSettings: "'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24", lineHeight: 1 });
-  const cards = [
-    { bg: 'subtlest', icons: 2, textColors: ['default', 'bold'], labels: ['Default text', 'Bolder text'], label: 'Subtlest' },
-    { bg: 'subtler', icons: 2, textColors: ['default', 'bold'], labels: ['Default text', 'Bolder text'], label: 'Subtler' },
-    { bg: 'subtle', icons: 1, textColors: ['bold'], labels: ['Bolder text'], label: 'Subtle' },
-    { bg: 'bolder', icons: 1, textColors: ['inverse'], labels: ['Inverse text'], label: 'Bolder', inverse: true },
-  ];
-  return (
-    <div style={{ display: 'flex', gap: '10px', margin: '32px 0' }}>
-      {cards.map(c => {
-        const bgVar = `var(--color-background-brand-${c.bg}-default)`;
-        const iconColor = c.inverse ? 'var(--color-icon-inverse)' : 'var(--color-text-brand-default)';
-        const labelColor = c.inverse ? 'var(--color-text-inverse)' : 'var(--color-text-subtlest)';
-        const borderDash = c.inverse ? '1px dashed rgba(255,255,255,0.2)' : '1px dashed var(--color-border-default)';
-        return (
-          <div key={c.bg} style={{ flex: 1, borderRadius: '12px', overflow: 'hidden' }}>
-            <div style={{ backgroundColor: bgVar, padding: '24px 20px 20px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '4px', minHeight: '150px' }}>
-              <div style={{ display: 'flex', gap: '4px', marginBottom: '8px' }}>
-                <span style={iconStyle(iconColor)}>auto_fix_high</span>
-                {c.icons >= 2 && <span style={iconStyle(iconColor)}>auto_fix_high</span>}
-              </div>
-              {c.textColors.map((tc, i) => {
-                const textVar = tc === 'inverse' ? 'var(--color-text-inverse)' : tc === 'default' ? 'var(--color-text-brand-default)' : 'var(--color-text-brand-bold)';
-                return (
-                  <span key={i} style={{ color: textVar, fontSize: '14px', fontWeight: tc === 'bold' || tc === 'inverse' ? 700 : 600 }}>{c.labels[i]}</span>
-                );
-              })}
-            </div>
-            <div style={{ backgroundColor: bgVar, padding: '8px 20px', borderTop: borderDash, fontSize: '12px', color: labelColor, textAlign: 'left', fontWeight: 500 }}>
-              {c.label}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-})()}
-
-<br />
-
-### Avoid mixing different accent colors
-
-Maintain visual harmony by combining foreground and background elements with colors from the same family.
-
-{(() => {
-  const pill = (dot, text) => (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: 'var(--color-elevation-surface-default)', border: '1px solid var(--color-border-default)', borderRadius: '999px', padding: '6px 14px' }}>
-      <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: dot, flexShrink: 0 }} />
-      <code style={{ fontSize: '12px', whiteSpace: 'nowrap' }}>{text}</code>
-    </div>
-  );
-  const line = () => (
-    <div style={{ width: '1.5px', height: '20px', backgroundColor: '#e05555', margin: '0 auto' }} />
-  );
-  const tag = (bgOuter, bgInner, textColor, iconName) => (
-    <div style={{ padding: '8px 16px', borderRadius: '999px', backgroundColor: bgOuter, display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center' }}>
-      <span style={{ fontFamily: "'Material Symbols Outlined'", color: textColor, fontSize: '16px', fontVariationSettings: "'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24", lineHeight: 1, display: 'flex', alignItems: 'center' }}>{iconName}</span>
-      <span style={{ color: textColor, fontSize: '13px', fontWeight: 600, lineHeight: 1 }}>Label</span>
-    </div>
-  );
-  return (
-    <div style={{ display: 'flex', gap: '16px', margin: '32px 0' }}>
-      <div style={{ flex: 1, borderRadius: '10px', overflow: 'hidden' }}>
-        <div style={{ backgroundColor: 'var(--color-neutral-100)', padding: '28px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          {pill('var(--color-background-accent-teal-subtler-default)', 'background.accent.teal.subtler')}
-          {line()}
-          {tag('var(--color-background-accent-teal-subtler-default)', 'var(--color-background-accent-teal-subtle-default)', 'var(--color-text-accent-teal-bold)', 'grid_view')}
-          {line()}
-          {pill('var(--color-icon-accent-teal-bold)', 'text.accent.teal.bold')}
-        </div>
-        <div style={{ borderTop: '3px solid var(--color-border-success)' }} />
-        <div style={{ backgroundColor: 'var(--color-background-success-default)', padding: '14px 20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-            <span style={{ color: 'var(--color-icon-success)', fontSize: '16px', lineHeight: 1 }}>&#10004;</span>
-            <strong style={{ fontSize: '15px' }}>Do</strong>
-          </div>
-          <span style={{ fontSize: '13px', color: 'var(--color-text-subtle)' }}>Use the right color role for your situation.</span>
-        </div>
-      </div>
-      <div style={{ flex: 1, borderRadius: '10px', overflow: 'hidden' }}>
-        <div style={{ backgroundColor: 'var(--color-neutral-100)', padding: '28px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          {pill('var(--color-background-accent-brown-subtler-default)', 'background.accent.brown.subtler')}
-          {line()}
-          {tag('var(--color-background-accent-brown-subtler-default)', 'var(--color-background-accent-teal-subtle-default)', 'var(--color-text-accent-teal-bold)', 'grid_view')}
-          {line()}
-          {pill('var(--color-icon-accent-teal-bold)', 'text.accent.teal.bold')}
-        </div>
-        <div style={{ borderTop: '3px solid var(--color-border-danger)' }} />
-        <div style={{ backgroundColor: 'var(--color-background-danger-default)', padding: '14px 20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-            <span style={{ color: 'var(--color-icon-danger)', fontSize: '16px', lineHeight: 1 }}>&#10006;</span>
-            <strong style={{ fontSize: '15px' }}>Don't</strong>
-          </div>
-          <span style={{ fontSize: '13px', color: 'var(--color-text-subtle)' }}>Don't mix accent hue families across foreground and background.</span>
-        </div>
-      </div>
-    </div>
-  );
-})()}
-
-
-<br />
-
-For the full list of token values and hex codes, see [Tokens](?path=/docs/foundations-tokens--docs).
+</Unstyled>
