@@ -8,9 +8,101 @@ import TooltipDirective from 'primevue/tooltip';
 import ToastService from 'primevue/toastservice';
 import { onMounted, onUnmounted, ref } from 'vue';
 
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+
 import { BccConfirmDialog, BccToast } from '../src/index';
 import '../src/style.css';
 import '../src/styles/archivo-font.css';
+
+/* ── Color swatch copy popover (tippy) ── */
+
+function hexToRgb(hex: string) {
+	hex = hex.replace('#', '');
+	if (hex.length > 6) hex = hex.substring(0, 6);
+	const r = parseInt(hex.substring(0, 2), 16);
+	const g = parseInt(hex.substring(2, 4), 16);
+	const b = parseInt(hex.substring(4, 6), 16);
+	return `rgb(${r}, ${g}, ${b})`;
+}
+
+function showCopyToast(text: string) {
+	let toast = document.getElementById('copy-toast');
+	if (!toast) {
+		toast = document.createElement('div');
+		toast.id = 'copy-toast';
+		toast.className = 'copy-toast';
+		document.body.appendChild(toast);
+	}
+	toast.textContent = 'Copied ' + text;
+	toast.classList.add('show');
+	clearTimeout(toastTimeout);
+	toastTimeout = setTimeout(() => toast!.classList.remove('show'), 1200);
+}
+
+let toastTimeout: ReturnType<typeof setTimeout>;
+let copyLock = false;
+
+document.addEventListener('mouseover', (e) => {
+	const swatch = (e.target as HTMLElement).closest('.color-swatch') as HTMLElement | null;
+	if (!swatch || (swatch as any)._tippy || copyLock) return;
+
+	let hex = swatch.getAttribute('data-hex');
+	const token = swatch.getAttribute('data-token');
+	if (!hex && !token) return;
+
+	if (hex && hex.startsWith('var(')) {
+		const computed = getComputedStyle(swatch).backgroundColor;
+		const match = computed.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+		if (match) {
+			hex = '#' + [match[1], match[2], match[3]].map(x => parseInt(x).toString(16).padStart(2, '0')).join('');
+		}
+	}
+
+	const rgb = hex ? hexToRgb(hex) : '';
+	const items: { label: string; value: string }[] = [];
+	if (token) items.push({ label: 'Token', value: token });
+	if (hex) items.push({ label: 'Hex', value: hex });
+	if (rgb) items.push({ label: 'RGB', value: rgb });
+
+	const html = items.map(item =>
+		`<button class="color-copy-btn" data-value="${item.value}">` +
+		`<span class="color-copy-label">${item.label}</span>` +
+		`<code class="color-copy-value">${item.value}</code>` +
+		`</button>`
+	).join('');
+
+	tippy(swatch, {
+		content: html,
+		allowHTML: true,
+		interactive: true,
+		trigger: 'mouseenter',
+		placement: 'bottom-start',
+		theme: 'color-copy',
+		arrow: true,
+		appendTo: document.body,
+		onCreate(instance) {
+			instance.popper.addEventListener('click', (ev) => {
+				const btn = (ev.target as HTMLElement).closest('.color-copy-btn');
+				if (!btn) return;
+				const val = btn.getAttribute('data-value');
+				if (val) {
+					navigator.clipboard.writeText(val).then(() => {
+						showCopyToast(val);
+						instance.hide();
+						copyLock = true;
+						setTimeout(() => { copyLock = false; }, 400);
+					});
+				}
+			});
+		},
+		onHidden(instance) {
+			instance.destroy();
+		},
+	});
+
+	(swatch as any)._tippy.show();
+});
 
 /** Only one BccConfirmDialog is mounted across all story instances (avoids 5 dialogs on docs page). */
 let confirmDialogSlotClaimed = false;
@@ -82,7 +174,6 @@ setup(app => {
 const preview: Preview = {
 	tags: ['autodocs'],
 	parameters: {
-		actions: { argTypesRegex: '^on[A-Z].*' },
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
@@ -95,16 +186,21 @@ const preview: Preview = {
 		},
 	},
 	decorators: [
-		story => ({
+		(story, context) => ({
 			components: { story, ConfirmDialogSingleton, ToastSingleton },
 			setup() {
 				const toggleDarkMode = () => {
 					document.documentElement.classList.toggle('dark');
 				};
-				return { toggleDarkMode };
+				const minimal = !!context.parameters?.minimal;
+				return { toggleDarkMode, minimal };
 			},
-			template:
-				'<div class="ctx ctx-default p-6 font-sans"><ConfirmDialogSingleton /><ToastSingleton /><story /> <br/> <button @click="toggleDarkMode">🌓</button></div>',
+			template: `
+				<div v-if="minimal" class="sb-unstyled"><story /></div>
+				<div v-else class="ctx ctx-default p-6 font-sans">
+					<ConfirmDialogSingleton /><ToastSingleton /><story /> <br/> <button @click="toggleDarkMode">🌓</button>
+				</div>
+			`,
 		}),
 	],
 };
