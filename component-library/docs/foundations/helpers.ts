@@ -1,13 +1,3 @@
-/**
- * Shared HTML helpers for foundation documentation stories.
- * Keep these minimal — just repeated patterns that appear across multiple story files.
- */
-
-/** Token pill — clickable badge that copies token/tailwind via tippy popover. */
-export function tokenPill(token: string, tw: string) {
-	return `<code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" data-token="${token}" data-tw="${tw}">${token}</code>`;
-}
-
 /** Do/Don't card pair — two side-by-side cards with visual example and guidance text. */
 export function doDont(
 	doExample: string, doText: string,
