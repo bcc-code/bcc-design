@@ -31,15 +31,16 @@ function rampTemplate(ramps: typeof saturatedRamps, stepsArr: (number | string)[
 		const bgStyle = bgFn ? ` style="background:${bgFn(r)}"` : '';
 		const swatches = r.colors.map((c, i) => {
 			const radius = i === 0 ? 'rounded-l-sm' : i === r.colors.length - 1 ? 'rounded-r-sm' : '';
-			return `<div class="color-swatch flex-1 h-[36px] ${radius}" data-token="${r.token}.${stepsArr[i]}" data-hex="${c}" style="background:${c}" />`;
+			const twClass = 'bg-' + r.token.replace('color.', '') + '-' + stepsArr[i];
+			return `<div class="color-swatch flex-1 h-[36px] ${radius}" data-token="${r.token}.${stepsArr[i]}" data-hex="${c}" data-tw="${twClass}" style="background:${c}" />`;
 		}).join('');
 		return `<div class="flex items-center">
-			<span class="body-sm text-subtle w-[72px] font-semibold shrink-0">${r.label}</span>
+			<span class="body-md text-subtle w-[72px] font-semibold shrink-0">${r.label}</span>
 			<div class="flex flex-1 rounded-sm"${bgStyle}>${swatches}</div>
 		</div>`;
 	}).join('');
 
-	const labels = stepsArr.map(s => `<div class="flex-1 text-center body-sm text-subtlest">${s}</div>`).join('');
+	const labels = stepsArr.map(s => `<div class="flex-1 text-center body-md text-subtlest">${s}</div>`).join('');
 
 	return `<div class="flex flex-col gap-spacing-100">
 		${rows}
@@ -86,13 +87,14 @@ export const AccentBackgroundGrid: Story = {
 		template: `
 			<div class="flex flex-col gap-spacing-100">
 				<div v-for="level in levels" :key="level" class="flex items-center">
-					<span class="body-sm text-subtle w-[72px] font-semibold shrink-0 capitalize">{{ level }}</span>
+					<span class="body-md text-subtle w-[72px] font-semibold shrink-0 capitalize">{{ level }}</span>
 					<div class="flex flex-1">
 						<div v-for="(hue, i) in hues" :key="hue" class="flex-1">
 							<div
 								class="color-swatch w-full h-[36px]"
 								:class="{ 'rounded-l-sm': i === 0, 'rounded-r-sm': i === hues.length - 1 }"
 								:data-token="'color.background.accent.' + hue + '.' + level"
+								:data-tw="'bg-accent-' + hue + '-' + level + '-default'"
 								:data-hex="'var(--color-background-accent-' + hue + '-' + level + '-default)'"
 								:style="{ background: 'var(--color-background-accent-' + hue + '-' + level + '-default)' }"
 							/>
@@ -102,7 +104,7 @@ export const AccentBackgroundGrid: Story = {
 				<div class="flex items-center">
 					<span class="w-[72px] shrink-0" />
 					<div class="flex flex-1">
-						<div v-for="hue in hues" :key="hue" class="flex-1 text-center capitalize body-sm text-subtlest">{{ hue }}</div>
+						<div v-for="hue in hues" :key="hue" class="flex-1 text-center capitalize body-md text-subtlest">{{ hue }}</div>
 					</div>
 				</div>
 			</div>
@@ -149,7 +151,7 @@ export const TokenAnatomy: Story = {
 							<span class="heading-sm">{{ p.label }}</span>
 						</div>
 						<div class="py-spacing-150 w-[150px] shrink-0">
-							<span class="body-sm text-subtle">{{ p.desc }}</span>
+							<span class="body-md text-subtle">{{ p.desc }}</span>
 						</div>
 						<div class="flex gap-spacing-75 flex-wrap px-spacing-200 py-spacing-150">
 							<code v-for="e in p.examples" :key="e" class="text-xs font-medium rounded-full px-spacing-150 py-spacing-25" :style="{ background: p.color + '14', color: p.color }">{{ e }}</code>
@@ -218,7 +220,7 @@ export const DoColorRole: Story = {
 							<span class="text-icon-success text-base leading-none">✔</span>
 							<strong class="heading-sm">Do</strong>
 						</div>
-						<span class="body-sm text-subtle">Use the right color role for your situation.</span>
+						<span class="body-md text-subtle">Use the right color role for your situation.</span>
 					</div>
 				</div>
 				<div class="flex-1 rounded-lg overflow-hidden">
@@ -240,7 +242,7 @@ export const DoColorRole: Story = {
 							<span class="text-icon-danger text-base leading-none">✖</span>
 							<strong class="heading-sm">Don't</strong>
 						</div>
-						<span class="body-sm text-subtle">Don't use an accent when the color has semantic meaning.</span>
+						<span class="body-md text-subtle">Don't use an accent when the color has semantic meaning.</span>
 					</div>
 				</div>
 			</div>
@@ -307,7 +309,7 @@ export const DoAccentMixing: Story = {
 							<span class="text-icon-success text-base leading-none">✔</span>
 							<strong class="heading-sm">Do</strong>
 						</div>
-						<span class="body-sm text-subtle">Use the right color role for your situation.</span>
+						<span class="body-md text-subtle">Use the right color role for your situation.</span>
 					</div>
 				</div>
 				<div class="flex-1 rounded-lg overflow-hidden">
@@ -333,7 +335,7 @@ export const DoAccentMixing: Story = {
 							<span class="text-icon-danger text-base leading-none">✖</span>
 							<strong class="heading-sm">Don't</strong>
 						</div>
-						<span class="body-sm text-subtle">Don't mix accent hue families across foreground and background.</span>
+						<span class="body-md text-subtle">Don't mix accent hue families across foreground and background.</span>
 					</div>
 				</div>
 			</div>
