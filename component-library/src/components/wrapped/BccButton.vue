@@ -54,8 +54,4 @@ const buttonBindings = computed((): PrimeButtonProps => {
 	--p-button-primary-active-border-color: var(--ctx-border-pressed);
 	--p-button-primary-active-color: var(--ctx-text-pressed);
 }
-
-.p-button-sm :deep(.p-button-label) {
-	@apply pt-0.5; /* small button label looks like it's slightly too high without this */
-}
 </style>
