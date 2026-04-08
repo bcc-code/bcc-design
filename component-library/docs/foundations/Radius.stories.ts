@@ -57,7 +57,7 @@ export const ExampleXsmall: Story = {
 						<span class="text-sm">Unchecked</span>
 					</div>
 					<div class="flex items-center gap-spacing-100">
-						<div class="w-5 h-5 rounded-2xs shrink-0 flex items-center justify-center" style="background: #014d49">
+						<div class="w-5 h-5 rounded-2xs shrink-0 flex items-center justify-center bg-brand-bolder-default">
 							<span class="text-white text-xs leading-none font-bold">&#x2713;</span>
 						</div>
 						<span class="text-sm">Checked</span>
@@ -65,7 +65,7 @@ export const ExampleXsmall: Story = {
 				</div>
 				<div class="flex flex-col rounded-sm border border-default overflow-hidden bg-elevation-surface-default w-52" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
 					<div class="px-spacing-150 py-spacing-100 text-sm flex items-center gap-spacing-100 border-b border-default">
-						<div class="w-4 h-4 rounded-2xs shrink-0 flex items-center justify-center" style="background: #014d49">
+						<div class="w-4 h-4 rounded-2xs shrink-0 flex items-center justify-center bg-brand-bolder-default">
 							<span class="text-white text-[8px] leading-none font-bold">&#x2713;</span>
 						</div>
 						<span>Option selected</span>
@@ -89,17 +89,17 @@ export const ExampleSmall: Story = {
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-300 items-center justify-center">
 				<div class="flex gap-spacing-100">
-					<div class="rounded-xs px-spacing-150 py-spacing-50" style="background: #f0fcfa; border: 1px solid #014d49">
-						<span class="text-xs font-medium" style="color: #0c625c">Design</span>
+					<div class="rounded-sm py-spacing-50 px-spacing-100 bg-brand-subtlest-default border border-brand">
+						<span class="text-sm font-medium text-brand-default">Design</span>
 					</div>
-					<div class="bg-success-default border border-success rounded-xs px-spacing-150 py-spacing-50">
-						<span class="text-xs font-medium text-success">Published</span>
+					<div class="bg-success-default border border-success rounded-sm py-spacing-50 px-spacing-100">
+						<span class="text-sm font-medium text-success">Published</span>
 					</div>
 				</div>
-				<div class="h-10 rounded-sm border border-default bg-elevation-surface-default px-spacing-150 flex items-center w-44">
+				<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-spacing-150 flex items-center w-44">
 					<span class="text-sm text-subtlest">Search...</span>
 				</div>
-				<div class="h-10 rounded-sm border border-default bg-elevation-surface-default px-spacing-150 flex items-center justify-between w-40">
+				<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-spacing-150 flex items-center justify-between w-40">
 					<span class="text-sm">Category</span>
 					<span class="text-subtle text-xs">&#x25BE;</span>
 				</div>
@@ -112,12 +112,12 @@ export const ExampleMedium: Story = {
 	render: () => ({
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-300 items-center justify-center">
-				<div class="text-inverse rounded-md px-spacing-200 py-spacing-75 text-sm font-medium" style="background: #014d49">Primary</div>
+				<div class="text-inverse rounded-md px-spacing-200 py-spacing-75 text-sm font-medium bg-brand-bolder-default">Primary</div>
 				<div class="bg-elevation-surface-default border border-default rounded-md px-spacing-200 py-spacing-75 text-sm font-medium">Secondary</div>
-				<div class="bg-elevation-surface-default rounded-sm border border-default p-spacing-150 text-xs text-subtle max-w-40" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">Tooltip with helpful context.</div>
+				<div class="bg-elevation-surface-default rounded-md border border-default p-spacing-150 text-sm text-subtle max-w-40" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">Tooltip with helpful context.</div>
 				<div class="flex flex-col rounded-sm border border-default overflow-hidden bg-elevation-surface-default" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
 					<div class="px-spacing-150 py-spacing-100 text-sm">Menu item</div>
-					<div class="px-spacing-150 py-spacing-100 text-sm font-medium" style="background: #f0fcfa; color: #0c625c">Selected</div>
+					<div class="px-spacing-150 py-spacing-100 text-sm font-medium bg-brand-subtlest-default text-brand-default">Selected</div>
 					<div class="px-spacing-150 py-spacing-100 text-sm">Menu item</div>
 				</div>
 			</div>
@@ -129,13 +129,13 @@ export const ExampleLarge: Story = {
 	render: () => ({
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-400 items-start justify-center">
-				<div class="bg-elevation-surface-default rounded-md border border-default p-spacing-250 flex flex-col gap-spacing-150 w-56" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
+				<div class="bg-elevation-surface-default rounded-lg border border-default p-spacing-250 flex flex-col gap-spacing-150 w-56" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
 					<span class="text-sm font-medium">Confirm action</span>
 					<div class="w-full h-3 rounded-xs bg-neutral-200" />
 					<div class="w-3/4 h-3 rounded-xs bg-neutral-200" />
 					<div class="flex gap-spacing-100 justify-end mt-spacing-100">
-						<div class="rounded-md border border-default bg-elevation-surface-default px-spacing-150 py-spacing-75 text-xs font-medium text-subtle">Cancel</div>
-						<div class="rounded-md px-spacing-150 py-spacing-75 text-xs font-medium text-inverse" style="background: #014d49">Confirm</div>
+						<div class="rounded-md border border-default bg-elevation-surface-default px-spacing-150 py-spacing-50 text-sm font-medium text-subtle">Cancel</div>
+						<div class="rounded-md px-spacing-150 py-spacing-50 text-sm font-medium text-inverse bg-brand-bolder-default">Confirm</div>
 					</div>
 				</div>
 				<div class="bg-elevation-surface-default rounded-xl p-spacing-250 flex flex-col gap-spacing-100 w-56" style="box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)">
@@ -155,20 +155,20 @@ export const ExampleFull: Story = {
 			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-400 items-center justify-center">
 				<div class="flex items-center gap-spacing-100">
 					<div class="w-5 h-5 rounded-full border border-default bg-elevation-surface-default" />
-					<div class="w-5 h-5 rounded-full flex items-center justify-center" style="background: #014d49">
+					<div class="w-5 h-5 rounded-full flex items-center justify-center bg-brand-bolder-default">
 						<div class="w-2.5 h-2.5 rounded-full bg-white" />
 					</div>
 				</div>
-				<div class="rounded-full w-10 h-10 flex items-center justify-center" style="background: #014d49">
+				<div class="rounded-full w-10 h-10 flex items-center justify-center bg-brand-bolder-default">
 					<span class="text-sm font-bold text-inverse">BN</span>
 				</div>
-				<div class="text-inverse rounded-full px-spacing-200 py-spacing-75 text-sm font-medium" style="background: #014d49">Rounded</div>
-				<div class="rounded-full px-spacing-150 py-spacing-50 flex items-center gap-spacing-75" style="background: #f0fcfa; border: 1px solid #014d49">
-					<span class="text-xs font-medium" style="color: #0c625c">Label</span>
-					<span class="text-xs leading-none" style="color: #0c625c">&#x2715;</span>
+				<div class="text-inverse rounded-full px-spacing-200 py-spacing-75 text-sm font-medium bg-brand-bolder-default">Rounded</div>
+				<div class="rounded-full px-spacing-150 py-spacing-50 flex items-center gap-spacing-75 bg-brand-subtlest-default border border-brand">
+					<span class="text-xs font-medium text-brand-default">Label</span>
+					<span class="text-xs leading-none text-brand-default">&#x2715;</span>
 				</div>
 				<div class="flex -space-x-2">
-					<div class="rounded-full w-8 h-8 flex items-center justify-center border-2 border-white" style="background: #014d49"><span class="text-xs font-bold text-inverse">A</span></div>
+					<div class="rounded-full w-8 h-8 flex items-center justify-center border-2 border-white bg-brand-bolder-default"><span class="text-xs font-bold text-inverse">A</span></div>
 					<div class="rounded-full w-8 h-8 flex items-center justify-center border-2 border-white" style="background: #0c625c"><span class="text-xs font-bold text-inverse">B</span></div>
 					<div class="rounded-full w-8 h-8 flex items-center justify-center border-2 border-white" style="background: #3e9f97"><span class="text-xs font-bold text-inverse">C</span></div>
 				</div>

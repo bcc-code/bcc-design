@@ -191,18 +191,18 @@ export const ExampleOverlay: Story = {
 	render: () => ({
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-400 items-start justify-center">
-				<div class="bg-elevation-surface-overlay-default rounded-md p-spacing-250 w-56 flex flex-col gap-spacing-150" style="box-shadow: var(--elevation-shadow-overlay)">
+				<div class="bg-elevation-surface-overlay-default rounded-lg p-spacing-250 w-56 flex flex-col gap-spacing-150" style="box-shadow: var(--elevation-shadow-overlay)">
 					<span class="text-sm font-medium">Confirm action</span>
 					<div class="w-full h-3 rounded-xs bg-neutral-200" />
 					<div class="w-3/4 h-3 rounded-xs bg-neutral-200" />
 					<div class="flex gap-spacing-100 justify-end mt-spacing-100">
-						<div class="rounded-md border border-default bg-elevation-surface-default px-spacing-150 py-spacing-75 text-xs font-medium text-subtle">Cancel</div>
-						<div class="rounded-md px-spacing-150 py-spacing-75 text-xs font-medium text-inverse" style="background: #014d49">Confirm</div>
+						<div class="rounded-md border border-default bg-elevation-surface-default px-spacing-150 py-spacing-50 text-sm font-medium text-subtle">Cancel</div>
+						<div class="rounded-md px-spacing-150 py-spacing-50 text-sm font-medium text-inverse bg-brand-bolder-default">Confirm</div>
 					</div>
 				</div>
 				<div class="bg-elevation-surface-overlay-default rounded-sm w-44 flex flex-col overflow-hidden" style="box-shadow: var(--elevation-shadow-overlay)">
 					<div class="px-spacing-150 py-spacing-100 text-sm border-b border-default">Menu item</div>
-					<div class="px-spacing-150 py-spacing-100 text-sm font-medium" style="background: #f0fcfa; color: #0c625c">Selected</div>
+					<div class="px-spacing-150 py-spacing-100 text-sm font-medium bg-brand-subtlest-default text-brand-default">Selected</div>
 					<div class="px-spacing-150 py-spacing-100 text-sm">Menu item</div>
 				</div>
 			</div>

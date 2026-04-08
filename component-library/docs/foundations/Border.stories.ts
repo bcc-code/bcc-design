@@ -54,10 +54,10 @@ export const ExampleDefault: Story = {
 					<div class="w-full h-3 rounded-xs bg-neutral-200" />
 				</div>
 				<div class="flex flex-col gap-spacing-150 w-52">
-					<div class="h-10 rounded-sm border border-default bg-elevation-surface-default px-spacing-150 flex items-center">
+					<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-spacing-150 flex items-center">
 						<span class="text-sm text-subtlest">Text input</span>
 					</div>
-					<div class="h-10 rounded-sm border border-default bg-elevation-surface-default px-spacing-150 flex items-center justify-between">
+					<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-spacing-150 flex items-center justify-between">
 						<span class="text-sm text-default">Select</span>
 						<span class="text-subtle text-xs">&#x25BE;</span>
 					</div>
@@ -84,7 +84,7 @@ export const ExampleSelected: Story = {
 						<span class="text-sm">Unchecked</span>
 					</div>
 					<div class="flex items-center gap-spacing-100">
-						<div class="w-5 h-5 rounded-2xs shrink-0 flex items-center justify-center" style="background: #014d49">
+						<div class="w-5 h-5 rounded-2xs shrink-0 flex items-center justify-center bg-brand-bolder-default">
 							<span class="text-white text-xs leading-none font-bold">&#x2713;</span>
 						</div>
 						<span class="text-sm">Checked</span>
@@ -94,7 +94,7 @@ export const ExampleSelected: Story = {
 						<span class="text-sm">Unselected</span>
 					</div>
 					<div class="flex items-center gap-spacing-100">
-						<div class="w-5 h-5 rounded-full shrink-0 flex items-center justify-center" style="background: #014d49">
+						<div class="w-5 h-5 rounded-full shrink-0 flex items-center justify-center bg-brand-bolder-default">
 							<div class="w-2.5 h-2.5 rounded-full bg-white" />
 						</div>
 						<span class="text-sm">Selected</span>
@@ -102,7 +102,7 @@ export const ExampleSelected: Story = {
 				</div>
 				<div class="flex flex-col bg-elevation-surface-default rounded-sm border border-default overflow-hidden w-52" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
 					<div class="px-spacing-150 py-spacing-100 text-sm text-subtle border-b border-default">Option A</div>
-					<div class="px-spacing-150 py-spacing-100 text-sm font-medium border-l-2 text-selected" style="border-left-color: #014d49; background: #f0fcfa">Option B</div>
+					<div class="px-spacing-150 py-spacing-100 text-sm font-medium border-l-2 border-l-brand bg-brand-subtlest-default text-brand-default">Option B</div>
 					<div class="px-spacing-150 py-spacing-100 text-sm text-subtle border-b border-default">Option C</div>
 				</div>
 			</div>
@@ -115,13 +115,13 @@ export const ExampleFocused: Story = {
 	render: () => ({
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-400 items-center justify-center">
-				<div class="h-10 rounded-sm bg-elevation-surface-default border-2 border-focused flex items-center px-spacing-150 w-48">
+				<div class="h-10 rounded-md bg-elevation-surface-default border-2 border-focused flex items-center px-spacing-150 w-48">
 					<span class="text-sm text-default">Focused input</span>
 				</div>
-				<div class="text-inverse rounded-md px-spacing-200 py-spacing-75 text-sm font-medium" style="background: #014d49; outline: 2px solid var(--color-border-focused); outline-offset: 2px;">
+				<div class="text-inverse rounded-md px-spacing-200 py-spacing-75 text-sm font-medium bg-brand-bolder-default" style="outline: 2px solid var(--color-border-focused); outline-offset: 2px;">
 					Focused button
 				</div>
-				<div class="h-10 rounded-sm bg-elevation-surface-default border-2 border-focused flex items-center justify-between px-spacing-150 w-40">
+				<div class="h-10 rounded-md bg-elevation-surface-default border-2 border-focused flex items-center justify-between px-spacing-150 w-40">
 					<span class="text-sm text-default">Select</span>
 					<span class="text-subtle text-xs">&#x25BE;</span>
 				</div>
@@ -174,25 +174,25 @@ export const PairingExample: Story = {
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-300 justify-center items-start">
 				<div class="flex flex-col items-center gap-spacing-100">
-					<div class="w-28 h-10 rounded-sm bg-elevation-surface-default border border-input flex items-center px-spacing-150">
+					<div class="w-28 h-10 rounded-md bg-elevation-surface-default border border-input flex items-center px-spacing-150">
 						<span class="text-sm text-subtlest">Rest</span>
 					</div>
 					<span class="body-md text-subtlest">1px · input</span>
 				</div>
 				<div class="flex flex-col items-center gap-spacing-100">
-					<div class="w-28 h-10 rounded-sm bg-elevation-surface-default border-2 border-focused flex items-center px-spacing-150">
+					<div class="w-28 h-10 rounded-md bg-elevation-surface-default border-2 border-focused flex items-center px-spacing-150">
 						<span class="text-sm text-default">Focused</span>
 					</div>
 					<span class="body-md text-subtlest">2px · focused</span>
 				</div>
 				<div class="flex flex-col items-center gap-spacing-100">
-					<div class="w-28 h-10 rounded-sm bg-elevation-surface-default border-2 border-selected flex items-center px-spacing-150">
+					<div class="w-28 h-10 rounded-md bg-elevation-surface-default border-2 border-selected flex items-center px-spacing-150">
 						<span class="text-sm text-default">Selected</span>
 					</div>
 					<span class="body-md text-subtlest">2px · selected</span>
 				</div>
 				<div class="flex flex-col items-center gap-spacing-100">
-					<div class="w-28 h-10 rounded-sm bg-elevation-surface-default border border-disabled flex items-center px-spacing-150">
+					<div class="w-28 h-10 rounded-md bg-elevation-surface-default border border-disabled flex items-center px-spacing-150">
 						<span class="text-sm text-disabled">Disabled</span>
 					</div>
 					<span class="body-md text-subtlest">1px · disabled</span>
@@ -207,13 +207,13 @@ export const DoBorderStates: Story = {
 	render: () => ({
 		template: doDont(
 			`<div class="flex gap-spacing-200">
-				<div class="w-24 h-10 rounded-sm bg-elevation-surface-default border border-default flex items-center justify-center"><span class="body-md text-subtle">Default</span></div>
-				<div class="w-24 h-10 rounded-sm bg-elevation-surface-default border-2 border-selected flex items-center justify-center"><span class="body-md text-subtle">Selected</span></div>
+				<div class="w-24 h-10 rounded-md bg-elevation-surface-default border border-default flex items-center justify-center"><span class="body-md text-subtle">Default</span></div>
+				<div class="w-24 h-10 rounded-md bg-elevation-surface-default border-2 border-selected flex items-center justify-center"><span class="body-md text-subtle">Selected</span></div>
 			</div>`,
 			'Use 2px borders only for interactive states like selection and focus.',
 			`<div class="flex gap-spacing-200">
-				<div class="w-24 h-10 rounded-sm bg-elevation-surface-default border-2 border-default flex items-center justify-center"><span class="body-md text-subtle">Item</span></div>
-				<div class="w-24 h-10 rounded-sm bg-elevation-surface-default border-2 border-default flex items-center justify-center"><span class="body-md text-subtle">Item</span></div>
+				<div class="w-24 h-10 rounded-md bg-elevation-surface-default border-2 border-default flex items-center justify-center"><span class="body-md text-subtle">Item</span></div>
+				<div class="w-24 h-10 rounded-md bg-elevation-surface-default border-2 border-default flex items-center justify-center"><span class="body-md text-subtle">Item</span></div>
 			</div>`,
 			"Don't use emphasis borders as decoration on static elements.",
 		),
