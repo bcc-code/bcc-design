@@ -1,47 +1,76 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
+import * as RadiusStories from './Radius.stories';
 
 <Meta title="Foundations/Radius" />
 
-# Radius
+<Unstyled>
+<div className="font-archivo flex flex-col gap-spacing-600">
 
-Border radius tokens for consistent corner roundness.
+  <div>
+    <h1 className="heading-2xl text-default">Radius</h1>
+    <p className="body-lg text-subtle mt-spacing-100">Border radius controls how rounded corners appear across the system. Smaller, denser components use tighter radii while larger surfaces use progressively rounder corners — keeping visual weight proportional to size.</p>
+  </div>
 
-## Scale
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Radius tokens and usage guidelines</h2>
+        <p className="body-md text-subtle mt-spacing-50">Use radius tokens to apply roundness across different states and use cases.</p>
+      </div>
+      <Story of={RadiusStories.TokensTable} sourceState="none" />
+    </div>
+  </div>
 
-| Token         | Tailwind       | CSS             | Value          | Use for                           |
-| ------------- | -------------- | --------------- | -------------- | --------------------------------- |
-| `radius.none` | `rounded-none` | `--radius-none` | 0              | Sharp corners, tables             |
-| `radius.2xs`  | `rounded-2xs`  | `--radius-2xs`  | 0.125rem (2px) | Badges, checkboxes                |
-| `radius.xs`   | `rounded-xs`   | `--radius-xs`   | 0.25rem (4px)  | Tags, tooltips                    |
-| `radius.sm`   | `rounded-sm`   | `--radius-sm`   | 0.375rem (6px) | Buttons, inputs                   |
-| `radius.md`   | `rounded-md`   | `--radius-md`   | 0.5rem (8px)   | Cards, dropdowns                  |
-| `radius.lg`   | `rounded-lg`   | `--radius-lg`   | 0.75rem (12px) | Modals, panels                    |
-| `radius.xl`   | `rounded-xl`   | `--radius-xl`   | 1rem (16px)    | Feature sections                  |
-| `radius.2xl`  | `rounded-2xl`  | `--radius-2xl`  | 1.5rem (24px)  | Hero sections                     |
-| `radius.3xl`  | `rounded-3xl`  | `--radius-3xl`  | 2rem (32px)    | Decorative elements               |
-| `radius.4xl`  | `rounded-4xl`  | `--radius-4xl`  | 3rem (48px)    | Decorative elements               |
-| `radius.full` | `rounded-full` | `--radius-full` | 999px          | Avatars, pills, circular buttons  |
+  <hr className="border-default" />
 
-## Common Patterns
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <h2 className="heading-xl text-default">Radius examples and usage</h2>
+    </div>
 
-| Component | Radius         |
-| --------- | -------------- |
-| Buttons   | `rounded-sm`   |
-| Inputs    | `rounded-sm`   |
-| Cards     | `rounded-md`   |
-| Modals    | `rounded-lg`   |
-| Avatars   | `rounded-full` |
-| Badges    | `rounded-2xs`  |
-| Tags      | `rounded-xs`   |
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Extra small (2xs) — 2px</h3>
+        <p className="body-md text-subtle mt-spacing-50">Small detail elements like checkboxes and select option items.</p>
+      </div>
+      <Story of={RadiusStories.ExampleXsmall} sourceState="none" />
+    </div>
 
-## Guidelines
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Small (xs) — 4px</h3>
+        <p className="body-md text-subtle mt-spacing-50">Supporting elements: tags, labels, inputs, selects, and date pickers.</p>
+      </div>
+      <Story of={RadiusStories.ExampleSmall} sourceState="none" />
+    </div>
 
-| Do                                              | Don't                                       |
-| ----------------------------------------------- | ------------------------------------------- |
-| Use consistent radius within component families | Mix different radii on similar components   |
-| Match nested element radii to their container   | Use sharp corners inside rounded containers |
-| Use `rounded-full` for circular elements only   | Apply `rounded-full` to rectangular content |
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Medium (sm) — 6px</h3>
+        <p className="body-md text-subtle mt-spacing-50">Interactive elements: buttons, tooltips, dropdown menus, and navigation items.</p>
+      </div>
+      <Story of={RadiusStories.ExampleMedium} sourceState="none" />
+    </div>
 
-## Figma
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Large (md, lg) — 8–12px</h3>
+        <p className="body-md text-subtle mt-spacing-50">Containment elements: dialogs, cards, modals, and panels.</p>
+      </div>
+      <Story of={RadiusStories.ExampleLarge} sourceState="none" />
+    </div>
 
-See the design specs in Figma (link coming soon).
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Full — 999px</h3>
+        <p className="body-md text-subtle mt-spacing-50">Circular and pill-shaped elements: avatars, radio buttons, rounded buttons, and tags.</p>
+      </div>
+      <Story of={RadiusStories.ExampleFull} sourceState="none" />
+    </div>
+  </div>
+
+
+  <p className="body-md text-subtlest">For the full token list, see <a className="text-link-default" href="?path=/docs/foundations-tokens--docs">Tokens</a>.</p>
+
+</div>
+</Unstyled>
