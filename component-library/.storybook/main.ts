@@ -15,6 +15,7 @@ const config: StorybookConfig = {
 			},
 		},
 	],
+	staticDirs: ['../docs/assets'],
 	framework: {
 		name: '@storybook/vue3-vite',
 		options: {},

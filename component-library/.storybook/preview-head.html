@@ -1,0 +1,263 @@
+<link rel="stylesheet" href="https://design.bcc.no/fonts/stylesheet.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,1,0" />
+<style>
+  body, .sbdocs-content, .docs-story {
+    font-family: 'Archivo', sans-serif !important;
+  }
+
+  /* Override Storybook defaults so design system utilities win */
+  .sbdocs-content .body-sm { font: var(--body-sm) !important; }
+  .sbdocs-content .body-md { font: var(--body-md) !important; }
+  .sbdocs-content .body-lg { font: var(--body-lg) !important; }
+  .sbdocs-content .heading-xs { font: var(--heading-xs) !important; }
+  .sbdocs-content .heading-sm { font: var(--heading-sm) !important; }
+  .sbdocs-content .heading-md { font: var(--heading-md) !important; }
+  .sbdocs-content .heading-lg { font: var(--heading-lg) !important; }
+  .sbdocs-content .heading-xl { font: var(--heading-xl) !important; }
+  .sbdocs-content .heading-2xl { font: var(--heading-2xl) !important; }
+  .sbdocs-content .text-default { color: var(--color-text-default) !important; }
+  .sbdocs-content .text-subtle { color: var(--color-text-subtle) !important; }
+  .sbdocs-content .text-subtlest { color: var(--color-text-subtlest) !important; }
+
+  /* Lightbox */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--color-blanket-default);
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox-overlay.active {
+    display: flex;
+  }
+  .lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: var(--shadow-overlay);
+  }
+  .lightbox-trigger {
+    cursor: zoom-in;
+  }
+
+  /* Copy toast */
+  .copy-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e1f21;
+    color: #fff;
+    font-size: 13px;
+    font-family: 'Archivo', monospace;
+    padding: 8px 16px;
+    border-radius: 8px;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+  .copy-toast.show {
+    opacity: 1;
+  }
+
+  /* Clickable color swatches */
+  .color-swatch {
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  .color-swatch:hover {
+    transform: scaleY(1.3);
+    box-shadow: 0 0 0 2px #ffffff;
+    z-index: 1;
+    position: relative;
+  }
+
+  /* Color copy popover */
+  .color-popover {
+    position: fixed;
+    z-index: 10001;
+    background: #ffffff;
+    border: 1px solid #dddee1;
+    border-radius: 10px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    min-width: 220px;
+  }
+  .color-popover::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 16px;
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-left: 1px solid #dddee1;
+    border-top: 1px solid #dddee1;
+    transform: rotate(45deg);
+  }
+  .color-popover-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-family: 'Archivo', sans-serif;
+  }
+  .color-popover-btn:hover {
+    background: #f8f8f8;
+  }
+  .color-popover-label {
+    font-size: 12px;
+    color: #6b6e76;
+    font-weight: 500;
+    flex-shrink: 0;
+    width: 40px;
+  }
+  .color-popover-value {
+    font-size: 12px;
+    color: #292a2e;
+    font-family: monospace;
+  }
+</style>
+<script>
+  function openLightbox(src) {
+    var el = document.getElementById('docs-lightbox');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'docs-lightbox';
+      el.className = 'lightbox-overlay';
+      el.innerHTML = '<img />';
+      el.addEventListener('click', function() { el.classList.remove('active'); });
+      document.body.appendChild(el);
+    }
+    el.querySelector('img').src = src;
+    el.classList.add('active');
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var el = document.getElementById('docs-lightbox');
+      if (el) el.classList.remove('active');
+    }
+  });
+
+  // Click-to-copy on color swatches — shows popover with token, hex, rgb
+  function hexToRgb(hex) {
+    hex = hex.replace('#', '');
+    if (hex.length > 6) hex = hex.substring(0, 6);
+    var r = parseInt(hex.substring(0, 2), 16);
+    var g = parseInt(hex.substring(2, 4), 16);
+    var b = parseInt(hex.substring(4, 6), 16);
+    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+  }
+
+  function showCopyToast(text) {
+    var toast = document.getElementById('copy-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'copy-toast';
+      toast.className = 'copy-toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = 'Copied ' + text;
+    toast.classList.add('show');
+    clearTimeout(toast._timeout);
+    toast._timeout = setTimeout(function() { toast.classList.remove('show'); }, 1200);
+  }
+
+  var popoverTimeout = null;
+
+  document.addEventListener('mouseover', function(e) {
+    var swatch = e.target.closest('.color-swatch');
+    if (!swatch) return;
+
+    clearTimeout(popoverTimeout);
+
+    var hex = swatch.getAttribute('data-hex');
+    var token = swatch.getAttribute('data-token');
+    if (!hex && !token) return;
+
+    // Resolve CSS variable to computed color
+    if (hex && hex.startsWith('var(')) {
+      var computed = getComputedStyle(swatch).backgroundColor;
+      if (computed) {
+        // Convert rgb(r, g, b) to hex
+        var match = computed.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+        if (match) {
+          hex = '#' + [match[1], match[2], match[3]].map(function(x) {
+            return parseInt(x).toString(16).padStart(2, '0');
+          }).join('');
+        } else {
+          hex = computed;
+        }
+      }
+    }
+
+    var existing = document.getElementById('color-popover');
+    if (existing) existing.remove();
+
+    var rgb = hexToRgb(hex);
+
+    var popover = document.createElement('div');
+    popover.id = 'color-popover';
+    popover.className = 'color-popover';
+
+    var items = [];
+    if (token) items.push({ label: 'Token', value: token });
+    items.push({ label: 'Hex', value: hex });
+    items.push({ label: 'RGB', value: rgb });
+
+    popover.innerHTML = items.map(function(item) {
+      return '<button class="color-popover-btn" data-value="' + item.value + '">' +
+        '<span class="color-popover-label">' + item.label + '</span>' +
+        '<code class="color-popover-value">' + item.value + '</code>' +
+        '</button>';
+    }).join('');
+
+    var rect = swatch.getBoundingClientRect();
+    popover.style.top = (rect.bottom + 8) + 'px';
+    popover.style.left = rect.left + 'px';
+
+    document.body.appendChild(popover);
+
+    // Keep popover open when hovering over it
+    popover.addEventListener('mouseenter', function() {
+      clearTimeout(popoverTimeout);
+    });
+    popover.addEventListener('mouseleave', function() {
+      popoverTimeout = setTimeout(function() { popover.remove(); }, 150);
+    });
+
+    // Click to copy
+    popover.addEventListener('click', function(ev) {
+      var btn = ev.target.closest('.color-popover-btn');
+      if (!btn) return;
+      var val = btn.getAttribute('data-value');
+      navigator.clipboard.writeText(val).then(function() {
+        showCopyToast(val);
+        popover.remove();
+      });
+    });
+  });
+
+  document.addEventListener('mouseout', function(e) {
+    var swatch = e.target.closest('.color-swatch');
+    if (!swatch) return;
+    popoverTimeout = setTimeout(function() {
+      var existing = document.getElementById('color-popover');
+      if (existing) existing.remove();
+    }, 150);
+  });
+</script>
