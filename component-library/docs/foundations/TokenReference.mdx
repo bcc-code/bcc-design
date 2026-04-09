@@ -1,0 +1,163 @@
+import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
+import * as RefStories from './TokenReference.stories';
+
+<Meta title="Foundations/Token Reference" />
+
+<Unstyled>
+<div className="font-archivo flex flex-col gap-spacing-600">
+
+  <div>
+    <h1 className="heading-2xl text-default">Token Reference</h1>
+    <p className="body-lg text-subtle mt-spacing-100">All semantic tokens available for use. Click token pills to copy, hover swatches for hex values. For concepts and usage, see <a className="text-link-default" href="?path=/docs/foundations-tokens--docs">Design Tokens</a>.</p>
+  </div>
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Color — Text</h2>
+    <Story of={RefStories.ColorText} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Status and brand</h3>
+    <Story of={RefStories.ColorTextStatus} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Link</h3>
+    <Story of={RefStories.ColorLink} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Color — Icon</h2>
+    <Story of={RefStories.ColorIcon} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Color — Border</h2>
+    <Story of={RefStories.ColorBorder} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Color — Background</h2>
+
+    <h3 className="heading-lg text-default">Elevation / Surface</h3>
+    <Story of={RefStories.ColorBgElevation} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Brand</h3>
+    <Story of={RefStories.ColorBgBrand} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Status</h3>
+    <p className="body-md text-subtle">Showing default and bolder variants. Hovered and pressed states follow the same pattern.</p>
+    <Story of={RefStories.ColorBgStatus} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Selected</h3>
+    <Story of={RefStories.ColorBgSelected} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Input</h3>
+    <Story of={RefStories.ColorBgInput} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Alpha / Transparent</h3>
+    <Story of={RefStories.ColorBgAlpha} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Overlay, disabled, inverse</h3>
+    <Story of={RefStories.ColorBgOverlay} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Color — Utility</h2>
+
+    <h3 className="heading-lg text-default">Blanket</h3>
+    <p className="body-md text-subtle">Modal backdrop overlays.</p>
+    <Story of={RefStories.ColorBlanket} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Interaction</h3>
+    <p className="body-md text-subtle">Hover and press state overlays.</p>
+    <Story of={RefStories.ColorInteraction} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Skeleton</h3>
+    <p className="body-md text-subtle">Loading placeholder colors.</p>
+    <Story of={RefStories.ColorSkeleton} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Elevation — Shadow</h2>
+    <p className="body-md text-subtle">Pair with the corresponding surface token for proper elevation layering.</p>
+    <Story of={RefStories.ElevationShadow} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Accent — Text</h2>
+    <p className="body-md text-subtle">Per-color text tokens for colored labels, tags, and highlights. Each color has a default and bold variant.</p>
+    <Story of={RefStories.AccentText} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Accent — Icon</h2>
+    <Story of={RefStories.AccentIcon} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Accent — Border</h2>
+    <Story of={RefStories.AccentBorder} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Accent — Background</h2>
+    <p className="body-md text-subtle">Showing subtlest level for each color. Each also has subtler, subtle, and bolder variants, each with default/hovered/pressed states.</p>
+    <Story of={RefStories.AccentBgSubtlest} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Spacing</h2>
+    <Story of={RefStories.SpaceTokens} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Typography</h2>
+
+    <h3 className="heading-lg text-default">Heading</h3>
+    <Story of={RefStories.FontHeading} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Body</h3>
+    <Story of={RefStories.FontBody} sourceState="none" />
+
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Border</h2>
+
+    <h3 className="heading-lg text-default">Width</h3>
+    <Story of={RefStories.BorderWidth} sourceState="none" />
+
+    <h3 className="heading-lg text-default">Radius</h3>
+    <Story of={RefStories.RadiusTokens} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Icon size</h2>
+    <Story of={RefStories.IconSize} sourceState="none" />
+  </div>
+
+</div>
+</Unstyled>

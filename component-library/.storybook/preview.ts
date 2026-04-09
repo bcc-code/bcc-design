@@ -58,6 +58,8 @@ document.addEventListener('mouseover', (e) => {
 	// Resolve hex from computed background only for actual color swatches
 	if (hex && hex.startsWith('#')) {
 		// Already a hex value — keep it
+	} else if (hex && hex.startsWith('rgba(')) {
+		// Already an rgba value — keep it as-is
 	} else if (hex && hex.startsWith('var(')) {
 		const computed = getComputedStyle(swatch).backgroundColor;
 		const match = computed.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
@@ -73,17 +75,22 @@ document.addEventListener('mouseover', (e) => {
 		hex = null;
 	}
 
-	const rgb = hex ? hexToRgb(hex) : '';
+	const isRgba = hex && hex.startsWith('rgba(');
+	const rgb = hex && !isRgba ? hexToRgb(hex) : '';
 	const items: { label: string; value: string }[] = [];
 	if (token) items.push({ label: 'Token', value: token });
+	if (token && !hex) {
+		const cssVar = 'var(--' + token.replace(/\./g, '-') + ')';
+		items.push({ label: 'CSS', value: cssVar });
+	}
 	if (tw) items.push({ label: 'Tailwind', value: tw });
-	if (hex) items.push({ label: 'Hex', value: hex });
+	if (hex) items.push({ label: isRgba ? 'RGBA' : 'Hex', value: hex });
 	if (rgb) items.push({ label: 'RGB', value: rgb });
 
 	const html = items.map(item =>
 		`<div class="color-copy-row">` +
 		`<span class="color-copy-label">${item.label}</span>` +
-		`<button class="color-copy-btn" data-value="${item.value}">${item.value}</button>` +
+		`<button class="color-copy-btn" data-value="${item.value}">${item.value}<span class="color-copy-icon">&#xe14d;</span></button>` +
 		`</div>`
 	).join('');
 

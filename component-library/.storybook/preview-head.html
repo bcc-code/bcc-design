@@ -164,6 +164,13 @@
     z-index: 1;
     position: relative;
   }
+  .color-swatch-no-hover[data-hex] {
+    transition: none;
+  }
+  .color-swatch-no-hover[data-hex]:hover {
+    outline: none;
+    transform: none;
+  }
 
   /* Tippy popover theme */
   .tippy-box[data-theme~='color-copy'] {
@@ -213,6 +220,16 @@
   }
   .color-copy-btn:hover {
     background: #f0f1f2;
+  }
+  .color-copy-icon {
+    font-family: 'Material Symbols Outlined';
+    font-size: 14px;
+    opacity: 0;
+    margin-left: 4px;
+    transition: opacity 0.15s;
+  }
+  .color-copy-btn:hover .color-copy-icon {
+    opacity: 0.5;
   }
 </style>
 <script>
