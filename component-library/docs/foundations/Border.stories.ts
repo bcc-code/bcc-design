@@ -34,7 +34,7 @@ export const WidthTokens: Story = {
 					<span class="body-md text-subtle flex-1">{{ r.suitable }}</span>
 					<span class="body-md font-semibold w-16 shrink-0 text-right">{{ r.value }}</span>
 					<div class="w-20 shrink-0 flex justify-end">
-						<div class="w-10 h-10 rounded-sm bg-neutral-200" :style="{ border: r.value + ' solid var(--color-border-brand)' }" />
+						<div class="w-10 h-10 rounded-sm bg-neutral-200" :style="{ border: r.value + ' solid #9a82da' }" />
 					</div>
 				</div>
 				<p class="body-md text-subtlest mt-spacing-100">* Token values are subject to change and should be used as an indication only.</p>
