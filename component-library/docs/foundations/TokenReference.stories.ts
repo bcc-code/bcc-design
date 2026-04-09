@@ -316,21 +316,19 @@ export const ElevationShadow: Story = {
 			<div class="flex flex-col">
 				<div class="flex items-center gap-spacing-200 border-b border-default pb-spacing-100">
 					<span class="body-md font-semibold flex-1">Token and description</span>
-					<span class="body-md font-semibold w-32 text-center ml-auto">Light</span>
-					<span class="body-md font-semibold w-32 text-center">Dark</span>
+					<span class="body-md font-semibold w-40 text-center ml-auto">Light</span>
+					<span class="body-md font-semibold w-40 text-center">Dark</span>
 				</div>
 				<div v-for="t in tokens" :key="t.token" class="flex items-start gap-spacing-200 border-b border-default py-spacing-200">
 					<div class="flex flex-col gap-spacing-50 flex-1">
 						<code class="text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover" :data-token="t.token" :data-tw="t.css" >{{ t.token }}</code>
 						<span v-if="t.desc" class="body-md text-subtle">{{ t.desc }}</span>
 					</div>
-					<div class="w-32 ml-auto shrink-0">
-						<div class="w-28 h-20 rounded-lg bg-elevation-surface-default mx-auto" :style="{ boxShadow: t.value }"></div>
+					<div class="w-40 ml-auto shrink-0 p-spacing-200 rounded-lg bg-neutral-100">
+						<div class="w-full h-20 rounded-lg bg-elevation-surface-default" :style="{ boxShadow: t.value }"></div>
 					</div>
-					<div class="w-32 shrink-0">
-						<div class="rounded-lg p-spacing-50 bg-neutral-900">
-							<div class="w-28 h-20 rounded-lg bg-neutral-800 mx-auto" :style="{ boxShadow: t.darkValue }"></div>
-						</div>
+					<div class="w-40 shrink-0 p-spacing-200 rounded-lg bg-neutral-900">
+						<div class="w-full h-20 rounded-lg bg-neutral-800" :style="{ boxShadow: t.darkValue }"></div>
 					</div>
 				</div>
 			</div>
