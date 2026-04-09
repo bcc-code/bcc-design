@@ -7,28 +7,26 @@
 	}
 
 	.bcc-app-nav-item {
-		@apply ctx-gray-subtlest text-ctx relative flex h-12 flex-1 flex-col items-center justify-center gap-1 transition-colors focus:ring-0 focus:outline-none;
+		@apply relative flex h-12 flex-1 flex-col items-center justify-center gap-1 transition-colors focus:ring-0 focus:outline-none;
 	}
 
 	.bcc-nav-item-icon {
-		@apply size-6 opacity-50;
+		@apply size-6 icon-subtlest;
 	}
 
 	.bcc-nav-item-badge {
-		@apply absolute top-0 right-1 opacity-75;
+		@apply absolute top-0 right-1;
 	}
 
 	.bcc-nav-item-title {
-		@apply text-heading-xs text-center opacity-50;
+		@apply text-heading-xs text-center text-subtlest opacity-75;
 	}
 
-	.bcc-app-nav-item--active {
-		@apply text-selected;
-	}
-
-	.bcc-app-nav-item--active .bcc-nav-item-icon,
-	.bcc-app-nav-item--active .bcc-nav-item-badge,
 	.bcc-app-nav-item--active .bcc-nav-item-title {
-		@apply opacity-100;
+		@apply text-selected opacity-100;
+	}
+
+	.bcc-app-nav-item--active .bcc-nav-item-icon {
+		@apply text-selected;
 	}
 }
