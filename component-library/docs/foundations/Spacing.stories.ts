@@ -1,0 +1,220 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { doDont } from './helpers';
+
+const meta = {
+	title: 'Foundations/Spacing/Demos',
+	tags: ['!autodocs', '!dev'],
+	parameters: { minimal: true },
+} satisfies Meta;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const SpacingScale: Story = {
+	render: () => ({
+		setup() {
+			const tokens = [
+				{ name: 'spacing.0', mult: '0×', rem: '0rem', px: '0px', width: 0 },
+				{ name: 'spacing.25', mult: '0.25×', rem: '0.125rem', px: '2px', width: 2 },
+				{ name: 'spacing.50', mult: '0.5×', rem: '0.25rem', px: '4px', width: 4 },
+				{ name: 'spacing.75', mult: '0.75×', rem: '0.375rem', px: '6px', width: 6 },
+				{ name: 'spacing.100', mult: '1×', rem: '0.5rem', px: '8px', width: 8 },
+				{ name: 'spacing.150', mult: '1.5×', rem: '0.75rem', px: '12px', width: 12 },
+				{ name: 'spacing.200', mult: '2×', rem: '1rem', px: '16px', width: 16 },
+				{ name: 'spacing.250', mult: '2.5×', rem: '1.25rem', px: '20px', width: 20 },
+				{ name: 'spacing.300', mult: '3×', rem: '1.5rem', px: '24px', width: 24 },
+				{ name: 'spacing.400', mult: '4×', rem: '2rem', px: '32px', width: 32 },
+				{ name: 'spacing.500', mult: '5×', rem: '2.5rem', px: '40px', width: 40 },
+				{ name: 'spacing.600', mult: '6×', rem: '3rem', px: '48px', width: 48 },
+				{ name: 'spacing.800', mult: '8×', rem: '4rem', px: '64px', width: 64 },
+				{ name: 'spacing.1000', mult: '10×', rem: '5rem', px: '80px', width: 80 },
+			];
+			return { tokens };
+		},
+		template: `
+			<div class="flex flex-col">
+				<div class="flex items-center gap-spacing-200 border-b border-default pb-spacing-100">
+					<span class="body-md font-semibold w-28 shrink-0">Token</span>
+					<span class="body-md font-semibold w-14 shrink-0 text-right">Multiplier</span>
+					<span class="body-md font-semibold w-20 shrink-0 text-right">REM</span>
+					<span class="body-md font-semibold w-12 shrink-0 text-right">Pixels</span>
+					<span class="body-md font-semibold flex-1 pl-spacing-200">Visual</span>
+				</div>
+				<div v-for="t in tokens" :key="t.name" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
+					<div class="w-28 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="t.name" :data-tw="'*-' + t.name.replace('spacing.', 'spacing-')">{{ t.name }}</code></div>
+					<span class="body-md text-subtlest w-14 shrink-0 text-right">{{ t.mult }}</span>
+					<span class="body-md text-subtlest w-20 shrink-0 text-right">{{ t.rem }}</span>
+					<span class="body-md text-subtlest w-12 shrink-0 text-right">{{ t.px }}</span>
+					<div class="flex-1 flex items-center pl-spacing-200">
+						<div class="h-3 rounded-sm" :style="{ width: Math.max(t.width, 1) + 'px', background: '#9a82da' }" />
+					</div>
+				</div>
+			</div>
+		`,
+	}),
+};
+
+export const SpacingRuler: Story = {
+	render: () => ({
+		setup() {
+			const ticks = [
+				{ px: 0, label: '0', bold: true }, { px: 2, label: '2' }, { px: 4, label: '4' },
+				{ px: 6, label: '6' }, { px: 8, label: '8', highlight: true, bold: true },
+				{ px: 12, label: '12', bold: true }, { px: 16, label: '16' }, { px: 20, label: '20' }, { px: 24, label: '24', bold: true },
+				{ px: 32, label: '32', bold: true }, { px: 40, label: '40' }, { px: 48, label: '48' },
+				{ px: 64, label: '64' }, { px: 80, label: '80', bold: true },
+			];
+			const ranges = [
+				{ label: 'Small', start: 0, end: 8, icon: 'grid_view' },
+				{ label: 'Medium', start: 12, end: 24, icon: 'auto_awesome_mosaic' },
+				{ label: 'Large', start: 32, end: 80, icon: 'grid_layout_side' },
+			];
+			return { ticks, ranges };
+		},
+		template: `
+			<div class="bg-neutral-100 rounded-lg p-spacing-400 pb-spacing-600">
+				<div class="relative" style="height: 120px; margin: 0 8px">
+					<!-- Highlight label above 8px -->
+					<div class="absolute flex flex-col items-center" style="left: 10%; top: 0; transform: translateX(-50%)">
+						<code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" data-token="spacing.100" data-tw="*-spacing-100">space.100</code>
+						<div class="w-px h-3" style="background: #292a2e" />
+					</div>
+					<!-- Tick labels -->
+					<div class="absolute left-0 right-0 flex" style="top: 34px">
+						<div v-for="t in ticks" :key="t.px" class="absolute text-sm" :style="{ left: (t.px / 80 * 100) + '%', transform: 'translateX(-50%)', fontWeight: t.bold ? 700 : 500, color: t.highlight ? '#8360c3' : t.bold ? '#292a2e' : '#6b6e76' }">{{ t.label }}</div>
+					</div>
+					<!-- Striped bar -->
+					<div class="absolute left-0 right-0 spacing-indicator" style="top: 56px; height: 16px; border-radius: 2px">
+						<!-- Tick marks -->
+						<div v-for="t in ticks" :key="'tick-'+t.px" class="absolute top-0 bottom-0" :style="{ left: (t.px / 80 * 100) + '%', width: t.bold ? '2px' : '1px', background: t.highlight ? '#8360c3' : t.bold ? '#292a2e' : 'rgba(154,130,218,0.4)' }" />
+					</div>
+					<!-- Range labels below -->
+					<div v-for="r in ranges" :key="r.label" class="absolute flex flex-col items-start gap-spacing-25" :style="{ left: (r.start / 80 * 100) + '%', top: '80px' }">
+						<span class="material-symbols-outlined text-lg leading-none text-default">{{ r.icon }}</span>
+						<span class="text-xs font-semibold text-subtle">{{ r.label }}</span>
+					</div>
+				</div>
+			</div>
+		`,
+	}),
+};
+
+export const SpacingInCard: Story = {
+	render: () => ({
+		template: `
+			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex justify-center">
+				<div class="bg-elevation-surface-default rounded-xl w-72 flex flex-col" style="box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)">
+					<div class="spacing-indicator rounded-t-xl" style="height: 20px"><span class="spacing-px">20</span><span class="spacing-label">spacing-250</span></div>
+					<div class="px-spacing-250">
+						<div class="w-full h-20 rounded-sm bg-neutral-200" />
+					</div>
+					<div class="mx-spacing-250 spacing-indicator" style="height: 8px"><span class="spacing-label">spacing-100</span></div>
+					<div class="px-spacing-250">
+						<span class="text-xl font-medium">Card title</span>
+					</div>
+					<div class="mx-spacing-250 spacing-indicator" style="height: 8px"><span class="spacing-label">spacing-100</span></div>
+					<div class="px-spacing-250">
+						<p class="text-sm text-subtle">Card description text goes here.</p>
+					</div>
+					<div class="mx-spacing-250 spacing-indicator" style="height: 8px"><span class="spacing-px">8</span></div>
+					<div class="px-spacing-250 flex gap-spacing-100">
+						<div class="rounded-md px-spacing-200 py-spacing-75 text-sm font-medium text-inverse bg-brand-bolder-default">Action</div>
+						<div class="rounded-md px-spacing-200 py-spacing-75 text-sm font-medium border border-default">Cancel</div>
+					</div>
+					<div class="spacing-indicator rounded-b-xl" style="height: 20px"><span class="spacing-px">20</span></div>
+				</div>
+			</div>
+		`,
+	}),
+};
+
+export const SpacingInButton: Story = {
+	render: () => ({
+		template: `
+			<div class="bg-neutral-100 rounded-lg p-spacing-400 pb-spacing-600 flex justify-center items-center">
+				<div class="flex items-center">
+					<div class="rounded-md px-spacing-200 py-spacing-75 text-sm font-medium text-inverse bg-brand-bolder-default">Primary</div>
+					<div class="spacing-indicator" style="width: 8px; height: 36px"><span class="spacing-label-bottom">spacing-100</span></div>
+					<div class="rounded-md px-spacing-200 py-spacing-75 text-sm font-medium border border-default">Secondary</div>
+				</div>
+			</div>
+		`,
+	}),
+};
+
+export const SpacingInForm: Story = {
+	render: () => ({
+		template: `
+			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex justify-center">
+				<div class="bg-elevation-surface-overlay-default rounded-lg border border-default w-72 flex flex-col" style="box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)">
+					<div class="spacing-indicator rounded-t-lg" style="height: 16px"><span class="spacing-px">16</span><span class="spacing-label">spacing-200</span></div>
+					<div class="px-spacing-200 flex flex-col">
+						<span class="text-sm font-medium">Full name</span>
+						<div class="spacing-indicator" style="height: 8px"><span class="spacing-label">spacing-100</span></div>
+						<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-spacing-150 flex items-center">
+							<span class="text-sm text-subtlest">Enter your name</span>
+						</div>
+						<div class="spacing-indicator" style="height: 16px"><span class="spacing-px">16</span><span class="spacing-label">spacing-200</span></div>
+						<span class="text-sm font-medium">Email</span>
+						<div class="spacing-indicator" style="height: 8px"><span class="spacing-label">spacing-100</span></div>
+						<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-spacing-150 flex items-center">
+							<span class="text-sm text-subtlest">Enter your email</span>
+						</div>
+					</div>
+					<div class="spacing-indicator" style="height: 16px"><span class="spacing-px">16</span></div>
+					<div class="px-spacing-200 flex gap-spacing-100 justify-end">
+						<div class="rounded-md px-spacing-200 py-spacing-75 text-sm font-medium border border-default">Cancel</div>
+						<div class="rounded-md px-spacing-200 py-spacing-75 text-sm font-medium text-inverse bg-brand-bolder-default">Submit</div>
+					</div>
+					<div class="spacing-indicator rounded-b-lg" style="height: 16px"><span class="spacing-px">16</span></div>
+				</div>
+			</div>
+		`,
+	}),
+};
+
+export const DoSpacing: Story = {
+	render: () => ({
+		template: doDont(
+			`<div class="flex flex-col w-52 px-spacing-200">
+				<span class="text-sm font-medium">Label</span>
+				<div class="spacing-indicator" style="height: 6px"><span class="spacing-label">spacing-75</span></div>
+				<div class="h-8 rounded-md border border-default bg-elevation-surface-default" />
+				<div class="spacing-indicator" style="height: 16px"><span class="spacing-px">16</span><span class="spacing-label">spacing-200</span></div>
+				<span class="text-sm font-medium">Label</span>
+				<div class="spacing-indicator" style="height: 6px"></div>
+				<div class="h-8 rounded-md border border-default bg-elevation-surface-default" />
+			</div>`,
+			'Use consistent spacing — tighter within groups, wider between.',
+			`<div class="flex flex-col w-52 px-spacing-200">
+				<span class="text-sm font-medium">Label</span>
+				<div class="spacing-indicator spacing-indicator-danger" style="height: 2px"><span class="spacing-label">2px?</span></div>
+				<div class="h-8 rounded-md border border-default bg-elevation-surface-default" />
+				<div class="spacing-indicator spacing-indicator-danger" style="height: 32px"><span class="spacing-px">32</span><span class="spacing-label">32px?</span></div>
+				<span class="text-sm font-medium">Label</span>
+				<div class="spacing-indicator spacing-indicator-danger" style="height: 4px"></div>
+				<div class="h-8 rounded-md border border-default bg-elevation-surface-default" />
+			</div>`,
+			"Don't use inconsistent spacing between similar elements.",
+		),
+	}),
+};
+
+export const DoTokens: Story = {
+	render: () => ({
+		template: doDont(
+			`<div class="flex flex-col gap-spacing-100 w-48 px-spacing-200 items-start">
+				<code class="text-xs bg-elevation-surface-default border border-brand rounded-full px-spacing-100 py-spacing-25 text-brand-default">p-spacing-200</code>
+				<code class="text-xs bg-elevation-surface-default border border-brand rounded-full px-spacing-100 py-spacing-25 text-brand-default">gap-spacing-100</code>
+				<code class="text-xs bg-elevation-surface-default border border-brand rounded-full px-spacing-100 py-spacing-25 text-brand-default">mt-spacing-300</code>
+			</div>`,
+			'Use spacing tokens for all padding, margin, and gap values.',
+			`<div class="flex flex-col gap-spacing-100 w-48 px-spacing-200 items-start">
+				<code class="text-xs bg-elevation-surface-default border border-danger rounded-full px-spacing-100 py-spacing-25 text-danger">p-[13px]</code>
+				<code class="text-xs bg-elevation-surface-default border border-danger rounded-full px-spacing-100 py-spacing-25 text-danger">gap-[7px]</code>
+				<code class="text-xs bg-elevation-surface-default border border-danger rounded-full px-spacing-100 py-spacing-25 text-danger">mt-[30px]</code>
+			</div>`,
+			"Don't use arbitrary pixel values — they break the rhythm of the 8px grid.",
+		),
+	}),
+};
