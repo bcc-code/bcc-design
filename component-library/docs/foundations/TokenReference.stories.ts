@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { PILL } from './helpers';
 
 const meta = {
 	title: 'Foundations/Token Reference/Demos',
@@ -9,6 +10,21 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// ── Shared template fragments ────────────────────────────
+
+const pill = `<code class="${PILL}" :data-token="t.token" :data-tw="t.twClass || t.tw" >{{ t.token }}</code>`;
+const desc = `<span v-if="t.desc" class="body-md text-subtle">{{ t.desc }}</span>`;
+const lightSwatch = `
+	<div class="rounded-lg border border-default p-spacing-100 flex flex-col items-center gap-spacing-75 color-swatch color-swatch-no-hover cursor-pointer" :data-hex="t.lightHex">
+		<div class="w-full h-10 rounded" :style="{ background: t.lightHex }"></div>
+		<code class="text-xs text-subtlest font-semibold">{{ t.lightPrim }}</code>
+	</div>`;
+const darkSwatch = `
+	<div class="rounded-lg border border-neutral-700 bg-neutral-900 p-spacing-100 flex flex-col items-center gap-spacing-75 color-swatch color-swatch-no-hover cursor-pointer" :data-hex="t.darkHex">
+		<div class="w-full h-10 rounded" :style="{ background: t.darkHex }"></div>
+		<code class="text-xs text-inverse font-semibold">{{ t.darkPrim }}</code>
+	</div>`;
+
 const colorTemplate = `
 	<div class="flex flex-col">
 		<div class="flex items-center gap-spacing-200 border-b border-default pb-spacing-100">
@@ -17,22 +33,9 @@ const colorTemplate = `
 			<span class="body-md font-semibold w-32 text-center">Dark value</span>
 		</div>
 		<div v-for="t in tokens" :key="t.token" class="flex items-start gap-spacing-200 border-b border-default py-spacing-200">
-			<div class="flex flex-col gap-spacing-50 flex-1">
-				<code class="text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover" :data-token="t.token" :data-tw="t.twClass" >{{ t.token }}</code>
-				<span v-if="t.desc" class="body-md text-subtle">{{ t.desc }}</span>
-			</div>
-			<div class="w-32 ml-auto shrink-0">
-				<div class="rounded-lg border border-default p-spacing-100 flex flex-col items-center gap-spacing-75 color-swatch color-swatch-no-hover cursor-pointer" :data-hex="t.lightHex" >
-					<div class="w-full h-10 rounded" :style="{ background: t.lightHex }"></div>
-					<code class="text-xs text-subtlest font-semibold">{{ t.lightPrim }}</code>
-				</div>
-			</div>
-			<div class="w-32 shrink-0">
-				<div class="rounded-lg border border-neutral-700 bg-neutral-900 p-spacing-100 flex flex-col items-center gap-spacing-75 color-swatch color-swatch-no-hover cursor-pointer" :data-hex="t.darkHex" >
-					<div class="w-full h-10 rounded" :style="{ background: t.darkHex }"></div>
-					<code class="text-xs text-inverse font-semibold">{{ t.darkPrim }}</code>
-				</div>
-			</div>
+			<div class="flex flex-col gap-spacing-50 flex-1">${pill}${desc}</div>
+			<div class="w-32 ml-auto shrink-0">${lightSwatch}</div>
+			<div class="w-32 shrink-0">${darkSwatch}</div>
 		</div>
 	</div>
 `;
@@ -45,18 +48,15 @@ const borderColorTemplate = `
 			<span class="body-md font-semibold w-32 text-center">Dark value</span>
 		</div>
 		<div v-for="t in tokens" :key="t.token" class="flex items-start gap-spacing-200 border-b border-default py-spacing-200">
-			<div class="flex flex-col gap-spacing-50 flex-1">
-				<code class="text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover" :data-token="t.token" :data-tw="t.twClass" >{{ t.token }}</code>
-				<span v-if="t.desc" class="body-md text-subtle">{{ t.desc }}</span>
-			</div>
+			<div class="flex flex-col gap-spacing-50 flex-1">${pill}${desc}</div>
 			<div class="w-32 ml-auto shrink-0">
-				<div class="rounded-lg border border-default p-spacing-100 flex flex-col items-center gap-spacing-75 color-swatch color-swatch-no-hover cursor-pointer" :data-hex="t.lightHex" >
+				<div class="rounded-lg border border-default p-spacing-100 flex flex-col items-center gap-spacing-75 color-swatch color-swatch-no-hover cursor-pointer" :data-hex="t.lightHex">
 					<div class="w-full h-10 rounded border-2 bg-elevation-surface-default" :style="{ borderColor: t.lightHex }"></div>
 					<code class="text-xs text-subtlest font-semibold">{{ t.lightPrim }}</code>
 				</div>
 			</div>
 			<div class="w-32 shrink-0">
-				<div class="rounded-lg border border-neutral-700 bg-neutral-900 p-spacing-100 flex flex-col items-center gap-spacing-75 color-swatch color-swatch-no-hover cursor-pointer" :data-hex="t.darkHex" >
+				<div class="rounded-lg border border-neutral-700 bg-neutral-900 p-spacing-100 flex flex-col items-center gap-spacing-75 color-swatch color-swatch-no-hover cursor-pointer" :data-hex="t.darkHex">
 					<div class="w-full h-10 rounded border-2 bg-neutral-800" :style="{ borderColor: t.darkHex }"></div>
 					<code class="text-xs text-inverse font-semibold">{{ t.darkPrim }}</code>
 				</div>
@@ -65,6 +65,7 @@ const borderColorTemplate = `
 	</div>
 `;
 
+/** Build a color token data object with auto-derived CSS var and Tailwind class. */
 function c(token: string, lightHex: string, darkHex: string, desc?: string, lightPrim?: string, darkPrim?: string) {
 	const cssVar = '--color-' + token.replace('color.', '').replace(/\./g, '-');
 	const twClass = token.replace('color.', '').replace(/\./g, '-');
@@ -321,7 +322,7 @@ export const ElevationShadow: Story = {
 				</div>
 				<div v-for="t in tokens" :key="t.token" class="flex items-start gap-spacing-200 border-b border-default py-spacing-200">
 					<div class="flex flex-col gap-spacing-50 flex-1">
-						<code class="text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover" :data-token="t.token" :data-tw="t.css" >{{ t.token }}</code>
+						<code class="${PILL}" :data-token="t.token" :data-tw="t.css" >{{ t.token }}</code>
 						<span v-if="t.desc" class="body-md text-subtle">{{ t.desc }}</span>
 					</div>
 					<div class="w-40 ml-auto shrink-0 p-spacing-200 rounded-lg bg-neutral-100">
@@ -478,7 +479,7 @@ export const SpaceTokens: Story = {
 				</div>
 				<div v-for="t in tokens" :key="t.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
 					<div class="flex flex-col gap-spacing-50 flex-1">
-						<code class="text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover" :data-token="t.token" :data-tw="'spacing-' + t.token.replace('space.', '')" >{{ t.token }}</code>
+						<code class="${PILL}" :data-token="t.token" :data-tw="'spacing-' + t.token.replace('space.', '')" >{{ t.token }}</code>
 					</div>
 					<div class="w-32 shrink-0 flex flex-col items-start gap-spacing-25 ml-auto">
 						<div class="spacing-indicator h-3" :style="{ width: t.px === '0px' ? '1px' : t.px }"></div>
@@ -520,7 +521,7 @@ export const BorderWidth: Story = {
 				</div>
 				<div v-for="t in tokens" :key="t.token" class="flex items-start gap-spacing-200 border-b border-default py-spacing-200">
 					<div class="flex flex-col gap-spacing-50 flex-1">
-						<code class="text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover" :data-token="t.token" :data-tw="t.tw" >{{ t.token }}</code>
+						<code class="${PILL}" :data-token="t.token" :data-tw="t.tw" >{{ t.token }}</code>
 						<span v-if="t.desc" class="body-md text-subtle">{{ t.desc }}</span>
 					</div>
 					<div class="flex flex-col items-center gap-spacing-50 w-32 ml-auto shrink-0">
@@ -552,7 +553,7 @@ export const RadiusTokens: Story = {
 				</div>
 				<div v-for="t in tokens" :key="t.token" class="flex items-start gap-spacing-200 border-b border-default py-spacing-200">
 					<div class="flex flex-col gap-spacing-50 flex-1">
-						<code class="text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover" :data-token="t.token" :data-tw="t.tw" >{{ t.token }}</code>
+						<code class="${PILL}" :data-token="t.token" :data-tw="t.tw" >{{ t.token }}</code>
 						<span v-if="t.desc" class="body-md text-subtle">{{ t.desc }}</span>
 					</div>
 					<div class="flex flex-col items-center gap-spacing-50 w-32 ml-auto shrink-0">
@@ -592,7 +593,7 @@ export const FontHeading: Story = {
 				</div>
 				<div v-for="t in tokens" :key="t.token" class="flex items-start gap-spacing-200 border-b border-default py-spacing-200">
 					<div class="flex flex-col gap-spacing-50 flex-1">
-						<code class="text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover" :data-token="t.token" :data-tw="t.tw" >{{ t.token }}</code>
+						<code class="${PILL}" :data-token="t.token" :data-tw="t.tw" >{{ t.token }}</code>
 						<span class="body-md text-subtle">{{ t.desc }}</span>
 					</div>
 					<div class="flex-1 text-right ml-auto">
@@ -619,7 +620,7 @@ export const FontBody: Story = {
 			<div class="flex flex-col">
 				<div v-for="t in tokens" :key="t.token" class="flex items-start gap-spacing-200 border-b border-default py-spacing-200">
 					<div class="flex flex-col gap-spacing-50 flex-1">
-						<code class="text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover" :data-token="t.token" :data-tw="t.tw" >{{ t.token }}</code>
+						<code class="${PILL}" :data-token="t.token" :data-tw="t.tw" >{{ t.token }}</code>
 						<span class="body-md text-subtle">{{ t.desc }}</span>
 					</div>
 					<div class="flex-1 text-right ml-auto">
@@ -650,7 +651,7 @@ export const IconSize: Story = {
 				</div>
 				<div v-for="t in tokens" :key="t.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
 					<div class="flex flex-col gap-spacing-50 flex-1">
-						<code class="text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover" :data-token="t.token" :data-tw="t.tw" >{{ t.token }}</code>
+						<code class="${PILL}" :data-token="t.token" :data-tw="t.tw" >{{ t.token }}</code>
 					</div>
 					<div class="w-20 ml-auto shrink-0 flex flex-col items-center gap-spacing-25">
 						<span class="material-symbols-outlined text-default" :style="{ fontSize: t.px }">search</span>

@@ -1,5 +1,5 @@
 import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
-import * as ManualStories from './DesignManual.stories';
+import * as IdentityStories from './VisualIdentity.stories';
 
 <Meta title="Foundations/Visual Identity" />
 
@@ -17,7 +17,7 @@ import * as ManualStories from './DesignManual.stories';
         <h2 className="heading-xl text-default">Form and clear space</h2>
         <p className="body-md text-subtle mt-spacing-50">Proportions between symbol, BCC, and subtitle are fixed — never modify them. A minimum clear space (the width of the B) must surround the logo at all times. Click to zoom.</p>
       </div>
-      <Story of={ManualStories.ProportionsAndClearSpace} sourceState="none" />
+      <Story of={IdentityStories.ProportionsAndClearSpace} sourceState="none" />
     </div>
   </div>
 
@@ -29,8 +29,8 @@ import * as ManualStories from './DesignManual.stories';
         <h2 className="heading-xl text-default">Logo hierarchy</h2>
         <p className="body-md text-subtle mt-spacing-50">Departments, national entities, and local churches each have their own logo format. Sub-entities <strong>cannot</strong> use the primary or secondary logo alone — they must include their name.</p>
       </div>
-      <Story of={ManualStories.LogoHierarchy} sourceState="none" />
-      <Story of={ManualStories.HierarchyPrinciples} sourceState="none" />
+      <Story of={IdentityStories.LogoHierarchy} sourceState="none" />
+      <Story of={IdentityStories.HierarchyPrinciples} sourceState="none" />
     </div>
   </div>
 
@@ -42,7 +42,7 @@ import * as ManualStories from './DesignManual.stories';
         <h2 className="heading-xl text-default">Symbol and figure</h2>
         <p className="body-md text-subtle mt-spacing-50">The symbol (with circle) and figure (without circle) can be used as standalone graphic elements — on clothing, background motifs, or profile accents. As a background, keep contrast low: max 10% on dark green, max 30% on light green.</p>
       </div>
-      <Story of={ManualStories.SymbolUsage} sourceState="none" />
+      <Story of={IdentityStories.SymbolUsage} sourceState="none" />
     </div>
   </div>
 
@@ -54,12 +54,12 @@ import * as ManualStories from './DesignManual.stories';
         <h2 className="heading-xl text-default">Typography</h2>
         <p className="body-md text-subtle mt-spacing-50">The primary font is <strong>Archivo</strong> — a Google Font used for all text types. <strong>IBM Plex Serif</strong> is used only for headings and short lead-ins to create contrast. For design token usage, see <a className="text-link-default" href="?path=/docs/foundations-typography--docs">Typography</a>.</p>
       </div>
-      <Story of={ManualStories.FontArchivo} sourceState="none" />
+      <Story of={IdentityStories.FontArchivo} sourceState="none" />
     </div>
 
     <div className="flex flex-col gap-spacing-200">
       <p className="body-md text-subtle">Used only for headings and short lead-ins (ingress) to break up larger layouts and create a more dynamic expression.</p>
-      <Story of={ManualStories.FontIBMPlexSerif} sourceState="none" />
+      <Story of={IdentityStories.FontIBMPlexSerif} sourceState="none" />
     </div>
   </div>
 
@@ -71,12 +71,12 @@ import * as ManualStories from './DesignManual.stories';
         <h2 className="heading-xl text-default">Profile colors</h2>
         <p className="body-md text-subtle mt-spacing-50">Four primary colors and three support colors define the BCC brand. The logo must always use 100% color — tints (10–100%) are only for text, graphics, and backgrounds. For design token mappings, see <a className="text-link-default" href="?path=/docs/foundations-colors--docs">Colors</a>.</p>
       </div>
-      <Story of={ManualStories.ProfileColors} sourceState="none" />
+      <Story of={IdentityStories.ProfileColors} sourceState="none" />
     </div>
 
     <div className="flex flex-col gap-spacing-200">
       <h3 className="heading-lg text-default">Support colors</h3>
-      <Story of={ManualStories.SupportColors} sourceState="none" />
+      <Story of={IdentityStories.SupportColors} sourceState="none" />
     </div>
   </div>
 
@@ -84,9 +84,9 @@ import * as ManualStories from './DesignManual.stories';
 
   <div className="flex flex-col gap-spacing-400">
     <h2 className="heading-xl text-default">Guidelines</h2>
-    <Story of={ManualStories.DoProportions} sourceState="none" />
-    <Story of={ManualStories.DoClearSpace} sourceState="none" />
-    <Story of={ManualStories.DoSymbol} sourceState="none" />
+    <Story of={IdentityStories.DoProportions} sourceState="none" />
+    <Story of={IdentityStories.DoClearSpace} sourceState="none" />
+    <Story of={IdentityStories.DoSymbol} sourceState="none" />
   </div>
 
   <p className="body-md text-subtlest">Full design manual and logo files: contact <a className="text-link-default" href="mailto:kontakt@bcc.no">kontakt@bcc.no</a>.</p>

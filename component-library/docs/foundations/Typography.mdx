@@ -1,5 +1,5 @@
 import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
-import * as TypoStories from './Typography.stories';
+import * as TypographyStories from './Typography.stories';
 
 <Meta title="Foundations/Typography" />
 
@@ -15,7 +15,7 @@ import * as TypoStories from './Typography.stories';
     <div className="flex flex-col gap-spacing-200">
       <h2 className="heading-xl text-default">Typeface</h2>
       <p className="body-md text-subtle mt-spacing-50">Archivo is the single typeface used across all BCC product UI — headings, body text, and components.</p>
-      <Story of={TypoStories.TypefaceShowcase} sourceState="none" />
+      <Story of={TypographyStories.TypefaceShowcase} sourceState="none" />
     </div>
   </div>
 
@@ -27,7 +27,7 @@ import * as TypoStories from './Typography.stories';
         <h2 className="heading-xl text-default">Heading scale</h2>
         <p className="body-md text-subtle mt-spacing-50">Headings use Archivo at weight 600 (semibold). Each token is a composite that sets font size, weight, line height, and family in one declaration. Use the token — not individual primitives.</p>
       </div>
-      <Story of={TypoStories.HeadingScale} sourceState="none" />
+      <Story of={TypographyStories.HeadingScale} sourceState="none" />
     </div>
 
     <div className="flex flex-col gap-spacing-200">
@@ -35,7 +35,7 @@ import * as TypoStories from './Typography.stories';
         <h2 className="heading-xl text-default">Body scale</h2>
         <p className="body-md text-subtle mt-spacing-50">Body text uses weight 400 (regular). Use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-lg</code> (16px) for paragraphs and long-form content — never smaller. <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-md</code> (14px) is for UI labels and secondary text. <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-sm</code> (12px) is only for captions and metadata.</p>
       </div>
-      <Story of={TypoStories.BodyScale} sourceState="none" />
+      <Story of={TypographyStories.BodyScale} sourceState="none" />
     </div>
 
     <div className="flex flex-col gap-spacing-200">
@@ -43,7 +43,7 @@ import * as TypoStories from './Typography.stories';
         <h2 className="heading-xl text-default">Font weights</h2>
         <p className="body-md text-subtle mt-spacing-50">Four weights are available. PrimeVue components use medium (500) for buttons and labels — semibold (600) is reserved for headings.</p>
       </div>
-      <Story of={TypoStories.WeightTokens} sourceState="none" />
+      <Story of={TypographyStories.WeightTokens} sourceState="none" />
     </div>
   </div>
 
@@ -55,10 +55,10 @@ import * as TypoStories from './Typography.stories';
         <h3 className="heading-lg text-default">Typography in components</h3>
         <p className="body-md text-subtle mt-spacing-50">PrimeVue components use 14px (<code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">font-size-sm</code>) as the default text size for inputs, menus, and buttons. Tags use 12px. These sizes are set by the design tokens preset — don't override them.</p>
       </div>
-      <Story of={TypoStories.TypographyInComponents} sourceState="none" />
+      <Story of={TypographyStories.TypographyInComponents} sourceState="none" />
     </div>
 
-    <Story of={TypoStories.DoTypography} sourceState="none" />
+    <Story of={TypographyStories.DoTypography} sourceState="none" />
   </div>
 
   <p className="body-md text-subtlest">For the full token list, see <a className="text-link-default" href="?path=/docs/foundations-tokens--docs">Tokens</a>.</p>
