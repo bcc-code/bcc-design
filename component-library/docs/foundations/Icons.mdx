@@ -17,15 +17,19 @@ import * as IconStories from './Icons.stories';
         <h2 className="heading-xl text-default">Installation</h2>
         <p className="body-md text-subtle mt-spacing-50">Install the Vue icon package and import individual icons by name. Icons are tree-shakeable — only the icons you import are included in your bundle.</p>
       </div>
-      <div className="code-block">
-        <pre>npm install @bcc-code/icons-vue</pre>
-        <button className="copy-btn" onClick={() => {navigator.clipboard.writeText('npm install @bcc-code/icons-vue')}}>Copy</button>
-      </div>
-      <div className="code-block">
-        <pre>{`import { SearchIcon } from '@bcc-code/icons-vue';
 
-<SearchIcon class="icon-md text-default" />`}</pre>
-      </div>
+
+```bash
+npm install @bcc-code/icons-vue
+```
+
+```vue
+import { SearchIcon } from '@bcc-code/icons-vue';
+
+<SearchIcon class="icon-md text-default" />
+```
+
+
     </div>
   </div>
 
@@ -77,8 +81,10 @@ import * as IconStories from './Icons.stories';
         <h2 className="heading-xl text-default">Accessibility</h2>
         <p className="body-md text-subtle mt-spacing-50">All BCC icons render with <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">aria-hidden="true"</code> by default — they're treated as decorative. If an icon is the only element conveying meaning (e.g., an icon-only button), add an <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">aria-label</code> to the parent element.</p>
       </div>
-      <div className="code-block">
-        <pre>{`<!-- Decorative: label provides meaning -->
+
+
+```html
+<!-- Decorative: label provides meaning -->
 <button>
   <SearchIcon class="icon-sm" />
   Search
@@ -87,8 +93,10 @@ import * as IconStories from './Icons.stories';
 <!-- Icon-only: aria-label required -->
 <button aria-label="Search">
   <SearchIcon class="icon-md" />
-</button>`}</pre>
-      </div>
+</button>
+```
+
+
     </div>
   </div>
 
