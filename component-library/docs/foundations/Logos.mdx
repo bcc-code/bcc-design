@@ -1,81 +1,87 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
+import * as LogoStories from './Logos.stories';
 
 <Meta title="Foundations/Logos" />
 
-# Logos
+<Unstyled>
+<div className="font-archivo flex flex-col gap-spacing-600">
 
-Base URL: `https://design.bcc.no/logos/`
+  <div>
+    <h1 className="heading-2xl text-default">Logos</h1>
+    <p className="body-lg text-subtle mt-spacing-100">All BCC logos are hosted at <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">design.bcc.no/logos/</code> and available as SVG (recommended) and PNG. Use the official files — never recreate or modify logos.</p>
+  </div>
 
-## URL Pattern
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <h2 className="heading-xl text-default">BCC brand</h2>
+      <Story of={LogoStories.BrandLogos} sourceState="none" />
+    </div>
 
-**SVG (recommended)**
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <h2 className="heading-xl text-default">Local churches</h2>
+      <Story of={LogoStories.LocalChurches} sourceState="none" />
+    </div>
+
+    <div className="flex flex-col gap-spacing-200">
+      <h2 className="heading-xl text-default">Departments and national</h2>
+      <Story of={LogoStories.Departments} sourceState="none" />
+    </div>
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Guidelines</h2>
+    <Story of={LogoStories.DoLogos} sourceState="none" />
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Usage</h2>
+        <p className="body-md text-subtle mt-spacing-50">Always prefer SVG for sharp rendering at any size. Use PNG only when SVG isn't supported.</p>
+      </div>
+
+
+```html
+<!-- SVG (recommended) -->
+<img src="https://design.bcc.no/logos/bcc_logo_primary.svg" alt="BCC" />
+
+<!-- PNG with specific size and color -->
+<img src="https://design.bcc.no/logos/bcc_logo_primary_dark-green_72.png" alt="BCC" />
 ```
-{name}_logo.svg
-```
 
-**PNG**
-```
-{name}_logo_{color}_{size}.png
-```
 
-| Color      | Sizes (px)        |
-| ---------- | ----------------- |
-| dark-green | 32 / 48 / 64 / 72 |
-| white      | 32 / 48 / 64 / 72 |
+    </div>
 
-**Example:**
-```
-https://design.bcc.no/logos/bcc-bergen_logo.svg
-https://design.bcc.no/logos/bcc-bergen_logo_dark-green_72.png
-```
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">URL pattern</h3>
+      </div>
+      <div className="flex flex-col rounded-lg overflow-hidden border border-default">
+        <div className="flex items-center bg-neutral-100 px-spacing-200 py-spacing-100 border-b border-default">
+          <span className="body-md font-semibold flex-1">Format</span>
+          <span className="body-md font-semibold flex-1">Pattern</span>
+        </div>
+        <div className="flex items-center px-spacing-200 py-spacing-150 border-b border-default">
+          <span className="body-md text-subtle flex-1">SVG</span>
+          <code className="text-xs text-default flex-1">{'{name}'}_logo.svg</code>
+        </div>
+        <div className="flex items-center px-spacing-200 py-spacing-150">
+          <span className="body-md text-subtle flex-1">PNG</span>
+          <code className="text-xs text-default flex-1">{'{name}'}_logo_{'{color}'}_{'{size}'}.png</code>
+        </div>
+      </div>
+      <p className="body-md text-subtlest">Colors: <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">dark-green</code>, <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">white</code>. Sizes: 32, 48, 64, 72px.</p>
+    </div>
+  </div>
 
-## BCC Brand
-
-| Name               | SVG                                                           |
-| ------------------ | ------------------------------------------------------------- |
-| bcc_logo_primary   | [svg](https://design.bcc.no/logos/bcc_logo_primary.svg)       |
-| bcc_logo_secondary | [svg](https://design.bcc.no/logos/bcc_logo_secondary.svg)     |
-| bcc_logo_full      | [svg](https://design.bcc.no/logos/bcc_logo_full.svg)          |
-| bcc_logo_symbol    | [svg](https://design.bcc.no/logos/bcc_logo_symbol.svg)        |
-
-## Local Churches
-
-| Name              | SVG                                                               |
-| ----------------- | ----------------------------------------------------------------- |
-| bcc-bergen        | [svg](https://design.bcc.no/logos/bcc-bergen_logo.svg)            |
-| bcc-drammen-sande | [svg](https://design.bcc.no/logos/bcc-drammen-sande_logo.svg)     |
-| bcc-eiker         | [svg](https://design.bcc.no/logos/bcc-eiker_logo.svg)             |
-| bcc-grenland      | [svg](https://design.bcc.no/logos/bcc-grenland_logo.svg)          |
-| bcc-hallingdal    | [svg](https://design.bcc.no/logos/bcc-hallingdal_logo.svg)        |
-| bcc-hamar         | [svg](https://design.bcc.no/logos/bcc-hamar_logo.svg)             |
-| bcc-harstad       | [svg](https://design.bcc.no/logos/bcc-harstad_logo.svg)           |
-| bcc-honefoss      | [svg](https://design.bcc.no/logos/bcc-honefoss_logo.svg)          |
-| bcc-horten        | [svg](https://design.bcc.no/logos/bcc-horten_logo.svg)            |
-| bcc-maloy         | [svg](https://design.bcc.no/logos/bcc-maloy_logo.svg)             |
-| bcc-molde         | [svg](https://design.bcc.no/logos/bcc-molde_logo.svg)             |
-| bcc-oslo-og-follo | [svg](https://design.bcc.no/logos/bcc-oslo-og-follo_logo.svg)     |
-| bcc-ostfold       | [svg](https://design.bcc.no/logos/bcc-ostfold_logo.svg)           |
-| bcc-sandefjord    | [svg](https://design.bcc.no/logos/bcc-sandefjord_logo.svg)        |
-| bcc-sorlandet     | [svg](https://design.bcc.no/logos/bcc-sorlandet_logo.svg)         |
-| bcc-stavanger     | [svg](https://design.bcc.no/logos/bcc-stavanger_logo.svg)         |
-| bcc-stord         | [svg](https://design.bcc.no/logos/bcc-stord_logo.svg)             |
-| bcc-tonsberg      | [svg](https://design.bcc.no/logos/bcc-tonsberg_logo.svg)          |
-| bcc-valdres       | [svg](https://design.bcc.no/logos/bcc-valdres_logo.svg)           |
-
-## Departments
-
-| Name           | SVG                                                            |
-| -------------- | -------------------------------------------------------------- |
-| bcc-a-team     | [svg](https://design.bcc.no/logos/bcc-a-team_logo.svg)         |
-| bcc-connect    | [svg](https://design.bcc.no/logos/bcc-connect_logo.svg)        |
-| bcc-event      | [svg](https://design.bcc.no/logos/bcc-event_logo.svg)          |
-| bcc-facilities | [svg](https://design.bcc.no/logos/bcc-facilities_logo.svg)     |
-| bcc-fund       | [svg](https://design.bcc.no/logos/bcc-fund_logo.svg)           |
-| bcc-media      | [svg](https://design.bcc.no/logos/bcc-media_logo.svg)          |
-| bcc-music      | [svg](https://design.bcc.no/logos/bcc-music_logo.svg)          |
-
-## National
-
-| Name      | SVG                                                      |
-| --------- | -------------------------------------------------------- |
-| bcc-norge | [svg](https://design.bcc.no/logos/bcc-norge_logo.svg)    |
+</div>
+</Unstyled>
