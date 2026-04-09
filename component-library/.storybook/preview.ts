@@ -203,8 +203,11 @@ const preview: Preview = {
 			},
 		},
 		docs: {
-			// Show story source in the Code panel (Canvas tab) and in Docs tab
 			codePanel: true,
+			toc: {
+				headingSelector: 'h2',
+				title: null,
+			},
 		},
 	},
 	decorators: [

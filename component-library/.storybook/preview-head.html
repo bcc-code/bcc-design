@@ -231,6 +231,7 @@
   .color-copy-btn:hover .color-copy-icon {
     opacity: 0.5;
   }
+
 </style>
 <script>
   function openLightbox(src) {
@@ -251,6 +252,15 @@
       var el = document.getElementById('docs-lightbox');
       if (el) el.classList.remove('active');
     }
+  });
+
+  // Auto-generate IDs for JSX headings (needed for TOC in custom MDX pages)
+  document.addEventListener('DOMContentLoaded', function() {
+    new MutationObserver(function() {
+      document.querySelectorAll('h1:not([id]), h2:not([id]), h3:not([id])').forEach(function(h) {
+        h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      });
+    }).observe(document.body, { childList: true, subtree: true });
   });
 
   // Intercept internal doc links and navigate via Storybook channel
