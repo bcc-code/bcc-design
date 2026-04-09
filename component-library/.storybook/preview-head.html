@@ -253,5 +253,14 @@
     }
   });
 
-
+  // Intercept internal doc links and navigate via Storybook channel
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href*="path=/docs/"]');
+    if (!link) return;
+    e.preventDefault();
+    var match = link.getAttribute('href').match(/path=\/docs\/(.+?)--docs/);
+    if (match && window.__STORYBOOK_ADDONS_CHANNEL__) {
+      window.__STORYBOOK_ADDONS_CHANNEL__.emit('setCurrentStory', { storyId: match[1] + '--docs' });
+    }
+  });
 </script>
