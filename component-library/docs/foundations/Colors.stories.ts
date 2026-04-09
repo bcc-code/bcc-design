@@ -225,15 +225,11 @@ export const DoColorRole: Story = {
 				</div>
 				<div class="flex-1 rounded-lg overflow-hidden">
 					<div class="bg-neutral-100 p-spacing-250 flex items-center justify-center gap-spacing-150 min-h-[72px]">
-						<div class="flex items-center gap-spacing-75 bg-elevation-surface-default border border-default rounded-full px-spacing-150 py-spacing-75">
-							<div class="w-[10px] h-[10px] rounded-full bg-icon-accent-red-default" />
-							<code class="text-xs">color.icon.accent.red</code>
-						</div>
-						<div class="flex items-center gap-spacing-75 bg-accent-red-subtlest-default border border-accent-red rounded-sm px-spacing-150 py-spacing-75">
-							<div class="w-[14px] h-[14px] rounded-full bg-icon-accent-red-default flex items-center justify-center">
+						<div class="flex items-center gap-spacing-75 bg-success-default border border-success rounded-sm px-spacing-150 py-spacing-75">
+							<div class="w-[14px] h-[14px] rounded-full bg-icon-success flex items-center justify-center">
 								<span class="text-white text-[10px] font-bold leading-none">!</span>
 							</div>
-							<span class="text-xs text-accent-red-default">Message Content</span>
+							<span class="text-xs text-success">Error: something went wrong</span>
 						</div>
 					</div>
 					<div class="border-t-[3px] border-danger" />
@@ -242,7 +238,7 @@ export const DoColorRole: Story = {
 							<span class="text-icon-danger text-base leading-none">✖</span>
 							<strong class="heading-sm">Don't</strong>
 						</div>
-						<span class="body-md text-subtle">Don't use an accent when the color has semantic meaning.</span>
+						<span class="body-md text-subtle">Don't use the wrong color role — green for errors confuses users.</span>
 					</div>
 				</div>
 			</div>
