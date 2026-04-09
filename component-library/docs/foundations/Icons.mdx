@@ -1,75 +1,106 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
+import * as IconStories from './Icons.stories';
 
 <Meta title="Foundations/Icons" />
 
-# Icons
+<Unstyled>
+<div className="font-archivo flex flex-col gap-spacing-600">
 
-> **Work in Progress** — The icons package is being updated for PrimeVue compatibility. The documentation below may not work as expected.
+  <div>
+    <h1 className="heading-2xl text-default">Icons</h1>
+    <p className="body-lg text-subtle mt-spacing-100">Icons are based on <a className="text-link-default" href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer">Material Symbols</a> (rounded, weight 400). They use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">fill="currentColor"</code> so they inherit text color automatically. PrimeVue components use BCC icons internally — no setup needed.</p>
+  </div>
 
-SVG icons based on [Material Symbols](https://fonts.google.com/icons) with **Weight 400**, **Grade 0**, **Size 24**.
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Installation</h2>
+        <p className="body-md text-subtle mt-spacing-50">Install the Vue icon package and import individual icons by name. Icons are tree-shakeable — only the icons you import are included in your bundle.</p>
+      </div>
+      <div className="code-block">
+        <pre>npm install @bcc-code/icons-vue</pre>
+        <button className="copy-btn" onClick={() => {navigator.clipboard.writeText('npm install @bcc-code/icons-vue')}}>Copy</button>
+      </div>
+      <div className="code-block">
+        <pre>{`import { SearchIcon } from '@bcc-code/icons-vue';
 
-## Quick Start
+<SearchIcon class="icon-md text-default" />`}</pre>
+      </div>
+    </div>
+  </div>
 
-```vue
-<script setup>
-import { SearchIcon } from "@bcc-code/icons-vue";
-</script>
+  <hr className="border-default" />
 
-<template>
-  <SearchIcon class="h-6 w-6 text-blue-500" />
-</template>
-```
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Sizing</h2>
+        <p className="body-md text-subtle mt-spacing-50">Use icon size tokens to keep icons consistent with surrounding text and components. The default size for most UI is <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">icon-md</code> (24px).</p>
+      </div>
+      <Story of={IconStories.IconSizes} sourceState="none" />
+    </div>
+  </div>
 
-## Installation
+  <hr className="border-default" />
 
-```bash
-npm install @bcc-code/icons-vue
-```
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Color</h2>
+        <p className="body-md text-subtle mt-spacing-50">Icons inherit text color via <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">currentColor</code>. Apply the same text color classes you use for typography — the icon will match automatically.</p>
+      </div>
+      <Story of={IconStories.IconColors} sourceState="none" />
+    </div>
 
-## Usage
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Icons in components</h3>
+        <p className="body-md text-subtle mt-spacing-50">Icons pair with buttons, inputs, and navigation. Size and color should match the component context.</p>
+      </div>
+      <Story of={IconStories.IconInComponents} sourceState="none" />
+    </div>
+  </div>
 
-Icons use PascalCase naming with an `Icon` suffix.
+  <hr className="border-default" />
 
-| Icon     | Import         |
-| -------- | -------------- |
-| Search   | `SearchIcon`   |
-| Home     | `HomeIcon`     |
-| Menu     | `MenuIcon`     |
-| Settings | `SettingsIcon` |
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Guidelines</h2>
+    <Story of={IconStories.DoIcons} sourceState="none" />
+    <Story of={IconStories.DoIconColor} sourceState="none" />
+  </div>
 
-### Sizing
+  <hr className="border-default" />
 
-Use icon size tokens for consistent sizing:
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Accessibility</h2>
+        <p className="body-md text-subtle mt-spacing-50">All BCC icons render with <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">aria-hidden="true"</code> by default — they're treated as decorative. If an icon is the only element conveying meaning (e.g., an icon-only button), add an <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">aria-label</code> to the parent element.</p>
+      </div>
+      <div className="code-block">
+        <pre>{`<!-- Decorative: label provides meaning -->
+<button>
+  <SearchIcon class="icon-sm" />
+  Search
+</button>
 
-| Token          | Tailwind  | CSS              | Value |
-| -------------- | --------- | ---------------- | ----- |
-| `icon.size.xs` | `icon-xs` | `--icon-size-xs` | 16px  |
-| `icon.size.sm` | `icon-sm` | `--icon-size-sm` | 20px  |
-| `icon.size.md` | `icon-md` | `--icon-size-md` | 24px  |
-| `icon.size.lg` | `icon-lg` | `--icon-size-lg` | 32px  |
-| `icon.size.xl` | `icon-xl` | `--icon-size-xl` | 48px  |
+<!-- Icon-only: aria-label required -->
+<button aria-label="Search">
+  <SearchIcon class="icon-md" />
+</button>`}</pre>
+      </div>
+    </div>
+  </div>
 
-```vue
-<SearchIcon class="icon-sm text-subtle" />
-<SearchIcon class="icon-md text-default" />
-<SearchIcon class="icon-lg text-brand-default" />
-```
+  <div className="flex flex-col gap-spacing-200">
+    <div>
+      <h2 className="heading-xl text-default">Browse icons</h2>
+      <p className="body-md text-subtle mt-spacing-50">Icons follow PascalCase naming with an <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">Icon</code> suffix — e.g., <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">search.svg</code> becomes <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">SearchIcon</code>.</p>
+    </div>
+    <p className="body-md text-subtle">Browse the full icon set at <a className="text-link-default" href="https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Rounded" target="_blank" rel="noopener noreferrer">Material Symbols (Rounded)</a> or <a className="text-link-default" href="https://unpkg.com/browse/@bcc-code/icons-vue/" target="_blank" rel="noopener noreferrer">view published icons on UNPKG</a>.</p>
+  </div>
 
-## Browse Available Icons
+  <p className="body-md text-subtlest">For non-Vue projects, install <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">@bcc-code/icons</code> for raw SVG files.</p>
 
-- [Browse all icons on UNPKG](https://unpkg.com/browse/@bcc-code/icons-vue)
-- [View in Figma](https://www.figma.com/file/jtWn3ebee6bJnWpfZrJzq1/BCC-Foundation---Master?type=design&node-id=772-438&mode=dev)
-
-## Raw SVG (Non-Vue Projects)
-
-For projects without Vue, use the base icons package:
-
-```bash
-npm install @bcc-code/icons
-```
-
-Import SVG files directly or copy from Figma.
-
-## Figma
-
-See the design specs in Figma (link coming soon).
+</div>
+</Unstyled>
