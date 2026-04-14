@@ -8,6 +8,7 @@ export type RadioButtonProps = PrimeRadioButtonProps & {
 	label?: string;
 	labelLeft?: boolean;
 	justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
+	labelClass?: string;
 };
 
 const props = defineProps<RadioButtonProps>();
@@ -39,6 +40,7 @@ const radioButtonBindings = computed(() => {
 				size === 'large' ? 'text-body-lg' : 'text-body-md',
 				{ 'text-disabled': disabled },
 				{ '-order-1': labelLeft },
+				labelClass,
 			]"
 		>
 			<slot>{{ label }}</slot>
