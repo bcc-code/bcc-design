@@ -56,6 +56,33 @@ import * as SpacingStories from './Spacing.stories';
   <div className="flex flex-col gap-spacing-400">
     <div className="flex flex-col gap-spacing-200">
       <div>
+        <h2 className="heading-xl text-default">Using spacing in code</h2>
+        <p className="body-md text-subtle mt-spacing-50">There are two ways to apply spacing. Both use the same 8px grid — pick whichever fits your workflow.</p>
+      </div>
+    </div>
+
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Use in design</h3>
+        <p className="body-md text-subtle mt-spacing-50">When working from a Figma file, use the token classes. They match what you see in Figma 1:1 — no translation needed.</p>
+      </div>
+      <Story of={SpacingStories.TokenClasses} sourceState="none" />
+    </div>
+
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Use in code</h3>
+        <p className="body-md text-subtle mt-spacing-50">When building without a Figma file, you can use standard Tailwind classes. They align with our 8px grid.</p>
+      </div>
+      <Story of={SpacingStories.TailwindMapping} sourceState="none" />
+    </div>
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
         <h2 className="heading-xl text-default">Spacing in practice</h2>
         <p className="body-md text-subtle mt-spacing-50">Real component examples showing how spacing tokens are applied.</p>
       </div>
@@ -83,33 +110,6 @@ import * as SpacingStories from './Spacing.stories';
         <p className="body-md text-subtle mt-spacing-50">Dialogs use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-200</code> (16px) padding. Label-to-input gaps use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-100</code> (8px), field-to-field gaps use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-200</code> (16px).</p>
       </div>
       <Story of={SpacingStories.SpacingInForm} sourceState="none" />
-    </div>
-  </div>
-
-  <hr className="border-default" />
-
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
-      <div>
-        <h2 className="heading-xl text-default">Using spacing in code</h2>
-        <p className="body-md text-subtle mt-spacing-50">There are two ways to apply spacing. Both use the same 8px grid — pick whichever fits your workflow.</p>
-      </div>
-    </div>
-
-    <div className="flex flex-col gap-spacing-200">
-      <div>
-        <h3 className="heading-lg text-default">With a design (Figma)</h3>
-        <p className="body-md text-subtle mt-spacing-50">When working from a Figma file, use the token classes. They match what you see in Figma 1:1 — no translation needed.</p>
-      </div>
-      <Story of={SpacingStories.TokenClasses} sourceState="none" />
-    </div>
-
-    <div className="flex flex-col gap-spacing-200">
-      <div>
-        <h3 className="heading-lg text-default">Without a design</h3>
-        <p className="body-md text-subtle mt-spacing-50">When building without a Figma file, you can use standard Tailwind classes. They align with our 8px grid.</p>
-      </div>
-      <Story of={SpacingStories.TailwindMapping} sourceState="none" />
     </div>
   </div>
 
