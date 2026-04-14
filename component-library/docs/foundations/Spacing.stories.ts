@@ -173,6 +173,78 @@ export const SpacingInForm: Story = {
 	}),
 };
 
+export const TokenClasses: Story = {
+	render: () => ({
+		template: `
+			<div class="flex flex-col">
+				<div class="flex items-center gap-spacing-200 border-b border-default pb-spacing-100">
+					<span class="body-md font-semibold w-32 shrink-0">Figma token</span>
+					<span class="body-md font-semibold w-12 shrink-0 text-right">Pixels</span>
+					<span class="body-md font-semibold flex-1 pl-spacing-200">Tailwind class (click to copy)</span>
+				</div>
+				<div v-for="row in rows" :key="row.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-100">
+					<span class="body-md w-32 shrink-0 text-subtlest">{{ row.token }}</span>
+					<span class="body-md text-subtlest w-12 shrink-0 text-right">{{ row.px }}</span>
+					<div class="flex gap-spacing-75 pl-spacing-200">
+						<code v-for="cls in row.classes" :key="cls" class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-tw="cls">{{ cls }}</code>
+					</div>
+				</div>
+			</div>
+		`,
+		setup() {
+			const rows = [
+				{ token: 'spacing-100', px: '8px', classes: ['p-spacing-100', 'gap-spacing-100', 'm-spacing-100'] },
+				{ token: 'spacing-200', px: '16px', classes: ['p-spacing-200', 'gap-spacing-200', 'm-spacing-200'] },
+				{ token: 'spacing-300', px: '24px', classes: ['p-spacing-300', 'gap-spacing-300', 'm-spacing-300'] },
+			];
+			return { rows };
+		},
+	}),
+};
+
+export const TailwindMapping: Story = {
+	render: () => ({
+		template: `
+			<div class="flex flex-col">
+				<div class="flex items-center gap-spacing-200 border-b border-default pb-spacing-100">
+					<span class="body-md font-semibold w-28 shrink-0">Token</span>
+					<span class="body-md font-semibold w-12 shrink-0 text-right">Pixels</span>
+					<span class="body-md font-semibold w-36 shrink-0 pl-spacing-200">Token class</span>
+					<span class="body-md font-semibold flex-1">Tailwind class</span>
+				</div>
+				<div v-for="row in rows" :key="row.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-100">
+					<span class="body-md w-28 shrink-0 text-subtlest">{{ row.token }}</span>
+					<span class="body-md text-subtlest w-12 shrink-0 text-right">{{ row.px }}</span>
+					<div class="w-36 shrink-0 pl-spacing-200">
+						<code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-tw="row.tokenCls">{{ row.tokenCls }}</code>
+					</div>
+					<div>
+						<code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-tw="row.tw">{{ row.tw }}</code>
+					</div>
+				</div>
+			</div>
+		`,
+		setup() {
+			const rows = [
+				{ token: 'spacing-25', px: '2px', tokenCls: 'p-spacing-25', tw: 'p-0.5' },
+				{ token: 'spacing-50', px: '4px', tokenCls: 'p-spacing-50', tw: 'p-1' },
+				{ token: 'spacing-75', px: '6px', tokenCls: 'p-spacing-75', tw: 'p-1.5' },
+				{ token: 'spacing-100', px: '8px', tokenCls: 'p-spacing-100', tw: 'p-2' },
+				{ token: 'spacing-150', px: '12px', tokenCls: 'p-spacing-150', tw: 'p-3' },
+				{ token: 'spacing-200', px: '16px', tokenCls: 'p-spacing-200', tw: 'p-4' },
+				{ token: 'spacing-250', px: '20px', tokenCls: 'p-spacing-250', tw: 'p-5' },
+				{ token: 'spacing-300', px: '24px', tokenCls: 'p-spacing-300', tw: 'p-6' },
+				{ token: 'spacing-400', px: '32px', tokenCls: 'p-spacing-400', tw: 'p-8' },
+				{ token: 'spacing-500', px: '40px', tokenCls: 'p-spacing-500', tw: 'p-10' },
+				{ token: 'spacing-600', px: '48px', tokenCls: 'p-spacing-600', tw: 'p-12' },
+				{ token: 'spacing-800', px: '64px', tokenCls: 'p-spacing-800', tw: 'p-16' },
+				{ token: 'spacing-1000', px: '80px', tokenCls: 'p-spacing-1000', tw: 'p-20' },
+			];
+			return { rows };
+		},
+	}),
+};
+
 export const DoSpacing: Story = {
 	render: () => ({
 		template: doDont(

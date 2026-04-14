@@ -87,6 +87,26 @@ document.addEventListener('mouseover', (e) => {
 	if (hex) items.push({ label: isRgba ? 'RGBA' : 'Hex', value: hex });
 	if (rgb) items.push({ label: 'RGB', value: rgb });
 
+	// Single value — show simple tooltip, copy on click
+	if (items.length === 1) {
+		tippy(swatch, {
+			content: `<div class="color-copy-row" style="cursor:pointer"><span style="font-size:12px;color:#6b6e76">Click to copy</span> <strong style="font-size:12px;color:#292a2e">${items[0].value}</strong></div>`,
+			allowHTML: true,
+			trigger: 'mouseenter',
+			placement: 'bottom',
+			theme: 'color-copy',
+			arrow: true,
+			appendTo: document.body,
+		});
+		swatch.addEventListener('click', () => {
+			navigator.clipboard.writeText(items[0].value).then(() => {
+				showCopyToast(items[0].value);
+			});
+		});
+		(swatch as any)._tippy.show();
+		return;
+	}
+
 	const html = items.map(item =>
 		`<div class="color-copy-row">` +
 		`<span class="color-copy-label">${item.label}</span>` +

@@ -89,6 +89,33 @@ import * as SpacingStories from './Spacing.stories';
   <hr className="border-default" />
 
   <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Using spacing in code</h2>
+        <p className="body-md text-subtle mt-spacing-50">There are two ways to apply spacing. Both use the same 8px grid — pick whichever fits your workflow.</p>
+      </div>
+    </div>
+
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">With a design (Figma)</h3>
+        <p className="body-md text-subtle mt-spacing-50">When working from a Figma file, use the token classes. They match what you see in Figma 1:1 — no translation needed.</p>
+      </div>
+      <Story of={SpacingStories.TokenClasses} sourceState="none" />
+    </div>
+
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Without a design</h3>
+        <p className="body-md text-subtle mt-spacing-50">When building without a Figma file, you can use standard Tailwind classes. They align with our 8px grid.</p>
+      </div>
+      <Story of={SpacingStories.TailwindMapping} sourceState="none" />
+    </div>
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
     <h2 className="heading-xl text-default">Guidelines</h2>
     <Story of={SpacingStories.DoSpacing} sourceState="none" />
     <Story of={SpacingStories.DoTokens} sourceState="none" />
