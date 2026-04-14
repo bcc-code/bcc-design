@@ -24,7 +24,7 @@ const meta: Meta = {
 		hideBack: { control: 'boolean' },
 		padded: { control: 'boolean' },
 		transparent: { control: 'boolean' },
-		glass: { control: 'boolean' },
+		white: { control: 'boolean' },
 		fixed: { control: 'boolean' },
 		titleLeft: { control: 'boolean' },
 	},
@@ -106,11 +106,11 @@ export const WithRightAction: Story = {
 	}),
 };
 
-export const Glass: Story = {
+export const White: Story = {
 	args: {
-		title: 'Glass style',
-		subtitle: 'With glass background',
-		glass: true,
+		title: 'White style',
+		subtitle: 'With default surface background and default text color',
+		white: true,
 		padded: true,
 	},
 	render: args => ({
