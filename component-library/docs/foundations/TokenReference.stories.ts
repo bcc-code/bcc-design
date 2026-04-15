@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 // ── Shared template fragments ────────────────────────────
 
-const pill = `<code class="${PILL}" :data-token="t.token" :data-tw="t.twClass || t.tw" >{{ t.token }}</code>`;
+const pill = `<code class="${PILL}" :data-token="t.token" :data-tw="t.twClass || t.tw" :data-css="t.cssVar">{{ t.token }}</code>`;
 const desc = `<span v-if="t.desc" class="body-md text-subtle">{{ t.desc }}</span>`;
 const lightSwatch = `
 	<div class="rounded-lg border border-default p-spacing-100 flex flex-col items-center gap-spacing-75 color-swatch color-swatch-no-hover cursor-pointer" :data-hex="t.lightHex">
@@ -67,7 +67,7 @@ const borderColorTemplate = `
 
 /** Build a color token data object with auto-derived CSS var and Tailwind class. */
 function c(token: string, lightHex: string, darkHex: string, desc?: string, lightPrim?: string, darkPrim?: string) {
-	const cssVar = '--color-' + token.replace('color.', '').replace(/\./g, '-');
+	const cssVar = 'var(--color-' + token.replace('color.', '').replace(/\./g, '-') + ')';
 	const twClass = token.replace('color.', '').replace(/\./g, '-');
 	return { token, lightHex, darkHex, desc, lightPrim: lightPrim || lightHex, darkPrim: darkPrim || darkHex, cssVar, twClass };
 }
@@ -332,7 +332,7 @@ export const ElevationShadow: Story = {
 				</div>
 				<div v-for="t in tokens" :key="t.token" class="flex items-start gap-spacing-200 border-b border-default py-spacing-200">
 					<div class="flex flex-col gap-spacing-50 flex-1">
-						<code class="${PILL}" :data-token="t.token" :data-tw="t.css" >{{ t.token }}</code>
+						<code class="${PILL}" :data-token="t.token" :data-tw="t.tw" :data-css="'var(' + t.css + ')'" >{{ t.token }}</code>
 						<span v-if="t.desc" class="body-md text-subtle">{{ t.desc }}</span>
 					</div>
 					<div class="w-40 ml-auto shrink-0 p-spacing-200 rounded-lg bg-neutral-100">
@@ -348,19 +348,19 @@ export const ElevationShadow: Story = {
 			tokens: [
 				{
 					token: 'elevation.shadow.raised', desc: 'Raised cards and containers.',
-					css: '--elevation-shadow-raised',
+					tw: 'shadow-raised', css: '--elevation-shadow-raised',
 					value: '0 1px 1px 0 rgba(30,31,33,0.25), 0 0 1px 0 rgba(30,31,33,0.31)',
 					darkValue: '0 1px 1px 0 rgba(0,0,0,0.5), 0 0 1px 0 rgba(0,0,0,0.6)',
 				},
 				{
 					token: 'elevation.shadow.overflow', desc: 'Scrolling content edge shadow.',
-					css: '--elevation-shadow-overflow',
+					tw: 'shadow-overflow', css: '--elevation-shadow-overflow',
 					value: '0 0 8px 0 rgba(30,31,33,0.16), 0 0 1px 0 rgba(30,31,33,0.12)',
 					darkValue: '0 0 8px 0 rgba(0,0,0,0.4), 0 0 1px 0 rgba(0,0,0,0.3)',
 				},
 				{
 					token: 'elevation.shadow.overlay', desc: 'Modals, dialogs, dropdown menus, floating toolbars.',
-					css: '--elevation-shadow-overlay',
+					tw: 'shadow-overlay', css: '--elevation-shadow-overlay',
 					value: '0 8px 12px 0 rgba(30,31,33,0.15), 0 0 1px 0 rgba(30,31,33,0.31)',
 					darkValue: '0 8px 12px 0 rgba(0,0,0,0.4), 0 0 1px 0 rgba(0,0,0,0.6)',
 				},

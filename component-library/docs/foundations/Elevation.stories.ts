@@ -47,10 +47,10 @@ export const SurfaceTokens: Story = {
 	render: () => ({
 		setup() {
 			const rows = [
-				{ token: 'elevation.surface.sunken', tw: 'bg-elevation-surface-sunken-default', desc: 'Recessed backgrounds: sidebars, page canvases, content wells.' },
-				{ token: 'elevation.surface.default', tw: 'bg-elevation-surface-default', desc: 'Baseline surface for main content, containers, and forms.' },
-				{ token: 'elevation.surface.raised', tw: 'bg-elevation-surface-raised-default', desc: 'Lifted surfaces: cards, interactive tiles. Pair with shadow.raised.' },
-				{ token: 'elevation.surface.overlay', tw: 'bg-elevation-surface-overlay-default', desc: 'Floating UI: modals, dialogs, dropdowns. Pair with shadow.overlay.' },
+				{ token: 'elevation.surface.sunken', tw: 'bg-elevation-surface-sunken-default', css: 'var(--color-elevation-surface-sunken-default)', desc: 'Recessed backgrounds: sidebars, page canvases, content wells.' },
+				{ token: 'elevation.surface.default', tw: 'bg-elevation-surface-default', css: 'var(--color-elevation-surface-default)', desc: 'Baseline surface for main content, containers, and forms.' },
+				{ token: 'elevation.surface.raised', tw: 'bg-elevation-surface-raised-default', css: 'var(--color-elevation-surface-raised-default)', desc: 'Lifted surfaces: cards, interactive tiles. Pair with shadow.raised.' },
+				{ token: 'elevation.surface.overlay', tw: 'bg-elevation-surface-overlay-default', css: 'var(--color-elevation-surface-overlay-default)', desc: 'Floating UI: modals, dialogs, dropdowns. Pair with shadow.overlay.' },
 			];
 			return { rows };
 		},
@@ -62,7 +62,7 @@ export const SurfaceTokens: Story = {
 					<span class="body-md font-semibold w-14 shrink-0 text-right">Preview</span>
 				</div>
 				<div v-for="r in rows" :key="r.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="w-56 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="r.token" :data-tw="r.tw">{{ r.token }}</code></div>
+					<div class="w-56 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="r.token" :data-tw="r.tw" :data-css="r.css">{{ r.token }}</code></div>
 					<span class="body-md text-subtle flex-1">{{ r.desc }}</span>
 					<div class="w-14 shrink-0 flex justify-end">
 						<div class="w-10 h-10 rounded-sm border border-default" :class="r.tw" />
@@ -77,9 +77,9 @@ export const ShadowTokens: Story = {
 	render: () => ({
 		setup() {
 			const rows = [
-				{ token: 'shadow.raised', tw: 'shadow-raised', desc: 'Subtle lift for cards and interactive tiles.', shadow: 'var(--elevation-shadow-raised)' },
-				{ token: 'shadow.overlay', tw: 'shadow-overlay', desc: 'Prominent shadow for modals, dropdowns, and floating UI.', shadow: 'var(--elevation-shadow-overlay)' },
-				{ token: 'shadow.overflow', tw: 'shadow-overflow', desc: 'Scroll indicator for content overflowing a container.', shadow: 'var(--elevation-shadow-overflow)' },
+				{ token: 'shadow.raised', tw: 'shadow-raised', css: 'var(--elevation-shadow-raised)', desc: 'Subtle lift for cards and interactive tiles.', shadow: 'var(--elevation-shadow-raised)' },
+				{ token: 'shadow.overlay', tw: 'shadow-overlay', css: 'var(--elevation-shadow-overlay)', desc: 'Prominent shadow for modals, dropdowns, and floating UI.', shadow: 'var(--elevation-shadow-overlay)' },
+				{ token: 'shadow.overflow', tw: 'shadow-overflow', css: 'var(--elevation-shadow-overflow)', desc: 'Scroll indicator for content overflowing a container.', shadow: 'var(--elevation-shadow-overflow)' },
 			];
 			return { rows };
 		},
@@ -91,7 +91,7 @@ export const ShadowTokens: Story = {
 					<span class="body-md font-semibold w-14 shrink-0 text-right">Preview</span>
 				</div>
 				<div v-for="r in rows" :key="r.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="w-40 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="r.token" :data-tw="r.tw">{{ r.token }}</code></div>
+					<div class="w-40 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="r.token" :data-tw="r.tw" :data-css="r.css">{{ r.token }}</code></div>
 					<span class="body-md text-subtle flex-1">{{ r.desc }}</span>
 					<div class="w-14 shrink-0 flex justify-end">
 						<div class="w-10 h-10 rounded-sm bg-elevation-surface-default" :style="{ boxShadow: r.shadow }" />

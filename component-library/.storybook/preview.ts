@@ -55,6 +55,7 @@ if (!(globalThis as any).__bccSwatchListenerAttached) {
 	let hex = swatch.getAttribute('data-hex');
 	const token = swatch.getAttribute('data-token');
 	const tw = swatch.getAttribute('data-tw');
+	const cssOverride = swatch.getAttribute('data-css');
 	if (!hex && !token && !tw) return;
 
 	// Resolve hex from computed background only for actual color swatches
@@ -82,7 +83,7 @@ if (!(globalThis as any).__bccSwatchListenerAttached) {
 	const items: { label: string; value: string }[] = [];
 	if (token) items.push({ label: 'Token', value: token });
 	if (token && !hex) {
-		const cssVar = 'var(--' + token.replace(/\./g, '-') + ')';
+		const cssVar = cssOverride || ('var(--' + token.replace(/\./g, '-') + ')');
 		items.push({ label: 'CSS', value: cssVar });
 	}
 	if (tw) items.push({ label: 'Tailwind', value: tw });
@@ -103,7 +104,7 @@ if (!(globalThis as any).__bccSwatchListenerAttached) {
 		swatch.addEventListener('click', () => {
 			navigator.clipboard.writeText(items[0].value).then(() => {
 				showCopyToast(items[0].value);
-			});
+			}).catch(() => { /* clipboard access denied — ignore silently */ });
 		});
 		(swatch as any)._tippy.show();
 		return;
@@ -127,7 +128,9 @@ if (!(globalThis as any).__bccSwatchListenerAttached) {
 		appendTo: document.body,
 		onCreate(instance) {
 			instance.popper.addEventListener('click', (ev) => {
-				const btn = (ev.target as HTMLElement).closest('.color-copy-btn');
+				const target = ev.target;
+				if (!(target instanceof Element)) return;
+				const btn = target.closest('.color-copy-btn');
 				if (!btn) return;
 				const val = btn.getAttribute('data-value');
 				if (val) {
@@ -136,7 +139,7 @@ if (!(globalThis as any).__bccSwatchListenerAttached) {
 						instance.hide();
 						copyLock = true;
 						setTimeout(() => { copyLock = false; }, 400);
-					});
+					}).catch(() => { /* clipboard access denied — ignore silently */ });
 				}
 			});
 		},
