@@ -79,7 +79,7 @@ export const ShadowTokens: Story = {
 			const rows = [
 				{ token: 'shadow.raised', tw: 'shadow-raised', desc: 'Subtle lift for cards and interactive tiles.', shadow: 'var(--elevation-shadow-raised)' },
 				{ token: 'shadow.overlay', tw: 'shadow-overlay', desc: 'Prominent shadow for modals, dropdowns, and floating UI.', shadow: 'var(--elevation-shadow-overlay)' },
-				{ token: 'shadow.overflow', tw: 'shadow-overflow', desc: 'Scroll indicator for content overflowing a container.', shadow: 'var(--elevation-shadow-oveflow)' },
+				{ token: 'shadow.overflow', tw: 'shadow-overflow', desc: 'Scroll indicator for content overflowing a container.', shadow: 'var(--elevation-shadow-overflow)' },
 			];
 			return { rows };
 		},
