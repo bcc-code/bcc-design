@@ -26,6 +26,10 @@ coverage
 *.local
 storybook-static
 
+# Playwright
+test-results/
+playwright-report/
+
 /cypress/videos/
 /cypress/screenshots/
 

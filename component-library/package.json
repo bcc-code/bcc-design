@@ -49,6 +49,7 @@
 		"lint": "eslint src/**/*.ts src/**/*.vue",
 		"lint:fix": "eslint --fix src/**/*.ts src/**/*.vue",
 		"test:unit": "vitest run",
+		"test:e2e": "playwright test",
 		"release-channel": "node ./scripts/release-channel.cjs",
 		"create-version": "node ./scripts/version.cjs"
 	},
@@ -65,6 +66,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.2",
+		"@playwright/test": "^1.59.1",
 		"@primevue/auto-import-resolver": "^4.5.4",
 		"@storybook/addon-docs": "^10.2.8",
 		"@storybook/manager-api": "^8.6.14",
@@ -81,6 +83,7 @@
 		"eslint-plugin-prettier": "^5.5.5",
 		"eslint-plugin-vue": "^10.7.0",
 		"globals": "^17.3.0",
+		"http-server": "^14.1.1",
 		"jiti": "^2.6.1",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8.4.49",
