@@ -1,18 +1,17 @@
-
 @layer components {
 	.bcc-tag.bcc-badge {
 		@apply w-auto;
 	}
 	.bcc-tag.bcc-badge.md {
-		@apply font-regular h-6;
+		@apply text-body-md h-6;
 	}
 	.bcc-tag.bcc-badge.sm {
-		@apply font-regular h-5;
+		@apply text-body-sm h-5;
 	}
 	.bcc-tag.bcc-badge.lg {
-		@apply font-regular h-8;
+		@apply text-body-md h-8;
 	}
 	.bcc-tag.bcc-badge.xl {
-		@apply font-regular h-10;
+		@apply text-body-lg h-10;
 	}
 }

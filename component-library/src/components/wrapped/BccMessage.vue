@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { VueComponent } from '@/types';
-import { CheckIcon, ContrastIcon, ErrorIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
+import { CheckIcon, ContrastIcon, ErrorIcon, InfoFillIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
 import BccMessage, { type MessageProps as PrimeMessageProps } from 'primevue/message';
 import { computed, type Component } from 'vue';
 
@@ -22,7 +22,7 @@ const messageBindings = computed((): PrimeMessageProps => {
 });
 
 const SeverityIcons: Record<NonNullable<PrimeMessageProps['severity']>, Component> = {
-	info: InfoIcon,
+	info: InfoFillIcon,
 	success: CheckIcon,
 	warn: WarningIcon,
 	error: ErrorIcon,
@@ -79,7 +79,7 @@ const iconWrapperStyles = computed(() => {
 		<slot>
 			<div>
 				<h4 v-if="title" class="text-heading-sm leading-lg">{{ title }}</h4>
-				<p v-if="message" class="text-body-sm">{{ message }}</p>
+				<p v-if="message" class="text-body-md">{{ message }}</p>
 			</div>
 		</slot>
 	</BccMessage>

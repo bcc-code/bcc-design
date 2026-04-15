@@ -44,7 +44,9 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: component-library/pnpm-lock.yaml
 
-      - run: npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
+      - run: |
+          npm install -g npm@~11.10.0
+          npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -113,7 +115,9 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: component-library/pnpm-lock.yaml
 
-      - run: npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
+      - run: |
+          npm install -g npm@~11.10.0
+          npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

@@ -1,6 +1,6 @@
 {
 	"name": "@bcc-code/component-library-vue",
-	"version": "0.9.16",
+	"version": "1.0.0",
 	"type": "module",
 	"description": "Extended Vue component library based on PrimeVue and BCC design tokens",
 	"repository": "https://github.com/bcc-code/bcc-design.git",
@@ -53,7 +53,7 @@
 		"create-version": "node ./scripts/version.cjs"
 	},
 	"dependencies": {
-		"@bcc-code/design-tokens": "^5.1.66",
+		"@bcc-code/design-tokens": "^5.1.80",
 		"@bcc-code/icons-vue": "^1.4.0",
 		"@primeuix/themes": "^2.0.3",
 		"@tailwindcss/vite": "^4.1.18",

@@ -18,7 +18,7 @@ const props = withDefaults(
 			fixed?: boolean;
 			padded?: boolean;
 			transparent?: boolean;
-			glass?: boolean;
+			white?: boolean;
 			backTitle?: string;
 			force?: boolean;
 			titleLeft?: boolean;
@@ -49,7 +49,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 		class="bcc-topbar pt-inset-top-1 top-0 z-30 w-full shrink-0 pb-1"
 		:class="[
 			{ relative, fixed, sticky: !relative && !fixed },
-			transparent || glass ? (glass ? 'glass-bg' : '') : 'bg-brand-800 text-white drop-shadow',
+			transparent ? '' : white ? 'bg-elevation-surface-default text-default' : 'bg-brand-800 text-white drop-shadow',
 		]"
 	>
 		<div class="center between min-h-12 w-full" :class="{ 'px-4 sm:px-6': padded }">
@@ -84,12 +84,12 @@ const heading = computed((): { title: string; subtitle: string } => {
 						class="col pointer-events-none flex-1 gap-(--space-negative-25) truncate px-2"
 						:class="titleLeft ? 'items-start text-left' : 'text-center'"
 					>
-						<h1 class="truncate" :class="heading.title.length > 24 ? 'text-heading-md' : 'text-heading-lg'">
+						<h1 class="w-full truncate" :class="heading.title.length > 24 ? 'text-heading-sm' : 'text-heading-md'">
 							<slot name="title" :title="heading.title">
 								{{ heading.title }}
 							</slot>
 						</h1>
-						<h2 v-if="heading.subtitle" class="text-body-sm truncate leading-none opacity-75">
+						<h2 v-if="heading.subtitle" class="text-body-sm w-full truncate leading-none opacity-75">
 							<slot name="subtitle" :subtitle="heading.subtitle">
 								{{ heading.subtitle }}
 							</slot>
