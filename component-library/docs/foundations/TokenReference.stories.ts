@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 // ── Shared template fragments ────────────────────────────
 
-const pill = `<code class="${PILL}" :data-token="t.token" :data-tw="t.twClass || t.tw" :data-css="t.cssVar">{{ t.token }}</code>`;
+const pill = `<code class="${PILL}" :data-token="t.token" :data-tw="t.twClass || t.tw" >{{ t.token }}</code>`;
 const desc = `<span v-if="t.desc" class="body-md text-subtle">{{ t.desc }}</span>`;
 const lightSwatch = `
 	<div class="rounded-lg border border-default p-spacing-100 flex flex-col items-center gap-spacing-75 color-swatch color-swatch-no-hover cursor-pointer" :data-hex="t.lightHex">
@@ -66,9 +66,9 @@ const borderColorTemplate = `
 `;
 
 /** Build a color token data object with auto-derived CSS var and Tailwind class. */
-function c(token: string, lightHex: string, darkHex: string, desc?: string, lightPrim?: string, darkPrim?: string, opts?: { css?: string; tw?: string }) {
-	const cssVar = opts?.css || ('var(--color-' + token.replace('color.', '').replace(/\./g, '-') + ')');
-	const twClass = opts?.tw || token.replace('color.', '').replace(/\./g, '-');
+function c(token: string, lightHex: string, darkHex: string, desc?: string, lightPrim?: string, darkPrim?: string) {
+	const cssVar = '--color-' + token.replace('color.', '').replace(/\./g, '-');
+	const twClass = token.replace('color.', '').replace(/\./g, '-');
 	return { token, lightHex, darkHex, desc, lightPrim: lightPrim || lightHex, darkPrim: darkPrim || darkHex, cssVar, twClass };
 }
 
@@ -86,7 +86,7 @@ export const ColorText: Story = {
 				c('color.text.disabled', 'rgba(8,15,33,0.29)', 'rgba(229,233,246,0.25)', 'Disabled state text.', 'Alpha 29%', 'Alpha 25%'),
 				c('color.text.inverse', '#ffffff', '#1f1f21', 'Text on inverted backgrounds.', 'Neutral0', 'DarkNeutral100'),
 				c('color.text.selected', '#014d49', '#51b9cf', 'Selected element text.', 'Bcc800', 'Teal400'),
-				c('color.text.static', '#ffffff', '#ffffff', 'Static text that doesn\'t change between themes.', 'Neutral0', 'Neutral0', { css: 'var(--color-text-static-default)', tw: 'text-static-default' }),
+				c('color.text.static.default', '#ffffff', '#ffffff', 'Static text that doesn\'t change between themes.', 'Neutral0', 'Neutral0'),
 			],
 		}),
 	}),
@@ -141,7 +141,7 @@ export const ColorIcon: Story = {
 				c('color.icon.danger', '#ca414e', '#ed6362', undefined, 'Red600', 'Red500'),
 				c('color.icon.warning.default', '#b55919', '#e9c348', undefined, 'Orange600', 'Yellow300'),
 				c('color.icon.warning.inverse', '#4b2c04', '#1f1f21', 'Icon on warning bolder backgrounds.', 'Yellow900', 'DarkNeutral100'),
-				c('color.icon.static', '#ffffff', '#ffffff', 'Static icon that doesn\'t change between themes.', 'Neutral0', 'Neutral0', { css: 'var(--color-icon-static-default)', tw: 'icon-static-default' }),
+				c('color.icon.static.default', '#ffffff', '#ffffff', 'Static icon that doesn\'t change between themes.', 'Neutral0', 'Neutral0'),
 			],
 		}),
 	}),
@@ -181,11 +181,11 @@ export const ColorBgElevation: Story = {
 				c('color.elevation.surface.default', '#ffffff', '#1f1f21', 'Primary background.', 'Neutral0', 'DarkNeutral100'),
 				c('color.elevation.surface.hovered', '#f0f1f2', '#242528', undefined, 'Neutral200', 'DarkNeutral200'),
 				c('color.elevation.surface.pressed', '#dddee1', '#303134', undefined, 'Neutral300', 'DarkNeutral300'),
-				c('color.elevation.surface.sunken', '#f8f8f8', '#18191a', 'Recessed areas — page background behind cards.', 'Neutral100', 'DarkNeutral0', { css: 'var(--color-elevation-surface-sunken-default)', tw: 'bg-elevation-surface-sunken-default' }),
-				c('color.elevation.surface.raised', '#ffffff', '#242528', 'Raised cards and containers.', 'Neutral0', 'DarkNeutral200', { css: 'var(--color-elevation-surface-raised-default)', tw: 'bg-elevation-surface-raised-default' }),
+				c('color.elevation.surface.sunken.default', '#f8f8f8', '#18191a', 'Recessed areas — page background behind cards.', 'Neutral100', 'DarkNeutral0'),
+				c('color.elevation.surface.raised.default', '#ffffff', '#242528', 'Raised cards and containers.', 'Neutral0', 'DarkNeutral200'),
 				c('color.elevation.surface.raised.hovered', '#f0f1f2', '#303134', undefined, 'Neutral200', 'DarkNeutral300'),
 				c('color.elevation.surface.raised.pressed', '#dddee1', '#4b4d51', undefined, 'Neutral300', 'DarkNeutral400'),
-				c('color.elevation.surface.overlay', '#ffffff', '#242528', 'Modals, dialogs, dropdown menus.', 'Neutral0', 'DarkNeutral200', { css: 'var(--color-elevation-surface-overlay-default)', tw: 'bg-elevation-surface-overlay-default' }),
+				c('color.elevation.surface.overlay.default', '#ffffff', '#242528', 'Modals, dialogs, dropdown menus.', 'Neutral0', 'DarkNeutral200'),
 				c('color.elevation.surface.overlay.hovered', '#f0f1f2', '#303134', undefined, 'Neutral200', 'DarkNeutral300'),
 				c('color.elevation.surface.overlay.pressed', '#dddee1', '#4b4d51', undefined, 'Neutral300', 'DarkNeutral400'),
 			],

@@ -55,7 +55,6 @@ if (!(globalThis as any).__bccSwatchListenerAttached) {
 	let hex = swatch.getAttribute('data-hex');
 	const token = swatch.getAttribute('data-token');
 	const tw = swatch.getAttribute('data-tw');
-	const cssOverride = swatch.getAttribute('data-css');
 	if (!hex && !token && !tw) return;
 
 	// Resolve hex from computed background only for actual color swatches
@@ -83,7 +82,7 @@ if (!(globalThis as any).__bccSwatchListenerAttached) {
 	const items: { label: string; value: string }[] = [];
 	if (token) items.push({ label: 'Token', value: token });
 	if (token && !hex) {
-		const cssVar = cssOverride || ('var(--' + token.replace(/\./g, '-') + ')');
+		const cssVar = 'var(--' + token.replace(/\./g, '-') + ')';
 		items.push({ label: 'CSS', value: cssVar });
 	}
 	if (tw) items.push({ label: 'Tailwind', value: tw });
