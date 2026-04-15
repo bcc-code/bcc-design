@@ -4,7 +4,7 @@ import BccNpsScore from './BccNpsScore.vue';
 
 const meta: Meta<typeof BccNpsScore> = {
 	component: BccNpsScore,
-	title: 'Feedback/BccNpsScore',
+	title: 'Custom/Feedback/BccNpsScore',
 	argTypes: {
 		reverse: { control: 'boolean', description: 'Reverse the bar direction' },
 		labelPosition: {

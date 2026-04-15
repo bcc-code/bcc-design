@@ -17,7 +17,7 @@ const baseEmojis: ReactInfo[] = [
 
 const meta: Meta<typeof BccReact> = {
 	component: BccReact,
-	title: 'Custom/BccReact',
+	title: 'Custom/Feedback/BccReact',
 	parameters: {
 		docs: {
 			description: {

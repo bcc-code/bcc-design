@@ -5,7 +5,7 @@ import BccDialKnob from './BccDialKnob.vue';
 
 const meta: Meta<typeof BccDialKnob> = {
 	component: BccDialKnob,
-	title: 'Feedback/BccDialKnob',
+	title: 'Custom/Feedback/BccDialKnob',
 	argTypes: {
 		min: {
 			control: { type: 'number' },

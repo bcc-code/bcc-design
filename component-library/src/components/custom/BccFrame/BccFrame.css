@@ -1,33 +1,35 @@
 @layer components {
-    .bcc-frame {
-        @apply ctx ctx-default w-full;
-    }
+	.bcc-frame {
+		@apply ctx ctx-default w-full border border-transparent;
+	}
 
-    .bcc-frame.bcc-frame--shadow {
-        @apply shadow shadow-ctx;
-    }
+	.bcc-frame.bcc-frame--shadow {
+		@apply shadow-ctx shadow;
+	}
 
-    .bcc-frame--raised {
-        --ctx-background: var(--color-elevation-surface-raised-default);
-    }
-    .bcc-frame--rounded {
-        @apply rounded-md;
-    }
-    .bcc-frame--raised.bcc-frame--shadow {
-        @apply shadow-raised;
-    }
+	.bcc-frame--raised {
+		--ctx-background: var(--color-elevation-surface-raised-default);
+	}
+	.bcc-frame--rounded {
+		@apply rounded-md;
+	}
+	.bcc-frame--raised.bcc-frame--shadow {
+		@apply shadow-raised dark:border-default;
+	}
 
-    .bcc-frame--overlay {
-        --ctx-background: var(--color-elevation-surface-overlay-default);
-    }
-    .bcc-frame--overlay.bcc-frame--shadow {
-        @apply shadow-overlay;
-    }
+	.bcc-frame--overlay {
+		--ctx-background: var(--color-elevation-surface-overlay-default);
+		@apply border;
+	}
+	.bcc-frame--overlay.bcc-frame--shadow {
+		@apply shadow-overlay dark:border-default;
+	}
 
-    .bcc-frame--sunken {
-        --ctx-background: var(--color-elevation-surface-sunken-default);
-    }
-    .bcc-frame--sunken.bcc-frame--shadow {
-        @apply shadow-inner;
-    }
+	.bcc-frame--sunken {
+		--ctx-background: var(--color-elevation-surface-sunken-default);
+		@apply border;
+	}
+	.bcc-frame--sunken.bcc-frame--shadow {
+		@apply dark:border-default shadow-inner;
+	}
 }

@@ -5,7 +5,7 @@ import { BccAppNavigation, type BccAppNavigationItem } from '../../../index';
 
 const meta: Meta<typeof BccAppNavigation> = {
 	component: BccAppNavigation,
-	title: 'Custom/BccAppNavigation',
+	title: 'Custom/Layouts/BccAppNavigation',
 	parameters: {
 		docs: {
 			description: {

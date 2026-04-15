@@ -4,7 +4,7 @@ import BccFrame from './BccFrame.vue';
 
 const meta: Meta<typeof BccFrame> = {
 	component: BccFrame,
-	title: 'Custom/BccFrame',
+	title: 'Custom/Layouts/BccFrame',
 	argTypes: {
 		shadow: { control: 'boolean', description: 'Shadow styling' },
 		rounded: { control: 'boolean', description: 'Rounded styling' },
@@ -114,9 +114,9 @@ export const AllVariants: Story = {
 			<div class="flex flex-col gap-6 max-w-md">
 				<BccFrame class="p-4 flex flex-col gap-4">
 					Default
-					<BccFrame sunken class="p-4">
+					<BccFrame sunken shadow class="p-4">
 						Sunken
-						<BccFrame raised class="p-4">
+						<BccFrame raised shadow class="p-4">
 							Raised
 						</BccFrame>
 					</BccFrame>

@@ -3,7 +3,7 @@ import BccNpsResult from './BccNpsResult.vue';
 
 const meta: Meta<typeof BccNpsResult> = {
 	component: BccNpsResult,
-	title: 'Feedback/BccNpsResult',
+	title: 'Custom/Feedback/BccNpsResult',
 	argTypes: {
 		score: { control: { type: 'number' }, description: 'NPS score (-100 to 100)' },
 		size: {

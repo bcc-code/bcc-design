@@ -8,7 +8,7 @@ const components = { BccTopNavigation, BccButton } as Record<string, Component>;
 
 const meta: Meta = {
 	component: TopNavigationComponent,
-	title: 'Custom/BccTopNavigation',
+	title: 'Custom/Layouts/BccTopNavigation',
 	parameters: {
 		docs: {
 			description: {
