@@ -19,7 +19,6 @@ In Storybook, open the **Foundations** section in the sidebar for:
 - Tokens (semantic colors)
 - Spacing
 - Colors
-- Palette
 - Typography
 - Icons
 - Logos

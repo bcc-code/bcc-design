@@ -1,0 +1,278 @@
+<link rel="stylesheet" href="https://design.bcc.no/fonts/stylesheet.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,1,0" />
+<style>
+  body, .sbdocs-content, .docs-story {
+    font-family: 'Archivo', sans-serif !important;
+  }
+
+  /* Reset Storybook's 14px font-size override on docs content */
+  .sbdocs.sbdocs-content :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+  .sbdocs.sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  .sbdocs.sbdocs-content :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) code,
+  .sbdocs.sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) code {
+    font-size: 1em;
+  }
+
+
+  /* Lightbox */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--color-blanket-default);
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox-overlay.active {
+    display: flex;
+  }
+  .lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: var(--shadow-overlay);
+  }
+  .lightbox-trigger {
+    cursor: zoom-in;
+  }
+
+  /* Spacing indicator — striped overlay to visualize spacing in docs */
+  .spacing-indicator {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(154, 130, 218, 0.18),
+      rgba(154, 130, 218, 0.18) 2px,
+      rgba(154, 130, 218, 0.06) 2px,
+      rgba(154, 130, 218, 0.06) 6px
+    );
+    border: 1px solid rgba(154, 130, 218, 0.35);
+    border-radius: 2px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .spacing-indicator .spacing-px {
+    font-size: 10px;
+    font-weight: 600;
+    color: #8360c3;
+    white-space: nowrap;
+  }
+  .spacing-indicator .spacing-label {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(calc(100% + 24px), -50%);
+    font-size: 10px;
+    font-weight: 600;
+    color: #8360c3;
+    white-space: nowrap;
+    background: #fff;
+    border: 1px solid rgba(154, 130, 218, 0.35);
+    border-radius: 999px;
+    padding: 2px 8px;
+  }
+  .spacing-indicator .spacing-label::before {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 1px;
+    background: #292a2e;
+  }
+  /* Danger variant for Don't examples */
+  .spacing-indicator-danger {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(202, 65, 78, 0.18),
+      rgba(202, 65, 78, 0.18) 2px,
+      rgba(202, 65, 78, 0.06) 2px,
+      rgba(202, 65, 78, 0.06) 6px
+    );
+    border-color: rgba(202, 65, 78, 0.35);
+  }
+  .spacing-indicator-danger .spacing-px { color: #ca414e; }
+  .spacing-indicator-danger .spacing-label {
+    color: #ca414e;
+    border-color: rgba(202, 65, 78, 0.35);
+  }
+
+  .spacing-indicator .spacing-label-bottom {
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    font-size: 10px;
+    font-weight: 600;
+    color: #8360c3;
+    white-space: nowrap;
+    background: #fff;
+    border: 1px solid rgba(154, 130, 218, 0.35);
+    border-radius: 999px;
+    padding: 2px 8px;
+  }
+  .spacing-indicator .spacing-label-bottom::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 24px;
+    background: #292a2e;
+  }
+
+  /* Copy toast */
+  .copy-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e1f21;
+    color: #fff;
+    font-size: 13px;
+    font-family: 'Archivo', monospace;
+    padding: 8px 16px;
+    border-radius: 8px;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+  .copy-toast.show {
+    opacity: 1;
+  }
+
+  /* Clickable color swatches */
+  .color-swatch {
+    cursor: pointer;
+  }
+  .color-swatch[data-hex] {
+    transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), outline 0.25s cubic-bezier(0.2, 0, 0, 1);
+  }
+  .color-swatch[data-hex]:hover {
+    outline: 1.5px solid rgba(0, 0, 0, 0.2);
+    outline-offset: -1.5px;
+    transform: scale(1.05);
+    z-index: 1;
+    position: relative;
+  }
+  .color-swatch-no-hover[data-hex] {
+    transition: none;
+  }
+  .color-swatch-no-hover[data-hex]:hover {
+    outline: none;
+    transform: none;
+  }
+
+  /* Tippy popover theme */
+  .tippy-box[data-theme~='color-copy'] {
+    background: #ffffff;
+    border: 1px solid #dddee1;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    padding: 4px;
+  }
+  .tippy-box[data-theme~='color-copy'] .tippy-arrow {
+    color: #ffffff;
+  }
+  .tippy-box[data-theme~='color-copy'] .tippy-arrow::before {
+    border-bottom-color: #dddee1;
+    top: -1px;
+  }
+  .color-copy-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    font-family: 'Archivo', sans-serif;
+  }
+  .color-copy-row + .color-copy-row {
+    border-top: 1px solid #eee;
+    margin-top: 2px;
+    padding-top: 10px;
+  }
+  .color-copy-label {
+    font-size: 12px;
+    color: #6b6e76;
+    font-weight: 500;
+    flex-shrink: 0;
+    width: 52px;
+  }
+  .color-copy-btn {
+    display: inline-flex;
+    border: none;
+    background: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 8px;
+    margin: -4px -8px;
+    font-family: monospace;
+    font-size: 12px;
+    color: #292a2e;
+  }
+  .color-copy-btn:hover {
+    background: #f0f1f2;
+  }
+  .color-copy-icon {
+    font-family: 'Material Symbols Outlined';
+    font-size: 14px;
+    opacity: 0;
+    margin-left: 4px;
+    transition: opacity 0.15s;
+  }
+  .color-copy-btn:hover .color-copy-icon {
+    opacity: 0.5;
+  }
+
+</style>
+<script>
+  function openLightbox(src) {
+    var el = document.getElementById('docs-lightbox');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'docs-lightbox';
+      el.className = 'lightbox-overlay';
+      el.innerHTML = '<img />';
+      el.addEventListener('click', function() { el.classList.remove('active'); });
+      document.body.appendChild(el);
+    }
+    el.querySelector('img').src = src;
+    el.classList.add('active');
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var el = document.getElementById('docs-lightbox');
+      if (el) el.classList.remove('active');
+    }
+  });
+
+  // Auto-generate IDs for JSX headings (needed for TOC in custom MDX pages)
+  document.addEventListener('DOMContentLoaded', function() {
+    new MutationObserver(function() {
+      document.querySelectorAll('h1:not([id]), h2:not([id]), h3:not([id])').forEach(function(h) {
+        h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      });
+    }).observe(document.body, { childList: true, subtree: true });
+  });
+
+  // Intercept internal doc links and navigate via Storybook channel
+  document.addEventListener('click', function(e) {
+    var target = e.target;
+    if (!(target instanceof Element)) return;
+    var link = target.closest('a[href*="path=/docs/"]');
+    if (!link) return;
+    e.preventDefault();
+    var match = link.getAttribute('href').match(/path=\/docs\/(.+?)--docs/);
+    if (match && window.__STORYBOOK_ADDONS_CHANNEL__) {
+      window.__STORYBOOK_ADDONS_CHANNEL__.emit('setCurrentStory', { storyId: match[1] + '--docs' });
+    }
+  });
+</script>

@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+
 import pluginJs from '@eslint/js';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import pluginVue from 'eslint-plugin-vue';
@@ -6,19 +9,19 @@ import tseslint from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
-  { files: ['**/*.{js,mjs,cjs,ts,vue}'] },
-	{ languageOptions: { globals: globals.browser } },
-	pluginJs.configs.recommended,
-	...tseslint.configs.recommended,
-	...pluginVue.configs['flat/recommended'],
-	{
+    { files: ['**/*.{js,mjs,cjs,ts,vue}'] },
+    { languageOptions: { globals: globals.browser } },
+    pluginJs.configs.recommended,
+    ...tseslint.configs.recommended,
+    ...pluginVue.configs['flat/recommended'],
+    {
 		files: ['**/*.vue'],
 		languageOptions: {
 			parserOptions: { parser: tseslint.parser },
 		},
 	},
-	eslintPluginPrettier,
-	{
+    eslintPluginPrettier,
+    {
 		rules: {
 			'no-console': ['error', { allow: ['warn', 'error'] }],
 			'no-debugger': 'error',
@@ -42,4 +45,5 @@ export default defineConfig([
 			],
 		},
 	},
+    ...storybook.configs["flat/recommended"]
 ]);

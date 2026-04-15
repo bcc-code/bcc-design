@@ -1,6 +1,6 @@
 import BccButton from '@/components/wrapped/BccButton.vue';
 import { OpenInNewIcon } from '@bcc-code/icons-vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 /**
  * PrimeVue components that don’t have local stories yet.

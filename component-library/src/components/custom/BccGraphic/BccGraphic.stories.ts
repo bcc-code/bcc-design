@@ -1,7 +1,7 @@
 import { CalendarViewDayIcon, CheckIcon } from '@bcc-code/icons-vue';
 import BccGraphic, { ratioClasses, roundingClasses } from './BccGraphic.vue';
 
-import type { Meta, StoryFn } from '@storybook/vue3';
+import type { Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Custom/BccGraphic',

@@ -1,101 +1,67 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
+import * as TypographyStories from './Typography.stories';
 
 <Meta title="Foundations/Typography" />
 
-# Typography
+<Unstyled>
+<div className="font-archivo flex flex-col gap-spacing-600">
 
-Use pre-configured text styles for consistency. For text colors, use [tokens](./Tokens).
+  <div>
+    <h1 className="heading-2xl text-default">Typography</h1>
+    <p className="body-lg text-subtle mt-spacing-100">Typography creates hierarchy, improves readability, and reinforces the BCC brand. The system uses Archivo as its single typeface, with pre-configured text styles that pair font size, weight, and line height into ready-to-use tokens.</p>
+  </div>
 
-## Font Family
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <h2 className="heading-xl text-default">Typeface</h2>
+      <p className="body-md text-subtle mt-spacing-50">Archivo is the single typeface used across all BCC product UI — headings, body text, and components.</p>
+      <Story of={TypographyStories.TypefaceShowcase} sourceState="none" />
+    </div>
+  </div>
 
-| Token          | Tailwind       | CSS              | Value   |
-| -------------- | -------------- | ---------------- | ------- |
-| `font.archivo` | `font-archivo` | `--font-archivo` | Archivo |
+  <hr className="border-default" />
 
-## Headings
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Heading scale</h2>
+        <p className="body-md text-subtle mt-spacing-50">Headings use Archivo at weight 600 (semibold). Each token is a composite that sets font size, weight, line height, and family in one declaration. Use the token — not individual primitives.</p>
+      </div>
+      <Story of={TypographyStories.HeadingScale} sourceState="none" />
+    </div>
 
-| Token         | Tailwind      | CSS             | Size | Weight | Line Height |
-| ------------- | ------------- | --------------- | ---- | ------ | ----------- |
-| `heading.5xl` | `heading-5xl` | `--heading-5xl` | 56px | 600    | 64px        |
-| `heading.4xl` | `heading-4xl` | `--heading-4xl` | 48px | 600    | 56px        |
-| `heading.3xl` | `heading-3xl` | `--heading-3xl` | 36px | 600    | 40px        |
-| `heading.2xl` | `heading-2xl` | `--heading-2xl` | 32px | 600    | 32px        |
-| `heading.xl`  | `heading-xl`  | `--heading-xl`  | 24px | 600    | 28px        |
-| `heading.lg`  | `heading-lg`  | `--heading-lg`  | 20px | 600    | 24px        |
-| `heading.md`  | `heading-md`  | `--heading-md`  | 16px | 600    | 20px        |
-| `heading.sm`  | `heading-sm`  | `--heading-sm`  | 14px | 600    | 16px        |
-| `heading.xs`  | `heading-xs`  | `--heading-xs`  | 12px | 600    | 14px        |
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Body scale</h2>
+        <p className="body-md text-subtle mt-spacing-50">Body text uses weight 400 (regular). Use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-lg</code> (16px) for paragraphs and long-form content — never smaller. <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-md</code> (14px) is for UI labels and secondary text. <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-sm</code> (12px) is only for captions and metadata.</p>
+      </div>
+      <Story of={TypographyStories.BodyScale} sourceState="none" />
+    </div>
 
-## Body Text
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Font weights</h2>
+        <p className="body-md text-subtle mt-spacing-50">Four weights are available. PrimeVue components use medium (500) for buttons and labels — semibold (600) is reserved for headings.</p>
+      </div>
+      <Story of={TypographyStories.WeightTokens} sourceState="none" />
+    </div>
+  </div>
 
-| Token     | Tailwind  | CSS         | Size | Weight | Line Height |
-| --------- | --------- | ----------- | ---- | ------ | ----------- |
-| `body.lg` | `body-lg` | `--body-lg` | 16px | 400    | 24px        |
-| `body.md` | `body-md` | `--body-md` | 14px | 400    | 20px        |
-| `body.sm` | `body-sm` | `--body-sm` | 12px | 400    | 16px        |
+  <hr className="border-default" />
 
-## Font Weight
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Typography in components</h3>
+        <p className="body-md text-subtle mt-spacing-50">PrimeVue components use 14px (<code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">font-size-sm</code>) as the default text size for inputs, menus, and buttons. Tags use 12px. These sizes are set by the design tokens preset — don't override them.</p>
+      </div>
+      <Story of={TypographyStories.TypographyInComponents} sourceState="none" />
+    </div>
 
-| Token                 | Tailwind       | CSS                     | Value |
-| --------------------- | -------------- | ----------------------- | ----- |
-| `font.weight.regular`  | `font-regular`  | `--font-weight-regular`  | 400   |
-| `font.weight.medium`   | `font-medium`   | `--font-weight-medium`   | 500   |
-| `font.weight.semibold` | `font-semibold` | `--font-weight-semibold` | 600   |
-| `font.weight.bold`     | `font-bold`     | `--font-weight-bold`     | 700   |
+    <Story of={TypographyStories.DoTypography} sourceState="none" />
+  </div>
 
-## Primitives
+  <p className="body-md text-subtlest">For the full token list, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-token-reference--docs">Token Reference</a>.</p>
 
-Use only when text styles don't fit your needs.
-
-### Text Size
-
-| Token      | Tailwind   | CSS          | Value           |
-| ---------- | ---------- | ------------ | --------------- |
-| `text.xs`  | `text-xs`  | `--text-xs`  | 0.75rem (12px)  |
-| `text.sm`  | `text-sm`  | `--text-sm`  | 0.875rem (14px) |
-| `text.md`  | `text-md`  | `--text-md`  | 1rem (16px)     |
-| `text.lg`  | `text-lg`  | `--text-lg`  | 1.25rem (20px)  |
-| `text.xl`  | `text-xl`  | `--text-xl`  | 1.5rem (24px)   |
-| `text.2xl` | `text-2xl` | `--text-2xl` | 2rem (32px)     |
-| `text.3xl` | `text-3xl` | `--text-3xl` | 2.25rem (36px)  |
-| `text.4xl` | `text-4xl` | `--text-4xl` | 3rem (48px)     |
-| `text.5xl` | `text-5xl` | `--text-5xl` | 3.5rem (56px)   |
-
-### Line Height
-
-| Token          | Tailwind       | CSS              | Value  |
-| -------------- | -------------- | ---------------- | ------ |
-| `leading.1`    | `leading-1`    | `--leading-1`    | 14px   |
-| `leading.2`    | `leading-2`    | `--leading-2`    | 16px   |
-| `leading.3`    | `leading-3`    | `--leading-3`    | 20px   |
-| `leading.4`    | `leading-4`    | `--leading-4`    | 24px   |
-| `leading.5`    | `leading-5`    | `--leading-5`    | 28px   |
-| `leading.6`    | `leading-6`    | `--leading-6`    | 32px   |
-| `leading.7`    | `leading-7`    | `--leading-7`    | 36px   |
-| `leading.8`    | `leading-8`    | `--leading-8`    | 40px   |
-| `leading.9`    | `leading-9`    | `--leading-9`    | 56px   |
-| `leading.10`   | `leading-10`   | `--leading-10`   | 64px   |
-| `leading.none` | `leading-none` | `--leading-none` | normal |
-
-## Heading Hierarchy
-
-Use semantic HTML headings (`<h1>` through `<h6>`) in order. One `<h1>` per page.
-
-| Element | Typical style | Purpose        |
-| ------- | ------------- | -------------- |
-| `<h1>`  | `heading-2xl` | Page title     |
-| `<h2>`  | `heading-xl`  | Major sections |
-| `<h3>`  | `heading-lg`  | Subsections    |
-| `<h4>`  | `heading-md`  | Group titles   |
-
-## Guidelines
-
-| Do                                         | Don't                                |
-| ------------------------------------------ | ------------------------------------ |
-| Use text styles (`heading-lg`, `body-md`)  | Combine primitives when styles exist |
-| Use `body.lg` (16px) for paragraphs        | Default to smaller text sizes        |
-| Follow heading hierarchy (`h1` → `h2`)     | Skip heading levels                  |
-
-## Figma
-
-See the design specs in Figma (link coming soon).
+</div>
+</Unstyled>

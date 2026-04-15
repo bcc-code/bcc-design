@@ -1,6 +1,6 @@
 import { BCC_CONTEXTS } from '@/contexts';
 import { HomeIcon, PersonIcon, SettingsIcon } from '@bcc-code/icons-vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import BccTabs from './BccTabs.vue';
 
 const meta: Meta<typeof BccTabs> = {

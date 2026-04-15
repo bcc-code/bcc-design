@@ -1,52 +1,118 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
+import * as ElevationStories from './Elevation.stories';
 
 <Meta title="Foundations/Elevation" />
 
-# Elevation
+<Unstyled>
+<div className="font-archivo flex flex-col gap-spacing-600">
 
-Surfaces and shadows create depth. Pair surface colors with shadows.
+  <div>
+    <h1 className="heading-2xl text-default">Elevation</h1>
+    <p className="body-lg text-subtle mt-spacing-100">Elevation creates visual depth through layered surfaces and shadows. Most components use the default surface automatically — raised and overlay levels are for custom layouts and floating UI.</p>
+  </div>
 
-## Levels
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Elevation levels</h2>
+        <p className="body-md text-subtle mt-spacing-50">Four levels from lowest to highest. PrimeVue components use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.default</code> for most inputs and controls, and <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.overlay</code> for dialogs. The other levels are available for custom layouts.</p>
+      </div>
+      <Story of={ElevationStories.ElevationLevels} sourceState="none" />
+    </div>
+  </div>
 
-| Level   | Use for                              |
-| ------- | ------------------------------------ |
-| Sunken  | Sidebars, page backgrounds           |
-| Default | Main content, containers             |
-| Raised  | Cards, interactive tiles             |
-| Overlay | Modals, dropdowns, tooltips          |
+  <hr className="border-default" />
 
-## Surface Tokens
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Surface tokens</h2>
+        <p className="body-md text-subtle mt-spacing-50">Surface tokens control background color at each elevation level. In dark mode, higher elevations appear lighter to simulate depth — shadows alone aren't enough in dark themes.</p>
+      </div>
+      <Story of={ElevationStories.SurfaceTokens} sourceState="none" />
+    </div>
 
-| Token                             | Tailwind                       | CSS                                 |
-| --------------------------------- | ------------------------------ | ----------------------------------- |
-| `color.elevation.surface.sunken`  | `bg-elevation-surface-sunken`  | `--color-elevation-surface-sunken`  |
-| `color.elevation.surface.default` | `bg-elevation-surface-default` | `--color-elevation-surface-default` |
-| `color.elevation.surface.raised`  | `bg-elevation-surface-raised`  | `--color-elevation-surface-raised`  |
-| `color.elevation.surface.overlay` | `bg-elevation-surface-overlay` | `--color-elevation-surface-overlay` |
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Shadow tokens</h2>
+        <p className="body-md text-subtle mt-spacing-50">Shadows add visual lift. Raised and overlay surfaces should always be paired with their shadow token. PrimeVue components define their own shadows internally — these tokens are for custom UI.</p>
+      </div>
+      <Story of={ElevationStories.ShadowTokens} sourceState="none" />
+    </div>
+  </div>
 
-## Shadow Tokens
+  <hr className="border-default" />
 
-| Token             | Tailwind          | CSS                 | Use for                     |
-| ----------------- | ----------------- | ------------------- | --------------------------- |
-| `shadow.raised`   | `shadow-raised`   | `--shadow-raised`   | Cards with subtle lift      |
-| `shadow.overlay`  | `shadow-overlay`  | `--shadow-overlay`  | Modals, dropdowns, popovers |
-| `shadow.overflow` | `shadow-overflow` | `--shadow-overflow` | Scroll indicators           |
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Elevation in dark mode</h2>
+        <p className="body-md text-subtle mt-spacing-50">In light mode, shadows do most of the heavy lifting — all surfaces are white, so depth comes from shadow intensity. In dark mode, shadows are barely visible against dark backgrounds, so the system shifts: higher elevations get progressively lighter surface colors to communicate depth.</p>
+      </div>
+      <Story of={ElevationStories.DarkModeComparison} sourceState="none" />
+    </div>
+  </div>
 
-## Interaction States
+  <hr className="border-default" />
 
-| Token                             | Tailwind                       | CSS                                 |
-| --------------------------------- | ------------------------------ | ----------------------------------- |
-| `color.elevation.surface.hovered` | `bg-elevation-surface-hovered` | `--color-elevation-surface-hovered` |
-| `color.elevation.surface.pressed` | `bg-elevation-surface-pressed` | `--color-elevation-surface-pressed` |
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Usage examples</h2>
 
-## Guidelines
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Sunken</h3>
+        <p className="body-md text-subtle mt-spacing-50">Use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.sunken</code> for recessed areas like sidebars, content wells, or page canvases that sit behind default-level content. No shadow needed — the darker surface communicates depth.</p>
+      </div>
+      <Story of={ElevationStories.ExampleSunken} sourceState="none" />
+    </div>
 
-| Do                                        | Don't                                 |
-| ----------------------------------------- | ------------------------------------- |
-| Pair raised surfaces with `shadow-raised` | Use raised surfaces without shadows   |
-| Use overlay for floating UI only          | Stack multiple overlays               |
-| Use sunken for recessed backgrounds       | Put sunken on top of raised           |
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Raised</h3>
+        <p className="body-md text-subtle mt-spacing-50">Use for cards and interactive tiles in custom layouts. Always pair <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.raised</code> with <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">shadow.raised</code>. Note: PrimeVue Card uses its own shadow — this pairing is for custom card-like surfaces.</p>
+      </div>
+      <Story of={ElevationStories.ExampleRaised} sourceState="none" />
+    </div>
 
-## Figma
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Overlay</h3>
+        <p className="body-md text-subtle mt-spacing-50">Reserved for floating UI — modals, dialogs, dropdowns, tooltips. PrimeVue Dialog uses <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.overlay</code> automatically. For custom floating elements, pair it with <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">shadow.overlay</code>.</p>
+      </div>
+      <Story of={ElevationStories.ExampleOverlay} sourceState="none" />
+    </div>
 
-See the design specs in Figma (link coming soon).
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Code usage</h3>
+        <p className="body-md text-subtle mt-spacing-50">Apply surface and shadow tokens together for raised and overlay elements.</p>
+      </div>
+
+
+```html
+<!-- Raised card -->
+<div class="bg-elevation-surface-raised-default shadow-raised rounded-lg p-spacing-200">
+  Raised content
+</div>
+
+<!-- Overlay (custom floating element) -->
+<div class="bg-elevation-surface-overlay-default shadow-overlay rounded-lg p-spacing-200">
+  Floating content
+</div>
+
+<!-- Sunken area -->
+<div class="bg-elevation-surface-sunken-default p-spacing-300">
+  Recessed content
+</div>
+```
+
+
+    </div>
+
+    <Story of={ElevationStories.DoPairing} sourceState="none" />
+  </div>
+
+  <p className="body-md text-subtlest">For the full token list, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-token-reference--docs">Token Reference</a>.</p>
+
+</div>
+</Unstyled>

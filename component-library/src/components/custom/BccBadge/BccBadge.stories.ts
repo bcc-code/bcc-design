@@ -1,6 +1,6 @@
 import { BCC_CONTEXT_LIST } from '@/contexts';
 import { CheckIcon, CrisisAlertIcon, NotificationsIcon, PersonIcon } from '@bcc-code/icons-vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { OverlayBadge } from 'primevue';
 import BccBadge from './BccBadge.vue';
 

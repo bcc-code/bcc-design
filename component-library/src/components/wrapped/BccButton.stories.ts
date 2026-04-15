@@ -1,5 +1,5 @@
 import { CheckIcon, ErrorIcon, HelpIcon, InfoIcon, OpenInBrowserIcon, WarningIcon } from '@bcc-code/icons-vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
 import type { ButtonProps } from './BccButton.vue';
 import BccButton from './BccButton.vue';

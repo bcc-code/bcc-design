@@ -1,64 +1,127 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
+import * as SpacingStories from './Spacing.stories';
 
 <Meta title="Foundations/Spacing" />
 
-# Spacing
+<Unstyled>
+<div className="font-archivo flex flex-col gap-spacing-600">
 
-Use spacing tokens instead of arbitrary pixel values. The scale is built on an **8px base unit**.
+  <div>
+    <h1 className="heading-2xl text-default">Spacing</h1>
+    <p className="body-lg text-subtle mt-spacing-100">Spacing creates rhythm, groups related elements, and separates distinct sections. All spacing is built on an 8px base unit and applied through tokens — never arbitrary pixel values.</p>
+  </div>
 
-## Scale
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <h2 className="heading-xl text-default">Spacing scale</h2>
+      <Story of={SpacingStories.SpacingScale} sourceState="none" />
+    </div>
+  </div>
 
-Use `*-spacing-{value}` where `*` = `p`, `m`, `gap`, `px`, `py`, `mx`, `my`, etc.
+  <hr className="border-default" />
 
-| Token          | Tailwind         | CSS              | Value          |
-| -------------- | ---------------- | ---------------- | -------------- |
-| `spacing.0`    | `*-spacing-0`    | `--spacing-0`    | 0              |
-| `spacing.25`   | `*-spacing-25`   | `--spacing-25`   | 0.125rem (2px) |
-| `spacing.50`   | `*-spacing-50`   | `--spacing-50`   | 0.25rem (4px)  |
-| `spacing.75`   | `*-spacing-75`   | `--spacing-75`   | 0.375rem (6px) |
-| `spacing.100`  | `*-spacing-100`  | `--spacing-100`  | 0.5rem (8px)   |
-| `spacing.150`  | `*-spacing-150`  | `--spacing-150`  | 0.75rem (12px) |
-| `spacing.200`  | `*-spacing-200`  | `--spacing-200`  | 1rem (16px)    |
-| `spacing.250`  | `*-spacing-250`  | `--spacing-250`  | 1.25rem (20px) |
-| `spacing.300`  | `*-spacing-300`  | `--spacing-300`  | 1.5rem (24px)  |
-| `spacing.400`  | `*-spacing-400`  | `--spacing-400`  | 2rem (32px)    |
-| `spacing.500`  | `*-spacing-500`  | `--spacing-500`  | 2.5rem (40px)  |
-| `spacing.600`  | `*-spacing-600`  | `--spacing-600`  | 3rem (48px)    |
-| `spacing.800`  | `*-spacing-800`  | `--spacing-800`  | 4rem (64px)    |
-| `spacing.1000` | `*-spacing-1000` | `--spacing-1000` | 5rem (80px)    |
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Spacing usage</h2>
+        <p className="body-md text-subtle mt-spacing-50">The spacing scale is broken into three ranges. Each range serves a different level of UI density.</p>
+      </div>
+      <Story of={SpacingStories.SpacingRuler} sourceState="none" />
+    </div>
 
-## When to Use
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Small values — 0px to 8px</h3>
+        <p className="body-md text-subtle mt-spacing-50">Use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-0</code> to <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-100</code> for small, compact pieces of UI: icon-text gaps, padding within input fields, gaps between repeating elements like button groups, and vertical spacing between card elements.</p>
+      </div>
+    </div>
 
-| Size        | Values  | Use for                                   |
-| ----------- | ------- | ----------------------------------------- |
-| Small       | 2-8px   | Icon-text gaps, compact padding, labels   |
-| Medium      | 12-24px | Button padding, card padding, list gaps   |
-| Large       | 32-80px | Section margins, page padding             |
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Medium values — 12px to 24px</h3>
+        <p className="body-md text-subtle mt-spacing-50">Use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-150</code> to <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-300</code> for container padding (buttons, cards, dialogs), spacing between form fields, and gaps between larger components.</p>
+      </div>
+    </div>
 
-## Negative Spacing
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Large values — 32px to 80px</h3>
+        <p className="body-md text-subtle mt-spacing-50">Use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-400</code> to <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-1000</code> for page-level layout: section margins, page padding, and spacing between major content blocks.</p>
+      </div>
+    </div>
+  </div>
 
-Use negative values to pull elements closer or overlap containers.
+  <hr className="border-default" />
 
-| Token                  | Tailwind         | CSS                      | Value            |
-| ---------------------- | ---------------- | ------------------------ | ---------------- |
-| `spacing.negative.25`  | `-*-spacing-25`  | `--spacing-negative-25`  | -0.125rem (-2px) |
-| `spacing.negative.50`  | `-*-spacing-50`  | `--spacing-negative-50`  | -0.25rem (-4px)  |
-| `spacing.negative.75`  | `-*-spacing-75`  | `--spacing-negative-75`  | -0.375rem (-6px) |
-| `spacing.negative.100` | `-*-spacing-100` | `--spacing-negative-100` | -0.5rem (-8px)   |
-| `spacing.negative.150` | `-*-spacing-150` | `--spacing-negative-150` | -0.75rem (-12px) |
-| `spacing.negative.200` | `-*-spacing-200` | `--spacing-negative-200` | -1rem (-16px)    |
-| `spacing.negative.250` | `-*-spacing-250` | `--spacing-negative-250` | -1.25rem (-20px) |
-| `spacing.negative.300` | `-*-spacing-300` | `--spacing-negative-300` | -1.5rem (-24px)  |
-| `spacing.negative.400` | `-*-spacing-400` | `--spacing-negative-400` | -2rem (-32px)    |
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Using spacing in code</h2>
+        <p className="body-md text-subtle mt-spacing-50">There are two ways to apply spacing. Both use the same 8px grid — pick whichever fits your workflow.</p>
+      </div>
+    </div>
 
-## Guidelines
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Use in design</h3>
+        <p className="body-md text-subtle mt-spacing-50">When working from a Figma file, use the token classes. They match what you see in Figma 1:1 — no translation needed.</p>
+      </div>
+      <Story of={SpacingStories.TokenClasses} sourceState="none" />
+    </div>
 
-| Do                                       | Don't                            |
-| ---------------------------------------- | -------------------------------- |
-| Use spacing tokens (`p-spacing-100`)     | Use arbitrary values (`p-[7px]`) |
-| Use smaller spacing for related items    | Use same spacing everywhere      |
-| Use larger spacing between sections      | Cram elements together           |
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Use in code</h3>
+        <p className="body-md text-subtle mt-spacing-50">When building without a Figma file, you can use standard Tailwind classes. They align with our 8px grid.</p>
+      </div>
+      <Story of={SpacingStories.TailwindMapping} sourceState="none" />
+    </div>
+  </div>
 
-## Figma
+  <hr className="border-default" />
 
-See the design specs in Figma (link coming soon).
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Spacing in practice</h2>
+        <p className="body-md text-subtle mt-spacing-50">Real component examples showing how spacing tokens are applied.</p>
+      </div>
+    </div>
+
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Card layout</h3>
+        <p className="body-md text-subtle mt-spacing-50">Cards use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-250</code> (20px) for body padding and <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-100</code> (8px) for gaps between inner elements.</p>
+      </div>
+      <Story of={SpacingStories.SpacingInCard} sourceState="none" />
+    </div>
+
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Button spacing</h3>
+        <p className="body-md text-subtle mt-spacing-50">Buttons use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-200</code> (16px) horizontal padding and <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-75</code> (6px) vertical. Groups of buttons use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-100</code> (8px) gap.</p>
+      </div>
+      <Story of={SpacingStories.SpacingInButton} sourceState="none" />
+    </div>
+
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Dialog with form</h3>
+        <p className="body-md text-subtle mt-spacing-50">Dialogs use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-200</code> (16px) padding. Label-to-input gaps use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-100</code> (8px), field-to-field gaps use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">spacing-200</code> (16px).</p>
+      </div>
+      <Story of={SpacingStories.SpacingInForm} sourceState="none" />
+    </div>
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Guidelines</h2>
+    <Story of={SpacingStories.DoSpacing} sourceState="none" />
+    <Story of={SpacingStories.DoTokens} sourceState="none" />
+  </div>
+
+  <p className="body-md text-subtlest">For the full token list, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-token-reference--docs">Token Reference</a>.</p>
+
+</div>
+</Unstyled>

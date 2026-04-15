@@ -1,65 +1,128 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
+import * as ColorStories from './Colors.stories';
 
 <Meta title="Foundations/Colors" />
 
-# Colors
+<Unstyled>
+<div className="font-archivo flex flex-col gap-spacing-600">
 
-The color system has two layers: semantic tokens for UI and primitive scales for reference.
+  <div>
+    <h1 className="heading-2xl text-default">Color</h1>
+    <p className="body-lg text-subtle mt-spacing-100">Color distinguishes our brand, reinforces consistent experiences, and communicates meaning. The BCC color system is built on semantic tokens that adapt to light and dark mode automatically.</p>
+  </div>
 
-| Type             | Purpose          | Dark mode   | Use for         |
-| ---------------- | ---------------- | ----------- | --------------- |
-| Semantic tokens  | Convey meaning   | Auto-adapts | All UI elements |
-| Primitive scales | Raw color values | Manual      | Reference only  |
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Saturated colors</h2>
+        <p className="body-md text-subtle mt-spacing-50">Saturated colors can infuse meaning to an experience, highlight UI, or create associations with similar colored UI.</p>
+      </div>
+      <Story of={ColorStories.SaturatedColors} sourceState="none" />
+    </div>
 
-**Always use semantic tokens** from [Tokens](./Tokens). Primitives are in [Palette](./Palette).
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Neutral colors</h2>
+        <p className="body-md text-subtle mt-spacing-50">Neutral colors apply to most backgrounds, text, and shapes in our experiences. They don't typically have a meaning associated with them, though they can imply things like disabled states.</p>
+      </div>
+      <Story of={ColorStories.NeutralColors} sourceState="none" />
+    </div>
 
-## Color Roles
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Alpha colors</h2>
+        <p className="body-md text-subtle mt-spacing-50">Alpha colors have varying levels of transparency or opacity. Transparency helps UI to adapt to different background colors and elevations.</p>
+      </div>
+      <Story of={ColorStories.AlphaColors} sourceState="none" />
+    </div>
+  </div>
 
-| Role        | Purpose                          | Example tokens                               |
-| ----------- | -------------------------------- | -------------------------------------------- |
-| Brand       | Primary actions, selected states | `text-brand-default`, `bg-brand-bolder`      |
-| Success     | Positive feedback                | `text-success`, `bg-success-default`         |
-| Information | Neutral tips                     | `text-information`, `bg-information-default` |
-| Warning     | Cautions                         | `text-warning-default`, `bg-warning-default` |
-| Danger      | Errors, destructive actions      | `text-danger`, `bg-danger-default`           |
-| Neutral     | Default UI                       | `text-default`, `bg-elevation-surface-default` |
+  <hr className="border-default" />
 
-## Accents
+  <div className="flex flex-col gap-spacing-300">
+    <div>
+      <h2 className="heading-xl text-default">Applying color with design tokens</h2>
+      <p className="body-md text-subtle mt-spacing-50">For most BCC product surfaces, color is applied through our design tokens. Instead of picking a specific hex value or shade from the palette, you choose a semantic token that already carries the right meaning and behavior across light and dark themes.</p>
+    </div>
+    <div className="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-300 justify-center items-start border border-default">
+      <img src="/tokens-in-context-parking.png" alt="Parking app screen annotated with semantic tokens" className="lightbox-trigger max-w-[48%] h-auto" onClick={() => openLightbox('/tokens-in-context-parking.png')} />
+      <img src="/tokens-in-context-event.png" alt="Event app screen annotated with semantic tokens" className="lightbox-trigger max-w-[48%] h-auto" onClick={() => openLightbox('/tokens-in-context-event.png')} />
+    </div>
+    <div>
+      <h3 className="heading-lg text-default">Token anatomy</h3>
+      <p className="body-md text-subtle mt-spacing-50">All tokens in the system follow a consistent naming pattern. While the structure stays the same, the actual token applied can vary from one component to another depending on what the component needs.</p>
+    </div>
+    <Story of={ColorStories.TokenAnatomy} sourceState="none" />
+    <p className="body-md text-subtlest">Not every token has all parts — simpler tokens like <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">color.text.default</code> omit emphasis and state.</p>
+  </div>
 
-Accent colors categorize content without semantic meaning. Use for tags, labels, and project icons.
+  <hr className="border-default" />
 
-**Available:** Blue, Teal, Green, Yellow, Orange, Red, Magenta, Purple
+  <div className="flex flex-col gap-spacing-200">
+    <div>
+      <h2 className="heading-xl text-default">Color roles</h2>
+      <p className="body-md text-subtle mt-spacing-50">Color roles describe the intention behind the color. For example, color roles are applied to buttons to differentiate between primary, secondary, warning, or dangerous actions.</p>
+    </div>
+    <Story of={ColorStories.ColorRoles} sourceState="none" />
+    <h3 className="heading-lg text-default mt-spacing-100">Use the right color role</h3>
+    <Story of={ColorStories.DoColorRole} sourceState="none" />
+  </div>
 
-### Emphasis Levels
+  <hr className="border-default" />
 
-| Element    | Levels                            |
-| ---------- | --------------------------------- |
-| Background | subtlest, subtler, subtle, bolder |
-| Text/Icon  | default, bolder                   |
+  <div className="flex flex-col gap-spacing-200">
+    <div>
+      <h2 className="heading-xl text-default">Background accent tokens</h2>
+      <p className="body-md text-subtle mt-spacing-50">There are four accent shades of each background color.</p>
+    </div>
+    <Story of={ColorStories.AccentBackgroundGrid} sourceState="none" />
 
-### Pairing
+    <div className="mt-spacing-100">
+      <h3 className="heading-lg text-default">Text accent tokens</h3>
+      <p className="body-md text-subtle mt-spacing-50">Text accent tokens have two emphasis levels — default and bolder.</p>
+    </div>
+    <Story of={ColorStories.TextAccentTokens} sourceState="none" />
 
-| Background       | Text/Icon to use  |
-| ---------------- | ----------------- |
-| subtlest/subtler | default or bolder |
-| subtle           | bolder            |
-| bolder           | inverse           |
+    <div className="mt-spacing-100">
+      <h3 className="heading-lg text-default">Icon accent tokens</h3>
+      <p className="body-md text-subtle mt-spacing-50">Icon accent tokens, like text accent tokens, have two emphasis levels — default and bolder.</p>
+    </div>
+    <Story of={ColorStories.IconAccentTokens} sourceState="none" />
+  </div>
 
-## Accessibility
+  <hr className="border-default" />
 
-- **3:1 contrast** for UI elements (borders, icons)
-- **4.5:1 contrast** for body text
-- Don't rely on color alone—use icons or text labels
+  <div className="flex flex-col gap-spacing-200">
+    <div>
+      <h3 className="heading-lg text-default">Accent color accessibility</h3>
+      <p className="body-md text-subtle mt-spacing-50">When pairing accent text or icon colors against backgrounds, make sure they meet minimum contrast requirements:</p>
+      <ul className="body-md text-subtle mt-spacing-100 pl-spacing-250 list-disc">
+        <li><strong>Must pass 3:1 contrast:</strong> Any UI essential to understanding the experience and text 24px or larger (WCAG 1.4.11)</li>
+        <li><strong>Must pass 4.5:1:</strong> Text smaller than 24px (WCAG 1.4.3)</li>
+      </ul>
+    </div>
+    <div>
+      <h4 className="heading-md text-default">Rules for pairing accent text or icon color</h4>
+      <ul className="body-md text-subtle mt-spacing-100 pl-spacing-250 list-disc">
+        <li>Pair default or bolder accent text or icons with subtlest and subtler accent backgrounds</li>
+        <li>Pair bolder accent text or icons with subtle accent backgrounds</li>
+        <li>Pair inverse text or icons with bolder accent backgrounds</li>
+      </ul>
+    </div>
+    <Story of={ColorStories.AccentPairingCards} sourceState="none" />
+  </div>
 
-## Guidelines
+  <hr className="border-default" />
 
-| Do                                              | Don't                                 |
-| ----------------------------------------------- | ------------------------------------- |
-| Use semantic tokens for meaning                 | Use primitives (`bg-red-500`) in UI   |
-| Match color role to purpose                     | Use brand color for errors            |
-| Pair accent foreground/background from same family | Mix blue background with red text  |
-| Test in both light and dark mode                | Assume light mode only                |
+  <div className="flex flex-col gap-spacing-200">
+    <div>
+      <h3 className="heading-lg text-default">Avoid mixing different accent colors</h3>
+      <p className="body-md text-subtle mt-spacing-50">Maintain visual harmony by combining foreground and background elements with colors from the same family.</p>
+    </div>
+    <Story of={ColorStories.DoAccentMixing} sourceState="none" />
+  </div>
 
-## Figma
+  <p className="body-md text-subtlest">For the full list of token values and hex codes, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-token-reference--docs">Token Reference</a>.</p>
 
-See the design specs in Figma (link coming soon).
+</div>
+</Unstyled>

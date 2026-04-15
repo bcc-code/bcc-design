@@ -1,36 +1,108 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Unstyled } from '@storybook/addon-docs/blocks';
+import * as BorderStories from './Border.stories';
 
 <Meta title="Foundations/Border" />
 
-# Border
+<Unstyled>
+<div className="font-archivo flex flex-col gap-spacing-600">
 
-Border width tokens. For border colors, see [Tokens](./Tokens#border).
+  <div>
+    <h1 className="heading-2xl text-default">Border</h1>
+    <p className="body-lg text-subtle mt-spacing-100">Borders separate content, define containers, and communicate interactive states. Width tokens control thickness, color tokens convey meaning — and they're always used together.</p>
+  </div>
 
-## Width Tokens
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Border width tokens and usage guidelines</h2>
+        <p className="body-md text-subtle mt-spacing-50">Use border width tokens to control the thickness of borders across different states.</p>
+      </div>
+      <Story of={BorderStories.WidthTokens} sourceState="none" />
+    </div>
+  </div>
 
-| Token            | Tailwind   | CSS                | Value | Use for                      |
-| ---------------- | ---------- | ------------------ | ----- | ---------------------------- |
-| `border.width.0` | `border-0` | `--border-width-0` | 0     | Remove borders               |
-| `border.width.1` | `border-1` | `--border-width-1` | 1px   | Default borders, dividers    |
-| `border.width.2` | `border-2` | `--border-width-2` | 2px   | Selected states, focus rings |
+  <hr className="border-default" />
 
-## Common Pairings
+  <div className="flex flex-col gap-spacing-400">
+    <h2 className="heading-xl text-default">Border width examples</h2>
 
-| State    | Width      | Color             |
-| -------- | ---------- | ----------------- |
-| Default  | `border-1` | `border-default`  |
-| Selected | `border-2` | `border-selected` |
-| Focused  | `border-2` | `border-focused`  |
-| Input    | `border-1` | `border-input`    |
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Default border width</h3>
+        <p className="body-md text-subtle mt-spacing-50">The standard 1px border defines structure — cards, containers, inputs, and dividers all use this width at rest.</p>
+      </div>
+      <Story of={BorderStories.ExampleDefault} sourceState="none" />
+    </div>
 
-## Guidelines
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Selected states</h3>
+        <p className="body-md text-subtle mt-spacing-50">A 2px border paired with the selected color token signals which element is currently active or chosen.</p>
+      </div>
+      <Story of={BorderStories.ExampleSelected} sourceState="none" />
+    </div>
 
-| Do                                                   | Don't                                         |
-| ---------------------------------------------------- | --------------------------------------------- |
-| Use `border-2` with `border-selected` for selection  | Mix border widths inconsistently              |
-| Use `border-2` with `border-focused` for focus rings | Skip focus indicators on interactive elements |
-| Keep default borders at 1px                          | Use thick borders for standard UI             |
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Focus indicator</h3>
+        <p className="body-md text-subtle mt-spacing-50">The 2px focus border ensures keyboard users can see which element has focus. This is critical for accessibility compliance (WCAG 2.4.7).</p>
+      </div>
+      <Story of={BorderStories.ExampleFocused} sourceState="none" />
+    </div>
 
-## Figma
+    <Story of={BorderStories.DoBorderStates} sourceState="none" />
+  </div>
 
-See the design specs in Figma (link coming soon).
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Border color tokens</h2>
+        <p className="body-md text-subtle mt-spacing-50">Border color tokens carry semantic meaning. Each color is paired with a width to create a clear visual signal.</p>
+      </div>
+      <Story of={BorderStories.ColorTokens} sourceState="none" />
+    </div>
+
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Width and color pairing</h3>
+        <p className="body-md text-subtle mt-spacing-50">When an element changes state, both width and color update together. This double signal makes transitions clear — especially important for accessibility.</p>
+      </div>
+      <Story of={BorderStories.PairingExample} sourceState="none" />
+    </div>
+  </div>
+
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Code usage</h2>
+        <p className="body-md text-subtle mt-spacing-50">Apply border width and color tokens together to communicate state.</p>
+      </div>
+
+
+```html
+<!-- Default border -->
+<div class="border border-default rounded-xs p-spacing-200">
+  Default container
+</div>
+
+<!-- Selected state -->
+<div class="border-2 border-selected rounded-xs p-spacing-200">
+  Selected item
+</div>
+
+<!-- Focus state (keyboard navigation) -->
+<input class="border border-default focus:border-2 focus:border-focused rounded-xs p-spacing-100" />
+```
+
+
+    </div>
+  </div>
+
+  <p className="body-md text-subtlest">For corner roundness, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-radius--docs">Radius</a>. For the full token list, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-token-reference--docs">Token Reference</a>.</p>
+
+</div>
+</Unstyled>

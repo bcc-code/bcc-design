@@ -1,6 +1,6 @@
 import { BCC_CONTEXT_LIST, BCC_CONTEXTS } from '@/contexts';
 import { CheckCircleIcon, LabelIcon, LocationOnFillIcon, StarFillIcon, TagIcon } from '@bcc-code/icons-vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import BccTag from './BccTag.vue';
 
 const meta: Meta<typeof BccTag> = {

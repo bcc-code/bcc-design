@@ -1,5 +1,5 @@
 import { BCC_CONTEXT_LIST } from '@/contexts';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import BccStepIndicator from './BccStepIndicator.vue';
 
 const meta: Meta<typeof BccStepIndicator> = {
