@@ -76,7 +76,7 @@ export const SpacingRuler: Story = {
 				<div class="relative" style="height: 120px; margin: 0 8px">
 					<!-- Highlight label above 8px -->
 					<div class="absolute flex flex-col items-center" style="left: 10%; top: 0; transform: translateX(-50%)">
-						<code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" data-token="spacing.100" data-tw="*-spacing-100">space.100</code>
+						<code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" data-token="spacing.100" data-tw="*-spacing-100">spacing.100</code>
 						<div class="w-px h-3" style="background: #292a2e" />
 					</div>
 					<!-- Tick labels -->
