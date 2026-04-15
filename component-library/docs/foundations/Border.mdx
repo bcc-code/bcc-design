@@ -73,7 +73,36 @@ import * as BorderStories from './Border.stories';
     </div>
   </div>
 
-  <p className="body-md text-subtlest">For corner roundness, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-radius--docs">Radius</a>. For the full token list, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-tokens--docs">Tokens</a>.</p>
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-spacing-400">
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h2 className="heading-xl text-default">Code usage</h2>
+        <p className="body-md text-subtle mt-spacing-50">Apply border width and color tokens together to communicate state.</p>
+      </div>
+
+
+```html
+<!-- Default border -->
+<div class="border border-default rounded-xs p-spacing-200">
+  Default container
+</div>
+
+<!-- Selected state -->
+<div class="border-2 border-selected rounded-xs p-spacing-200">
+  Selected item
+</div>
+
+<!-- Focus state (keyboard navigation) -->
+<input class="border border-default focus:border-2 focus:border-focused rounded-xs p-spacing-100" />
+```
+
+
+    </div>
+  </div>
+
+  <p className="body-md text-subtlest">For corner roundness, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-radius--docs">Radius</a>. For the full token list, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-token-reference--docs">Token Reference</a>.</p>
 
 </div>
 </Unstyled>

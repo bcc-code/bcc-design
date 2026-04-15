@@ -82,10 +82,37 @@ import * as ElevationStories from './Elevation.stories';
       <Story of={ElevationStories.ExampleOverlay} sourceState="none" />
     </div>
 
+    <div className="flex flex-col gap-spacing-200">
+      <div>
+        <h3 className="heading-lg text-default">Code usage</h3>
+        <p className="body-md text-subtle mt-spacing-50">Apply surface and shadow tokens together for raised and overlay elements.</p>
+      </div>
+
+
+```html
+<!-- Raised card -->
+<div class="bg-elevation-surface-raised shadow-raised rounded-lg p-spacing-200">
+  Raised content
+</div>
+
+<!-- Overlay (custom floating element) -->
+<div class="bg-elevation-surface-overlay shadow-overlay rounded-lg p-spacing-200">
+  Floating content
+</div>
+
+<!-- Sunken area -->
+<div class="bg-elevation-surface-sunken p-spacing-300">
+  Recessed content
+</div>
+```
+
+
+    </div>
+
     <Story of={ElevationStories.DoPairing} sourceState="none" />
   </div>
 
-  <p className="body-md text-subtlest">For the full token list, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-tokens--docs">Tokens</a>.</p>
+  <p className="body-md text-subtlest">For the full token list, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-token-reference--docs">Token Reference</a>.</p>
 
 </div>
 </Unstyled>
