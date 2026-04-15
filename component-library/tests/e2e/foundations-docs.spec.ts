@@ -21,7 +21,7 @@ const docsPages = [
 	'foundations-tokens--docs',
 ];
 
-for (const pageId of docsPages) {
+docsPages.forEach((pageId) => {
 	test(`${pageId} loads without errors`, async ({ page }) => {
 		const errors: string[] = [];
 		page.on('pageerror', (err) => errors.push(err.message));
@@ -45,7 +45,7 @@ for (const pageId of docsPages) {
 		// No JavaScript errors should have occurred
 		expect(errors).toEqual([]);
 	});
-}
+});
 
 // ── Story embed tests ──────────────────────────────────────
 
@@ -61,7 +61,7 @@ const storyEmbeds = [
 	{ id: 'foundations-typography-demos--heading-scale', selector: '.color-swatch' },
 ];
 
-for (const { id, selector } of storyEmbeds) {
+storyEmbeds.forEach(({ id, selector }) => {
 	test(`story ${id} renders expected elements`, async ({ page }) => {
 		await page.goto(`/iframe.html?id=${id}&viewMode=story`, {
 			waitUntil: 'networkidle',
@@ -70,4 +70,4 @@ for (const { id, selector } of storyEmbeds) {
 		const el = page.locator(selector).first();
 		await expect(el).toBeVisible({ timeout: 10_000 });
 	});
-}
+});
