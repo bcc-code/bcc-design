@@ -21,6 +21,8 @@ export const TokensTable: Story = {
 				{ token: 'radius.lg', value: '12px', suitable: 'Large page elements: cards, modals, panels, large containers.' },
 				{ token: 'radius.xl', value: '16px', suitable: 'Feature sections, navigation panels, large decorative containers.' },
 				{ token: 'radius.2xl', value: '24px', suitable: 'Hero sections, large promotional surfaces.' },
+				{ token: 'radius.3xl', value: '32px', suitable: 'Extra-large decorative surfaces, feature highlights.' },
+				{ token: 'radius.4xl', value: '48px', suitable: 'Oversized decorative containers, showcase elements.' },
 				{ token: 'radius.full', value: '999px', suitable: 'Circular elements: avatars, radio buttons, pills, rounded buttons and tags.' },
 			];
 			return { rows };

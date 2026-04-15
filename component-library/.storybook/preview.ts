@@ -46,7 +46,9 @@ function showCopyToast(text: string) {
 let toastTimeout: ReturnType<typeof setTimeout>;
 let copyLock = false;
 
-document.addEventListener('mouseover', (e) => {
+if (!(globalThis as any).__bccSwatchListenerAttached) {
+	(globalThis as any).__bccSwatchListenerAttached = true;
+	document.addEventListener('mouseover', (e) => {
 	const swatch = (e.target as HTMLElement).closest('.color-swatch') as HTMLElement | null;
 	if (!swatch || (swatch as any)._tippy || copyLock) return;
 
@@ -145,6 +147,7 @@ document.addEventListener('mouseover', (e) => {
 
 	(swatch as any)._tippy.show();
 });
+}
 
 /** Only one BccConfirmDialog is mounted across all story instances (avoids 5 dialogs on docs page). */
 let confirmDialogSlotClaimed = false;
