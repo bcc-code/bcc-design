@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { BccTab, BccTabList, BccTabPanel, BccTabPanels, BccTabs } from '../../index';
 
 const meta = {

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { BccBreadcrumb } from '../../index';
 
 const items = [{ label: 'Home', to: '#' }, { label: 'Components', to: '#' }, { label: 'Breadcrumb' }];

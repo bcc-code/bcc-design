@@ -1,5 +1,5 @@
 import { CheckIcon } from '@bcc-code/icons-vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import BccChip from './BccChip.vue';
 
 const meta = {

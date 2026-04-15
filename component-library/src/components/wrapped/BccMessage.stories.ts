@@ -1,5 +1,5 @@
 import { CelebrationIcon, InfoIcon } from '@bcc-code/icons-vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import BccMessage from './BccMessage.vue';
 
 const meta = {

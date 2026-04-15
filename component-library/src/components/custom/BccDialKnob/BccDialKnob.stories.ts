@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/vue3';
+import type { Meta } from '@storybook/vue3-vite';
 import { ref } from 'vue';
 import BccInput from '../../wrapped/BccInput.vue';
 import BccDialKnob from './BccDialKnob.vue';

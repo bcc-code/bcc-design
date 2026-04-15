@@ -1,5 +1,5 @@
 import BccButton from '@/components/wrapped/BccButton.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import BccFrame from './BccFrame.vue';
 
 const meta: Meta<typeof BccFrame> = {

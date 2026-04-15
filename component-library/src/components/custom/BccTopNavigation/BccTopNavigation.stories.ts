@@ -1,6 +1,6 @@
 import { BccButton, BccTopNavigation } from '@/index';
 import { SearchIcon } from '@bcc-code/icons-vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import type { Component } from 'vue';
 
 const TopNavigationComponent: Component = BccTopNavigation as Component;

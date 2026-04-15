@@ -1,6 +1,6 @@
 import BccPreset from '@bcc-code/design-tokens/primevue';
-import type { Preview } from '@storybook/vue3';
-import { setup } from '@storybook/vue3';
+import type { Preview } from '@storybook/vue3-vite';
+import { setup } from '@storybook/vue3-vite';
 import PrimeVue from 'primevue/config';
 import ConfirmationService from 'primevue/confirmationservice';
 import FocusTrapDirective from 'primevue/focustrap';
