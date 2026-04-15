@@ -255,7 +255,7 @@ export const DoProportions: Story = {
 			`<div class="flex items-center justify-center px-spacing-200 min-h-24">
 				<img src="${base}bcc_logo_primary.svg" alt="BCC logo stretched" class="h-10 scale-x-[1.6] -skew-x-[5deg]" />
 			</div>`,
-			"Don't stretch, compress, rotate, or change the proportions of the logo.",
+			"Don't stretch, compress, rotate, or change the proportions of the logo."
 		),
 	}),
 };
@@ -271,7 +271,7 @@ export const DoSymbol: Story = {
 				<img src="${base}bcc_logo_symbol.svg" alt="BCC symbol" class="h-10" />
 				<span class="text-lg font-bold text-brand-default">My App</span>
 			</div>`,
-			"Don't add text next to the symbol to create a custom logo.",
+			"Don't add text next to the symbol to create a custom logo."
 		),
 	}),
 };
@@ -290,7 +290,7 @@ export const DoClearSpace: Story = {
 					<span class="text-sm font-medium text-subtle">Brunstad Christian Church</span>
 				</div>
 			</div>`,
-			"Don't crowd the logo — other elements must stay outside the clear space.",
+			"Don't crowd the logo — other elements must stay outside the clear space."
 		),
 	}),
 };

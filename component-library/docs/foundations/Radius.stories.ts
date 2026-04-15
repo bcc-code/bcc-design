@@ -14,16 +14,44 @@ export const TokensTable: Story = {
 		setup() {
 			const rows = [
 				{ token: 'radius.none', value: '0', suitable: 'Sharp-edged elements: data tables, table cells, dividers.' },
-				{ token: 'radius.2xs', value: '2px', suitable: 'Small detail elements: checkboxes, avatar labels, select option items.' },
-				{ token: 'radius.xs', value: '4px', suitable: 'Supporting elements: tags, inputs, selects, date pickers, compact buttons.' },
-				{ token: 'radius.sm', value: '6px', suitable: 'Interactive elements: buttons, tooltips, form fields, popovers, navigation items.' },
-				{ token: 'radius.md', value: '8px', suitable: 'Containment elements: dialogs, in-page containers, floating UI, dropdown menus.' },
-				{ token: 'radius.lg', value: '12px', suitable: 'Large page elements: cards, modals, panels, large containers.' },
-				{ token: 'radius.xl', value: '16px', suitable: 'Feature sections, navigation panels, large decorative containers.' },
+				{
+					token: 'radius.2xs',
+					value: '2px',
+					suitable: 'Small detail elements: checkboxes, avatar labels, select option items.',
+				},
+				{
+					token: 'radius.xs',
+					value: '4px',
+					suitable: 'Supporting elements: tags, inputs, selects, date pickers, compact buttons.',
+				},
+				{
+					token: 'radius.sm',
+					value: '6px',
+					suitable: 'Interactive elements: buttons, tooltips, form fields, popovers, navigation items.',
+				},
+				{
+					token: 'radius.md',
+					value: '8px',
+					suitable: 'Containment elements: dialogs, in-page containers, floating UI, dropdown menus.',
+				},
+				{
+					token: 'radius.lg',
+					value: '12px',
+					suitable: 'Large page elements: cards, modals, panels, large containers.',
+				},
+				{
+					token: 'radius.xl',
+					value: '16px',
+					suitable: 'Feature sections, navigation panels, large decorative containers.',
+				},
 				{ token: 'radius.2xl', value: '24px', suitable: 'Hero sections, large promotional surfaces.' },
 				{ token: 'radius.3xl', value: '32px', suitable: 'Extra-large decorative surfaces, feature highlights.' },
 				{ token: 'radius.4xl', value: '48px', suitable: 'Oversized decorative containers, showcase elements.' },
-				{ token: 'radius.full', value: '999px', suitable: 'Circular elements: avatars, radio buttons, pills, rounded buttons and tags.' },
+				{
+					token: 'radius.full',
+					value: '999px',
+					suitable: 'Circular elements: avatars, radio buttons, pills, rounded buttons and tags.',
+				},
 			];
 			return { rows };
 		},

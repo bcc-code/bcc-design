@@ -4,8 +4,8 @@ import { setup } from '@storybook/vue3-vite';
 import PrimeVue from 'primevue/config';
 import ConfirmationService from 'primevue/confirmationservice';
 import FocusTrapDirective from 'primevue/focustrap';
-import TooltipDirective from 'primevue/tooltip';
 import ToastService from 'primevue/toastservice';
+import TooltipDirective from 'primevue/tooltip';
 import { onMounted, onUnmounted, ref } from 'vue';
 
 import tippy from 'tippy.js';
@@ -48,108 +48,125 @@ let copyLock = false;
 
 if (!(globalThis as any).__bccSwatchListenerAttached) {
 	(globalThis as any).__bccSwatchListenerAttached = true;
-	document.addEventListener('mouseover', (e) => {
-	const swatch = (e.target as HTMLElement).closest('.color-swatch') as HTMLElement | null;
-	if (!swatch || (swatch as any)._tippy || copyLock) return;
+	document.addEventListener('mouseover', e => {
+		const swatch = (e.target as HTMLElement).closest('.color-swatch') as HTMLElement | null;
+		if (!swatch || (swatch as any)._tippy || copyLock) return;
 
-	let hex = swatch.getAttribute('data-hex');
-	const token = swatch.getAttribute('data-token');
-	const tw = swatch.getAttribute('data-tw');
-	const cssOverride = swatch.getAttribute('data-css');
-	if (!hex && !token && !tw) return;
+		let hex = swatch.getAttribute('data-hex');
+		const token = swatch.getAttribute('data-token');
+		const tw = swatch.getAttribute('data-tw');
+		const cssOverride = swatch.getAttribute('data-css');
+		if (!hex && !token && !tw) return;
 
-	// Resolve hex from computed background only for actual color swatches
-	if (hex && hex.startsWith('#')) {
-		// Already a hex value — keep it
-	} else if (hex && hex.startsWith('rgba(')) {
-		// Already an rgba value — keep it as-is
-	} else if (hex && hex.startsWith('var(')) {
-		const computed = getComputedStyle(swatch).backgroundColor;
-		const match = computed.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
-		if (match) {
-			hex = '#' + [match[1], match[2], match[3]].map(x => parseInt(x).toString(16).padStart(2, '0')).join('');
-			if (match[4] && parseFloat(match[4]) < 1) {
-				hex += Math.round(parseFloat(match[4]) * 255).toString(16).padStart(2, '0');
+		// Resolve hex from computed background only for actual color swatches
+		if (hex && hex.startsWith('#')) {
+			// Already a hex value — keep it
+		} else if (hex && hex.startsWith('rgba(')) {
+			// Already an rgba value — keep it as-is
+		} else if (hex && hex.startsWith('var(')) {
+			const computed = getComputedStyle(swatch).backgroundColor;
+			const match = computed.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+			if (match) {
+				hex = '#' + [match[1], match[2], match[3]].map(x => parseInt(x).toString(16).padStart(2, '0')).join('');
+				if (match[4] && parseFloat(match[4]) < 1) {
+					hex += Math.round(parseFloat(match[4]) * 255)
+						.toString(16)
+						.padStart(2, '0');
+				}
+			} else {
+				hex = null;
 			}
 		} else {
 			hex = null;
 		}
-	} else {
-		hex = null;
-	}
 
-	const isRgba = hex && hex.startsWith('rgba(');
-	const rgb = hex && !isRgba ? hexToRgb(hex) : '';
-	const items: { label: string; value: string }[] = [];
-	if (token) items.push({ label: 'Token', value: token });
-	if (token && !hex) {
-		const cssVar = cssOverride || ('var(--' + token.replace(/\./g, '-') + ')');
-		items.push({ label: 'CSS', value: cssVar });
-	}
-	if (tw) items.push({ label: 'Tailwind', value: tw });
-	if (hex) items.push({ label: isRgba ? 'RGBA' : 'Hex', value: hex });
-	if (rgb) items.push({ label: 'RGB', value: rgb });
+		const isRgba = hex && hex.startsWith('rgba(');
+		const rgb = hex && !isRgba ? hexToRgb(hex) : '';
+		const items: { label: string; value: string }[] = [];
+		if (token) items.push({ label: 'Token', value: token });
+		if (token && !hex) {
+			const cssVar = cssOverride || 'var(--' + token.replace(/\./g, '-') + ')';
+			items.push({ label: 'CSS', value: cssVar });
+		}
+		if (tw) items.push({ label: 'Tailwind', value: tw });
+		if (hex) items.push({ label: isRgba ? 'RGBA' : 'Hex', value: hex });
+		if (rgb) items.push({ label: 'RGB', value: rgb });
 
-	// Single value — show simple tooltip, copy on click
-	if (items.length === 1) {
+		// Single value — show simple tooltip, copy on click
+		if (items.length === 1) {
+			tippy(swatch, {
+				content: `<div class="color-copy-row" style="cursor:pointer"><span style="font-size:12px;color:#6b6e76">Click to copy</span> <strong style="font-size:12px;color:#292a2e">${items[0].value}</strong></div>`,
+				allowHTML: true,
+				trigger: 'mouseenter',
+				placement: 'bottom',
+				theme: 'color-copy',
+				arrow: true,
+				appendTo: document.body,
+			});
+			swatch.addEventListener('click', () => {
+				navigator.clipboard
+					.writeText(items[0].value)
+					.then(() => {
+						showCopyToast(items[0].value);
+					})
+					.catch(() => {
+						/* clipboard access denied — ignore silently */
+					});
+			});
+			(swatch as any)._tippy.show();
+			return;
+		}
+
+		const html = items
+			.map(
+				item =>
+					`<div class="color-copy-row">` +
+					`<span class="color-copy-label">${item.label}</span>` +
+					`<button class="color-copy-btn" data-value="${item.value}">${item.value}<span class="color-copy-icon">&#xe14d;</span></button>` +
+					`</div>`
+			)
+			.join('');
+
 		tippy(swatch, {
-			content: `<div class="color-copy-row" style="cursor:pointer"><span style="font-size:12px;color:#6b6e76">Click to copy</span> <strong style="font-size:12px;color:#292a2e">${items[0].value}</strong></div>`,
+			content: html,
 			allowHTML: true,
+			interactive: true,
 			trigger: 'mouseenter',
-			placement: 'bottom',
+			placement: 'bottom-start',
 			theme: 'color-copy',
 			arrow: true,
 			appendTo: document.body,
+			onCreate(instance) {
+				instance.popper.addEventListener('click', ev => {
+					const target = ev.target;
+					if (!(target instanceof Element)) return;
+					const btn = target.closest('.color-copy-btn');
+					if (!btn) return;
+					const val = btn.getAttribute('data-value');
+					if (val) {
+						navigator.clipboard
+							.writeText(val)
+							.then(() => {
+								showCopyToast(val);
+								instance.hide();
+								copyLock = true;
+								setTimeout(() => {
+									copyLock = false;
+								}, 400);
+							})
+							.catch(() => {
+								/* clipboard access denied — ignore silently */
+							});
+					}
+				});
+			},
+			onHidden(instance) {
+				instance.destroy();
+			},
 		});
-		swatch.addEventListener('click', () => {
-			navigator.clipboard.writeText(items[0].value).then(() => {
-				showCopyToast(items[0].value);
-			}).catch(() => { /* clipboard access denied — ignore silently */ });
-		});
+
 		(swatch as any)._tippy.show();
-		return;
-	}
-
-	const html = items.map(item =>
-		`<div class="color-copy-row">` +
-		`<span class="color-copy-label">${item.label}</span>` +
-		`<button class="color-copy-btn" data-value="${item.value}">${item.value}<span class="color-copy-icon">&#xe14d;</span></button>` +
-		`</div>`
-	).join('');
-
-	tippy(swatch, {
-		content: html,
-		allowHTML: true,
-		interactive: true,
-		trigger: 'mouseenter',
-		placement: 'bottom-start',
-		theme: 'color-copy',
-		arrow: true,
-		appendTo: document.body,
-		onCreate(instance) {
-			instance.popper.addEventListener('click', (ev) => {
-				const target = ev.target;
-				if (!(target instanceof Element)) return;
-				const btn = target.closest('.color-copy-btn');
-				if (!btn) return;
-				const val = btn.getAttribute('data-value');
-				if (val) {
-					navigator.clipboard.writeText(val).then(() => {
-						showCopyToast(val);
-						instance.hide();
-						copyLock = true;
-						setTimeout(() => { copyLock = false; }, 400);
-					}).catch(() => { /* clipboard access denied — ignore silently */ });
-				}
-			});
-		},
-		onHidden(instance) {
-			instance.destroy();
-		},
 	});
-
-	(swatch as any)._tippy.show();
-});
 }
 
 /** Only one BccConfirmDialog is mounted across all story instances (avoids 5 dialogs on docs page). */

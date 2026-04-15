@@ -47,10 +47,30 @@ export const SurfaceTokens: Story = {
 	render: () => ({
 		setup() {
 			const rows = [
-				{ token: 'elevation.surface.sunken', tw: 'bg-elevation-surface-sunken-default', css: 'var(--color-elevation-surface-sunken-default)', desc: 'Recessed backgrounds: sidebars, page canvases, content wells.' },
-				{ token: 'elevation.surface.default', tw: 'bg-elevation-surface-default', css: 'var(--color-elevation-surface-default)', desc: 'Baseline surface for main content, containers, and forms.' },
-				{ token: 'elevation.surface.raised', tw: 'bg-elevation-surface-raised-default', css: 'var(--color-elevation-surface-raised-default)', desc: 'Lifted surfaces: cards, interactive tiles. Pair with shadow.raised.' },
-				{ token: 'elevation.surface.overlay', tw: 'bg-elevation-surface-overlay-default', css: 'var(--color-elevation-surface-overlay-default)', desc: 'Floating UI: modals, dialogs, dropdowns. Pair with shadow.overlay.' },
+				{
+					token: 'elevation.surface.sunken',
+					tw: 'bg-elevation-surface-sunken-default',
+					css: 'var(--color-elevation-surface-sunken-default)',
+					desc: 'Recessed backgrounds: sidebars, page canvases, content wells.',
+				},
+				{
+					token: 'elevation.surface.default',
+					tw: 'bg-elevation-surface-default',
+					css: 'var(--color-elevation-surface-default)',
+					desc: 'Baseline surface for main content, containers, and forms.',
+				},
+				{
+					token: 'elevation.surface.raised',
+					tw: 'bg-elevation-surface-raised-default',
+					css: 'var(--color-elevation-surface-raised-default)',
+					desc: 'Lifted surfaces: cards, interactive tiles. Pair with shadow.raised.',
+				},
+				{
+					token: 'elevation.surface.overlay',
+					tw: 'bg-elevation-surface-overlay-default',
+					css: 'var(--color-elevation-surface-overlay-default)',
+					desc: 'Floating UI: modals, dialogs, dropdowns. Pair with shadow.overlay.',
+				},
 			];
 			return { rows };
 		},
@@ -77,9 +97,27 @@ export const ShadowTokens: Story = {
 	render: () => ({
 		setup() {
 			const rows = [
-				{ token: 'shadow.raised', tw: 'shadow-raised', css: 'var(--elevation-shadow-raised)', desc: 'Subtle lift for cards and interactive tiles.', shadow: 'var(--elevation-shadow-raised)' },
-				{ token: 'shadow.overlay', tw: 'shadow-overlay', css: 'var(--elevation-shadow-overlay)', desc: 'Prominent shadow for modals, dropdowns, and floating UI.', shadow: 'var(--elevation-shadow-overlay)' },
-				{ token: 'shadow.overflow', tw: 'shadow-overflow', css: 'var(--elevation-shadow-overflow)', desc: 'Scroll indicator for content overflowing a container.', shadow: 'var(--elevation-shadow-overflow)' },
+				{
+					token: 'shadow.raised',
+					tw: 'shadow-raised',
+					css: 'var(--elevation-shadow-raised)',
+					desc: 'Subtle lift for cards and interactive tiles.',
+					shadow: 'var(--elevation-shadow-raised)',
+				},
+				{
+					token: 'shadow.overlay',
+					tw: 'shadow-overlay',
+					css: 'var(--elevation-shadow-overlay)',
+					desc: 'Prominent shadow for modals, dropdowns, and floating UI.',
+					shadow: 'var(--elevation-shadow-overlay)',
+				},
+				{
+					token: 'shadow.overflow',
+					tw: 'shadow-overflow',
+					css: 'var(--elevation-shadow-overflow)',
+					desc: 'Scroll indicator for content overflowing a container.',
+					shadow: 'var(--elevation-shadow-overflow)',
+				},
 			];
 			return { rows };
 		},
@@ -220,7 +258,7 @@ export const DoPairing: Story = {
 			`<div class="bg-elevation-surface-raised-default rounded-lg p-spacing-200 w-32 h-20 flex items-center justify-center">
 				<span class="text-sm text-subtle">Card</span>
 			</div>`,
-			"Don't use raised or overlay surfaces without their paired shadow.",
+			"Don't use raised or overlay surfaces without their paired shadow."
 		),
 	}),
 };

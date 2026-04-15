@@ -1,14 +1,13 @@
 /** Copyable token pill — shows tippy with token name, CSS var, and Tailwind class. */
-export const PILL = 'text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover';
+export const PILL =
+	'text-xs bg-neutral-100 border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle inline-block w-fit cursor-pointer hover:bg-neutral-200 transition-colors color-swatch color-swatch-no-hover';
 
 /** Copyable token pill used in component demos — same look, with swatch hover. */
-export const PILL_SWATCH = 'color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block';
+export const PILL_SWATCH =
+	'color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block';
 
 /** Do/Don't card pair — two side-by-side cards with visual example and guidance text. */
-export function doDont(
-	doExample: string, doText: string,
-	dontExample: string, dontText: string,
-) {
+export function doDont(doExample: string, doText: string, dontExample: string, dontText: string) {
 	return `
 		<div class="flex gap-spacing-200 items-stretch">
 			<div class="flex-1 rounded-lg overflow-hidden flex flex-col">

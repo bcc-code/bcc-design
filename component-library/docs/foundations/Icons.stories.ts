@@ -34,7 +34,12 @@ export const IconSizes: Story = {
 			const sizes = [
 				{ token: 'icon.size.xs', tw: 'icon-xs', size: '16px', desc: 'Inline with small text, badges, compact UI.' },
 				{ token: 'icon.size.sm', tw: 'icon-sm', size: '20px', desc: 'Inline with body text, form labels, tags.' },
-				{ token: 'icon.size.md', tw: 'icon-md', size: '24px', desc: 'Default size. Buttons, navigation, standalone icons.' },
+				{
+					token: 'icon.size.md',
+					tw: 'icon-md',
+					size: '24px',
+					desc: 'Default size. Buttons, navigation, standalone icons.',
+				},
 				{ token: 'icon.size.lg', tw: 'icon-lg', size: '32px', desc: 'Feature icons, empty states, section headers.' },
 				{ token: 'icon.size.xl', tw: 'icon-xl', size: '48px', desc: 'Large illustrations, onboarding, hero sections.' },
 			];
@@ -135,7 +140,7 @@ export const DoIcons: Story = {
 				<span class="material-symbols-outlined text-lg text-subtle">edit</span>
 				<span class="material-symbols-outlined text-lg text-subtle">share</span>
 			</div>`,
-			"Don't use icons alone without labels or tooltips — they're ambiguous.",
+			"Don't use icons alone without labels or tooltips — they're ambiguous."
 		),
 	}),
 };
@@ -152,7 +157,7 @@ export const DoIconColor: Story = {
 				<span class="material-symbols-outlined text-lg text-brand-default">warning</span>
 				<span class="text-sm text-danger">Error occurred</span>
 			</div>`,
-			"Don't mix icon and text colors — it breaks the visual connection.",
+			"Don't mix icon and text colors — it breaks the visual connection."
 		),
 	}),
 };

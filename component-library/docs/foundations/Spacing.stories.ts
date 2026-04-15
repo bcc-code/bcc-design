@@ -58,11 +58,20 @@ export const SpacingRuler: Story = {
 	render: () => ({
 		setup() {
 			const ticks = [
-				{ px: 0, label: '0', bold: true }, { px: 2, label: '2' }, { px: 4, label: '4' },
-				{ px: 6, label: '6' }, { px: 8, label: '8', highlight: true, bold: true },
-				{ px: 12, label: '12', bold: true }, { px: 16, label: '16' }, { px: 20, label: '20' }, { px: 24, label: '24', bold: true },
-				{ px: 32, label: '32', bold: true }, { px: 40, label: '40' }, { px: 48, label: '48' },
-				{ px: 64, label: '64' }, { px: 80, label: '80', bold: true },
+				{ px: 0, label: '0', bold: true },
+				{ px: 2, label: '2' },
+				{ px: 4, label: '4' },
+				{ px: 6, label: '6' },
+				{ px: 8, label: '8', highlight: true, bold: true },
+				{ px: 12, label: '12', bold: true },
+				{ px: 16, label: '16' },
+				{ px: 20, label: '20' },
+				{ px: 24, label: '24', bold: true },
+				{ px: 32, label: '32', bold: true },
+				{ px: 40, label: '40' },
+				{ px: 48, label: '48' },
+				{ px: 64, label: '64' },
+				{ px: 80, label: '80', bold: true },
 			];
 			const ranges = [
 				{ label: 'Small', start: 0, end: 8, icon: 'grid_view' },
@@ -267,7 +276,7 @@ export const DoSpacing: Story = {
 				<div class="spacing-indicator spacing-indicator-danger" style="height: 4px"></div>
 				<div class="h-8 rounded-md border border-default bg-elevation-surface-default" />
 			</div>`,
-			"Don't use inconsistent spacing between similar elements.",
+			"Don't use inconsistent spacing between similar elements."
 		),
 	}),
 };
@@ -286,7 +295,7 @@ export const DoTokens: Story = {
 				<code class="text-xs bg-elevation-surface-default border border-danger rounded-full px-spacing-100 py-spacing-25 text-danger">gap-[7px]</code>
 				<code class="text-xs bg-elevation-surface-default border border-danger rounded-full px-spacing-100 py-spacing-25 text-danger">mt-[30px]</code>
 			</div>`,
-			"Don't use arbitrary pixel values — they break the rhythm of the 8px grid.",
+			"Don't use arbitrary pixel values — they break the rhythm of the 8px grid."
 		),
 	}),
 };

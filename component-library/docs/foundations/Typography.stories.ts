@@ -133,13 +133,13 @@ export const DoTypography: Story = {
 				<span class="heading-lg">Subsection</span>
 				<span class="body-md text-subtle">Description text.</span>
 			</div>`,
-			'Follow the heading hierarchy — don\'t skip levels.',
+			"Follow the heading hierarchy — don't skip levels.",
 			`<div class="flex flex-col gap-spacing-100 text-left px-spacing-200">
 				<span class="heading-2xl">Section title</span>
 				<span class="heading-md">Subsection</span>
 				<span class="body-md text-subtle">Description text.</span>
 			</div>`,
-			"Don't jump from 2xl to md — it breaks visual rhythm and accessibility.",
+			"Don't jump from 2xl to md — it breaks visual rhythm and accessibility."
 		),
 	}),
 };

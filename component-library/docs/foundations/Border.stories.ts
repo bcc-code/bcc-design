@@ -10,14 +10,25 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-
 export const WidthTokens: Story = {
 	render: () => ({
 		setup() {
 			const rows = [
-				{ token: 'border.width', value: '1px', suitable: 'Standard borders for containers, dividers, inputs, and cards.' },
-				{ token: 'border.width.selected', value: '2px', suitable: 'Selected states — active tabs, chosen items, toggled controls.' },
-				{ token: 'border.width.focused', value: '2px', suitable: 'Focus ring indicator for keyboard navigation and accessibility.' },
+				{
+					token: 'border.width',
+					value: '1px',
+					suitable: 'Standard borders for containers, dividers, inputs, and cards.',
+				},
+				{
+					token: 'border.width.selected',
+					value: '2px',
+					suitable: 'Selected states — active tabs, chosen items, toggled controls.',
+				},
+				{
+					token: 'border.width.focused',
+					value: '2px',
+					suitable: 'Focus ring indicator for keyboard navigation and accessibility.',
+				},
 			];
 			return { rows };
 		},
@@ -42,7 +53,6 @@ export const WidthTokens: Story = {
 		`,
 	}),
 };
-
 
 export const ExampleDefault: Story = {
 	render: () => ({
@@ -72,7 +82,6 @@ export const ExampleDefault: Story = {
 		`,
 	}),
 };
-
 
 export const ExampleSelected: Story = {
 	render: () => ({
@@ -110,7 +119,6 @@ export const ExampleSelected: Story = {
 	}),
 };
 
-
 export const ExampleFocused: Story = {
 	render: () => ({
 		template: `
@@ -130,22 +138,76 @@ export const ExampleFocused: Story = {
 	}),
 };
 
-
 export const ColorTokens: Story = {
 	render: () => ({
 		setup() {
 			const rows = [
-				{ token: 'color.border.default', tw: 'border-default', suitable: 'Standard borders for containers, cards, and dividers.', color: 'var(--color-border-default)' },
-				{ token: 'color.border.bold', tw: 'border-bold', suitable: 'High-emphasis borders that need more visual weight.', color: 'var(--color-border-bold)' },
-				{ token: 'color.border.input', tw: 'border-input', suitable: 'Form inputs, selects, and text areas at rest.', color: 'var(--color-border-input)' },
-				{ token: 'color.border.selected', tw: 'border-selected', suitable: 'Selected state — active tabs, chosen items.', color: 'var(--color-border-selected)' },
-				{ token: 'color.border.focused', tw: 'border-focused', suitable: 'Focus ring for keyboard navigation.', color: 'var(--color-border-focused)' },
-				{ token: 'color.border.disabled', tw: 'border-disabled', suitable: 'Disabled, non-interactive elements.', color: 'var(--color-border-disabled)' },
-				{ token: 'color.border.brand', tw: 'border-brand', suitable: 'Brand-colored accents.', color: 'var(--color-border-brand)' },
-				{ token: 'color.border.success', tw: 'border-success', suitable: 'Success state and positive feedback.', color: 'var(--color-border-success)' },
-				{ token: 'color.border.warning', tw: 'border-warning', suitable: 'Warning state and cautions.', color: 'var(--color-border-warning)' },
-				{ token: 'color.border.danger', tw: 'border-danger', suitable: 'Danger, error, and destructive actions.', color: 'var(--color-border-danger)' },
-				{ token: 'color.border.information', tw: 'border-information', suitable: 'Informational context and tips.', color: 'var(--color-border-information)' },
+				{
+					token: 'color.border.default',
+					tw: 'border-default',
+					suitable: 'Standard borders for containers, cards, and dividers.',
+					color: 'var(--color-border-default)',
+				},
+				{
+					token: 'color.border.bold',
+					tw: 'border-bold',
+					suitable: 'High-emphasis borders that need more visual weight.',
+					color: 'var(--color-border-bold)',
+				},
+				{
+					token: 'color.border.input',
+					tw: 'border-input',
+					suitable: 'Form inputs, selects, and text areas at rest.',
+					color: 'var(--color-border-input)',
+				},
+				{
+					token: 'color.border.selected',
+					tw: 'border-selected',
+					suitable: 'Selected state — active tabs, chosen items.',
+					color: 'var(--color-border-selected)',
+				},
+				{
+					token: 'color.border.focused',
+					tw: 'border-focused',
+					suitable: 'Focus ring for keyboard navigation.',
+					color: 'var(--color-border-focused)',
+				},
+				{
+					token: 'color.border.disabled',
+					tw: 'border-disabled',
+					suitable: 'Disabled, non-interactive elements.',
+					color: 'var(--color-border-disabled)',
+				},
+				{
+					token: 'color.border.brand',
+					tw: 'border-brand',
+					suitable: 'Brand-colored accents.',
+					color: 'var(--color-border-brand)',
+				},
+				{
+					token: 'color.border.success',
+					tw: 'border-success',
+					suitable: 'Success state and positive feedback.',
+					color: 'var(--color-border-success)',
+				},
+				{
+					token: 'color.border.warning',
+					tw: 'border-warning',
+					suitable: 'Warning state and cautions.',
+					color: 'var(--color-border-warning)',
+				},
+				{
+					token: 'color.border.danger',
+					tw: 'border-danger',
+					suitable: 'Danger, error, and destructive actions.',
+					color: 'var(--color-border-danger)',
+				},
+				{
+					token: 'color.border.information',
+					tw: 'border-information',
+					suitable: 'Informational context and tips.',
+					color: 'var(--color-border-information)',
+				},
 			];
 			return { rows };
 		},
@@ -167,7 +229,6 @@ export const ColorTokens: Story = {
 		`,
 	}),
 };
-
 
 export const PairingExample: Story = {
 	render: () => ({
@@ -202,7 +263,6 @@ export const PairingExample: Story = {
 	}),
 };
 
-
 export const DoBorderStates: Story = {
 	render: () => ({
 		template: doDont(
@@ -215,7 +275,7 @@ export const DoBorderStates: Story = {
 				<div class="w-24 h-10 rounded-md bg-elevation-surface-default border-2 border-default flex items-center justify-center"><span class="body-md text-subtle">Item</span></div>
 				<div class="w-24 h-10 rounded-md bg-elevation-surface-default border-2 border-default flex items-center justify-center"><span class="body-md text-subtle">Item</span></div>
 			</div>`,
-			"Don't use emphasis borders as decoration on static elements.",
+			"Don't use emphasis borders as decoration on static elements."
 		),
 	}),
 };

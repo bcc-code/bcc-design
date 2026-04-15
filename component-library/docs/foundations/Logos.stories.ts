@@ -43,11 +43,25 @@ export const LocalChurches: Story = {
 	render: () => ({
 		setup() {
 			const churches = [
-				'bcc-bergen', 'bcc-drammen', 'bcc-eiker', 'bcc-grenland',
-				'bcc-hallingdal', 'bcc-hamar', 'bcc-harstad', 'bcc-honefoss',
-				'bcc-horten', 'bcc-maloy', 'bcc-molde', 'bcc-oslo-og-follo',
-				'bcc-ostfold', 'bcc-sandefjord', 'bcc-sorlandet', 'bcc-stavanger',
-				'bcc-stord', 'bcc-tonsberg', 'bcc-valdres',
+				'bcc-bergen',
+				'bcc-drammen',
+				'bcc-eiker',
+				'bcc-grenland',
+				'bcc-hallingdal',
+				'bcc-hamar',
+				'bcc-harstad',
+				'bcc-honefoss',
+				'bcc-horten',
+				'bcc-maloy',
+				'bcc-molde',
+				'bcc-oslo-og-follo',
+				'bcc-ostfold',
+				'bcc-sandefjord',
+				'bcc-sorlandet',
+				'bcc-stavanger',
+				'bcc-stord',
+				'bcc-tonsberg',
+				'bcc-valdres',
 			];
 			return { churches, base };
 		},
@@ -71,8 +85,14 @@ export const Departments: Story = {
 	render: () => ({
 		setup() {
 			const depts = [
-				'bcc-a-team', 'bcc-connect', 'bcc-event', 'bcc-facilities',
-				'bcc-fund', 'bcc-media', 'bcc-music', 'bcc-norge',
+				'bcc-a-team',
+				'bcc-connect',
+				'bcc-event',
+				'bcc-facilities',
+				'bcc-fund',
+				'bcc-media',
+				'bcc-music',
+				'bcc-norge',
 			];
 			return { depts, base };
 		},
@@ -106,7 +126,7 @@ export const DoLogos: Story = {
 					<span class="text-xs text-subtle leading-tight">Component Library</span>
 				</div>
 			</div>`,
-			"Don't compose custom logo layouts — use the official variants.",
+			"Don't compose custom logo layouts — use the official variants."
 		),
 	}),
 };

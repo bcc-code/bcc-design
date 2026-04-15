@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 const meta = {
@@ -12,33 +13,187 @@ type Story = StoryObj<typeof meta>;
 /* ── Color Ramps ── */
 
 const saturatedRamps = [
-	{ label: 'Blue', token: 'color.blue', colors: ['#f6fbff','#d9ecff','#a6cdfd','#7cabf9','#608ef6','#446add','#274eb5','#273c8f','#212c64','#091e47'] },
-	{ label: 'Teal', token: 'color.teal', colors: ['#f6fbff','#c3f2f8','#82d3e3','#51b9cf','#1a9eb7','#0b7da1','#005b81','#09486b','#0d324d','#0c2132'] },
-	{ label: 'Green', token: 'color.green', colors: ['#efffed','#cbf3c9','#83d895','#32c180','#1ca673','#09825d','#0c6241','#094c3b','#073734','#032429'] },
-	{ label: 'Brown', token: 'color.brown', colors: ['#f9faf4','#ece8dc','#d1c5b0','#bea889','#a98c66','#8b6d45','#6e5232','#553d28','#3f2c1e','#2e1b0f'] },
-	{ label: 'Yellow', token: 'color.yellow', colors: ['#fdf8e9','#f8e6a0','#e9c348','#d5a406','#bc870d','#a4670b','#854901','#653805','#4b2c04','#2d1f00'] },
-	{ label: 'Orange', token: 'color.orange', colors: ['#fffaed','#fee3c1','#f6b981','#f19457','#da772e','#b55919','#943a14','#782612','#5d1712','#420e0d'] },
-	{ label: 'Red', token: 'color.red', colors: ['#fff8f3','#fee2dd','#fab6ad','#fa877e','#ed6362','#ca414e','#a42237','#811436','#630d2e','#440223'] },
-	{ label: 'Magenta', token: 'color.magenta', colors: ['#fff8ff','#fce0f8','#f3b4e2','#eb8acf','#de66b0','#be428f','#952e70','#751f57','#5b1043','#3f0534'] },
-	{ label: 'Purple', token: 'color.purple', colors: ['#f6f9ff','#e3e3fe','#c9c3ec','#afa0e0','#9a82da','#8360c3','#61479c','#493481','#352465','#241850'] },
-	{ label: 'Brand', token: 'color.bcc', colors: ['#f0fcfa','#d2eeeb','#a0cec8','#6fb5ad','#3e9f97','#1d7f78','#0c625c','#014d49','#0b3633','#012320'] },
+	{
+		label: 'Blue',
+		token: 'color.blue',
+		colors: [
+			'#f6fbff',
+			'#d9ecff',
+			'#a6cdfd',
+			'#7cabf9',
+			'#608ef6',
+			'#446add',
+			'#274eb5',
+			'#273c8f',
+			'#212c64',
+			'#091e47',
+		],
+	},
+	{
+		label: 'Teal',
+		token: 'color.teal',
+		colors: [
+			'#f6fbff',
+			'#c3f2f8',
+			'#82d3e3',
+			'#51b9cf',
+			'#1a9eb7',
+			'#0b7da1',
+			'#005b81',
+			'#09486b',
+			'#0d324d',
+			'#0c2132',
+		],
+	},
+	{
+		label: 'Green',
+		token: 'color.green',
+		colors: [
+			'#efffed',
+			'#cbf3c9',
+			'#83d895',
+			'#32c180',
+			'#1ca673',
+			'#09825d',
+			'#0c6241',
+			'#094c3b',
+			'#073734',
+			'#032429',
+		],
+	},
+	{
+		label: 'Brown',
+		token: 'color.brown',
+		colors: [
+			'#f9faf4',
+			'#ece8dc',
+			'#d1c5b0',
+			'#bea889',
+			'#a98c66',
+			'#8b6d45',
+			'#6e5232',
+			'#553d28',
+			'#3f2c1e',
+			'#2e1b0f',
+		],
+	},
+	{
+		label: 'Yellow',
+		token: 'color.yellow',
+		colors: [
+			'#fdf8e9',
+			'#f8e6a0',
+			'#e9c348',
+			'#d5a406',
+			'#bc870d',
+			'#a4670b',
+			'#854901',
+			'#653805',
+			'#4b2c04',
+			'#2d1f00',
+		],
+	},
+	{
+		label: 'Orange',
+		token: 'color.orange',
+		colors: [
+			'#fffaed',
+			'#fee3c1',
+			'#f6b981',
+			'#f19457',
+			'#da772e',
+			'#b55919',
+			'#943a14',
+			'#782612',
+			'#5d1712',
+			'#420e0d',
+		],
+	},
+	{
+		label: 'Red',
+		token: 'color.red',
+		colors: [
+			'#fff8f3',
+			'#fee2dd',
+			'#fab6ad',
+			'#fa877e',
+			'#ed6362',
+			'#ca414e',
+			'#a42237',
+			'#811436',
+			'#630d2e',
+			'#440223',
+		],
+	},
+	{
+		label: 'Magenta',
+		token: 'color.magenta',
+		colors: [
+			'#fff8ff',
+			'#fce0f8',
+			'#f3b4e2',
+			'#eb8acf',
+			'#de66b0',
+			'#be428f',
+			'#952e70',
+			'#751f57',
+			'#5b1043',
+			'#3f0534',
+		],
+	},
+	{
+		label: 'Purple',
+		token: 'color.purple',
+		colors: [
+			'#f6f9ff',
+			'#e3e3fe',
+			'#c9c3ec',
+			'#afa0e0',
+			'#9a82da',
+			'#8360c3',
+			'#61479c',
+			'#493481',
+			'#352465',
+			'#241850',
+		],
+	},
+	{
+		label: 'Brand',
+		token: 'color.bcc',
+		colors: [
+			'#f0fcfa',
+			'#d2eeeb',
+			'#a0cec8',
+			'#6fb5ad',
+			'#3e9f97',
+			'#1d7f78',
+			'#0c625c',
+			'#014d49',
+			'#0b3633',
+			'#012320',
+		],
+	},
 ];
 
 const steps = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
-function rampTemplate(ramps: typeof saturatedRamps, stepsArr: (number | string)[], bgFn?: (r: any) => string) {
-	const rows = ramps.map(r => {
-		const bgStyle = bgFn ? ` style="background:${bgFn(r)}"` : '';
-		const swatches = r.colors.map((c, i) => {
-			const radius = i === 0 ? 'rounded-l-sm' : i === r.colors.length - 1 ? 'rounded-r-sm' : '';
-			const twClass = 'bg-' + r.token.replace('color.', '') + '-' + stepsArr[i];
-			return `<div class="color-swatch flex-1 h-[36px] ${radius}" data-token="${r.token}.${stepsArr[i]}" data-hex="${c}" data-tw="${twClass}" style="background:${c}" />`;
-		}).join('');
-		return `<div class="flex items-center">
+function rampTemplate(ramps: typeof saturatedRamps, stepsArr: (number | string)[], bgFn?: (r: unknown) => string) {
+	const rows = ramps
+		.map(r => {
+			const bgStyle = bgFn ? ` style="background:${bgFn(r)}"` : '';
+			const swatches = r.colors
+				.map((c, i) => {
+					const radius = i === 0 ? 'rounded-l-sm' : i === r.colors.length - 1 ? 'rounded-r-sm' : '';
+					const twClass = 'bg-' + r.token.replace('color.', '') + '-' + stepsArr[i];
+					return `<div class="color-swatch flex-1 h-[36px] ${radius}" data-token="${r.token}.${stepsArr[i]}" data-hex="${c}" data-tw="${twClass}" style="background:${c}" />`;
+				})
+				.join('');
+			return `<div class="flex items-center">
 			<span class="body-md text-subtle w-[72px] font-semibold shrink-0">${r.label}</span>
 			<div class="flex flex-1 rounded-sm"${bgStyle}>${swatches}</div>
 		</div>`;
-	}).join('');
+		})
+		.join('');
 
 	const labels = stepsArr.map(s => `<div class="flex-1 text-center body-md text-subtlest">${s}</div>`).join('');
 
@@ -59,19 +214,70 @@ export const SaturatedColors: Story = {
 
 export const NeutralColors: Story = {
 	render: () => ({
-		template: rampTemplate([
-			{ label: 'Light', token: 'color.neutral', colors: ['#ffffff','#f8f8f8','#f0f1f2','#dddee1','#b7b9be','#8c8f97','#7d818a','#6b6e76','#505258','#3b3d42','#292a2e','#1e1f21'] },
-			{ label: 'Dark', token: 'color.dark-neutral', colors: ['#18191a','#1f1f21','#242528','#303134','#4b4d51','#63666b','#7e8188','#96999e','#a9abaf','#bfc1c4','#cecfd2','#e2e3e4'] },
-		], [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100]),
+		template: rampTemplate(
+			[
+				{
+					label: 'Light',
+					token: 'color.neutral',
+					colors: [
+						'#ffffff',
+						'#f8f8f8',
+						'#f0f1f2',
+						'#dddee1',
+						'#b7b9be',
+						'#8c8f97',
+						'#7d818a',
+						'#6b6e76',
+						'#505258',
+						'#3b3d42',
+						'#292a2e',
+						'#1e1f21',
+					],
+				},
+				{
+					label: 'Dark',
+					token: 'color.dark-neutral',
+					colors: [
+						'#18191a',
+						'#1f1f21',
+						'#242528',
+						'#303134',
+						'#4b4d51',
+						'#63666b',
+						'#7e8188',
+						'#96999e',
+						'#a9abaf',
+						'#bfc1c4',
+						'#cecfd2',
+						'#e2e3e4',
+					],
+				},
+			],
+			[0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100]
+		),
 	}),
 };
 
 export const AlphaColors: Story = {
 	render: () => ({
-		template: rampTemplate([
-			{ label: 'Light', token: 'color.neutral-alpha', colors: ['#17171708','#0515240f','#0b120e24','#080f214a','#050c1f75'], bg: '#ffffff' },
-			{ label: 'Dark', token: 'color.dark-neutral-alpha', colors: ['#bdbdbd0a','#ceced912','#e3e4f21f','#e5e9f640','#e9f0fb5c'], bg: '#1f1f21' },
-		] as any, ['100A', '200A', '300A', '400A', '500A'], (r: any) => r.bg),
+		template: rampTemplate(
+			[
+				{
+					label: 'Light',
+					token: 'color.neutral-alpha',
+					colors: ['#17171708', '#0515240f', '#0b120e24', '#080f214a', '#050c1f75'],
+					bg: '#ffffff',
+				},
+				{
+					label: 'Dark',
+					token: 'color.dark-neutral-alpha',
+					colors: ['#bdbdbd0a', '#ceced912', '#e3e4f21f', '#e5e9f640', '#e9f0fb5c'],
+					bg: '#1f1f21',
+				},
+			] as any,
+			['100A', '200A', '300A', '400A', '500A'],
+			(r: any) => r.bg
+		),
 	}),
 };
 
@@ -126,9 +332,24 @@ export const TokenAnatomy: Story = {
 			];
 			const parts = [
 				{ label: 'Category', color: '#6b6e76', desc: 'Top-level group', examples: ['color'] },
-				{ label: 'Property', color: '#446add', desc: 'Functional area', examples: ['text', 'background', 'border', 'elevation', 'icon'] },
-				{ label: 'Role', color: '#0c625c', desc: 'Purpose of the token', examples: ['brand', 'danger', 'success', 'neutral', 'accent-blue'] },
-				{ label: 'Emphasis', color: '#ca414e', desc: 'Intensity level', examples: ['subtlest', 'subtler', 'subtle', 'bold', 'bolder'] },
+				{
+					label: 'Property',
+					color: '#446add',
+					desc: 'Functional area',
+					examples: ['text', 'background', 'border', 'elevation', 'icon'],
+				},
+				{
+					label: 'Role',
+					color: '#0c625c',
+					desc: 'Purpose of the token',
+					examples: ['brand', 'danger', 'success', 'neutral', 'accent-blue'],
+				},
+				{
+					label: 'Emphasis',
+					color: '#ca414e',
+					desc: 'Intensity level',
+					examples: ['subtlest', 'subtler', 'subtle', 'bold', 'bolder'],
+				},
 				{ label: 'State', color: '#a4670b', desc: 'Interaction state', examples: ['default', 'hovered', 'pressed'] },
 			];
 			return { segments, parts };
@@ -169,14 +390,48 @@ export const ColorRoles: Story = {
 	render: () => ({
 		setup() {
 			const roles = [
-				{ name: 'neutral', color: 'var(--color-neutral-600)', description: 'Use for default text and secondary UI elements, such as secondary buttons or navigation elements.' },
-				{ name: 'brand', color: 'var(--color-bcc-600)', description: 'Use for primary actions or elements that communicate the BCC brand.' },
-				{ name: 'danger', color: 'var(--color-red-600)', description: 'Errors, destructive actions, or critical warnings.' },
-				{ name: 'warning', color: 'var(--color-yellow-500)', description: 'Cautions that need attention but are not critical.' },
-				{ name: 'success', color: 'var(--color-green-600)', description: 'Positive feedback, completed actions, or valid states.' },
-				{ name: 'information', color: 'var(--color-blue-600)', description: 'Neutral tips, contextual help, or informational banners.' },
-				{ name: 'accent', color: 'var(--color-purple-500)', description: 'Categorization without semantic meaning — tags, labels, project icons.' },
-				{ name: 'inverse', color: 'var(--color-neutral-1100)', description: 'Use for UI elements that sit on bold emphasis backgrounds.', border: true },
+				{
+					name: 'neutral',
+					color: 'var(--color-neutral-600)',
+					description:
+						'Use for default text and secondary UI elements, such as secondary buttons or navigation elements.',
+				},
+				{
+					name: 'brand',
+					color: 'var(--color-bcc-600)',
+					description: 'Use for primary actions or elements that communicate the BCC brand.',
+				},
+				{
+					name: 'danger',
+					color: 'var(--color-red-600)',
+					description: 'Errors, destructive actions, or critical warnings.',
+				},
+				{
+					name: 'warning',
+					color: 'var(--color-yellow-500)',
+					description: 'Cautions that need attention but are not critical.',
+				},
+				{
+					name: 'success',
+					color: 'var(--color-green-600)',
+					description: 'Positive feedback, completed actions, or valid states.',
+				},
+				{
+					name: 'information',
+					color: 'var(--color-blue-600)',
+					description: 'Neutral tips, contextual help, or informational banners.',
+				},
+				{
+					name: 'accent',
+					color: 'var(--color-purple-500)',
+					description: 'Categorization without semantic meaning — tags, labels, project icons.',
+				},
+				{
+					name: 'inverse',
+					color: 'var(--color-neutral-1100)',
+					description: 'Use for UI elements that sit on bold emphasis backgrounds.',
+					border: true,
+				},
 			];
 			return { roles };
 		},
@@ -252,8 +507,20 @@ export const AccentPairingCards: Story = {
 	render: () => ({
 		setup() {
 			const cards = [
-				{ bg: 'subtlest', icons: 2, textColors: ['default', 'bold'], labels: ['Default text', 'Bolder text'], label: 'Subtlest' },
-				{ bg: 'subtler', icons: 2, textColors: ['default', 'bold'], labels: ['Default text', 'Bolder text'], label: 'Subtler' },
+				{
+					bg: 'subtlest',
+					icons: 2,
+					textColors: ['default', 'bold'],
+					labels: ['Default text', 'Bolder text'],
+					label: 'Subtlest',
+				},
+				{
+					bg: 'subtler',
+					icons: 2,
+					textColors: ['default', 'bold'],
+					labels: ['Default text', 'Bolder text'],
+					label: 'Subtler',
+				},
 				{ bg: 'subtle', icons: 1, textColors: ['bold'], labels: ['Bolder text'], label: 'Subtle' },
 				{ bg: 'bolder', icons: 1, textColors: ['inverse'], labels: ['Inverse text'], label: 'Bolder', inverse: true },
 			];
