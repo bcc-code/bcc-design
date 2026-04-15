@@ -48,10 +48,23 @@ function tokenToCssVarName(token: string): string {
 	return '--color-' + token.replace('color.', '').replace(/\./g, '-');
 }
 
+function extractDarkVars(css: string): CssVarMap {
+	const combinedPatterns: RegExp[] = [
+		/\.dark\s*,\s*\[data-theme="dark"\]\s*\{([\s\S]*?)\}/,
+		/\[data-theme="dark"\]\s*,\s*\.dark\s*\{([\s\S]*?)\}/,
+	];
+	for (const pattern of combinedPatterns) {
+		const block = extractBlock(css, pattern);
+		if (block) return parseVars(block);
+	}
+	const darkClassVars = parseVars(extractBlock(css, /(?<![-\w])\.dark\s*\{([\s\S]*?)\}/m));
+	const darkAttrVars = parseVars(extractBlock(css, /(?<!,\s*)\[data-theme="dark"\]\s*\{([\s\S]*?)\}/));
+	return { ...darkClassVars, ...darkAttrVars };
+}
+
 const rootBlock = extractBlock(tokenCss, /:root\s*\{([\s\S]*?)\}/);
-const darkBlock = extractBlock(tokenCss, /\.dark\s*,\s*\[data-theme="dark"\]\s*\{([\s\S]*?)\}/);
 const lightVars = parseVars(rootBlock);
-const darkVars = { ...lightVars, ...parseVars(darkBlock) };
+const darkVars = { ...lightVars, ...extractDarkVars(tokenCss) };
 
 export function resolveColorTokenValues(token: string): { lightHex: string; darkHex: string } {
 	const cssVarName = tokenToCssVarName(token);
