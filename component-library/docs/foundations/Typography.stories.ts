@@ -59,9 +59,24 @@ export const BodyScale: Story = {
 	render: () => ({
 		setup() {
 			const bodies = [
-				{ token: 'body.lg', tw: 'body-lg', ...resolveTypoToken('font-size.md', 'line-height.xl'), usage: 'Paragraphs, long-form content' },
-				{ token: 'body.md', tw: 'body-md', ...resolveTypoToken('font-size.sm', 'line-height.lg'), usage: 'Descriptions, UI labels, secondary text' },
-				{ token: 'body.sm', tw: 'body-sm', ...resolveTypoToken('font-size.xs', 'line-height.md'), usage: 'Captions, metadata, helper text' },
+				{
+					token: 'body.lg',
+					tw: 'body-lg',
+					...resolveTypoToken('font-size.md', 'line-height.xl'),
+					usage: 'Paragraphs, long-form content',
+				},
+				{
+					token: 'body.md',
+					tw: 'body-md',
+					...resolveTypoToken('font-size.sm', 'line-height.lg'),
+					usage: 'Descriptions, UI labels, secondary text',
+				},
+				{
+					token: 'body.sm',
+					tw: 'body-sm',
+					...resolveTypoToken('font-size.xs', 'line-height.md'),
+					usage: 'Captions, metadata, helper text',
+				},
 			];
 			return { bodies };
 		},
@@ -84,10 +99,30 @@ export const WeightTokens: Story = {
 	render: () => ({
 		setup() {
 			const weights = [
-				{ token: 'font.weight.regular', tw: 'font-regular', value: resolveTokenValue('font-weight.regular'), usage: 'Body text, descriptions' },
-				{ token: 'font.weight.medium', tw: 'font-medium', value: resolveTokenValue('font-weight.medium'), usage: 'Buttons, form labels, navigation' },
-				{ token: 'font.weight.semibold', tw: 'font-semibold', value: resolveTokenValue('font-weight.semibold'), usage: 'All headings, emphasis' },
-				{ token: 'font.weight.bold', tw: 'font-bold', value: resolveTokenValue('font-weight.bold'), usage: 'Strong emphasis, rare' },
+				{
+					token: 'font.weight.regular',
+					tw: 'font-regular',
+					value: resolveTokenValue('font-weight.regular'),
+					usage: 'Body text, descriptions',
+				},
+				{
+					token: 'font.weight.medium',
+					tw: 'font-medium',
+					value: resolveTokenValue('font-weight.medium'),
+					usage: 'Buttons, form labels, navigation',
+				},
+				{
+					token: 'font.weight.semibold',
+					tw: 'font-semibold',
+					value: resolveTokenValue('font-weight.semibold'),
+					usage: 'All headings, emphasis',
+				},
+				{
+					token: 'font.weight.bold',
+					tw: 'font-bold',
+					value: resolveTokenValue('font-weight.bold'),
+					usage: 'Strong emphasis, rare',
+				},
 			];
 			return { weights };
 		},

@@ -83,7 +83,6 @@ function c(token: string, desc?: string, lightPrim?: string, darkPrim?: string) 
 	};
 }
 
-
 function s(token: string) {
 	return {
 		token,
