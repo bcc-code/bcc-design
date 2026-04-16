@@ -41,7 +41,7 @@ const saturatedRamps = [
 	ramp('Red', 'color.red'),
 	ramp('Magenta', 'color.magenta'),
 	ramp('Purple', 'color.purple'),
-	ramp('Brand', 'color.bcc'),
+	ramp('Brand', 'color.brand'),
 ];
 
 function rampTemplate(ramps: ColorRamp[], stepsArr: (number | string)[], bgFn?: (r: ColorRamp) => string) {
@@ -53,11 +53,11 @@ function rampTemplate(ramps: ColorRamp[], stepsArr: (number | string)[], bgFn?: 
 				.map((c, i) => {
 					const radius = i === 0 ? 'rounded-l-sm' : i === r.colors.length - 1 ? 'rounded-r-sm' : '';
 					const twClass = 'bg-' + r.token.replace('color.', '') + '-' + rSteps[i];
-					return `<div class="color-swatch flex-1 h-[36px] ${radius}" data-token="${r.token}.${rSteps[i]}" data-hex="${c}" data-tw="${twClass}" style="background:${c}" />`;
+					return `<div class="color-swatch flex-1 h-9 ${radius}" data-token="${r.token}.${rSteps[i]}" data-hex="${c}" data-tw="${twClass}" style="background:${c}" />`;
 				})
 				.join('');
 			return `<div class="flex items-center">
-			<span class="body-md text-subtle w-[72px] font-semibold shrink-0">${r.label}</span>
+			<span class="body-md text-subtle w-18 font-semibold shrink-0">${r.label}</span>
 			<div class="flex flex-1 rounded-sm"${bgStyle}>${swatches}</div>
 		</div>`;
 		})
@@ -68,7 +68,7 @@ function rampTemplate(ramps: ColorRamp[], stepsArr: (number | string)[], bgFn?: 
 	return `<div class="flex flex-col gap-spacing-100">
 		${rows}
 		<div class="flex items-center">
-			<span class="w-[72px] shrink-0"></span>
+			<span class="w-18 shrink-0"></span>
 			<div class="flex flex-1">${labels}</div>
 		</div>
 	</div>`;
@@ -127,11 +127,11 @@ export const AccentBackgroundGrid: Story = {
 		template: `
 			<div class="flex flex-col gap-spacing-100">
 				<div v-for="level in levels" :key="level" class="flex items-center">
-					<span class="body-md text-subtle w-[72px] font-semibold shrink-0 capitalize">{{ level }}</span>
+					<span class="body-md text-subtle w-18 font-semibold shrink-0 capitalize">{{ level }}</span>
 					<div class="flex flex-1">
 						<div v-for="(hue, i) in hues" :key="hue" class="flex-1">
 							<div
-								class="color-swatch w-full h-[36px]"
+								class="color-swatch w-full h-9"
 								:class="{ 'rounded-l-sm': i === 0, 'rounded-r-sm': i === hues.length - 1 }"
 								:data-token="'color.background.accent.' + hue + '.' + level"
 								:data-tw="'bg-accent-' + hue + '-' + level + '-default'"
@@ -142,7 +142,7 @@ export const AccentBackgroundGrid: Story = {
 					</div>
 				</div>
 				<div class="flex items-center">
-					<span class="w-[72px] shrink-0" />
+					<span class="w-18 shrink-0" />
 					<div class="flex flex-1">
 						<div v-for="hue in hues" :key="hue" class="flex-1 text-center capitalize body-md text-subtlest">{{ hue }}</div>
 					</div>
@@ -196,16 +196,16 @@ export const TokenAnatomy: Story = {
 							<span class="text-sm font-mono font-medium leading-none rounded-full px-spacing-150 py-spacing-75" :style="{ background: s.color, color: '#fff' }">{{ s.text }}</span>
 							<span class="text-xs font-semibold uppercase tracking-wider" :style="{ color: s.color }">{{ s.label }}</span>
 						</div>
-						<div v-if="i < segments.length - 1" class="w-[12px] h-[1.5px] bg-text-subtlest mt-[13px] shrink-0" />
+						<div v-if="i < segments.length - 1" class="w-3 h-[1.5px] bg-text-subtlest mt-3.25 shrink-0" />
 					</div>
 				</div>
 				<div class="flex flex-col rounded-lg overflow-hidden border border-default">
 					<div v-for="(p, idx) in parts" :key="p.label" class="flex items-center" :class="{ 'border-t border-default': idx > 0 }">
-						<div class="w-[4px] self-stretch shrink-0" :style="{ background: p.color }" />
-						<div class="px-spacing-200 py-spacing-150 w-[130px] shrink-0">
+						<div class="w-1 self-stretch shrink-0" :style="{ background: p.color }" />
+						<div class="px-spacing-200 py-spacing-150 w-32.5 shrink-0">
 							<span class="heading-sm">{{ p.label }}</span>
 						</div>
-						<div class="py-spacing-150 w-[150px] shrink-0">
+						<div class="py-spacing-150 w-37.5 shrink-0">
 							<span class="body-md text-subtle">{{ p.desc }}</span>
 						</div>
 						<div class="flex gap-spacing-75 flex-wrap px-spacing-200 py-spacing-150">
@@ -272,8 +272,8 @@ export const ColorRoles: Story = {
 		template: `
 			<div class="flex flex-col gap-spacing-250 my-spacing-200">
 				<div v-for="r in roles" :key="r.name" class="flex items-center gap-spacing-100">
-					<div class="flex items-center gap-spacing-100 w-[140px] shrink-0">
-						<div class="w-[12px] h-[12px] rounded-full shrink-0" :style="{ background: r.color, border: r.border ? '2px solid var(--color-border-default)' : 'none' }" />
+					<div class="flex items-center gap-spacing-100 w-35 shrink-0">
+						<div class="w-3 h-3 rounded-full shrink-0" :style="{ background: r.color, border: r.border ? '2px solid var(--color-border-default)' : 'none' }" />
 						<span class="text-sm font-semibold">{{ r.name }}</span>
 					</div>
 					<span class="text-subtle body-sm">—</span>
@@ -291,13 +291,13 @@ export const DoColorRole: Story = {
 		template: `
 			<div class="flex gap-spacing-200">
 				<div class="flex-1 rounded-lg overflow-hidden">
-					<div class="bg-neutral-100 p-spacing-250 flex items-center justify-center gap-spacing-150 min-h-[72px]">
+					<div class="bg-neutral-100 p-spacing-250 flex items-center justify-center gap-spacing-150 min-h-18">
 						<div class="flex items-center gap-spacing-75 bg-elevation-surface-default border border-default rounded-full px-spacing-150 py-spacing-75">
-							<div class="w-[10px] h-[10px] rounded-full bg-icon-danger" />
+							<div class="w-2.5 h-2.5 rounded-full bg-icon-danger" />
 							<code class="text-xs">color.icon.danger</code>
 						</div>
 						<div class="flex items-center gap-spacing-75 bg-danger-default border border-danger rounded-sm px-spacing-150 py-spacing-75">
-							<div class="w-[14px] h-[14px] rounded-full bg-icon-danger flex items-center justify-center">
+							<div class="w-3.5 h-3.5 rounded-full bg-icon-danger flex items-center justify-center">
 								<span class="text-white text-[10px] font-bold leading-none">!</span>
 							</div>
 							<span class="text-xs text-danger">Message Content</span>
@@ -313,9 +313,9 @@ export const DoColorRole: Story = {
 					</div>
 				</div>
 				<div class="flex-1 rounded-lg overflow-hidden">
-					<div class="bg-neutral-100 p-spacing-250 flex items-center justify-center gap-spacing-150 min-h-[72px]">
+					<div class="bg-neutral-100 p-spacing-250 flex items-center justify-center gap-spacing-150 min-h-18">
 						<div class="flex items-center gap-spacing-75 bg-success-default border border-success rounded-sm px-spacing-150 py-spacing-75">
-							<div class="w-[14px] h-[14px] rounded-full bg-icon-success flex items-center justify-center">
+							<div class="w-3.5 h-3.5 rounded-full bg-icon-success flex items-center justify-center">
 								<span class="text-white text-[10px] font-bold leading-none">!</span>
 							</div>
 							<span class="text-xs text-success">Error: something went wrong</span>
@@ -363,7 +363,7 @@ export const AccentPairingCards: Story = {
 		template: `
 			<div class="flex gap-spacing-150">
 				<div v-for="c in cards" :key="c.bg" class="flex-1 rounded-xl overflow-hidden">
-					<div class="flex flex-col items-start gap-spacing-50 min-h-[150px] px-spacing-250 pt-spacing-300 pb-spacing-250" :style="{ background: 'var(--color-background-brand-' + c.bg + '-default)' }">
+					<div class="flex flex-col items-start gap-spacing-50 min-h-37.5 px-spacing-250 pt-spacing-300 pb-spacing-250" :style="{ background: 'var(--color-background-brand-' + c.bg + '-default)' }">
 						<div class="flex gap-spacing-50 mb-spacing-100">
 							<span class="material-symbols-outlined text-2xl" :style="{ color: c.inverse ? 'var(--color-icon-inverse)' : 'var(--color-text-brand-default)' }">auto_fix_high</span>
 							<span v-if="c.icons >= 2" class="material-symbols-outlined text-2xl" :style="{ color: c.inverse ? 'var(--color-icon-inverse)' : 'var(--color-text-brand-default)' }">auto_fix_high</span>
@@ -386,17 +386,17 @@ export const DoAccentMixing: Story = {
 				<div class="flex-1 rounded-lg overflow-hidden">
 					<div class="bg-neutral-100 p-spacing-300 flex flex-col items-center">
 						<div class="flex items-center gap-spacing-100 bg-elevation-surface-default border border-default rounded-full px-spacing-150 py-spacing-75">
-							<div class="w-[16px] h-[16px] rounded-full bg-accent-teal-subtler-default" />
+							<div class="w-4 h-4 rounded-full bg-accent-teal-subtler-default" />
 							<code class="text-xs whitespace-nowrap">background.accent.teal.subtler</code>
 						</div>
-						<div class="w-[1.5px] h-[20px] bg-border-danger mx-auto" />
+						<div class="w-[1.5px] h-5 bg-border-danger mx-auto" />
 						<div class="flex items-center gap-spacing-75 rounded-full px-spacing-200 py-spacing-100 bg-accent-teal-subtler-default">
 							<span class="material-symbols-outlined text-base text-accent-teal-bold">grid_view</span>
 							<span class="text-sm font-semibold leading-none text-accent-teal-bold">Label</span>
 						</div>
-						<div class="w-[1.5px] h-[20px] bg-border-danger mx-auto" />
+						<div class="w-[1.5px] h-5 bg-border-danger mx-auto" />
 						<div class="flex items-center gap-spacing-100 bg-elevation-surface-default border border-default rounded-full px-spacing-150 py-spacing-75">
-							<div class="w-[16px] h-[16px] rounded-full bg-icon-accent-teal-bold" />
+							<div class="w-4 h-4 rounded-full bg-icon-accent-teal-bold" />
 							<code class="text-xs whitespace-nowrap">text.accent.teal.bold</code>
 						</div>
 					</div>
@@ -412,17 +412,17 @@ export const DoAccentMixing: Story = {
 				<div class="flex-1 rounded-lg overflow-hidden">
 					<div class="bg-neutral-100 p-spacing-300 flex flex-col items-center">
 						<div class="flex items-center gap-spacing-100 bg-elevation-surface-default border border-default rounded-full px-spacing-150 py-spacing-75">
-							<div class="w-[16px] h-[16px] rounded-full bg-accent-brown-subtler-default" />
+							<div class="w-4 h-4 rounded-full bg-accent-brown-subtler-default" />
 							<code class="text-xs whitespace-nowrap">background.accent.brown.subtler</code>
 						</div>
-						<div class="w-[1.5px] h-[20px] bg-border-danger mx-auto" />
+						<div class="w-[1.5px] h-5 bg-border-danger mx-auto" />
 						<div class="flex items-center gap-spacing-75 rounded-full px-spacing-200 py-spacing-100 bg-accent-brown-subtler-default">
 							<span class="material-symbols-outlined text-base text-accent-teal-bold">grid_view</span>
 							<span class="text-sm font-semibold leading-none text-accent-teal-bold">Label</span>
 						</div>
-						<div class="w-[1.5px] h-[20px] bg-border-danger mx-auto" />
+						<div class="w-[1.5px] h-5 bg-border-danger mx-auto" />
 						<div class="flex items-center gap-spacing-100 bg-elevation-surface-default border border-default rounded-full px-spacing-150 py-spacing-75">
-							<div class="w-[16px] h-[16px] rounded-full bg-icon-accent-teal-bold" />
+							<div class="w-4 h-4 rounded-full bg-icon-accent-teal-bold" />
 							<code class="text-xs whitespace-nowrap">text.accent.teal.bold</code>
 						</div>
 					</div>
