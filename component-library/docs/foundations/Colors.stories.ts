@@ -78,10 +78,7 @@ export const NeutralColors: Story = {
 		const neutralSteps = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100];
 		return {
 			template: rampTemplate(
-				[
-					ramp('Light', 'color.neutral', neutralSteps),
-					ramp('Dark', 'color.dark-neutral', neutralSteps),
-				],
+				[ramp('Light', 'color.neutral', neutralSteps), ramp('Dark', 'color.dark-neutral', neutralSteps)],
 				neutralSteps
 			),
 		};

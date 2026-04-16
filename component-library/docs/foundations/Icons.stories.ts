@@ -33,11 +33,36 @@ export const IconSizes: Story = {
 		`,
 		setup() {
 			const sizes = [
-				{ token: 'icon.size.xs', tw: 'icon-xs', px: remToPx(resolveTokenValue('icon.size.xs')), desc: 'Inline with small text, badges, compact UI.' },
-				{ token: 'icon.size.sm', tw: 'icon-sm', px: remToPx(resolveTokenValue('icon.size.sm')), desc: 'Inline with body text, form labels, tags.' },
-				{ token: 'icon.size.md', tw: 'icon-md', px: remToPx(resolveTokenValue('icon.size.md')), desc: 'Default size. Buttons, navigation, standalone icons.' },
-				{ token: 'icon.size.lg', tw: 'icon-lg', px: remToPx(resolveTokenValue('icon.size.lg')), desc: 'Feature icons, empty states, section headers.' },
-				{ token: 'icon.size.xl', tw: 'icon-xl', px: remToPx(resolveTokenValue('icon.size.xl')), desc: 'Large illustrations, onboarding, hero sections.' },
+				{
+					token: 'icon.size.xs',
+					tw: 'icon-xs',
+					px: remToPx(resolveTokenValue('icon.size.xs')),
+					desc: 'Inline with small text, badges, compact UI.',
+				},
+				{
+					token: 'icon.size.sm',
+					tw: 'icon-sm',
+					px: remToPx(resolveTokenValue('icon.size.sm')),
+					desc: 'Inline with body text, form labels, tags.',
+				},
+				{
+					token: 'icon.size.md',
+					tw: 'icon-md',
+					px: remToPx(resolveTokenValue('icon.size.md')),
+					desc: 'Default size. Buttons, navigation, standalone icons.',
+				},
+				{
+					token: 'icon.size.lg',
+					tw: 'icon-lg',
+					px: remToPx(resolveTokenValue('icon.size.lg')),
+					desc: 'Feature icons, empty states, section headers.',
+				},
+				{
+					token: 'icon.size.xl',
+					tw: 'icon-xl',
+					px: remToPx(resolveTokenValue('icon.size.xl')),
+					desc: 'Large illustrations, onboarding, hero sections.',
+				},
 			];
 			return { sizes };
 		},
