@@ -8,16 +8,16 @@
 		@apply ctx-gradient;
 	}
 	.bcc-badge.sm {
-		@apply text-heading-xs h-4 w-4;
+		@apply heading-xs h-4 w-4;
 	}
 	.bcc-badge.md {
-		@apply text-heading-sm h-5 w-5;
+		@apply heading-sm h-5 w-5;
 	}
 	.bcc-badge.lg {
-		@apply text-heading-md h-6 w-6;
+		@apply heading-md h-6 w-6;
 	}
 	.bcc-badge.xl {
-		@apply text-heading-md h-8 w-8;
+		@apply heading-md h-8 w-8;
 	}
 
 	.bcc-badge .bcc-badge-icon {

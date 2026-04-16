@@ -19,7 +19,7 @@
 	}
 
 	.bcc-nav-item-title {
-		@apply text-heading-xs text-center text-subtlest opacity-75;
+		@apply heading-xs text-center text-subtlest opacity-75;
 	}
 
 	.bcc-app-nav-item--active .bcc-nav-item-title {

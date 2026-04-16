@@ -32,7 +32,7 @@ const state = computed(() => ({
 <template>
 	<div class="bcc-step-indicator col gap-2" :class="[{ left, right }, `ctx-${context}`]">
 		<div v-if="!props.hideText" class="flex gap-2">
-			<span v-if="state.current !== null" class="text-heading-sm text-default">
+			<span v-if="state.current !== null" class="heading-sm text-default">
 				{{ props.headingFn(state.current, state.total) }}
 			</span>
 			<span v-if="!props.hideLabel" class="text-body-sm text-text-subtlest">{{ state.label }}</span>

@@ -63,7 +63,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 							@click="emit('back')"
 						>
 							<ArrowBackIosNewIcon class="w-6" />
-							<h3 v-if="backTitle" class="text-heading-md">
+							<h3 v-if="backTitle" class="heading-md">
 								{{ backTitle }}
 							</h3>
 						</button>
@@ -84,7 +84,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 						class="col pointer-events-none flex-1 gap-(--space-negative-25) truncate px-2"
 						:class="titleLeft ? 'items-start text-left' : 'text-center'"
 					>
-						<h1 class="w-full truncate" :class="heading.title.length > 24 ? 'text-heading-sm' : 'text-heading-md'">
+						<h1 class="w-full truncate" :class="heading.title.length > 24 ? 'heading-sm' : 'heading-md'">
 							<slot name="title" :title="heading.title">
 								{{ heading.title }}
 							</slot>

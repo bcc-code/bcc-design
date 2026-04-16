@@ -24,7 +24,7 @@ describe('BccStepIndicator', () => {
 				hideText: true,
 			},
 		});
-		expect(wrapper.find('.text-heading-sm text-default').exists()).toBe(false);
+		expect(wrapper.find('.heading-sm text-default').exists()).toBe(false);
 
 		const indicators = wrapper.find('.bcc-step-indicator').findAll('div.bg-ctx');
 		expect(indicators[0].classes()).toContain('w-6'); // active step is wider
