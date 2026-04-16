@@ -3,7 +3,7 @@ import { doDont, PILL } from './helpers';
 import { resolveTokenValue } from './tokenResolver';
 
 function remToPx(value: string, rootFontSize = 16): string {
-	const match = value.trim().match(/^(-?\d*\.?\d+)rem$/i);
+	const match = value.trim().match(/^(-?\d*\.?\d+)(rem|em)$/i);
 	if (!match) return value;
 	const px = Number.parseFloat(match[1]) * rootFontSize;
 	const normalized = Number(px.toFixed(4));

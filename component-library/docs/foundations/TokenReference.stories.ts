@@ -84,7 +84,7 @@ function c(token: string, desc?: string, lightPrim?: string, darkPrim?: string) 
 }
 
 function remToPx(value: string, rootFontSize = 16): string {
-	const match = value.trim().match(/^(-?\d*\.?\d+)rem$/i);
+	const match = value.trim().match(/^(-?\d*\.?\d+)(rem|em)$/i);
 	if (!match) {
 		return value;
 	}
