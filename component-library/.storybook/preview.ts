@@ -240,6 +240,31 @@ setup(app => {
 const preview: Preview = {
 	tags: ['autodocs'],
 	parameters: {
+		options: {
+			storySort: {
+				order: [
+					'Foundations',
+					[
+						'Overview',
+						'Visual Identity',
+						'Colors',
+						'Typography',
+						'Icons',
+						'Logos',
+						'Spacing',
+						'Border',
+						'Radius',
+						'Elevation',
+						'Tokens',
+						'Token Reference',
+					],
+					'Custom',
+					'Wrapped',
+					'PrimeVue',
+					'Styles',
+				],
+			},
+		},
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
