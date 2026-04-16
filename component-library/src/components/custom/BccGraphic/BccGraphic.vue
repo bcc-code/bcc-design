@@ -52,6 +52,8 @@ export type GraphicProps = {
 	ratio?: AspectRatioStyle;
 	/** When true, renders the banner image in grayscale. */
 	grayscale?: boolean;
+	/** When true, renders the banner image with a brightness of 150%. */
+	highlight?: boolean;
 };
 
 const props = withDefaults(defineProps<GraphicProps>(), {
@@ -68,7 +70,11 @@ const aspectRatioStyle = computed(() => {
 </script>
 
 <template>
-	<div class="bcc-graphic" :style="`padding-bottom: ${aspectRatioStyle}`" :class="roundingClasses[rounding]">
+	<div
+		class="bcc-graphic"
+		:style="`padding-bottom: ${aspectRatioStyle}`"
+		:class="[roundingClasses[rounding], { 'brightness-75 grayscale': grayscale, 'brightness-150': highlight }]"
+	>
 		<template v-if="bannerSrc">
 			<img
 				v-show="loadedBanner"
