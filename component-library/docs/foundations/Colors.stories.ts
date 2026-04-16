@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { resolveTokenValue } from './tokenResolver';
 
@@ -15,7 +14,15 @@ type Story = StoryObj<typeof meta>;
 
 const steps = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
-function ramp(label: string, tokenBase: string, stepsArr: (number | string)[] = steps) {
+interface ColorRamp {
+	label: string;
+	token: string;
+	tokenSteps: (number | string)[];
+	colors: string[];
+	bg?: string;
+}
+
+function ramp(label: string, tokenBase: string, stepsArr: (number | string)[] = steps): ColorRamp {
 	return {
 		label,
 		token: tokenBase,
@@ -37,11 +44,11 @@ const saturatedRamps = [
 	ramp('Brand', 'color.bcc'),
 ];
 
-function rampTemplate(ramps: typeof saturatedRamps, stepsArr: (number | string)[], bgFn?: (r: unknown) => string) {
+function rampTemplate(ramps: ColorRamp[], stepsArr: (number | string)[], bgFn?: (r: ColorRamp) => string) {
 	const rows = ramps
 		.map(r => {
 			const bgStyle = bgFn ? ` style="background:${bgFn(r)}"` : '';
-			const rSteps = (r as any).tokenSteps || stepsArr;
+			const rSteps = r.tokenSteps;
 			const swatches = r.colors
 				.map((c, i) => {
 					const radius = i === 0 ? 'rounded-l-sm' : i === r.colors.length - 1 ? 'rounded-r-sm' : '';
@@ -97,17 +104,15 @@ export const AlphaColors: Story = {
 				[
 					{
 						...ramp('Light', 'color.neutral-alpha', alphaSteps),
-						token: 'color.neutral-alpha',
 						bg: resolveTokenValue('color.neutral.0'),
 					},
 					{
 						...ramp('Dark', 'color.dark-neutral-alpha', alphaSteps),
-						token: 'color.dark-neutral-alpha',
 						bg: resolveTokenValue('color.dark-neutral.0'),
 					},
-				] as any,
+				],
 				alphaLabels,
-				(r: any) => r.bg
+				r => r.bg || ''
 			),
 		};
 	},
