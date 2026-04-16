@@ -73,5 +73,10 @@ export function resolveColorTokenValues(token: string): { lightHex: string; dark
 	}
 	const lightHex = resolveVar(cssVarName, lightVars) || 'unresolved';
 	const darkHex = resolveVar(cssVarName, darkVars) || 'unresolved';
+
+	if (lightHex === 'unresolved' || darkHex === 'unresolved') {
+		console.warn(`Could not resolve token: ${token}`);
+	}
+
 	return { lightHex, darkHex };
 }

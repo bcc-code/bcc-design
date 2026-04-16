@@ -19,7 +19,8 @@
 				"stylelint.vscode-stylelint",
 				"bradlc.vscode-tailwindcss",
 				"esbenp.prettier-vscode",
-				"vitest.explorer"
+				"vitest.explorer",
+				"unifiedjs.vscode-mdx"
 			]
 		}
 	},
