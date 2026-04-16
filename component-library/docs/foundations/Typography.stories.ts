@@ -1,14 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { doDont, PILL } from './helpers';
+import { doDont, PILL, remToPx } from './helpers';
 import { resolveTokenValue } from './tokenResolver';
-
-function remToPx(value: string, rootFontSize = 16): string {
-	const match = value.trim().match(/^(-?\d*\.?\d+)(rem|em)$/i);
-	if (!match) return value;
-	const px = Number.parseFloat(match[1]) * rootFontSize;
-	const normalized = Number(px.toFixed(4));
-	return Number.isInteger(normalized) ? `${normalized}px` : `${normalized}px`;
-}
 
 /** Resolve a heading/body composite token into its font-size and line-height px values. */
 function resolveTypoToken(fontSizeToken: string, lineHeightToken: string) {

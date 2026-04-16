@@ -6,6 +6,15 @@ export const PILL =
 export const PILL_SWATCH =
 	'color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block';
 
+/** Convert rem/em values to px (assumes 16px root). Returns the original string if not rem/em. */
+export function remToPx(value: string, rootFontSize = 16): string {
+	const match = value.trim().match(/^(-?\d*\.?\d+)(rem|em)$/i);
+	if (!match) return value;
+	const px = Number.parseFloat(match[1]) * rootFontSize;
+	const normalized = Number(px.toFixed(4));
+	return Number.isInteger(normalized) ? `${normalized}px` : `${normalized}px`;
+}
+
 /** Do/Don't card pair — two side-by-side cards with visual example and guidance text. */
 export function doDont(doExample: string, doText: string, dontExample: string, dontText: string) {
 	return `

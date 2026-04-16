@@ -1,14 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { PILL } from './helpers';
+import { PILL, remToPx } from './helpers';
 import { resolveTokenValue } from './tokenResolver';
-
-function remToPx(value: string, rootFontSize = 16): string {
-	const match = value.trim().match(/^(-?\d*\.?\d+)(rem|em)$/i);
-	if (!match) return value;
-	const px = Number.parseFloat(match[1]) * rootFontSize;
-	const normalized = Number(px.toFixed(4));
-	return Number.isInteger(normalized) ? `${normalized}px` : `${normalized}px`;
-}
 
 const meta = {
 	title: 'Foundations/Radius/Demos',
