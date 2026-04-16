@@ -1,6 +1,7 @@
 import tokenCss from '@bcc-code/design-tokens/css?raw';
 
 type CssVarMap = Record<string, string>;
+const unresolvedWarnings = new Set<string>();
 
 function stripCssComments(input: string): string {
 	return input.replace(/\/\*[\s\S]*?\*\//g, '');
@@ -42,10 +43,15 @@ function resolveVar(varName: string, vars: CssVarMap, seen: Set<string> = new Se
 }
 
 function tokenToCssVarName(token: string): string {
-	if (!token.startsWith('color.')) {
-		return '';
+	return '--' + token.replace(/\./g, '-');
+}
+
+function warnUnresolved(token: string) {
+	if (unresolvedWarnings.has(token)) {
+		return;
 	}
-	return '--color-' + token.replace('color.', '').replace(/\./g, '-');
+	unresolvedWarnings.add(token);
+	console.warn(`Could not resolve token: ${token}`);
 }
 
 function extractDarkVars(css: string): CssVarMap {
@@ -66,17 +72,29 @@ const rootBlock = extractBlock(tokenCss, /:root\s*\{([\s\S]*?)\}/);
 const lightVars = parseVars(rootBlock);
 const darkVars = { ...lightVars, ...extractDarkVars(tokenCss) };
 
-export function resolveColorTokenValues(token: string): { lightHex: string; darkHex: string } {
+function resolveTokenPair(token: string): { lightValue: string; darkValue: string } {
 	const cssVarName = tokenToCssVarName(token);
-	if (!cssVarName) {
-		return { lightHex: 'unresolved', darkHex: 'unresolved' };
-	}
-	const lightHex = resolveVar(cssVarName, lightVars) || 'unresolved';
-	const darkHex = resolveVar(cssVarName, darkVars) || 'unresolved';
+	const lightValue = resolveVar(cssVarName, lightVars) || 'unresolved';
+	const darkValue = resolveVar(cssVarName, darkVars) || 'unresolved';
 
-	if (lightHex === 'unresolved' || darkHex === 'unresolved') {
-		console.warn(`Could not resolve token: ${token}`);
+	if (lightValue === 'unresolved' || darkValue === 'unresolved') {
+		warnUnresolved(token);
 	}
 
+	return { lightValue, darkValue };
+}
+
+export function resolveColorTokenValues(token: string): { lightHex: string; darkHex: string } {
+	const { lightValue: lightHex, darkValue: darkHex } = resolveTokenPair(token);
 	return { lightHex, darkHex };
+}
+
+export function resolveTokenValue(token: string): string {
+	const { lightValue } = resolveTokenPair(token);
+	return lightValue;
+}
+
+export function resolveShadowTokenValues(token: string): { value: string; darkValue: string } {
+	const { lightValue: value, darkValue } = resolveTokenPair(token);
+	return { value, darkValue };
 }

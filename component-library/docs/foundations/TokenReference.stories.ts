@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { PILL } from './helpers';
-import { resolveColorTokenValues } from './tokenResolver';
+import { resolveColorTokenValues, resolveShadowTokenValues, resolveTokenValue } from './tokenResolver';
 
 const meta = {
 	title: 'Foundations/Token Reference/Demos',
@@ -80,6 +80,53 @@ function c(token: string, desc?: string, lightPrim?: string, darkPrim?: string) 
 		darkPrim: darkPrim || darkHex,
 		cssVar,
 		twClass,
+	};
+}
+
+function remToPx(value: string, rootFontSize = 16): string {
+	const match = value.trim().match(/^(-?\d*\.?\d+)rem$/i);
+	if (!match) {
+		return value;
+	}
+	const px = Number.parseFloat(match[1]) * rootFontSize;
+	const normalized = Number(px.toFixed(4));
+	return Number.isInteger(normalized) ? `${normalized}px` : `${normalized}px`;
+}
+
+function s(token: string) {
+	return {
+		token,
+		px: remToPx(resolveTokenValue(token)),
+	};
+}
+
+function sizedToken(token: string, tw: string, desc?: string) {
+	return {
+		token,
+		px: remToPx(resolveTokenValue(token)),
+		desc,
+		css: '--' + token.replace(/\./g, '-'),
+		tw,
+	};
+}
+
+function b(token: string, desc: string | undefined, tw: string) {
+	return sizedToken(token, tw, desc);
+}
+
+function isize(token: string, tw: string) {
+	return sizedToken(token, tw, undefined);
+}
+
+function sh(token: string, desc: string, tw: string) {
+	const { value, darkValue } = resolveShadowTokenValues(token);
+	return {
+		token,
+		desc,
+		tw,
+		css: '--' + token.replace(/\./g, '-'),
+		value,
+		darkValue,
 	};
 }
 
@@ -371,30 +418,9 @@ export const ElevationShadow: Story = {
 		`,
 		setup: () => ({
 			tokens: [
-				{
-					token: 'elevation.shadow.raised',
-					desc: 'Raised cards and containers.',
-					tw: 'shadow-raised',
-					css: '--elevation-shadow-raised',
-					value: '0 1px 1px 0 rgba(30,31,33,0.25), 0 0 1px 0 rgba(30,31,33,0.31)',
-					darkValue: '0 1px 1px 0 rgba(0,0,0,0.5), 0 0 1px 0 rgba(0,0,0,0.6)',
-				},
-				{
-					token: 'elevation.shadow.overflow',
-					desc: 'Scrolling content edge shadow.',
-					tw: 'shadow-overflow',
-					css: '--elevation-shadow-overflow',
-					value: '0 0 8px 0 rgba(30,31,33,0.16), 0 0 1px 0 rgba(30,31,33,0.12)',
-					darkValue: '0 0 8px 0 rgba(0,0,0,0.4), 0 0 1px 0 rgba(0,0,0,0.3)',
-				},
-				{
-					token: 'elevation.shadow.overlay',
-					desc: 'Modals, dialogs, dropdown menus, floating toolbars.',
-					tw: 'shadow-overlay',
-					css: '--elevation-shadow-overlay',
-					value: '0 8px 12px 0 rgba(30,31,33,0.15), 0 0 1px 0 rgba(30,31,33,0.31)',
-					darkValue: '0 8px 12px 0 rgba(0,0,0,0.4), 0 0 1px 0 rgba(0,0,0,0.6)',
-				},
+				sh('elevation.shadow.raised', 'Raised cards and containers.', 'shadow-raised'),
+				sh('elevation.shadow.overflow', 'Scrolling content edge shadow.', 'shadow-overflow'),
+				sh('elevation.shadow.overlay', 'Modals, dialogs, dropdown menus, floating toolbars.', 'shadow-overlay'),
 			],
 		}),
 	}),
@@ -531,20 +557,20 @@ export const SpaceTokens: Story = {
 		`,
 		setup: () => ({
 			tokens: [
-				{ token: 'space.0', px: '0px' },
-				{ token: 'space.25', px: '2px' },
-				{ token: 'space.50', px: '4px' },
-				{ token: 'space.75', px: '6px' },
-				{ token: 'space.100', px: '8px' },
-				{ token: 'space.150', px: '12px' },
-				{ token: 'space.200', px: '16px' },
-				{ token: 'space.250', px: '20px' },
-				{ token: 'space.300', px: '24px' },
-				{ token: 'space.400', px: '32px' },
-				{ token: 'space.500', px: '40px' },
-				{ token: 'space.600', px: '48px' },
-				{ token: 'space.800', px: '64px' },
-				{ token: 'space.1000', px: '80px' },
+				s('space.0'),
+				s('space.25'),
+				s('space.50'),
+				s('space.75'),
+				s('space.100'),
+				s('space.150'),
+				s('space.200'),
+				s('space.250'),
+				s('space.300'),
+				s('space.400'),
+				s('space.500'),
+				s('space.600'),
+				s('space.800'),
+				s('space.1000'),
 			],
 		}),
 	}),
@@ -574,21 +600,9 @@ export const BorderWidth: Story = {
 		`,
 		setup: () => ({
 			tokens: [
-				{ token: 'border-width.0', px: '0px', desc: 'No border.', css: '--border-width-0', tw: 'border-0' },
-				{
-					token: 'border-width.1',
-					px: '1px',
-					desc: 'Default borders and dividers.',
-					css: '--border-width-1',
-					tw: 'border',
-				},
-				{
-					token: 'border-width.2',
-					px: '2px',
-					desc: 'Selected states and focus rings.',
-					css: '--border-width-2',
-					tw: 'border-2',
-				},
+				b('border-width.0', 'No border.', 'border-0'),
+				b('border-width.1', 'Default borders and dividers.', 'border'),
+				b('border-width.2', 'Selected states and focus rings.', 'border-2'),
 			],
 		}),
 	}),
@@ -618,65 +632,17 @@ export const RadiusTokens: Story = {
 		`,
 		setup: () => ({
 			tokens: [
-				{
-					token: 'border-radius.none',
-					px: '0px',
-					desc: 'No rounding.',
-					css: '--border-radius-none',
-					tw: 'rounded-none',
-				},
-				{
-					token: 'border-radius.2xs',
-					px: '2px',
-					desc: 'Checkboxes, small detail elements.',
-					css: '--border-radius-2xs',
-					tw: 'rounded-2xs',
-				},
-				{
-					token: 'border-radius.xs',
-					px: '4px',
-					desc: 'Tags, labels, date pickers.',
-					css: '--border-radius-xs',
-					tw: 'rounded-xs',
-				},
-				{
-					token: 'border-radius.sm',
-					px: '6px',
-					desc: 'Buttons, tooltips, dropdown menus.',
-					css: '--border-radius-sm',
-					tw: 'rounded-sm',
-				},
-				{
-					token: 'border-radius.md',
-					px: '8px',
-					desc: 'Inputs, cards, dialogs.',
-					css: '--border-radius-md',
-					tw: 'rounded-md',
-				},
-				{
-					token: 'border-radius.lg',
-					px: '12px',
-					desc: 'Larger containers.',
-					css: '--border-radius-lg',
-					tw: 'rounded-lg',
-				},
-				{ token: 'border-radius.xl', px: '16px', desc: 'Large cards.', css: '--border-radius-xl', tw: 'rounded-xl' },
-				{
-					token: 'border-radius.2xl',
-					px: '24px',
-					desc: 'Extra large containers.',
-					css: '--border-radius-2xl',
-					tw: 'rounded-2xl',
-				},
-				{ token: 'border-radius.3xl', px: '32px', css: '--border-radius-3xl', tw: 'rounded-3xl' },
-				{ token: 'border-radius.4xl', px: '48px', css: '--border-radius-4xl', tw: 'rounded-4xl' },
-				{
-					token: 'border-radius.full',
-					px: '999px',
-					desc: 'Circular and pill shapes.',
-					css: '--border-radius-full',
-					tw: 'rounded-full',
-				},
+				b('border-radius.none', 'No rounding.', 'rounded-none'),
+				b('border-radius.2xs', 'Checkboxes, small detail elements.', 'rounded-2xs'),
+				b('border-radius.xs', 'Tags, labels, date pickers.', 'rounded-xs'),
+				b('border-radius.sm', 'Buttons, tooltips, dropdown menus.', 'rounded-sm'),
+				b('border-radius.md', 'Inputs, cards, dialogs.', 'rounded-md'),
+				b('border-radius.lg', 'Larger containers.', 'rounded-lg'),
+				b('border-radius.xl', 'Large cards.', 'rounded-xl'),
+				b('border-radius.2xl', 'Extra large containers.', 'rounded-2xl'),
+				b('border-radius.3xl', undefined, 'rounded-3xl'),
+				b('border-radius.4xl', undefined, 'rounded-4xl'),
+				b('border-radius.full', 'Circular and pill shapes.', 'rounded-full'),
 			],
 		}),
 	}),
@@ -763,11 +729,11 @@ export const IconSize: Story = {
 		`,
 		setup: () => ({
 			tokens: [
-				{ token: 'icon.size.xs', px: '16px', css: '--icon-size-xs', tw: 'icon-xs' },
-				{ token: 'icon.size.sm', px: '20px', css: '--icon-size-sm', tw: 'icon-sm' },
-				{ token: 'icon.size.md', px: '24px', css: '--icon-size-md', tw: 'icon-md' },
-				{ token: 'icon.size.lg', px: '32px', css: '--icon-size-lg', tw: 'icon-lg' },
-				{ token: 'icon.size.xl', px: '48px', css: '--icon-size-xl', tw: 'icon-xl' },
+				isize('icon.size.xs', 'icon-xs'),
+				isize('icon.size.sm', 'icon-sm'),
+				isize('icon.size.md', 'icon-md'),
+				isize('icon.size.lg', 'icon-lg'),
+				isize('icon.size.xl', 'icon-xl'),
 			],
 		}),
 	}),
