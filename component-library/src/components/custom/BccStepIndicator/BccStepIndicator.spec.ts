@@ -39,6 +39,6 @@ describe('BccStepIndicator', () => {
 				hideLabel: true,
 			},
 		});
-		expect(wrapper.find('.text-body-sm.text-text-subtlest').exists()).toBe(false);
+		expect(wrapper.find('.body-sm.text-subtlest').exists()).toBe(false);
 	});
 });

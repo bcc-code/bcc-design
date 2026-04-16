@@ -37,11 +37,7 @@ const bindings = computed((): PrimeCheckboxProps => {
 		<label
 			v-if="label || $slots.default"
 			:for="bindings.inputId"
-			:class="[
-				size === 'large' ? 'text-body-lg' : 'text-body-md',
-				{ 'text-disabled': disabled },
-				{ '-order-1': labelLeft },
-			]"
+			:class="[size === 'large' ? 'body-lg' : 'body-md', { 'text-disabled': disabled }, { '-order-1': labelLeft }]"
 		>
 			<slot>{{ label }}</slot>
 		</label>

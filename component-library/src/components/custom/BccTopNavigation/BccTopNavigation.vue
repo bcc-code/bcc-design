@@ -89,7 +89,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 								{{ heading.title }}
 							</slot>
 						</h1>
-						<h2 v-if="heading.subtitle" class="text-body-sm w-full truncate leading-none opacity-75">
+						<h2 v-if="heading.subtitle" class="body-sm w-full truncate leading-none opacity-75">
 							<slot name="subtitle" :subtitle="heading.subtitle">
 								{{ heading.subtitle }}
 							</slot>

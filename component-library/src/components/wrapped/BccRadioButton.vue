@@ -37,7 +37,7 @@ const radioButtonBindings = computed(() => {
 			v-if="label || $slots.default"
 			:for="radioButtonBindings.inputId"
 			:class="[
-				size === 'large' ? 'text-body-lg' : 'text-body-md',
+				size === 'large' ? 'body-lg' : 'body-md',
 				{ 'text-disabled': disabled },
 				{ '-order-1': labelLeft },
 				labelClass,

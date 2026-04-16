@@ -3,15 +3,15 @@
 		@apply w-auto;
 	}
 	.bcc-tag.bcc-badge.md {
-		@apply text-body-md h-6;
+		@apply body-md h-6;
 	}
 	.bcc-tag.bcc-badge.sm {
-		@apply text-body-sm h-5;
+		@apply body-sm h-5;
 	}
 	.bcc-tag.bcc-badge.lg {
-		@apply text-body-md h-8;
+		@apply body-md h-8;
 	}
 	.bcc-tag.bcc-badge.xl {
-		@apply text-body-lg h-10;
+		@apply body-lg h-10;
 	}
 }

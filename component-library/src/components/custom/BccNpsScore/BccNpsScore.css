@@ -1,6 +1,6 @@
 @layer components {
   .bcc-nps-score {
-    @apply min-w-[280px] p-4 text-body-sm flex flex-col gap-y-2 select-none;
+    @apply min-w-70 p-4 body-sm flex flex-col gap-y-2 select-none;
   }
 
   .bcc-nps-score--heading {

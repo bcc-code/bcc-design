@@ -46,7 +46,7 @@ const iconSize = 'size-4';
 			</template>
 		</ToggleSwitch>
 
-		<label v-if="label" :for="inputId" class="text-body-md" :class="{ 'text-disabled': disabled }">
+		<label v-if="label" :for="inputId" class="body-md" :class="{ 'text-disabled': disabled }">
 			{{ label }}
 		</label>
 	</div>
