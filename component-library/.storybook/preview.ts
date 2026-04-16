@@ -103,6 +103,10 @@ if (!(globalThis as any).__bccSwatchListenerAttached) {
 				theme: 'color-copy',
 				arrow: true,
 				appendTo: document.body,
+				maxWidth: 'none',
+				popperOptions: {
+					modifiers: [{ name: 'preventOverflow', options: { boundary: document.body, padding: 8 } }],
+				},
 			});
 			swatch.addEventListener('click', () => {
 				navigator.clipboard
@@ -137,6 +141,10 @@ if (!(globalThis as any).__bccSwatchListenerAttached) {
 			theme: 'color-copy',
 			arrow: true,
 			appendTo: document.body,
+			maxWidth: 'none',
+			popperOptions: {
+				modifiers: [{ name: 'preventOverflow', options: { boundary: document.body, padding: 8 } }],
+			},
 			onCreate(instance) {
 				instance.popper.addEventListener('click', ev => {
 					const target = ev.target;
