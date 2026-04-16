@@ -1,4 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import { PILL } from './helpers';
+import { resolveTokenValue } from './tokenResolver';
+
+function remToPx(value: string, rootFontSize = 16): string {
+	const match = value.trim().match(/^(-?\d*\.?\d+)rem$/i);
+	if (!match) return value;
+	const px = Number.parseFloat(match[1]) * rootFontSize;
+	const normalized = Number(px.toFixed(4));
+	return Number.isInteger(normalized) ? `${normalized}px` : `${normalized}px`;
+}
 
 const meta = {
 	title: 'Foundations/Radius/Demos',
@@ -12,66 +22,41 @@ type Story = StoryObj<typeof meta>;
 export const TokensTable: Story = {
 	render: () => ({
 		setup() {
+			function r(token: string, suitable: string) {
+				const tw = 'rounded-' + token.replace('border-radius.', '');
+				return { token, value: remToPx(resolveTokenValue(token)), suitable, tw };
+			}
 			const rows = [
-				{ token: 'radius.none', value: '0', suitable: 'Sharp-edged elements: data tables, table cells, dividers.' },
-				{
-					token: 'radius.2xs',
-					value: '2px',
-					suitable: 'Small detail elements: checkboxes, avatar labels, select option items.',
-				},
-				{
-					token: 'radius.xs',
-					value: '4px',
-					suitable: 'Supporting elements: tags, inputs, selects, date pickers, compact buttons.',
-				},
-				{
-					token: 'radius.sm',
-					value: '6px',
-					suitable: 'Interactive elements: buttons, tooltips, form fields, popovers, navigation items.',
-				},
-				{
-					token: 'radius.md',
-					value: '8px',
-					suitable: 'Containment elements: dialogs, in-page containers, floating UI, dropdown menus.',
-				},
-				{
-					token: 'radius.lg',
-					value: '12px',
-					suitable: 'Large page elements: cards, modals, panels, large containers.',
-				},
-				{
-					token: 'radius.xl',
-					value: '16px',
-					suitable: 'Feature sections, navigation panels, large decorative containers.',
-				},
-				{ token: 'radius.2xl', value: '24px', suitable: 'Hero sections, large promotional surfaces.' },
-				{ token: 'radius.3xl', value: '32px', suitable: 'Extra-large decorative surfaces, feature highlights.' },
-				{ token: 'radius.4xl', value: '48px', suitable: 'Oversized decorative containers, showcase elements.' },
-				{
-					token: 'radius.full',
-					value: '999px',
-					suitable: 'Circular elements: avatars, radio buttons, pills, rounded buttons and tags.',
-				},
+				r('border-radius.none', 'Sharp-edged elements: data tables, table cells, dividers.'),
+				r('border-radius.2xs', 'Small detail elements: checkboxes, avatar labels, select option items.'),
+				r('border-radius.xs', 'Supporting elements: tags, inputs, selects, date pickers, compact buttons.'),
+				r('border-radius.sm', 'Interactive elements: buttons, tooltips, form fields, popovers, navigation items.'),
+				r('border-radius.md', 'Containment elements: dialogs, in-page containers, floating UI, dropdown menus.'),
+				r('border-radius.lg', 'Large page elements: cards, modals, panels, large containers.'),
+				r('border-radius.xl', 'Feature sections, navigation panels, large decorative containers.'),
+				r('border-radius.2xl', 'Hero sections, large promotional surfaces.'),
+				r('border-radius.3xl', 'Extra-large decorative surfaces, feature highlights.'),
+				r('border-radius.4xl', 'Oversized decorative containers, showcase elements.'),
+				r('border-radius.full', 'Circular elements: avatars, radio buttons, pills, rounded buttons and tags.'),
 			];
 			return { rows };
 		},
 		template: `
 			<div class="flex flex-col">
 				<div class="flex items-center gap-spacing-200 border-b border-default pb-spacing-100">
-					<span class="body-md font-semibold w-32 shrink-0">Token name</span>
-					<span class="body-md font-semibold flex-1">Suitable for</span>
-					<span class="body-md font-semibold w-16 shrink-0 text-right">Value*</span>
-					<span class="body-md font-semibold w-14 shrink-0 text-right">Preview</span>
+					<span class="body-md font-semibold flex-1">Token and description</span>
+					<span class="body-md font-semibold w-20 text-center ml-auto">Preview</span>
 				</div>
 				<div v-for="r in rows" :key="r.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="w-32 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="r.token" :data-tw="'rounded-' + r.token.replace('radius.', '')">{{ r.token }}</code></div>
-					<span class="body-md text-subtle flex-1">{{ r.suitable }}</span>
-					<span class="body-md font-semibold w-16 shrink-0 text-right">{{ r.value }}</span>
-					<div class="w-14 shrink-0 flex justify-end">
-						<div class="w-10 h-10 bg-neutral-200 border-2 border-neutral-300" :style="{ borderRadius: r.value, borderTopColor: '#9a82da', borderRightColor: '#9a82da' }" />
+					<div class="flex flex-col gap-spacing-50 flex-1">
+						<code class="${PILL}" :data-token="r.token" :data-tw="r.tw">{{ r.token }}</code>
+						<span class="body-md text-subtle">{{ r.suitable }}</span>
+					</div>
+					<div class="w-20 ml-auto shrink-0 flex flex-col items-center gap-spacing-25">
+						<div class="w-10 h-10 border-2 border-brand bg-brand-subtlest-default" :style="{ borderRadius: r.value }" />
+						<code class="text-xs text-subtlest">{{ r.value }}</code>
 					</div>
 				</div>
-				<p class="body-md text-subtlest mt-spacing-100">* Token values are subject to change and should be used as an indication only.</p>
 			</div>
 		`,
 	}),

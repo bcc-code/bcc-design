@@ -1,5 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { doDont } from './helpers';
+import { doDont, PILL } from './helpers';
+import { resolveTokenValue } from './tokenResolver';
+
+function remToPx(value: string, rootFontSize = 16): string {
+	const match = value.trim().match(/^(-?\d*\.?\d+)rem$/i);
+	if (!match) return value;
+	const px = Number.parseFloat(match[1]) * rootFontSize;
+	const normalized = Number(px.toFixed(4));
+	return Number.isInteger(normalized) ? `${normalized}px` : `${normalized}px`;
+}
 
 const meta = {
 	title: 'Foundations/Icons/Demos',
@@ -15,33 +24,28 @@ export const IconSizes: Story = {
 		template: `
 			<div class="flex flex-col">
 				<div class="flex items-center gap-spacing-200 border-b border-default pb-spacing-100">
-					<span class="body-md font-semibold w-28 shrink-0">Token name</span>
-					<span class="body-md font-semibold flex-1">Suitable for</span>
-					<span class="body-md font-semibold w-12 shrink-0 text-right">Size</span>
-					<span class="body-md font-semibold w-14 shrink-0 text-right">Preview</span>
+					<span class="body-md font-semibold flex-1">Token and description</span>
+					<span class="body-md font-semibold w-20 text-center ml-auto">Preview</span>
 				</div>
 				<div v-for="s in sizes" :key="s.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="w-28 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="s.token" :data-tw="s.tw">{{ s.token }}</code></div>
-					<span class="body-md text-subtle flex-1">{{ s.desc }}</span>
-					<span class="body-md font-semibold w-12 shrink-0 text-right">{{ s.size }}</span>
-					<div class="w-14 shrink-0 flex justify-end">
-						<span class="material-symbols-outlined text-default" :style="{ fontSize: s.size }">search</span>
+					<div class="flex flex-col gap-spacing-50 flex-1">
+						<code class="${PILL}" :data-token="s.token" :data-tw="s.tw">{{ s.token }}</code>
+						<span class="body-md text-subtle">{{ s.desc }}</span>
+					</div>
+					<div class="w-20 ml-auto shrink-0 flex flex-col items-center gap-spacing-25">
+						<span class="material-symbols-outlined text-default" :style="{ fontSize: s.px }">search</span>
+						<code class="text-xs text-subtlest">{{ s.px }}</code>
 					</div>
 				</div>
 			</div>
 		`,
 		setup() {
 			const sizes = [
-				{ token: 'icon.size.xs', tw: 'icon-xs', size: '16px', desc: 'Inline with small text, badges, compact UI.' },
-				{ token: 'icon.size.sm', tw: 'icon-sm', size: '20px', desc: 'Inline with body text, form labels, tags.' },
-				{
-					token: 'icon.size.md',
-					tw: 'icon-md',
-					size: '24px',
-					desc: 'Default size. Buttons, navigation, standalone icons.',
-				},
-				{ token: 'icon.size.lg', tw: 'icon-lg', size: '32px', desc: 'Feature icons, empty states, section headers.' },
-				{ token: 'icon.size.xl', tw: 'icon-xl', size: '48px', desc: 'Large illustrations, onboarding, hero sections.' },
+				{ token: 'icon.size.xs', tw: 'icon-xs', px: remToPx(resolveTokenValue('icon.size.xs')), desc: 'Inline with small text, badges, compact UI.' },
+				{ token: 'icon.size.sm', tw: 'icon-sm', px: remToPx(resolveTokenValue('icon.size.sm')), desc: 'Inline with body text, form labels, tags.' },
+				{ token: 'icon.size.md', tw: 'icon-md', px: remToPx(resolveTokenValue('icon.size.md')), desc: 'Default size. Buttons, navigation, standalone icons.' },
+				{ token: 'icon.size.lg', tw: 'icon-lg', px: remToPx(resolveTokenValue('icon.size.lg')), desc: 'Feature icons, empty states, section headers.' },
+				{ token: 'icon.size.xl', tw: 'icon-xl', px: remToPx(resolveTokenValue('icon.size.xl')), desc: 'Large illustrations, onboarding, hero sections.' },
 			];
 			return { sizes };
 		},

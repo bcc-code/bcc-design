@@ -1,5 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { doDont } from './helpers';
+import { doDont, PILL } from './helpers';
+import { resolveTokenValue } from './tokenResolver';
+
+function remToPx(value: string, rootFontSize = 16): string {
+	const match = value.trim().match(/^(-?\d*\.?\d+)rem$/i);
+	if (!match) return value;
+	const px = Number.parseFloat(match[1]) * rootFontSize;
+	const normalized = Number(px.toFixed(4));
+	return Number.isInteger(normalized) ? `${normalized}px` : `${normalized}px`;
+}
+
+/** Resolve a heading/body composite token into its font-size and line-height px values. */
+function resolveTypoToken(fontSizeToken: string, lineHeightToken: string) {
+	return {
+		size: remToPx(resolveTokenValue(fontSizeToken)),
+		lh: resolveTokenValue(lineHeightToken), // line-heights are already in px
+	};
+}
 
 const meta = {
 	title: 'Foundations/Typography/Demos',
@@ -22,22 +39,22 @@ export const HeadingScale: Story = {
 	render: () => ({
 		setup() {
 			const headings = [
-				{ token: 'heading.5xl', tw: 'heading-5xl', size: '56px', lh: '64px' },
-				{ token: 'heading.4xl', tw: 'heading-4xl', size: '48px', lh: '56px' },
-				{ token: 'heading.3xl', tw: 'heading-3xl', size: '36px', lh: '40px' },
-				{ token: 'heading.2xl', tw: 'heading-2xl', size: '32px', lh: '32px' },
-				{ token: 'heading.xl', tw: 'heading-xl', size: '24px', lh: '28px' },
-				{ token: 'heading.lg', tw: 'heading-lg', size: '20px', lh: '24px' },
-				{ token: 'heading.md', tw: 'heading-md', size: '16px', lh: '20px' },
-				{ token: 'heading.sm', tw: 'heading-sm', size: '14px', lh: '16px' },
-				{ token: 'heading.xs', tw: 'heading-xs', size: '12px', lh: '14px' },
+				{ token: 'heading.5xl', tw: 'heading-5xl', ...resolveTypoToken('font-size.5xl', 'line-height.7xl') },
+				{ token: 'heading.4xl', tw: 'heading-4xl', ...resolveTypoToken('font-size.4xl', 'line-height.6xl') },
+				{ token: 'heading.3xl', tw: 'heading-3xl', ...resolveTypoToken('font-size.3xl', 'line-height.5xl') },
+				{ token: 'heading.2xl', tw: 'heading-2xl', ...resolveTypoToken('font-size.2xl', 'line-height.3xl') },
+				{ token: 'heading.xl', tw: 'heading-xl', ...resolveTypoToken('font-size.xl', 'line-height.2xl') },
+				{ token: 'heading.lg', tw: 'heading-lg', ...resolveTypoToken('font-size.lg', 'line-height.xl') },
+				{ token: 'heading.md', tw: 'heading-md', ...resolveTypoToken('font-size.md', 'line-height.lg') },
+				{ token: 'heading.sm', tw: 'heading-sm', ...resolveTypoToken('font-size.sm', 'line-height.md') },
+				{ token: 'heading.xs', tw: 'heading-xs', ...resolveTypoToken('font-size.xs', 'line-height.sm') },
 			];
 			return { headings };
 		},
 		template: `
 			<div class="flex flex-col">
 				<div v-for="h in headings" :key="h.token" class="flex items-baseline gap-spacing-200 border-b border-default py-spacing-200">
-					<div class="w-40 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="h.token" :data-tw="h.tw">{{ h.token }}</code></div>
+					<div class="w-40 shrink-0"><code class="${PILL}" :data-token="h.token" :data-tw="h.tw">{{ h.token }}</code></div>
 					<span class="flex-1" :class="h.tw">The quick brown fox</span>
 					<span class="body-md text-subtlest w-24 shrink-0 text-right">{{ h.size }} / {{ h.lh }}</span>
 				</div>
@@ -50,16 +67,16 @@ export const BodyScale: Story = {
 	render: () => ({
 		setup() {
 			const bodies = [
-				{ token: 'body.lg', tw: 'body-lg', size: '16px', lh: '24px', usage: 'Paragraphs, long-form content' },
-				{ token: 'body.md', tw: 'body-md', size: '14px', lh: '20px', usage: 'Descriptions, UI labels, secondary text' },
-				{ token: 'body.sm', tw: 'body-sm', size: '12px', lh: '16px', usage: 'Captions, metadata, helper text' },
+				{ token: 'body.lg', tw: 'body-lg', ...resolveTypoToken('font-size.md', 'line-height.xl'), usage: 'Paragraphs, long-form content' },
+				{ token: 'body.md', tw: 'body-md', ...resolveTypoToken('font-size.sm', 'line-height.lg'), usage: 'Descriptions, UI labels, secondary text' },
+				{ token: 'body.sm', tw: 'body-sm', ...resolveTypoToken('font-size.xs', 'line-height.md'), usage: 'Captions, metadata, helper text' },
 			];
 			return { bodies };
 		},
 		template: `
 			<div class="flex flex-col">
 				<div v-for="b in bodies" :key="b.token" class="flex items-baseline gap-spacing-200 border-b border-default py-spacing-200">
-					<div class="w-28 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="b.token" :data-tw="b.tw">{{ b.token }}</code></div>
+					<div class="w-28 shrink-0"><code class="${PILL}" :data-token="b.token" :data-tw="b.tw">{{ b.token }}</code></div>
 					<div class="flex-1">
 						<span :class="b.tw">The quick brown fox jumps over the lazy dog.</span>
 						<span class="body-md text-subtlest ml-spacing-100">— {{ b.usage }}</span>
@@ -75,17 +92,17 @@ export const WeightTokens: Story = {
 	render: () => ({
 		setup() {
 			const weights = [
-				{ token: 'font.weight.regular', tw: 'font-regular', value: '400', usage: 'Body text, descriptions' },
-				{ token: 'font.weight.medium', tw: 'font-medium', value: '500', usage: 'Buttons, form labels, navigation' },
-				{ token: 'font.weight.semibold', tw: 'font-semibold', value: '600', usage: 'All headings, emphasis' },
-				{ token: 'font.weight.bold', tw: 'font-bold', value: '700', usage: 'Strong emphasis, rare' },
+				{ token: 'font.weight.regular', tw: 'font-regular', value: resolveTokenValue('font-weight.regular'), usage: 'Body text, descriptions' },
+				{ token: 'font.weight.medium', tw: 'font-medium', value: resolveTokenValue('font-weight.medium'), usage: 'Buttons, form labels, navigation' },
+				{ token: 'font.weight.semibold', tw: 'font-semibold', value: resolveTokenValue('font-weight.semibold'), usage: 'All headings, emphasis' },
+				{ token: 'font.weight.bold', tw: 'font-bold', value: resolveTokenValue('font-weight.bold'), usage: 'Strong emphasis, rare' },
 			];
 			return { weights };
 		},
 		template: `
 			<div class="flex flex-col">
 				<div v-for="w in weights" :key="w.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="w-44 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="w.token" :data-tw="w.tw">{{ w.token }}</code></div>
+					<div class="w-44 shrink-0"><code class="${PILL}" :data-token="w.token" :data-tw="w.tw">{{ w.token }}</code></div>
 					<span class="text-lg flex-1" :style="{ fontWeight: w.value }">Archivo {{ w.value }}</span>
 					<span class="body-md text-subtle w-56 shrink-0 text-right">{{ w.usage }}</span>
 				</div>

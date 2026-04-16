@@ -1,5 +1,24 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { doDont } from './helpers';
+import { doDont, PILL } from './helpers';
+import { resolveTokenValue } from './tokenResolver';
+
+function remToPx(value: string, rootFontSize = 16): string {
+	const match = value.trim().match(/^(-?\d*\.?\d+)rem$/i);
+	if (!match) return value;
+	const px = Number.parseFloat(match[1]) * rootFontSize;
+	const normalized = Number(px.toFixed(4));
+	return Number.isInteger(normalized) ? `${normalized}px` : `${normalized}px`;
+}
+
+function sp(token: string, mult: string) {
+	const rem = resolveTokenValue(token);
+	return {
+		token,
+		mult,
+		rem,
+		px: remToPx(rem),
+	};
+}
 
 const meta = {
 	title: 'Foundations/Spacing/Demos',
@@ -12,45 +31,46 @@ type Story = StoryObj<typeof meta>;
 
 export const SpacingScale: Story = {
 	render: () => ({
-		setup() {
-			const tokens = [
-				{ name: 'spacing.0', mult: '0×', rem: '0rem', px: '0px', width: 0 },
-				{ name: 'spacing.25', mult: '0.25×', rem: '0.125rem', px: '2px', width: 2 },
-				{ name: 'spacing.50', mult: '0.5×', rem: '0.25rem', px: '4px', width: 4 },
-				{ name: 'spacing.75', mult: '0.75×', rem: '0.375rem', px: '6px', width: 6 },
-				{ name: 'spacing.100', mult: '1×', rem: '0.5rem', px: '8px', width: 8 },
-				{ name: 'spacing.150', mult: '1.5×', rem: '0.75rem', px: '12px', width: 12 },
-				{ name: 'spacing.200', mult: '2×', rem: '1rem', px: '16px', width: 16 },
-				{ name: 'spacing.250', mult: '2.5×', rem: '1.25rem', px: '20px', width: 20 },
-				{ name: 'spacing.300', mult: '3×', rem: '1.5rem', px: '24px', width: 24 },
-				{ name: 'spacing.400', mult: '4×', rem: '2rem', px: '32px', width: 32 },
-				{ name: 'spacing.500', mult: '5×', rem: '2.5rem', px: '40px', width: 40 },
-				{ name: 'spacing.600', mult: '6×', rem: '3rem', px: '48px', width: 48 },
-				{ name: 'spacing.800', mult: '8×', rem: '4rem', px: '64px', width: 64 },
-				{ name: 'spacing.1000', mult: '10×', rem: '5rem', px: '80px', width: 80 },
-			];
-			return { tokens };
-		},
 		template: `
 			<div class="flex flex-col">
 				<div class="flex items-center gap-spacing-200 border-b border-default pb-spacing-100">
-					<span class="body-md font-semibold w-28 shrink-0">Token</span>
+					<span class="body-md font-semibold flex-1">Token</span>
 					<span class="body-md font-semibold w-14 shrink-0 text-right">Multiplier</span>
 					<span class="body-md font-semibold w-20 shrink-0 text-right">REM</span>
 					<span class="body-md font-semibold w-12 shrink-0 text-right">Pixels</span>
-					<span class="body-md font-semibold flex-1 pl-spacing-200">Visual</span>
+					<span class="body-md font-semibold w-32 ml-auto">Preview</span>
 				</div>
-				<div v-for="t in tokens" :key="t.name" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="w-28 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="t.name" :data-tw="'*-' + t.name.replace('spacing.', 'spacing-')">{{ t.name }}</code></div>
+				<div v-for="t in tokens" :key="t.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
+					<div class="flex flex-col gap-spacing-50 flex-1">
+						<code class="${PILL}" :data-token="t.token" :data-tw="'spacing-' + t.token.replace('space.', '')">{{ t.token }}</code>
+					</div>
 					<span class="body-md text-subtlest w-14 shrink-0 text-right">{{ t.mult }}</span>
 					<span class="body-md text-subtlest w-20 shrink-0 text-right">{{ t.rem }}</span>
 					<span class="body-md text-subtlest w-12 shrink-0 text-right">{{ t.px }}</span>
-					<div class="flex-1 flex items-center pl-spacing-200">
-						<div class="h-3 rounded-sm" :style="{ width: Math.max(t.width, 1) + 'px', background: '#9a82da' }" />
+					<div class="w-32 shrink-0 flex flex-col items-start gap-spacing-25 ml-auto">
+						<div class="spacing-indicator h-3" :style="{ width: t.px === '0px' ? '1px' : t.px }"></div>
 					</div>
 				</div>
 			</div>
 		`,
+		setup: () => ({
+			tokens: [
+				sp('space.0', '0\u00d7'),
+				sp('space.25', '0.25\u00d7'),
+				sp('space.50', '0.5\u00d7'),
+				sp('space.75', '0.75\u00d7'),
+				sp('space.100', '1\u00d7'),
+				sp('space.150', '1.5\u00d7'),
+				sp('space.200', '2\u00d7'),
+				sp('space.250', '2.5\u00d7'),
+				sp('space.300', '3\u00d7'),
+				sp('space.400', '4\u00d7'),
+				sp('space.500', '5\u00d7'),
+				sp('space.600', '6\u00d7'),
+				sp('space.800', '8\u00d7'),
+				sp('space.1000', '10\u00d7'),
+			],
+		}),
 	}),
 };
 
@@ -85,7 +105,7 @@ export const SpacingRuler: Story = {
 				<div class="relative" style="height: 120px; margin: 0 8px">
 					<!-- Highlight label above 8px -->
 					<div class="absolute flex flex-col items-center" style="left: 10%; top: 0; transform: translateX(-50%)">
-						<code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" data-token="spacing.100" data-tw="*-spacing-100">spacing.100</code>
+						<code class="${PILL}" data-token="spacing.100" data-tw="*-spacing-100">spacing.100</code>
 						<div class="w-px h-3" style="background: #292a2e" />
 					</div>
 					<!-- Tick labels -->
@@ -195,7 +215,7 @@ export const TokenClasses: Story = {
 					<span class="body-md w-32 shrink-0 text-subtlest">{{ row.token }}</span>
 					<span class="body-md text-subtlest w-12 shrink-0 text-right">{{ row.px }}</span>
 					<div class="flex gap-spacing-75 pl-spacing-200">
-						<code v-for="cls in row.classes" :key="cls" class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-tw="cls">{{ cls }}</code>
+						<code v-for="cls in row.classes" :key="cls" class="${PILL}" :data-tw="cls">{{ cls }}</code>
 					</div>
 				</div>
 			</div>
@@ -225,10 +245,10 @@ export const TailwindMapping: Story = {
 					<span class="body-md w-28 shrink-0 text-subtlest">{{ row.token }}</span>
 					<span class="body-md text-subtlest w-12 shrink-0 text-right">{{ row.px }}</span>
 					<div class="w-36 shrink-0 pl-spacing-200">
-						<code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-tw="row.tokenCls">{{ row.tokenCls }}</code>
+						<code class="${PILL}" :data-tw="row.tokenCls">{{ row.tokenCls }}</code>
 					</div>
 					<div>
-						<code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-tw="row.tw">{{ row.tw }}</code>
+						<code class="${PILL}" :data-tw="row.tw">{{ row.tw }}</code>
 					</div>
 				</div>
 			</div>

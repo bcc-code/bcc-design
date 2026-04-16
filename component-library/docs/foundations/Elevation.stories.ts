@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { doDont } from './helpers';
+import { doDont, PILL } from './helpers';
 
 const meta = {
 	title: 'Foundations/Elevation/Demos',
@@ -82,7 +82,7 @@ export const SurfaceTokens: Story = {
 					<span class="body-md font-semibold w-14 shrink-0 text-right">Preview</span>
 				</div>
 				<div v-for="r in rows" :key="r.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="w-56 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="r.token" :data-tw="r.tw" :data-css="r.css">{{ r.token }}</code></div>
+					<div class="w-56 shrink-0"><code class="${PILL}" :data-token="r.token" :data-tw="r.tw" :data-css="r.css">{{ r.token }}</code></div>
 					<span class="body-md text-subtle flex-1">{{ r.desc }}</span>
 					<div class="w-14 shrink-0 flex justify-end">
 						<div class="w-10 h-10 rounded-sm border border-default" :class="r.tw" />
@@ -129,7 +129,7 @@ export const ShadowTokens: Story = {
 					<span class="body-md font-semibold w-14 shrink-0 text-right">Preview</span>
 				</div>
 				<div v-for="r in rows" :key="r.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="w-40 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="r.token" :data-tw="r.tw" :data-css="r.css">{{ r.token }}</code></div>
+					<div class="w-40 shrink-0"><code class="${PILL}" :data-token="r.token" :data-tw="r.tw" :data-css="r.css">{{ r.token }}</code></div>
 					<span class="body-md text-subtle flex-1">{{ r.desc }}</span>
 					<div class="w-14 shrink-0 flex justify-end">
 						<div class="w-10 h-10 rounded-sm bg-elevation-surface-default" :style="{ boxShadow: r.shadow }" />

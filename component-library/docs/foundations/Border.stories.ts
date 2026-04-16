@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { doDont } from './helpers';
+import { doDont, PILL } from './helpers';
+import { resolveTokenValue } from './tokenResolver';
 
 const meta = {
 	title: 'Foundations/Border/Demos',
@@ -16,17 +17,17 @@ export const WidthTokens: Story = {
 			const rows = [
 				{
 					token: 'border.width',
-					value: '1px',
+					value: resolveTokenValue('border-width.1'),
 					suitable: 'Standard borders for containers, dividers, inputs, and cards.',
 				},
 				{
 					token: 'border.width.selected',
-					value: '2px',
+					value: resolveTokenValue('border-width.2'),
 					suitable: 'Selected states — active tabs, chosen items, toggled controls.',
 				},
 				{
 					token: 'border.width.focused',
-					value: '2px',
+					value: resolveTokenValue('border-width.2'),
 					suitable: 'Focus ring indicator for keyboard navigation and accessibility.',
 				},
 			];
@@ -41,7 +42,7 @@ export const WidthTokens: Story = {
 					<span class="body-md font-semibold w-20 shrink-0 text-right">Preview</span>
 				</div>
 				<div v-for="r in rows" :key="r.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="w-44 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="r.token" :data-tw="r.value === '1px' ? 'border' : 'border-2'">{{ r.token }}</code></div>
+					<div class="w-44 shrink-0"><code class="${PILL}" :data-token="r.token" :data-tw="r.value === '1px' ? 'border' : 'border-2'">{{ r.token }}</code></div>
 					<span class="body-md text-subtle flex-1">{{ r.suitable }}</span>
 					<span class="body-md font-semibold w-16 shrink-0 text-right">{{ r.value }}</span>
 					<div class="w-20 shrink-0 flex justify-end">
@@ -219,7 +220,7 @@ export const ColorTokens: Story = {
 					<span class="body-md font-semibold w-14 shrink-0 text-right">Preview</span>
 				</div>
 				<div v-for="r in rows" :key="r.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="w-48 shrink-0"><code class="color-swatch text-xs bg-elevation-surface-default border border-default rounded-full px-spacing-100 py-spacing-25 text-subtle cursor-pointer inline-block" :data-token="r.token" :data-tw="r.tw">{{ r.token }}</code></div>
+					<div class="w-48 shrink-0"><code class="${PILL}" :data-token="r.token" :data-tw="r.tw">{{ r.token }}</code></div>
 					<span class="body-md text-subtle flex-1">{{ r.suitable }}</span>
 					<div class="w-14 shrink-0 flex justify-end">
 						<div class="w-10 h-10 rounded-sm border-2" :style="{ borderColor: r.color, background: 'var(--color-elevation-surface-default)' }" />
