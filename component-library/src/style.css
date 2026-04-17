@@ -4,7 +4,6 @@
 
 @import 'tailwindcss';
 @import '@bcc-code/design-tokens/tailwind';
-@import '@bcc-code/design-tokens/primevue/overrides';
 
 @import './styles/theme.css';
 @import './styles/semantic.css';
