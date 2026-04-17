@@ -54,7 +54,7 @@
     "create-version": "node ./scripts/version.cjs"
   },
   "dependencies": {
-    "@bcc-code/design-tokens": "^5.1.80",
+    "@bcc-code/design-tokens": "^5.1.83",
     "@bcc-code/icons-vue": "^1.4.0",
     "@primeuix/themes": "^2.0.3",
     "@tailwindcss/vite": "^4.1.18",
@@ -78,6 +78,7 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9.39.2",
     "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-storybook": "10.3.5",
     "eslint-plugin-vue": "^10.7.0",
     "globals": "^17.3.0",
     "http-server": "^14.1.1",
@@ -96,8 +97,7 @@
     "vite": "^7.3.0",
     "vitest": "^4.0.18",
     "vue": "^3.5.0",
-    "vue-tsc": "^3.2.4",
-    "eslint-plugin-storybook": "10.3.5"
+    "vue-tsc": "^3.2.4"
   },
   "pnpm": {
     "patchedDependencies": {
