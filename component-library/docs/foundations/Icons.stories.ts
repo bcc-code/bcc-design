@@ -15,16 +15,16 @@ export const IconSizes: Story = {
 	render: () => ({
 		template: `
 			<div class="flex flex-col">
-				<div class="flex items-center gap-spacing-200 border-b border-default pb-spacing-100">
+				<div class="flex items-center gap-4 border-b border-default pb-2">
 					<span class="body-md font-semibold flex-1">Token and description</span>
 					<span class="body-md font-semibold w-20 text-center ml-auto">Preview</span>
 				</div>
-				<div v-for="s in sizes" :key="s.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
-					<div class="flex flex-col gap-spacing-50 flex-1">
+				<div v-for="s in sizes" :key="s.token" class="flex items-center gap-4 border-b border-default py-3">
+					<div class="flex flex-col gap-1 flex-1">
 						<code class="${PILL}" :data-token="s.token" :data-tw="s.tw">{{ s.token }}</code>
 						<span class="body-md text-subtle">{{ s.desc }}</span>
 					</div>
-					<div class="w-20 ml-auto shrink-0 flex flex-col items-center gap-spacing-25">
+					<div class="w-20 ml-auto shrink-0 flex flex-col items-center gap-0.5">
 						<span class="material-symbols-outlined text-default" :style="{ fontSize: s.px }">search</span>
 						<code class="text-xs text-subtlest">{{ s.px }}</code>
 					</div>
@@ -72,32 +72,32 @@ export const IconSizes: Story = {
 export const IconColors: Story = {
 	render: () => ({
 		template: `
-			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-400 items-start justify-center">
-				<div class="flex flex-col items-center gap-spacing-100">
+			<div class="bg-neutral-100 rounded-lg p-8 flex gap-8 items-start justify-center">
+				<div class="flex flex-col items-center gap-2">
 					<span class="material-symbols-outlined text-2xl text-default">home</span>
 					<span class="body-md text-subtle">Default</span>
 				</div>
-				<div class="flex flex-col items-center gap-spacing-100">
+				<div class="flex flex-col items-center gap-2">
 					<span class="material-symbols-outlined text-2xl text-subtle">home</span>
 					<span class="body-md text-subtle">Subtle</span>
 				</div>
-				<div class="flex flex-col items-center gap-spacing-100">
+				<div class="flex flex-col items-center gap-2">
 					<span class="material-symbols-outlined text-2xl text-subtlest">home</span>
 					<span class="body-md text-subtle">Subtlest</span>
 				</div>
-				<div class="flex flex-col items-center gap-spacing-100">
+				<div class="flex flex-col items-center gap-2">
 					<span class="material-symbols-outlined text-2xl text-brand-default">home</span>
 					<span class="body-md text-subtle">Brand</span>
 				</div>
-				<div class="flex flex-col items-center gap-spacing-100">
+				<div class="flex flex-col items-center gap-2">
 					<span class="material-symbols-outlined text-2xl text-success">home</span>
 					<span class="body-md text-subtle">Success</span>
 				</div>
-				<div class="flex flex-col items-center gap-spacing-100">
+				<div class="flex flex-col items-center gap-2">
 					<span class="material-symbols-outlined text-2xl text-danger">home</span>
 					<span class="body-md text-subtle">Danger</span>
 				</div>
-				<div class="flex flex-col items-center gap-spacing-100">
+				<div class="flex flex-col items-center gap-2">
 					<div class="rounded-full w-10 h-10 flex items-center justify-center bg-brand-bolder-default">
 						<span class="material-symbols-outlined text-xl text-inverse">home</span>
 					</div>
@@ -111,32 +111,32 @@ export const IconColors: Story = {
 export const IconInComponents: Story = {
 	render: () => ({
 		template: `
-			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-400 items-start justify-center">
-				<div class="flex flex-col items-center gap-spacing-100">
-					<div class="rounded-md px-spacing-200 py-spacing-75 text-sm font-medium text-inverse bg-brand-bolder-default flex items-center gap-spacing-75">
+			<div class="bg-neutral-100 rounded-lg p-8 flex gap-8 items-start justify-center">
+				<div class="flex flex-col items-center gap-2">
+					<div class="rounded-md px-4 py-1.5 text-sm font-medium text-inverse bg-brand-bolder-default flex items-center gap-1.5">
 						<span class="material-symbols-outlined text-lg">add</span>
 						Create
 					</div>
 					<span class="body-md text-subtle">Button with icon</span>
 				</div>
-				<div class="flex flex-col items-center gap-spacing-100">
-					<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-spacing-150 flex items-center gap-spacing-100 w-48">
+				<div class="flex flex-col items-center gap-2">
+					<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-3 flex items-center gap-2 w-48">
 						<span class="material-symbols-outlined text-lg text-subtlest">search</span>
 						<span class="text-sm text-subtlest">Search...</span>
 					</div>
 					<span class="body-md text-subtle">Input with icon</span>
 				</div>
-				<div class="flex flex-col items-center gap-spacing-100">
-					<div class="flex gap-spacing-300">
-						<div class="flex flex-col items-center gap-spacing-25 text-subtle">
+				<div class="flex flex-col items-center gap-2">
+					<div class="flex gap-6">
+						<div class="flex flex-col items-center gap-0.5 text-subtle">
 							<span class="material-symbols-outlined text-xl">home</span>
 							<span class="text-xs">Home</span>
 						</div>
-						<div class="flex flex-col items-center gap-spacing-25 text-brand-default">
+						<div class="flex flex-col items-center gap-0.5 text-brand-default">
 							<span class="material-symbols-outlined text-xl">explore</span>
 							<span class="text-xs font-medium">Explore</span>
 						</div>
-						<div class="flex flex-col items-center gap-spacing-25 text-subtle">
+						<div class="flex flex-col items-center gap-0.5 text-subtle">
 							<span class="material-symbols-outlined text-xl">settings</span>
 							<span class="text-xs">Settings</span>
 						</div>
@@ -151,12 +151,12 @@ export const IconInComponents: Story = {
 export const DoIcons: Story = {
 	render: () => ({
 		template: doDont(
-			`<div class="flex items-center gap-spacing-75 px-spacing-200">
+			`<div class="flex items-center gap-1.5 px-4">
 				<span class="material-symbols-outlined text-lg text-danger">delete</span>
 				<span class="text-sm">Delete item</span>
 			</div>`,
 			'Pair icons with text labels for clarity — especially for actions.',
-			`<div class="flex items-center gap-spacing-300 px-spacing-200">
+			`<div class="flex items-center gap-6 px-4">
 				<span class="material-symbols-outlined text-lg text-subtle">delete</span>
 				<span class="material-symbols-outlined text-lg text-subtle">edit</span>
 				<span class="material-symbols-outlined text-lg text-subtle">share</span>
@@ -169,12 +169,12 @@ export const DoIcons: Story = {
 export const DoIconColor: Story = {
 	render: () => ({
 		template: doDont(
-			`<div class="flex items-center gap-spacing-75 px-spacing-200">
+			`<div class="flex items-center gap-1.5 px-4">
 				<span class="material-symbols-outlined text-lg text-danger">warning</span>
 				<span class="text-sm text-danger">Error occurred</span>
 			</div>`,
 			'Match icon color with its text — they should read as one element.',
-			`<div class="flex items-center gap-spacing-75 px-spacing-200">
+			`<div class="flex items-center gap-1.5 px-4">
 				<span class="material-symbols-outlined text-lg text-brand-default">warning</span>
 				<span class="text-sm text-danger">Error occurred</span>
 			</div>`,

@@ -3,15 +3,15 @@ import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
 <Meta title="Foundations/Tokens" />
 
 <Unstyled>
-<div className="font-archivo flex flex-col gap-spacing-600">
+<div className="font-archivo flex flex-col gap-12">
 
   <div>
     <h1 className="heading-2xl text-default">Design Tokens</h1>
-    <p className="body-lg text-subtle mt-spacing-100">Tokens are the single source of truth for visual decisions — colors, spacing, typography, borders, and elevation. They adapt to light and dark mode automatically.</p>
+    <p className="body-lg text-subtle mt-2">Tokens are the single source of truth for visual decisions — colors, spacing, typography, borders, and elevation. They adapt to light and dark mode automatically.</p>
   </div>
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <h2 className="heading-xl text-default">What are tokens?</h2>
       <p className="body-md text-subtle">Design tokens are named values that replace hardcoded colors, sizes, and spacing throughout the UI. Instead of writing <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">#292a2e</code>, you use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">color.text.default</code> — a semantic name that describes <strong>purpose</strong>, not appearance.</p>
       <p className="body-md text-subtle">When the theme changes (light → dark), all tokens update automatically. No conditional logic needed.</p>
@@ -20,28 +20,28 @@ import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <h2 className="heading-xl text-default">Token layers</h2>
       <p className="body-md text-subtle">BCC tokens follow a three-layer architecture. You should only use <strong>semantic tokens</strong> in your code — primitives are internal building blocks.</p>
     </div>
     <div className="flex flex-col rounded-lg overflow-hidden border border-default">
-      <div className="flex items-center bg-neutral-100 px-spacing-200 py-spacing-100 border-b border-default">
+      <div className="flex items-center bg-neutral-100 px-4 py-2 border-b border-default">
         <span className="body-md font-semibold flex-[0.8]">Layer</span>
         <span className="body-md font-semibold flex-1">Example</span>
         <span className="body-md font-semibold flex-1">Purpose</span>
       </div>
-      <div className="flex items-center px-spacing-200 py-spacing-150 border-b border-default">
+      <div className="flex items-center px-4 py-3 border-b border-default">
         <span className="body-md text-subtlest flex-[0.8]">Primitive</span>
         <code className="text-xs text-subtle flex-1">green-800 → #014d49</code>
         <span className="body-md text-subtle flex-1">Raw values from the palette. Never use directly.</span>
       </div>
-      <div className="flex items-center px-spacing-200 py-spacing-150 border-b border-default bg-brand-subtlest-default">
+      <div className="flex items-center px-4 py-3 border-b border-default bg-brand-subtlest-default">
         <span className="body-md font-semibold text-brand-default flex-[0.8]">Semantic</span>
         <code className="text-xs text-brand-default flex-1">color.text.brand.default → green-800</code>
         <span className="body-md text-brand-default flex-1">Named by purpose. Use these in your code.</span>
       </div>
-      <div className="flex items-center px-spacing-200 py-spacing-150">
+      <div className="flex items-center px-4 py-3">
         <span className="body-md text-subtlest flex-[0.8]">Component</span>
         <code className="text-xs text-subtle flex-1">button.primary.bg → brand.bolder</code>
         <span className="body-md text-subtle flex-1">Scoped to a component. Handled by PrimeVue preset.</span>
@@ -51,8 +51,8 @@ import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <h2 className="heading-xl text-default">How to use tokens</h2>
       <p className="body-md text-subtle">Tokens are available as <strong>Tailwind classes</strong> (recommended) or <strong>CSS custom properties</strong> for custom styles.</p>
     </div>
@@ -60,7 +60,7 @@ import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
 
 ```html
 <!-- Tailwind classes (recommended) -->
-<p class="text-default bg-elevation-surface-default p-spacing-200 rounded-md border border-default">
+<p class="text-default bg-elevation-surface-default p-4 rounded-md border border-default">
   Card content
 </p>
 
@@ -75,62 +75,62 @@ import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <h2 className="heading-xl text-default">Token categories</h2>
       <p className="body-md text-subtle">Browse all available tokens in the reference below.</p>
     </div>
-    <div className="grid grid-cols-3 gap-spacing-200">
+    <div className="grid grid-cols-3 gap-4">
       <a className="rounded-lg border border-default overflow-hidden no-underline hover:border-brand transition-colors flex flex-col" href="?path=/docs/foundations-token-reference--docs">
-        <div className="bg-information-default p-spacing-200 flex items-center justify-center min-h-16">
+        <div className="bg-information-default p-4 flex items-center justify-center min-h-16">
           <span className="material-symbols-outlined text-3xl text-information">colors</span>
         </div>
-        <div className="p-spacing-150 border-t border-default">
+        <div className="p-3 border-t border-default">
           <span className="body-md font-semibold text-default">Color</span>
           <span className="body-md text-subtle block">Text, background, border, icon, link</span>
         </div>
       </a>
       <a className="rounded-lg border border-default overflow-hidden no-underline hover:border-brand transition-colors flex flex-col" href="?path=/docs/foundations-token-reference--docs">
-        <div className="bg-success-default p-spacing-200 flex items-center justify-center min-h-16">
+        <div className="bg-success-default p-4 flex items-center justify-center min-h-16">
           <span className="material-symbols-outlined text-3xl text-success">space_bar</span>
         </div>
-        <div className="p-spacing-150 border-t border-default">
+        <div className="p-3 border-t border-default">
           <span className="body-md font-semibold text-default">Spacing</span>
           <span className="body-md text-subtle block">Padding, margin, gap scale</span>
         </div>
       </a>
       <a className="rounded-lg border border-default overflow-hidden no-underline hover:border-brand transition-colors flex flex-col" href="?path=/docs/foundations-token-reference--docs">
-        <div className="bg-warning-default p-spacing-200 flex items-center justify-center min-h-16">
+        <div className="bg-warning-default p-4 flex items-center justify-center min-h-16">
           <span className="material-symbols-outlined text-3xl text-warning">text_fields</span>
         </div>
-        <div className="p-spacing-150 border-t border-default">
+        <div className="p-3 border-t border-default">
           <span className="body-md font-semibold text-default">Typography</span>
           <span className="body-md text-subtle block">Font size, weight, line height</span>
         </div>
       </a>
       <a className="rounded-lg border border-default overflow-hidden no-underline hover:border-brand transition-colors flex flex-col" href="?path=/docs/foundations-token-reference--docs">
-        <div className="bg-neutral-100 p-spacing-200 flex items-center justify-center min-h-16">
+        <div className="bg-neutral-100 p-4 flex items-center justify-center min-h-16">
           <span className="material-symbols-outlined text-3xl text-subtle">border_style</span>
         </div>
-        <div className="p-spacing-150 border-t border-default">
+        <div className="p-3 border-t border-default">
           <span className="body-md font-semibold text-default">Border & Radius</span>
           <span className="body-md text-subtle block">Width, radius scale</span>
         </div>
       </a>
       <a className="rounded-lg border border-default overflow-hidden no-underline hover:border-brand transition-colors flex flex-col" href="?path=/docs/foundations-token-reference--docs">
-        <div className="bg-neutral-100 p-spacing-200 flex items-center justify-center min-h-16">
+        <div className="bg-neutral-100 p-4 flex items-center justify-center min-h-16">
           <span className="material-symbols-outlined text-3xl text-subtle">layers</span>
         </div>
-        <div className="p-spacing-150 border-t border-default">
+        <div className="p-3 border-t border-default">
           <span className="body-md font-semibold text-default">Elevation</span>
           <span className="body-md text-subtle block">Surface, shadow</span>
         </div>
       </a>
       <a className="rounded-lg border border-default overflow-hidden no-underline hover:border-brand transition-colors flex flex-col" href="?path=/docs/foundations-token-reference--docs">
-        <div className="bg-danger-default p-spacing-200 flex items-center justify-center min-h-16">
+        <div className="bg-danger-default p-4 flex items-center justify-center min-h-16">
           <span className="material-symbols-outlined text-3xl text-danger">interests</span>
         </div>
-        <div className="p-spacing-150 border-t border-default">
+        <div className="p-3 border-t border-default">
           <span className="body-md font-semibold text-default">Icon</span>
           <span className="body-md text-subtle block">Size scale</span>
         </div>
@@ -140,31 +140,31 @@ import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-4">
     <h2 className="heading-xl text-default">Naming convention</h2>
     <p className="body-md text-subtle">Token names follow a consistent pattern: <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">category.property.variant.state</code></p>
     <div className="flex flex-col rounded-lg overflow-hidden border border-default">
-      <div className="flex items-center bg-neutral-100 px-spacing-200 py-spacing-100 border-b border-default">
+      <div className="flex items-center bg-neutral-100 px-4 py-2 border-b border-default">
         <span className="body-md font-semibold flex-1">Part</span>
         <span className="body-md font-semibold flex-1">Examples</span>
         <span className="body-md font-semibold flex-1">Meaning</span>
       </div>
-      <div className="flex items-center px-spacing-200 py-spacing-150 border-b border-default">
+      <div className="flex items-center px-4 py-3 border-b border-default">
         <span className="body-md font-semibold flex-1">Category</span>
         <code className="text-xs text-subtle flex-1">color, space, border-radius</code>
         <span className="body-md text-subtle flex-1">What kind of value</span>
       </div>
-      <div className="flex items-center px-spacing-200 py-spacing-150 border-b border-default">
+      <div className="flex items-center px-4 py-3 border-b border-default">
         <span className="body-md font-semibold flex-1">Property</span>
         <code className="text-xs text-subtle flex-1">text, background, border, icon</code>
         <span className="body-md text-subtle flex-1">Where it's applied</span>
       </div>
-      <div className="flex items-center px-spacing-200 py-spacing-150 border-b border-default">
+      <div className="flex items-center px-4 py-3 border-b border-default">
         <span className="body-md font-semibold flex-1">Variant</span>
         <code className="text-xs text-subtle flex-1">brand, success, danger, subtle</code>
         <span className="body-md text-subtle flex-1">Which visual style</span>
       </div>
-      <div className="flex items-center px-spacing-200 py-spacing-150">
+      <div className="flex items-center px-4 py-3">
         <span className="body-md font-semibold flex-1">State</span>
         <code className="text-xs text-subtle flex-1">default, hovered, pressed</code>
         <span className="body-md text-subtle flex-1">Interaction state</span>

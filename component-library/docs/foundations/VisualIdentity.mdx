@@ -4,18 +4,18 @@ import * as IdentityStories from './VisualIdentity.stories';
 <Meta title="Foundations/Visual Identity" />
 
 <Unstyled>
-<div className="font-archivo flex flex-col gap-spacing-600">
+<div className="font-archivo flex flex-col gap-12">
 
   <div>
     <h1 className="heading-2xl text-default">Visual Identity</h1>
-    <p className="body-lg text-subtle mt-spacing-100">Brand identity rules from the official BCC design manual (January 2022). For logo downloads see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-logos--docs">Logos</a>, for color tokens see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-colors--docs">Colors</a>, for font usage see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-typography--docs">Typography</a>.</p>
+    <p className="body-lg text-subtle mt-2">Brand identity rules from the official BCC design manual (January 2022). For logo downloads see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-logos--docs">Logos</a>, for color tokens see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-colors--docs">Colors</a>, for font usage see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-typography--docs">Typography</a>.</p>
   </div>
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Form and clear space</h2>
-        <p className="body-md text-subtle mt-spacing-50">Proportions between symbol, BCC, and subtitle are fixed — never modify them. A minimum clear space (the width of the B) must surround the logo at all times. Click to zoom.</p>
+        <p className="body-md text-subtle mt-1">Proportions between symbol, BCC, and subtitle are fixed — never modify them. A minimum clear space (the width of the B) must surround the logo at all times. Click to zoom.</p>
       </div>
       <Story of={IdentityStories.ProportionsAndClearSpace} sourceState="none" />
     </div>
@@ -23,11 +23,11 @@ import * as IdentityStories from './VisualIdentity.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Logo hierarchy</h2>
-        <p className="body-md text-subtle mt-spacing-50">Departments, national entities, and local churches each have their own logo format. Sub-entities <strong>cannot</strong> use the primary or secondary logo alone — they must include their name.</p>
+        <p className="body-md text-subtle mt-1">Departments, national entities, and local churches each have their own logo format. Sub-entities <strong>cannot</strong> use the primary or secondary logo alone — they must include their name.</p>
       </div>
       <Story of={IdentityStories.LogoHierarchy} sourceState="none" />
       <Story of={IdentityStories.HierarchyPrinciples} sourceState="none" />
@@ -36,11 +36,11 @@ import * as IdentityStories from './VisualIdentity.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Symbol and figure</h2>
-        <p className="body-md text-subtle mt-spacing-50">The symbol (with circle) and figure (without circle) can be used as standalone graphic elements — on clothing, background motifs, or profile accents. As a background, keep contrast low: max 10% on dark green, max 30% on light green.</p>
+        <p className="body-md text-subtle mt-1">The symbol (with circle) and figure (without circle) can be used as standalone graphic elements — on clothing, background motifs, or profile accents. As a background, keep contrast low: max 10% on dark green, max 30% on light green.</p>
       </div>
       <Story of={IdentityStories.SymbolUsage} sourceState="none" />
     </div>
@@ -48,16 +48,16 @@ import * as IdentityStories from './VisualIdentity.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Typography</h2>
-        <p className="body-md text-subtle mt-spacing-50">The primary font is <strong>Archivo</strong> — a Google Font used for all text types. <strong>IBM Plex Serif</strong> is used only for headings and short lead-ins to create contrast. For design token usage, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-typography--docs">Typography</a>.</p>
+        <p className="body-md text-subtle mt-1">The primary font is <strong>Archivo</strong> — a Google Font used for all text types. <strong>IBM Plex Serif</strong> is used only for headings and short lead-ins to create contrast. For design token usage, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-typography--docs">Typography</a>.</p>
       </div>
       <Story of={IdentityStories.FontArchivo} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <p className="body-md text-subtle">Used only for headings and short lead-ins (ingress) to break up larger layouts and create a more dynamic expression.</p>
       <Story of={IdentityStories.FontIBMPlexSerif} sourceState="none" />
     </div>
@@ -65,16 +65,16 @@ import * as IdentityStories from './VisualIdentity.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Profile colors</h2>
-        <p className="body-md text-subtle mt-spacing-50">Four primary colors and three support colors define the BCC brand. The logo must always use 100% color — tints (10–100%) are only for text, graphics, and backgrounds. For design token mappings, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-colors--docs">Colors</a>.</p>
+        <p className="body-md text-subtle mt-1">Four primary colors and three support colors define the BCC brand. The logo must always use 100% color — tints (10–100%) are only for text, graphics, and backgrounds. For design token mappings, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-colors--docs">Colors</a>.</p>
       </div>
       <Story of={IdentityStories.ProfileColors} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <h3 className="heading-lg text-default">Support colors</h3>
       <Story of={IdentityStories.SupportColors} sourceState="none" />
     </div>
@@ -82,7 +82,7 @@ import * as IdentityStories from './VisualIdentity.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
+  <div className="flex flex-col gap-8">
     <h2 className="heading-xl text-default">Guidelines</h2>
     <Story of={IdentityStories.DoProportions} sourceState="none" />
     <Story of={IdentityStories.DoClearSpace} sourceState="none" />

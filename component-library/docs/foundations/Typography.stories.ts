@@ -45,7 +45,7 @@ export const HeadingScale: Story = {
 		},
 		template: `
 			<div class="flex flex-col">
-				<div v-for="h in headings" :key="h.token" class="flex items-baseline gap-spacing-200 border-b border-default py-spacing-200">
+				<div v-for="h in headings" :key="h.token" class="flex items-baseline gap-4 border-b border-default py-4">
 					<div class="w-40 shrink-0"><code class="${PILL}" :data-token="h.token" :data-tw="h.tw">{{ h.token }}</code></div>
 					<span class="flex-1" :class="h.tw">The quick brown fox</span>
 					<span class="body-md text-subtlest w-24 shrink-0 text-right">{{ h.size }} / {{ h.lh }}</span>
@@ -82,11 +82,11 @@ export const BodyScale: Story = {
 		},
 		template: `
 			<div class="flex flex-col">
-				<div v-for="b in bodies" :key="b.token" class="flex items-baseline gap-spacing-200 border-b border-default py-spacing-200">
+				<div v-for="b in bodies" :key="b.token" class="flex items-baseline gap-4 border-b border-default py-4">
 					<div class="w-28 shrink-0"><code class="${PILL}" :data-token="b.token" :data-tw="b.tw">{{ b.token }}</code></div>
 					<div class="flex-1">
 						<span :class="b.tw">The quick brown fox jumps over the lazy dog.</span>
-						<span class="body-md text-subtlest ml-spacing-100">— {{ b.usage }}</span>
+						<span class="body-md text-subtlest ml-2">— {{ b.usage }}</span>
 					</div>
 					<span class="body-md text-subtlest w-24 shrink-0 text-right">{{ b.size }} / {{ b.lh }}</span>
 				</div>
@@ -128,7 +128,7 @@ export const WeightTokens: Story = {
 		},
 		template: `
 			<div class="flex flex-col">
-				<div v-for="w in weights" :key="w.token" class="flex items-center gap-spacing-200 border-b border-default py-spacing-150">
+				<div v-for="w in weights" :key="w.token" class="flex items-center gap-4 border-b border-default py-3">
 					<div class="w-44 shrink-0"><code class="${PILL}" :data-token="w.token" :data-tw="w.tw">{{ w.token }}</code></div>
 					<span class="text-lg flex-1" :style="{ fontWeight: w.value }">Archivo {{ w.value }}</span>
 					<span class="body-md text-subtle w-56 shrink-0 text-right">{{ w.usage }}</span>
@@ -141,28 +141,28 @@ export const WeightTokens: Story = {
 export const TypographyInComponents: Story = {
 	render: () => ({
 		template: `
-			<div class="bg-neutral-100 rounded-lg p-spacing-400 flex gap-spacing-400 items-start justify-center">
-				<div class="bg-elevation-surface-default rounded-lg border border-default p-spacing-250 w-56 flex flex-col gap-spacing-150" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
+			<div class="bg-neutral-100 rounded-lg p-8 flex gap-8 items-start justify-center">
+				<div class="bg-elevation-surface-default rounded-lg border border-default p-5 w-56 flex flex-col gap-3" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
 					<span class="text-sm font-medium">Delete project?</span>
 					<p class="text-sm text-subtle">This action cannot be undone. All data will be permanently removed.</p>
-					<div class="flex gap-spacing-100 justify-end mt-spacing-100">
-						<div class="rounded-md border border-default bg-elevation-surface-default px-spacing-150 py-spacing-50 text-sm font-medium text-subtle">Cancel</div>
-						<div class="rounded-md px-spacing-150 py-spacing-50 text-sm font-medium text-inverse bg-brand-bolder-default">Delete</div>
+					<div class="flex gap-2 justify-end mt-2">
+						<div class="rounded-md border border-default bg-elevation-surface-default px-3 py-1 text-sm font-medium text-subtle">Cancel</div>
+						<div class="rounded-md px-3 py-1 text-sm font-medium text-inverse bg-brand-bolder-default">Delete</div>
 					</div>
 				</div>
-				<div class="flex flex-col gap-spacing-150 w-56">
-					<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-spacing-150 flex items-center">
+				<div class="flex flex-col gap-3 w-56">
+					<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-3 flex items-center">
 						<span class="text-sm text-subtlest">Search members...</span>
 					</div>
-					<div class="flex gap-spacing-100">
-						<div class="rounded-sm py-spacing-50 px-spacing-100 bg-brand-subtlest-default border border-brand">
+					<div class="flex gap-2">
+						<div class="rounded-sm py-1 px-2 bg-brand-subtlest-default border border-brand">
 							<span class="text-sm text-brand-default">Design</span>
 						</div>
-						<div class="bg-success-default border border-success rounded-sm py-spacing-50 px-spacing-100">
+						<div class="bg-success-default border border-success rounded-sm py-1 px-2">
 							<span class="text-sm text-success">Published</span>
 						</div>
 					</div>
-					<div class="text-inverse rounded-md px-spacing-200 py-spacing-75 text-sm font-medium text-center bg-brand-bolder-default">Save changes</div>
+					<div class="text-inverse rounded-md px-4 py-1.5 text-sm font-medium text-center bg-brand-bolder-default">Save changes</div>
 				</div>
 			</div>
 		`,
@@ -172,13 +172,13 @@ export const TypographyInComponents: Story = {
 export const DoTypography: Story = {
 	render: () => ({
 		template: doDont(
-			`<div class="flex flex-col gap-spacing-100 text-left px-spacing-200">
+			`<div class="flex flex-col gap-2 text-left px-4">
 				<span class="heading-xl">Section title</span>
 				<span class="heading-lg">Subsection</span>
 				<span class="body-md text-subtle">Description text.</span>
 			</div>`,
 			"Follow the heading hierarchy — don't skip levels.",
-			`<div class="flex flex-col gap-spacing-100 text-left px-spacing-200">
+			`<div class="flex flex-col gap-2 text-left px-4">
 				<span class="heading-2xl">Section title</span>
 				<span class="heading-md">Subsection</span>
 				<span class="body-md text-subtle">Description text.</span>

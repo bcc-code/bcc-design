@@ -4,18 +4,18 @@ import * as RadiusStories from './Radius.stories';
 <Meta title="Foundations/Radius" />
 
 <Unstyled>
-<div className="font-archivo flex flex-col gap-spacing-600">
+<div className="font-archivo flex flex-col gap-12">
 
   <div>
     <h1 className="heading-2xl text-default">Radius</h1>
-    <p className="body-lg text-subtle mt-spacing-100">Border radius controls how rounded corners appear across the system. Smaller, denser components use tighter radii while larger surfaces use progressively rounder corners — keeping visual weight proportional to size.</p>
+    <p className="body-lg text-subtle mt-2">Border radius controls how rounded corners appear across the system. Smaller, denser components use tighter radii while larger surfaces use progressively rounder corners — keeping visual weight proportional to size.</p>
   </div>
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Radius tokens and usage guidelines</h2>
-        <p className="body-md text-subtle mt-spacing-50">Use radius tokens to apply roundness across different states and use cases.</p>
+        <p className="body-md text-subtle mt-1">Use radius tokens to apply roundness across different states and use cases.</p>
       </div>
       <Story of={RadiusStories.TokensTable} sourceState="none" />
     </div>
@@ -23,47 +23,47 @@ import * as RadiusStories from './Radius.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <h2 className="heading-xl text-default">Radius examples and usage</h2>
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">2xs — 2px</h3>
-        <p className="body-md text-subtle mt-spacing-50">Small detail elements like checkboxes and select option items.</p>
+        <p className="body-md text-subtle mt-1">Small detail elements like checkboxes and select option items.</p>
       </div>
       <Story of={RadiusStories.ExampleXsmall} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">xs — 4px</h3>
-        <p className="body-md text-subtle mt-spacing-50">Supporting elements: tags, labels, inputs, selects, and date pickers.</p>
+        <p className="body-md text-subtle mt-1">Supporting elements: tags, labels, inputs, selects, and date pickers.</p>
       </div>
       <Story of={RadiusStories.ExampleSmall} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">sm — 6px</h3>
-        <p className="body-md text-subtle mt-spacing-50">Interactive elements: buttons, tooltips, dropdown menus, and navigation items.</p>
+        <p className="body-md text-subtle mt-1">Interactive elements: buttons, tooltips, dropdown menus, and navigation items.</p>
       </div>
       <Story of={RadiusStories.ExampleMedium} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">md / lg — 8–12px</h3>
-        <p className="body-md text-subtle mt-spacing-50">Containment elements: dialogs, cards, modals, and panels.</p>
+        <p className="body-md text-subtle mt-1">Containment elements: dialogs, cards, modals, and panels.</p>
       </div>
       <Story of={RadiusStories.ExampleLarge} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">full — 999px</h3>
-        <p className="body-md text-subtle mt-spacing-50">Circular and pill-shaped elements: avatars, radio buttons, rounded buttons, and tags.</p>
+        <p className="body-md text-subtle mt-1">Circular and pill-shaped elements: avatars, radio buttons, rounded buttons, and tags.</p>
       </div>
       <Story of={RadiusStories.ExampleFull} sourceState="none" />
     </div>

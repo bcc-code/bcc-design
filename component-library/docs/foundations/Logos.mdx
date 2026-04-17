@@ -4,15 +4,15 @@ import * as LogoStories from './Logos.stories';
 <Meta title="Foundations/Logos" />
 
 <Unstyled>
-<div className="font-archivo flex flex-col gap-spacing-600">
+<div className="font-archivo flex flex-col gap-12">
 
   <div>
     <h1 className="heading-2xl text-default">Logos</h1>
-    <p className="body-lg text-subtle mt-spacing-100">All BCC logos are hosted at <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">design.bcc.no/logos/</code> and available as SVG (recommended) and PNG. Use the official files — never recreate or modify logos.</p>
+    <p className="body-lg text-subtle mt-2">All BCC logos are hosted at <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">design.bcc.no/logos/</code> and available as SVG (recommended) and PNG. Use the official files — never recreate or modify logos.</p>
   </div>
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <h2 className="heading-xl text-default">BCC brand</h2>
       <Story of={LogoStories.BrandLogos} sourceState="none" />
     </div>
@@ -21,13 +21,13 @@ import * as LogoStories from './Logos.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <h2 className="heading-xl text-default">Local churches</h2>
       <Story of={LogoStories.LocalChurches} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <h2 className="heading-xl text-default">Departments and national</h2>
       <Story of={LogoStories.Departments} sourceState="none" />
     </div>
@@ -35,18 +35,18 @@ import * as LogoStories from './Logos.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
+  <div className="flex flex-col gap-8">
     <h2 className="heading-xl text-default">Guidelines</h2>
     <Story of={LogoStories.DoLogos} sourceState="none" />
   </div>
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Usage</h2>
-        <p className="body-md text-subtle mt-spacing-50">Always prefer SVG for sharp rendering at any size. Use PNG only when SVG isn't supported.</p>
+        <p className="body-md text-subtle mt-1">Always prefer SVG for sharp rendering at any size. Use PNG only when SVG isn't supported.</p>
       </div>
 
 
@@ -61,27 +61,27 @@ import * as LogoStories from './Logos.stories';
 
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">Accessibility</h3>
-        <p className="body-md text-subtle mt-spacing-50">Always include descriptive <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">alt</code> text on logo images. Use the organization name — e.g., <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">alt="BCC"</code>. If the logo is purely decorative (next to a text heading that already names the org), use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">alt=""</code>.</p>
+        <p className="body-md text-subtle mt-1">Always include descriptive <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">alt</code> text on logo images. Use the organization name — e.g., <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">alt="BCC"</code>. If the logo is purely decorative (next to a text heading that already names the org), use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">alt=""</code>.</p>
       </div>
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">URL pattern</h3>
       </div>
       <div className="flex flex-col rounded-lg overflow-hidden border border-default">
-        <div className="flex items-center bg-neutral-100 px-spacing-200 py-spacing-100 border-b border-default">
+        <div className="flex items-center bg-neutral-100 px-4 py-2 border-b border-default">
           <span className="body-md font-semibold flex-1">Format</span>
           <span className="body-md font-semibold flex-1">Pattern</span>
         </div>
-        <div className="flex items-center px-spacing-200 py-spacing-150 border-b border-default">
+        <div className="flex items-center px-4 py-3 border-b border-default">
           <span className="body-md text-subtle flex-1">SVG</span>
           <code className="text-xs text-default flex-1">{'{name}'}_logo.svg</code>
         </div>
-        <div className="flex items-center px-spacing-200 py-spacing-150">
+        <div className="flex items-center px-4 py-3">
           <span className="body-md text-subtle flex-1">PNG</span>
           <code className="text-xs text-default flex-1">{'{name}'}_logo_{'{color}'}_{'{size}'}.png</code>
         </div>

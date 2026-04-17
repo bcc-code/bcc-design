@@ -4,44 +4,44 @@ import * as TypographyStories from './Typography.stories';
 <Meta title="Foundations/Typography" />
 
 <Unstyled>
-<div className="font-archivo flex flex-col gap-spacing-600">
+<div className="font-archivo flex flex-col gap-12">
 
   <div>
     <h1 className="heading-2xl text-default">Typography</h1>
-    <p className="body-lg text-subtle mt-spacing-100">Typography creates hierarchy, improves readability, and reinforces the BCC brand. The system uses Archivo as its single typeface, with pre-configured text styles that pair font size, weight, and line height into ready-to-use tokens.</p>
+    <p className="body-lg text-subtle mt-2">Typography creates hierarchy, improves readability, and reinforces the BCC brand. The system uses Archivo as its single typeface, with pre-configured text styles that pair font size, weight, and line height into ready-to-use tokens.</p>
   </div>
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <h2 className="heading-xl text-default">Typeface</h2>
-      <p className="body-md text-subtle mt-spacing-50">Archivo is the single typeface used across all BCC product UI — headings, body text, and components.</p>
+      <p className="body-md text-subtle mt-1">Archivo is the single typeface used across all BCC product UI — headings, body text, and components.</p>
       <Story of={TypographyStories.TypefaceShowcase} sourceState="none" />
     </div>
   </div>
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Heading scale</h2>
-        <p className="body-md text-subtle mt-spacing-50">Headings use Archivo at weight 600 (semibold). Each token is a composite that sets font size, weight, line height, and family in one declaration. Use the token — not individual primitives.</p>
+        <p className="body-md text-subtle mt-1">Headings use Archivo at weight 600 (semibold). Each token is a composite that sets font size, weight, line height, and family in one declaration. Use the token — not individual primitives.</p>
       </div>
       <Story of={TypographyStories.HeadingScale} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Body scale</h2>
-        <p className="body-md text-subtle mt-spacing-50">Body text uses weight 400 (regular). Use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-lg</code> (16px) for paragraphs and long-form content — never smaller. <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-md</code> (14px) is for UI labels and secondary text. <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-sm</code> (12px) is only for captions and metadata.</p>
+        <p className="body-md text-subtle mt-1">Body text uses weight 400 (regular). Use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-lg</code> (16px) for paragraphs and long-form content — never smaller. <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-md</code> (14px) is for UI labels and secondary text. <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">body-sm</code> (12px) is only for captions and metadata.</p>
       </div>
       <Story of={TypographyStories.BodyScale} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Font weights</h2>
-        <p className="body-md text-subtle mt-spacing-50">Four weights are available. PrimeVue components use medium (500) for buttons and labels — semibold (600) is reserved for headings.</p>
+        <p className="body-md text-subtle mt-1">Four weights are available. PrimeVue components use medium (500) for buttons and labels — semibold (600) is reserved for headings.</p>
       </div>
       <Story of={TypographyStories.WeightTokens} sourceState="none" />
     </div>
@@ -49,11 +49,11 @@ import * as TypographyStories from './Typography.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">Typography in components</h3>
-        <p className="body-md text-subtle mt-spacing-50">PrimeVue components use 14px (<code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">font-size-sm</code>) as the default text size for inputs, menus, and buttons. Tags use 12px. These sizes are set by the design tokens preset — don't override them.</p>
+        <p className="body-md text-subtle mt-1">PrimeVue components use 14px (<code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">font-size-sm</code>) as the default text size for inputs, menus, and buttons. Tags use 12px. These sizes are set by the design tokens preset — don't override them.</p>
       </div>
       <Story of={TypographyStories.TypographyInComponents} sourceState="none" />
     </div>

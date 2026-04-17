@@ -24,13 +24,13 @@ export const BrandLogos: Story = {
 			return { logos, base };
 		},
 		template: `
-			<div class="grid grid-cols-2 gap-spacing-200">
+			<div class="grid grid-cols-2 gap-4">
 				<a v-for="l in logos" :key="l.file" :href="base + l.file + '.svg'" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-default overflow-hidden no-underline hover:border-brand transition-colors">
-					<div class="flex items-center justify-between px-spacing-200 py-spacing-100 border-b border-default bg-elevation-surface-default">
+					<div class="flex items-center justify-between px-4 py-2 border-b border-default bg-elevation-surface-default">
 						<span class="body-md text-subtle">{{ l.name }}</span>
 						<span class="material-symbols-outlined text-xl text-subtle">download</span>
 					</div>
-					<div class="bg-neutral-100 p-spacing-400 flex items-center justify-center min-h-28">
+					<div class="bg-neutral-100 p-8 flex items-center justify-center min-h-28">
 						<img :src="base + l.file + '.svg'" :alt="l.name + ' logo'" class="max-h-16 max-w-full" />
 					</div>
 				</a>
@@ -66,13 +66,13 @@ export const LocalChurches: Story = {
 			return { churches, base };
 		},
 		template: `
-			<div class="grid grid-cols-3 gap-spacing-150">
+			<div class="grid grid-cols-3 gap-3">
 				<a v-for="c in churches" :key="c" :href="base + c + '_logo.svg'" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-default overflow-hidden no-underline hover:border-brand transition-colors">
-					<div class="flex items-center justify-between px-spacing-150 py-spacing-75 border-b border-default bg-elevation-surface-default">
+					<div class="flex items-center justify-between px-3 py-1.5 border-b border-default bg-elevation-surface-default">
 						<span class="text-xs text-subtle">{{ c }}</span>
 						<span class="material-symbols-outlined text-lg text-subtle">download</span>
 					</div>
-					<div class="bg-neutral-100 p-spacing-250 flex items-center justify-center">
+					<div class="bg-neutral-100 p-5 flex items-center justify-center">
 						<img :src="base + c + '_logo.svg'" :alt="c" class="h-10 max-w-full" />
 					</div>
 				</a>
@@ -97,13 +97,13 @@ export const Departments: Story = {
 			return { depts, base };
 		},
 		template: `
-			<div class="grid grid-cols-3 gap-spacing-150">
+			<div class="grid grid-cols-3 gap-3">
 				<a v-for="d in depts" :key="d" :href="base + d + '_logo.svg'" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-default overflow-hidden no-underline hover:border-brand transition-colors">
-					<div class="flex items-center justify-between px-spacing-150 py-spacing-75 border-b border-default bg-elevation-surface-default">
+					<div class="flex items-center justify-between px-3 py-1.5 border-b border-default bg-elevation-surface-default">
 						<span class="text-xs text-subtle">{{ d }}</span>
 						<span class="material-symbols-outlined text-lg text-subtle">download</span>
 					</div>
-					<div class="bg-neutral-100 p-spacing-250 flex items-center justify-center">
+					<div class="bg-neutral-100 p-5 flex items-center justify-center">
 						<img :src="base + d + '_logo.svg'" :alt="d" class="h-10 max-w-full" />
 					</div>
 				</a>
@@ -115,11 +115,11 @@ export const Departments: Story = {
 export const DoLogos: Story = {
 	render: () => ({
 		template: doDont(
-			`<div class="flex items-center justify-center px-spacing-200">
+			`<div class="flex items-center justify-center px-4">
 				<img src="${base}bcc_logo_primary.svg" alt="BCC logo" class="h-10" />
 			</div>`,
 			'Use official logo files — dark on light backgrounds, white on dark.',
-			`<div class="flex items-center justify-center px-spacing-200 gap-spacing-100">
+			`<div class="flex items-center justify-center px-4 gap-2">
 				<img src="${base}bcc_logo_symbol.svg" alt="BCC symbol" class="h-8" />
 				<div class="flex flex-col">
 					<span class="text-sm font-bold">BCC</span>

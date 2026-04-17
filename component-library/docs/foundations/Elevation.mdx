@@ -4,18 +4,18 @@ import * as ElevationStories from './Elevation.stories';
 <Meta title="Foundations/Elevation" />
 
 <Unstyled>
-<div className="font-archivo flex flex-col gap-spacing-600">
+<div className="font-archivo flex flex-col gap-12">
 
   <div>
     <h1 className="heading-2xl text-default">Elevation</h1>
-    <p className="body-lg text-subtle mt-spacing-100">Elevation creates visual depth through layered surfaces and shadows. Most components use the default surface automatically — raised and overlay levels are for custom layouts and floating UI.</p>
+    <p className="body-lg text-subtle mt-2">Elevation creates visual depth through layered surfaces and shadows. Most components use the default surface automatically — raised and overlay levels are for custom layouts and floating UI.</p>
   </div>
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Elevation levels</h2>
-        <p className="body-md text-subtle mt-spacing-50">Four levels from lowest to highest. PrimeVue components use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.default</code> for most inputs and controls, and <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.overlay</code> for dialogs. The other levels are available for custom layouts.</p>
+        <p className="body-md text-subtle mt-1">Four levels from lowest to highest. PrimeVue components use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.default</code> for most inputs and controls, and <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.overlay</code> for dialogs. The other levels are available for custom layouts.</p>
       </div>
       <Story of={ElevationStories.ElevationLevels} sourceState="none" />
     </div>
@@ -23,19 +23,19 @@ import * as ElevationStories from './Elevation.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Surface tokens</h2>
-        <p className="body-md text-subtle mt-spacing-50">Surface tokens control background color at each elevation level. In dark mode, higher elevations appear lighter to simulate depth — shadows alone aren't enough in dark themes.</p>
+        <p className="body-md text-subtle mt-1">Surface tokens control background color at each elevation level. In dark mode, higher elevations appear lighter to simulate depth — shadows alone aren't enough in dark themes.</p>
       </div>
       <Story of={ElevationStories.SurfaceTokens} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Shadow tokens</h2>
-        <p className="body-md text-subtle mt-spacing-50">Shadows add visual lift. Raised and overlay surfaces should always be paired with their shadow token. PrimeVue components define their own shadows internally — these tokens are for custom UI.</p>
+        <p className="body-md text-subtle mt-1">Shadows add visual lift. Raised and overlay surfaces should always be paired with their shadow token. PrimeVue components define their own shadows internally — these tokens are for custom UI.</p>
       </div>
       <Story of={ElevationStories.ShadowTokens} sourceState="none" />
     </div>
@@ -43,11 +43,11 @@ import * as ElevationStories from './Elevation.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
-    <div className="flex flex-col gap-spacing-200">
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <div>
         <h2 className="heading-xl text-default">Elevation in dark mode</h2>
-        <p className="body-md text-subtle mt-spacing-50">In light mode, shadows do most of the heavy lifting — all surfaces are white, so depth comes from shadow intensity. In dark mode, shadows are barely visible against dark backgrounds, so the system shifts: higher elevations get progressively lighter surface colors to communicate depth.</p>
+        <p className="body-md text-subtle mt-1">In light mode, shadows do most of the heavy lifting — all surfaces are white, so depth comes from shadow intensity. In dark mode, shadows are barely visible against dark backgrounds, so the system shifts: higher elevations get progressively lighter surface colors to communicate depth.</p>
       </div>
       <Story of={ElevationStories.DarkModeComparison} sourceState="none" />
     </div>
@@ -55,53 +55,53 @@ import * as ElevationStories from './Elevation.stories';
 
   <hr className="border-default" />
 
-  <div className="flex flex-col gap-spacing-400">
+  <div className="flex flex-col gap-8">
     <h2 className="heading-xl text-default">Usage examples</h2>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">Sunken</h3>
-        <p className="body-md text-subtle mt-spacing-50">Use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.sunken</code> for recessed areas like sidebars, content wells, or page canvases that sit behind default-level content. No shadow needed — the darker surface communicates depth.</p>
+        <p className="body-md text-subtle mt-1">Use <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.sunken</code> for recessed areas like sidebars, content wells, or page canvases that sit behind default-level content. No shadow needed — the darker surface communicates depth.</p>
       </div>
       <Story of={ElevationStories.ExampleSunken} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">Raised</h3>
-        <p className="body-md text-subtle mt-spacing-50">Use for cards and interactive tiles in custom layouts. Always pair <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.raised</code> with <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">shadow.raised</code>. Note: PrimeVue Card uses its own shadow — this pairing is for custom card-like surfaces.</p>
+        <p className="body-md text-subtle mt-1">Use for cards and interactive tiles in custom layouts. Always pair <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.raised</code> with <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">shadow.raised</code>. Note: PrimeVue Card uses its own shadow — this pairing is for custom card-like surfaces.</p>
       </div>
       <Story of={ElevationStories.ExampleRaised} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">Overlay</h3>
-        <p className="body-md text-subtle mt-spacing-50">Reserved for floating UI — modals, dialogs, dropdowns, tooltips. PrimeVue Dialog uses <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.overlay</code> automatically. For custom floating elements, pair it with <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">shadow.overlay</code>.</p>
+        <p className="body-md text-subtle mt-1">Reserved for floating UI — modals, dialogs, dropdowns, tooltips. PrimeVue Dialog uses <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">elevation.surface.overlay</code> automatically. For custom floating elements, pair it with <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">shadow.overlay</code>.</p>
       </div>
       <Story of={ElevationStories.ExampleOverlay} sourceState="none" />
     </div>
 
-    <div className="flex flex-col gap-spacing-200">
+    <div className="flex flex-col gap-4">
       <div>
         <h3 className="heading-lg text-default">Code usage</h3>
-        <p className="body-md text-subtle mt-spacing-50">Apply surface and shadow tokens together for raised and overlay elements.</p>
+        <p className="body-md text-subtle mt-1">Apply surface and shadow tokens together for raised and overlay elements.</p>
       </div>
 
 
 ```html
 <!-- Raised card -->
-<div class="bg-elevation-surface-raised-default shadow-raised rounded-lg p-spacing-200">
+<div class="bg-elevation-surface-raised-default shadow-raised rounded-lg p-4">
   Raised content
 </div>
 
 <!-- Overlay (custom floating element) -->
-<div class="bg-elevation-surface-overlay-default shadow-overlay rounded-lg p-spacing-200">
+<div class="bg-elevation-surface-overlay-default shadow-overlay rounded-lg p-4">
   Floating content
 </div>
 
 <!-- Sunken area -->
-<div class="bg-elevation-surface-sunken-default p-spacing-300">
+<div class="bg-elevation-surface-sunken-default p-6">
   Recessed content
 </div>
 ```
