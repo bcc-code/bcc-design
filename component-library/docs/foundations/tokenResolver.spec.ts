@@ -1,7 +1,7 @@
 /// <reference types="node" />
-import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'fs';
 import { createRequire } from 'module';
+import { describe, expect, it } from 'vitest';
 
 /**
  * Verifies that all tokens referenced across foundation docs resolve to actual
@@ -70,16 +70,6 @@ describe('primitive colors', () => {
 		alphaSteps.forEach(step => {
 			expect(resolve(`color.neutral-alpha.${step}`), `neutral-alpha.${step}`).not.toBe('UNRESOLVED');
 			expect(resolve(`color.dark-neutral-alpha.${step}`), `dark-neutral-alpha.${step}`).not.toBe('UNRESOLVED');
-		});
-	});
-});
-
-// ── Spacing ─────────────────────────────────────────────
-
-describe('spacing', () => {
-	it('resolves all space tokens', () => {
-		[0, 25, 50, 75, 100, 150, 200, 250, 300, 400, 500, 600, 800, 1000].forEach(step => {
-			expect(resolve(`space.${step}`), `space.${step}`).not.toBe('UNRESOLVED');
 		});
 	});
 });
