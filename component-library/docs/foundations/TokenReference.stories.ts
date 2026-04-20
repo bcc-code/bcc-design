@@ -69,7 +69,7 @@ const borderColorTemplate = `
 /** Build a color token data object with values resolved from @bcc-code/design-tokens css. */
 function c(token: string, desc?: string, lightPrim?: string, darkPrim?: string) {
 	const cssVar = 'var(--color-' + token.replace('color.', '').replace(/\./g, '-') + ')';
-	const twClass = token.replace('color.', '').replace(/\./g, '-');
+	const twClass = token.replace('color.', '').replace(/\./g, '-').replace('background-', 'bg-');
 	const { lightHex, darkHex } = resolveColorTokenValues(token);
 	return {
 		token,
