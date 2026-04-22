@@ -23,7 +23,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Horizontal: Story = {
-	args: { layout: 'horizontal' },
+	args: { layout: 'horizontal', class: 'py-3' },
 	render: args => ({
 		components: { BccDivider },
 		setup() {
