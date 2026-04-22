@@ -85,7 +85,7 @@ export const Default: Story = {
 };
 
 /**
- * Use the corner slots (`top-left`, `top-right`, `bottom-left`, `bottom-right`) to place content on the graphic.
+ * Use the corner slots (`topLeft`, `topRight`, `bottomLeft`, `bottomRight`) to place content on the graphic.
  */
 export const WithCornerSlots: Story = {
 	render: () => ({
@@ -95,13 +95,20 @@ export const WithCornerSlots: Story = {
 				bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"
 				logoSrc="https://event.bcc.no/wp-content/uploads/2023/11/BUK4_Logo-Main.svg"
 			>
-				<template #top-right>
+				<template #topRight>
 					<CalendarViewDayIcon class="size-6 text-white drop-shadow-md" />
 				</template>
-				<template #top-left>
-					<div class="flex size-8 items-center justify-center rounded-full bg-primary text-white">
+				<template #topLeft>
+					<div class="flex items-center justify-center gap-2 rounded-full bg-primary text-white">
 						<CheckIcon class="size-5" />
+						<p class="heading-xs">I can be anything</p>
 					</div>
+				</template>
+				<template #bottomRight>
+					<CheckIcon class="size-5 text-white drop-shadow-md" />
+				</template>
+				<template #bottomLeft>
+					<CalendarViewDayIcon class="size-6 text-white drop-shadow-md" />
 				</template>
 			</BccGraphic>
 		`,
@@ -109,7 +116,7 @@ export const WithCornerSlots: Story = {
 };
 
 /**
- * Link icon in the top-right corner slot.
+ * Link icon in the topRight corner slot.
  */
 export const WithLinkIcon: Story = {
 	render: () => ({
@@ -119,7 +126,7 @@ export const WithLinkIcon: Story = {
 				bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"
 				logoSrc="https://event.bcc.no/wp-content/uploads/2023/11/BUK4_Logo-Main.svg"
 			>
-				<template #top-right>
+				<template #topRight>
 					<CalendarViewDayIcon class="size-6 text-white drop-shadow-md" />
 				</template>
 			</BccGraphic>
@@ -128,7 +135,7 @@ export const WithLinkIcon: Story = {
 };
 
 /**
- * Checkmark in the top-left corner slot to indicate a selected or checked state.
+ * Checkmark in the topLeft corner slot to indicate a selected or checked state.
  */
 export const WithCheckmark: Story = {
 	render: () => ({
@@ -137,7 +144,7 @@ export const WithCheckmark: Story = {
 			<BccGraphic
 				bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"
 			>
-				<template #top-left>
+				<template #topLeft>
 					<div class="flex size-8 items-center justify-center rounded-full bg-primary text-white">
 						<CheckIcon class="size-5" />
 					</div>

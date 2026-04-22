@@ -97,9 +97,9 @@ const aspectRatioStyle = computed(() => {
 			<div v-show="!loadedLogo" class="bcc-graphic-logo bcc-graphic-logo--loading"></div>
 		</template>
 
-		<div v-if="$slots.topLeft" class="corner top-left"><slot name="top-left" /></div>
-		<div v-if="$slots.topRight" class="corner top-right"><slot name="top-right" /></div>
-		<div v-if="$slots.bottomRight" class="corner bottom-right"><slot name="bottom-right" /></div>
-		<div v-if="$slots.bottomLeft" class="corner bottom-left"><slot name="bottom-left" /></div>
+		<div v-if="$slots.topLeft" class="corner top-left"><slot name="topLeft" /></div>
+		<div v-if="$slots.topRight" class="corner top-right"><slot name="topRight" /></div>
+		<div v-if="$slots.bottomRight" class="corner bottom-right"><slot name="bottomRight" /></div>
+		<div v-if="$slots.bottomLeft" class="corner bottom-left"><slot name="bottomLeft" /></div>
 	</div>
 </template>
