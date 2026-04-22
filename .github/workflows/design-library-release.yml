@@ -1,9 +1,7 @@
 name: "Component Library: Release"
-run-name: Component Library - ${{ github.event_name == 'release' && 'main release version' || 'dev release version' }}
+run-name: Component Library - ${{ startsWith(github.ref, 'refs/tags/component-library-') && 'main release version' || 'dev release version' }}
 
 on:
-  release:
-    types: [published, released, prereleased]
   push:
     branches: [main]
     tags:
@@ -21,7 +19,7 @@ env:
 
 jobs:
   main-build:
-    if: (github.event_name == 'release' && contains(github.event.release.name, 'component-library')) || (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/component-library-'))
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/component-library-')
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -62,7 +60,6 @@ jobs:
         run: npm publish --tag ${{ env.RELEASE_CHANNEL }}
 
       - name: Resolve release metadata from tag
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/component-library-')
         id: release_vars
         run: |
           TAG_NAME="${{ github.ref_name }}"
@@ -76,7 +73,6 @@ jobs:
         working-directory: .
 
       - name: Create GitHub release
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/component-library-')
         uses: softprops/action-gh-release@v2
         with:
           token: ${{ secrets.BCC_BOT_ACCESS_TOKEN }}
@@ -87,12 +83,12 @@ jobs:
           generate_release_notes: true
 
   test-dev-build:
-    if: github.event_name != 'release'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     uses: ./.github/workflows/design-library-tests.yml
 
   dev-build:
     needs: test-dev-build
-    if: github.event_name != 'release'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     defaults:
       run:
