@@ -7,15 +7,11 @@
   --ctx-background: var(--color-default-neutral-0);
   --ctx-gradient: var(--color-default-neutral-100);
   --ctx-border: var(--color-default-neutral-300);
+  --ctx-border-bold: var(--color-default-neutral-800);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-1000);
-  --ctx-text-pressed: var(--color-default-neutral-1000);
   --ctx-background-hover: var(--color-default-neutral-100);
-  --ctx-background-pressed: var(--color-default-neutral-200);
-  --ctx-gradient-hover: var(--color-default-neutral-200);
-  --ctx-gradient-pressed: var(--color-default-neutral-200);
   --ctx-border-hover: var(--color-default-neutral-300);
-  --ctx-border-pressed: var(--color-default-neutral-300);
 }
 
 @utility ctx-blue-bolder {
@@ -23,16 +19,12 @@
   --ctx-text-bold: var(--color-default-blue-100);
   --ctx-background: var(--color-default-blue-700);
   --ctx-gradient: var(--color-default-blue-800);
-  --ctx-border: var(--color-default-blue-700);
+  --ctx-border: var(--color-default-blue-800);
+  --ctx-border-bold: var(--color-default-blue-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-blue-200);
-  --ctx-text-pressed: var(--color-default-blue-200);
   --ctx-background-hover: var(--color-default-blue-800);
-  --ctx-background-pressed: var(--color-default-blue-900);
-  --ctx-gradient-hover: var(--color-default-blue-900);
-  --ctx-gradient-pressed: var(--color-default-blue-900);
-  --ctx-border-hover: var(--color-default-blue-700);
-  --ctx-border-pressed: var(--color-default-blue-700);
+  --ctx-border-hover: var(--color-default-blue-800);
 }
 
 @utility ctx-blue-subtle {
@@ -41,15 +33,11 @@
   --ctx-background: var(--color-default-blue-400);
   --ctx-gradient: var(--color-default-blue-300);
   --ctx-border: var(--color-default-blue-500);
+  --ctx-border-bold: var(--color-default-blue-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-blue-900);
-  --ctx-text-pressed: var(--color-default-blue-900);
   --ctx-background-hover: var(--color-default-blue-300);
-  --ctx-background-pressed: var(--color-default-blue-200);
-  --ctx-gradient-hover: var(--color-default-blue-200);
-  --ctx-gradient-pressed: var(--color-default-blue-200);
   --ctx-border-hover: var(--color-default-blue-500);
-  --ctx-border-pressed: var(--color-default-blue-500);
 }
 
 @utility ctx-blue-subtler {
@@ -57,16 +45,12 @@
   --ctx-text-bold: var(--color-default-blue-900);
   --ctx-background: var(--color-default-blue-200);
   --ctx-gradient: var(--color-default-blue-300);
-  --ctx-border: var(--color-default-blue-400);
+  --ctx-border: var(--color-default-blue-300);
+  --ctx-border-bold: var(--color-default-blue-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-blue-800);
-  --ctx-text-pressed: var(--color-default-blue-800);
   --ctx-background-hover: var(--color-default-blue-300);
-  --ctx-background-pressed: var(--color-default-blue-400);
-  --ctx-gradient-hover: var(--color-default-blue-400);
-  --ctx-gradient-pressed: var(--color-default-blue-400);
-  --ctx-border-hover: var(--color-default-blue-400);
-  --ctx-border-pressed: var(--color-default-blue-400);
+  --ctx-border-hover: var(--color-default-blue-300);
 }
 
 @utility ctx-blue-subtlest {
@@ -74,16 +58,12 @@
   --ctx-text-bold: var(--color-default-blue-900);
   --ctx-background: var(--color-default-blue-100);
   --ctx-gradient: var(--color-default-blue-200);
-  --ctx-border: var(--color-default-blue-300);
+  --ctx-border: var(--color-default-blue-200);
+  --ctx-border-bold: var(--color-default-blue-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-blue-800);
-  --ctx-text-pressed: var(--color-default-blue-800);
   --ctx-background-hover: var(--color-default-blue-200);
-  --ctx-background-pressed: var(--color-default-blue-300);
-  --ctx-gradient-hover: var(--color-default-blue-300);
-  --ctx-gradient-pressed: var(--color-default-blue-300);
-  --ctx-border-hover: var(--color-default-blue-300);
-  --ctx-border-pressed: var(--color-default-blue-300);
+  --ctx-border-hover: var(--color-default-blue-200);
 }
 
 @utility ctx-brand-bold {
@@ -91,16 +71,12 @@
   --ctx-text-bold: var(--color-default-neutral-100);
   --ctx-background: var(--color-default-bcc-600);
   --ctx-gradient: var(--color-default-bcc-700);
-  --ctx-border: var(--color-default-bcc-600);
+  --ctx-border: var(--color-default-bcc-700);
+  --ctx-border-bold: var(--color-default-bcc-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-bcc-200);
-  --ctx-text-pressed: var(--color-default-bcc-200);
   --ctx-background-hover: var(--color-default-bcc-700);
-  --ctx-background-pressed: var(--color-default-bcc-800);
-  --ctx-gradient-hover: var(--color-default-bcc-800);
-  --ctx-gradient-pressed: var(--color-default-bcc-800);
-  --ctx-border-hover: var(--color-default-bcc-600);
-  --ctx-border-pressed: var(--color-default-bcc-600);
+  --ctx-border-hover: var(--color-default-bcc-700);
 }
 
 @utility ctx-brand-bolder {
@@ -108,16 +84,12 @@
   --ctx-text-bold: var(--color-default-neutral-0);
   --ctx-background: var(--color-default-bcc-800);
   --ctx-gradient: var(--color-default-bcc-900);
-  --ctx-border: var(--color-default-bcc-700);
+  --ctx-border: var(--color-default-bcc-900);
+  --ctx-border-bold: var(--color-default-bcc-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-0);
-  --ctx-text-pressed: var(--color-default-neutral-0);
   --ctx-background-hover: var(--color-default-bcc-900);
-  --ctx-background-pressed: var(--color-default-bcc-1000);
-  --ctx-gradient-hover: var(--color-default-bcc-1000);
-  --ctx-gradient-pressed: var(--color-default-bcc-1000);
-  --ctx-border-hover: var(--color-default-bcc-700);
-  --ctx-border-pressed: var(--color-default-bcc-700);
+  --ctx-border-hover: var(--color-default-bcc-900);
 }
 
 @utility ctx-brand-boldest {
@@ -126,15 +98,11 @@
   --ctx-background: var(--color-default-bcc-1000);
   --ctx-gradient: var(--color-default-bcc-900);
   --ctx-border: var(--color-default-bcc-800);
+  --ctx-border-bold: var(--color-default-bcc-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-0);
-  --ctx-text-pressed: var(--color-default-neutral-0);
   --ctx-background-hover: var(--color-default-bcc-900);
-  --ctx-background-pressed: var(--color-default-bcc-800);
-  --ctx-gradient-hover: var(--color-default-bcc-800);
-  --ctx-gradient-pressed: var(--color-default-bcc-800);
   --ctx-border-hover: var(--color-default-bcc-800);
-  --ctx-border-pressed: var(--color-default-bcc-800);
 }
 
 @utility ctx-brand-default {
@@ -143,15 +111,11 @@
   --ctx-background: var(--color-default-neutral-0);
   --ctx-gradient: var(--color-default-neutral-0);
   --ctx-border: var(--color-default-neutral-700);
+  --ctx-border-bold: var(--color-default-neutral-800);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-1000);
-  --ctx-text-pressed: var(--color-default-neutral-1000);
   --ctx-background-hover: var(--color-default-neutral-0);
-  --ctx-background-pressed: var(--color-default-neutral-0);
-  --ctx-gradient-hover: var(--color-default-neutral-0);
-  --ctx-gradient-pressed: var(--color-default-neutral-0);
   --ctx-border-hover: var(--color-default-neutral-700);
-  --ctx-border-pressed: var(--color-default-neutral-700);
 }
 
 @utility ctx-brand-subtle {
@@ -160,15 +124,11 @@
   --ctx-background: var(--color-default-bcc-400);
   --ctx-gradient: var(--color-default-bcc-300);
   --ctx-border: var(--color-default-bcc-500);
+  --ctx-border-bold: var(--color-default-bcc-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-bcc-1000);
-  --ctx-text-pressed: var(--color-default-bcc-1000);
   --ctx-background-hover: var(--color-default-bcc-300);
-  --ctx-background-pressed: var(--color-default-bcc-200);
-  --ctx-gradient-hover: var(--color-default-bcc-200);
-  --ctx-gradient-pressed: var(--color-default-bcc-200);
   --ctx-border-hover: var(--color-default-bcc-500);
-  --ctx-border-pressed: var(--color-default-bcc-500);
 }
 
 @utility ctx-brand-subtler {
@@ -176,16 +136,12 @@
   --ctx-text-bold: var(--color-default-bcc-800);
   --ctx-background: var(--color-default-bcc-200);
   --ctx-gradient: var(--color-default-bcc-300);
-  --ctx-border: var(--color-default-bcc-400);
+  --ctx-border: var(--color-default-bcc-300);
+  --ctx-border-bold: var(--color-default-bcc-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-bcc-900);
-  --ctx-text-pressed: var(--color-default-bcc-900);
   --ctx-background-hover: var(--color-default-bcc-300);
-  --ctx-background-pressed: var(--color-default-bcc-400);
-  --ctx-gradient-hover: var(--color-default-bcc-400);
-  --ctx-gradient-pressed: var(--color-default-bcc-400);
-  --ctx-border-hover: var(--color-default-bcc-400);
-  --ctx-border-pressed: var(--color-default-bcc-400);
+  --ctx-border-hover: var(--color-default-bcc-300);
 }
 
 @utility ctx-brand-subtlest {
@@ -193,16 +149,12 @@
   --ctx-text-bold: var(--color-default-bcc-700);
   --ctx-background: var(--color-default-bcc-100);
   --ctx-gradient: var(--color-default-bcc-200);
-  --ctx-border: var(--color-default-bcc-300);
+  --ctx-border: var(--color-default-bcc-200);
+  --ctx-border-bold: var(--color-default-bcc-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-bcc-800);
-  --ctx-text-pressed: var(--color-default-bcc-800);
   --ctx-background-hover: var(--color-default-bcc-200);
-  --ctx-background-pressed: var(--color-default-bcc-300);
-  --ctx-gradient-hover: var(--color-default-bcc-300);
-  --ctx-gradient-pressed: var(--color-default-bcc-300);
-  --ctx-border-hover: var(--color-default-bcc-300);
-  --ctx-border-pressed: var(--color-default-bcc-300);
+  --ctx-border-hover: var(--color-default-bcc-200);
 }
 
 @utility ctx-brown-bolder {
@@ -210,16 +162,12 @@
   --ctx-text-bold: var(--color-default-brown-100);
   --ctx-background: var(--color-default-brown-700);
   --ctx-gradient: var(--color-default-brown-800);
-  --ctx-border: var(--color-default-brown-700);
+  --ctx-border: var(--color-default-brown-800);
+  --ctx-border-bold: var(--color-default-brown-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-brown-200);
-  --ctx-text-pressed: var(--color-default-brown-200);
   --ctx-background-hover: var(--color-default-brown-800);
-  --ctx-background-pressed: var(--color-default-brown-900);
-  --ctx-gradient-hover: var(--color-default-brown-900);
-  --ctx-gradient-pressed: var(--color-default-brown-900);
-  --ctx-border-hover: var(--color-default-brown-700);
-  --ctx-border-pressed: var(--color-default-brown-700);
+  --ctx-border-hover: var(--color-default-brown-800);
 }
 
 @utility ctx-brown-subtle {
@@ -228,15 +176,11 @@
   --ctx-background: var(--color-default-brown-400);
   --ctx-gradient: var(--color-default-brown-300);
   --ctx-border: var(--color-default-brown-500);
+  --ctx-border-bold: var(--color-default-brown-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-brown-900);
-  --ctx-text-pressed: var(--color-default-brown-900);
   --ctx-background-hover: var(--color-default-brown-300);
-  --ctx-background-pressed: var(--color-default-brown-200);
-  --ctx-gradient-hover: var(--color-default-brown-200);
-  --ctx-gradient-pressed: var(--color-default-brown-200);
   --ctx-border-hover: var(--color-default-brown-500);
-  --ctx-border-pressed: var(--color-default-brown-500);
 }
 
 @utility ctx-brown-subtler {
@@ -244,16 +188,12 @@
   --ctx-text-bold: var(--color-default-brown-900);
   --ctx-background: var(--color-default-brown-200);
   --ctx-gradient: var(--color-default-brown-300);
-  --ctx-border: var(--color-default-brown-400);
+  --ctx-border: var(--color-default-brown-300);
+  --ctx-border-bold: var(--color-default-brown-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-brown-800);
-  --ctx-text-pressed: var(--color-default-brown-800);
   --ctx-background-hover: var(--color-default-brown-300);
-  --ctx-background-pressed: var(--color-default-brown-400);
-  --ctx-gradient-hover: var(--color-default-brown-400);
-  --ctx-gradient-pressed: var(--color-default-brown-400);
-  --ctx-border-hover: var(--color-default-brown-400);
-  --ctx-border-pressed: var(--color-default-brown-400);
+  --ctx-border-hover: var(--color-default-brown-300);
 }
 
 @utility ctx-brown-subtlest {
@@ -261,16 +201,12 @@
   --ctx-text-bold: var(--color-default-brown-900);
   --ctx-background: var(--color-default-brown-100);
   --ctx-gradient: var(--color-default-brown-200);
-  --ctx-border: var(--color-default-brown-300);
+  --ctx-border: var(--color-default-brown-200);
+  --ctx-border-bold: var(--color-default-brown-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-brown-800);
-  --ctx-text-pressed: var(--color-default-brown-800);
   --ctx-background-hover: var(--color-default-brown-200);
-  --ctx-background-pressed: var(--color-default-brown-300);
-  --ctx-gradient-hover: var(--color-default-brown-300);
-  --ctx-gradient-pressed: var(--color-default-brown-300);
-  --ctx-border-hover: var(--color-default-brown-300);
-  --ctx-border-pressed: var(--color-default-brown-300);
+  --ctx-border-hover: var(--color-default-brown-200);
 }
 
 @utility ctx-danger-bolder {
@@ -279,15 +215,11 @@
   --ctx-background: var(--color-default-red-700);
   --ctx-gradient: var(--color-default-red-800);
   --ctx-border: var(--color-default-red-700);
+  --ctx-border-bold: var(--color-default-red-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-red-200);
-  --ctx-text-pressed: var(--color-default-red-200);
   --ctx-background-hover: var(--color-default-red-800);
-  --ctx-background-pressed: var(--color-default-red-900);
-  --ctx-gradient-hover: var(--color-default-red-900);
-  --ctx-gradient-pressed: var(--color-default-red-900);
   --ctx-border-hover: var(--color-default-red-700);
-  --ctx-border-pressed: var(--color-default-red-700);
 }
 
 @utility ctx-danger-subtlest {
@@ -296,15 +228,11 @@
   --ctx-background: var(--color-default-red-100);
   --ctx-gradient: var(--color-default-red-200);
   --ctx-border: var(--color-default-red-300);
+  --ctx-border-bold: var(--color-default-red-800);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-red-800);
-  --ctx-text-pressed: var(--color-default-red-800);
   --ctx-background-hover: var(--color-default-red-200);
-  --ctx-background-pressed: var(--color-default-red-300);
-  --ctx-gradient-hover: var(--color-default-red-300);
-  --ctx-gradient-pressed: var(--color-default-red-300);
   --ctx-border-hover: var(--color-default-red-300);
-  --ctx-border-pressed: var(--color-default-red-300);
 }
 
 @utility ctx-gray-bolder {
@@ -312,16 +240,12 @@
   --ctx-text-bold: var(--color-default-neutral-100);
   --ctx-background: var(--color-default-neutral-700);
   --ctx-gradient: var(--color-default-neutral-800);
-  --ctx-border: var(--color-default-neutral-700);
+  --ctx-border: var(--color-default-neutral-800);
+  --ctx-border-bold: var(--color-default-neutral-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-200);
-  --ctx-text-pressed: var(--color-default-neutral-200);
   --ctx-background-hover: var(--color-default-neutral-800);
-  --ctx-background-pressed: var(--color-default-neutral-900);
-  --ctx-gradient-hover: var(--color-default-neutral-900);
-  --ctx-gradient-pressed: var(--color-default-neutral-900);
-  --ctx-border-hover: var(--color-default-neutral-700);
-  --ctx-border-pressed: var(--color-default-neutral-700);
+  --ctx-border-hover: var(--color-default-neutral-800);
 }
 
 @utility ctx-gray-subtle {
@@ -330,15 +254,11 @@
   --ctx-background: var(--color-default-neutral-400);
   --ctx-gradient: var(--color-default-neutral-300);
   --ctx-border: var(--color-default-neutral-500);
+  --ctx-border-bold: var(--color-default-neutral-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-900);
-  --ctx-text-pressed: var(--color-default-neutral-900);
   --ctx-background-hover: var(--color-default-neutral-300);
-  --ctx-background-pressed: var(--color-default-neutral-200);
-  --ctx-gradient-hover: var(--color-default-neutral-200);
-  --ctx-gradient-pressed: var(--color-default-neutral-200);
   --ctx-border-hover: var(--color-default-neutral-500);
-  --ctx-border-pressed: var(--color-default-neutral-500);
 }
 
 @utility ctx-gray-subtler {
@@ -346,16 +266,12 @@
   --ctx-text-bold: var(--color-default-neutral-900);
   --ctx-background: var(--color-default-neutral-200);
   --ctx-gradient: var(--color-default-neutral-300);
-  --ctx-border: var(--color-default-neutral-400);
+  --ctx-border: var(--color-default-neutral-300);
+  --ctx-border-bold: var(--color-default-neutral-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-800);
-  --ctx-text-pressed: var(--color-default-neutral-800);
   --ctx-background-hover: var(--color-default-neutral-300);
-  --ctx-background-pressed: var(--color-default-neutral-400);
-  --ctx-gradient-hover: var(--color-default-neutral-400);
-  --ctx-gradient-pressed: var(--color-default-neutral-400);
-  --ctx-border-hover: var(--color-default-neutral-400);
-  --ctx-border-pressed: var(--color-default-neutral-400);
+  --ctx-border-hover: var(--color-default-neutral-300);
 }
 
 @utility ctx-gray-subtlest {
@@ -363,16 +279,12 @@
   --ctx-text-bold: var(--color-default-neutral-900);
   --ctx-background: var(--color-default-neutral-100);
   --ctx-gradient: var(--color-default-neutral-200);
-  --ctx-border: var(--color-default-neutral-300);
+  --ctx-border: var(--color-default-neutral-200);
+  --ctx-border-bold: var(--color-default-neutral-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-800);
-  --ctx-text-pressed: var(--color-default-neutral-800);
   --ctx-background-hover: var(--color-default-neutral-200);
-  --ctx-background-pressed: var(--color-default-neutral-300);
-  --ctx-gradient-hover: var(--color-default-neutral-300);
-  --ctx-gradient-pressed: var(--color-default-neutral-300);
-  --ctx-border-hover: var(--color-default-neutral-300);
-  --ctx-border-pressed: var(--color-default-neutral-300);
+  --ctx-border-hover: var(--color-default-neutral-200);
 }
 
 @utility ctx-green-bolder {
@@ -380,16 +292,12 @@
   --ctx-text-bold: var(--color-default-green-100);
   --ctx-background: var(--color-default-green-700);
   --ctx-gradient: var(--color-default-green-800);
-  --ctx-border: var(--color-default-green-700);
+  --ctx-border: var(--color-default-green-800);
+  --ctx-border-bold: var(--color-default-green-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-green-200);
-  --ctx-text-pressed: var(--color-default-green-200);
   --ctx-background-hover: var(--color-default-green-800);
-  --ctx-background-pressed: var(--color-default-green-900);
-  --ctx-gradient-hover: var(--color-default-green-900);
-  --ctx-gradient-pressed: var(--color-default-green-900);
-  --ctx-border-hover: var(--color-default-green-700);
-  --ctx-border-pressed: var(--color-default-green-700);
+  --ctx-border-hover: var(--color-default-green-800);
 }
 
 @utility ctx-green-subtle {
@@ -398,15 +306,11 @@
   --ctx-background: var(--color-default-green-400);
   --ctx-gradient: var(--color-default-green-300);
   --ctx-border: var(--color-default-green-500);
+  --ctx-border-bold: var(--color-default-green-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-green-900);
-  --ctx-text-pressed: var(--color-default-green-900);
   --ctx-background-hover: var(--color-default-green-300);
-  --ctx-background-pressed: var(--color-default-green-200);
-  --ctx-gradient-hover: var(--color-default-green-200);
-  --ctx-gradient-pressed: var(--color-default-green-200);
   --ctx-border-hover: var(--color-default-green-500);
-  --ctx-border-pressed: var(--color-default-green-500);
 }
 
 @utility ctx-green-subtler {
@@ -414,16 +318,12 @@
   --ctx-text-bold: var(--color-default-green-900);
   --ctx-background: var(--color-default-green-200);
   --ctx-gradient: var(--color-default-green-300);
-  --ctx-border: var(--color-default-green-400);
+  --ctx-border: var(--color-default-green-300);
+  --ctx-border-bold: var(--color-default-green-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-green-800);
-  --ctx-text-pressed: var(--color-default-green-800);
   --ctx-background-hover: var(--color-default-green-300);
-  --ctx-background-pressed: var(--color-default-green-400);
-  --ctx-gradient-hover: var(--color-default-green-400);
-  --ctx-gradient-pressed: var(--color-default-green-400);
-  --ctx-border-hover: var(--color-default-green-400);
-  --ctx-border-pressed: var(--color-default-green-400);
+  --ctx-border-hover: var(--color-default-green-300);
 }
 
 @utility ctx-green-subtlest {
@@ -431,16 +331,12 @@
   --ctx-text-bold: var(--color-default-green-900);
   --ctx-background: var(--color-default-green-100);
   --ctx-gradient: var(--color-default-green-200);
-  --ctx-border: var(--color-default-green-300);
+  --ctx-border: var(--color-default-green-200);
+  --ctx-border-bold: var(--color-default-green-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-green-800);
-  --ctx-text-pressed: var(--color-default-green-800);
   --ctx-background-hover: var(--color-default-green-200);
-  --ctx-background-pressed: var(--color-default-green-300);
-  --ctx-gradient-hover: var(--color-default-green-300);
-  --ctx-gradient-pressed: var(--color-default-green-300);
-  --ctx-border-hover: var(--color-default-green-300);
-  --ctx-border-pressed: var(--color-default-green-300);
+  --ctx-border-hover: var(--color-default-green-200);
 }
 
 @utility ctx-info-bolder {
@@ -449,15 +345,11 @@
   --ctx-background: var(--color-default-blue-700);
   --ctx-gradient: var(--color-default-blue-800);
   --ctx-border: var(--color-default-blue-700);
+  --ctx-border-bold: var(--color-default-blue-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-blue-200);
-  --ctx-text-pressed: var(--color-default-blue-200);
   --ctx-background-hover: var(--color-default-blue-800);
-  --ctx-background-pressed: var(--color-default-blue-900);
-  --ctx-gradient-hover: var(--color-default-blue-900);
-  --ctx-gradient-pressed: var(--color-default-blue-900);
   --ctx-border-hover: var(--color-default-blue-700);
-  --ctx-border-pressed: var(--color-default-blue-700);
 }
 
 @utility ctx-info-subtlest {
@@ -466,15 +358,11 @@
   --ctx-background: var(--color-default-blue-100);
   --ctx-gradient: var(--color-default-blue-200);
   --ctx-border: var(--color-default-blue-300);
+  --ctx-border-bold: var(--color-default-blue-800);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-blue-800);
-  --ctx-text-pressed: var(--color-default-blue-800);
   --ctx-background-hover: var(--color-default-blue-200);
-  --ctx-background-pressed: var(--color-default-blue-300);
-  --ctx-gradient-hover: var(--color-default-blue-300);
-  --ctx-gradient-pressed: var(--color-default-blue-300);
   --ctx-border-hover: var(--color-default-blue-300);
-  --ctx-border-pressed: var(--color-default-blue-300);
 }
 
 @utility ctx-magenta-bolder {
@@ -482,16 +370,12 @@
   --ctx-text-bold: var(--color-default-magenta-100);
   --ctx-background: var(--color-default-magenta-700);
   --ctx-gradient: var(--color-default-magenta-800);
-  --ctx-border: var(--color-default-magenta-700);
+  --ctx-border: var(--color-default-magenta-800);
+  --ctx-border-bold: var(--color-default-magenta-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-magenta-200);
-  --ctx-text-pressed: var(--color-default-magenta-200);
   --ctx-background-hover: var(--color-default-magenta-800);
-  --ctx-background-pressed: var(--color-default-magenta-900);
-  --ctx-gradient-hover: var(--color-default-magenta-900);
-  --ctx-gradient-pressed: var(--color-default-magenta-900);
-  --ctx-border-hover: var(--color-default-magenta-700);
-  --ctx-border-pressed: var(--color-default-magenta-700);
+  --ctx-border-hover: var(--color-default-magenta-800);
 }
 
 @utility ctx-magenta-subtle {
@@ -500,15 +384,11 @@
   --ctx-background: var(--color-default-magenta-400);
   --ctx-gradient: var(--color-default-magenta-300);
   --ctx-border: var(--color-default-magenta-500);
+  --ctx-border-bold: var(--color-default-magenta-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-magenta-900);
-  --ctx-text-pressed: var(--color-default-magenta-900);
   --ctx-background-hover: var(--color-default-magenta-300);
-  --ctx-background-pressed: var(--color-default-magenta-200);
-  --ctx-gradient-hover: var(--color-default-magenta-200);
-  --ctx-gradient-pressed: var(--color-default-magenta-200);
   --ctx-border-hover: var(--color-default-magenta-500);
-  --ctx-border-pressed: var(--color-default-magenta-500);
 }
 
 @utility ctx-magenta-subtler {
@@ -516,16 +396,12 @@
   --ctx-text-bold: var(--color-default-magenta-900);
   --ctx-background: var(--color-default-magenta-200);
   --ctx-gradient: var(--color-default-magenta-300);
-  --ctx-border: var(--color-default-magenta-400);
+  --ctx-border: var(--color-default-magenta-300);
+  --ctx-border-bold: var(--color-default-magenta-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-magenta-800);
-  --ctx-text-pressed: var(--color-default-magenta-800);
   --ctx-background-hover: var(--color-default-magenta-300);
-  --ctx-background-pressed: var(--color-default-magenta-400);
-  --ctx-gradient-hover: var(--color-default-magenta-400);
-  --ctx-gradient-pressed: var(--color-default-magenta-400);
-  --ctx-border-hover: var(--color-default-magenta-400);
-  --ctx-border-pressed: var(--color-default-magenta-400);
+  --ctx-border-hover: var(--color-default-magenta-300);
 }
 
 @utility ctx-magenta-subtlest {
@@ -533,16 +409,12 @@
   --ctx-text-bold: var(--color-default-magenta-900);
   --ctx-background: var(--color-default-magenta-100);
   --ctx-gradient: var(--color-default-magenta-200);
-  --ctx-border: var(--color-default-magenta-300);
+  --ctx-border: var(--color-default-magenta-200);
+  --ctx-border-bold: var(--color-default-magenta-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-magenta-800);
-  --ctx-text-pressed: var(--color-default-magenta-800);
   --ctx-background-hover: var(--color-default-magenta-200);
-  --ctx-background-pressed: var(--color-default-magenta-300);
-  --ctx-gradient-hover: var(--color-default-magenta-300);
-  --ctx-gradient-pressed: var(--color-default-magenta-300);
-  --ctx-border-hover: var(--color-default-magenta-300);
-  --ctx-border-pressed: var(--color-default-magenta-300);
+  --ctx-border-hover: var(--color-default-magenta-200);
 }
 
 @utility ctx-neutral-bold {
@@ -551,15 +423,11 @@
   --ctx-background: var(--color-default-neutral-900);
   --ctx-gradient: var(--color-default-neutral-800);
   --ctx-border: var(--color-default-neutral-600);
+  --ctx-border-bold: var(--color-default-neutral-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-300);
-  --ctx-text-pressed: var(--color-default-neutral-300);
   --ctx-background-hover: var(--color-default-neutral-800);
-  --ctx-background-pressed: var(--color-default-neutral-700);
-  --ctx-gradient-hover: var(--color-default-neutral-700);
-  --ctx-gradient-pressed: var(--color-default-neutral-700);
   --ctx-border-hover: var(--color-default-neutral-600);
-  --ctx-border-pressed: var(--color-default-neutral-600);
 }
 
 @utility ctx-neutral-bolder {
@@ -568,15 +436,11 @@
   --ctx-background: var(--color-default-neutral-1000);
   --ctx-gradient: var(--color-default-neutral-900);
   --ctx-border: var(--color-default-neutral-700);
+  --ctx-border-bold: var(--color-default-neutral-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-200);
-  --ctx-text-pressed: var(--color-default-neutral-200);
   --ctx-background-hover: var(--color-default-neutral-900);
-  --ctx-background-pressed: var(--color-default-neutral-800);
-  --ctx-gradient-hover: var(--color-default-neutral-800);
-  --ctx-gradient-pressed: var(--color-default-neutral-800);
   --ctx-border-hover: var(--color-default-neutral-700);
-  --ctx-border-pressed: var(--color-default-neutral-700);
 }
 
 @utility ctx-neutral-boldest {
@@ -585,15 +449,11 @@
   --ctx-background: var(--color-default-neutral-1100);
   --ctx-gradient: var(--color-default-neutral-1000);
   --ctx-border: var(--color-default-neutral-800);
+  --ctx-border-bold: var(--color-default-neutral-300);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-100);
-  --ctx-text-pressed: var(--color-default-neutral-100);
   --ctx-background-hover: var(--color-default-neutral-1000);
-  --ctx-background-pressed: var(--color-default-neutral-900);
-  --ctx-gradient-hover: var(--color-default-neutral-900);
-  --ctx-gradient-pressed: var(--color-default-neutral-900);
   --ctx-border-hover: var(--color-default-neutral-800);
-  --ctx-border-pressed: var(--color-default-neutral-800);
 }
 
 @utility ctx-neutral-subtle {
@@ -602,15 +462,11 @@
   --ctx-background: var(--color-default-neutral-200);
   --ctx-gradient: var(--color-default-neutral-300);
   --ctx-border: var(--color-default-neutral-500);
+  --ctx-border-bold: var(--color-default-neutral-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-800);
-  --ctx-text-pressed: var(--color-default-neutral-800);
   --ctx-background-hover: var(--color-default-neutral-300);
-  --ctx-background-pressed: var(--color-default-neutral-400);
-  --ctx-gradient-hover: var(--color-default-neutral-400);
-  --ctx-gradient-pressed: var(--color-default-neutral-400);
   --ctx-border-hover: var(--color-default-neutral-500);
-  --ctx-border-pressed: var(--color-default-neutral-500);
 }
 
 @utility ctx-neutral-subtler {
@@ -619,15 +475,11 @@
   --ctx-background: var(--color-default-neutral-100);
   --ctx-gradient: var(--color-default-neutral-200);
   --ctx-border: var(--color-default-neutral-400);
+  --ctx-border-bold: var(--color-default-neutral-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-900);
-  --ctx-text-pressed: var(--color-default-neutral-900);
   --ctx-background-hover: var(--color-default-neutral-200);
-  --ctx-background-pressed: var(--color-default-neutral-300);
-  --ctx-gradient-hover: var(--color-default-neutral-300);
-  --ctx-gradient-pressed: var(--color-default-neutral-300);
   --ctx-border-hover: var(--color-default-neutral-400);
-  --ctx-border-pressed: var(--color-default-neutral-400);
 }
 
 @utility ctx-neutral-subtlest {
@@ -636,15 +488,11 @@
   --ctx-background: var(--color-default-neutral-0);
   --ctx-gradient: var(--color-default-neutral-100);
   --ctx-border: var(--color-default-neutral-300);
+  --ctx-border-bold: var(--color-default-neutral-800);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-neutral-1000);
-  --ctx-text-pressed: var(--color-default-neutral-1000);
   --ctx-background-hover: var(--color-default-neutral-100);
-  --ctx-background-pressed: var(--color-default-neutral-200);
-  --ctx-gradient-hover: var(--color-default-neutral-200);
-  --ctx-gradient-pressed: var(--color-default-neutral-200);
   --ctx-border-hover: var(--color-default-neutral-300);
-  --ctx-border-pressed: var(--color-default-neutral-300);
 }
 
 @utility ctx-orange-bolder {
@@ -652,16 +500,12 @@
   --ctx-text-bold: var(--color-default-orange-100);
   --ctx-background: var(--color-default-orange-700);
   --ctx-gradient: var(--color-default-orange-800);
-  --ctx-border: var(--color-default-orange-700);
+  --ctx-border: var(--color-default-orange-800);
+  --ctx-border-bold: var(--color-default-orange-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-orange-200);
-  --ctx-text-pressed: var(--color-default-orange-200);
   --ctx-background-hover: var(--color-default-orange-800);
-  --ctx-background-pressed: var(--color-default-orange-900);
-  --ctx-gradient-hover: var(--color-default-orange-900);
-  --ctx-gradient-pressed: var(--color-default-orange-900);
-  --ctx-border-hover: var(--color-default-orange-700);
-  --ctx-border-pressed: var(--color-default-orange-700);
+  --ctx-border-hover: var(--color-default-orange-800);
 }
 
 @utility ctx-orange-subtle {
@@ -670,15 +514,11 @@
   --ctx-background: var(--color-default-orange-400);
   --ctx-gradient: var(--color-default-orange-300);
   --ctx-border: var(--color-default-orange-500);
+  --ctx-border-bold: var(--color-default-orange-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-orange-900);
-  --ctx-text-pressed: var(--color-default-orange-900);
   --ctx-background-hover: var(--color-default-orange-300);
-  --ctx-background-pressed: var(--color-default-orange-200);
-  --ctx-gradient-hover: var(--color-default-orange-200);
-  --ctx-gradient-pressed: var(--color-default-orange-200);
   --ctx-border-hover: var(--color-default-orange-500);
-  --ctx-border-pressed: var(--color-default-orange-500);
 }
 
 @utility ctx-orange-subtler {
@@ -686,16 +526,12 @@
   --ctx-text-bold: var(--color-default-orange-900);
   --ctx-background: var(--color-default-orange-200);
   --ctx-gradient: var(--color-default-orange-300);
-  --ctx-border: var(--color-default-orange-400);
+  --ctx-border: var(--color-default-orange-300);
+  --ctx-border-bold: var(--color-default-orange-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-orange-800);
-  --ctx-text-pressed: var(--color-default-orange-800);
   --ctx-background-hover: var(--color-default-orange-300);
-  --ctx-background-pressed: var(--color-default-orange-400);
-  --ctx-gradient-hover: var(--color-default-orange-400);
-  --ctx-gradient-pressed: var(--color-default-orange-400);
-  --ctx-border-hover: var(--color-default-orange-400);
-  --ctx-border-pressed: var(--color-default-orange-400);
+  --ctx-border-hover: var(--color-default-orange-300);
 }
 
 @utility ctx-orange-subtlest {
@@ -703,16 +539,12 @@
   --ctx-text-bold: var(--color-default-orange-900);
   --ctx-background: var(--color-default-orange-100);
   --ctx-gradient: var(--color-default-orange-200);
-  --ctx-border: var(--color-default-orange-300);
+  --ctx-border: var(--color-default-orange-200);
+  --ctx-border-bold: var(--color-default-orange-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-orange-800);
-  --ctx-text-pressed: var(--color-default-orange-800);
   --ctx-background-hover: var(--color-default-orange-200);
-  --ctx-background-pressed: var(--color-default-orange-300);
-  --ctx-gradient-hover: var(--color-default-orange-300);
-  --ctx-gradient-pressed: var(--color-default-orange-300);
-  --ctx-border-hover: var(--color-default-orange-300);
-  --ctx-border-pressed: var(--color-default-orange-300);
+  --ctx-border-hover: var(--color-default-orange-200);
 }
 
 @utility ctx-purple-bolder {
@@ -720,16 +552,12 @@
   --ctx-text-bold: var(--color-default-purple-100);
   --ctx-background: var(--color-default-purple-700);
   --ctx-gradient: var(--color-default-purple-800);
-  --ctx-border: var(--color-default-purple-700);
+  --ctx-border: var(--color-default-purple-800);
+  --ctx-border-bold: var(--color-default-purple-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-purple-200);
-  --ctx-text-pressed: var(--color-default-purple-200);
   --ctx-background-hover: var(--color-default-purple-800);
-  --ctx-background-pressed: var(--color-default-purple-900);
-  --ctx-gradient-hover: var(--color-default-purple-900);
-  --ctx-gradient-pressed: var(--color-default-purple-900);
-  --ctx-border-hover: var(--color-default-purple-700);
-  --ctx-border-pressed: var(--color-default-purple-700);
+  --ctx-border-hover: var(--color-default-purple-800);
 }
 
 @utility ctx-purple-subtle {
@@ -738,15 +566,11 @@
   --ctx-background: var(--color-default-purple-400);
   --ctx-gradient: var(--color-default-purple-300);
   --ctx-border: var(--color-default-purple-500);
+  --ctx-border-bold: var(--color-default-purple-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-purple-900);
-  --ctx-text-pressed: var(--color-default-purple-900);
   --ctx-background-hover: var(--color-default-purple-300);
-  --ctx-background-pressed: var(--color-default-purple-200);
-  --ctx-gradient-hover: var(--color-default-purple-200);
-  --ctx-gradient-pressed: var(--color-default-purple-200);
   --ctx-border-hover: var(--color-default-purple-500);
-  --ctx-border-pressed: var(--color-default-purple-500);
 }
 
 @utility ctx-purple-subtler {
@@ -754,16 +578,12 @@
   --ctx-text-bold: var(--color-default-purple-900);
   --ctx-background: var(--color-default-purple-200);
   --ctx-gradient: var(--color-default-purple-300);
-  --ctx-border: var(--color-default-purple-400);
+  --ctx-border: var(--color-default-purple-300);
+  --ctx-border-bold: var(--color-default-purple-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-purple-800);
-  --ctx-text-pressed: var(--color-default-purple-800);
   --ctx-background-hover: var(--color-default-purple-300);
-  --ctx-background-pressed: var(--color-default-purple-400);
-  --ctx-gradient-hover: var(--color-default-purple-400);
-  --ctx-gradient-pressed: var(--color-default-purple-400);
-  --ctx-border-hover: var(--color-default-purple-400);
-  --ctx-border-pressed: var(--color-default-purple-400);
+  --ctx-border-hover: var(--color-default-purple-300);
 }
 
 @utility ctx-purple-subtlest {
@@ -771,16 +591,12 @@
   --ctx-text-bold: var(--color-default-purple-900);
   --ctx-background: var(--color-default-purple-100);
   --ctx-gradient: var(--color-default-purple-200);
-  --ctx-border: var(--color-default-purple-300);
+  --ctx-border: var(--color-default-purple-200);
+  --ctx-border-bold: var(--color-default-purple-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-purple-800);
-  --ctx-text-pressed: var(--color-default-purple-800);
   --ctx-background-hover: var(--color-default-purple-200);
-  --ctx-background-pressed: var(--color-default-purple-300);
-  --ctx-gradient-hover: var(--color-default-purple-300);
-  --ctx-gradient-pressed: var(--color-default-purple-300);
-  --ctx-border-hover: var(--color-default-purple-300);
-  --ctx-border-pressed: var(--color-default-purple-300);
+  --ctx-border-hover: var(--color-default-purple-200);
 }
 
 @utility ctx-red-bolder {
@@ -788,16 +604,12 @@
   --ctx-text-bold: var(--color-default-red-100);
   --ctx-background: var(--color-default-red-700);
   --ctx-gradient: var(--color-default-red-800);
-  --ctx-border: var(--color-default-red-700);
+  --ctx-border: var(--color-default-red-800);
+  --ctx-border-bold: var(--color-default-red-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-red-200);
-  --ctx-text-pressed: var(--color-default-red-200);
   --ctx-background-hover: var(--color-default-red-800);
-  --ctx-background-pressed: var(--color-default-red-900);
-  --ctx-gradient-hover: var(--color-default-red-900);
-  --ctx-gradient-pressed: var(--color-default-red-900);
-  --ctx-border-hover: var(--color-default-red-700);
-  --ctx-border-pressed: var(--color-default-red-700);
+  --ctx-border-hover: var(--color-default-red-800);
 }
 
 @utility ctx-red-subtle {
@@ -806,15 +618,11 @@
   --ctx-background: var(--color-default-red-400);
   --ctx-gradient: var(--color-default-red-300);
   --ctx-border: var(--color-default-red-500);
+  --ctx-border-bold: var(--color-default-red-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-red-900);
-  --ctx-text-pressed: var(--color-default-red-900);
   --ctx-background-hover: var(--color-default-red-300);
-  --ctx-background-pressed: var(--color-default-red-200);
-  --ctx-gradient-hover: var(--color-default-red-200);
-  --ctx-gradient-pressed: var(--color-default-red-200);
   --ctx-border-hover: var(--color-default-red-500);
-  --ctx-border-pressed: var(--color-default-red-500);
 }
 
 @utility ctx-red-subtler {
@@ -822,16 +630,12 @@
   --ctx-text-bold: var(--color-default-red-900);
   --ctx-background: var(--color-default-red-200);
   --ctx-gradient: var(--color-default-red-300);
-  --ctx-border: var(--color-default-red-400);
+  --ctx-border: var(--color-default-red-300);
+  --ctx-border-bold: var(--color-default-red-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-red-800);
-  --ctx-text-pressed: var(--color-default-red-800);
   --ctx-background-hover: var(--color-default-red-300);
-  --ctx-background-pressed: var(--color-default-red-400);
-  --ctx-gradient-hover: var(--color-default-red-400);
-  --ctx-gradient-pressed: var(--color-default-red-400);
-  --ctx-border-hover: var(--color-default-red-400);
-  --ctx-border-pressed: var(--color-default-red-400);
+  --ctx-border-hover: var(--color-default-red-300);
 }
 
 @utility ctx-red-subtlest {
@@ -839,16 +643,12 @@
   --ctx-text-bold: var(--color-default-red-900);
   --ctx-background: var(--color-default-red-100);
   --ctx-gradient: var(--color-default-red-200);
-  --ctx-border: var(--color-default-red-300);
+  --ctx-border: var(--color-default-red-200);
+  --ctx-border-bold: var(--color-default-red-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-red-800);
-  --ctx-text-pressed: var(--color-default-red-800);
   --ctx-background-hover: var(--color-default-red-200);
-  --ctx-background-pressed: var(--color-default-red-300);
-  --ctx-gradient-hover: var(--color-default-red-300);
-  --ctx-gradient-pressed: var(--color-default-red-300);
-  --ctx-border-hover: var(--color-default-red-300);
-  --ctx-border-pressed: var(--color-default-red-300);
+  --ctx-border-hover: var(--color-default-red-200);
 }
 
 @utility ctx-success-bolder {
@@ -857,15 +657,11 @@
   --ctx-background: var(--color-default-green-700);
   --ctx-gradient: var(--color-default-green-800);
   --ctx-border: var(--color-default-green-700);
+  --ctx-border-bold: var(--color-default-green-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-green-200);
-  --ctx-text-pressed: var(--color-default-green-200);
   --ctx-background-hover: var(--color-default-green-800);
-  --ctx-background-pressed: var(--color-default-green-900);
-  --ctx-gradient-hover: var(--color-default-green-900);
-  --ctx-gradient-pressed: var(--color-default-green-900);
   --ctx-border-hover: var(--color-default-green-700);
-  --ctx-border-pressed: var(--color-default-green-700);
 }
 
 @utility ctx-success-subtlest {
@@ -874,15 +670,11 @@
   --ctx-background: var(--color-default-green-100);
   --ctx-gradient: var(--color-default-green-200);
   --ctx-border: var(--color-default-green-300);
+  --ctx-border-bold: var(--color-default-green-800);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-green-800);
-  --ctx-text-pressed: var(--color-default-green-800);
   --ctx-background-hover: var(--color-default-green-200);
-  --ctx-background-pressed: var(--color-default-green-300);
-  --ctx-gradient-hover: var(--color-default-green-300);
-  --ctx-gradient-pressed: var(--color-default-green-300);
   --ctx-border-hover: var(--color-default-green-300);
-  --ctx-border-pressed: var(--color-default-green-300);
 }
 
 @utility ctx-teal-bolder {
@@ -890,16 +682,12 @@
   --ctx-text-bold: var(--color-default-teal-100);
   --ctx-background: var(--color-default-teal-700);
   --ctx-gradient: var(--color-default-teal-800);
-  --ctx-border: var(--color-default-teal-700);
+  --ctx-border: var(--color-default-teal-800);
+  --ctx-border-bold: var(--color-default-teal-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-teal-200);
-  --ctx-text-pressed: var(--color-default-teal-200);
   --ctx-background-hover: var(--color-default-teal-800);
-  --ctx-background-pressed: var(--color-default-teal-900);
-  --ctx-gradient-hover: var(--color-default-teal-900);
-  --ctx-gradient-pressed: var(--color-default-teal-900);
-  --ctx-border-hover: var(--color-default-teal-700);
-  --ctx-border-pressed: var(--color-default-teal-700);
+  --ctx-border-hover: var(--color-default-teal-800);
 }
 
 @utility ctx-teal-subtle {
@@ -908,15 +696,11 @@
   --ctx-background: var(--color-default-teal-400);
   --ctx-gradient: var(--color-default-teal-300);
   --ctx-border: var(--color-default-teal-500);
+  --ctx-border-bold: var(--color-default-teal-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-teal-900);
-  --ctx-text-pressed: var(--color-default-teal-900);
   --ctx-background-hover: var(--color-default-teal-300);
-  --ctx-background-pressed: var(--color-default-teal-200);
-  --ctx-gradient-hover: var(--color-default-teal-200);
-  --ctx-gradient-pressed: var(--color-default-teal-200);
   --ctx-border-hover: var(--color-default-teal-500);
-  --ctx-border-pressed: var(--color-default-teal-500);
 }
 
 @utility ctx-teal-subtler {
@@ -924,16 +708,12 @@
   --ctx-text-bold: var(--color-default-teal-900);
   --ctx-background: var(--color-default-teal-200);
   --ctx-gradient: var(--color-default-teal-300);
-  --ctx-border: var(--color-default-teal-400);
+  --ctx-border: var(--color-default-teal-300);
+  --ctx-border-bold: var(--color-default-teal-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-teal-800);
-  --ctx-text-pressed: var(--color-default-teal-800);
   --ctx-background-hover: var(--color-default-teal-300);
-  --ctx-background-pressed: var(--color-default-teal-400);
-  --ctx-gradient-hover: var(--color-default-teal-400);
-  --ctx-gradient-pressed: var(--color-default-teal-400);
-  --ctx-border-hover: var(--color-default-teal-400);
-  --ctx-border-pressed: var(--color-default-teal-400);
+  --ctx-border-hover: var(--color-default-teal-300);
 }
 
 @utility ctx-teal-subtlest {
@@ -941,16 +721,12 @@
   --ctx-text-bold: var(--color-default-teal-900);
   --ctx-background: var(--color-default-teal-100);
   --ctx-gradient: var(--color-default-teal-200);
-  --ctx-border: var(--color-default-teal-300);
+  --ctx-border: var(--color-default-teal-200);
+  --ctx-border-bold: var(--color-default-teal-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-teal-800);
-  --ctx-text-pressed: var(--color-default-teal-800);
   --ctx-background-hover: var(--color-default-teal-200);
-  --ctx-background-pressed: var(--color-default-teal-300);
-  --ctx-gradient-hover: var(--color-default-teal-300);
-  --ctx-gradient-pressed: var(--color-default-teal-300);
-  --ctx-border-hover: var(--color-default-teal-300);
-  --ctx-border-pressed: var(--color-default-teal-300);
+  --ctx-border-hover: var(--color-default-teal-200);
 }
 
 @utility ctx-warning-bolder {
@@ -959,15 +735,11 @@
   --ctx-background: var(--color-default-yellow-700);
   --ctx-gradient: var(--color-default-yellow-800);
   --ctx-border: var(--color-default-yellow-700);
+  --ctx-border-bold: var(--color-default-yellow-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-yellow-200);
-  --ctx-text-pressed: var(--color-default-yellow-200);
   --ctx-background-hover: var(--color-default-yellow-800);
-  --ctx-background-pressed: var(--color-default-yellow-900);
-  --ctx-gradient-hover: var(--color-default-yellow-900);
-  --ctx-gradient-pressed: var(--color-default-yellow-900);
   --ctx-border-hover: var(--color-default-yellow-700);
-  --ctx-border-pressed: var(--color-default-yellow-700);
 }
 
 @utility ctx-warning-subtlest {
@@ -976,15 +748,11 @@
   --ctx-background: var(--color-default-yellow-100);
   --ctx-gradient: var(--color-default-yellow-200);
   --ctx-border: var(--color-default-yellow-300);
+  --ctx-border-bold: var(--color-default-yellow-800);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-yellow-800);
-  --ctx-text-pressed: var(--color-default-yellow-800);
   --ctx-background-hover: var(--color-default-yellow-200);
-  --ctx-background-pressed: var(--color-default-yellow-300);
-  --ctx-gradient-hover: var(--color-default-yellow-300);
-  --ctx-gradient-pressed: var(--color-default-yellow-300);
   --ctx-border-hover: var(--color-default-yellow-300);
-  --ctx-border-pressed: var(--color-default-yellow-300);
 }
 
 @utility ctx-yellow-bolder {
@@ -992,16 +760,12 @@
   --ctx-text-bold: var(--color-default-yellow-100);
   --ctx-background: var(--color-default-yellow-700);
   --ctx-gradient: var(--color-default-yellow-800);
-  --ctx-border: var(--color-default-yellow-700);
+  --ctx-border: var(--color-default-yellow-800);
+  --ctx-border-bold: var(--color-default-yellow-600);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-yellow-200);
-  --ctx-text-pressed: var(--color-default-yellow-200);
   --ctx-background-hover: var(--color-default-yellow-800);
-  --ctx-background-pressed: var(--color-default-yellow-900);
-  --ctx-gradient-hover: var(--color-default-yellow-900);
-  --ctx-gradient-pressed: var(--color-default-yellow-900);
-  --ctx-border-hover: var(--color-default-yellow-700);
-  --ctx-border-pressed: var(--color-default-yellow-700);
+  --ctx-border-hover: var(--color-default-yellow-800);
 }
 
 @utility ctx-yellow-subtle {
@@ -1010,15 +774,11 @@
   --ctx-background: var(--color-default-yellow-400);
   --ctx-gradient: var(--color-default-yellow-300);
   --ctx-border: var(--color-default-yellow-500);
+  --ctx-border-bold: var(--color-default-yellow-700);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-yellow-900);
-  --ctx-text-pressed: var(--color-default-yellow-900);
   --ctx-background-hover: var(--color-default-yellow-300);
-  --ctx-background-pressed: var(--color-default-yellow-200);
-  --ctx-gradient-hover: var(--color-default-yellow-200);
-  --ctx-gradient-pressed: var(--color-default-yellow-200);
   --ctx-border-hover: var(--color-default-yellow-500);
-  --ctx-border-pressed: var(--color-default-yellow-500);
 }
 
 @utility ctx-yellow-subtler {
@@ -1026,16 +786,12 @@
   --ctx-text-bold: var(--color-default-yellow-900);
   --ctx-background: var(--color-default-yellow-200);
   --ctx-gradient: var(--color-default-yellow-300);
-  --ctx-border: var(--color-default-yellow-400);
+  --ctx-border: var(--color-default-yellow-300);
+  --ctx-border-bold: var(--color-default-yellow-500);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-yellow-800);
-  --ctx-text-pressed: var(--color-default-yellow-800);
   --ctx-background-hover: var(--color-default-yellow-300);
-  --ctx-background-pressed: var(--color-default-yellow-400);
-  --ctx-gradient-hover: var(--color-default-yellow-400);
-  --ctx-gradient-pressed: var(--color-default-yellow-400);
-  --ctx-border-hover: var(--color-default-yellow-400);
-  --ctx-border-pressed: var(--color-default-yellow-400);
+  --ctx-border-hover: var(--color-default-yellow-300);
 }
 
 @utility ctx-yellow-subtlest {
@@ -1043,14 +799,10 @@
   --ctx-text-bold: var(--color-default-yellow-900);
   --ctx-background: var(--color-default-yellow-100);
   --ctx-gradient: var(--color-default-yellow-200);
-  --ctx-border: var(--color-default-yellow-300);
+  --ctx-border: var(--color-default-yellow-200);
+  --ctx-border-bold: var(--color-default-yellow-400);
   --ctx-shadow: var(--color-neutral-alpha-500A);
   --ctx-text-hover: var(--color-default-yellow-800);
-  --ctx-text-pressed: var(--color-default-yellow-800);
   --ctx-background-hover: var(--color-default-yellow-200);
-  --ctx-background-pressed: var(--color-default-yellow-300);
-  --ctx-gradient-hover: var(--color-default-yellow-300);
-  --ctx-gradient-pressed: var(--color-default-yellow-300);
-  --ctx-border-hover: var(--color-default-yellow-300);
-  --ctx-border-pressed: var(--color-default-yellow-300);
+  --ctx-border-hover: var(--color-default-yellow-200);
 }

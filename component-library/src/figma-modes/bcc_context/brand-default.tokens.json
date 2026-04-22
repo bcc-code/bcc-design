@@ -106,16 +106,6 @@
       "com.figma.isOverride": true
     }
   },
-  "ctx-text-pressed": {
-    "$type": "color",
-    "$value": "{ctx-text}",
-    "$extensions": {
-      "com.figma.scopes": [
-        "TEXT_FILL"
-      ],
-      "com.figma.isOverride": true
-    }
-  },
   "ctx-background": {
     "$type": "color",
     "$value": {
@@ -142,17 +132,6 @@
     }
   },
   "ctx-background-hover": {
-    "$type": "color",
-    "$value": "{ctx-background}",
-    "$extensions": {
-      "com.figma.scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
-      "com.figma.isOverride": true
-    }
-  },
-  "ctx-background-pressed": {
     "$type": "color",
     "$value": "{ctx-background}",
     "$extensions": {
@@ -221,16 +200,6 @@
       "com.figma.isOverride": true
     }
   },
-  "ctx-border-pressed": {
-    "$type": "color",
-    "$value": "{ctx-border}",
-    "$extensions": {
-      "com.figma.scopes": [
-        "STROKE_COLOR"
-      ],
-      "com.figma.isOverride": true
-    }
-  },
   "ctx-shadow": {
     "$type": "color",
     "$value": {
@@ -258,28 +227,6 @@
   "ctx-gradient": {
     "$type": "color",
     "$value": "{ctx-background-hover}",
-    "$extensions": {
-      "com.figma.scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
-      "com.figma.isOverride": true
-    }
-  },
-  "ctx-gradient-hover": {
-    "$type": "color",
-    "$value": "{ctx-background-pressed}",
-    "$extensions": {
-      "com.figma.scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL"
-      ],
-      "com.figma.isOverride": true
-    }
-  },
-  "ctx-gradient-pressed": {
-    "$type": "color",
-    "$value": "{ctx-background-pressed}",
     "$extensions": {
       "com.figma.scopes": [
         "FRAME_FILL",

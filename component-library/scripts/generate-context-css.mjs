@@ -82,15 +82,12 @@ function emitUtilityBlock(ctxClass, resolved) {
 		'ctx-background',
 		'ctx-gradient',
 		'ctx-border',
+		'ctx-border-bold',
 		'ctx-shadow',
 		'ctx-text-hover',
-		'ctx-text-pressed',
 		'ctx-background-hover',
-		'ctx-background-pressed',
 		'ctx-gradient-hover',
-		'ctx-gradient-pressed',
 		'ctx-border-hover',
-		'ctx-border-pressed',
 	];
 	const decls = baseKeys
 		.map(k => {

@@ -18,7 +18,6 @@
           "icon": "secondary/neutral/1100",
           "bg": "default/neutral/0",
           "bgHover": "default/neutral/100",
-          "bgPressed": "default/neutral/200",
           "border": "default/neutral/300",
           "borderBold": "default/neutral/800"
         },
@@ -30,7 +29,6 @@
           "icon": "secondary/neutral/1100",
           "bg": "default/neutral/0",
           "bgHover": "default/neutral/100",
-          "bgPressed": "default/neutral/200",
           "border": "default/neutral/300",
           "borderBold": "default/neutral/800"
         },
@@ -42,7 +40,6 @@
           "icon": "secondary/neutral/1000",
           "bg": "default/neutral/100",
           "bgHover": "default/neutral/200",
-          "bgPressed": "default/neutral/300",
           "border": "default/neutral/400",
           "borderBold": "default/neutral/700"
         },
@@ -54,7 +51,6 @@
           "icon": "secondary/neutral/800",
           "bg": "default/neutral/200",
           "bgHover": "default/neutral/300",
-          "bgPressed": "default/neutral/400",
           "border": "default/neutral/500",
           "borderBold": "default/neutral/600"
         },
@@ -66,7 +62,6 @@
           "icon": "secondary/neutral/200",
           "bg": "default/neutral/900",
           "bgHover": "default/neutral/800",
-          "bgPressed": "default/neutral/700",
           "border": "default/neutral/600",
           "borderBold": "default/neutral/500"
         },
@@ -78,7 +73,6 @@
           "icon": "secondary/neutral/100",
           "bg": "default/neutral/1000",
           "bgHover": "default/neutral/900",
-          "bgPressed": "default/neutral/800",
           "border": "default/neutral/700",
           "borderBold": "default/neutral/400"
         },
@@ -90,7 +84,6 @@
           "icon": "secondary/neutral/0",
           "bg": "default/neutral/1100",
           "bgHover": "default/neutral/1000",
-          "bgPressed": "default/neutral/900",
           "border": "default/neutral/800",
           "borderBold": "default/neutral/300"
         }
@@ -114,68 +107,62 @@
         "subtlest": {
           "bg": "default/bcc/100",
           "bgHover": "default/bcc/200",
-          "bgPressed": "default/bcc/300",
           "text": "default/bcc/800",
           "textBold": "default/bcc/700",
           "textSubtle": "default/neutral/800",
           "icon": "secondary/neutral/1000",
-          "border": "default/bcc/300",
-          "borderBold": "default/bcc/800"
+          "border": "default/bcc/200",
+          "borderBold": "default/bcc/400"
         },
         "subtler": {
           "bg": "default/bcc/200",
           "bgHover": "default/bcc/300",
-          "bgPressed": "default/bcc/400",
           "text": "default/bcc/900",
           "textBold": "default/bcc/800",
           "textSubtle": "default/neutral/900",
           "icon": "secondary/neutral/900",
-          "border": "default/bcc/400",
-          "borderBold": "default/bcc/700"
+          "border": "default/bcc/300",
+          "borderBold": "default/bcc/500"
         },
         "subtle": {
           "bg": "default/bcc/400",
           "bgHover": "default/bcc/300",
-          "bgPressed": "default/bcc/200",
           "text": "default/bcc/1000",
           "textBold": "default/bcc/900",
           "textSubtle": "default/neutral/1000",
           "icon": "secondary/neutral/800",
           "border": "default/bcc/500",
-          "borderBold": "default/bcc/600"
+          "borderBold": "default/bcc/700"
         },
         "bold": {
           "bg": "default/bcc/600",
           "bgHover": "default/bcc/700",
-          "bgPressed": "default/bcc/800",
           "text": "default/bcc/200",
           "textBold": "default/neutral/100",
           "textSubtle": "default/bcc/300",
           "icon": "secondary/bcc/100",
-          "border": "default/bcc/600",
+          "border": "default/bcc/700",
           "borderBold": "default/bcc/500"
         },
         "bolder": {
           "bg": "default/bcc/800",
           "bgHover": "default/bcc/900",
-          "bgPressed": "default/bcc/1000",
           "text": "default/neutral/0",
           "textBold": "default/neutral/0",
           "textSubtle": "default/bcc/200",
           "icon": "secondary/bcc/100",
-          "border": "default/bcc/700",
-          "borderBold": "default/bcc/400"
+          "border": "default/bcc/900",
+          "borderBold": "default/bcc/700"
         },
         "boldest": {
           "bg": "default/bcc/1000",
           "bgHover": "default/bcc/900",
-          "bgPressed": "default/bcc/800",
           "text": "default/neutral/0",
           "textBold": "default/neutral/0",
           "textSubtle": "default/bcc/100",
           "icon": "secondary/neutral/0",
           "border": "default/bcc/800",
-          "borderBold": "default/bcc/300"
+          "borderBold": "default/bcc/600"
         }
       },
       "exceptions": {}
@@ -194,92 +181,84 @@
         "subtlest": {
           "bg": "default/{{hue}}/100",
           "bgHover": "default/{{hue}}/200",
-          "bgPressed": "default/{{hue}}/300",
+          "text": "default/{{hue}}/800",
+          "textBold": "default/{{hue}}/900",
+          "textSubtle": "default/{{hue}}/700",
+          "icon": "secondary/{{hue}}/800",
+          "border": "default/{{hue}}/200",
+          "borderBold": "default/{{hue}}/400"
+        },
+        "subtler": {
+          "bg": "default/{{hue}}/200",
+          "bgHover": "default/{{hue}}/300",
           "text": "default/{{hue}}/800",
           "textBold": "default/{{hue}}/900",
           "textSubtle": "default/{{hue}}/700",
           "icon": "secondary/{{hue}}/800",
           "border": "default/{{hue}}/300",
-          "borderBold": "default/{{hue}}/800"
-        },
-        "subtler": {
-          "bg": "default/{{hue}}/200",
-          "bgHover": "default/{{hue}}/300",
-          "bgPressed": "default/{{hue}}/400",
-          "text": "default/{{hue}}/800",
-          "textBold": "default/{{hue}}/900",
-          "textSubtle": "default/{{hue}}/700",
-          "icon": "secondary/{{hue}}/800",
-          "border": "default/{{hue}}/400",
-          "borderBold": "default/{{hue}}/700"
+          "borderBold": "default/{{hue}}/500"
         },
         "subtle": {
           "bg": "default/{{hue}}/400",
           "bgHover": "default/{{hue}}/300",
-          "bgPressed": "default/{{hue}}/200",
           "text": "default/{{hue}}/900",
           "textBold": "default/{{hue}}/1000",
           "textSubtle": "default/{{hue}}/800",
           "icon": "secondary/{{hue}}/1000",
           "border": "default/{{hue}}/500",
-          "borderBold": "default/{{hue}}/600"
+          "borderBold": "default/{{hue}}/700"
         },
         "bolder": {
           "bg": "default/{{hue}}/700",
           "bgHover": "default/{{hue}}/800",
-          "bgPressed": "default/{{hue}}/900",
           "text": "default/{{hue}}/200",
           "textBold": "default/{{hue}}/100",
           "textSubtle": "default/{{hue}}/300",
           "icon": "secondary/{{hue}}/100",
-          "border": "default/{{hue}}/700",
-          "borderBold": "default/{{hue}}/400"
+          "border": "default/{{hue}}/800",
+          "borderBold": "default/{{hue}}/600"
         }
       },
       "exceptions": {
         "accent-gray-subtlest": {
           "bg": "default/neutral/100",
           "bgHover": "default/neutral/200",
-          "bgPressed": "default/neutral/300",
+          "text": "default/neutral/800",
+          "textBold": "default/neutral/900",
+          "textSubtle": "default/neutral/700",
+          "icon": "secondary/neutral/800",
+          "border": "default/neutral/200",
+          "borderBold": "default/neutral/400"
+        },
+        "accent-gray-subtler": {
+          "bg": "default/neutral/200",
+          "bgHover": "default/neutral/300",
           "text": "default/neutral/800",
           "textBold": "default/neutral/900",
           "textSubtle": "default/neutral/700",
           "icon": "secondary/neutral/800",
           "border": "default/neutral/300",
-          "borderBold": "default/neutral/800"
-        },
-        "accent-gray-subtler": {
-          "bg": "default/neutral/200",
-          "bgHover": "default/neutral/300",
-          "bgPressed": "default/neutral/400",
-          "text": "default/neutral/800",
-          "textBold": "default/neutral/900",
-          "textSubtle": "default/neutral/700",
-          "icon": "secondary/neutral/800",
-          "border": "default/neutral/400",
-          "borderBold": "default/neutral/700"
+          "borderBold": "default/neutral/500"
         },
         "accent-gray-subtle": {
           "bg": "default/neutral/400",
           "bgHover": "default/neutral/300",
-          "bgPressed": "default/neutral/200",
           "text": "default/neutral/900",
           "textBold": "default/neutral/1000",
           "textSubtle": "default/neutral/800",
           "icon": "secondary/neutral/800",
           "border": "default/neutral/500",
-          "borderBold": "default/neutral/600"
+          "borderBold": "default/neutral/700"
         },
         "accent-gray-bolder": {
           "bg": "default/neutral/700",
           "bgHover": "default/neutral/800",
-          "bgPressed": "default/neutral/900",
           "text": "default/neutral/200",
           "textBold": "default/neutral/100",
           "textSubtle": "default/neutral/300",
           "icon": "secondary/neutral/100",
-          "border": "default/neutral/700",
-          "borderBold": "default/neutral/400"
+          "border": "default/neutral/800",
+          "borderBold": "default/neutral/600"
         }
       }
     },
@@ -298,7 +277,6 @@
         "subtlest": {
           "bg": "default/{{hue}}/100",
           "bgHover": "default/{{hue}}/200",
-          "bgPressed": "default/{{hue}}/300",
           "text": "default/{{hue}}/800",
           "textBold": "default/{{hue}}/900",
           "textSubtle": "default/{{hue}}/700",
@@ -309,7 +287,6 @@
         "bolder": {
           "bg": "default/{{hue}}/700",
           "bgHover": "default/{{hue}}/800",
-          "bgPressed": "default/{{hue}}/900",
           "text": "default/{{hue}}/200",
           "textBold": "default/{{hue}}/100",
           "textSubtle": "default/{{hue}}/300",

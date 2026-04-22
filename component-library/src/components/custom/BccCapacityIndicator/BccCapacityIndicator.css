@@ -18,16 +18,14 @@
 	.bcc-capacity-indicator {
 		--bcc-capacity-indicator-background: transparent;
 		--bcc-capacity-indicator-text: var(--ctx-text);
-		--bcc-capacity-indicator-circle: var(--ctx-background);
-		--bcc-capacity-indicator-circle-used: var(--color-brand-500);
+		--bcc-capacity-indicator-circle: var(--ctx-border);
+		--bcc-capacity-indicator-circle-used: var(--ctx-border-bold);
 		background: var(--bcc-capacity-indicator-background);
-		@apply ctx-gray-subtlest;
+		@apply ctx-gray-subtler;
 	}
 
 	.bcc-capacity-indicator.colored {
 		--bcc-capacity-indicator-background: var(--ctx-background);
-		--bcc-capacity-indicator-circle: var(--ctx-background-hover);
-		--bcc-capacity-indicator-circle-used: var(--ctx-border);
 		@apply ctx-blue-subtlest;
 	}
 
@@ -43,13 +41,10 @@
 
 	.bcc-capacity-indicator.is-warning {
 		@apply ctx-yellow-subtlest;
-		--bcc-capacity-indicator-circle-used: var(--ctx-border);
 	}
 
 	.bcc-capacity-indicator.is-full {
 		@apply ctx-red-subtlest;
-
-		--bcc-capacity-indicator-circle: var(--ctx-background);
-		--bcc-capacity-indicator-circle-used: var(--ctx-border);
+		--bcc-capacity-indicator-background: var(--ctx-background);
 	}
 }

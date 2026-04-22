@@ -26,18 +26,14 @@ const FIGMA_SCOPES = {
 	'ctx-text-subtle': ['TEXT_FILL'],
 	'ctx-icon': ['TEXT_FILL', 'SHAPE_FILL'],
 	'ctx-text-hover': ['TEXT_FILL'],
-	'ctx-text-pressed': ['TEXT_FILL'],
 	'ctx-background': ['FRAME_FILL', 'SHAPE_FILL'],
 	'ctx-background-hover': ['FRAME_FILL', 'SHAPE_FILL'],
-	'ctx-background-pressed': ['FRAME_FILL', 'SHAPE_FILL'],
 	'ctx-border': ['STROKE_COLOR'],
 	'ctx-border-bold': ['STROKE_COLOR'],
 	'ctx-border-hover': ['STROKE_COLOR'],
-	'ctx-border-pressed': ['STROKE_COLOR'],
 	'ctx-shadow': ['EFFECT_COLOR'],
 	'ctx-gradient': ['FRAME_FILL', 'SHAPE_FILL'],
 	'ctx-gradient-hover': ['FRAME_FILL', 'SHAPE_FILL'],
-	'ctx-gradient-pressed': ['FRAME_FILL', 'SHAPE_FILL'],
 };
 function getScopesForCtxKey(key) {
 	return FIGMA_SCOPES[key] || ['ALL_SCOPES'];
@@ -220,7 +216,6 @@ function buildCtxBlock(keys, semanticKeysSet, shadowPrimitive) {
 	const icon = sem(keys.icon, 'ctx-icon');
 	const bg = sem(keys.bg, 'ctx-background');
 	const bgHover = sem(keys.bgHover, 'ctx-background-hover');
-	const bgPressed = sem(keys.bgPressed, 'ctx-background-pressed');
 	const border = sem(keys.border, 'ctx-border');
 	const borderBold = sem(keys.borderBold, 'ctx-border-bold');
 
@@ -230,18 +225,13 @@ function buildCtxBlock(keys, semanticKeysSet, shadowPrimitive) {
 		'ctx-text-subtle': textSubtle ?? text ?? ctxTokenAlias(semanticName('default', 'neutral/900'), 'ctx-text-subtle'),
 		'ctx-icon': icon ?? text ?? ctxTokenAlias(semanticName('secondary', 'neutral/1100'), 'ctx-icon'),
 		'ctx-text-hover': ctxTokenRef('{ctx-text}', 'ctx-text-hover'),
-		'ctx-text-pressed': ctxTokenRef('{ctx-text}', 'ctx-text-pressed'),
 		'ctx-background': bg ?? ctxTokenAlias(semanticName('default', 'neutral/0'), 'ctx-background'),
 		'ctx-background-hover': bgHover ?? ctxTokenRef('{ctx-background}', 'ctx-background-hover'),
-		'ctx-background-pressed': bgPressed ?? ctxTokenRef('{ctx-background}', 'ctx-background-pressed'),
 		'ctx-border': border ?? ctxTokenAlias(semanticName('default', 'neutral/700'), 'ctx-border'),
 		'ctx-border-bold': borderBold ?? border ?? ctxTokenAlias(semanticName('default', 'neutral/800'), 'ctx-border-bold'),
 		'ctx-border-hover': ctxTokenRef('{ctx-border}', 'ctx-border-hover'),
-		'ctx-border-pressed': ctxTokenRef('{ctx-border}', 'ctx-border-pressed'),
 		'ctx-shadow': shadowToken(shadowPrimitive),
 		'ctx-gradient': ctxTokenRef('{ctx-background-hover}', 'ctx-gradient'),
-		'ctx-gradient-hover': ctxTokenRef('{ctx-background-pressed}', 'ctx-gradient-hover'),
-		'ctx-gradient-pressed': ctxTokenRef('{ctx-background-pressed}', 'ctx-gradient-pressed'),
 	};
 }
 
