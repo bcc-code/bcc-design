@@ -1,3 +1,4 @@
+import { BCC_CONTEXT_LIST } from '@/contexts';
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
 import BccCapacityIndicator from './BccCapacityIndicator.vue';
@@ -12,6 +13,7 @@ const meta: Meta<typeof BccCapacityIndicator> = {
 		animationDuration: { control: 'number' },
 		squared: { control: 'boolean' },
 		colored: { control: 'boolean' },
+		context: { control: 'select', options: BCC_CONTEXT_LIST.filter(ctx => ctx.includes('-subtle')) },
 	},
 };
 
