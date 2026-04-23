@@ -73,7 +73,7 @@ jobs:
         working-directory: .
 
       - name: Create GitHub release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           token: ${{ secrets.BCC_BOT_ACCESS_TOKEN }}
           draft: false
