@@ -18,4 +18,7 @@
     .bcc-tabs-fluid.p-tabs {
         width: 100%;
     }
+    .p-tabs .p-tab {
+        @apply heading-sm;
+    }
 }
