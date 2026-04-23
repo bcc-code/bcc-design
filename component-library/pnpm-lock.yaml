@@ -14,8 +14,8 @@ importers:
   .:
     dependencies:
       '@bcc-code/design-tokens':
-        specifier: ^5.2.3
-        version: 5.2.3(@primeuix/themes@2.0.3)
+        specifier: ^5.2.4
+        version: 5.2.4(@primeuix/themes@2.0.3)
       '@bcc-code/icons-vue':
         specifier: ^1.4.0
         version: 1.4.0(vue@3.5.27(typescript@5.7.3))
@@ -174,8 +174,8 @@ packages:
     resolution: {integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A==}
     engines: {node: '>=6.9.0'}
 
-  '@bcc-code/design-tokens@5.2.3':
-    resolution: {integrity: sha512-n9UpfTW4WsWdAMUWQXa+JDSZkGYJsTFf7BIG3kVnNULjfC4KOPa3WplbJSL6aMPLv6ALVkHhTQFE5dYxgntS8w==}
+  '@bcc-code/design-tokens@5.2.4':
+    resolution: {integrity: sha512-niuYWMMT8ViTDVfN5KcYnEqQpBx/7FJ/1TxmarhEQ8S29xYAafwG8/OO86TyFg+LIHztxlnkDy3iG5Lfkk9rwg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@primeuix/themes': ^2.0.0
@@ -3492,7 +3492,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@bcc-code/design-tokens@5.2.3(@primeuix/themes@2.0.3)':
+  '@bcc-code/design-tokens@5.2.4(@primeuix/themes@2.0.3)':
     dependencies:
       '@primeuix/themes': 2.0.3
 

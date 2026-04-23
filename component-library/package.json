@@ -54,7 +54,7 @@
     "create-version": "node ./scripts/version.cjs"
   },
   "dependencies": {
-    "@bcc-code/design-tokens": "^5.2.3",
+    "@bcc-code/design-tokens": "^5.2.4",
     "@bcc-code/icons-vue": "^1.4.0",
     "@primeuix/themes": "^2.0.3",
     "@tailwindcss/vite": "^4.1.18",
