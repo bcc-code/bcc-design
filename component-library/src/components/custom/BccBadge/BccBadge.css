@@ -4,6 +4,9 @@
 
 		@apply bg-ctx text-ctx;
 	}
+	.bcc-badge span:empty {
+		display: none;
+	}
 	.bcc-badge.gradient {
 		@apply ctx-gradient;
 	}
