@@ -464,14 +464,36 @@ function loadCssColors() {
 if (typeof window !== 'undefined' && window.matchMedia) {
 	const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 	const handleDarkModeChange = () => loadCssColors();
+	let mutationObserver: MutationObserver | null = null;
 
-	// Initial set
+	// Watch prefers-color-scheme
 	darkModeMediaQuery.addEventListener('change', handleDarkModeChange);
 
-	// Make sure to clean up the event on unmount if necessary
+	// Also watch for 'dark' class being toggled on <html>
+	const htmlEl = document.documentElement;
+	const observeDarkClass = () => {
+		if (!htmlEl) return;
+		mutationObserver = new MutationObserver(mutations => {
+			for (const mutation of mutations) {
+				if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+					loadCssColors();
+					break;
+				}
+			}
+		});
+		mutationObserver.observe(htmlEl, {
+			attributes: true,
+			attributeFilter: ['class'],
+		});
+	};
+	observeDarkClass();
 
 	onUnmounted(() => {
 		darkModeMediaQuery.removeEventListener('change', handleDarkModeChange);
+		if (mutationObserver) {
+			mutationObserver.disconnect();
+			mutationObserver = null;
+		}
 	});
 }
 </script>

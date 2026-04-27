@@ -43,10 +43,10 @@ export const Default = {
 			<div class="relative flex flex-col w-80 justify-center items-center gap-4">
 				<BccDialKnob v-bind="args" v-model="value">
 					<template #left>
-						<div class="opacity-40 p-4">Less</div>
+						<div class="text-subtlest p-4">Less</div>
 					</template>
 					<template #right>
-						<div class="opacity-40 p-4">More</div>
+						<div class="text-subtlest p-4">More</div>
 					</template>
 					<pre>{{ value }}</pre>
 				</BccDialKnob>
@@ -71,10 +71,10 @@ export const Colored = {
 			<div class="relative flex flex-col w-80 justify-center items-center gap-4">
 				<BccDialKnob v-bind="args" v-model="value">
 					<template #left>
-						<div class="opacity-40 p-4">Less</div>
+						<div class="text-subtlest p-4">Less</div>
 					</template>
 					<template #right>
-						<div class="opacity-40 p-4">More</div>
+						<div class="text-subtlest p-4">More</div>
 					</template>
 					<pre>{{ value }}</pre>
 				</BccDialKnob>
