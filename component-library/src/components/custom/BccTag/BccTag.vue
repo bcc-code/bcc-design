@@ -33,10 +33,19 @@ const badgeBindings = computed((): BadgeProps => {
 
 <template>
 	<BccBadge class="bcc-tag" :class="{ clickable }" v-bind="badgeBindings" :squared="!rounded">
-		<component :is="icon" v-if="icon" class="bcc-badge-icon" :class="{ 'order-1': iconRight === true }" />
+		<component
+			:is="icon"
+			v-if="icon"
+			class="bcc-badge-icon"
+			:class="{ 'order-1': iconRight === true || iconRight === '' }"
+		/>
 		<span v-if="$slots.default || text" :class="{ truncate }">
 			<slot>{{ text }}</slot>
 		</span>
-		<component :is="iconRight" v-if="iconRight && typeof iconRight !== 'boolean'" class="bcc-badge-icon" />
+		<component
+			:is="iconRight"
+			v-if="iconRight && typeof iconRight !== 'boolean' && iconRight !== ''"
+			class="bcc-badge-icon"
+		/>
 	</BccBadge>
 </template>

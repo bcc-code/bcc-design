@@ -114,6 +114,7 @@ export const IconVariants: Story = {
 			<div class="flex flex-wrap gap-2">
 				<BccTag :icon="TagIcon">Tag icon left</BccTag>
 				<BccTag :icon="LabelIcon" :icon-right="CheckCircleIcon">Icon right</BccTag>
+				<BccTag :icon="CheckCircleIcon" icon-right text="Icon right as bool" />
 				<BccTag :icon="LabelIcon" context="info">Label</BccTag>
 			</div>
 		`,
