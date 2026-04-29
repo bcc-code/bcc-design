@@ -1,7 +1,8 @@
 /** Custom styles to fix primevue components that are not custom or wrapped. */
 
 :root {
-	--p-toast-width: min(85vw, 400px);
+	--p-toast-width: min(85vw, calc(var(--spacing) * 100));
+	--p-tooltip-max-width: min(85vw, calc(var(--spacing) * 100));
 }
 
 /**

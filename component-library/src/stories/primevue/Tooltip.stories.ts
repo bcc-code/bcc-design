@@ -11,8 +11,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component:
-					'Short hint on hover or focus. [Read more on PrimeVue →](https://primevue.org/tooltip/)',
+				component: 'Short hint on hover or focus. [Read more on PrimeVue →](https://primevue.org/tooltip/)',
 			},
 		},
 	},
@@ -49,6 +48,21 @@ export const WithComponent: Story = {
 			<div>
 				<BccButton label="Show tooltip" v-tooltip="'Tooltip text'" />
 			</div>
+		`,
+	}),
+};
+
+export const WithLongTooltip: Story = {
+	render: () => ({
+		components: { BccButton },
+		setup() {},
+		template: `
+			<BccButton
+				label="Create new"
+				:icon="AddIcon"
+				class="mr-2"
+				v-tooltip.bottom="'Creates a new content item and opens the editor with the default metadata, permissions, and publishing settings already prepared so the next step is focused on the actual content instead of the setup.'"
+			/>
 		`,
 	}),
 };
