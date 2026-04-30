@@ -164,6 +164,76 @@ export const TwoIcons: Story = {
 	}),
 };
 
+export const TitleSlotOnly: Story = {
+	args: {
+		severity: 'info',
+		icon: true,
+		message: 'Message from args',
+	},
+	render: args => ({
+		components: { BccMessage },
+		setup() {
+			return { args };
+		},
+		template: `
+			<BccMessage v-bind="args">
+				<template #title>
+					Custom title <i>slot</i> content
+				</template>
+			</BccMessage>
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<template>
+				<BccMessage severity="info" icon message="Message from args">
+					<template #title>
+						Custom title <i>slot</i> content
+					</template>
+				</BccMessage>
+			</template>
+			`,
+			},
+		},
+	},
+};
+
+export const MessageSlotOnly: Story = {
+	args: {
+		severity: 'info',
+		icon: true,
+		title: 'Title from args',
+	},
+	render: args => ({
+		components: { BccMessage },
+		setup() {
+			return { args };
+		},
+		template: `
+			<BccMessage v-bind="args">
+				<template #message>
+					Custom message <b>slot content.</b>
+				</template>
+			</BccMessage>
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<template>
+				<BccMessage severity="info" icon title="Title from args">
+					<template #message>
+						Custom message <b>slot content.</b>
+					</template>
+				</BccMessage>
+			</template>
+			`,
+			},
+		},
+	},
+};
+
 export const Sizes: Story = {
 	render: () => ({
 		components: { BccMessage },

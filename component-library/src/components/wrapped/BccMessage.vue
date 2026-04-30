@@ -78,8 +78,12 @@ const iconWrapperStyles = computed(() => {
 		</template>
 		<slot>
 			<div>
-				<h4 v-if="title" class="heading-sm leading-lg">{{ title }}</h4>
-				<p v-if="message" class="body-md">{{ message }}</p>
+				<h4 v-if="title || $slots.title" class="heading-sm leading-lg">
+					<slot name="title">{{ title }}</slot>
+				</h4>
+				<p v-if="message || $slots.message" class="body-md">
+					<slot name="message">{{ message }}</slot>
+				</p>
 			</div>
 		</slot>
 	</BccMessage>
