@@ -5,8 +5,7 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:4-22-trixie",
 	"features": {
-		"ghcr.io/devcontainer-config/features/dot-config:4": {},
-		"ghcr.io/devcontainers/features/node:1": {
+		"ghcr.io/devcontainers/features/node:2.0.0": {
 			"pnpmVersion": "latest"
 		}
 	},
