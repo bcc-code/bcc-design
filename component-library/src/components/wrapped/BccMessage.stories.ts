@@ -54,8 +54,12 @@ export const Info: Story = {
 		components: { BccMessage },
 		template: `
 			<BccMessage severity="info" icon>
-				<b>Info message content.</b><br />
-				Multiple lines of text are also supported
+				<template #title>
+					Info message content.
+				</template>
+				<template #message>
+					Multiple lines of text are also supported
+				</template>
 			</BccMessage>
 		`,
 	}),
@@ -64,8 +68,10 @@ export const Info: Story = {
 			source: {
 				code: `<template>
 				<BccMessage severity="info" icon>
-					<b>Info message content.</b><br />
-					Multiple lines of text are also supported
+					<template #title>Info message content.</template>
+					<template #message>
+						Multiple lines of text are also supported
+					</template>
 				</BccMessage>
 			</template>
 			`,
@@ -75,7 +81,7 @@ export const Info: Story = {
 };
 
 export const Success: Story = {
-	args: { severity: 'success' },
+	args: { severity: 'success', icon: true },
 	render: args => ({
 		components: { BccMessage },
 		setup() {
@@ -88,7 +94,7 @@ export const Success: Story = {
 };
 
 export const Warn: Story = {
-	args: { severity: 'warn' },
+	args: { severity: 'warn', icon: true },
 	render: args => ({
 		components: { BccMessage },
 		setup() {
@@ -101,7 +107,7 @@ export const Warn: Story = {
 };
 
 export const Error: Story = {
-	args: { severity: 'error' },
+	args: { severity: 'error', icon: true },
 	render: args => ({
 		components: { BccMessage },
 		setup() {
@@ -114,7 +120,7 @@ export const Error: Story = {
 };
 
 export const Secondary: Story = {
-	args: { severity: 'secondary' },
+	args: { severity: 'secondary', icon: true },
 	render: args => ({
 		components: { BccMessage },
 		setup() {
@@ -127,7 +133,7 @@ export const Secondary: Story = {
 };
 
 export const Contrast: Story = {
-	args: { severity: 'contrast' },
+	args: { severity: 'contrast', icon: true },
 	render: args => ({
 		components: { BccMessage },
 		setup() {
@@ -159,7 +165,7 @@ export const TwoIcons: Story = {
 			return { CelebrationIcon, InfoIcon };
 		},
 		template: `
-			<BccMessage severity="info" :icon="InfoIcon" :icon-right="CelebrationIcon" title="Info message content." message="Multiple lines of text are also supported" />
+			<BccMessage severity="info" :icon="true" :icon-right="CelebrationIcon" title="Info message content." message="Multiple lines of text are also supported" />
 		`,
 	}),
 };
@@ -168,7 +174,7 @@ export const TitleSlotOnly: Story = {
 	args: {
 		severity: 'info',
 		icon: true,
-		message: 'Message from args',
+		message: 'Change message text below to test longer or shorter text.\nWhitespace is maintained',
 	},
 	render: args => ({
 		components: { BccMessage },
@@ -239,6 +245,9 @@ export const Sizes: Story = {
 		components: { BccMessage },
 		template: `
 			<BccMessage severity="info" icon size="small" title="Small message content." message="Multiple lines of text are also supported" />
+			<br />
+			<BccMessage severity="info" icon title="Default message content." message="Multiple lines of text are also supported" />
+			<br />
 			<BccMessage severity="info" icon size="large" title="Large message content." message="Multiple lines of text are also supported" />
 		`,
 	}),

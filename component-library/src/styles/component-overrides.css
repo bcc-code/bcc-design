@@ -163,7 +163,8 @@
 	}
 
 	.p-message-text {
-		line-height: var(--p-message-text-line-height);
+		line-height: 1;
+		flex: 1 1 0;
 	}
 
 	.p-multiselect {
