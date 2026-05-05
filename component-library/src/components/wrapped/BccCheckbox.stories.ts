@@ -102,3 +102,113 @@ export const Sizes: Story = {
 		`,
 	}),
 };
+
+export const JustifyBetweenWithCustomSlot: Story = {
+	render: () => ({
+		components: { BccCheckbox },
+		setup() {
+			const checked = ref(['left']);
+			return { checked };
+		},
+		template: `
+			<div class="w-full max-w-xl flex flex-col gap-2">
+				<BccCheckbox
+					justify="between"
+					v-model="checked"
+					value="left"
+				>
+					<span>
+						<strong>Left-aligned</strong>
+						<br />
+						<small class="text-xs text-neutral-500">Choose this for left</small>
+					</span>
+				</BccCheckbox>
+				<BccCheckbox
+					justify="between"
+					v-model="checked"
+					value="right"
+				>
+					<span>
+						<strong>Right-aligned</strong>
+						<br />
+						<small class="text-xs text-neutral-500">Choose this for right</small>
+					</span>
+				</BccCheckbox>
+			</div>
+		`,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Demonstrates use of `justify="between"` and custom slot HTML with rich content.',
+			},
+			source: {
+				code: `
+<script setup>
+import { ref } from 'vue';
+import { BccCheckbox } from '@bcc-code/component-library-vue';
+const checked = ref(['left']);
+</script>
+<template>
+	<div class="w-full max-w-xl flex flex-col gap-2">
+		<BccCheckbox
+			justify="between"
+			v-model="checked"
+			value="left"
+		>
+			<span>
+				<strong>Left-aligned</strong>
+				<br />
+				<small class="text-xs text-neutral-500">Choose this for left</small>
+			</span>
+		</BccCheckbox>
+		<BccCheckbox
+			justify="between"
+			v-model="checked"
+			value="right"
+		>
+			<span>
+				<strong>Right-aligned</strong>
+				<br />
+				<small class="text-xs text-neutral-500">Choose this for right</small>
+			</span>
+		</BccCheckbox>
+	</div>
+</template>
+				`,
+			},
+		},
+	},
+};
+
+export const LabelClass: Story = {
+	render: () => ({
+		components: { BccCheckbox },
+		setup() {
+			const checked = ref([]);
+			return { checked };
+		},
+		template: `
+			<div class="flex flex-col gap-4 max-w-md">
+				<BccCheckbox
+					v-model="checked"
+					value="default"
+					label="Default label class"
+				/>
+				<BccCheckbox
+					v-model="checked"
+					value="custom"
+					label="Custom label class"
+					labelClass="text-brand text-lg font-semibold"
+				/>
+			</div>
+		`,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Applies custom typography and color styles to the built-in label via `labelClass`.',
+			},
+		},
+	},
+};
