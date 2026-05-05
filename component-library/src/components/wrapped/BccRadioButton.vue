@@ -9,6 +9,7 @@ export type RadioButtonProps = PrimeRadioButtonProps & {
 	labelLeft?: boolean;
 	justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
 	labelClass?: string;
+	fluid?: boolean;
 };
 
 const props = defineProps<RadioButtonProps>();
@@ -31,7 +32,7 @@ const radioButtonBindings = computed(() => {
 </script>
 
 <template>
-	<div class="flex items-center gap-2" :class="justifyClass">
+	<div class="flex items-center gap-2" :class="[justifyClass, { 'w-full': fluid }]">
 		<PrimeRadioButton v-bind="radioButtonBindings" />
 		<label
 			v-if="label || $slots.default"

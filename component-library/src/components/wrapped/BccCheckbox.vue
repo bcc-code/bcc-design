@@ -10,6 +10,7 @@ export type CheckboxProps = PrimeCheckboxProps & {
 	labelLeft?: boolean;
 	justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
 	labelClass?: string;
+	fluid?: boolean;
 };
 
 const props = defineProps<CheckboxProps>();
@@ -35,7 +36,7 @@ const bindings = computed((): PrimeCheckboxProps => {
 </script>
 
 <template>
-	<div class="flex items-center gap-2" :class="justifyClass">
+	<div class="flex items-center gap-2" :class="[justifyClass, { 'w-full': fluid }]">
 		<PrimeCheckbox v-bind="bindings">
 			<template #icon="{ checked, indeterminate, class: IconClass }">
 				<CheckIcon v-if="checked" class="text-icon-inverse size-full" :class="IconClass" />
