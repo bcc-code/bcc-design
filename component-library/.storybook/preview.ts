@@ -251,6 +251,7 @@ const preview: Preview = {
 		options: {
 			storySort: {
 				order: [
+					'Readme',
 					'Foundations',
 					[
 						'Overview',

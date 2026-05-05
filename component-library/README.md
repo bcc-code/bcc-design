@@ -1,8 +1,8 @@
 # @bcc-code/component-library-vue
 
-Vue 3 component library built on [PrimeVue](https://primevue.org/) and BCC design tokens. You only need this package—no separate Tailwind or PrimeVue install.
+Vue 3 component library built on [PrimeVue](https://primevue.org/) and BCC design tokens. You **only** need this package—no separate Tailwind or PrimeVue install.
 
-## View on with [Storybook](https://components.bcc.no)
+### [Storybook Link](https://components.bcc.no)
 
 ## Install
 
@@ -14,9 +14,9 @@ npm install @bcc-code/component-library-vue
 yarn add @bcc-code/component-library-vue
 ```
 
-**Peer dependency:** Vue 3.
+**Min requirements:** Vue 3.
 
-**pnpm and BCC packages:** The library depends on `@bcc-code/icons-vue` and `@bcc-code/design-tokens`. To use them in your app (e.g. `import { CheckIcon } from '@bcc-code/icons-vue'` or design token imports) without adding those packages to your own `package.json`, add this to your project’s **`.npmrc`** so pnpm hoists them:
+**Note to PNPM installs:** The library uses `@bcc-code/icons-vue` and `@bcc-code/design-tokens`. To use them in your own app (e.g. `import { CheckIcon } from '@bcc-code/icons-vue'`) without needing to explicitly add install them in your own `package.json`, add this to your project’s **`.npmrc`** so pnpm hoists them:
 
 ```ini
 public-hoist-pattern[]=@bcc-code/icons-vue
@@ -41,11 +41,8 @@ app.mount('#app');
 
 2. **Add styles** using one of the two options below.
 
----
 
-## Styling: two options
-
-### Option 1 — Recommended: full Tailwind in your app
+### Styles Option 1 — Recommended: full Tailwind in your app
 
 Use this if you want Tailwind utility classes in your own templates and only ship the classes you use (tree-shaking).
 
@@ -69,7 +66,7 @@ export default defineConfig({
 
 Tailwind will run as part of your build and only include the utility classes that appear in your app and in the library.
 
-### Option 2 — Pre-built CSS only
+### Styles Option 2 — Pre-built CSS only
 
 Use this if you don’t want Tailwind in your project and only need the library’s styles and components.
 
@@ -81,11 +78,10 @@ import '@bcc-code/component-library-vue/style.css';
 
 You get the BCC theme and component styles only; no Tailwind utilities in your app.
 
----
 
-## Using components
+# Components
 
-All components are namespaced with `Bcc`. Use them in templates or register them globally after `app.use(BccComponentLibrary)`.
+All components are namespaced with `Bcc`. Use them in templates or register them globally in your `main.ts`.
 
 **Example:**
 
@@ -105,37 +101,23 @@ const name = ref('');
 </script>
 ```
 
-# Setup
+**Example:**
 
 ```ts
 // main.ts
-import { BccComponentLibrary } from '@bcc-code/component-library-vue';
+...
+import { BccButton, BccInput } from '@bcc-code/component-library-vue';
 
-const app = createApp(…)
-BccComponentLibrary(app);
-```
-
-```css
-/* styles.css */
-@import '@bcc-code/component-library-vue/theme.css';
-
-/* Optional include the archivo font */
-@import '@bcc-code/component-library-vue/archivo-font.css';
-font-family:
-	Archivo,
-	system-ui,
-	-apple-system,
-	BlinkMacSystemFont,
-	'Segoe UI',
-	'Open Sans',
-	sans-serif;
+// After app.use(BccComponentLibrary)
+app.component('BccButton', BccButton);
+app.component('BccInput', BccInput);
 ```
 
 The library exports both **custom BCC components** (e.g. `BccBadge`, `BccFrame`, `BccReact`) and **wrapped PrimeVue components** (e.g. `BccButton`, `BccDialog`, `BccDataTable`). PrimeVue services (Toast, Confirm, Dialog) are configured by `BccComponentLibrary`; use the composables `useToast`, `useConfirm`, and `useDialog` from the library when you need them.
 
 ---
 
-## Development
+# Development
 
 ```bash
 pnpm install
@@ -143,6 +125,15 @@ pnpm run start        # Storybook on port 6006
 pnpm run build        # Typecheck, types, and Vite build
 pnpm run build:vite   # Vite build only (includes theme.css)
 ```
+
+### Folder structure (where to work)
+
+- `src/components/custom`: New BCC-first components and component-specific styles/logic.
+- `src/components/wrapped`: PrimeVue wrapped components (`Bcc*`) where we adapt APIs, defaults, slots, and behavior.
+- `src/styles`: Design-system CSS layers (theme, contexts, semantic tokens, utility classes).
+- `src/index.ts`: Public exports; add new components/composables here so consumers can import them.
+- `docs` and `*.mdx`: Storybook docs pages and design guidance content.
+- `*.stories.ts`/`*.mdx` (in `src` or `docs`): Demos, docs, and regression coverage for components.
 
 ### Patching PrimeVue icons
 
