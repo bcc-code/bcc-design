@@ -72,6 +72,7 @@ export { default as BccDivider } from 'primevue/divider';
 export { default as BccDock } from 'primevue/dock';
 export { default as BccDrawer } from 'primevue/drawer';
 export { default as BccDynamicDialog } from 'primevue/dynamicdialog';
+export { default as BccEditor } from 'primevue/editor';
 export { default as BccFieldset } from 'primevue/fieldset';
 export { default as BccFileUpload } from 'primevue/fileupload';
 export { default as BccFloatLabel } from 'primevue/floatlabel';
