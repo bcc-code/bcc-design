@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { VueComponent } from '@/types';
 import { CheckIcon, ContrastIcon, ErrorIcon, InfoFillIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
-import BccMessage, { type MessageProps as PrimeMessageProps } from 'primevue/message';
+import PrimeMessage, { type MessageProps as PrimeMessageProps } from 'primevue/message';
 import { computed, type Component } from 'vue';
 
 export type MessageProps = Omit<PrimeMessageProps, 'icon'> & {
@@ -43,24 +43,22 @@ const iconClass = computed(() => {
 </script>
 
 <template>
-	<BccMessage v-bind="messageBindings">
+	<PrimeMessage v-bind="messageBindings">
 		<template v-if="icon" #icon>
 			<div :class="iconClass">
-				<component :is="icon === true ? SeverityIcons[severity || 'info'] : icon" />
+				<component :is="icon === true ? SeverityIcons[severity || 'info'] : icon" class="w-full" />
 			</div>
 			<div v-if="iconRight && iconRight !== true" :class="iconClass" class="order-1">
-				<component :is="iconRight" />
+				<component :is="iconRight" class="w-full" />
 			</div>
 		</template>
 		<slot>
 			<h4 v-if="title || $slots.title" class="heading-sm leading-lg!">
 				<slot name="title">{{ title }}</slot>
 			</h4>
-			<template v-if="message || $slots.message">
-				<p class="body-md whitespace-pre-line">
-					<slot name="message"> {{ message }}</slot>
-				</p>
-			</template>
+			<p v-if="message || $slots.message" class="body-md whitespace-pre-line">
+				<slot name="message"> {{ message }}</slot>
+			</p>
 		</slot>
-	</BccMessage>
+	</PrimeMessage>
 </template>
