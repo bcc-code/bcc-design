@@ -1,0 +1,33 @@
+/**
+ * Tailwind input for building dist/library-utilities.css.
+ *
+ * Output goal: emit ONLY the utility class rules used by the library's own
+ * components (e.g. .bg-brand-800, .pt-inset-top-1, .center, .ctx-brand-bold),
+ * with NO duplication of:
+ *   - Tailwind preflight
+ *   - @theme variables on :root
+ *   - design-token CSS variables from @bcc-code/design-tokens/css
+ *   - the inlined source CSS in dist/theme.css
+ * because all of those are already shipped via dist/theme.css.
+ *
+ * Mechanics:
+ *   - @reference loads theme variables, custom utilities, and custom variants
+ *     for resolution but does NOT emit any CSS for them.
+ *   - @import "tailwindcss/utilities" emits only the utilities layer.
+ *   - @source tells Tailwind which library files to scan for class candidates.
+ *
+ * Compiled by `tailwindcss` CLI in build:vite.
+ */
+
+@reference 'tailwindcss';
+@reference '@bcc-code/design-tokens/tailwind';
+@reference './styles/theme.css';
+@reference './styles/context.css';
+@reference './styles/contexts.css';
+@reference './styles/utilities.css';
+
+@import 'tailwindcss/utilities';
+
+@source './components/**/*.{vue,ts}';
+@source './index.ts';
+@source './setup.ts';

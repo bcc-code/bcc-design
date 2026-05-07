@@ -44,7 +44,7 @@ app.mount('#app');
 
 ### Styles Option 1 — Recommended: full Tailwind in your app
 
-Use this if you want Tailwind utility classes in your own templates and only ship the classes you use (tree-shaking).
+Use this if you want Tailwind utility classes in your own templates while still letting the library's components render correctly.
 
 1. **Add the Tailwind Vite plugin** (the package brings Tailwind in as a dependency; you only wire it up):
 
@@ -64,7 +64,10 @@ export default defineConfig({
 @import '@bcc-code/component-library-vue/theme.css';
 ```
 
-Tailwind will run as part of your build and only include the utility classes that appear in your app and in the library.
+That single import is enough. `theme.css` does two things:
+
+- It exposes the BCC design tokens and Tailwind utilities.
+- It also imports `library-utilities.css`, the pre-compiled CSS for the utility classes used **inside** the library's own components. 
 
 ### Styles Option 2 — Pre-built CSS only
 

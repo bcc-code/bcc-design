@@ -1,12 +1,21 @@
 #!/usr/bin/env node
 /**
  * Builds dist/theme.css for consumer apps. Inlines all local CSS so the output
- * has no relative imports; only @import "tailwindcss" and @import "@bcc-code/...".
- * Consumers import this file and use @tailwindcss/vite so Tailwind runs in their
- * build and they get full utility classes and tree-shaking.
+ * has only external @import statements (tailwindcss, @bcc-code/...) and ends
+ * with @import './library-utilities.css' so the library's compiled utility
+ * classes are automatically included for consumers running their own Tailwind.
+ *
+ * Consumers import this file and use @tailwindcss/vite so Tailwind runs in
+ * their build and exposes design tokens to their own classes, while the
+ * imported library-utilities.css supplies the utility classes used inside the
+ * library's compiled components (which Tailwind in the consumer's build cannot
+ * discover by default because the library ships as compiled JS).
+ *
+ * Expected to run AFTER `tailwindcss` CLI has produced dist/library-utilities.css
+ * from src/library-utilities-input.css (see package.json `build:vite`).
  */
 
-import { mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -14,6 +23,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const SRC = join(__dirname, '..', 'src');
 const DIST = join(__dirname, '..', 'dist');
 const OUT = join(DIST, 'theme.css');
+const LIBRARY_UTILITIES = join(DIST, 'library-utilities.css');
 const ARCHIVO_FONT_SRC = join(SRC, 'styles', 'archivo-font');
 const ARCHIVO_FONT_DIST = join(DIST, 'archivo-font');
 
@@ -70,7 +80,23 @@ function main() {
 		}
 		output += line + '\n';
 	}
+
 	mkdirSync(dirname(OUT), { recursive: true });
+
+	if (!existsSync(LIBRARY_UTILITIES)) {
+		console.warn(
+			`warning: ${LIBRARY_UTILITIES} not found. ` +
+				'Run `pnpm run build:library-utilities` (or the full `pnpm run build:vite`) first ' +
+				'so theme.css can @import the compiled library utilities.'
+		);
+	}
+
+	output +=
+		"\n/* Library utility classes, compiled from the library's own components.\n" +
+		'   Contains only the utility class rules used inside the library — no preflight, no @theme\n' +
+		'   variables, no design tokens, since theme.css already provides those. */\n' +
+		"@import './library-utilities.css';\n";
+
 	writeFileSync(OUT, output.trimEnd() + '\n');
 	console.log('Wrote dist/theme.css');
 }
