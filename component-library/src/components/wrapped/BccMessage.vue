@@ -44,13 +44,9 @@ const iconClass = computed(() => {
 
 <template>
 	<PrimeMessage v-bind="messageBindings">
-		<template v-if="icon" #icon>
-			<div :class="iconClass">
-				<component :is="icon === true ? SeverityIcons[severity || 'info'] : icon" class="w-full" />
-			</div>
-			<div v-if="iconRight && iconRight !== true" :class="iconClass" class="order-1">
-				<component :is="iconRight" class="w-full" />
-			</div>
+		<template v-if="icon || iconRight" #icon>
+			<component :is="icon === true ? SeverityIcons[severity || 'info'] : icon" :class="iconClass" />
+			<component :is="iconRight" v-if="iconRight && iconRight !== true" class="order-1" :class="iconClass" />
 		</template>
 		<slot>
 			<h4 v-if="title || $slots.title" class="heading-sm leading-lg!">

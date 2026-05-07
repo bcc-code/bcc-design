@@ -252,3 +252,45 @@ export const Sizes: Story = {
 		`,
 	}),
 };
+
+export const IconRightOnly: Story = {
+	render: () => ({
+		components: { BccMessage },
+		setup() {
+			return { CelebrationIcon };
+		},
+		template: `
+			<BccMessage severity="info" :icon-right="CelebrationIcon" title="Info with icon-right only" message="This message only has an icon on the right." />
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<template>
+	<BccMessage severity="info" :icon-right="CelebrationIcon" title="Info with icon-right only" message="This message only has an icon on the right." />
+</template>`,
+			},
+		},
+	},
+};
+
+export const IconAndIconRight: Story = {
+	render: () => ({
+		components: { BccMessage },
+		setup() {
+			return { CelebrationIcon, InfoIcon };
+		},
+		template: `
+			<BccMessage severity="info" :icon="InfoIcon" :icon-right="CelebrationIcon" title="Info with both icons" message="This message has both left and right icons." />
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<template>
+	<BccMessage severity="info" :icon="InfoIcon" :icon-right="CelebrationIcon" title="Info with both icons" message="This message has both left and right icons." />
+</template>`,
+			},
+		},
+	},
+};

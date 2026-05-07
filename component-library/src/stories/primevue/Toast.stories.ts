@@ -7,7 +7,8 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component: 'Notification messages (toast). [Read more on PrimeVue →](https://primevue.org/toast/)',
+				component:
+					'A toast is a message that appears at the bottom of the screen to notify the user of a success, error, or warning. [Read more on PrimeVue →](https://primevue.org/toast/)',
 			},
 		},
 	},
@@ -40,10 +41,6 @@ export const Default: Story = {
 	}),
 	parameters: {
 		docs: {
-			description: {
-				story:
-					'A toast is a message that appears at the bottom of the screen to notify the user of a success, error, or warning. [Read more on PrimeVue →](https://primevue.org/toast/)',
-			},
 			source: {
 				code: `
 					<BccToast />
@@ -64,7 +61,7 @@ export const AllSeverities: Story = {
 					severity,
 					summary: severity.charAt(0).toUpperCase() + severity.slice(1),
 					detail: `${severity} message`,
-					life: 30000,
+					life: 30_000,
 				});
 			};
 			return { show };
