@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { VueComponent } from '@/types';
-import { CheckIcon, ContrastIcon, ErrorIcon, InfoFillIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
+import { CheckIcon, ContrastIcon, ErrorIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
 import PrimeMessage, { type MessageProps as PrimeMessageProps } from 'primevue/message';
 import { computed, type Component } from 'vue';
 
@@ -22,7 +22,7 @@ const messageBindings = computed((): PrimeMessageProps => {
 });
 
 const SeverityIcons: Record<NonNullable<PrimeMessageProps['severity']>, Component> = {
-	info: InfoFillIcon,
+	info: InfoIcon,
 	success: CheckIcon,
 	warn: WarningIcon,
 	error: ErrorIcon,

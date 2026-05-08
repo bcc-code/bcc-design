@@ -49,100 +49,48 @@ export const Default: Story = {
 	}),
 };
 
-export const Info: Story = {
+export const Severities: Story = {
 	render: () => ({
 		components: { BccMessage },
 		template: `
-			<BccMessage severity="info" icon>
-				<template #title>
-					Info message content.
-				</template>
-				<template #message>
-					Multiple lines of text are also supported
-				</template>
-			</BccMessage>
+			<div class="flex flex-col gap-4">
+				<BccMessage severity="info" icon>
+					Info severity: Multiple lines of text are also supported
+				</BccMessage>
+				<BccMessage severity="success" icon>
+					Success severity: Operation completed successfully.
+				</BccMessage>
+				<BccMessage severity="warn" icon>
+					Warn severity: Please review before continuing.
+				</BccMessage>
+				<BccMessage severity="error" icon>
+					Error severity: Something went wrong.
+				</BccMessage>
+				<BccMessage severity="secondary" icon>
+					Secondary severity: Secondary message content.
+				</BccMessage>
+				<BccMessage severity="contrast" icon>
+					Contrast severity: Contrast message content.
+				</BccMessage>
+			</div>
 		`,
 	}),
 	parameters: {
 		docs: {
 			source: {
 				code: `<template>
-				<BccMessage severity="info" icon>
-					<template #title>Info message content.</template>
-					<template #message>
-						Multiple lines of text are also supported
-					</template>
-				</BccMessage>
-			</template>
-			`,
+	<div class="flex flex-col gap-4">
+		<BccMessage severity="info" icon>Info severity: Multiple lines of text are also supported</BccMessage>
+		<BccMessage severity="success" icon>Success severity: Operation completed successfully.</BccMessage>
+		<BccMessage severity="warn" icon>Warn severity: Please review before continuing.</BccMessage>
+		<BccMessage severity="error" icon>Error severity: Something went wrong.</BccMessage>
+		<BccMessage severity="secondary" icon>Secondary severity: Secondary message content.</BccMessage>
+		<BccMessage severity="contrast" icon>Contrast severity: Contrast message content.</BccMessage>
+	</div>
+</template>`,
 			},
 		},
 	},
-};
-
-export const Success: Story = {
-	args: { severity: 'success', icon: true },
-	render: args => ({
-		components: { BccMessage },
-		setup() {
-			return { args };
-		},
-		template: `
-			<BccMessage v-bind="args">Operation completed successfully.</BccMessage>
-		`,
-	}),
-};
-
-export const Warn: Story = {
-	args: { severity: 'warn', icon: true },
-	render: args => ({
-		components: { BccMessage },
-		setup() {
-			return { args };
-		},
-		template: `
-			<BccMessage v-bind="args">Please review before continuing.</BccMessage>
-		`,
-	}),
-};
-
-export const Error: Story = {
-	args: { severity: 'error', icon: true },
-	render: args => ({
-		components: { BccMessage },
-		setup() {
-			return { args };
-		},
-		template: `
-			<BccMessage v-bind="args">Something went wrong.</BccMessage>
-		`,
-	}),
-};
-
-export const Secondary: Story = {
-	args: { severity: 'secondary', icon: true },
-	render: args => ({
-		components: { BccMessage },
-		setup() {
-			return { args };
-		},
-		template: `
-			<BccMessage v-bind="args">Secondary message content.</BccMessage>
-		`,
-	}),
-};
-
-export const Contrast: Story = {
-	args: { severity: 'contrast', icon: true },
-	render: args => ({
-		components: { BccMessage },
-		setup() {
-			return { args };
-		},
-		template: `
-			<BccMessage v-bind="args">Contrast message content.</BccMessage>
-		`,
-	}),
 };
 
 export const CustomIcon: Story = {
