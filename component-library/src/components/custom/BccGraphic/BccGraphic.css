@@ -1,39 +1,48 @@
 @layer components {
-  .bcc-graphic .corner,
-  .bcc-graphic .center-slot {
-    @apply absolute z-10;
-  }
-  .bcc-graphic .corner.top-left {
-    @apply left-4 top-4;
-  }
-  .bcc-graphic .corner.top-right {
-    @apply right-4 top-4;
-  }
-  .bcc-graphic .corner.bottom-right {
-    @apply bottom-4 right-4;
-  }
-  .bcc-graphic .corner.bottom-left {
-    @apply bottom-4 left-4;
-  }
-  .bcc-graphic .center-slot {
-    @apply inset-1/4 h-1/2 w-1/2 flex items-center justify-center;
-  }
+	.bcc-graphic .corner,
+	.bcc-graphic .center-slot {
+		@apply absolute z-10;
+	}
+	.bcc-graphic .corner.top-left {
+		@apply top-4 left-4;
+	}
+	.bcc-graphic .corner.top-right {
+		@apply top-4 right-4;
+	}
+	.bcc-graphic .corner.bottom-right {
+		@apply right-4 bottom-4;
+	}
+	.bcc-graphic .corner.bottom-left {
+		@apply bottom-4 left-4;
+	}
+	.bcc-graphic .center-slot {
+		@apply inset-1/4 flex h-1/2 w-1/2 items-center justify-center;
+	}
 
-  .bcc-graphic {
-    @apply relative flex max-h-full w-full bg-linear-to-tr from-background-brand-bolder-default to-background-brand-subtle-default;
-  }
+	.bcc-graphic {
+		@apply from-background-brand-bolder-default to-background-brand-subtle-default relative flex max-h-full w-full bg-linear-to-tr;
+	}
 
-  .bcc-graphic-banner {
-    @apply absolute inset-0 h-full w-full object-cover object-center;
-  }
-  .bcc-graphic-banner--loading {
-    @apply animate-pulse bg-linear-to-tr from-background-brand-bolder-default to-background-brand-subtle-default;
-  }
+	.bcc-graphic-banner {
+		@apply absolute inset-0 h-full w-full object-cover object-center;
+	}
+	.bcc-graphic-banner--loading {
+		@apply from-background-brand-bolder-default to-background-brand-subtle-default animate-pulse bg-linear-to-tr;
+	}
 
-  .bcc-graphic-logo {
-    @apply absolute inset-1/4 h-1/2 w-1/2 object-contain object-center;
-  }
-  .bcc-graphic-logo--loading {
-    @apply animate-pulse bg-black opacity-10 blur-sm;
-  }
+	.bcc-graphic-logo {
+		@apply absolute inset-1/4 h-1/2 w-1/2 object-contain object-center;
+	}
+	.bcc-graphic-logo--loading {
+		@apply animate-pulse bg-black opacity-10 blur-sm;
+	}
+
+	.bcc-graphic.bcc-gb-grayscale .bcc-graphic-banner,
+	.bcc-graphic.bcc-gb-grayscale .bcc-graphic-logo {
+		@apply brightness-75 grayscale;
+	}
+	.bcc-graphic.bcc-gb-highlight .bcc-graphic-banner,
+	.bcc-graphic.bcc-gb-highlight .bcc-graphic-logo {
+		@apply brightness-150;
+	}
 }

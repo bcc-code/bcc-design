@@ -74,7 +74,7 @@ const aspectRatioStyle = computed(() => {
 	<div
 		class="bcc-graphic"
 		:style="`padding-bottom: ${aspectRatioStyle}`"
-		:class="[roundingClasses[rounding], { 'brightness-75 grayscale': grayscale, 'brightness-150': highlight }]"
+		:class="[roundingClasses[rounding], { 'bcc-gb-grayscale': grayscale, 'bcc-gb-highlight': highlight }]"
 	>
 		<template v-if="bannerSrc">
 			<img

@@ -88,13 +88,17 @@ export const Default: Story = {
  * Use the corner slots (`topLeft`, `topRight`, `bottomLeft`, `bottomRight`) to place content on the graphic.
  */
 export const WithCornerSlots: Story = {
-	render: () => ({
+	args: {
+		bannerSrc: 'https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png',
+		logoSrc: 'https://event.bcc.no/wp-content/uploads/2023/11/BUK4_Logo-Main.svg',
+	},
+	render: args => ({
 		components: { BccGraphic, CalendarViewDayIcon, CheckIcon },
+		setup() {
+			return { args };
+		},
 		template: `
-			<BccGraphic
-				bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"
-				logoSrc="https://event.bcc.no/wp-content/uploads/2023/11/BUK4_Logo-Main.svg"
-			>
+			<BccGraphic v-bind="args">
 				<template #topRight>
 					<CalendarViewDayIcon class="size-6 text-white drop-shadow-md" />
 				</template>
@@ -119,13 +123,17 @@ export const WithCornerSlots: Story = {
  * Link icon in the topRight corner slot.
  */
 export const WithLinkIcon: Story = {
-	render: () => ({
+	args: {
+		bannerSrc: 'https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png',
+		logoSrc: 'https://event.bcc.no/wp-content/uploads/2023/11/BUK4_Logo-Main.svg',
+	},
+	render: args => ({
 		components: { BccGraphic, CalendarViewDayIcon },
+		setup() {
+			return { args };
+		},
 		template: `
-			<BccGraphic
-				bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"
-				logoSrc="https://event.bcc.no/wp-content/uploads/2023/11/BUK4_Logo-Main.svg"
-			>
+			<BccGraphic v-bind="args">
 				<template #topRight>
 					<CalendarViewDayIcon class="size-6 text-white drop-shadow-md" />
 				</template>
@@ -138,12 +146,16 @@ export const WithLinkIcon: Story = {
  * Checkmark in the topLeft corner slot to indicate a selected or checked state.
  */
 export const WithCheckmark: Story = {
-	render: () => ({
+	args: {
+		bannerSrc: 'https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png',
+	},
+	render: args => ({
 		components: { BccGraphic, CheckIcon },
+		setup() {
+			return { args };
+		},
 		template: `
-			<BccGraphic
-				bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"
-			>
+			<BccGraphic v-bind="args">
 				<template #topLeft>
 					<div class="flex size-8 items-center justify-center rounded-full bg-primary text-white">
 						<CheckIcon class="size-5" />
