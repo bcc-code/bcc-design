@@ -64,10 +64,12 @@ export default defineConfig({
 @import '@bcc-code/component-library-vue/theme.css';
 ```
 
-That single import is enough. `theme.css` does two things:
+That single import is enough. `theme.css` includes:
 
-- It exposes the BCC design tokens and Tailwind utilities.
-- It also imports `library-utilities.css`, the pre-compiled CSS for the utility classes used **inside** the library's own components. 
+- BCC design tokens, `@theme` / `@utility` definitions, and the rest of the design-system CSS inlined from `src/style.css` (including component-specific rules such as `BccInput` icon sizing and `BccButton` context tokens).
+- `library-utilities.css`, the pre-compiled Tailwind **utility class** rules used inside library templates (which your build cannot infer from the published JS).
+
+Do **not** rely on `library-utilities.css` alone with a minimal “base” import: you still need the full `theme.css` (or `style.css` for Option 2) so non-utility component styles and tokens are present. 
 
 ### Styles Option 2 — Pre-built CSS only
 
