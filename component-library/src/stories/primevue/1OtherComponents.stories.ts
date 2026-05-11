@@ -40,8 +40,6 @@ const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string; description: str
 	{ name: 'PickList', slug: 'picklist', description: 'Transfer list to move items between source and target.' },
 	{ name: 'SpeedDial', slug: 'speeddial', description: 'FAB that expands to show multiple action buttons.' },
 	{ name: 'SplitButton', slug: 'splitbutton', description: 'Button with a dropdown for secondary actions.' },
-	{ name: 'Steps', slug: 'steps', description: 'Stepper / wizard indicator for multi-step flows.' },
-	{ name: 'Tag', slug: 'tag', description: 'Label or badge for categories, status, or counts.' },
 	{ name: 'Terminal', slug: 'terminal', description: 'Terminal-style text output and command input.' },
 	{ name: 'TieredMenu', slug: 'tieredmenu', description: 'Nested menu that opens submenus in a tiered layout.' },
 	{ name: 'TreeTable', slug: 'treetable', description: 'Table with expandable rows for hierarchical data.' },

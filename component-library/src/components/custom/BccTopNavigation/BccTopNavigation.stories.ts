@@ -35,36 +35,29 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: {
-		title: 'Page title',
-		subtitle: 'Optional subtitle',
-	},
-	render: args => ({
-		components,
-		setup() {
-			return { args };
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'Basic usage of BccTopNavigation with title and optional subtitle. The `@back` event can be handled for navigation.',
+			},
 		},
-		template: `
-			<BccTopNavigation v-bind="args" @back="() => {}" />
-		`,
-	}),
+	},
 };
 
 export const WithBackTitle: Story = {
-	args: {
-		title: 'Details',
-		subtitle: 'Item information',
-		backTitle: 'Back',
-	},
-	render: args => ({
-		components,
-		setup() {
-			return { args };
+	parameters: {
+		docs: {
+			description: {
+				story: 'Shows a back button with a custom label using the `backTitle` prop.',
+			},
+			source: {
+				code: `<template>
+					<BccTopNavigation title="Details" subtitle="Item information" back-title="Back" @back="() => {}" />
+				</template>`,
+			},
 		},
-		template: `
-			<BccTopNavigation v-bind="args" @back="() => {}" />
-		`,
-	}),
+	},
 };
 
 export const HideBack: Story = {
@@ -82,6 +75,18 @@ export const HideBack: Story = {
 			<BccTopNavigation v-bind="args" />
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Hides the back button using the `hideBack` prop.',
+			},
+			source: {
+				code: `<template>
+					<BccTopNavigation title="Dashboard" subtitle="Overview" hide-back />
+				</template>`,
+			},
+		},
+	},
 };
 
 export const WithRightAction: Story = {
@@ -104,6 +109,29 @@ export const WithRightAction: Story = {
 			</BccTopNavigation>
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Demonstrates using the `right` slot to add a custom action button (e.g., search).',
+			},
+			source: {
+				code: `<script setup lang="ts">
+					import { BccTopNavigation } from '@bcc-code/component-library';
+					import { SearchIcon } from '@bcc-code/icons-vue';
+					</script>
+
+					<template>
+						<BccTopNavigation title="Search" hide-back>
+							<template #right>
+								<button type="button" class="p-2" aria-label="Search">
+									<SearchIcon class="size-6" />
+								</button>
+							</template>
+						</BccTopNavigation>
+					</template>`,
+			},
+		},
+	},
 };
 
 export const White: Story = {
@@ -124,6 +152,20 @@ export const White: Story = {
 			</div>
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Shows the white variant with padding and a surface background.',
+			},
+			source: {
+				code: `<template>
+						<div class="min-h-[200px] bg-surface-200 dark:bg-surface-800">
+							<BccTopNavigation title="White style" subtitle="With default surface background and default text color" white padded @back="() => {}" />
+						</div>
+					</template>`,
+			},
+		},
+	},
 };
 
 export const Transparent: Story = {
@@ -144,6 +186,20 @@ export const Transparent: Story = {
 			</div>
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Shows the transparent variant with a custom background.',
+			},
+			source: {
+				code: `<template>
+						<div class="min-h-[200px] bg-linear-to-b from-brand-800 to-surface-200 dark:to-surface-800 pt-20">
+							<BccTopNavigation title="Transparent" subtitle="No background" transparent padded @back="() => {}" />
+						</div>
+					</template>`,
+			},
+		},
+	},
 };
 
 export const TitleLeft: Story = {
@@ -163,6 +219,18 @@ export const TitleLeft: Story = {
 			<BccTopNavigation v-bind="args" />
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Aligns the title to the left using the `titleLeft` prop.',
+			},
+			source: {
+				code: `<template>
+						<BccTopNavigation title="Left-aligned title" subtitle="When titleLeft is true" hide-back title-left padded />
+					</template>`,
+			},
+		},
+	},
 };
 
 export const Padded: Story = {
@@ -180,6 +248,18 @@ export const Padded: Story = {
 			<BccTopNavigation v-bind="args" @back="() => {}" />
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Adds horizontal padding to the navigation bar.',
+			},
+			source: {
+				code: `<template>
+						<BccTopNavigation title="Padded bar" subtitle="With horizontal padding" padded @back="() => {}" />
+					</template>`,
+			},
+		},
+	},
 };
 
 export const TitleAndSubtitleSlots: Story = {
@@ -207,6 +287,35 @@ export const TitleAndSubtitleSlots: Story = {
 			</BccTopNavigation>
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Customizes the title and subtitle using the `title` and `subtitle` slots.',
+			},
+			source: {
+				code: `<script setup lang="ts">
+import { BccTopNavigation } from '@bcc-code/component-library';
+const title = 'Slotted Title';
+const subtitle = 'Slotted subtitle is here';
+</script>
+
+<template>
+	<BccTopNavigation :title="title" :subtitle="subtitle" @back="() => {}">
+		<template #title="{ title }">
+			<span class="text-brand-300 font-bold tracking-wider">
+				⚡&nbsp;{{ title.toUpperCase() }}&nbsp;⚡
+			</span>
+		</template>
+		<template #subtitle="{ subtitle }">
+			<span class="italic text-brand-100">
+				🔎 {{ subtitle }}
+			</span>
+		</template>
+	</BccTopNavigation>
+</template>`,
+			},
+		},
+	},
 };
 
 export const OnlySubtitleSlot: Story = {
@@ -229,6 +338,30 @@ export const OnlySubtitleSlot: Story = {
 			</BccTopNavigation>
 		`,
 	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Overrides only the subtitle using the `subtitle` slot.',
+			},
+			source: {
+				code: `<script setup lang="ts">
+import { BccTopNavigation } from '@bcc-code/component-library';
+const title = 'Normal Title';
+const subtitle = 'Custom subtitle';
+</script>
+
+<template>
+	<BccTopNavigation :title="title" :subtitle="subtitle" @back="() => {}">
+		<template #subtitle="{ subtitle }">
+			<span class="text-default bg-elevation-surface-default rounded px-2 py-0.5 font-mono">
+				{{ subtitle }} — via slot
+			</span>
+		</template>
+	</BccTopNavigation>
+</template>`,
+			},
+		},
+	},
 };
 
 export const OverrideAllViaDefaultSlot: Story = {
