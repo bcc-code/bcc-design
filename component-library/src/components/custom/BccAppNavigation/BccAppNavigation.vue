@@ -8,6 +8,8 @@ export type BccAppNavigationItem = {
 	title: string;
 	icon: Component;
 	pin?: number;
+	/* A component to use instead of the default link component. */
+	is?: VueComponent;
 
 	/** Any additional properties will be passed to the component.
 	 * @example
@@ -50,7 +52,7 @@ const itemWidth = computed(() => {
 		<div class="bcc-app-nav-container">
 			<template v-for="item in items" :key="item.key">
 				<component
-					:is="linkComponent ?? 'a'"
+					:is="item.component ?? linkComponent ?? 'a'"
 					v-bind="item"
 					class="bcc-app-nav-item"
 					active-class="bcc-app-nav-item--active"
