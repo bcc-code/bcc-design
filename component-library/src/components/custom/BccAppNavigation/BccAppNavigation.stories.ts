@@ -1,7 +1,7 @@
-import { CalendarTodayIcon, HomeIcon, PersonIcon } from '@bcc-code/icons-vue';
+import { CalendarTodayIcon, HomeIcon, MoreVertIcon, PersonIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
-import { BccAppNavigation, type BccAppNavigationItem } from '../../../index';
+import { BccAppNavigation, BccDrawer, type BccAppNavigationItem } from '../../../index';
 
 const meta: Meta<typeof BccAppNavigation> = {
 	component: BccAppNavigation,
@@ -116,6 +116,116 @@ export const WithPins: Story = {
 		template: `
 			<div class="relative min-h-[280px] bg-surface-100 dark:bg-surface-900">
 				<BccAppNavigation :active-key="current" @select="item => current = item.key" :items="items" />
+			</div>
+		`,
+	}),
+};
+
+export const WithMoreDrawer: Story = {
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Use a navigation item with `component: 'button'` when the action should open UI (like `BccDrawer`) instead of navigating. This prevents link behavior and ensures the `select` handler can trigger drawer state changes safely.",
+			},
+			source: {
+				code: `<script setup lang="ts">
+import { CalendarTodayIcon, HomeIcon, MoreVertIcon, PersonIcon } from '@bcc-code/icons-vue';
+import { ref } from 'vue';
+import { BccAppNavigation, BccDrawer, type BccAppNavigationItem } from '@bcc-code/component-library';
+
+const items: BccAppNavigationItem[] = [
+	{ key: 'home', title: 'Home', icon: HomeIcon },
+	{ key: 'events', title: 'Events', icon: CalendarTodayIcon },
+	{ key: 'profile', title: 'Profile', icon: PersonIcon },
+	{
+		key: 'more',
+		title: 'More',
+		icon: MoreVertIcon,
+		component: 'button',
+		type: 'button',
+	},
+];
+
+const current = ref<BccAppNavigationItem['key'] | null>('home');
+const drawerVisible = ref(false);
+
+const onSelect = (item: BccAppNavigationItem) => {
+	if (item.key === 'more') {
+		drawerVisible.value = true;
+		return;
+	}
+
+	current.value = item.key;
+};
+</script>
+
+<template>
+	<div class="relative min-h-[280px] bg-surface-100 dark:bg-surface-900">
+		<BccAppNavigation :active-key="current" :items="items" @select="onSelect" />
+		<BccDrawer v-model:visible="drawerVisible" position="right" header="More">
+			<p class="m-0">Extra actions can live here instead of a route navigation.</p>
+		</BccDrawer>
+	</div>
+</template>`,
+			},
+		},
+	},
+	render: () => ({
+		components: {
+			BccAppNavigation,
+			BccDrawer,
+			HomeIcon,
+			CalendarTodayIcon,
+			PersonIcon,
+			MoreVertIcon,
+		},
+		setup() {
+			const items: BccAppNavigationItem[] = [
+				{
+					key: 'home',
+					title: 'Home',
+					icon: HomeIcon,
+				},
+				{
+					key: 'events',
+					title: 'Events',
+					icon: CalendarTodayIcon,
+				},
+				{
+					key: 'profile',
+					title: 'Profile',
+					icon: PersonIcon,
+				},
+				{
+					key: 'more',
+					title: 'More',
+					icon: MoreVertIcon,
+					component: 'button',
+					type: 'button',
+				},
+			];
+
+			const current = ref<BccAppNavigationItem['key'] | null>('home');
+			const drawerVisible = ref(false);
+
+			const onSelect = (item: BccAppNavigationItem) => {
+				if (item.key === 'more') {
+					drawerVisible.value = true;
+					return;
+				}
+
+				current.value = item.key;
+			};
+
+			return { items, current, drawerVisible, onSelect };
+		},
+		template: `
+			<div class="relative min-h-[280px] bg-surface-100 dark:bg-surface-900">
+				<BccAppNavigation :active-key="current" :items="items" @select="onSelect" />
+				<BccDrawer v-model:visible="drawerVisible" position="right" header="More">
+					<p class="m-0">Extra actions can live here instead of a route navigation.</p>
+				</BccDrawer>
 			</div>
 		`,
 	}),
