@@ -293,26 +293,20 @@ export const TitleAndSubtitleSlots: Story = {
 				story: 'Customizes the title and subtitle using the `title` and `subtitle` slots.',
 			},
 			source: {
-				code: `<script setup lang="ts">
-import { BccTopNavigation } from '@bcc-code/component-library';
-const title = 'Slotted Title';
-const subtitle = 'Slotted subtitle is here';
-</script>
-
-<template>
-	<BccTopNavigation :title="title" :subtitle="subtitle" @back="() => {}">
-		<template #title="{ title }">
-			<span class="text-brand-300 font-bold tracking-wider">
-				⚡&nbsp;{{ title.toUpperCase() }}&nbsp;⚡
-			</span>
-		</template>
-		<template #subtitle="{ subtitle }">
-			<span class="italic text-brand-100">
-				🔎 {{ subtitle }}
-			</span>
-		</template>
-	</BccTopNavigation>
-</template>`,
+				code: `<template>
+					<BccTopNavigation title="Slotted Title" subtitle="Slotted subtitle is here" @back="() => {}">
+						<template #title="{ title }">
+							<span class="text-brand-300 font-bold tracking-wider">
+								⚡&nbsp;{{ title.toUpperCase() }}&nbsp;⚡
+							</span>
+						</template>
+						<template #subtitle="{ subtitle }">
+							<span class="italic text-brand-100">
+								🔎 {{ subtitle }}
+							</span>
+						</template>
+					</BccTopNavigation>
+				</template>`,
 			},
 		},
 	},
@@ -344,21 +338,15 @@ export const OnlySubtitleSlot: Story = {
 				story: 'Overrides only the subtitle using the `subtitle` slot.',
 			},
 			source: {
-				code: `<script setup lang="ts">
-import { BccTopNavigation } from '@bcc-code/component-library';
-const title = 'Normal Title';
-const subtitle = 'Custom subtitle';
-</script>
-
-<template>
-	<BccTopNavigation :title="title" :subtitle="subtitle" @back="() => {}">
-		<template #subtitle="{ subtitle }">
-			<span class="text-default bg-elevation-surface-default rounded px-2 py-0.5 font-mono">
-				{{ subtitle }} — via slot
-			</span>
-		</template>
-	</BccTopNavigation>
-</template>`,
+				code: `<template>
+					<BccTopNavigation title="Normal Title" subtitle="Custom subtitle" @back="() => {}">
+						<template #subtitle="{ subtitle }">
+							<span class="text-default bg-elevation-surface-default rounded px-2 py-0.5 font-mono">
+								{{ subtitle }} — via slot
+							</span>
+						</template>
+					</BccTopNavigation>
+				</template>`,
 			},
 		},
 	},
@@ -393,6 +381,22 @@ export const OverrideAllViaDefaultSlot: Story = {
 		docs: {
 			description: {
 				story: 'Demonstrates overriding *all* layout/content in `<BccTopNavigation>` using the default slot.',
+			},
+			source: {
+				code: `<template>
+						<BccTopNavigation @back="() => {}">
+							<template #default>
+								<div class="flex items-center gap-4 px-6 py-3 bg-linear-to-r from-brand-800 to-brand-400 rounded shadow-lg w-full">
+									<BccButton icon="back" size="sm" @click="() => {}">Go Back</BccButton>
+									<div class="flex-1">
+										<h2 class="text-white font-extrabold text-xl">⚡ All via default slot! ⚡</h2>
+										<p class="text-brand-100 font-mono">This replaces the <strong>entire</strong> top navigation content via <code>&lt;template #default&gt;</code>.</p>
+									</div>
+									<BccButton icon="user" size="sm" />
+								</div>
+							</template>
+						</BccTopNavigation>
+					</template>`,
 			},
 		},
 	},
