@@ -49,7 +49,7 @@ const buttonBindings = computed((): PrimeButtonProps => {
 	</PrimeButton>
 </template>
 
-<style scoped>
+<style>
 @reference '../../style.css';
 
 .p-button.useCtx {

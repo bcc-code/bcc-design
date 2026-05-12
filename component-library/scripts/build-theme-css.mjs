@@ -101,7 +101,7 @@ function main() {
 		);
 	}
 
-	output += '\n/* SFC <style> blocks extracted all .vue components\n' + "@import './sfc-styles.css';\n";
+	output += '\n/* SFC <style> blocks extracted all .vue components */\n' + "@import './sfc-styles.css';\n";
 
 	output +=
 		"\n/* Library utility classes, compiled from the library's own components.\n" +
