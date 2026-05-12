@@ -7,8 +7,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component:
-					'Circular loading indicator. [Read more on PrimeVue →](https://primevue.org/progressspinner/)',
+				component: 'Circular loading indicator. [Read more on PrimeVue →](https://primevue.org/progressspinner/)',
 			},
 		},
 	},
@@ -31,11 +30,50 @@ export const Default: Story = {
 	}),
 };
 
-export const CustomStyle: Story = {
+export const Size4: Story = {
+	parameters: {
+		docs: {
+			source: {
+				code: '<BccProgressSpinner class="size-4" />',
+			},
+		},
+	},
 	render: () => ({
 		components: { BccProgressSpinner },
 		template: `
-			<BccProgressSpinner style="width: 50px; height: 50px" stroke-width="4" />
+			<BccProgressSpinner class="size-4" />
+		`,
+	}),
+};
+
+export const Size5: Story = {
+	parameters: {
+		docs: {
+			source: {
+				code: '<BccProgressSpinner class="size-5" />',
+			},
+		},
+	},
+	render: () => ({
+		components: { BccProgressSpinner },
+		template: `
+			<BccProgressSpinner class="size-5" />
+		`,
+	}),
+};
+
+export const Size6: Story = {
+	parameters: {
+		docs: {
+			source: {
+				code: '<BccProgressSpinner class="size-6" />',
+			},
+		},
+	},
+	render: () => ({
+		components: { BccProgressSpinner },
+		template: `
+			<BccProgressSpinner class="size-6" />
 		`,
 	}),
 };
