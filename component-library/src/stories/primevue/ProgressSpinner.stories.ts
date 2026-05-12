@@ -12,8 +12,9 @@ const meta = {
 		},
 	},
 	argTypes: {
-		strokeWidth: { control: 'text' },
-		animationDuration: { control: 'text' },
+		strokeWidth: { control: 'text', description: 'Width of the stroke (e.g. `2` or `1rem`)' },
+		animationDuration: { control: 'text', description: 'Duration of the animation in seconds (e.g. `2s`)' },
+		fill: { control: 'color', description: 'Fill color of the spinner' },
 	},
 } as Meta;
 
@@ -22,10 +23,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	render: () => ({
+	render: args => ({
 		components: { BccProgressSpinner },
+		setup() {
+			return { args };
+		},
 		template: `
-			<BccProgressSpinner />
+			<BccProgressSpinner v-bind="args" />
 		`,
 	}),
 };
