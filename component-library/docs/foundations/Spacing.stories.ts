@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { doDont, PILL, remToPx } from './helpers';
-import { resolveTokenValue } from './tokenResolver';
+import { doDont, PILL } from './helpers';
 
-function sp(token: string, mult: string) {
-	const rem = resolveTokenValue(token);
+function sp(token: string, mult: number) {
 	return {
 		token,
-		mult,
-		rem,
-		px: remToPx(rem),
+		mult: `${mult}x`,
+		rem: `${mult / 2}rem`,
+		px: `${(mult / 2) * 16}px`,
 	};
 }
 
@@ -47,20 +45,20 @@ export const SpacingScale: Story = {
 		`,
 		setup: () => ({
 			tokens: [
-				sp('space.0', '0\u00d7'),
-				sp('space.25', '0.25\u00d7'),
-				sp('space.50', '0.5\u00d7'),
-				sp('space.75', '0.75\u00d7'),
-				sp('space.100', '1\u00d7'),
-				sp('space.150', '1.5\u00d7'),
-				sp('space.200', '2\u00d7'),
-				sp('space.250', '2.5\u00d7'),
-				sp('space.300', '3\u00d7'),
-				sp('space.400', '4\u00d7'),
-				sp('space.500', '5\u00d7'),
-				sp('space.600', '6\u00d7'),
-				sp('space.800', '8\u00d7'),
-				sp('space.1000', '10\u00d7'),
+				sp('space.0', 0),
+				sp('space.½', 0.25),
+				sp('space.1', 0.5),
+				sp('space.1½', 0.75),
+				sp('space.2', 1),
+				sp('space.3', 1.5),
+				sp('space.4', 2),
+				sp('space.5', 2.5),
+				sp('space.6', 3),
+				sp('space.8', 4),
+				sp('space.10', 5),
+				sp('space.12', 6),
+				sp('space.16', 8),
+				sp('space.20', 10),
 			],
 		}),
 	}),
@@ -97,7 +95,7 @@ export const SpacingRuler: Story = {
 				<div class="relative" style="height: 120px; margin: 0 8px">
 					<!-- Highlight label above 8px -->
 					<div class="absolute flex flex-col items-center" style="left: 10%; top: 0; transform: translateX(-50%)">
-						<code class="${PILL}" data-token="spacing.100" data-tw="*-2">spacing.100</code>
+						<code class="${PILL}" data-token="spacing.2" data-tw="*-2">spacing.2</code>
 						<div class="w-px h-3" style="background: #292a2e" />
 					</div>
 					<!-- Tick labels -->
