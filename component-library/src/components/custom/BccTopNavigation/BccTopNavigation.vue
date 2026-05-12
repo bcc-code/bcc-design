@@ -62,7 +62,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 							:aria-label="backTitle ? undefined : 'Back'"
 							@click="emit('back')"
 						>
-							<ArrowBackIosNewIcon class="w-6" />
+							<ArrowBackIosNewIcon class="icon-size-sm" />
 							<h3 v-if="backTitle" class="heading-md">
 								{{ backTitle }}
 							</h3>
