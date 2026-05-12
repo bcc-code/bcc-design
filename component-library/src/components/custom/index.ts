@@ -6,7 +6,6 @@
 export { default as BccAppNavigation } from './BccAppNavigation/BccAppNavigation.vue';
 export { default as BccBadge } from './BccBadge/BccBadge.vue';
 export { default as BccCapacityIndicator } from './BccCapacityIndicator/BccCapacityIndicator.vue';
-export { default as BccCircleLoader } from './BccCircleLoader/BccCircleLoader.vue';
 export { default as BccDialKnob } from './BccDialKnob/BccDialKnob.vue';
 export { default as BccFrame } from './BccFrame/BccFrame.vue';
 export { default as BccGraphic } from './BccGraphic/BccGraphic.vue';

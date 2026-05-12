@@ -4,8 +4,8 @@ import BccIconField from 'primevue/iconfield';
 import BccInputIcon from 'primevue/inputicon';
 import BccInputNumber, { type InputNumberProps } from 'primevue/inputnumber';
 import BccInputText, { type InputTextProps } from 'primevue/inputtext';
+import BccProgressSpinner from 'primevue/progressspinner';
 import { computed, useAttrs } from 'vue';
-import { BccCircleLoader } from '../custom';
 
 defineOptions({ inheritAttrs: false });
 
@@ -37,7 +37,7 @@ const inputBindings = computed((): InputTextProps => {
 		</BccInputIcon>
 		<component :is="numeric ? BccInputNumber : BccInputText" class="w-full" v-bind="inputBindings" />
 		<BccInputIcon v-if="loading">
-			<BccCircleLoader class="size-full" />
+			<BccProgressSpinner class="size-full" />
 		</BccInputIcon>
 		<BccInputIcon v-else-if="iconRight === true ? icon : iconRight">
 			<component :is="iconRight === true ? icon : iconRight" class="size-full" />

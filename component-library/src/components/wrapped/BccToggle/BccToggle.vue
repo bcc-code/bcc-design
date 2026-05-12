@@ -2,7 +2,7 @@
 import type { VueComponent } from '@/types';
 import { CheckIcon, CloseIcon } from '@bcc-code/icons-vue';
 import { ToggleSwitch, type ToggleSwitchProps } from 'primevue';
-import { BccCircleLoader } from '../../custom';
+import BccProgressSpinner from 'primevue/progressspinner';
 
 export type ToggleProps = ToggleSwitchProps & {
 	/** Text shown next to the switch; also used for the label’s `for` attribute. */
@@ -37,7 +37,7 @@ const iconSize = 'size-4';
 			class="clickable"
 		>
 			<template #handle="{ checked }">
-				<BccCircleLoader v-if="loading" class="size-3" />
+				<BccProgressSpinner v-if="loading" class="size-3" />
 				<component :is="icon" v-else-if="icon" :class="iconSize" />
 				<template v-else-if="withIcon">
 					<CheckIcon v-if="checked" :class="iconSize" />

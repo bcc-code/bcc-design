@@ -1,9 +1,7 @@
 import { CheckIcon, ErrorIcon, HelpIcon, InfoIcon, OpenInBrowserIcon, WarningIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
-import { BccCircleLoader } from '../custom';
-import type { ButtonProps } from './BccButton.vue';
-import BccButton from './BccButton.vue';
+import { BccButton, BccProgressSpinner, type ButtonProps } from '../../index';
 
 const meta = {
 	component: BccButton,
@@ -33,6 +31,7 @@ const meta = {
 			control: 'select',
 			options: ['small', 'default', 'large'],
 		},
+		badge: { control: 'number' },
 	},
 } as Meta<typeof BccButton>;
 
@@ -184,31 +183,33 @@ export const Severities: Story = {
 };
 
 export const WithBadge: Story = {
-	render: () => ({
-		components: { BccButton },
-		template: `
-			<BccButton label="Button" badge="3" />
-		`,
-	}),
+	args: { badge: '3', label: 'Button' },
 };
 
 export const Disabled: Story = {
-	args: { label: 'Disabled', disabled: true } as unknown as Story['args'],
+	args: { label: 'Disabled', disabled: true },
 };
 
 export const WithLoadingIcon: Story = {
 	render: () => ({
-		components: { BccButton, BccCircleLoader },
+		components: { BccButton },
 		setup() {
-			return { BccCircleLoader };
+			return { BccProgressSpinner };
 		},
 		template: `
 		<BccButton label="Button" loading />
 		<br />
 		With custom loading icon
-		<BccButton label="Button" :loading-icon="BccCircleLoader" loading />
+		<BccButton label="Button" :loading-icon="BccProgressSpinner" loading />
 		`,
 	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<BccButton label="Button" loading />\n<br />\nWith custom loading icon\n<BccButton label="Button" :loading-icon="BccProgressSpinner" loading />`,
+			},
+		},
+	},
 };
 
 export const WithContext: Story = {
