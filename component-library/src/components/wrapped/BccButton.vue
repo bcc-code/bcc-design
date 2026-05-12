@@ -11,16 +11,15 @@ export type ButtonProps = {
 	loadingIcon?: VueComponent;
 
 	useCtx?: boolean;
-} & /* @vue-ignore */ Omit<PrimeButtonProps, 'icon' | 'iconPos'>;
+} & /* @vue-ignore */ Omit<PrimeButtonProps, 'icon' | 'iconPos' | 'loadingIcon'>;
 
 const props = defineProps<ButtonProps>();
 const attrs = useAttrs();
 
 const buttonBindings = computed((): PrimeButtonProps => {
-	const { icon, loadingIcon, iconRight, useCtx, ...rest } = props;
+	const { icon, iconRight, useCtx, ...rest } = props;
 	void icon;
 	void iconRight;
-	void loadingIcon;
 
 	const forward = rest as PrimeButtonProps;
 	if (iconRight) forward.iconPos = 'right';

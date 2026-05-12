@@ -11,19 +11,14 @@ const sizes = {
 	'3xl': 'size-16',
 };
 
-const props = withDefaults(
-	defineProps<{
-		icon?: string;
-		size?: 'sm' | 'md' | 'base' | 'lg' | 'xl' | '2xl' | '3xl';
-		left?: boolean;
-		right?: boolean;
-	}>(),
-	{
-		size: 'base',
-	}
-);
+const props = defineProps<{
+	icon?: string;
+	size?: 'sm' | 'md' | 'base' | 'lg' | 'xl' | '2xl' | '3xl';
+	left?: boolean;
+	right?: boolean;
+}>();
 
-const sizeClass = computed(() => sizes[props.size] ?? props.size);
+const sizeClass = computed(() => (props.size ? (sizes[props.size] ?? props.size) : ''));
 </script>
 
 <template>

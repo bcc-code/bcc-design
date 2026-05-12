@@ -199,8 +199,14 @@ export const Disabled: Story = {
 export const WithLoadingIcon: Story = {
 	render: () => ({
 		components: { BccButton, BccCircleLoader },
+		setup() {
+			return { BccCircleLoader };
+		},
 		template: `
-			<BccButton label="Button" :loading-icon="BccCircleLoader" loading />
+		<BccButton label="Button" loading />
+		<br />
+		With custom loading icon
+		<BccButton label="Button" :loading-icon="BccCircleLoader" loading />
 		`,
 	}),
 };
