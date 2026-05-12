@@ -1,6 +1,7 @@
 import { CheckIcon, ErrorIcon, HelpIcon, InfoIcon, OpenInBrowserIcon, WarningIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
+import { BccCircleLoader } from '../custom';
 import type { ButtonProps } from './BccButton.vue';
 import BccButton from './BccButton.vue';
 
@@ -193,6 +194,15 @@ export const WithBadge: Story = {
 
 export const Disabled: Story = {
 	args: { label: 'Disabled', disabled: true } as unknown as Story['args'],
+};
+
+export const WithLoadingIcon: Story = {
+	render: () => ({
+		components: { BccButton, BccCircleLoader },
+		template: `
+			<BccButton label="Button" :loading-icon="BccCircleLoader" loading />
+		`,
+	}),
 };
 
 export const WithContext: Story = {
