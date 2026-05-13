@@ -67,7 +67,6 @@ const itemWidth = computed(() => {
 								class="bcc-nav-item-badge"
 								size="sm"
 								context="brand-bolder"
-								border
 								:value="String(item.pin)"
 							/>
 						</Transition>
