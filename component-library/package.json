@@ -39,7 +39,7 @@
     "start": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "run-p typecheck build:types build:vite",
-    "build:vite": "rimraf dist && vite build && pnpm run build:sfc-styles && pnpm run build:library-utilities && node scripts/build-theme-css.mjs",
+    "build:vite": "rimraf dist && vite build && pnpm run build:sfc-styles && pnpm run build:library-utilities && node scripts/build-archivo-font.mjs && node scripts/build-theme-css.mjs",
     "build:sfc-styles": "vite build --config vite.config.sfc-styles.ts && rimraf dist/sfc-styles.js",
     "build:library-utilities": "tailwindcss -i src/library-utilities-input.css -o dist/library-utilities.css --minify",
     "build:types": "rimraf dist-types && vue-tsc -p tsconfig.build.json",
