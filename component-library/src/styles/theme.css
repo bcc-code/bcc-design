@@ -23,7 +23,7 @@
  * Source of truth: the @utility ctx-* definitions in ./contexts.css (auto-generated
  * by `pnpm run generate:context-css`). Keep this list in sync with that file.
  */
-@source inline("ctx-default ctx-blue-{bolder,subtle,subtler,subtlest} ctx-brand-{bold,bolder,boldest,default,subtle,subtler,subtlest} ctx-brown-{bolder,subtle,subtler,subtlest} ctx-danger-{bolder,subtlest} ctx-gray-{bolder,subtle,subtler,subtlest} ctx-green-{bolder,subtle,subtler,subtlest} ctx-info-{bolder,subtlest} ctx-magenta-{bolder,subtle,subtler,subtlest} ctx-neutral-{bold,bolder,boldest,subtle,subtler,subtlest} ctx-orange-{bolder,subtle,subtler,subtlest} ctx-purple-{bolder,subtle,subtler,subtlest} ctx-red-{bolder,subtle,subtler,subtlest} ctx-success-{bolder,subtlest} ctx-teal-{bolder,subtle,subtler,subtlest} ctx-warning-{bolder,subtlest} ctx-yellow-{bolder,subtle,subtler,subtlest}");
+@source inline("ctx-default ctx-{blue,brown,gray,green,magenta,orange,purple,red,teal,yellow}-{bolder,subtle,subtler,subtlest} ctx-{danger,info,success,warning}-{bolder,subtlest} ctx-brand-{bold,bolder,boldest,default,subtle,subtler,subtlest} ctx-neutral-{bold,bolder,boldest,subtle,subtler,subtlest}");
 
 /*
  * Aliases for semantic context names. Plain @apply wrappers are kept because
