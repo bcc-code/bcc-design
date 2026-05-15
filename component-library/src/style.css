@@ -1,5 +1,5 @@
 /* Layer order: Tailwind base/utilities first, then PrimeVue so component styles win */
-@layer theme, base, tailwind, primevue;
+@layer theme, base, component, library-utilities, utilities, primevue;
 @import '@bcc-code/design-tokens/css';
 
 @import 'tailwindcss';
@@ -25,20 +25,22 @@
 	font-kerning: normal;
 }
 
-hr {
-	border-color: var(--color-border-default);
-}
+@layer base {
+	hr {
+		border-color: var(--color-border-default);
+	}
 
-b,
-strong,
-.bold {
-	font-weight: bold;
-	--ctx-text: var(--ctx-text-bold);
-}
+	b,
+	strong,
+	.bold {
+		font-weight: bold;
+		--ctx-text: var(--ctx-text-bold);
+	}
 
-/* Disable state */
-:disabled,
-.disabled {
-	cursor: not-allowed;
-	pointer-events: none;
+	/* Disable state */
+	:disabled,
+	.disabled {
+		cursor: not-allowed;
+		pointer-events: none;
+	}
 }
