@@ -1,6 +1,6 @@
 /* archivo-regular - latin */
 @font-face {
-	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-display: swap;
 	font-family: 'Archivo';
 	font-style: normal;
 	font-weight: 400;
@@ -8,7 +8,7 @@
 }
 /* archivo-italic - latin */
 @font-face {
-	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-display: swap;
 	font-family: 'Archivo';
 	font-style: italic;
 	font-weight: 400;
@@ -16,7 +16,7 @@
 }
 /* archivo-500 - latin */
 @font-face {
-	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-display: swap;
 	font-family: 'Archivo';
 	font-style: normal;
 	font-weight: 500;
@@ -24,7 +24,7 @@
 }
 /* archivo-600 - latin */
 @font-face {
-	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-display: swap;
 	font-family: 'Archivo';
 	font-style: normal;
 	font-weight: 600;
@@ -32,7 +32,7 @@
 }
 /* archivo-600italic - latin */
 @font-face {
-	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-display: swap;
 	font-family: 'Archivo';
 	font-style: italic;
 	font-weight: 600;
