@@ -2,9 +2,9 @@
 import { PreviewIcon } from '@bcc-code/icons-vue';
 import { computed, useAttrs, type StyleValue } from 'vue';
 
+import { useLightbox } from '../../../lightbox/composables';
 import { normalizeLightboxItems } from '../../../lightbox/detectMedia';
 import type { LightboxItemInput } from '../../../lightbox/types';
-import { useLightbox } from '../../../lightbox/composables';
 
 export type { LightboxItem, LightboxItemInput, LightboxMediaType } from '../../../lightbox/types';
 
@@ -55,6 +55,8 @@ const rootStyle = computed(() => attrs.style as StyleValue | undefined);
 
 const imgAttrs = computed(() => {
 	const { class: _class, style: _style, ...rest } = attrs;
+	void _class;
+	void _style;
 	return rest;
 });
 

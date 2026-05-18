@@ -24,6 +24,7 @@ const meta = {
 		title: { control: 'text' },
 		message: { control: 'text' },
 		size: { control: 'select', options: ['default', 'small', 'large'] },
+		noShadow: { control: 'boolean' },
 	},
 } satisfies Meta<typeof BccMessage>;
 

@@ -10,6 +10,7 @@ export type MessageProps = Omit<PrimeMessageProps, 'icon'> & {
 
 	title?: string;
 	message?: string;
+	noShadow?: boolean;
 };
 
 const props = defineProps<MessageProps>();
@@ -43,7 +44,7 @@ const iconClass = computed(() => {
 </script>
 
 <template>
-	<PrimeMessage v-bind="messageBindings">
+	<PrimeMessage v-bind="messageBindings" :class="{ 'no-shadow': noShadow }">
 		<template v-if="icon || iconRight" #icon>
 			<component :is="icon === true ? SeverityIcons[severity || 'info'] : icon" :class="iconClass" />
 			<component :is="iconRight" v-if="iconRight && iconRight !== true" class="order-1" :class="iconClass" />
@@ -58,3 +59,9 @@ const iconClass = computed(() => {
 		</slot>
 	</PrimeMessage>
 </template>
+
+<style>
+.p-message.no-shadow {
+	box-shadow: none;
+}
+</style>
