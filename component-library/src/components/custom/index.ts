@@ -2,7 +2,7 @@
  * Custom BCC components (not based on PrimeVue).
  * Add new custom components here and export them from this file.
  */
-export * from './BccLightbox';
+export { closeBccLightbox, openBccLightbox, useLightbox, usePinchPan } from './BccLightbox/composables';
 
 export { default as BccAppNavigation } from './BccAppNavigation/BccAppNavigation.vue';
 export { default as BccBadge } from './BccBadge/BccBadge.vue';
@@ -11,6 +11,7 @@ export { default as BccDialKnob } from './BccDialKnob/BccDialKnob.vue';
 export { default as BccFrame } from './BccFrame/BccFrame.vue';
 export { default as BccGraphic } from './BccGraphic/BccGraphic.vue';
 export { default as BccImage } from './BccImage/BccImage.vue';
+export { default as BccLightbox } from './BccLightbox/BccLightbox.vue';
 export { default as BccNpsResult } from './BccNpsResult/BccNpsResult.vue';
 export { default as BccNpsScore } from './BccNpsScore/BccNpsScore.vue';
 export { default as BccReact } from './BccReact/BccReact.vue';
@@ -27,6 +28,7 @@ export type { KnobProps, KnobSlots } from './BccDialKnob/BccDialKnob.vue';
 export type { FrameProps } from './BccFrame/BccFrame.vue';
 export type { GraphicProps } from './BccGraphic/BccGraphic.vue';
 export type { ImageProps } from './BccImage/BccImage.vue';
+export type { LightboxApi, LightboxItem, LightboxItemInput, LightboxOpenOptions } from './BccLightbox/types';
 export type { NpsResultProps } from './BccNpsResult/BccNpsResult.vue';
 export type { NpsScoreProps } from './BccNpsScore/BccNpsScore.vue';
 export type { ReactInfo, ReactProps } from './BccReact/types';

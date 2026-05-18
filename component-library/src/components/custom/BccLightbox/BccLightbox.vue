@@ -112,13 +112,21 @@ onUnmounted(() => {
 			</button>
 
 			<div class="bcc-lightbox__stage" @click.stop>
-				<BccLightboxMedia
-					ref="mediaRef"
-					:key="`${currentItem.src}-${LightboxStore.state.index}`"
-					:item="currentItem"
-					:zoom-enabled="true"
-					@swipe="onSwipe"
-				/>
+				<Transition
+					name="fade"
+					class="opacity-100 transition-opacity"
+					enter-active-class="opacity-100"
+					leave-active-class="opacity-0"
+					mode="out-in"
+				>
+					<BccLightboxMedia
+						ref="mediaRef"
+						:key="`${currentItem.src}-${LightboxStore.state.index}`"
+						:item="currentItem"
+						:zoom-enabled="true"
+						@swipe="onSwipe"
+					/>
+				</Transition>
 			</div>
 
 			<div v-if="isCurrentImage" class="bcc-lightbox__toolbar" role="toolbar" aria-label="Image tools">
