@@ -11,7 +11,8 @@ import { onMounted, onUnmounted, ref } from 'vue';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
-import { BccConfirmDialog, BccToast, installBccLightbox } from '../src/index';
+import { installBccLightbox } from '../src/components/custom/BccLightbox/state';
+import { BccConfirmDialog, BccToast } from '../src/index';
 import '../src/style.css';
 import '../src/styles/archivo-font.css';
 
