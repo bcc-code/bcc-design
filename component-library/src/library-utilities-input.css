@@ -26,7 +26,7 @@
 @reference './styles/contexts.css';
 @reference './styles/utilities.css';
 
-@import 'tailwindcss/utilities';
+@import 'tailwindcss/utilities' layer(library-utilities);
 
 @source './components/**/*.{vue,ts}';
 @source './index.ts';
