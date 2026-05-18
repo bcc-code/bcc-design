@@ -1,0 +1,74 @@
+@layer components {
+	.bcc-lightbox {
+		@apply fixed inset-0 z-9999 flex touch-none items-center justify-center;
+	}
+
+	.bcc-lightbox__backdrop {
+		@apply absolute inset-0 bg-black/75;
+	}
+
+	.bcc-lightbox__header {
+		@apply top-inset-top pointer-events-none absolute inset-x-0 z-20 flex items-center justify-end gap-3 p-3;
+	}
+
+	.bcc-lightbox__counter {
+		@apply body-sm pointer-events-none mr-auto rounded-md bg-black/50 px-2.5 py-1 text-white;
+	}
+
+	.bcc-lightbox__control {
+		@apply pointer-events-auto flex cursor-pointer items-center justify-center rounded-md border-0 bg-black/50 p-2 text-white transition-colors hover:bg-black/65;
+	}
+
+	.bcc-lightbox__icon {
+		@apply size-6 shrink-0;
+	}
+
+	.bcc-lightbox__nav {
+		@apply absolute top-1/2 z-20 -translate-y-1/2;
+	}
+
+	.bcc-lightbox__nav--prev {
+		@apply left-1 sm:left-3;
+	}
+
+	.bcc-lightbox__nav--next {
+		@apply right-1 sm:right-3;
+	}
+
+	.bcc-lightbox__stage {
+		@apply relative z-10 box-border flex h-full w-full max-w-6xl items-center justify-center px-2 py-14 sm:px-12;
+	}
+
+	.bcc-lightbox__toolbar {
+		@apply center bottom-inset-bottom-4 pointer-events-none absolute z-20 flex gap-1 rounded-md bg-black/50 p-1;
+	}
+
+	.bcc-lightbox__toolbar-btn {
+		@apply pointer-events-auto flex cursor-pointer items-center justify-center rounded-sm border-0 bg-transparent px-3 py-2 text-white transition-colors hover:bg-white/12;
+	}
+
+	.bcc-lightbox__media {
+		@apply flex max-h-[calc(100vh-7rem)] w-full touch-none flex-col items-center justify-center;
+	}
+
+	.bcc-lightbox__media--zoomable {
+		@apply cursor-grab active:cursor-grabbing;
+	}
+
+	.bcc-lightbox__transform {
+		@apply flex origin-center items-center justify-center will-change-transform;
+	}
+
+	.bcc-lightbox__image,
+	.bcc-lightbox__video {
+		@apply block h-auto max-h-[calc(100vh-8rem)] w-auto max-w-[min(92vw,68rem)] object-contain select-none;
+	}
+
+	.bcc-lightbox__video {
+		@apply bg-black;
+	}
+
+	.bcc-lightbox__caption {
+		@apply body-sm mt-3 max-w-[min(92vw,40rem)] text-center text-white;
+	}
+}

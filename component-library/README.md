@@ -62,6 +62,8 @@ export default defineConfig({
 
 ```css
 @import '@bcc-code/component-library-vue/theme.css';
+/* Optional, if not already included */
+@import '@bcc-code/component-library-vue/archivo-font.css';
 ```
 
 That single import is enough. `theme.css` includes:

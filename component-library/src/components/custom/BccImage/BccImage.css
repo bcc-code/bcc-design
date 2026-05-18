@@ -1,0 +1,32 @@
+@layer components {
+	.bcc-image {
+		@apply relative inline-block leading-none;
+	}
+
+	.bcc-image__img {
+		@apply block max-w-full align-middle;
+	}
+
+	.bcc-image--preview {
+		@apply cursor-zoom-in;
+	}
+
+	.bcc-image__preview-mask {
+		@apply absolute inset-0 m-0 flex cursor-pointer items-center justify-center border-0 bg-black/40 p-0 opacity-0 transition-opacity;
+	}
+
+	.bcc-image--preview:hover .bcc-image__preview-mask,
+	.bcc-image--preview:focus-within .bcc-image__preview-mask {
+		@apply opacity-100;
+	}
+
+	.bcc-image__preview-icon {
+		@apply size-6 text-white;
+	}
+
+	@media (width < 750px) {
+		.bcc-image--preview .bcc-image__preview-mask {
+			@apply opacity-100;
+		}
+	}
+}
