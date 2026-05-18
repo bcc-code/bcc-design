@@ -95,6 +95,20 @@ export const Sizes: Story = {
 	}),
 };
 
+export const CustomSized: Story = {
+	render: () => ({
+		components: { BccBadge, PersonIcon },
+		setup() {
+			return { PersonIcon };
+		},
+		template: `
+			<div class="flex flex-wrap gap-2 align-items-center">
+				<BccBadge :value="PersonIcon" class="w-15 h-10" size="md" />
+			</div>
+		`,
+	}),
+};
+
 export const BorderedAndSquared: Story = {
 	render: () => ({
 		components: { BccBadge, CheckIcon },
