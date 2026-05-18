@@ -1,0 +1,66 @@
+name: "Component Library: Dev Release"
+run-name: Component Library - dev release version
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # Required for OIDC
+
+env:
+  CI: true
+
+jobs:
+  test-dev-build:
+    uses: ./.github/workflows/design-library-tests.yml
+
+  dev-build:
+    needs: test-dev-build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: component-library
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org"
+          cache: "pnpm"
+          cache-dependency-path: component-library/pnpm-lock.yaml
+
+      - run: |
+          npm install -g npm@~11.10.0
+          npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Resolve version
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Restore cached build outputs
+        uses: actions/cache/restore@v5
+        with:
+          fail-on-cache-miss: true
+          path: |
+            component-library/dist
+            component-library/dist-types
+            component-library/dist-css
+          key: component-library-dist-${{ steps.vars.outputs.sha_short }}
+
+      - name: Publish `@bcc-code/component-library-vue`
+        run: |
+          npm version 0.0.0-dev.${{ steps.vars.outputs.sha_short }} --force --no-git-tag-version
+          npm publish --tag dev
