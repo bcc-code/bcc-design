@@ -30,6 +30,7 @@ export * from './types';
 // Custom BCC components (not based on PrimeVue)
 // ---------------------------------------------------------------------------
 export * from './components/custom';
+export * from './lightbox';
 
 // ---------------------------------------------------------------------------
 // Wrapped PrimeVue components (BCC extensions or defaults)

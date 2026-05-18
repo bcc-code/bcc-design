@@ -12,6 +12,7 @@
 @import './styles/context.css';
 @import './styles/component-overrides.css';
 
+@import './lightbox/BccLightbox.css';
 @import './components/custom/styles.css';
 @import './components/wrapped/styles.css';
 

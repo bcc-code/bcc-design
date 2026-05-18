@@ -8,6 +8,8 @@ import TooltipDirective from 'primevue/tooltip';
 
 import type { App } from 'vue';
 
+import { installLightbox } from './lightbox/state';
+
 export default function setup(app: App) {
 	app.use(PrimeVue, {
 		theme: {
@@ -27,4 +29,6 @@ export default function setup(app: App) {
 	app.use(ConfirmationService);
 	app.directive('tooltip', TooltipDirective);
 	app.directive('focus-trap', FocusTrapDirective);
+
+	installLightbox(app);
 }
