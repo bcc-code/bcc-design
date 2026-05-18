@@ -1,0 +1,27 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "@bcc-code/component-library-vue",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:4-22-trixie",
+  "features": {
+    "ghcr.io/devcontainers/features/node:2.0.0": {
+      "pnpmVersion": "latest"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Vue.volar",
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "vitest.explorer",
+        "unifiedjs.vscode-mdx",
+        "github.vscode-github-actions"
+      ]
+    }
+  }
+}
