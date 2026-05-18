@@ -69,6 +69,29 @@ type Story = StoryObj<typeof meta>;
 
 /** Open a single image with `openBccLightbox` (no inject). */
 export const SingleImage: Story = {
+	parameters: {
+		docs: {
+			source: {
+				code: `<script setup lang="ts">
+						import { BccButton, openBccLightbox } from '@bcc-code/component-library-vue';
+
+						const imageSrc = 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg';
+
+						const open = () =>
+							openBccLightbox({
+								items: [{ src: imageSrc, alt: 'Landscape', title: 'Single image' }],
+							});
+						</script>
+
+						<template>
+							<div class="flex flex-col gap-3">
+								<p class="body-sm text-subtle">Opens the global lightbox with one image.</p>
+								<BccButton label="Open lightbox" @click="open" />
+							</div>
+						</template>`,
+			},
+		},
+	},
 	render: () => ({
 		components: { BccButton },
 		setup() {
@@ -89,6 +112,37 @@ export const SingleImage: Story = {
 
 /** Gallery with `useLightbox()` inside setup. */
 export const Gallery: Story = {
+	parameters: {
+		docs: {
+			source: {
+				code: `<script setup lang="ts">
+						import { BccButton, useLightbox } from '@bcc-code/component-library-vue';
+
+						const gallerySrcs = [
+							'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
+							'https://primefaces.org/cdn/primevue/images/galleria/galleria2.jpg',
+							'https://primefaces.org/cdn/primevue/images/galleria/galleria3.jpg',
+						];
+
+						const lightbox = useLightbox();
+
+						const open = () =>
+							lightbox.open({
+								items: gallerySrcs,
+								index: 0,
+								loop: true,
+							});
+						</script>
+
+						<template>
+							<div class="flex flex-col gap-3">
+								<p class="body-sm text-subtle">Three images, loop enabled. Swipe or use arrows; pinch to zoom on images.</p>
+								<BccButton label="Open gallery" @click="open" />
+							</div>
+						</template>`,
+			},
+		},
+	},
 	render: () => ({
 		components: { BccButton },
 		setup() {
@@ -112,6 +166,36 @@ export const Gallery: Story = {
 
 /** Mixed gallery: images + video (`type: 'video'` or file extension). */
 export const WithVideo: Story = {
+	parameters: {
+		docs: {
+			source: {
+				code: `<script setup lang="ts">
+						import { BccButton, openBccLightbox, type LightboxItem } from '@bcc-code/component-library-vue';
+
+						const imageSrc = 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg';
+
+						const items: LightboxItem[] = [
+							{ src: imageSrc, alt: 'Poster frame', title: 'Image slide' },
+							{
+								src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+								type: 'video',
+								poster: imageSrc,
+								title: 'Video slide',
+							},
+						];
+
+						const open = () => openBccLightbox({ items, index: 0 });
+						</script>
+
+						<template>
+							<div class="flex flex-col gap-3">
+								<p class="body-sm text-subtle">Second item is video with poster. Rotate controls appear only on images.</p>
+								<BccButton label="Open mixed gallery" @click="open" />
+							</div>
+						</template>`,
+			},
+		},
+	},
 	render: () => ({
 		components: { BccButton },
 		setup() {
@@ -138,6 +222,45 @@ export const WithVideo: Story = {
 
 /** `onShow` / `onHide` and `maskClosable: false`. */
 export const OptionsAndCallbacks: Story = {
+	parameters: {
+		docs: {
+			source: {
+				code: `<script setup lang="ts">
+						import { ref } from 'vue';
+						import { BccButton, closeBccLightbox, openBccLightbox } from '@bcc-code/component-library-vue';
+
+						const imageSrc = 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg';
+						const status = ref('idle');
+
+						const openStrict = () => {
+							status.value = 'opening…';
+							openBccLightbox({
+								items: [imageSrc],
+								maskClosable: false,
+								onShow: () => {
+									status.value = 'open (backdrop click disabled — use Close or Esc)';
+								},
+								onHide: () => {
+									status.value = 'closed';
+								},
+							});
+						};
+
+						const close = () => closeBccLightbox();
+						</script>
+
+						<template>
+							<div class="flex flex-col gap-3">
+								<p class="body-sm">Status: {{ status }}</p>
+								<div class="flex gap-2">
+									<BccButton label="Open (mask not closable)" @click="openStrict" />
+									<BccButton label="Close" severity="secondary" outlined @click="close" />
+								</div>
+							</div>
+						</template>`,
+			},
+		},
+	},
 	render: () => ({
 		components: { BccButton },
 		setup() {
@@ -172,6 +295,30 @@ export const OptionsAndCallbacks: Story = {
 
 /** String items are normalized to `{ src, type }` automatically. */
 export const StringItems: Story = {
+	parameters: {
+		docs: {
+			source: {
+				code: `<script setup lang="ts">
+						import { BccButton, openBccLightbox } from '@bcc-code/component-library-vue';
+
+						const gallerySrcs = [
+							'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
+							'https://primefaces.org/cdn/primevue/images/galleria/galleria2.jpg',
+							'https://primefaces.org/cdn/primevue/images/galleria/galleria3.jpg',
+						];
+
+						const open = () => openBccLightbox({ items: gallerySrcs });
+						</script>
+
+						<template>
+							<div class="flex flex-col gap-3">
+							<p class="body-sm text-subtle">Pass plain URL strings; type is inferred from the file extension.</p>
+								<BccButton label="Open with string URLs only" @click="open" />
+							</div>
+						</template>`,
+			},
+		},
+	},
 	render: () => ({
 		components: { BccButton },
 		setup() {
