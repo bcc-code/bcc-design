@@ -52,57 +52,55 @@ const heading = computed((): { title: string; subtitle: string } => {
 			transparent ? '' : white ? 'bg-elevation-surface-default text-default' : 'bg-brand-800 text-white drop-shadow',
 		]"
 	>
-		<div class="center between min-h-12 w-full" :class="{ 'px-4 sm:px-6': padded }">
+		<div class="center between min-h-12 w-full gap-2" :class="{ 'px-4 sm:px-6': padded || hideBack }">
 			<slot :title="heading">
-				<div class="center h-full w-full px-4 sm:px-6">
-					<template v-if="!hideBack">
-						<button
-							type="button"
-							class="btn-nav-back center shrink-0 gap-1 p-2"
-							:aria-label="backTitle ? undefined : 'Back'"
-							@click="emit('back')"
-						>
-							<ArrowBackIosNewIcon class="icon-size-sm" />
-							<h3 v-if="backTitle" class="heading-md">
-								{{ backTitle }}
-							</h3>
-						</button>
-					</template>
-
-					<slot name="left">
-						<svg v-if="left === 'event-logo'" class="h-6 w-20" xmlns="http://www.w3.org/2000/svg">
-							<use xlink:href="#svg-splash-icon"></use>
-						</svg>
-
-						<div v-else-if="left || (hideBack && !titleLeft && (right || $slots.right))" class="flex w-10 items-center">
-							<component :is="left" />
-						</div>
-					</slot>
-
-					<div
-						:key="String(heading.title)"
-						class="col pointer-events-none flex-1 gap-(--space-negative-25) truncate px-2"
-						:class="titleLeft ? 'items-start text-left' : 'text-center'"
+				<template v-if="!hideBack">
+					<button
+						type="button"
+						class="btn-nav-back center shrink-0 gap-1 px-4 py-3"
+						:aria-label="backTitle ? undefined : 'Back'"
+						@click="emit('back')"
 					>
-						<h1 class="w-full truncate" :class="heading.title.length > 24 ? 'heading-sm' : 'heading-md'">
-							<slot name="title" :title="heading.title">
-								{{ heading.title }}
-							</slot>
-						</h1>
-						<h2 v-if="heading.subtitle" class="body-sm w-full truncate leading-none opacity-75">
-							<slot name="subtitle" :subtitle="heading.subtitle">
-								{{ heading.subtitle }}
-							</slot>
-						</h2>
-					</div>
+						<ArrowBackIosNewIcon class="icon-size-sm" />
+						<h3 v-if="backTitle" class="heading-md">
+							{{ backTitle }}
+						</h3>
+					</button>
+				</template>
 
-					<slot name="right">
-						<div v-if="right || left" class="flex w-10 items-center justify-end">
-							<component :is="right" />
-						</div>
-						<div v-else-if="!hideBack || $slots.left" class="w-10"></div>
-					</slot>
+				<slot name="left">
+					<svg v-if="left === 'event-logo'" class="h-6 w-20" xmlns="http://www.w3.org/2000/svg">
+						<use xlink:href="#svg-splash-icon"></use>
+					</svg>
+
+					<div v-else-if="left || (hideBack && !titleLeft && (right || $slots.right))" class="flex w-10 items-center">
+						<component :is="left" />
+					</div>
+				</slot>
+
+				<div
+					:key="String(heading.title)"
+					class="col pointer-events-none flex-1 gap-(--space-negative-25) truncate"
+					:class="titleLeft ? 'items-start text-left' : 'text-center'"
+				>
+					<h1 class="w-full truncate" :class="heading.title.length > 24 ? 'heading-sm' : 'heading-md'">
+						<slot name="title" :title="heading.title">
+							{{ heading.title }}
+						</slot>
+					</h1>
+					<h2 v-if="heading.subtitle" class="body-sm w-full truncate leading-none opacity-75">
+						<slot name="subtitle" :subtitle="heading.subtitle">
+							{{ heading.subtitle }}
+						</slot>
+					</h2>
 				</div>
+
+				<slot name="right">
+					<div v-if="right || left" class="flex w-12 items-center justify-end">
+						<component :is="right" />
+					</div>
+					<div v-else-if="!hideBack || $slots.left" class="w-12"></div>
+				</slot>
 			</slot>
 		</div>
 
