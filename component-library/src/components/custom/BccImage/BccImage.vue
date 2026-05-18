@@ -2,11 +2,11 @@
 import { PreviewIcon } from '@bcc-code/icons-vue';
 import { computed, useAttrs, type StyleValue } from 'vue';
 
-import { useLightbox } from '../../../lightbox/composables';
-import { normalizeLightboxItems } from '../../../lightbox/detectMedia';
-import type { LightboxItemInput } from '../../../lightbox/types';
+import { useLightbox } from '../BccLightbox/composables';
+import { normalizeLightboxItems } from '../BccLightbox/detectMedia';
+import type { LightboxItemInput } from '../BccLightbox/types';
 
-export type { LightboxItem, LightboxItemInput, LightboxMediaType } from '../../../lightbox/types';
+export type { LightboxItem, LightboxItemInput, LightboxMediaType } from '../BccLightbox/types';
 
 export type ImageProps = {
 	/** Image URL for the thumbnail and lightbox (when `imgs` is not set). */

@@ -8,7 +8,7 @@ import TooltipDirective from 'primevue/tooltip';
 
 import type { App } from 'vue';
 
-import { installLightbox } from './lightbox/state';
+import { installBccLightbox } from './components/custom/BccLightbox/state';
 
 export default function setup(app: App) {
 	app.use(PrimeVue, {
@@ -30,5 +30,5 @@ export default function setup(app: App) {
 	app.directive('tooltip', TooltipDirective);
 	app.directive('focus-trap', FocusTrapDirective);
 
-	installLightbox(app);
+	installBccLightbox(app);
 }

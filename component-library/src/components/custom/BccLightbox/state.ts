@@ -3,15 +3,7 @@ import { createVNode, reactive, readonly, render } from 'vue';
 
 import BccLightbox from './BccLightbox.vue';
 import { normalizeLightboxItems } from './detectMedia';
-import { LIGHTBOX_KEY, type LightboxApi, type LightboxItem, type LightboxOpenOptions } from './types';
-
-export type LightboxState = {
-	visible: boolean;
-	items: LightboxItem[];
-	index: number;
-	loop: boolean;
-	maskClosable: boolean;
-};
+import { LIGHTBOX_KEY, type LightboxApi, type LightboxOpenOptions, type LightboxState } from './types';
 
 const state = reactive<LightboxState>({
 	visible: false,
@@ -21,7 +13,7 @@ const state = reactive<LightboxState>({
 	maskClosable: true,
 });
 
-export const lightboxState = readonly(state);
+const lightboxState = readonly(state);
 
 let scrollLockCount = 0;
 let activeCallbacks: Pick<LightboxOpenOptions, 'onShow' | 'onHide'> = {};
@@ -72,14 +64,14 @@ export function closeLightbox() {
 	activeCallbacks = {};
 }
 
-export function setLightboxIndex(index: number) {
+function setLightboxIndex(index: number) {
 	if (!state.items.length) {
 		return;
 	}
 	state.index = Math.min(Math.max(index, 0), state.items.length - 1);
 }
 
-export function goToPreviousItem() {
+function goToPreviousItem() {
 	if (!state.items.length) {
 		return;
 	}
@@ -92,7 +84,7 @@ export function goToPreviousItem() {
 	}
 }
 
-export function goToNextItem() {
+function goToNextItem() {
 	if (!state.items.length) {
 		return;
 	}
@@ -105,15 +97,26 @@ export function goToNextItem() {
 	}
 }
 
-export function canGoPrevious() {
+function canGoPrevious() {
 	return state.loop || state.index > 0;
 }
 
-export function canGoNext() {
+function canGoNext() {
 	return state.loop || state.index < state.items.length - 1;
 }
 
-export function installLightbox(app: App) {
+export const LightboxStore = {
+	state: lightboxState,
+	openLightbox,
+	closeLightbox,
+	setLightboxIndex,
+	goToPreviousItem,
+	goToNextItem,
+	canGoPrevious,
+	canGoNext,
+};
+
+export function installBccLightbox(app: App) {
 	app.provide(LIGHTBOX_KEY, lightboxApi);
 
 	if (mounted || typeof document === 'undefined') {

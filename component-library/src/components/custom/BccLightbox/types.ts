@@ -22,6 +22,14 @@ export type LightboxOpenOptions = {
 	onHide?: () => void;
 };
 
+export type LightboxState = {
+	visible: boolean;
+	items: LightboxItem[];
+	index: number;
+	loop: boolean;
+	maskClosable: boolean;
+};
+
 export type LightboxApi = {
 	open: (options: LightboxOpenOptions) => void;
 	close: () => void;

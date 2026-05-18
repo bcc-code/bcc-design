@@ -1,6 +1,6 @@
 @layer components {
 	.bcc-image {
-		@apply relative inline-block leading-none;
+		@apply relative inline-block overflow-hidden leading-none;
 	}
 
 	.bcc-image__img {
@@ -22,11 +22,5 @@
 
 	.bcc-image__preview-icon {
 		@apply size-6 text-white;
-	}
-
-	@media (width < 750px) {
-		.bcc-image--preview .bcc-image__preview-mask {
-			@apply opacity-100;
-		}
 	}
 }

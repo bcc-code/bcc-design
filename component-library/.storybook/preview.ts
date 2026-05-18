@@ -11,8 +11,7 @@ import { onMounted, onUnmounted, ref } from 'vue';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
-import { BccConfirmDialog, BccToast } from '../src/index';
-import { installLightbox } from '../src/lightbox/state';
+import { BccConfirmDialog, BccToast, installBccLightbox } from '../src/index';
 import '../src/style.css';
 import '../src/styles/archivo-font.css';
 
@@ -244,7 +243,7 @@ setup(app => {
 	app.use(ToastService);
 	app.directive('tooltip', TooltipDirective);
 	app.directive('focus-trap', FocusTrapDirective);
-	installLightbox(app);
+	installBccLightbox(app);
 });
 
 const preview: Preview = {

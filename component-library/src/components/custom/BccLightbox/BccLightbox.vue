@@ -3,39 +3,39 @@ import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, RotateLeftIcon, RotateRig
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
 import BccLightboxMedia from './BccLightboxMedia.vue';
-import { canGoNext, canGoPrevious, closeLightbox, goToNextItem, goToPreviousItem, lightboxState } from './state';
+import { LightboxStore } from './state';
 
 const dialogRef = ref<HTMLElement | null>(null);
 const closeButtonRef = ref<HTMLButtonElement | null>(null);
 const mediaRef = ref<InstanceType<typeof BccLightboxMedia> | null>(null);
 
-const currentItem = computed(() => lightboxState.items[lightboxState.index]);
+const currentItem = computed(() => LightboxStore.state.items[LightboxStore.state.index]);
 const isCurrentImage = computed(() => currentItem.value?.type === 'image');
-const hasMultiple = computed(() => lightboxState.items.length > 1);
-const showPrev = computed(() => hasMultiple.value && canGoPrevious());
-const showNext = computed(() => hasMultiple.value && canGoNext());
-const counterLabel = computed(() => `${lightboxState.index + 1} / ${lightboxState.items.length}`);
+const hasMultiple = computed(() => LightboxStore.state.items.length > 1);
+const showPrev = computed(() => hasMultiple.value && LightboxStore.canGoPrevious());
+const showNext = computed(() => hasMultiple.value && LightboxStore.canGoNext());
+const counterLabel = computed(() => `${LightboxStore.state.index + 1} / ${LightboxStore.state.items.length}`);
 
 function close() {
-	closeLightbox();
+	LightboxStore.closeLightbox();
 }
 
 function onBackdropClick() {
-	if (lightboxState.maskClosable) {
+	if (LightboxStore.state.maskClosable) {
 		close();
 	}
 }
 
 function onSwipe(direction: 'left' | 'right') {
 	if (direction === 'left') {
-		goToNextItem();
+		LightboxStore.goToNextItem();
 		return;
 	}
-	goToPreviousItem();
+	LightboxStore.goToPreviousItem();
 }
 
 function onKeydown(event: KeyboardEvent) {
-	if (!lightboxState.visible) {
+	if (!LightboxStore.state.visible) {
 		return;
 	}
 	switch (event.key) {
@@ -43,10 +43,10 @@ function onKeydown(event: KeyboardEvent) {
 			close();
 			break;
 		case 'ArrowLeft':
-			goToPreviousItem();
+			LightboxStore.goToPreviousItem();
 			break;
 		case 'ArrowRight':
-			goToNextItem();
+			LightboxStore.goToNextItem();
 			break;
 		default:
 			break;
@@ -54,7 +54,7 @@ function onKeydown(event: KeyboardEvent) {
 }
 
 watch(
-	() => lightboxState.visible,
+	() => LightboxStore.state.visible,
 	async visible => {
 		if (visible) {
 			await nextTick();
@@ -75,7 +75,7 @@ onUnmounted(() => {
 <template>
 	<Teleport to="body">
 		<div
-			v-if="lightboxState.visible && currentItem"
+			v-if="LightboxStore.state.visible && currentItem"
 			ref="dialogRef"
 			class="bcc-lightbox"
 			role="dialog"
@@ -96,7 +96,7 @@ onUnmounted(() => {
 				type="button"
 				class="bcc-lightbox__control bcc-lightbox__nav bcc-lightbox__nav--prev"
 				aria-label="Previous"
-				@click="goToPreviousItem"
+				@click="LightboxStore.goToPreviousItem"
 			>
 				<ChevronLeftIcon class="bcc-lightbox__icon" aria-hidden="true" />
 			</button>
@@ -106,7 +106,7 @@ onUnmounted(() => {
 				type="button"
 				class="bcc-lightbox__control bcc-lightbox__nav bcc-lightbox__nav--next"
 				aria-label="Next"
-				@click="goToNextItem"
+				@click="LightboxStore.goToNextItem"
 			>
 				<ChevronRightIcon class="bcc-lightbox__icon" aria-hidden="true" />
 			</button>
@@ -114,7 +114,7 @@ onUnmounted(() => {
 			<div class="bcc-lightbox__stage" @click.stop>
 				<BccLightboxMedia
 					ref="mediaRef"
-					:key="`${currentItem.src}-${lightboxState.index}`"
+					:key="`${currentItem.src}-${LightboxStore.state.index}`"
 					:item="currentItem"
 					:zoom-enabled="true"
 					@swipe="onSwipe"
