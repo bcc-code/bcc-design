@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, RotateLeftIcon, RotateRightIcon } from '@bcc-code/icons-vue';
+import {
+	ChevronLeftIcon,
+	ChevronRightIcon,
+	CloseIcon,
+	DownloadIcon,
+	RotateLeftIcon,
+	RotateRightIcon,
+} from '@bcc-code/icons-vue';
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
 import BccLightboxMedia from './BccLightboxMedia.vue';
@@ -18,6 +25,33 @@ const counterLabel = computed(() => `${LightboxStore.state.index + 1} / ${Lightb
 
 function close() {
 	LightboxStore.closeLightbox();
+}
+
+async function downloadImage() {
+	const item = currentItem.value;
+	if (!item || item.type !== 'image') return;
+
+	const filename = item.src.split('/').pop()?.split('?')[0] ?? 'image';
+	try {
+		const response = await fetch(item.src);
+		const blob = await response.blob();
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = filename;
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+		URL.revokeObjectURL(url);
+	} catch {
+		const link = document.createElement('a');
+		link.href = item.src;
+		link.download = filename;
+		link.target = '_blank';
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	}
 }
 
 function onBackdropClick() {
@@ -85,8 +119,23 @@ onUnmounted(() => {
 			<div class="bcc-lightbox__backdrop" @click="onBackdropClick" />
 
 			<header class="bcc-lightbox__header">
+				<button
+					v-if="isCurrentImage"
+					type="button"
+					class="bcc-lightbox__control"
+					aria-label="Download"
+					@click="downloadImage"
+				>
+					<DownloadIcon class="bcc-lightbox__icon" aria-hidden="true" />
+				</button>
 				<p v-if="hasMultiple" class="bcc-lightbox__counter">{{ counterLabel }}</p>
-				<button ref="closeButtonRef" type="button" class="bcc-lightbox__control" aria-label="Close" @click="close">
+				<button
+					ref="closeButtonRef"
+					type="button"
+					class="bcc-lightbox__control ml-auto"
+					aria-label="Close"
+					@click="close"
+				>
 					<CloseIcon class="bcc-lightbox__icon" aria-hidden="true" />
 				</button>
 			</header>
