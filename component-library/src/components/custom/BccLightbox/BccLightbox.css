@@ -8,11 +8,11 @@
 	}
 
 	.bcc-lightbox__header {
-		@apply top-inset-top pointer-events-none absolute inset-x-0 z-20 flex items-center justify-end gap-3 p-3;
+		@apply top-inset-top pointer-events-none absolute inset-x-0 z-20 flex items-center gap-3 p-3;
 	}
 
 	.bcc-lightbox__counter {
-		@apply body-sm pointer-events-none mr-auto rounded-md bg-black/50 px-2.5 py-1 text-white;
+		@apply body-sm pointer-events-none rounded-md bg-black/50 px-2.5 py-1 text-white;
 	}
 
 	.bcc-lightbox__control {
