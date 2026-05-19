@@ -119,6 +119,7 @@ onUnmounted(() => {
 			<div class="bcc-lightbox__backdrop" @click="onBackdropClick" />
 
 			<header class="bcc-lightbox__header">
+				<p v-if="hasMultiple" class="bcc-lightbox__counter">{{ counterLabel }}</p>
 				<button
 					v-if="isCurrentImage"
 					type="button"
@@ -128,7 +129,6 @@ onUnmounted(() => {
 				>
 					<DownloadIcon class="bcc-lightbox__icon" aria-hidden="true" />
 				</button>
-				<p v-if="hasMultiple" class="bcc-lightbox__counter">{{ counterLabel }}</p>
 				<button
 					ref="closeButtonRef"
 					type="button"
