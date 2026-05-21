@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   '@primevue/icons':
-    hash: wxehdusg7nkwq2p5dioeozbldy
+    hash: rkcq7xtu7vkwvbs5bc57zvjxem
     path: patches/@primevue__icons.patch
 
 importers:
@@ -17,8 +17,8 @@ importers:
         specifier: ^5.2.5
         version: 5.2.5(@primeuix/themes@2.0.3)
       '@bcc-code/icons-vue':
-        specifier: ^1.4.0
-        version: 1.4.0(vue@3.5.27(typescript@5.7.3))
+        specifier: ^1.5.0
+        version: 1.5.0(vue@3.5.27(typescript@5.7.3))
       '@primeuix/themes':
         specifier: ^2.0.3
         version: 2.0.3
@@ -186,8 +186,8 @@ packages:
     peerDependencies:
       '@primeuix/themes': ^2.0.0
 
-  '@bcc-code/icons-vue@1.4.0':
-    resolution: {integrity: sha512-11B9/9NbI3bvFM+5sbQEfyTSP1MiS3pJXBko1aOFXqqUSKE2Bo4uGQBNFO0+APsMPyFLSmuS7kLidNe7pxlBFQ==}
+  '@bcc-code/icons-vue@1.5.0':
+    resolution: {integrity: sha512-OKuLmlMmLgJ63ZZSqjIZuyk0DAfqqXPfduypz0PELfBoYn7DTdZw39mUvLmZyBQUeoNQrsljdKdKo2O1lLQSvA==}
     peerDependencies:
       vue: '>= 3'
 
@@ -3578,8 +3578,8 @@ packages:
   vue-component-type-helpers@2.2.12:
     resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==}
 
-  vue-component-type-helpers@3.2.9:
-    resolution: {integrity: sha512-S3BiWYaLSzHxTpln665ELSrMR9UYmrIDUmhik7nVZxmJjTKL2/a+ew1hvGxksKelivm0ujjWfG1fYOiU/2e8rA==}
+  vue-component-type-helpers@3.3.1:
+    resolution: {integrity: sha512-pu58kqxmVyEH6VfNYW1UyEfR3XAnJ27ZXT3yzXxxpjLxVzAbyC35Zk/nm/RMs7ijWnJNSd9fWkeex2OhUsx3MA==}
 
   vue-docgen-api@4.79.2:
     resolution: {integrity: sha512-n9ENAcs+40awPZMsas7STqjkZiVlIjxIKgiJr5rSohDP0/JCrD9VtlzNojafsA1MChm/hz2h3PDtUedx3lbgfA==}
@@ -3777,7 +3777,7 @@ snapshots:
     dependencies:
       '@primeuix/themes': 2.0.3
 
-  '@bcc-code/icons-vue@1.4.0(vue@3.5.27(typescript@5.7.3))':
+  '@bcc-code/icons-vue@1.5.0(vue@3.5.27(typescript@5.7.3))':
     dependencies:
       vue: 3.5.27(typescript@5.7.3)
 
@@ -4164,7 +4164,7 @@ snapshots:
       '@primeuix/utils': 0.6.4
       vue: 3.5.27(typescript@5.7.3)
 
-  '@primevue/icons@4.5.4(patch_hash=wxehdusg7nkwq2p5dioeozbldy)(vue@3.5.27(typescript@5.7.3))':
+  '@primevue/icons@4.5.4(patch_hash=rkcq7xtu7vkwvbs5bc57zvjxem)(vue@3.5.27(typescript@5.7.3))':
     dependencies:
       '@primeuix/utils': 0.6.4
       '@primevue/core': 4.5.4(vue@3.5.27(typescript@5.7.3))
@@ -4324,7 +4324,7 @@ snapshots:
       storybook: 10.3.5(@testing-library/dom@10.4.0)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       type-fest: 2.19.0
       vue: 3.5.27(typescript@5.7.3)
-      vue-component-type-helpers: 3.2.9
+      vue-component-type-helpers: 3.3.1
 
   '@tailwindcss/cli@4.2.4':
     dependencies:
@@ -6570,7 +6570,7 @@ snapshots:
       '@primeuix/styles': 2.0.3
       '@primeuix/utils': 0.6.4
       '@primevue/core': 4.5.4(vue@3.5.27(typescript@5.7.3))
-      '@primevue/icons': 4.5.4(patch_hash=wxehdusg7nkwq2p5dioeozbldy)(vue@3.5.27(typescript@5.7.3))
+      '@primevue/icons': 4.5.4(patch_hash=rkcq7xtu7vkwvbs5bc57zvjxem)(vue@3.5.27(typescript@5.7.3))
     transitivePeerDependencies:
       - vue
 
@@ -7310,7 +7310,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.12: {}
 
-  vue-component-type-helpers@3.2.9: {}
+  vue-component-type-helpers@3.3.1: {}
 
   vue-docgen-api@4.79.2(vue@3.5.27(typescript@5.7.3)):
     dependencies:
