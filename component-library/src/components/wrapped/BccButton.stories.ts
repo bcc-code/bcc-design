@@ -82,9 +82,22 @@ export const WithIcons: Story = {
 				<BccButton label="With Icon Left" :icon="CheckIcon" />
 				<BccButton :icon="HelpIcon" />
 				<BccButton label="With Icon Right" :icon="InfoIcon" icon-right />
+				<BccButton label="With Both Icons" :icon="CheckIcon" :icon-right="InfoIcon" />
 			</div>
 		`,
 	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<div class="flex flex-wrap gap-2">
+						<BccButton label="With Icon Left" :icon="CheckIcon" />
+						<BccButton :icon="HelpIcon" />
+						<BccButton label="With Icon Right" :icon="InfoIcon" icon-right />
+						<BccButton label="With Both Icons" :icon="CheckIcon" :icon-right="InfoIcon" />
+					</div>`,
+			},
+		},
+	},
 };
 
 export const WithIconsAndSizes: Story = {

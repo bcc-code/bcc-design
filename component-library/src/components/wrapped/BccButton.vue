@@ -5,7 +5,7 @@ import { computed, useAttrs } from 'vue';
 
 export type ButtonProps = {
 	icon?: VueComponent;
-	iconRight?: boolean;
+	iconRight?: boolean | VueComponent;
 	iconClass?: PrimeButtonProps['iconClass'];
 	size?: PrimeButtonProps['size'];
 	loadingIcon?: VueComponent;
@@ -23,7 +23,7 @@ const buttonBindings = computed((): PrimeButtonProps => {
 	void loadingIcon;
 
 	const forward = rest as PrimeButtonProps;
-	if (iconRight) forward.iconPos = 'right';
+	if (iconRight === true) forward.iconPos = 'right';
 	if (useCtx) forward.severity = 'primary';
 	return { ...forward, ...attrs } as PrimeButtonProps;
 });
@@ -35,14 +35,20 @@ const buttonBindings = computed((): PrimeButtonProps => {
 			<component
 				:is="icon"
 				class="shrink-0"
-				:class="[iconClass, { 'order-1': iconRight }, size === 'large' ? 'size-6' : 'size-5']"
+				:class="[iconClass, { 'order-1': iconRight === true }, size === 'large' ? 'size-6' : 'size-5']"
+			/>
+			<component
+				:is="iconRight"
+				v-if="typeof iconRight !== 'boolean'"
+				class="order-last shrink-0"
+				:class="[iconClass, size === 'large' ? 'size-6' : 'size-5']"
 			/>
 		</template>
 		<template #loadingicon>
 			<component
 				:is="loadingIcon"
 				class="shrink-0"
-				:class="[iconClass, { 'order-1': iconRight }, size === 'large' ? 'size-6' : 'size-5']"
+				:class="[iconClass, { 'order-1': iconRight === true }, size === 'large' ? 'size-6' : 'size-5']"
 			/>
 		</template>
 		<slot />
