@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - 'icons-v*'
+      - "icons-v*"
 
 env:
   CI: true
@@ -15,12 +15,12 @@ permissions:
 jobs:
   build:
     permissions:
-      contents: write  # for softprops/action-gh-release to create GitHub release
+      contents: write # for softprops/action-gh-release to create GitHub release
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - run: git fetch --tags -f
 
