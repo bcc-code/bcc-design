@@ -213,3 +213,43 @@ const selected = ref('left');
 		},
 	},
 };
+
+export const LabelLeftAndRightAligned: Story = {
+	render: () => ({
+		components: { BccRadioButton, BccRadioButtonGroup },
+		setup() {
+			const selected = ref('val1');
+			const options = [
+				{ label: 'Option 1', value: 'val1' },
+				{ label: 'Option 2', value: 'val2' },
+				{ label: 'Option 3', value: 'val3' },
+			];
+			return { selected, options };
+		},
+		template: `
+			<BccRadioButtonGroup
+					v-model="selected"
+					class="col left top w-full gap-1"
+					aria-label="Language selection"
+			>
+				<div v-for="opt in options" :key="'label-left-' + opt.value" class="w-full border-b-1 border-default p-2">
+					<BccRadioButton :value="opt.value" :input-id="opt.value" name="label-left" fluid :label="opt.label" label-left justify="between" />
+				</div>
+			</BccRadioButtonGroup>
+			<br />
+			<p class="text-sm text-surface-500">Selected: {{ selected }}</p>
+		`,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Shows both left and right aligned labels using the `label-left` prop.',
+			},
+			source: {
+				code: `<div v-for="opt in options" :key="opt.value" class="w-full border-b-1 border-default p-2">
+						<BccRadioButton v-model="selected" :label="opt.label" fluid label-left justify="between" />
+					</div>`,
+			},
+		},
+	},
+};
