@@ -17,6 +17,9 @@ const meta = {
 	argTypes: {
 		disabled: { control: 'boolean' },
 		size: { control: 'select', options: ['small', 'default', 'large'] },
+		label: { control: 'text' },
+		value: { control: 'text' },
+		labelLeft: { control: 'boolean' },
 	},
 } as Meta;
 
@@ -25,6 +28,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+	args: {
+		value: 'opt1',
+		label: 'Option 1',
+		size: 'default',
+	},
 	render: args => ({
 		components: { BccRadioButton },
 		setup() {
@@ -39,8 +47,30 @@ export const Default: Story = {
 		template: `
 			<div>
 				<div class="col left gap-2">
+					<BccRadioButton v-bind="args" />
+				</div>
+			</div>
+		`,
+	}),
+};
+
+export const Variants: Story = {
+	render: () => ({
+		components: { BccRadioButton },
+		setup() {
+			const selected = ref('opt1');
+			const options = [
+				{ label: 'Option 1', value: 'opt1' },
+				{ label: 'Option 2', labelLeft: true, value: 'opt2' },
+				{ label: 'Option 3', value: 'opt3' },
+			];
+			return { selected, options };
+		},
+		template: `
+			<div>
+				<div class="col left gap-2">
 					<BccRadioButton v-for="opt in options" :key="opt.value"
-						v-model="selected" :input-id="opt.value" name="group" v-bind="{...args, ...opt}" />
+						v-model="selected" :input-id="opt.value" name="group" v-bind="{...opt}" />
 				</div>
 				<br />
 				<p class="text-sm text-surface-500">Selected: {{ selected }}</p>
