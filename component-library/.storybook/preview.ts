@@ -254,6 +254,8 @@ const preview: Preview = {
 			storySort: {
 				order: [
 					'Readme',
+					'AI Tools',
+					['LLMS.txt', 'MCP Server'],
 					'Foundations',
 					[
 						'Overview',

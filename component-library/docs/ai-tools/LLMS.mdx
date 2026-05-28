@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI Tools/LLMS.txt" />
+
+# AI-ready documentation
+
+The Storybook build publishes static Markdown and JSON artifacts for AI tools and documentation crawlers.
+
+## Outputs
+
+- [`/llms.txt`](/llms.txt): concise Markdown index of public docs pages.
+- [`/llms-full.txt`](/llms-full.txt): full Markdown export of all public docs pages.
+- [`/docs-index.json`](/docs-index.json): machine-readable index with source paths, docs routes, Markdown routes, and summaries.
+- <a href="/docs/foundations-colors--docs.md" target="_blank">`/docs/<page>.md`</a>: per-page Markdown that mirrors each Storybook docs route, for example `/docs/foundations-colors--docs` -> `/docs/foundations-colors--docs.md`.
+
+## Generation
+
+Run `pnpm run docs:ai` from `component-library` to build Storybook and generate all AI docs outputs. Run `pnpm run build:llms` only when `storybook-static/index.json` already exists.
+
+The generator uses Storybook's public docs manifest as the route source of truth. It converts MDX into readable Markdown, strips imports and presentational JSX, and creates metadata pages for autodocs generated from stories.
+
+## Exclusions
+
+The AI docs pipeline only reads public docs entries from the Storybook manifest. Private or internal docs, secrets, env files, `node_modules`, build outputs, and caches are excluded.
+
+## MCP
+
+MCP server generation is out of scope. This pipeline only publishes static Markdown and JSON files.

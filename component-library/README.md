@@ -41,7 +41,6 @@ app.mount('#app');
 
 2. **Add styles** using one of the two options below.
 
-
 ### Styles Option 1 — Recommended: full Tailwind in your app
 
 Use this if you want Tailwind utility classes in your own templates while still letting the library's components render correctly.
@@ -71,7 +70,7 @@ That single import is enough. `theme.css` includes:
 - BCC design tokens, `@theme` / `@utility` definitions, and the rest of the design-system CSS inlined from `src/style.css` (including component-specific rules such as `BccInput` icon sizing and `BccButton` context tokens).
 - `library-utilities.css`, the pre-compiled Tailwind **utility class** rules used inside library templates (which your build cannot infer from the published JS).
 
-Do **not** rely on `library-utilities.css` alone with a minimal “base” import: you still need the full `theme.css` (or `style.css` for Option 2) so non-utility component styles and tokens are present. 
+Do **not** rely on `library-utilities.css` alone with a minimal “base” import: you still need the full `theme.css` (or `style.css` for Option 2) so non-utility component styles and tokens are present.
 
 ### Styles Option 2 — Pre-built CSS only
 
@@ -84,7 +83,6 @@ import '@bcc-code/component-library-vue/style.css';
 ```
 
 You get the BCC theme and component styles only; no Tailwind utilities in your app.
-
 
 # Components
 
@@ -130,8 +128,25 @@ The library exports both **custom BCC components** (e.g. `BccBadge`, `BccFrame`,
 pnpm install
 pnpm run start        # Storybook on port 6006
 pnpm run build        # Typecheck, types, and Vite build
+pnpm run docs:ai      # Build Storybook, then generate AI-ready docs outputs
+pnpm run build:llms   # Regenerate AI docs from an existing storybook-static/index.json
 pnpm run build:vite   # Vite build only (includes theme.css)
 ```
+
+### AI-ready docs outputs
+
+`pnpm run docs:ai` generates the public AI documentation artifacts into `storybook-static/`:
+
+- `/llms.txt`: Markdown index of public docs pages.
+- `/llms-full.txt`: concatenated Markdown for all public docs pages.
+- `/docs-index.json`: machine-readable index with source paths, Storybook routes, and Markdown routes.
+- `/docs/<page>.md`: per-page Markdown mirroring the Storybook docs route, e.g. `/docs/foundations-colors--docs` -> `/docs/foundations-colors--docs.md`.
+
+`build-storybook` runs the same generation after Storybook builds, so deployed docs get these files at runtime. The generated files live in `storybook-static/`, which is ignored and not committed; CI does not need a drift check unless these build artifacts are committed later.
+
+The generator uses Storybook's `storybook-static/index.json` as the route source of truth, converts MDX to readable Markdown, and summarizes autodocs story pages from story metadata. It only reads public docs entries from `docs` and `src` through the Storybook manifest, and excludes private/internal/secrets paths, env files, dependency folders, build outputs, and caches.
+
+Override the published URL base with `LLMS_BASE_URL=https://your-docs-host pnpm run build:llms` if needed. MCP server generation is out of scope for this pipeline; only static Markdown and JSON documentation artifacts are produced.
 
 ### Folder structure (where to work)
 
