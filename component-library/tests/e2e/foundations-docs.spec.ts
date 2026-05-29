@@ -49,6 +49,13 @@ docsPages.forEach((pageId) => {
 	});
 });
 
+test('Storybook .md docs path redirects to the generated Markdown file', async ({ page }) => {
+	await page.goto('/?path=/docs/readme--docs.md');
+
+	await expect(page).toHaveURL(/\/docs\/readme--docs\.md$/);
+	await expect(page.locator('body')).toContainText('# @bcc-code/component-library-vue');
+});
+
 // ── Story embed tests ──────────────────────────────────────
 
 const storyEmbeds = [
