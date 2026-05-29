@@ -56,6 +56,13 @@ test('Storybook .md docs path redirects to the generated Markdown file', async (
 	await expect(page.locator('body')).toContainText('# @bcc-code/component-library-vue');
 });
 
+test('generated markdown files preserve UTF-8 punctuation in the browser', async ({ page }) => {
+	await page.goto('/docs/readme--docs.md');
+
+	await expect(page.locator('body')).toContainText("project’s **`.npmrc`**");
+	await expect(page.locator('body')).not.toContainText("projectâ€™s **`.npmrc`**");
+});
+
 // ── Story embed tests ──────────────────────────────────────
 
 const storyEmbeds = [

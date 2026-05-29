@@ -1,10 +1,15 @@
+import { readFileSync } from 'node:fs';
 import { mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises';
+import { createRequire } from 'node:module';
 import path from 'node:path';
 
 const DEFAULT_BASE_URL = 'https://components.bcc.no';
 const DEFAULT_OUTPUT_DIR = 'storybook-static';
+const UTF8_BOM = '\uFEFF';
 const EXCLUDED_DOCS_PATTERN =
 	/(^|[/\\._-])(private|internal|secret|secrets|node_modules|dist|dist-types|dist-css|coverage|cache|\.cache|storybook-static)($|[/\\._-])/i;
+const require = createRequire(import.meta.url);
+let designTokenVars;
 
 function normalizeBaseUrl(baseUrl) {
 	return baseUrl.replace(/\/$/, '');
@@ -68,17 +73,105 @@ function groupBySection(pages) {
 }
 
 function decodeEntities(value) {
+	const namedEntities = {
+		nbsp: ' ',
+		ensp: ' ',
+		emsp: ' ',
+		thinsp: ' ',
+		hairsp: ' ',
+		zwnj: '',
+		zwj: '',
+		lrm: '',
+		rlm: '',
+		shy: '',
+		amp: '&',
+		lt: '<',
+		gt: '>',
+		quot: '"',
+		apos: "'",
+		'#39': "'",
+		'#34': '"',
+		copy: '©',
+		reg: '®',
+		trade: '™',
+		euro: '€',
+		pound: '£',
+		yen: '¥',
+		cent: '¢',
+		deg: '°',
+		plusmn: '±',
+		times: '×',
+		divide: '÷',
+		middot: '·',
+		bull: '•',
+		sect: '§',
+		para: '¶',
+		numero: '№',
+		frac14: '¼',
+		frac12: '½',
+		frac34: '¾',
+		sup2: '²',
+		sup3: '³',
+		micro: 'µ',
+		permil: '‰',
+		rarr: '→',
+		larr: '←',
+		uarr: '↑',
+		darr: '↓',
+		harr: '↔',
+		nearr: '↗',
+		nwarr: '↖',
+		searr: '↘',
+		swarr: '↙',
+		mdash: '—',
+		ndash: '–',
+		hellip: '…',
+		ldquo: '“',
+		rdquo: '”',
+		lsquo: '‘',
+		rsquo: '’',
+		bdquo: '„',
+		sbquo: '‚',
+		lsaquo: '‹',
+		rsaquo: '›',
+		laquo: '«',
+		raquo: '»',
+	};
+
+	return value.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (match, entity) => {
+		const normalized = String(entity).toLowerCase();
+		if (normalized.startsWith('#x')) {
+			const codePoint = Number.parseInt(normalized.slice(2), 16);
+			return Number.isNaN(codePoint) ? match : String.fromCodePoint(codePoint);
+		}
+
+		if (normalized.startsWith('#')) {
+			const codePoint = Number.parseInt(normalized.slice(1), 10);
+			return Number.isNaN(codePoint) ? match : String.fromCodePoint(codePoint);
+		}
+
+		return namedEntities[normalized] ?? match;
+	});
+}
+
+function decodeJsUnicodeEscapes(value) {
 	return value
-		.replace(/&nbsp;/g, ' ')
-		.replace(/&amp;/g, '&')
-		.replace(/&lt;/g, '<')
-		.replace(/&gt;/g, '>')
-		.replace(/&quot;/g, '"')
-		.replace(/&#39;/g, "'");
+		.replace(/\\u\{([0-9a-fA-F]+)\}/g, (match, hex) => {
+			const codePoint = Number.parseInt(hex, 16);
+			return Number.isNaN(codePoint) ? match : String.fromCodePoint(codePoint);
+		})
+		.replace(/\\u([0-9a-fA-F]{4})/g, (match, hex) => {
+			const codePoint = Number.parseInt(hex, 16);
+			return Number.isNaN(codePoint) ? match : String.fromCodePoint(codePoint);
+		})
+		.replace(/\\x([0-9a-fA-F]{2})/g, (match, hex) => {
+			const codePoint = Number.parseInt(hex, 16);
+			return Number.isNaN(codePoint) ? match : String.fromCharCode(codePoint);
+		});
 }
 
 function cleanInlineMarkdown(value) {
-	return decodeEntities(value)
+	return decodeEntities(decodeJsUnicodeEscapes(value))
 		.replace(/\{`([^`]+)`\}/g, '`$1`')
 		.replace(/\{'([^']+)'\}/g, '$1')
 		.replace(/\{"([^"]+)"\}/g, '$1')
@@ -86,6 +179,119 @@ function cleanInlineMarkdown(value) {
 		.replace(/\n[ \t]+/g, '\n')
 		.replace(/[ \t]{2,}/g, ' ')
 		.trim();
+}
+
+function stripCssComments(input) {
+	return input.replace(/\/\*[\s\S]*?\*\//g, '');
+}
+
+function extractCssBlock(css, selectorRegex) {
+	const match = css.match(selectorRegex);
+	return match ? match[1] : '';
+}
+
+function parseCssVars(block) {
+	const vars = {};
+	const cleanBlock = stripCssComments(block);
+	const varRegex = /(--[a-z0-9-]+)\s*:\s*([^;]+);/gi;
+	let match = varRegex.exec(cleanBlock);
+	while (match) {
+		vars[match[1].trim()] = match[2].trim();
+		match = varRegex.exec(cleanBlock);
+	}
+	return vars;
+}
+
+function extractDarkCssVars(css) {
+	const combinedPatterns = [
+		/\.dark\s*,\s*\[data-theme="dark"\]\s*\{([\s\S]*?)\}/,
+		/\[data-theme="dark"\]\s*,\s*\.dark\s*\{([\s\S]*?)\}/,
+	];
+	for (const pattern of combinedPatterns) {
+		const block = extractCssBlock(css, pattern);
+		if (block) return parseCssVars(block);
+	}
+	const darkClassVars = parseCssVars(extractCssBlock(css, /(?<![-\w])\.dark\s*\{([\s\S]*?)\}/m));
+	const darkAttrVars = parseCssVars(extractCssBlock(css, /(?<!,\s*)\[data-theme="dark"\]\s*\{([\s\S]*?)\}/));
+	return { ...darkClassVars, ...darkAttrVars };
+}
+
+function getDesignTokenVars() {
+	if (designTokenVars) return designTokenVars;
+
+	try {
+		const tokenCss = readFileSync(require.resolve('@bcc-code/design-tokens/css'), 'utf8');
+		const lightVars = parseCssVars(extractCssBlock(tokenCss, /:root\s*\{([\s\S]*?)\}/));
+		designTokenVars = {
+			light: lightVars,
+			dark: { ...lightVars, ...extractDarkCssVars(tokenCss) },
+		};
+	} catch {
+		designTokenVars = { light: {}, dark: {} };
+	}
+
+	return designTokenVars;
+}
+
+function resolveCssVar(varName, vars, seen = new Set()) {
+	if (seen.has(varName)) return undefined;
+
+	const value = vars[varName];
+	if (!value) return undefined;
+
+	const varRef = value.match(/^var\(\s*(--[a-z0-9-]+)\s*(?:,\s*[^)]+)?\)$/i);
+	if (!varRef) return value;
+
+	seen.add(varName);
+	const resolved = resolveCssVar(varRef[1], vars, seen);
+	seen.delete(varName);
+	return resolved || value;
+}
+
+function tokenToCssVarName(token) {
+	return `--${token.replace(/\./g, '-')}`;
+}
+
+function resolveTokenPair(token) {
+	const cssVarName = tokenToCssVarName(token);
+	const vars = getDesignTokenVars();
+
+	return {
+		lightValue: resolveCssVar(cssVarName, vars.light) || 'unresolved',
+		darkValue: resolveCssVar(cssVarName, vars.dark) || 'unresolved',
+	};
+}
+
+function resolveTokenValue(token) {
+	return resolveTokenPair(token).lightValue;
+}
+
+function resolveColorTokenValues(token) {
+	const { lightValue: lightHex, darkValue: darkHex } = resolveTokenPair(token);
+	return { lightHex, darkHex };
+}
+
+function resolveShadowTokenValues(token) {
+	const { lightValue: value, darkValue } = resolveTokenPair(token);
+	return { value, darkValue };
+}
+
+function remToPx(value, rootFontSize = 16) {
+	const match = value.trim().match(/^(-?\d*\.?\d+)(rem|em)$/i);
+	if (!match) return value;
+
+	const px = Number.parseFloat(match[1]) * rootFontSize;
+	const normalized = Number(px.toFixed(4));
+	return Number.isInteger(normalized) ? `${normalized}px` : `${normalized}px`;
+}
+
+function spaceTokenToPx(token) {
+	const rawStep = token.replace(/^space\./, '');
+	const step = Number(rawStep);
+	if (!Number.isFinite(step)) return '';
+
+	const px = (step / 100) * 8;
+	return Number.isInteger(px) ? `${px}px` : `${px}px`;
 }
 
 function stripMdxImports(contents) {
@@ -180,7 +386,7 @@ async function inlineRawMarkdownImports(contents, sourceFilePath) {
 	return next;
 }
 
-function mdxToMarkdown(contents) {
+function mdxToMarkdown(contents, { storyMarkdownByRef = new Map() } = {}) {
 	const codeFences = protectSegments(stripMdxImports(contents), /```[\s\S]*?```/g, 'CODE_FENCE');
 	let markdown = codeFences.contents;
 
@@ -189,6 +395,9 @@ function mdxToMarkdown(contents) {
 	markdown = markdown.replace(/<\/?Unstyled\b[^>]*>/gi, '\n');
 	markdown = markdown.replace(/\s+on[A-Z]\w*=\{[^}]*\}/g, '');
 	markdown = markdown.replace(/<Story\b[^>]*\bof=\{([^}]+)\}[^>]*\/>/gi, (_, storyRef) => {
+		const storyMarkdown = storyMarkdownByRef.get(normalizeStoryReference(storyRef));
+		if (storyMarkdown) return `\n\n${storyMarkdown}\n\n`;
+
 		const storyName = String(storyRef).split('.').at(-1) ?? storyRef;
 		return `\n\n> Story example: ${humanizeIdentifier(storyName)}\n\n`;
 	});
@@ -235,8 +444,9 @@ function mdxToMarkdown(contents) {
 
 async function renderMdxMarkdown(sourceFilePath) {
 	const rawContents = await readFile(sourceFilePath, 'utf8');
+	const { storyMarkdownByRef } = await buildStoryMarkdownByRef(rawContents, sourceFilePath);
 	const withRawMarkdown = await inlineRawMarkdownImports(rawContents, sourceFilePath);
-	return mdxToMarkdown(withRawMarkdown);
+	return mdxToMarkdown(withRawMarkdown, { storyMarkdownByRef });
 }
 
 function extractStoryDescriptions(source) {
@@ -334,6 +544,105 @@ function extractObjectFromIndex(source, start) {
 	return '';
 }
 
+function extractArrayFromIndex(source, start) {
+	if (start === -1 || source[start] !== '[') return '';
+
+	let depth = 0;
+	let quote = '';
+	let escaping = false;
+
+	for (let index = start; index < source.length; index += 1) {
+		const char = source[index];
+
+		if (quote) {
+			if (escaping) {
+				escaping = false;
+			} else if (char === '\\') {
+				escaping = true;
+			} else if (char === quote) {
+				quote = '';
+			}
+			continue;
+		}
+
+		if (char === '"' || char === "'" || char === '`') {
+			quote = char;
+			continue;
+		}
+
+		if (char === '[') {
+			depth += 1;
+		} else if (char === ']') {
+			depth -= 1;
+			if (depth === 0) {
+				return source.slice(start + 1, index);
+			}
+		}
+	}
+
+	return '';
+}
+
+function extractArrayAfter(source, marker) {
+	const markerIndex = source.indexOf(marker);
+	if (markerIndex === -1) return '';
+
+	const start = source.indexOf('[', markerIndex);
+	return extractArrayFromIndex(source, start);
+}
+
+function extractConstArray(source, name) {
+	const pattern = new RegExp(`\\bconst\\s+${name}\\s*=\\s*\\[`);
+	const match = source.match(pattern);
+	if (!match) return '';
+
+	const start = source.indexOf('[', match.index);
+	return extractArrayFromIndex(source, start);
+}
+
+function extractCallArguments(source, functionName) {
+	const functionIndex = source.indexOf(`${functionName}(`);
+	if (functionIndex === -1) return '';
+
+	const start = source.indexOf('(', functionIndex);
+	if (start === -1) return '';
+
+	let depth = 0;
+	let quote = '';
+	let escaping = false;
+
+	for (let index = start; index < source.length; index += 1) {
+		const char = source[index];
+
+		if (quote) {
+			if (escaping) {
+				escaping = false;
+			} else if (char === '\\') {
+				escaping = true;
+			} else if (char === quote) {
+				quote = '';
+			}
+			continue;
+		}
+
+		if (char === '"' || char === "'" || char === '`') {
+			quote = char;
+			continue;
+		}
+
+		if (char === '(') {
+			depth += 1;
+		} else if (char === ')') {
+			depth -= 1;
+			if (depth === 0) {
+				return source.slice(start + 1, index);
+			}
+		}
+	}
+
+	return '';
+}
+
 function splitTopLevelEntries(objectSource) {
 	const entries = [];
 	let current = '';
@@ -395,6 +704,381 @@ function normalizeCodeSnippet(snippet) {
 	const minIndent = indents.length > 0 ? Math.min(...indents) : 0;
 
 	return lines.map(line => line.slice(minIndent)).join('\n').trim();
+}
+
+function parseStringArgument(value) {
+	const trimmed = value?.trim() ?? '';
+	if (!trimmed || trimmed === 'undefined' || trimmed === 'null') return '';
+
+	if (trimmed.startsWith('[')) {
+		const body = extractArrayFromIndex(trimmed, 0);
+		if (!body) return cleanInlineMarkdown(trimmed);
+		return splitTopLevelEntries(body).map(parseStringArgument).filter(Boolean).join(', ');
+	}
+
+	const quote = trimmed[0];
+	if ((quote === '"' || quote === "'" || quote === '`') && trimmed.endsWith(quote)) {
+		return cleanInlineMarkdown(
+			trimmed
+				.slice(1, -1)
+				.replace(/\\n/g, '\n')
+				.replace(/\\t/g, '\t')
+				.replace(/\\(['"`\\])/g, '$1')
+		);
+	}
+
+	return cleanInlineMarkdown(trimmed);
+}
+
+function parseObjectLiteralProperties(source) {
+	const trimmed = source.trim();
+	if (!trimmed.startsWith('{')) return {};
+
+	const body = extractObjectFromIndex(trimmed, 0);
+	if (!body) return {};
+
+	const properties = {};
+	for (const entry of splitTopLevelEntries(body)) {
+		const match = entry.match(/^([A-Za-z_$][\w$]*)\s*:\s*([\s\S]+)$/);
+		if (!match) continue;
+
+		properties[match[1]] = parseStringArgument(match[2]);
+	}
+
+	return properties;
+}
+
+function parseObjectArrayRows(arraySource) {
+	const rows = [];
+
+	for (const entry of splitTopLevelEntries(arraySource)) {
+		const trimmed = entry.trim();
+		if (!trimmed.startsWith('{')) continue;
+
+		const properties = parseObjectLiteralProperties(trimmed);
+		if (Object.keys(properties).length > 0) {
+			rows.push(properties);
+		}
+	}
+
+	return rows;
+}
+
+function humanizeObjectKey(key) {
+	return humanizeIdentifier(key).replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+function htmlToPlainText(html) {
+	return cleanInlineMarkdown(
+		html
+			.replace(/\{\{\s*([^}]+?)\s*\}\}/g, '$1')
+			.replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, '`$1`')
+			.replace(/<br\s*\/?>/gi, '\n')
+			.replace(/<\/(p|div|span|li|h[1-6])>/gi, '\n')
+			.replace(/<[^>]+>/g, ' ')
+			.replace(/\n{2,}/g, '\n')
+	);
+}
+
+function colorTokenCssVariable(token) {
+	return `var(--color-${token.replace(/^color\./, '').replace(/\./g, '-')})`;
+}
+
+function colorTokenTailwindClass(token) {
+	return token.replace(/^color\./, '').replace(/\./g, '-').replace('background-', 'bg-');
+}
+
+function parseTokenEntry(entry) {
+	const trimmed = entry.trim();
+	if (!trimmed) return null;
+
+	if (trimmed.startsWith('{')) {
+		const properties = parseObjectLiteralProperties(trimmed);
+		if (!properties.token) return null;
+
+		return {
+			kind: 'preview',
+			token: properties.token,
+			description: properties.desc,
+			preview: properties.preview,
+			tailwindClass: properties.tw,
+		};
+	}
+
+	const callMatch = trimmed.match(/^([A-Za-z_$][\w$]*)\s*\(([\s\S]*)\)$/);
+	if (!callMatch) return null;
+
+	const [, helperName, argsSource] = callMatch;
+	const args = splitTopLevelEntries(argsSource).map(parseStringArgument);
+	const token = args[0];
+	if (!token) return null;
+
+	if (helperName === 'c') {
+		const { lightHex, darkHex } = resolveColorTokenValues(token);
+		return {
+			kind: 'color',
+			token,
+			description: args[1],
+			lightValue: args[2] || lightHex,
+			darkValue: args[3] || darkHex,
+			cssVariable: colorTokenCssVariable(token),
+			tailwindClass: colorTokenTailwindClass(token),
+		};
+	}
+
+	if (helperName === 's') {
+		const resolved = resolveTokenValue(token);
+		return {
+			kind: 'size',
+			token,
+			value: resolved === 'unresolved' ? spaceTokenToPx(token) || resolved : remToPx(resolved),
+			tailwindClass: `spacing-${token.replace(/^space\./, '')}`,
+		};
+	}
+
+	if (helperName === 'sp') {
+		const multiplier = Number(args[1]);
+		return {
+			kind: 'spacing',
+			token,
+			multiplier: Number.isFinite(multiplier) ? `${multiplier}x` : args[1],
+			rem: Number.isFinite(multiplier) ? `${multiplier / 2}rem` : '',
+			px: Number.isFinite(multiplier) ? `${(multiplier / 2) * 16}px` : '',
+			tailwindClass: `spacing-${token.replace(/^space\./, '')}`,
+		};
+	}
+
+	if (helperName === 'b' || helperName === 'sizedToken' || helperName === 'isize') {
+		const description = helperName === 'isize' ? '' : args[1];
+		const tailwindClass = helperName === 'isize' ? args[1] : args[2];
+
+		return {
+			kind: 'size',
+			token,
+			description,
+			value: remToPx(resolveTokenValue(token)),
+			cssVariable: tokenToCssVarName(token),
+			tailwindClass,
+		};
+	}
+
+	if (helperName === 'sh') {
+		const { value, darkValue } = resolveShadowTokenValues(token);
+		return {
+			kind: 'shadow',
+			token,
+			description: args[1],
+			lightValue: value,
+			darkValue,
+			cssVariable: tokenToCssVarName(token),
+			tailwindClass: args[2],
+		};
+	}
+
+	return null;
+}
+
+function extractTokenRows(source) {
+	const tokensSource = extractArrayAfter(source, 'tokens:');
+	if (!tokensSource) return [];
+
+	return splitTopLevelEntries(tokensSource).map(parseTokenEntry).filter(Boolean);
+}
+
+function extractDoDontGuidance(source) {
+	const argsSource = extractCallArguments(source, 'doDont');
+	if (!argsSource) return null;
+
+	const args = splitTopLevelEntries(argsSource).map(parseStringArgument);
+	if (args.length < 4) return null;
+
+	return {
+		doExample: htmlToPlainText(args[0]),
+		doText: args[1],
+		dontExample: htmlToPlainText(args[2]),
+		dontText: args[3],
+	};
+}
+
+function extractObjectArrayTables(source) {
+	const tables = [];
+	const constArrayPattern = /\bconst\s+([A-Za-z_$][\w$]*)\s*=\s*\[/g;
+	const seen = new Set();
+
+	for (const match of source.matchAll(constArrayPattern)) {
+		const name = match[1];
+		if (seen.has(name)) continue;
+
+		const arrayStart = source.indexOf('[', (match.index ?? 0) + match[0].length - 1);
+		const arraySource = extractArrayFromIndex(source, arrayStart);
+		if (!arraySource) continue;
+
+		const rows = parseObjectArrayRows(arraySource);
+		if (rows.length === 0) {
+			const values = splitTopLevelEntries(arraySource).map(parseStringArgument).filter(Boolean);
+			if (values.length === 0 || values.some(value => value.startsWith('{') || value.includes('=>'))) continue;
+
+			seen.add(name);
+			tables.push({ name, rows: values.map(value => ({ value })) });
+			continue;
+		}
+
+		seen.add(name);
+		tables.push({ name, rows });
+	}
+
+	return tables;
+}
+
+function parsePrimitiveArray(source) {
+	if (!source) return [];
+	return splitTopLevelEntries(source).map(parseStringArgument).filter(Boolean);
+}
+
+function extractRampTable(source, objectBody) {
+	const argsSource = extractCallArguments(objectBody, 'rampTemplate');
+	if (!argsSource) return null;
+
+	const args = splitTopLevelEntries(argsSource);
+	if (args.length < 2) return null;
+
+	const rampSourceArg = args[0].trim();
+	const labelSourceArg = args[1].trim();
+	const rampSource = /^[A-Za-z_$][\w$]*$/.test(rampSourceArg)
+		? extractConstArray(source, rampSourceArg)
+		: rampSourceArg.startsWith('[')
+			? extractArrayFromIndex(rampSourceArg, 0)
+			: '';
+	const labels = /^[A-Za-z_$][\w$]*$/.test(labelSourceArg)
+		? parsePrimitiveArray(extractConstArray(`${source}\n${objectBody}`, labelSourceArg))
+		: labelSourceArg.startsWith('[')
+			? parsePrimitiveArray(extractArrayFromIndex(labelSourceArg, 0))
+			: [];
+
+	if (!rampSource) return null;
+
+	const rows = [];
+	const rampPattern = /ramp\(\s*(['"`])([^'"`]+)\1\s*,\s*(['"`])([^'"`]+)\3(?:\s*,\s*([A-Za-z_$][\w$]*))?\s*\)/g;
+	for (const match of rampSource.matchAll(rampPattern)) {
+		const [, , label, , tokenBase, stepsVariable] = match;
+		const tokenSteps = stepsVariable
+			? parsePrimitiveArray(extractConstArray(`${source}\n${objectBody}`, stepsVariable))
+			: labels;
+		const tokenList = tokenSteps.map((step, index) => {
+			const display = labels[index] && labels[index] !== step ? `${labels[index]}: ` : '';
+			return `${display}${tokenBase}.${step}`;
+		});
+
+		rows.push({
+			ramp: label,
+			tokenBase,
+			tokens: tokenList.join(', '),
+		});
+	}
+
+	if (rows.length === 0) return null;
+	return { name: 'color ramp tokens', rows };
+}
+
+function escapeMarkdownTableCell(value) {
+	const text = cleanInlineMarkdown(String(value ?? ''));
+	if (!text) return '-';
+
+	return text.replace(/\|/g, '\\|').replace(/\n/g, '<br>');
+}
+
+function renderMarkdownTable(headers, rows) {
+	if (rows.length === 0) return '';
+
+	const lines = [
+		`| ${headers.map(escapeMarkdownTableCell).join(' | ')} |`,
+		`| ${headers.map(() => '---').join(' | ')} |`,
+	];
+
+	for (const row of rows) {
+		lines.push(`| ${row.map(escapeMarkdownTableCell).join(' | ')} |`);
+	}
+
+	return lines.join('\n');
+}
+
+function renderTokenRowsMarkdown(rows) {
+	if (rows.length === 0) return '';
+
+	const kind = rows[0].kind;
+
+	if (kind === 'color') {
+		return renderMarkdownTable(
+			['Token', 'Description', 'Light value', 'Dark value', 'CSS variable', 'Tailwind class'],
+			rows.map(row => [
+				`\`${row.token}\``,
+				row.description,
+				row.lightValue,
+				row.darkValue,
+				`\`${row.cssVariable}\``,
+				`\`${row.tailwindClass}\``,
+			])
+		);
+	}
+
+	if (kind === 'shadow') {
+		return renderMarkdownTable(
+			['Token', 'Description', 'Light shadow', 'Dark shadow', 'CSS variable', 'Tailwind class'],
+			rows.map(row => [
+				`\`${row.token}\``,
+				row.description,
+				row.lightValue,
+				row.darkValue,
+				`\`${row.cssVariable}\``,
+				`\`${row.tailwindClass}\``,
+			])
+		);
+	}
+
+	if (kind === 'preview') {
+		return renderMarkdownTable(
+			['Token', 'Description', 'Preview', 'Tailwind class'],
+			rows.map(row => [`\`${row.token}\``, row.description, row.preview, `\`${row.tailwindClass}\``])
+		);
+	}
+
+	if (kind === 'spacing') {
+		return renderMarkdownTable(
+			['Token', 'Multiplier', 'REM', 'Pixels', 'Tailwind class'],
+			rows.map(row => [`\`${row.token}\``, row.multiplier, row.rem, row.px, `\`${row.tailwindClass}\``])
+		);
+	}
+
+	return renderMarkdownTable(
+		['Token', 'Description', 'Value', 'CSS variable', 'Tailwind class'],
+		rows.map(row => [
+			`\`${row.token}\``,
+			row.description,
+			row.value,
+			row.cssVariable ? `\`${row.cssVariable}\`` : '',
+			`\`${row.tailwindClass}\``,
+		])
+	);
+}
+
+function renderObjectArrayTableMarkdown(table) {
+	const keys = [];
+
+	for (const row of table.rows) {
+		for (const key of Object.keys(row)) {
+			if (!keys.includes(key)) keys.push(key);
+		}
+	}
+
+	if (keys.length === 0) return '';
+
+	const title = `**${humanizeIdentifier(table.name)}**`;
+	const markdownTable = renderMarkdownTable(
+		keys.map(humanizeObjectKey),
+		table.rows.map(row => keys.map(key => row[key] ?? ''))
+	);
+
+	return `${title}\n\n${markdownTable}`;
 }
 
 function extractArgDescriptions(source) {
@@ -480,6 +1164,10 @@ function extractStoryDefinitions(source) {
 		const wrapped = `{${objectBody}}`;
 		const args = extractObjectAfter(wrapped, 'args:');
 		const parameters = extractObjectAfter(wrapped, 'parameters:');
+		const tokenRows = extractTokenRows(objectBody);
+		const doDont = extractDoDontGuidance(objectBody);
+		const rampTable = extractRampTable(source, objectBody);
+		const dataTables = extractObjectArrayTables(objectBody);
 		const templates = Array.from(objectBody.matchAll(/template:\s*`([\s\S]*?)`/g)).map(match =>
 			normalizeCodeSnippet(match[1])
 		);
@@ -491,6 +1179,10 @@ function extractStoryDefinitions(source) {
 			name: storyName,
 			args: args ? cleanInlineMarkdown(args) : '',
 			parameters: parameters ? cleanInlineMarkdown(parameters) : '',
+			tokenRows,
+			doDont,
+			rampTable,
+			dataTables,
 			templates: templates.filter(Boolean),
 			sourceCodes: sourceCodes.filter(Boolean),
 		});
@@ -519,27 +1211,160 @@ async function resolveStoryImportPath(sourceFilePath, importTarget) {
 	return null;
 }
 
+function addStoryImport(importsByTarget, importTarget, binding) {
+	const entry = importsByTarget.get(importTarget) ?? {
+		importTarget,
+		namespaces: new Set(),
+		named: [],
+	};
+
+	if (binding.namespace) {
+		entry.namespaces.add(binding.namespace);
+	}
+
+	if (binding.named) {
+		entry.named.push(binding.named);
+	}
+
+	importsByTarget.set(importTarget, entry);
+}
+
+function parseNamedStoryImports(specifier) {
+	return specifier
+		.split(',')
+		.map(part => part.trim())
+		.filter(Boolean)
+		.map(part => {
+			const [exported, local] = part.split(/\s+as\s+/i).map(value => value.trim());
+			return { exported, local: local || exported };
+		});
+}
+
+function parseStoryImports(mdxSource) {
+	const importsByTarget = new Map();
+	const namespacePattern =
+		/^\s*import\s+\*\s+as\s+([A-Za-z_$][\w$]*)\s+from\s+['"]([^'"]*\.stories(?:\.[cm]?[jt]sx?)?)['"];?\s*$/gm;
+	const namedPattern =
+		/^\s*import\s+\{([^}]+)\}\s+from\s+['"]([^'"]*\.stories(?:\.[cm]?[jt]sx?)?)['"];?\s*$/gm;
+
+	for (const match of mdxSource.matchAll(namespacePattern)) {
+		const [, namespace, importTarget] = match;
+		addStoryImport(importsByTarget, importTarget, { namespace });
+	}
+
+	for (const match of mdxSource.matchAll(namedPattern)) {
+		const [, specifier, importTarget] = match;
+		for (const named of parseNamedStoryImports(specifier)) {
+			addStoryImport(importsByTarget, importTarget, { named });
+		}
+	}
+
+	return Array.from(importsByTarget.values()).map(entry => ({
+		...entry,
+		namespaces: Array.from(entry.namespaces),
+	}));
+}
+
 async function loadReferencedStorySources(mdxSource, sourceFilePath) {
-	const imports = new Set();
-	const importPattern =
-		/^\s*import\s+(?:[\w*\s{},]+)\s+from\s+['"]([^'"]*\.stories(?:\.[cm]?[jt]sx?)?)['"];?\s*$/gm;
-	const extensionlessPattern = /^\s*import\s+(?:[\w*\s{},]+)\s+from\s+['"]([^'"]*\.stories)['"];?\s*$/gm;
-
-	for (const match of mdxSource.matchAll(importPattern)) {
-		imports.add(match[1]);
-	}
-
-	for (const match of mdxSource.matchAll(extensionlessPattern)) {
-		imports.add(match[1]);
-	}
+	const imports = parseStoryImports(mdxSource);
 
 	const resolved = [];
-	for (const importTarget of imports) {
+	for (const storyImport of imports) {
+		const { importTarget } = storyImport;
 		const entry = await resolveStoryImportPath(sourceFilePath, importTarget);
-		if (entry) resolved.push(entry);
+		if (entry) resolved.push({ ...entry, imports: [storyImport] });
 	}
 
 	return resolved;
+}
+
+function normalizeStoryReference(storyRef) {
+	return String(storyRef).replace(/\s+/g, '');
+}
+
+function renderStoryContentMarkdown(story, { includeHeading = false, headingLevel = 3 } = {}) {
+	const lines = [];
+
+	if (includeHeading) {
+		lines.push(`${'#'.repeat(headingLevel)} ${humanizeIdentifier(story.name)}`, '');
+	}
+
+	if (story.doDont) {
+		lines.push(
+			renderMarkdownTable(
+				['Do', "Don't"],
+				[
+					[
+						[story.doDont.doExample, story.doDont.doText].filter(Boolean).join('\n\n'),
+						[story.doDont.dontExample, story.doDont.dontText].filter(Boolean).join('\n\n'),
+					],
+				]
+			),
+			''
+		);
+	} else if (story.tokenRows.length > 0) {
+		lines.push(renderTokenRowsMarkdown(story.tokenRows), '');
+	} else if (story.rampTable) {
+		lines.push(renderObjectArrayTableMarkdown(story.rampTable), '');
+	} else if (story.dataTables.length > 0) {
+		for (const table of story.dataTables) {
+			lines.push(renderObjectArrayTableMarkdown(table), '');
+		}
+	} else {
+		if (story.args) lines.push(`- Args: ${story.args}`);
+		if (story.parameters) lines.push(`- Parameters: ${story.parameters}`);
+		if (story.args || story.parameters) lines.push('');
+
+		for (const snippet of story.sourceCodes) {
+			lines.push('```vue', snippet, '```', '');
+		}
+
+		if (story.sourceCodes.length === 0) {
+			for (const template of story.templates.slice(0, 1)) {
+				const renderedText = htmlToPlainText(template);
+				if (renderedText) {
+					lines.push(renderedText, '');
+				} else {
+					lines.push('```vue', template, '```', '');
+				}
+			}
+		}
+	}
+
+	if (lines.length === 0 || (includeHeading && lines.length === 2)) {
+		lines.push(`> Story example: ${humanizeIdentifier(story.name)}`, '');
+	}
+
+	return lines.join('\n').trim();
+}
+
+async function buildStoryMarkdownByRef(mdxSource, sourceFilePath) {
+	const references = await loadReferencedStorySources(mdxSource, sourceFilePath);
+	const storyMarkdownByRef = new Map();
+
+	for (const reference of references) {
+		const storyDefinitions = extractStoryDefinitions(reference.contents);
+		const storyDefinitionsByName = new Map(storyDefinitions.map(story => [story.name, story]));
+
+		for (const storyImport of reference.imports) {
+			for (const namespace of storyImport.namespaces) {
+				for (const story of storyDefinitions) {
+					storyMarkdownByRef.set(
+						normalizeStoryReference(`${namespace}.${story.name}`),
+						renderStoryContentMarkdown(story)
+					);
+				}
+			}
+
+			for (const named of storyImport.named) {
+				const story = storyDefinitionsByName.get(named.exported);
+				if (!story) continue;
+				storyMarkdownByRef.set(normalizeStoryReference(named.local), renderStoryContentMarkdown(story));
+			}
+		}
+	}
+
+	return { references, storyMarkdownByRef };
 }
 
 async function renderStoryMarkdown(sourceFilePath, entry) {
@@ -591,50 +1416,11 @@ async function renderStoryMarkdown(sourceFilePath, entry) {
 	if (storyDefinitions.length > 0) {
 		lines.push('## Story Details', '');
 		for (const story of storyDefinitions) {
-			lines.push(`### ${humanizeIdentifier(story.name)}`, '');
-			if (story.args) {
-				lines.push(`- Args: ${story.args}`);
-			}
-			if (story.parameters) {
-				lines.push(`- Parameters: ${story.parameters}`);
-			}
-
-			for (const snippet of story.sourceCodes) {
-				lines.push('', '```vue', snippet, '```');
-			}
-
-			if (story.sourceCodes.length === 0) {
-				for (const template of story.templates.slice(0, 1)) {
-					lines.push('', '```vue', template, '```');
-				}
-			}
-
-			lines.push('');
+			lines.push(renderStoryContentMarkdown(story, { includeHeading: true }), '');
 		}
 	}
 
 	return lines.join('\n').trim();
-}
-
-async function appendReferencedStoriesToMarkdown(markdown, sourceFilePath, entry) {
-	const rawContents = await readFile(sourceFilePath, 'utf8');
-	const references = await loadReferencedStorySources(rawContents, sourceFilePath);
-	if (references.length === 0) return markdown;
-
-	const sections = [];
-	for (const reference of references) {
-		const relativePath = trimDotSlash(path.relative(process.cwd(), reference.path).replaceAll(path.sep, '/'));
-		const storyEntry = {
-			...entry,
-			title: `${entry.title} (${path.basename(reference.path)})`,
-			importPath: relativePath,
-		};
-		const storyMarkdown = await renderStoryMarkdown(reference.path, storyEntry);
-		sections.push(`### ${path.basename(reference.path)}\n\n${storyMarkdown}`);
-	}
-
-	if (sections.length === 0) return markdown;
-	return `${markdown}\n\n---\n\n## Referenced Story Files\n\n${sections.join('\n\n')}`.trim();
 }
 
 function ensurePageHeader(entry, markdown) {
@@ -671,9 +1457,7 @@ async function renderPage(entry, cwd, baseUrl) {
 		throw new Error(`Refusing to read docs source outside workspace: ${entry.importPath}`);
 	}
 
-	const sourceMarkdown = source.endsWith('.mdx')
-		? await appendReferencedStoriesToMarkdown(await renderMdxMarkdown(sourceFilePath), sourceFilePath, entry)
-		: await renderStoryMarkdown(sourceFilePath, entry);
+	const sourceMarkdown = source.endsWith('.mdx') ? await renderMdxMarkdown(sourceFilePath) : await renderStoryMarkdown(sourceFilePath, entry);
 	const markdown = `${ensurePageHeader(entry, sourceMarkdown)}\n`;
 
 	return {
@@ -771,7 +1555,7 @@ async function writeOutputs(outputDir, pages, baseUrl) {
 		writeFile(path.join(outputDir, 'llms.txt'), renderLlmsTxt(pages), 'utf8'),
 		writeFile(path.join(outputDir, 'llms-full.txt'), renderLlmsFullTxt(pages), 'utf8'),
 		writeFile(path.join(outputDir, 'docs-index.json'), renderDocsIndex(pages, baseUrl), 'utf8'),
-		...pages.map(page => writeFile(path.join(docsDir, `${page.id}.md`), page.markdown, 'utf8')),
+		...pages.map(page => writeFile(path.join(docsDir, `${page.id}.md`), `${UTF8_BOM}${page.markdown}`, 'utf8')),
 	]);
 }
 
