@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 /**
  * Smoke tests for Foundations documentation pages.
@@ -52,7 +52,32 @@ test('Storybook .md docs path redirects to the generated Markdown file', async (
 	await page.goto('/?path=/docs/readme--docs.md');
 
 	await expect(page).toHaveURL(/\/docs\/readme--docs\.md$/);
-	await expect(page.locator('body')).toContainText('# @bcc-code/component-library-vue');
+	const response = await page.request.get(page.url());
+	expect(response.headers()['content-type']).toContain('text/markdown');
+	expect(await response.text()).toContain('# @bcc-code/component-library-vue');
+});
+
+test('Storybook llms query paths redirect to the generated llms files', async ({ page }) => {
+	for (const llmsPath of ['/llms.txt', '/llms-full.txt']) {
+		await page.goto(`/?path=${encodeURIComponent(llmsPath)}`);
+
+		await expect(page).toHaveURL(new RegExp(`${llmsPath.replace('.', '\\.').replace('/', '\\/')}$`));
+		const response = await page.request.get(page.url());
+		expect(response.headers()['content-type']).toContain('text/plain');
+		expect(await response.text()).toContain('# BCC Component Library');
+	}
+});
+
+test('LLMS docs page links point directly to raw llms files', async ({ page }) => {
+	await page.goto('/?path=/docs/ai-tools-llms-txt--docs', { waitUntil: 'networkidle' });
+
+	const frame = page.frame({ url: /iframe\.html/ });
+	expect(frame).not.toBeNull();
+
+	for (const llmsPath of ['/llms.txt', '/llms-full.txt']) {
+		const link = frame!.locator(`#storybook-docs a[href="${llmsPath}"]`);
+		await expect(link).toHaveAttribute('target', '_top');
+	}
 });
 
 test('generated markdown files preserve UTF-8 punctuation in the browser', async ({ page }) => {

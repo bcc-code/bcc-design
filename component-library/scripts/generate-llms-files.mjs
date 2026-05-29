@@ -178,6 +178,9 @@ function cleanInlineMarkdown(value) {
 		.replace(/[ \t]+\n/g, '\n')
 		.replace(/\n[ \t]+/g, '\n')
 		.replace(/[ \t]{2,}/g, ' ')
+		.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '') // Remove script tags
+		.replace(/<iframe[^>]*>[\s\S]*?<\/iframe>/gi, '') // Remove iframe tags
+		.replace(/<[^>]+>/g, '') // Remove all other HTML tags
 		.trim();
 }
 
@@ -984,7 +987,10 @@ function escapeMarkdownTableCell(value) {
 	const text = cleanInlineMarkdown(String(value ?? ''));
 	if (!text) return '-';
 
-	return text.replace(/\|/g, '\\|').replace(/\n/g, '<br>');
+	return text
+		.replace(/\|/g, '\\|') // Escape pipe characters
+		.replace(/\n/g, '<br>') // Replace newlines with <br>
+		.replace(/\\/g, '\\\\'); // Escape backslashes
 }
 
 function renderMarkdownTable(headers, rows) {
