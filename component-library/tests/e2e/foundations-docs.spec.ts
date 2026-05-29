@@ -80,6 +80,26 @@ test('LLMS docs page links point directly to raw llms files', async ({ page }) =
 	}
 });
 
+test('docs pages show the markdown actions menu beside the title', async ({ page }) => {
+	for (const pageId of ['ai-tools-llms-txt--docs', 'foundations-overview--docs']) {
+		await page.goto(`/?path=/docs/${pageId}`, { waitUntil: 'networkidle' });
+
+		const frame = page.frame({ url: /iframe\.html/ });
+		expect(frame).not.toBeNull();
+
+		const headerRow = frame!.locator('.bcc-docs-header-row').first();
+		await expect(headerRow).toBeVisible();
+
+		const actions = headerRow.locator('[data-markdown-url]').first();
+		await expect(actions).toHaveAttribute('data-markdown-url', new RegExp(`/docs/${pageId.replace('.', '\\.')}\\.md$`));
+		await expect(actions.locator('.bcc-docs-markdown-trigger')).toBeVisible();
+
+		await actions.locator('.bcc-docs-markdown-trigger').click();
+		await expect(actions.locator('[data-action="copy-markdown"]')).toBeVisible();
+		await expect(actions.locator('[data-action="copy-link"]')).toBeVisible();
+	}
+});
+
 test('generated markdown files preserve UTF-8 punctuation in the browser', async ({ page }) => {
 	await page.goto('/docs/readme--docs.md');
 
