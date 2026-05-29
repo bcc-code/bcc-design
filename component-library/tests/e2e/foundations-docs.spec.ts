@@ -8,7 +8,6 @@ import { test, expect } from '@playwright/test';
 
 const docsPages = [
 	'ai-tools-llms-txt--docs',
-	'ai-tools-mcp-server--docs',
 	'foundations-overview--docs',
 	'foundations-colors--docs',
 	'foundations-typography--docs',

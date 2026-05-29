@@ -1504,28 +1504,6 @@ function renderLlmsFullTxt(pages) {
 	return `# BCC Component Library Full Documentation\n\n> Complete AI-ready Markdown export for all public Storybook docs pages.\n\n${contents}\n`;
 }
 
-function renderDocsIndex(pages, baseUrl) {
-	return `${JSON.stringify(
-		{
-			name: '@bcc-code/component-library-vue',
-			baseUrl,
-			source: 'storybook-static/index.json',
-			outputs: {
-				llms: '/llms.txt',
-				llmsFull: '/llms-full.txt',
-				docsIndex: '/docs-index.json',
-				markdownPages: '/docs/*.md',
-			},
-			exclusions: ['private/internal/secrets paths', 'env files', 'node_modules', 'build outputs', 'caches'],
-			pages: pages
-				.slice()
-				.sort(compareEntries)
-				.map(({ markdown, order, ...page }) => page),
-		},
-		null,
-		2
-	)}\n`;
-}
 
 async function removeStaleGeneratedMarkdown(outputDir) {
 	const rootEntries = await readdir(outputDir, { withFileTypes: true }).catch(() => []);
@@ -1551,12 +1529,11 @@ async function writeOutputs(outputDir, pages, baseUrl) {
 	await mkdir(docsDir, { recursive: true });
 	await removeStaleGeneratedMarkdown(outputDir);
 
-	await Promise.all([
-		writeFile(path.join(outputDir, 'llms.txt'), renderLlmsTxt(pages), 'utf8'),
-		writeFile(path.join(outputDir, 'llms-full.txt'), renderLlmsFullTxt(pages), 'utf8'),
-		writeFile(path.join(outputDir, 'docs-index.json'), renderDocsIndex(pages, baseUrl), 'utf8'),
-		...pages.map(page => writeFile(path.join(docsDir, `${page.id}.md`), `${UTF8_BOM}${page.markdown}`, 'utf8')),
-	]);
+	       await Promise.all([
+		       writeFile(path.join(outputDir, 'llms.txt'), renderLlmsTxt(pages), 'utf8'),
+		       writeFile(path.join(outputDir, 'llms-full.txt'), renderLlmsFullTxt(pages), 'utf8'),
+		       ...pages.map(page => writeFile(path.join(docsDir, `${page.id}.md`), `${UTF8_BOM}${page.markdown}`, 'utf8')),
+	       ]);
 }
 
 async function main() {
@@ -1577,7 +1554,7 @@ async function main() {
 	console.log(`Generated AI docs in ${outputDir}`);
 	console.log(`Base URL: ${baseUrl}`);
 	console.log(`Docs pages: ${pages.length}`);
-	console.log('Outputs: llms.txt, llms-full.txt, docs-index.json, docs/*.md');
+	console.log('Outputs: llms.txt, llms-full.txt, docs/*.md');
 }
 
 main().catch(error => {

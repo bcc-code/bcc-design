@@ -135,18 +135,18 @@ pnpm run build:vite   # Vite build only (includes theme.css)
 
 ### AI-ready docs outputs
 
+
 `pnpm run docs:ai` generates the public AI documentation artifacts into `storybook-static/`:
 
 - `/llms.txt`: Markdown index of public docs pages.
 - `/llms-full.txt`: concatenated Markdown for all public docs pages.
-- `/docs-index.json`: machine-readable index with source paths, Storybook routes, and Markdown routes.
 - `/docs/<page>.md`: per-page Markdown mirroring the Storybook docs route, e.g. `/docs/foundations-colors--docs` -> `/docs/foundations-colors--docs.md`.
 
 `build-storybook` runs the same generation after Storybook builds, so deployed docs get these files at runtime. The generated files live in `storybook-static/`, which is ignored and not committed; CI does not need a drift check unless these build artifacts are committed later.
 
 The generator uses Storybook's `storybook-static/index.json` as the route source of truth, converts MDX to readable Markdown, and summarizes autodocs story pages from story metadata. It only reads public docs entries from `docs` and `src` through the Storybook manifest, and excludes private/internal/secrets paths, env files, dependency folders, build outputs, and caches.
 
-Override the published URL base with `LLMS_BASE_URL=https://your-docs-host pnpm run build:llms` if needed. MCP server generation is out of scope for this pipeline; only static Markdown and JSON documentation artifacts are produced.
+Override the published URL base with `LLMS_BASE_URL=https://your-docs-host pnpm run build:llms` if needed. Only static Markdown and JSON documentation artifacts are produced.
 
 ### Folder structure (where to work)
 

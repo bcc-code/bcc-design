@@ -254,8 +254,6 @@ const preview: Preview = {
 			storySort: {
 				order: [
 					'Readme',
-					'AI Tools',
-					['LLMS.txt', 'MCP Server'],
 					'Foundations',
 					[
 						'Overview',
@@ -271,6 +269,8 @@ const preview: Preview = {
 						'Tokens',
 						'Token Reference',
 					],
+					'AI Tools',
+					['LLMS.txt'],
 					'Custom',
 					'Wrapped',
 					'PrimeVue',
