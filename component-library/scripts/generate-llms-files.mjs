@@ -178,9 +178,7 @@ function cleanInlineMarkdown(value) {
 		.replace(/[ \t]+\n/g, '\n')
 		.replace(/\n[ \t]+/g, '\n')
 		.replace(/[ \t]{2,}/g, ' ')
-		.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '') // Remove script tags
-		.replace(/<iframe[^>]*>[\s\S]*?<\/iframe>/gi, '') // Remove iframe tags
-		.replace(/<[^>]+>/g, '') // Remove all other HTML tags
+		.replace(/<|>/g, '') // Remove all HTML angle brackets to prevent tag injection
 		.trim();
 }
 
@@ -412,7 +410,7 @@ function mdxToMarkdown(contents, { storyMarkdownByRef = new Map() } = {}) {
 	});
 	markdown = markdown.replace(/<a\b([^>]*?)>([\s\S]*?)<\/a>/gi, (_, attributes, label) => {
 		const href = attributeValue(attributes, 'href');
-		const text = cleanInlineMarkdown(label.replace(/<[^>]+>/g, ''));
+		const text = cleanInlineMarkdown(label);
 		return href ? `[${text}](${normalizeHref(href)})` : text;
 	});
 	markdown = markdown.replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, (_, code) => `\`${cleanInlineMarkdown(code)}\``);
@@ -424,17 +422,17 @@ function mdxToMarkdown(contents, { storyMarkdownByRef = new Map() } = {}) {
 	for (const level of [6, 5, 4, 3, 2, 1]) {
 		const marker = '#'.repeat(level);
 		markdown = markdown.replace(new RegExp(`<h${level}\\b[^>]*>([\\s\\S]*?)<\\/h${level}>`, 'gi'), (_, text) => {
-			return `\n\n${marker} ${cleanInlineMarkdown(text.replace(/<[^>]+>/g, ''))}\n\n`;
+			return `\n\n${marker} ${cleanInlineMarkdown(text)}\n\n`;
 		});
 	}
 
 	markdown = markdown.replace(/<li\b[^>]*>([\s\S]*?)<\/li>/gi, (_, text) => {
-		return `\n- ${cleanInlineMarkdown(text.replace(/<[^>]+>/g, ''))}`;
+		return `\n- ${cleanInlineMarkdown(text)}`;
 	});
 	markdown = markdown.replace(/<br\s*\/?>/gi, '\n');
 	markdown = markdown.replace(/<hr\b[^>]*\/?>/gi, '\n\n---\n\n');
 	markdown = markdown.replace(/<\/?(div|span|p|ul|ol|section|article|header|footer|main)\b[^>]*>/gi, '\n');
-	markdown = markdown.replace(/<[^>]+>/g, '');
+	markdown = markdown.replace(/<|>/g, '');
 	markdown = decodeEntities(markdown);
 	markdown = markdown.replace(/[ \t]+\n/g, '\n');
 	markdown = markdown.replace(/\n[ \t]+/g, '\n');
@@ -988,9 +986,9 @@ function escapeMarkdownTableCell(value) {
 	if (!text) return '-';
 
 	return text
+		.replace(/\\/g, '\\\\') // Escape backslashes first to avoid double-escaping
 		.replace(/\|/g, '\\|') // Escape pipe characters
-		.replace(/\n/g, '<br>') // Replace newlines with <br>
-		.replace(/\\/g, '\\\\'); // Escape backslashes
+		.replace(/\n/g, '<br>'); // Replace newlines with <br>
 }
 
 function renderMarkdownTable(headers, rows) {
