@@ -47,6 +47,44 @@ function sectionForTitle(title) {
 	return title.split('/').at(0) ?? 'Docs';
 }
 
+function sectionHeading(section) {
+	if (section === 'Readme') return 'Start here';
+	if (/(wrapped|custom|primevue)/i.test(section)) return `${section} components`;
+	return section;
+}
+
+function sectionPriority(section) {
+	const normalized = section.toLowerCase();
+	if (normalized.includes('foundation')) return 0;
+	if (normalized.includes('style')) return 1;
+	if (normalized.includes('wrapped')) return 2;
+	if (normalized.includes('custom')) return 3;
+	if (normalized.includes('primevue')) return 4;
+	return 10;
+}
+
+function isFoundationsOverview(page) {
+	return page.section === 'Foundations' && page.label.toLowerCase() === 'overview';
+}
+
+function isStartHerePage(page) {
+	return page.section === 'Readme' || page.section === 'AI Tools' || isFoundationsOverview(page);
+}
+
+function startHerePriority(page) {
+	if (page.section === 'Readme') return 0;
+	if (isFoundationsOverview(page)) return 1;
+	if (page.section === 'AI Tools') return 2;
+	return 10;
+}
+
+function llmsLabel(page) {
+	if (page.section === 'AI Tools' && /llms\.txt/i.test(page.label)) return 'AI Tools';
+	if (isFoundationsOverview(page)) return 'Foundations';
+	if (page.section === 'Foundations' && page.label === 'Tokens') return 'Design Tokens';
+	return page.label;
+}
+
 function compareEntries(left, right) {
 	return left.order - right.order || left.title.localeCompare(right.title) || left.id.localeCompare(right.id);
 }
@@ -170,16 +208,81 @@ function decodeJsUnicodeEscapes(value) {
 		});
 }
 
-function cleanInlineMarkdown(value) {
-	return decodeEntities(decodeJsUnicodeEscapes(value))
-		.replace(/\{`([^`]+)`\}/g, '`$1`')
-		.replace(/\{'([^']+)'\}/g, '$1')
-		.replace(/\{"([^"]+)"\}/g, '$1')
+function stripDecorativeHtml(value) {
+	return value.replace(
+		/<span\b(?=[^>]*(?:class|className)=["'][^"']*\bmaterial-symbols-outlined\b[^"']*["'])[^>]*>[\s\S]*?<\/span>/gi,
+		''
+	);
+}
+
+function stripHtmlTags(value, { preserveLineBreaks = false } = {}) {
+	const blockTags =
+		'article|aside|blockquote|dd|div|dl|dt|figcaption|figure|footer|form|h[1-6]|header|li|main|nav|ol|p|pre|section|table|tbody|td|tfoot|th|thead|tr|ul';
+	const inlineOrBlockTags = preserveLineBreaks ? `${blockTags}|span` : blockTags;
+	const breakPattern = new RegExp(`</?(?:${inlineOrBlockTags})\\b[^>]*>`, 'gi');
+
+	return stripDecorativeHtml(value)
+		.replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
+		.replace(/<!--[\s\S]*?-->/g, '')
+		.replace(/<script\b[\s\S]*?<\/script>/gi, '')
+		.replace(/<style\b[\s\S]*?<\/style>/gi, '')
+		.replace(/<br\s*\/?>/gi, '\n')
+		.replace(breakPattern, '\n')
+		.replace(/<\/?[A-Za-z][A-Za-z0-9:-]*(?:\s[^>]*)?\/?>/g, ' ');
+}
+
+function normalizePlainTextWhitespace(value) {
+	return value
+		.replace(/\r\n?/g, '\n')
 		.replace(/[ \t]+\n/g, '\n')
 		.replace(/\n[ \t]+/g, '\n')
 		.replace(/[ \t]{2,}/g, ' ')
-		.replace(/<|>/g, '') // Remove all HTML angle brackets to prevent tag injection
+		.replace(/\n{3,}/g, '\n\n')
 		.trim();
+}
+
+function cleanInlineMarkdown(value) {
+	const decoded = decodeEntities(decodeJsUnicodeEscapes(String(value ?? '')))
+		.replace(/\{`([^`]+)`\}/g, '`$1`')
+		.replace(/\{'([^']+)'\}/g, '$1')
+		.replace(/\{"([^"]+)"\}/g, '$1')
+		.replace(/\bctx-<([A-Za-z0-9_-]+)>/g, 'ctx-$1');
+	const inlineCode = protectSegments(decoded, /`[^`\n]*`/g, 'INLINE_CODE');
+
+	const stripped = normalizePlainTextWhitespace(stripHtmlTags(inlineCode.contents)).replace(/<|>/g, '').trim();
+	return inlineCode.restore(stripped).trim();
+}
+
+function cleanInlineCode(value) {
+	return decodeEntities(decodeJsUnicodeEscapes(String(value ?? '')))
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
+function htmlToPlainTextLines(html) {
+	const text = normalizePlainTextWhitespace(
+		stripHtmlTags(decodeEntities(String(html ?? '')), { preserveLineBreaks: true })
+	);
+	return text
+		.split('\n')
+		.map(line => line.trim())
+		.filter(Boolean);
+}
+
+function renderMarkdownLink(attributes, label) {
+	const href = attributeValue(attributes, 'href');
+	const lines = htmlToPlainTextLines(label);
+	const text = lines.join(' ');
+	if (!href) return text;
+	if (!text) return '';
+
+	const normalizedHref = normalizeHref(href);
+	const isBlockLink = lines.length > 1 || /<(?:div|p|section|article|h[1-6]|span)\b/i.test(label);
+	if (!isBlockLink) return `[${text}](${normalizedHref})`;
+
+	const [title, ...details] = lines;
+	const description = details.join(' ');
+	return `\n- [${title}](${normalizedHref})${description ? `: ${description}` : ''}\n`;
 }
 
 function stripCssComments(input) {
@@ -408,12 +511,10 @@ function mdxToMarkdown(contents, { storyMarkdownByRef = new Map() } = {}) {
 		const alt = attributeValue(attributes, 'alt') || 'Image';
 		return `\n\n![${cleanInlineMarkdown(alt)}](${normalizeHref(src)})\n\n`;
 	});
-	markdown = markdown.replace(/<a\b([^>]*?)>([\s\S]*?)<\/a>/gi, (_, attributes, label) => {
-		const href = attributeValue(attributes, 'href');
-		const text = cleanInlineMarkdown(label);
-		return href ? `[${text}](${normalizeHref(href)})` : text;
-	});
-	markdown = markdown.replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, (_, code) => `\`${cleanInlineMarkdown(code)}\``);
+	markdown = markdown.replace(/<a\b([^>]*?)>([\s\S]*?)<\/a>/gi, (_, attributes, label) =>
+		renderMarkdownLink(attributes, label)
+	);
+	markdown = markdown.replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, (_, code) => `\`${cleanInlineCode(code)}\``);
 	const inlineCode = protectSegments(markdown, /`[^`\n]+`/g, 'INLINE_CODE');
 	markdown = inlineCode.contents;
 	markdown = markdown.replace(/<strong\b[^>]*>([\s\S]*?)<\/strong>/gi, (_, text) => `**${cleanInlineMarkdown(text)}**`);
@@ -431,12 +532,13 @@ function mdxToMarkdown(contents, { storyMarkdownByRef = new Map() } = {}) {
 	});
 	markdown = markdown.replace(/<br\s*\/?>/gi, '\n');
 	markdown = markdown.replace(/<hr\b[^>]*\/?>/gi, '\n\n---\n\n');
-	markdown = markdown.replace(/<\/?(div|span|p|ul|ol|section|article|header|footer|main)\b[^>]*>/gi, '\n');
+	markdown = stripHtmlTags(markdown, { preserveLineBreaks: true });
 	markdown = markdown.replace(/<|>/g, '');
 	markdown = decodeEntities(markdown);
 	markdown = markdown.replace(/[ \t]+\n/g, '\n');
 	markdown = markdown.replace(/\n[ \t]+/g, '\n');
 	markdown = markdown.replace(/\n{3,}/g, '\n\n');
+	markdown = markdown.replace(/(- [^\n]+)\n\n(?=- )/g, '$1\n');
 	markdown = inlineCode.restore(markdown);
 	markdown = codeFences.restore(markdown);
 
@@ -697,14 +799,66 @@ function splitTopLevelEntries(objectSource) {
 	return entries;
 }
 
+function extractTopLevelProperty(source, key) {
+	for (const entry of splitTopLevelEntries(source)) {
+		const match = entry.match(/^([A-Za-z_$][\w$]*)\s*:\s*([\s\S]+)$/);
+		if (match?.[1] === key) return match[2].trim();
+	}
+
+	return '';
+}
+
+function summarizeObjectEntries(objectSource, { skipKeys = [] } = {}) {
+	const skip = new Set(skipKeys);
+	const values = [];
+
+	for (const entry of splitTopLevelEntries(objectSource)) {
+		const match = entry.match(/^([A-Za-z_$][\w$]*)\s*:\s*([\s\S]+)$/);
+		if (!match) continue;
+
+		const [, key, value] = match;
+		if (skip.has(key)) continue;
+
+		const text = cleanInlineMarkdown(value);
+		if (text) values.push(`${key}: ${text.slice(0, 180)}`);
+	}
+
+	return values.join(', ');
+}
+
+function summarizeObjectProperty(value, options) {
+	const trimmed = value?.trim() ?? '';
+	if (!trimmed) return '';
+
+	if (trimmed.startsWith('{')) {
+		const body = extractObjectFromIndex(trimmed, 0);
+		return body ? summarizeObjectEntries(body, options) : '';
+	}
+
+	return cleanInlineMarkdown(trimmed);
+}
+
 function normalizeCodeSnippet(snippet) {
-	const lines = snippet.replace(/^\n+|\n+$/g, '').split('\n');
+	const decoded = snippet
+		.replace(/\\r\\n/g, '\n')
+		.replace(/\\n/g, '\n')
+		.replace(/\\t/g, '\t')
+		.replace(/\\`/g, '`');
+	const lines = decoded.replace(/^\n+|\n+$/g, '').split('\n');
+	const firstLineStartsAtColumnZero = Boolean(lines[0]?.trim()) && !/^\s/.test(lines[0]);
 	const indents = lines
-		.filter(line => line.trim().length > 0)
+		.filter((line, index) => line.trim().length > 0 && !(firstLineStartsAtColumnZero && index === 0))
 		.map(line => line.match(/^\s*/)?.[0].length ?? 0);
 	const minIndent = indents.length > 0 ? Math.min(...indents) : 0;
 
-	return lines.map(line => line.slice(minIndent)).join('\n').trim();
+	return lines
+		.map((line, index) => {
+			if (firstLineStartsAtColumnZero && index === 0) return line.trimEnd();
+			const indent = line.match(/^\s*/)?.[0].length ?? 0;
+			return line.slice(Math.min(indent, minIndent));
+		})
+		.join('\n')
+		.trim();
 }
 
 function parseStringArgument(value) {
@@ -771,13 +925,9 @@ function humanizeObjectKey(key) {
 
 function htmlToPlainText(html) {
 	return cleanInlineMarkdown(
-		html
-			.replace(/\{\{\s*([^}]+?)\s*\}\}/g, '$1')
-			.replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, '`$1`')
-			.replace(/<br\s*\/?>/gi, '\n')
-			.replace(/<\/(p|div|span|li|h[1-6])>/gi, '\n')
-			.replace(/<[^>]+>/g, ' ')
-			.replace(/\n{2,}/g, '\n')
+		stripHtmlTags(html.replace(/\{\{\s*([^}]+?)\s*\}\}/g, '$1').replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, '`$1`'), {
+			preserveLineBreaks: true,
+		})
 	);
 }
 
@@ -786,7 +936,10 @@ function colorTokenCssVariable(token) {
 }
 
 function colorTokenTailwindClass(token) {
-	return token.replace(/^color\./, '').replace(/\./g, '-').replace('background-', 'bg-');
+	return token
+		.replace(/^color\./, '')
+		.replace(/\./g, '-')
+		.replace('background-', 'bg-');
 }
 
 function parseTokenEntry(entry) {
@@ -1098,7 +1251,9 @@ function extractArgDescriptions(source) {
 		if (propName === 'docs' || propName === 'description') continue;
 
 		const descriptionMatch = definition.match(/description:\s*(['"`])([\s\S]*?)\1/);
-		const controlMatch = definition.match(/control:\s*(?:\{\s*type:\s*(['"`])([\s\S]*?)\1[\s\S]*?\}|(['"`])([\s\S]*?)\3)/);
+		const controlMatch = definition.match(
+			/control:\s*(?:\{\s*type:\s*(['"`])([\s\S]*?)\1[\s\S]*?\}|(['"`])([\s\S]*?)\3)/
+		);
 		const optionsMatch = definition.match(/options:\s*\[([\s\S]*?)\]/);
 		const defaultMatch = definition.match(/defaultValue:\s*\{[\s\S]*?summary:\s*(['"`])([\s\S]*?)\1/);
 		const typeMatch = definition.match(/type:\s*\{[\s\S]*?summary:\s*(['"`])([\s\S]*?)\1/);
@@ -1165,9 +1320,8 @@ function extractStoryDefinitions(source) {
 		const objectBody = extractObjectFromIndex(source, objectStart);
 		if (!objectBody) continue;
 
-		const wrapped = `{${objectBody}}`;
-		const args = extractObjectAfter(wrapped, 'args:');
-		const parameters = extractObjectAfter(wrapped, 'parameters:');
+		const args = extractTopLevelProperty(objectBody, 'args');
+		const parameters = extractTopLevelProperty(objectBody, 'parameters');
 		const tokenRows = extractTokenRows(objectBody);
 		const doDont = extractDoDontGuidance(objectBody);
 		const rampTable = extractRampTable(source, objectBody);
@@ -1175,14 +1329,14 @@ function extractStoryDefinitions(source) {
 		const templates = Array.from(objectBody.matchAll(/template:\s*`([\s\S]*?)`/g)).map(match =>
 			normalizeCodeSnippet(match[1])
 		);
-		const sourceCodes = Array.from(
-			objectBody.matchAll(/source:\s*\{[\s\S]*?code:\s*`([\s\S]*?)`[\s\S]*?\}/g)
-		).map(match => normalizeCodeSnippet(match[1]));
+		const sourceCodes = Array.from(objectBody.matchAll(/source:\s*\{[\s\S]*?code:\s*`([\s\S]*?)`[\s\S]*?\}/g)).map(
+			match => normalizeCodeSnippet(match[1])
+		);
 
 		definitions.push({
 			name: storyName,
-			args: args ? cleanInlineMarkdown(args) : '',
-			parameters: parameters ? cleanInlineMarkdown(parameters) : '',
+			args: summarizeObjectProperty(args),
+			parameters: summarizeObjectProperty(parameters, { skipKeys: ['docs'] }),
 			tokenRows,
 			doDont,
 			rampTable,
@@ -1248,8 +1402,7 @@ function parseStoryImports(mdxSource) {
 	const importsByTarget = new Map();
 	const namespacePattern =
 		/^\s*import\s+\*\s+as\s+([A-Za-z_$][\w$]*)\s+from\s+['"]([^'"]*\.stories(?:\.[cm]?[jt]sx?)?)['"];?\s*$/gm;
-	const namedPattern =
-		/^\s*import\s+\{([^}]+)\}\s+from\s+['"]([^'"]*\.stories(?:\.[cm]?[jt]sx?)?)['"];?\s*$/gm;
+	const namedPattern = /^\s*import\s+\{([^}]+)\}\s+from\s+['"]([^'"]*\.stories(?:\.[cm]?[jt]sx?)?)['"];?\s*$/gm;
 
 	for (const match of mdxSource.matchAll(namespacePattern)) {
 		const [, namespace, importTarget] = match;
@@ -1400,7 +1553,12 @@ async function renderStoryMarkdown(sourceFilePath, entry) {
 	}
 
 	if (props.length > 0) {
-		lines.push('## Props', '', '| Prop | Description | Type | Default | Control | Options |', '| --- | --- | --- | --- | --- | --- |');
+		lines.push(
+			'## Props',
+			'',
+			'| Prop | Description | Type | Default | Control | Options |',
+			'| --- | --- | --- | --- | --- | --- |'
+		);
 		for (const prop of props) {
 			lines.push(
 				`| \`${prop.name}\` | ${prop.description || '-'} | ${prop.typeSummary || '-'} | ${prop.defaultValue || '-'} | ${prop.control || '-'} | ${prop.options || '-'} |`
@@ -1449,7 +1607,7 @@ function summarizeMarkdown(markdown, fallback) {
 		.filter(line => !line.startsWith('---'));
 
 	const summary = lines.find(line => !line.startsWith('- ') && !line.startsWith('> Story example:')) ?? fallback;
-	return summary.length > 220 ? `${summary.slice(0, 217)}...` : summary;
+	return summary;
 }
 
 async function renderPage(entry, cwd, baseUrl) {
@@ -1461,7 +1619,9 @@ async function renderPage(entry, cwd, baseUrl) {
 		throw new Error(`Refusing to read docs source outside workspace: ${entry.importPath}`);
 	}
 
-	const sourceMarkdown = source.endsWith('.mdx') ? await renderMdxMarkdown(sourceFilePath) : await renderStoryMarkdown(sourceFilePath, entry);
+	const sourceMarkdown = source.endsWith('.mdx')
+		? await renderMdxMarkdown(sourceFilePath)
+		: await renderStoryMarkdown(sourceFilePath, entry);
 	const markdown = `${ensurePageHeader(entry, sourceMarkdown)}\n`;
 
 	return {
@@ -1481,19 +1641,49 @@ async function renderPage(entry, cwd, baseUrl) {
 	};
 }
 
-function renderLlmsTxt(pages) {
-	const sections = groupBySection(pages)
-		.map(([section, group]) => {
+function llmsSummary(page, baseUrl) {
+	const base = normalizeBaseUrl(baseUrl);
+	return page.summary.replace(/\]\((\/(?:docs\/[^)#]+\.md|llms-full\.txt)(?:#[^)]+)?)\)/g, `](${base}$1)`);
+}
+
+function renderLlmsEntry(page, baseUrl) {
+	return `- [${llmsLabel(page)}](${page.markdownUrl}): ${llmsSummary(page, baseUrl)}`;
+}
+
+function renderLlmsTxt(pages, baseUrl = DEFAULT_BASE_URL) {
+	const startHerePages = pages
+		.filter(isStartHerePage)
+		.sort((left, right) => startHerePriority(left) - startHerePriority(right) || compareEntries(left, right));
+
+	const startHereIds = new Set(startHerePages.map(page => page.id));
+	const groupedSections = groupBySection(pages.filter(page => !startHereIds.has(page.id))).sort(([left], [right]) => {
+		const priorityDiff = sectionPriority(left) - sectionPriority(right);
+		return priorityDiff || left.localeCompare(right);
+	});
+
+	const sections = [
+		startHerePages.length
+			? `## Start here\n\n${startHerePages
+				.map(page => renderLlmsEntry(page, baseUrl))
+				.join('\n')}`
+			: '',
+		...groupedSections.map(([section, group]) => {
 			const links = group
 				.slice()
 				.sort(compareEntries)
-				.map(page => `- [${page.label}](${page.markdownUrl}): ${page.summary}`)
+				.map(page => renderLlmsEntry(page, baseUrl))
 				.join('\n');
-			return `## ${section}\n\n${links}`;
-		})
+
+			return `## ${sectionHeading(section)}\n\n${links}`;
+		}),
+	]
+		.filter(Boolean)
 		.join('\n\n');
 
-	return `# BCC Component Library\n\n> AI-ready Markdown index for the public BCC Component Library documentation.\n\nEach link points to the generated Markdown version of the matching Storybook docs route. HTML docs use \`/docs/{page}\`; Markdown mirrors that route at \`/docs/{page}.md\`.\n\n${sections}\n`;
+	const fullDocumentationSection =
+		`## Full documentation\n\n- [llms-full.txt](${normalizeBaseUrl(baseUrl)}/llms-full.txt): Complete export of all public Storybook docs pages.`;
+
+	return `# BCC Component Library\n\n> Vue 3 component library built on PrimeVue and BCC design tokens.\n\n${sections}\n\n${fullDocumentationSection}\n`;
 }
 
 function renderLlmsFullTxt(pages) {
@@ -1507,7 +1697,6 @@ function renderLlmsFullTxt(pages) {
 
 	return `# BCC Component Library Full Documentation\n\n> Complete AI-ready Markdown export for all public Storybook docs pages.\n\n${contents}\n`;
 }
-
 
 async function removeStaleGeneratedMarkdown(outputDir) {
 	const rootEntries = await readdir(outputDir, { withFileTypes: true }).catch(() => []);
@@ -1533,11 +1722,11 @@ async function writeOutputs(outputDir, pages, baseUrl) {
 	await mkdir(docsDir, { recursive: true });
 	await removeStaleGeneratedMarkdown(outputDir);
 
-	       await Promise.all([
-		       writeFile(path.join(outputDir, 'llms.txt'), renderLlmsTxt(pages), 'utf8'),
-		       writeFile(path.join(outputDir, 'llms-full.txt'), renderLlmsFullTxt(pages), 'utf8'),
-		       ...pages.map(page => writeFile(path.join(docsDir, `${page.id}.md`), `${UTF8_BOM}${page.markdown}`, 'utf8')),
-	       ]);
+	await Promise.all([
+		writeFile(path.join(outputDir, 'llms.txt'), renderLlmsTxt(pages, baseUrl), 'utf8'),
+		writeFile(path.join(outputDir, 'llms-full.txt'), renderLlmsFullTxt(pages), 'utf8'),
+		...pages.map(page => writeFile(path.join(docsDir, `${page.id}.md`), `${UTF8_BOM}${page.markdown}`, 'utf8')),
+	]);
 }
 
 async function main() {
