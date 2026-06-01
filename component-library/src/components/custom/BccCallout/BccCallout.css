@@ -1,0 +1,46 @@
+@layer components {
+	.bcc-callout {
+		@apply relative flex rounded-lg p-4;
+		@apply bg-ctx text-ctx;
+		box-shadow: var(--ctx-shadow-sm);
+	}
+
+	.bcc-callout.bordered {
+		@apply border border-solid;
+		border-color: var(--ctx-border-subtle);
+	}
+
+	.bcc-callout-bar {
+		@apply absolute left-0 top-0 bottom-0 w-1 rounded-l-lg;
+		background: var(--ctx-border-bold);
+	}
+
+	.bcc-callout-content {
+		@apply flex gap-3 w-full pl-3;
+	}
+
+	.bcc-callout-icon {
+		@apply flex shrink-0 items-start pt-0.5;
+	}
+
+	.bcc-callout-icon > * {
+		@apply size-5;
+		color: var(--ctx-border-bold);
+	}
+
+	.bcc-callout-body {
+		@apply flex-1 flex flex-col gap-2;
+	}
+
+	.bcc-callout-title {
+		@apply heading-sm leading-lg! m-0;
+	}
+
+	.bcc-callout-message {
+		@apply body-md whitespace-pre-line;
+	}
+
+	.bcc-callout-actions {
+		@apply flex gap-2 mt-2;
+	}
+}

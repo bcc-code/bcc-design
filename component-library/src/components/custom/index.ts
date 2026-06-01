@@ -6,6 +6,7 @@ export { closeBccLightbox, openBccLightbox, useLightbox, usePinchPan } from './B
 
 export { default as BccAppNavigation } from './BccAppNavigation/BccAppNavigation.vue';
 export { default as BccBadge } from './BccBadge/BccBadge.vue';
+export { default as BccCallout } from './BccCallout/BccCallout.vue';
 export { default as BccCapacityIndicator } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export { default as BccDialKnob } from './BccDialKnob/BccDialKnob.vue';
 export { default as BccFrame } from './BccFrame/BccFrame.vue';
@@ -23,6 +24,7 @@ export { default as BccTopNavigation } from './BccTopNavigation/BccTopNavigation
 // Prop types for consumers (TypeScript / IDE support)
 export type { BccAppNavigationItem } from './BccAppNavigation/BccAppNavigation.vue';
 export type { BadgeProps } from './BccBadge/BccBadge.vue';
+export type { CalloutProps } from './BccCallout/BccCallout.vue';
 export type { CapacityIndicatorProps } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export type { KnobProps, KnobSlots } from './BccDialKnob/BccDialKnob.vue';
 export type { FrameProps } from './BccFrame/BccFrame.vue';
