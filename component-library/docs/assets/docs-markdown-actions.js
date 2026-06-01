@@ -3,6 +3,8 @@
   window.__bccDocsMarkdownActionsLoaded = true;
 
   var BCC_DOCS_MARKDOWN_ACTIONS_ID = 'bcc-docs-markdown-actions';
+  var BCC_DOCS_GITHUB_BLOB_BASE = 'https://github.com/bcc-code/bcc-design/blob/main/component-library/';
+  var BCC_DOCS_GITHUB_FALLBACK = 'https://github.com/bcc-code/bcc-design/tree/main/component-library/';
 
   function showDocsCopyToast(text) {
     var toast = document.getElementById('copy-toast');
@@ -26,6 +28,62 @@
     var storyId = params.get('id');
     if (!storyId || !storyId.endsWith('--docs')) return null;
     return new URL('/docs/' + storyId + '.md', window.location.origin).toString();
+  }
+
+  function getCurrentStoryId() {
+    var params = new URLSearchParams(window.location.search);
+    var storyId = params.get('id');
+    if (!storyId || !storyId.endsWith('--docs')) return null;
+    return storyId;
+  }
+
+  function getDocsIndex() {
+    if (!window.__bccDocsIndexPromise) {
+      window.__bccDocsIndexPromise = fetch('/index.json', { credentials: 'same-origin' })
+        .then(function(response) {
+          if (!response.ok) throw new Error('Failed to fetch Storybook index');
+          return response.json();
+        })
+        .catch(function() {
+          return null;
+        });
+    }
+
+    return window.__bccDocsIndexPromise;
+  }
+
+  function getGitHubLinkForCurrentDoc() {
+    var storyId = getCurrentStoryId();
+    if (!storyId) return Promise.resolve(BCC_DOCS_GITHUB_FALLBACK);
+
+    return getDocsIndex().then(function(index) {
+      if (!index || typeof index !== 'object') return BCC_DOCS_GITHUB_FALLBACK;
+
+      var entries = index.entries || index.stories || index;
+      var storyEntry = entries && entries[storyId];
+      var importPath = storyEntry && storyEntry.importPath;
+      if (typeof importPath !== 'string' || importPath.length === 0) return BCC_DOCS_GITHUB_FALLBACK;
+
+      var normalizedPath = importPath.replace(/^\.\//, '');
+      if (!normalizedPath) return BCC_DOCS_GITHUB_FALLBACK;
+
+      return BCC_DOCS_GITHUB_BLOB_BASE + normalizedPath;
+    });
+  }
+
+  function getChatGPTLink(markdownUrl) {
+    var prompt = 'Read ' + markdownUrl + ', I want to ask questions about it.';
+    return 'https://chatgpt.com/?hints=search&q=' + encodeURIComponent(prompt);
+  }
+
+  function getClaudeLink(markdownUrl) {
+    var prompt = 'Read ' + markdownUrl + ', I want to ask questions about it.';
+    return 'https://claude.ai/new?q=' + encodeURIComponent(prompt);
+  }
+
+  function openInNewTab(url) {
+    if (!url) return;
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 
   function copyTextToClipboard(value) {
@@ -85,23 +143,41 @@
       root.className = 'bcc-docs-markdown-actions';
       root.innerHTML = '' +
         '<button class="bcc-docs-markdown-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Markdown actions">' +
-          '<svg class="bcc-docs-markdown-trigger-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 2.5h6.586L12.5 4.914V13.5h-9z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path><path d="M9.75 2.75V5.25H12.25" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 8h6M5 10.5h4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"></path></svg>' +
+          '<span class="bcc-docs-markdown-trigger-icon material-symbols-outlined" aria-hidden="true">description</span>' +
           '<span class="bcc-docs-markdown-trigger-label">Markdown</span>' +
-          '<svg class="bcc-docs-markdown-trigger-caret" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.25 6.5L8 10.25L11.75 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>' +
+          '<span class="bcc-docs-markdown-trigger-caret material-symbols-outlined" aria-hidden="true">expand_more</span>' +
         '</button>' +
         '<ul class="bcc-docs-markdown-actions-menu" role="menu" hidden>' +
           '<li role="none">' +
             '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="copy-markdown">' +
-              '<svg class="bcc-docs-markdown-actions-item-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 2.5h6v9h-6z" stroke="currentColor" stroke-width="1.25" rx="1"></path><path d="M3 5V12.5C3 13.0523 3.44772 13.5 4 13.5H9.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"></path></svg>' +
+              '<span class="bcc-docs-markdown-actions-item-icon material-symbols-outlined" aria-hidden="true">content_copy</span>' +
               '<span>Copy Markdown</span>' +
               '<span class="bcc-docs-markdown-actions-item-copy-value">Text</span>' +
             '</button>' +
           '</li>' +
           '<li role="none">' +
             '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="copy-link">' +
-              '<svg class="bcc-docs-markdown-actions-item-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6.25 9.75L9.75 6.25M6.5 5H5.25C4.00736 5 3 6.00736 3 7.25V10.75C3 11.9926 4.00736 13 5.25 13H8.75C9.99264 13 11 11.9926 11 10.75V9.5M9.5 3H10.75C11.9926 3 13 4.00736 13 5.25V8.75C13 9.99264 11.9926 11 10.75 11H9.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>' +
-              '<span>Copy Markdown Link</span>' +
+              '<span class="bcc-docs-markdown-actions-item-icon material-symbols-outlined" aria-hidden="true">link</span>' +
+              '<span>Copy Markdown URL</span>' +
               '<span class="bcc-docs-markdown-actions-item-copy-value">URL</span>' +
+            '</button>' +
+          '</li>' +
+          '<li role="none">' +
+            '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="open-github">' +
+              '<span class="bcc-docs-markdown-actions-item-icon material-symbols-outlined" aria-hidden="true">code</span>' +
+              '<span>Open in GitHub</span>' +
+            '</button>' +
+          '</li>' +
+          '<li role="none">' +
+            '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="open-chatgpt">' +
+              '<span class="bcc-docs-markdown-actions-item-icon material-symbols-outlined" aria-hidden="true">chat</span>' +
+              '<span>Open in ChatGPT</span>' +
+            '</button>' +
+          '</li>' +
+          '<li role="none">' +
+            '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="open-claude">' +
+              '<span class="bcc-docs-markdown-actions-item-icon material-symbols-outlined" aria-hidden="true">smart_toy</span>' +
+              '<span>Open in Claude</span>' +
             '</button>' +
           '</li>' +
         '</ul>';
@@ -116,6 +192,9 @@
     var menu = root.querySelector('.bcc-docs-markdown-actions-menu');
     var copyMarkdownButton = root.querySelector('[data-action="copy-markdown"]');
     var linkButton = root.querySelector('[data-action="copy-link"]');
+    var githubButton = root.querySelector('[data-action="open-github"]');
+    var chatGPTButton = root.querySelector('[data-action="open-chatgpt"]');
+    var claudeButton = root.querySelector('[data-action="open-claude"]');
 
     if (!root.__bccBound) {
       root.__bccBound = true;
@@ -162,6 +241,27 @@
           .catch(function() {
             showDocsCopyToast('Markdown link unavailable');
           });
+        closeDocsMarkdownMenu(root);
+      });
+
+      githubButton.addEventListener('click', function() {
+        getGitHubLinkForCurrentDoc().then(function(url) {
+          openInNewTab(url);
+        });
+        closeDocsMarkdownMenu(root);
+      });
+
+      chatGPTButton.addEventListener('click', function() {
+        var currentUrl = root.getAttribute('data-markdown-url');
+        if (!currentUrl) return;
+        openInNewTab(getChatGPTLink(currentUrl));
+        closeDocsMarkdownMenu(root);
+      });
+
+      claudeButton.addEventListener('click', function() {
+        var currentUrl = root.getAttribute('data-markdown-url');
+        if (!currentUrl) return;
+        openInNewTab(getClaudeLink(currentUrl));
         closeDocsMarkdownMenu(root);
       });
     }

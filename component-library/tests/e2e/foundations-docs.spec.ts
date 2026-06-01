@@ -97,6 +97,9 @@ test('docs pages show the markdown actions menu beside the title', async ({ page
 		await actions.locator('.bcc-docs-markdown-trigger').click();
 		await expect(actions.locator('[data-action="copy-markdown"]')).toBeVisible();
 		await expect(actions.locator('[data-action="copy-link"]')).toBeVisible();
+		await expect(actions.locator('[data-action="open-github"]')).toBeVisible();
+		await expect(actions.locator('[data-action="open-chatgpt"]')).toBeVisible();
+		await expect(actions.locator('[data-action="open-claude"]')).toBeVisible();
 	}
 });
 
