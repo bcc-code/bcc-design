@@ -1,6 +1,6 @@
 @layer components {
 	.bcc-callout {
-		@apply relative flex rounded-lg p-4;
+		@apply relative flex rounded-xs p-4;
 		@apply bg-ctx text-ctx;
 		box-shadow: var(--ctx-shadow-sm);
 	}
@@ -11,12 +11,12 @@
 	}
 
 	.bcc-callout-bar {
-		@apply absolute left-0 top-0 bottom-0 w-1 rounded-l-lg;
+		@apply absolute top-0 bottom-0 left-0 w-1 rounded-l-xs;
 		background: var(--ctx-border-bold);
 	}
 
 	.bcc-callout-content {
-		@apply flex gap-3 w-full pl-3;
+		@apply flex w-full gap-3 pl-3;
 	}
 
 	.bcc-callout-icon {
@@ -29,7 +29,7 @@
 	}
 
 	.bcc-callout-body {
-		@apply flex-1 flex flex-col gap-2;
+		@apply flex flex-1 flex-col gap-2;
 	}
 
 	.bcc-callout-title {
@@ -41,6 +41,6 @@
 	}
 
 	.bcc-callout-actions {
-		@apply flex gap-2 mt-2;
+		@apply mt-2 flex gap-2;
 	}
 }

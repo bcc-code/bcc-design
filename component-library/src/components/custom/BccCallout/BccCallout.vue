@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { BCC_CONTEXTS, type BCC_CONTEXT } from '@/contexts';
 import type { VueComponent } from '@/types';
-import { computed, type Component } from 'vue';
 import { CheckIcon, ErrorIcon, InfoIcon, WarningIcon } from '@bcc-code/icons-vue';
+import { computed, type Component } from 'vue';
 
 export type CalloutProps = {
 	/** Title of the callout */
