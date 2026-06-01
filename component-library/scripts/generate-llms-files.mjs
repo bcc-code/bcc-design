@@ -229,21 +229,83 @@ function repeatedlyStrip(value, stripFn, maxPasses = 12) {
 	return current;
 }
 
+function stripTagBlocks(value, tagName) {
+	let current = String(value ?? '');
+	const normalizedTag = String(tagName ?? '').toLowerCase();
+	if (!normalizedTag) return current;
+
+	let previous;
+	do {
+		previous = current;
+		const lower = current.toLowerCase();
+		let start = lower.indexOf(`<${normalizedTag}`);
+		if (start === -1) continue;
+
+		while (start !== -1) {
+			const openTagEnd = lower.indexOf('>', start);
+			if (openTagEnd === -1) {
+				current = `${current.slice(0, start)} ${current.slice(start + 1)}`;
+				break;
+			}
+
+			const closeTagStart = lower.indexOf(`</${normalizedTag}`, openTagEnd + 1);
+			if (closeTagStart === -1) {
+				current = `${current.slice(0, start)} ${current.slice(openTagEnd + 1)}`;
+				break;
+			}
+
+			const closeTagEnd = lower.indexOf('>', closeTagStart);
+			if (closeTagEnd === -1) {
+				current = `${current.slice(0, start)} ${current.slice(closeTagStart + 2)}`;
+				break;
+			}
+
+			current = `${current.slice(0, start)} ${current.slice(closeTagEnd + 1)}`;
+			start = current.toLowerCase().indexOf(`<${normalizedTag}`);
+		}
+	} while (current !== previous);
+
+	return current;
+}
+
+function stripDelimitedBlocks(value, startToken, endToken) {
+	let current = String(value ?? '');
+	if (!startToken || !endToken) return current;
+
+	let previous;
+	do {
+		previous = current;
+		let startIndex = current.indexOf(startToken);
+
+		while (startIndex !== -1) {
+			const endIndex = current.indexOf(endToken, startIndex + startToken.length);
+			if (endIndex === -1) {
+				current = `${current.slice(0, startIndex)} ${current.slice(startIndex + startToken.length)}`;
+				break;
+			}
+
+			current = `${current.slice(0, startIndex)} ${current.slice(endIndex + endToken.length)}`;
+			startIndex = current.indexOf(startToken);
+		}
+	} while (current !== previous);
+
+	return current;
+}
+
 function stripHtmlTags(value, { preserveLineBreaks = false } = {}) {
 	const blockTags =
 		'article|aside|blockquote|dd|div|dl|dt|figcaption|figure|footer|form|h[1-6]|header|li|main|nav|ol|p|pre|section|table|tbody|td|tfoot|th|thead|tr|ul';
 	const inlineOrBlockTags = preserveLineBreaks ? `${blockTags}|span` : blockTags;
 	const breakPattern = new RegExp(`</?(?:${inlineOrBlockTags})\\b[^>]*>`, 'gi');
+	const withoutScriptOrStyle = stripTagBlocks(stripTagBlocks(stripDecorativeHtml(value), 'script'), 'style');
+	const withoutComments = stripDelimitedBlocks(stripDelimitedBlocks(withoutScriptOrStyle, '{/*', '*/}'), '<!--', '-->');
 
-	return repeatedlyStrip(stripDecorativeHtml(value), current => {
+	return repeatedlyStrip(withoutComments, current => {
 		return current
-			.replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
-			.replace(/<!--[\s\S]*?-->/g, '')
-			.replace(/<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/gi, '')
-			.replace(/<style\b[^>]*>[\s\S]*?<\/style\b[^>]*>/gi, '')
 			.replace(/<br\s*\/?>/gi, '\n')
 			.replace(breakPattern, '\n')
-			.replace(/<\/?[A-Za-z][A-Za-z0-9:-]*(?:\s[^>]*)?\/?>/g, ' ');
+			.replace(/<\/?[A-Za-z][A-Za-z0-9:-]*(?:\s[^>]*)?\/?>/g, ' ')
+			.replace(/[<>]/g, '');
 	});
 }
 
