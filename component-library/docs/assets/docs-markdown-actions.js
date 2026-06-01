@@ -143,40 +143,40 @@
       root.className = 'bcc-docs-markdown-actions';
       root.innerHTML = '' +
         '<button class="bcc-docs-markdown-trigger" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Markdown actions">' +
-          '<span class="bcc-docs-markdown-trigger-icon material-symbols-outlined" aria-hidden="true">description</span>' +
+          '<span class="bcc-docs-ms-icon bcc-docs-markdown-trigger-icon" aria-hidden="true">description</span>' +
           '<span class="bcc-docs-markdown-trigger-label">Markdown</span>' +
-          '<span class="bcc-docs-markdown-trigger-caret material-symbols-outlined" aria-hidden="true">expand_more</span>' +
+          '<span class="bcc-docs-ms-icon bcc-docs-markdown-trigger-caret" aria-hidden="true">expand_more</span>' +
         '</button>' +
         '<ul class="bcc-docs-markdown-actions-menu" role="menu" hidden>' +
           '<li role="none">' +
             '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="copy-markdown">' +
-              '<span class="bcc-docs-markdown-actions-item-icon material-symbols-outlined" aria-hidden="true">content_copy</span>' +
+              '<span class="bcc-docs-ms-icon bcc-docs-markdown-actions-item-icon" aria-hidden="true">content_copy</span>' +
               '<span>Copy Markdown</span>' +
               '<span class="bcc-docs-markdown-actions-item-copy-value">Text</span>' +
             '</button>' +
           '</li>' +
           '<li role="none">' +
             '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="copy-link">' +
-              '<span class="bcc-docs-markdown-actions-item-icon material-symbols-outlined" aria-hidden="true">link</span>' +
+              '<span class="bcc-docs-ms-icon bcc-docs-markdown-actions-item-icon" aria-hidden="true">link</span>' +
               '<span>Copy Markdown URL</span>' +
               '<span class="bcc-docs-markdown-actions-item-copy-value">URL</span>' +
             '</button>' +
           '</li>' +
           '<li role="none">' +
             '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="open-github">' +
-              '<span class="bcc-docs-markdown-actions-item-icon material-symbols-outlined" aria-hidden="true">code</span>' +
+              '<span class="bcc-docs-ms-icon bcc-docs-markdown-actions-item-icon" aria-hidden="true">code</span>' +
               '<span>Open in GitHub</span>' +
             '</button>' +
           '</li>' +
           '<li role="none">' +
             '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="open-chatgpt">' +
-              '<span class="bcc-docs-markdown-actions-item-icon material-symbols-outlined" aria-hidden="true">chat</span>' +
+              '<span class="bcc-docs-ms-icon bcc-docs-markdown-actions-item-icon" aria-hidden="true">chat</span>' +
               '<span>Open in ChatGPT</span>' +
             '</button>' +
           '</li>' +
           '<li role="none">' +
             '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="open-claude">' +
-              '<span class="bcc-docs-markdown-actions-item-icon material-symbols-outlined" aria-hidden="true">smart_toy</span>' +
+              '<span class="bcc-docs-ms-icon bcc-docs-markdown-actions-item-icon" aria-hidden="true">smart_toy</span>' +
               '<span>Open in Claude</span>' +
             '</button>' +
           '</li>' +

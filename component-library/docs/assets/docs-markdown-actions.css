@@ -65,6 +65,20 @@
   color: currentColor;
 }
 
+.bcc-docs-ms-icon {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+}
+
 .bcc-docs-markdown-trigger-label {
   white-space: nowrap;
   font-weight: 500;
