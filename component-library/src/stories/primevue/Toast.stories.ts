@@ -43,8 +43,24 @@ export const Default: Story = {
 		docs: {
 			source: {
 				code: `
+				<script setup lang="ts">
+				import { useToast } from 'primevue/usetoast';
+
+				const toast = useToast();
+				const show = () => {
+					toast.add({
+						severity: 'info',
+						summary: 'Info',
+						detail: 'Message content',
+						life: 3000,
+					});
+				};
+				</script>
+
+				<template>
 					<BccToast />
 					<BccButton label="Show toast" @click="show" />
+				</template>
 				`,
 			},
 		},
@@ -79,4 +95,74 @@ export const AllSeverities: Story = {
 			</div>
 		`,
 	}),
+};
+
+export const OnlySummary: Story = {
+	render: () => ({
+		components: { BccToast, BccButton },
+		setup() {
+			const toast = useToast();
+			const show = () => {
+				toast.add({
+					severity: 'success',
+					summary: 'Only summary',
+					life: 3000,
+				});
+			};
+			return { show };
+		},
+		template: `
+			<div>
+				<BccButton label="Show toast" @click="show" />
+			</div>
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `
+					toast.add({
+						severity: 'success',
+						summary: 'Only summary',
+						life: 3000,
+					});
+				`,
+			},
+		},
+	},
+};
+
+export const OnlyDetail: Story = {
+	render: () => ({
+		components: { BccToast, BccButton },
+		setup() {
+			const toast = useToast();
+			const show = () => {
+				toast.add({
+					severity: 'success',
+					detail: 'Only detail',
+					life: 3000,
+				});
+			};
+			return { show };
+		},
+		template: `
+			<div>
+				<BccButton label="Show toast" @click="show" />
+			</div>
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `
+					toast.add({
+						severity: 'success',
+						detail: 'Only detail',
+						life: 3000,
+					});
+				`,
+			},
+		},
+	},
 };
