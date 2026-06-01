@@ -215,20 +215,36 @@ function stripDecorativeHtml(value) {
 	);
 }
 
+function repeatedlyStrip(value, stripFn, maxPasses = 12) {
+	let previous;
+	let current = value;
+	let pass = 0;
+
+	do {
+		previous = current;
+		current = stripFn(current);
+		pass += 1;
+	} while (current !== previous && pass < maxPasses);
+
+	return current;
+}
+
 function stripHtmlTags(value, { preserveLineBreaks = false } = {}) {
 	const blockTags =
 		'article|aside|blockquote|dd|div|dl|dt|figcaption|figure|footer|form|h[1-6]|header|li|main|nav|ol|p|pre|section|table|tbody|td|tfoot|th|thead|tr|ul';
 	const inlineOrBlockTags = preserveLineBreaks ? `${blockTags}|span` : blockTags;
 	const breakPattern = new RegExp(`</?(?:${inlineOrBlockTags})\\b[^>]*>`, 'gi');
 
-	return stripDecorativeHtml(value)
-		.replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
-		.replace(/<!--[\s\S]*?-->/g, '')
-		.replace(/<script\b[\s\S]*?<\/script>/gi, '')
-		.replace(/<style\b[\s\S]*?<\/style>/gi, '')
-		.replace(/<br\s*\/?>/gi, '\n')
-		.replace(breakPattern, '\n')
-		.replace(/<\/?[A-Za-z][A-Za-z0-9:-]*(?:\s[^>]*)?\/?>/g, ' ');
+	return repeatedlyStrip(stripDecorativeHtml(value), current => {
+		return current
+			.replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
+			.replace(/<!--[\s\S]*?-->/g, '')
+			.replace(/<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/gi, '')
+			.replace(/<style\b[^>]*>[\s\S]*?<\/style\b[^>]*>/gi, '')
+			.replace(/<br\s*\/?>/gi, '\n')
+			.replace(breakPattern, '\n')
+			.replace(/<\/?[A-Za-z][A-Za-z0-9:-]*(?:\s[^>]*)?\/?>/g, ' ');
+	});
 }
 
 function normalizePlainTextWhitespace(value) {
