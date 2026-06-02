@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { BCC_CONTEXTS } from '@/contexts.js';
 import type { VueComponent } from '@/types';
 import { computed, type Component } from 'vue';
 import BccBadge from '../BccBadge/BccBadge.vue';
@@ -66,7 +67,7 @@ const itemWidth = computed(() => {
 								v-if="item.pin && item.pin > 0"
 								class="bcc-nav-item-badge"
 								size="sm"
-								context="brand-bolder"
+								:context="BCC_CONTEXTS.danger.bolder"
 								:value="String(item.pin)"
 							/>
 						</Transition>
