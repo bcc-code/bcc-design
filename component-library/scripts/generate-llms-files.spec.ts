@@ -24,6 +24,13 @@ function expectVueCodeBlock(markdown: string) {
 }
 
 describe('llms Storybook story code examples', () => {
+	test('labels tw table columns as Tailwind in generated markdown', () => {
+		const markdown = storyMarkdown('../docs/foundations/Typography.stories.ts', 'HeadingScale');
+
+		expect(markdown).toContain('| Token | Tailwind |');
+		expect(markdown).not.toContain('| Token | Tw |');
+	});
+
 	test('uses parameters.docs.source.code when present', () => {
 		const markdown = storyMarkdown('../src/components/wrapped/BccMessage.stories.ts', 'Severities');
 

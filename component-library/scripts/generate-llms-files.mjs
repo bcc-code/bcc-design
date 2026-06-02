@@ -1329,6 +1329,9 @@ function parseObjectArrayRows(arraySource) {
 }
 
 function humanizeObjectKey(key) {
+	if (key === 'tw') return 'Tailwind';
+	if (key === 'twClass') return 'Tailwind class';
+
 	return humanizeIdentifier(key).replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
