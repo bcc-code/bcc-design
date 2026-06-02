@@ -15,6 +15,7 @@ import { installBccLightbox } from '../src/components/custom/BccLightbox/state';
 import { BccConfirmDialog, BccToast } from '../src/index';
 import '../src/style.css';
 import '../src/styles/archivo-font.css';
+import '../src/styles/docs-markdown-actions.css';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* ── Color swatch copy popover (tippy) ── */

@@ -1,0 +1,87 @@
+@reference '../style.css';
+
+.bcc-docs-header-row {
+	@apply flex items-start justify-between gap-4;
+}
+
+.bcc-docs-header-row > h1 {
+	@apply min-w-0 flex-1;
+}
+
+.sbdocs.sbdocs-content h1 > a[aria-hidden='true'][href^='#'] {
+	pointer-events: none;
+}
+
+.bcc-docs-markdown-actions {
+	@apply pointer-events-auto relative inline-flex flex-none items-start font-sans;
+}
+
+.bcc-docs-markdown-trigger {
+	@apply border-default text-default bg-elevation-surface-overlay-default shadow-raised inline-flex cursor-pointer items-center gap-2 rounded-full border px-3.5 py-2.5 font-sans text-sm leading-none;
+	@apply transition-[background,border-color,box-shadow] duration-150 ease-in-out;
+}
+
+.bcc-docs-markdown-trigger:hover {
+	@apply bg-elevation-surface-overlay-hovered border-brand;
+}
+
+.bcc-docs-markdown-trigger:focus-visible,
+.bcc-docs-markdown-actions-item:focus-visible {
+	@apply outline-border-focused outline-2 outline-offset-2;
+}
+
+.bcc-docs-markdown-trigger-icon,
+.bcc-docs-markdown-actions-item-icon {
+	@apply text-md inline-flex h-4 w-4 flex-none items-center justify-center leading-none text-current;
+}
+
+.bcc-docs-ms-icon {
+	@apply leading-none font-normal tracking-normal whitespace-nowrap normal-case not-italic antialiased;
+	font-family: 'Material Symbols Outlined' !important;
+	word-wrap: normal;
+	direction: ltr;
+	font-variation-settings:
+		'FILL' 1,
+		'wght' 500,
+		'GRAD' 0,
+		'opsz' 24;
+}
+
+.bcc-docs-markdown-trigger-label {
+	@apply font-medium whitespace-nowrap;
+}
+
+.bcc-docs-markdown-trigger-caret {
+	@apply text-subtle inline-flex h-3.5 w-3.5 flex-none items-center justify-center text-sm leading-none;
+}
+
+.sbdocs.sbdocs-content #bcc-docs-markdown-actions .bcc-docs-markdown-actions-menu {
+	@apply border-default pointer-events-auto absolute top-full right-0 z-1000 m-0 mt-2 min-w-56 list-none rounded-md border p-1.5;
+	@apply bg-elevation-surface-overlay-default text-default shadow-overlay font-sans;
+}
+
+.sbdocs.sbdocs-content #bcc-docs-markdown-actions .bcc-docs-markdown-actions-menu > li {
+	@apply text-default! m-0! list-none! p-0! font-sans! leading-tight!;
+}
+
+.sbdocs.sbdocs-content #bcc-docs-markdown-actions .bcc-docs-markdown-actions-item {
+	@apply text-default flex w-full cursor-pointer items-center gap-2.5 rounded-lg border-0 bg-transparent px-3 py-2.5 text-left font-sans leading-tight;
+}
+
+.sbdocs.sbdocs-content #bcc-docs-markdown-actions .bcc-docs-markdown-actions-item:hover {
+	@apply bg-elevation-surface-overlay-hovered;
+}
+
+.sbdocs.sbdocs-content #bcc-docs-markdown-actions .bcc-docs-markdown-actions-item-copy-value {
+	@apply text-subtle ml-auto font-sans text-xs leading-tight whitespace-nowrap;
+}
+
+@media (max-width: 768px) {
+	.bcc-docs-header-row {
+		@apply flex-col items-stretch;
+	}
+
+	.bcc-docs-markdown-actions {
+		@apply self-start;
+	}
+}

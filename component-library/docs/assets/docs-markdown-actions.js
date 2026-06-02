@@ -158,7 +158,7 @@
           '<li role="none">' +
             '<button class="bcc-docs-markdown-actions-item" type="button" role="menuitem" data-action="copy-link">' +
               '<span class="bcc-docs-ms-icon bcc-docs-markdown-actions-item-icon" aria-hidden="true">link</span>' +
-              '<span>Copy Markdown URL</span>' +
+              '<span>Copy Markdown</span>' +
               '<span class="bcc-docs-markdown-actions-item-copy-value">URL</span>' +
             '</button>' +
           '</li>' +
