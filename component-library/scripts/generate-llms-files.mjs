@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 import { mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { validateGeneratedOutputs } from './validate-llms-output.mjs';
 
 const DEFAULT_BASE_URL = 'https://components.bcc.no';
 const DEFAULT_OUTPUT_DIR = 'storybook-static';
@@ -355,7 +357,7 @@ function renderMarkdownLink(attributes, label) {
 	if (!text) return '';
 
 	const normalizedHref = normalizeHref(href);
-	const isBlockLink = lines.length > 1 || /<(?:div|p|section|article|h[1-6]|span)\b/i.test(label);
+	const isBlockLink = lines.length > 1 || /<(?:div|p|section|article|h[1-6])\b/i.test(label);
 	if (!isBlockLink) return `[${text}](${normalizedHref})`;
 
 	const [title, ...details] = lines;
@@ -568,6 +570,10 @@ async function inlineRawMarkdownImports(contents, sourceFilePath) {
 	return next;
 }
 
+function preserveMarkdownBlockquotesForMdx(markdown) {
+	return markdown.replace(/^> /gm, '&gt; ');
+}
+
 function mdxToMarkdown(contents, { storyMarkdownByRef = new Map() } = {}) {
 	const codeFences = protectSegments(stripMdxImports(contents), /```[\s\S]*?```/g, 'CODE_FENCE');
 	let markdown = codeFences.contents;
@@ -578,11 +584,15 @@ function mdxToMarkdown(contents, { storyMarkdownByRef = new Map() } = {}) {
 	markdown = markdown.replace(/\s+on[A-Z]\w*=\{[^}]*\}/g, '');
 	markdown = markdown.replace(/<Story\b[^>]*\bof=\{([^}]+)\}[^>]*\/>/gi, (_, storyRef) => {
 		const storyMarkdown = storyMarkdownByRef.get(normalizeStoryReference(storyRef));
-		if (storyMarkdown) return `\n\n${storyMarkdown}\n\n`;
+		if (storyMarkdown) return `\n\n${preserveMarkdownBlockquotesForMdx(storyMarkdown)}\n\n`;
 
 		const storyName = String(storyRef).split('.').at(-1) ?? storyRef;
-		return `\n\n> Story example: ${humanizeIdentifier(storyName)}\n\n`;
+		return `\n\n&gt; Story example: ${humanizeIdentifier(storyName)}\n\n`;
 	});
+
+	const storyCodeFences = protectSegments(markdown, /```[\s\S]*?```/g, 'STORY_CODE_FENCE');
+	markdown = storyCodeFences.contents;
+
 	markdown = markdown.replace(/<img\b([^>]*?)\/?>/gi, (_, attributes) => {
 		const src = attributeValue(attributes, 'src');
 		if (!src) return '';
@@ -618,6 +628,7 @@ function mdxToMarkdown(contents, { storyMarkdownByRef = new Map() } = {}) {
 	markdown = markdown.replace(/\n{3,}/g, '\n\n');
 	markdown = markdown.replace(/(- [^\n]+)\n\n(?=- )/g, '$1\n');
 	markdown = inlineCode.restore(markdown);
+	markdown = storyCodeFences.restore(markdown);
 	markdown = codeFences.restore(markdown);
 
 	return markdown.trim();
@@ -643,12 +654,8 @@ function extractStoryDescriptions(source) {
 	return descriptions;
 }
 
-function extractObjectAfter(source, marker) {
-	const markerIndex = source.indexOf(marker);
-	if (markerIndex === -1) return '';
-
-	const start = source.indexOf('{', markerIndex);
-	if (start === -1) return '';
+function extractBalancedFromIndex(source, start, open, close) {
+	if (start === -1 || source[start] !== open) return '';
 
 	let depth = 0;
 	let quote = '';
@@ -673,9 +680,9 @@ function extractObjectAfter(source, marker) {
 			continue;
 		}
 
-		if (char === '{') {
+		if (char === open) {
 			depth += 1;
-		} else if (char === '}') {
+		} else if (char === close) {
 			depth -= 1;
 			if (depth === 0) {
 				return source.slice(start + 1, index);
@@ -684,92 +691,30 @@ function extractObjectAfter(source, marker) {
 	}
 
 	return '';
+}
+
+function extractBalancedAfter(source, marker, open, close) {
+	const markerIndex = source.indexOf(marker);
+	if (markerIndex === -1) return '';
+
+	const start = source.indexOf(open, markerIndex);
+	return extractBalancedFromIndex(source, start, open, close);
+}
+
+function extractObjectAfter(source, marker) {
+	return extractBalancedAfter(source, marker, '{', '}');
 }
 
 function extractObjectFromIndex(source, start) {
-	if (start === -1 || source[start] !== '{') return '';
-
-	let depth = 0;
-	let quote = '';
-	let escaping = false;
-
-	for (let index = start; index < source.length; index += 1) {
-		const char = source[index];
-
-		if (quote) {
-			if (escaping) {
-				escaping = false;
-			} else if (char === '\\') {
-				escaping = true;
-			} else if (char === quote) {
-				quote = '';
-			}
-			continue;
-		}
-
-		if (char === '"' || char === "'" || char === '`') {
-			quote = char;
-			continue;
-		}
-
-		if (char === '{') {
-			depth += 1;
-		} else if (char === '}') {
-			depth -= 1;
-			if (depth === 0) {
-				return source.slice(start + 1, index);
-			}
-		}
-	}
-
-	return '';
+	return extractBalancedFromIndex(source, start, '{', '}');
 }
 
 function extractArrayFromIndex(source, start) {
-	if (start === -1 || source[start] !== '[') return '';
-
-	let depth = 0;
-	let quote = '';
-	let escaping = false;
-
-	for (let index = start; index < source.length; index += 1) {
-		const char = source[index];
-
-		if (quote) {
-			if (escaping) {
-				escaping = false;
-			} else if (char === '\\') {
-				escaping = true;
-			} else if (char === quote) {
-				quote = '';
-			}
-			continue;
-		}
-
-		if (char === '"' || char === "'" || char === '`') {
-			quote = char;
-			continue;
-		}
-
-		if (char === '[') {
-			depth += 1;
-		} else if (char === ']') {
-			depth -= 1;
-			if (depth === 0) {
-				return source.slice(start + 1, index);
-			}
-		}
-	}
-
-	return '';
+	return extractBalancedFromIndex(source, start, '[', ']');
 }
 
 function extractArrayAfter(source, marker) {
-	const markerIndex = source.indexOf(marker);
-	if (markerIndex === -1) return '';
-
-	const start = source.indexOf('[', markerIndex);
-	return extractArrayFromIndex(source, start);
+	return extractBalancedAfter(source, marker, '[', ']');
 }
 
 function extractConstArray(source, name) {
@@ -786,42 +731,7 @@ function extractCallArguments(source, functionName) {
 	if (functionIndex === -1) return '';
 
 	const start = source.indexOf('(', functionIndex);
-	if (start === -1) return '';
-
-	let depth = 0;
-	let quote = '';
-	let escaping = false;
-
-	for (let index = start; index < source.length; index += 1) {
-		const char = source[index];
-
-		if (quote) {
-			if (escaping) {
-				escaping = false;
-			} else if (char === '\\') {
-				escaping = true;
-			} else if (char === quote) {
-				quote = '';
-			}
-			continue;
-		}
-
-		if (char === '"' || char === "'" || char === '`') {
-			quote = char;
-			continue;
-		}
-
-		if (char === '(') {
-			depth += 1;
-		} else if (char === ')') {
-			depth -= 1;
-			if (depth === 0) {
-				return source.slice(start + 1, index);
-			}
-		}
-	}
-
-	return '';
+	return extractBalancedFromIndex(source, start, '(', ')');
 }
 
 function splitTopLevelEntries(objectSource) {
@@ -898,7 +808,7 @@ function summarizeObjectEntries(objectSource, { skipKeys = [] } = {}) {
 		if (skip.has(key)) continue;
 
 		const text = cleanInlineMarkdown(value);
-		if (text) values.push(`${key}: ${text.slice(0, 180)}`);
+		if (text) values.push(`${key}: ${text}`);
 	}
 
 	return values.join(', ');
@@ -916,13 +826,10 @@ function summarizeObjectProperty(value, options) {
 	return cleanInlineMarkdown(trimmed);
 }
 
-function normalizeCodeSnippet(snippet) {
-	const decoded = snippet
-		.replace(/\\r\\n/g, '\n')
-		.replace(/\\n/g, '\n')
-		.replace(/\\t/g, '\t')
-		.replace(/\\`/g, '`');
-	const lines = decoded.replace(/^\n+|\n+$/g, '').split('\n');
+function dedentCodeBlock(value) {
+	const lines = String(value ?? '')
+		.replace(/^\n+|\n+$/g, '')
+		.split('\n');
 	const firstLineStartsAtColumnZero = Boolean(lines[0]?.trim()) && !/^\s/.test(lines[0]);
 	const indents = lines
 		.filter((line, index) => line.trim().length > 0 && !(firstLineStartsAtColumnZero && index === 0))
@@ -937,6 +844,430 @@ function normalizeCodeSnippet(snippet) {
 		})
 		.join('\n')
 		.trim();
+}
+
+function normalizeCodeSnippet(snippet) {
+	const decoded = snippet
+		.replace(/\\r\\n/g, '\n')
+		.replace(/\\n/g, '\n')
+		.replace(/\\t/g, '\t')
+		.replace(/\\`/g, '`');
+
+	return dedentCodeBlock(decoded);
+}
+
+function escapeRegExp(value) {
+	return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function extractStringLiteralAt(source, quoteIndex) {
+	const quote = source[quoteIndex];
+	if (!(quote === '"' || quote === "'" || quote === '`')) return null;
+
+	let value = '';
+	let escaping = false;
+
+	for (let index = quoteIndex + 1; index < source.length; index += 1) {
+		const char = source[index];
+
+		if (escaping) {
+			value += `\\${char}`;
+			escaping = false;
+			continue;
+		}
+
+		if (char === '\\') {
+			escaping = true;
+			continue;
+		}
+
+		if (char === quote) {
+			return { value, end: index + 1 };
+		}
+
+		value += char;
+	}
+
+	return null;
+}
+
+function extractStringPropertyValues(source, key) {
+	const values = [];
+	const propertyPattern = new RegExp(`\\b${escapeRegExp(key)}\\s*:\\s*(["'\`])`, 'g');
+
+	for (const match of source.matchAll(propertyPattern)) {
+		const literal = extractStringLiteralAt(source, (match.index ?? 0) + match[0].length - 1);
+		if (literal) values.push(normalizeCodeSnippet(literal.value));
+	}
+
+	return values.filter(Boolean);
+}
+
+function extractSourceCodeSnippets(objectBody) {
+	const snippets = [];
+	const sourcePattern = /\bsource\s*:\s*\{/g;
+
+	for (const match of objectBody.matchAll(sourcePattern)) {
+		const objectStart = objectBody.indexOf('{', match.index);
+		const sourceBody = extractObjectFromIndex(objectBody, objectStart);
+		if (!sourceBody) continue;
+
+		snippets.push(...extractStringPropertyValues(sourceBody, 'code'));
+	}
+
+	return snippets.filter(Boolean);
+}
+
+function withoutStringLiterals(source) {
+	let output = '';
+	let quote = '';
+	let escaping = false;
+
+	for (let index = 0; index < source.length; index += 1) {
+		const char = source[index];
+
+		if (quote) {
+			output += ' ';
+			if (escaping) {
+				escaping = false;
+			} else if (char === '\\') {
+				escaping = true;
+			} else if (char === quote) {
+				quote = '';
+			}
+			continue;
+		}
+
+		if (char === '"' || char === "'" || char === '`') {
+			quote = char;
+			output += ' ';
+			continue;
+		}
+
+		output += char;
+	}
+
+	return output;
+}
+
+const IGNORED_TEMPLATE_IDENTIFIERS = new Set([
+	'and',
+	'as',
+	'await',
+	'break',
+	'case',
+	'catch',
+	'class',
+	'const',
+	'continue',
+	'default',
+	'delete',
+	'do',
+	'else',
+	'false',
+	'for',
+	'function',
+	'if',
+	'in',
+	'instanceof',
+	'let',
+	'new',
+	'null',
+	'of',
+	'or',
+	'return',
+	'switch',
+	'this',
+	'true',
+	'typeof',
+	'undefined',
+	'var',
+	'void',
+	'while',
+]);
+
+function identifiersFromExpression(expression) {
+	const identifiers = new Set();
+	const source = withoutStringLiterals(expression);
+	const identifierPattern = /\b[A-Za-z_$][\w$]*\b/g;
+
+	for (const match of source.matchAll(identifierPattern)) {
+		const name = match[0];
+		const previous = source[(match.index ?? 0) - 1];
+
+		if (previous === '.' || IGNORED_TEMPLATE_IDENTIFIERS.has(name)) continue;
+		identifiers.add(name);
+	}
+
+	return identifiers;
+}
+
+function extractTemplateIdentifiers(template) {
+	const identifiers = new Set();
+	const source = String(template ?? '');
+	const directivePattern = /(?:^|[\s<])(?:v-[\w-]+|:[\w-]+|@[\w-]+)\s*=\s*(["'])([\s\S]*?)\1/g;
+	const interpolationPattern = /\{\{([\s\S]*?)\}\}/g;
+
+	for (const match of source.matchAll(directivePattern)) {
+		for (const identifier of identifiersFromExpression(match[2])) {
+			identifiers.add(identifier);
+		}
+	}
+
+	for (const match of source.matchAll(interpolationPattern)) {
+		for (const identifier of identifiersFromExpression(match[1])) {
+			identifiers.add(identifier);
+		}
+	}
+
+	return identifiers;
+}
+
+function scanStatement(source, start) {
+	let quote = '';
+	let escaping = false;
+	let braceDepth = 0;
+	let bracketDepth = 0;
+	let parenDepth = 0;
+
+	for (let index = start; index < source.length; index += 1) {
+		const char = source[index];
+
+		if (quote) {
+			if (escaping) {
+				escaping = false;
+			} else if (char === '\\') {
+				escaping = true;
+			} else if (char === quote) {
+				quote = '';
+			}
+			continue;
+		}
+
+		if (char === '"' || char === "'" || char === '`') {
+			quote = char;
+			continue;
+		}
+
+		if (char === '{') braceDepth += 1;
+		if (char === '}') braceDepth -= 1;
+		if (char === '[') bracketDepth += 1;
+		if (char === ']') bracketDepth -= 1;
+		if (char === '(') parenDepth += 1;
+		if (char === ')') parenDepth -= 1;
+
+		if (char === ';' && braceDepth === 0 && bracketDepth === 0 && parenDepth === 0) {
+			return source.slice(start, index + 1).trim();
+		}
+	}
+
+	return source.slice(start).trim();
+}
+
+function extractDeclarationFromSource(source, name) {
+	const declarationPattern = new RegExp(`\\b(?:const|let|var)\\s+${escapeRegExp(name)}\\b\\s*=`, 'g');
+	const declarationMatch = declarationPattern.exec(source);
+	if (declarationMatch) return scanStatement(source, declarationMatch.index);
+
+	const functionPattern = new RegExp(`\\bfunction\\s+${escapeRegExp(name)}\\s*\\(`, 'g');
+	const functionMatch = functionPattern.exec(source);
+	if (!functionMatch) return '';
+
+	const bodyStart = source.indexOf('{', functionMatch.index);
+	const body = extractObjectFromIndex(source, bodyStart);
+	if (!body) return '';
+
+	return source.slice(functionMatch.index, bodyStart + body.length + 2).trim();
+}
+
+function extractSetupBody(objectBody) {
+	const methodMatch = objectBody.match(/\bsetup\s*\([^)]*\)\s*\{/);
+	if (methodMatch) {
+		const bodyStart = objectBody.indexOf('{', methodMatch.index);
+		return extractObjectFromIndex(objectBody, bodyStart);
+	}
+
+	const arrowMatch = objectBody.match(/\bsetup\s*:\s*(?:\([^)]*\)|[A-Za-z_$][\w$]*)\s*=>\s*\{/);
+	if (arrowMatch) {
+		const bodyStart = objectBody.indexOf('{', arrowMatch.index);
+		return extractObjectFromIndex(objectBody, bodyStart);
+	}
+
+	return '';
+}
+
+function extractSetupReturnBindings(setupBody) {
+	const bindings = new Map();
+	const returnIndex = setupBody.lastIndexOf('return');
+	if (returnIndex === -1) return bindings;
+
+	const objectStart = setupBody.indexOf('{', returnIndex);
+	const objectBody = extractObjectFromIndex(setupBody, objectStart);
+	if (!objectBody) return bindings;
+
+	for (const entry of splitTopLevelEntries(objectBody)) {
+		const shorthand = entry.match(/^([A-Za-z_$][\w$]*)$/);
+		if (shorthand) {
+			bindings.set(shorthand[1], shorthand[1]);
+			continue;
+		}
+
+		const aliased = entry.match(/^([A-Za-z_$][\w$]*)\s*:\s*([A-Za-z_$][\w$]*)$/);
+		if (aliased) bindings.set(aliased[1], aliased[2]);
+	}
+
+	return bindings;
+}
+
+function collectDeclarationsByName(source, names) {
+	const declarations = [];
+
+	for (const name of names) {
+		const declaration = extractDeclarationFromSource(source, name);
+		if (!declaration) continue;
+
+		declarations.push({
+			name,
+			declaration: dedentCodeBlock(declaration),
+			index: source.indexOf(declaration),
+		});
+	}
+
+	return declarations;
+}
+
+function declarationNamesInSource(source) {
+	const names = new Set();
+	const declarationPattern = /\b(?:const|let|var|function)\s+([A-Za-z_$][\w$]*)\b/g;
+
+	for (const match of source.matchAll(declarationPattern)) {
+		names.add(match[1]);
+	}
+
+	return names;
+}
+
+function expandDeclarationDependencies(declarations, neededNames) {
+	let changed = true;
+
+	while (changed) {
+		changed = false;
+		for (const declaration of declarations) {
+			if (!neededNames.has(declaration.name)) continue;
+
+			for (const candidate of declarations) {
+				if (neededNames.has(candidate.name)) continue;
+				if (identifiersFromExpression(declaration.declaration).has(candidate.name)) {
+					neededNames.add(candidate.name);
+					changed = true;
+				}
+			}
+		}
+	}
+}
+
+function namedImportsFromSource(source) {
+	const imports = [];
+	const importPattern = /^\s*import\s+\{([^}]+)\}\s+from\s+['"]([^'"]+)['"];?\s*$/gm;
+
+	for (const match of source.matchAll(importPattern)) {
+		const names = [];
+		for (const part of match[1].split(',')) {
+			const cleaned = part.trim().replace(/^type\s+/, '');
+			if (!cleaned) continue;
+
+			const [, imported, local] = cleaned.match(/^([A-Za-z_$][\w$]*)(?:\s+as\s+([A-Za-z_$][\w$]*))?$/) ?? [];
+			if (imported) names.push({ imported, local: local || imported });
+		}
+
+		if (names.length > 0) imports.push({ names, target: match[2] });
+	}
+
+	return imports;
+}
+
+function publicImportTarget(target) {
+	if (/^(?:\.\.?\/)+index$/.test(target) || /\/index$/.test(target)) {
+		return '@bcc-code/component-library-vue';
+	}
+
+	return target;
+}
+
+function contextImports(source, context) {
+	const identifiers = identifiersFromExpression(context);
+	const imports = [];
+
+	for (const importEntry of namedImportsFromSource(source)) {
+		const used = importEntry.names.filter(name => identifiers.has(name.local));
+		if (used.length === 0) continue;
+
+		const specifier = used
+			.map(name => (name.imported === name.local ? name.imported : `${name.imported} as ${name.local}`))
+			.join(', ');
+		imports.push(`import { ${specifier} } from '${publicImportTarget(importEntry.target)}';`);
+	}
+
+	return imports;
+}
+
+function indentTemplateForSfc(template) {
+	return template
+		.split('\n')
+		.map(line => (line.trim() ? `\t${line}` : line))
+		.join('\n');
+}
+
+function renderTemplateCodeSnippet(template, setupContext) {
+	if (!setupContext.trim()) return template;
+
+	return `<script setup lang="ts">\n${setupContext.trim()}\n</script>\n\n<template>\n${indentTemplateForSfc(template)}\n</template>`;
+}
+
+function buildSetupContextForTemplate({ source, objectBody, template, args }) {
+	const templateIdentifiers = extractTemplateIdentifiers(template);
+	if (templateIdentifiers.size === 0) return '';
+
+	const setupBody = extractSetupBody(objectBody);
+	const returnBindings = extractSetupReturnBindings(setupBody);
+	const desiredSetupNames = new Set();
+	const moduleNames = new Set();
+
+	for (const identifier of templateIdentifiers) {
+		if (identifier === 'args' && args) continue;
+
+		const localName = returnBindings.get(identifier);
+		if (localName) {
+			desiredSetupNames.add(localName);
+			continue;
+		}
+
+		moduleNames.add(identifier);
+	}
+
+	const allSetupDeclarations = collectDeclarationsByName(setupBody, declarationNamesInSource(setupBody));
+	const setupDeclarationNames = new Set(allSetupDeclarations.map(declaration => declaration.name));
+
+	for (const identifier of templateIdentifiers) {
+		const localName = returnBindings.get(identifier);
+		if (!localName || localName === 'args') continue;
+		if (!setupDeclarationNames.has(localName)) moduleNames.add(localName);
+	}
+
+	expandDeclarationDependencies(allSetupDeclarations, desiredSetupNames);
+
+	const setupDeclarations = allSetupDeclarations.filter(declaration => desiredSetupNames.has(declaration.name));
+	const moduleDeclarations = collectDeclarationsByName(source, moduleNames);
+	const declarations = [...setupDeclarations, ...moduleDeclarations]
+		.filter((declaration, index, all) => all.findIndex(item => item.name === declaration.name) === index)
+		.filter(declaration => declaration.name !== 'args')
+		.sort((left, right) => left.index - right.index)
+		.map(declaration => declaration.declaration);
+
+	if (declarations.length === 0) return '';
+
+	const contextWithoutImports = declarations.join('\n');
+	return [...contextImports(source, contextWithoutImports), contextWithoutImports].filter(Boolean).join('\n\n');
 }
 
 function parseStringArgument(value) {
@@ -1404,11 +1735,18 @@ function extractStoryDefinitions(source) {
 		const doDont = extractDoDontGuidance(objectBody);
 		const rampTable = extractRampTable(source, objectBody);
 		const dataTables = extractObjectArrayTables(objectBody);
-		const templates = Array.from(objectBody.matchAll(/template:\s*`([\s\S]*?)`/g)).map(match =>
-			normalizeCodeSnippet(match[1])
-		);
-		const sourceCodes = Array.from(objectBody.matchAll(/source:\s*\{[\s\S]*?code:\s*`([\s\S]*?)`[\s\S]*?\}/g)).map(
-			match => normalizeCodeSnippet(match[1])
+		const templates = extractStringPropertyValues(objectBody, 'template');
+		const sourceCodes = extractSourceCodeSnippets(objectBody);
+		const templateCodes = templates.map(template =>
+			renderTemplateCodeSnippet(
+				template,
+				buildSetupContextForTemplate({
+					source,
+					objectBody,
+					template,
+					args,
+				})
+			)
 		);
 
 		definitions.push({
@@ -1421,6 +1759,7 @@ function extractStoryDefinitions(source) {
 			dataTables,
 			templates: templates.filter(Boolean),
 			sourceCodes: sourceCodes.filter(Boolean),
+			templateCodes: templateCodes.filter(Boolean),
 		});
 	}
 
@@ -1519,6 +1858,9 @@ function normalizeStoryReference(storyRef) {
 
 function renderStoryContentMarkdown(story, { includeHeading = false, headingLevel = 3 } = {}) {
 	const lines = [];
+	const sourceCodes = story.sourceCodes ?? [];
+	const templateCodes = story.templateCodes ?? [];
+	const codeExamples = sourceCodes.length > 0 ? sourceCodes : templateCodes;
 
 	if (includeHeading) {
 		lines.push(`${'#'.repeat(headingLevel)} ${humanizeIdentifier(story.name)}`, '');
@@ -1545,29 +1887,18 @@ function renderStoryContentMarkdown(story, { includeHeading = false, headingLeve
 		for (const table of story.dataTables) {
 			lines.push(renderObjectArrayTableMarkdown(table), '');
 		}
-	} else {
-		if (story.args) lines.push(`- Args: ${story.args}`);
-		if (story.parameters) lines.push(`- Parameters: ${story.parameters}`);
-		if (story.args || story.parameters) lines.push('');
+	}
 
-		for (const snippet of story.sourceCodes) {
-			lines.push('```vue', snippet, '```', '');
-		}
+	if (story.args) lines.push(`- Args: ${story.args}`);
+	if (story.parameters) lines.push(`- Parameters: ${story.parameters}`);
+	if (story.args || story.parameters) lines.push('');
 
-		if (story.sourceCodes.length === 0) {
-			for (const template of story.templates.slice(0, 1)) {
-				const renderedText = htmlToPlainText(template);
-				if (renderedText) {
-					lines.push(renderedText, '');
-				} else {
-					lines.push('```vue', template, '```', '');
-				}
-			}
-		}
+	for (const snippet of codeExamples) {
+		lines.push('```vue', snippet, '```', '');
 	}
 
 	if (lines.length === 0 || (includeHeading && lines.length === 2)) {
-		lines.push(`> Story example: ${humanizeIdentifier(story.name)}`, '');
+		lines.push(`> Visual example: ${humanizeIdentifier(story.name)}`, '');
 	}
 
 	return lines.join('\n').trim();
@@ -1615,7 +1946,7 @@ async function renderStoryMarkdown(sourceFilePath, entry) {
 	if (descriptions.length > 0) {
 		lines.push(...descriptions, '');
 	} else {
-		lines.push(`Autogenerated Storybook documentation for ${entry.title}.`, '');
+		lines.push(`Documentation for ${entry.title}.`, '');
 	}
 
 	if (component) {
@@ -1684,7 +2015,10 @@ function summarizeMarkdown(markdown, fallback) {
 		.filter(line => !line.startsWith('> Source:'))
 		.filter(line => !line.startsWith('---'));
 
-	const summary = lines.find(line => !line.startsWith('- ') && !line.startsWith('> Story example:')) ?? fallback;
+	const summary =
+		lines.find(
+			line => !line.startsWith('- ') && !line.startsWith('> Story example:') && !line.startsWith('> Visual example:')
+		) ?? fallback;
 	return summary;
 }
 
@@ -1728,7 +2062,7 @@ function renderLlmsEntry(page, baseUrl) {
 	return `- [${llmsLabel(page)}](${page.markdownUrl}): ${llmsSummary(page, baseUrl)}`;
 }
 
-function renderLlmsTxt(pages, baseUrl = DEFAULT_BASE_URL) {
+function llmsPageBuckets(pages) {
 	const startHerePages = pages
 		.filter(isStartHerePage)
 		.sort((left, right) => startHerePriority(left) - startHerePriority(right) || compareEntries(left, right));
@@ -1739,27 +2073,36 @@ function renderLlmsTxt(pages, baseUrl = DEFAULT_BASE_URL) {
 		return priorityDiff || left.localeCompare(right);
 	});
 
-	const sections = [
-		startHerePages.length
-			? `## Start here\n\n${startHerePages
-				.map(page => renderLlmsEntry(page, baseUrl))
-				.join('\n')}`
-			: '',
+	return [
+		{ name: 'Start here', pages: startHerePages },
 		...groupedSections.map(([section, group]) => {
-			const links = group
-				.slice()
-				.sort(compareEntries)
-				.map(page => renderLlmsEntry(page, baseUrl))
-				.join('\n');
-
-			return `## ${sectionHeading(section)}\n\n${links}`;
+			return {
+				name: sectionHeading(section),
+				pages: group.slice().sort(compareEntries),
+			};
 		}),
-	]
+	];
+}
+
+function validationSectionBuckets(pages) {
+	return llmsPageBuckets(pages).map(bucket => ({
+		name: bucket.name,
+		labels: bucket.pages.map(llmsLabel),
+	}));
+}
+
+function renderLlmsTxt(pages, baseUrl = DEFAULT_BASE_URL) {
+	const sections = llmsPageBuckets(pages)
+		.map(bucket => {
+			if (bucket.pages.length === 0) return '';
+
+			const links = bucket.pages.map(page => renderLlmsEntry(page, baseUrl)).join('\n');
+			return `## ${bucket.name}\n\n${links}`;
+		})
 		.filter(Boolean)
 		.join('\n\n');
 
-	const fullDocumentationSection =
-		`## Full documentation\n\n- [llms-full.txt](${normalizeBaseUrl(baseUrl)}/llms-full.txt): Complete export of all public Storybook docs pages.`;
+	const fullDocumentationSection = `## Full documentation\n\n- [llms-full.txt](${normalizeBaseUrl(baseUrl)}/llms-full.txt): Complete export of all public Storybook docs pages.`;
 
 	return `# BCC Component Library\n\n> Vue 3 component library built on PrimeVue and BCC design tokens.\n\n${sections}\n\n${fullDocumentationSection}\n`;
 }
@@ -1800,11 +2143,16 @@ async function writeOutputs(outputDir, pages, baseUrl) {
 	await mkdir(docsDir, { recursive: true });
 	await removeStaleGeneratedMarkdown(outputDir);
 
+	const llmsTxt = renderLlmsTxt(pages, baseUrl);
+	const llmsFullTxt = renderLlmsFullTxt(pages);
+
 	await Promise.all([
-		writeFile(path.join(outputDir, 'llms.txt'), renderLlmsTxt(pages, baseUrl), 'utf8'),
-		writeFile(path.join(outputDir, 'llms-full.txt'), renderLlmsFullTxt(pages), 'utf8'),
+		writeFile(path.join(outputDir, 'llms.txt'), llmsTxt, 'utf8'),
+		writeFile(path.join(outputDir, 'llms-full.txt'), llmsFullTxt, 'utf8'),
 		...pages.map(page => writeFile(path.join(docsDir, `${page.id}.md`), `${UTF8_BOM}${page.markdown}`, 'utf8')),
 	]);
+
+	return { llmsTxt, llmsFullTxt };
 }
 
 async function main() {
@@ -1820,15 +2168,27 @@ async function main() {
 	const docsEntries = entries.filter(isPublicDocsEntry).sort(compareEntries);
 	const pages = await Promise.all(docsEntries.map(entry => renderPage(entry, cwd, baseUrl)));
 
-	await writeOutputs(outputDir, pages, baseUrl);
+	const outputs = await writeOutputs(outputDir, pages, baseUrl);
+	await validateGeneratedOutputs({
+		outputDir,
+		pages,
+		baseUrl,
+		...outputs,
+		sectionBuckets: validationSectionBuckets(pages),
+	});
 
 	console.log(`Generated AI docs in ${outputDir}`);
 	console.log(`Base URL: ${baseUrl}`);
 	console.log(`Docs pages: ${pages.length}`);
 	console.log('Outputs: llms.txt, llms-full.txt, docs/*.md');
+	console.log('Quality check: passed');
 }
 
-main().catch(error => {
-	console.error(error);
-	process.exitCode = 1;
-});
+export { cleanInlineMarkdown, extractStoryDefinitions, mdxToMarkdown, renderStoryContentMarkdown, renderStoryMarkdown };
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+	main().catch(error => {
+		console.error(error);
+		process.exitCode = 1;
+	});
+}
