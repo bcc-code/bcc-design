@@ -91,6 +91,18 @@ describe('llms Storybook story code examples', () => {
 		expect(markdown).toContain('<a :href="base + item.file + \'.svg\'">');
 		expect(markdown).not.toContain('](base + item.file');
 	});
+
+	test('renders do/don\'t guidance as structured sections with code snippets', () => {
+		const markdown = storyMarkdown('../docs/foundations/Elevation.stories.ts', 'DoPairing');
+
+		expect(markdown).toContain('**Do**');
+		expect(markdown).toContain("**Don't**");
+		expect(markdown).toContain('```html');
+		expect(markdown).toContain('box-shadow: var(--elevation-shadow-raised)');
+		expect(markdown).toContain('Always pair raised and overlay surfaces with their shadow token.');
+		expect(markdown).toContain("Don't use raised or overlay surfaces without their paired shadow.");
+		expect(markdown).not.toContain('| Do | Don\'t |');
+	});
 });
 
 describe('llms prose sanitizer', () => {

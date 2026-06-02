@@ -1294,6 +1294,32 @@ function parseStringArgument(value) {
 	return cleanInlineMarkdown(trimmed);
 }
 
+function parseCodeArgument(value) {
+	const trimmed = value?.trim() ?? '';
+	if (!trimmed || trimmed === 'undefined' || trimmed === 'null') return '';
+
+	if (trimmed.startsWith('[')) {
+		const body = extractArrayFromIndex(trimmed, 0);
+		if (!body) return decodeEntities(decodeJsUnicodeEscapes(trimmed)).trim();
+		return splitTopLevelEntries(body).map(parseCodeArgument).filter(Boolean).join('\n\n');
+	}
+
+	const quote = trimmed[0];
+	if ((quote === '"' || quote === "'" || quote === '`') && trimmed.endsWith(quote)) {
+		return decodeEntities(
+			decodeJsUnicodeEscapes(
+				trimmed
+					.slice(1, -1)
+					.replace(/\\n/g, '\n')
+					.replace(/\\t/g, '\t')
+					.replace(/\\(['"`\\])/g, '$1')
+			)
+		).trim();
+	}
+
+	return decodeEntities(decodeJsUnicodeEscapes(trimmed)).trim();
+}
+
 function parseObjectLiteralProperties(source) {
 	const trimmed = source.trim();
 	if (!trimmed.startsWith('{')) return {};
@@ -1455,15 +1481,42 @@ function extractDoDontGuidance(source) {
 	const argsSource = extractCallArguments(source, 'doDont');
 	if (!argsSource) return null;
 
-	const args = splitTopLevelEntries(argsSource).map(parseStringArgument);
+	const rawArgs = splitTopLevelEntries(argsSource);
+	const args = rawArgs.map(parseStringArgument);
 	if (args.length < 4) return null;
 
 	return {
 		doExample: htmlToPlainText(args[0]),
+		doExampleCode: parseCodeArgument(rawArgs[0]),
 		doText: args[1],
 		dontExample: htmlToPlainText(args[2]),
+		dontExampleCode: parseCodeArgument(rawArgs[2]),
 		dontText: args[3],
 	};
+}
+
+function renderDoDontMarkdown(doDont) {
+	const lines = ['**Do**'];
+
+	if (doDont.doText) lines.push(doDont.doText);
+
+	if (doDont.doExampleCode) {
+		lines.push('', '```html', doDont.doExampleCode, '```');
+	} else if (doDont.doExample) {
+		lines.push('', doDont.doExample);
+	}
+
+	lines.push('', "**Don't**");
+
+	if (doDont.dontText) lines.push(doDont.dontText);
+
+	if (doDont.dontExampleCode) {
+		lines.push('', '```html', doDont.dontExampleCode, '```');
+	} else if (doDont.dontExample) {
+		lines.push('', doDont.dontExample);
+	}
+
+	return lines.join('\n').trim();
 }
 
 function extractObjectArrayTables(source) {
@@ -1870,18 +1923,7 @@ function renderStoryContentMarkdown(story, { includeHeading = false, headingLeve
 	}
 
 	if (story.doDont) {
-		lines.push(
-			renderMarkdownTable(
-				['Do', "Don't"],
-				[
-					[
-						[story.doDont.doExample, story.doDont.doText].filter(Boolean).join('\n\n'),
-						[story.doDont.dontExample, story.doDont.dontText].filter(Boolean).join('\n\n'),
-					],
-				]
-			),
-			''
-		);
+		lines.push(renderDoDontMarkdown(story.doDont), '');
 	} else if (story.tokenRows.length > 0) {
 		lines.push(renderTokenRowsMarkdown(story.tokenRows), '');
 	} else if (story.rampTable) {
