@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 /**
  * Generates Tailwind-compatible CSS for bcc_scheme tokens:
  * - light.tokens.json → :root (light mode)

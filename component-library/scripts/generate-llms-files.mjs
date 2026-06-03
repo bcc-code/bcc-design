@@ -1,3 +1,6 @@
+/* global process */
+/* eslint-disable no-console */
+
 import { readFileSync } from 'node:fs';
 import { mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
