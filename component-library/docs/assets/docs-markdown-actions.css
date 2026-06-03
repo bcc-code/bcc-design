@@ -1,4 +1,4 @@
-@reference '../style.css';
+@reference '../../src/style.css';
 
 .bcc-docs-header-row {
 	@apply flex items-start justify-between gap-4;
