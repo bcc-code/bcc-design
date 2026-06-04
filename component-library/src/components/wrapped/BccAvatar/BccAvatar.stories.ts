@@ -28,6 +28,7 @@ const meta = {
 			control: 'boolean',
 			description: 'Child variant; combines with gender for teal (male) or magenta (female).',
 		},
+		image: { control: 'text', description: 'URL of the avatar image' },
 	},
 	tags: ['autodocs'],
 } satisfies Meta<typeof BccAvatar>;
@@ -68,6 +69,13 @@ export const Image: Story = {
 			/>
 		`,
 	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<BccAvatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />`,
+			},
+		},
+	},
 };
 
 export const Icon: Story = {
