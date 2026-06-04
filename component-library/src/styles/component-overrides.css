@@ -97,10 +97,12 @@
 
 .p-togglebutton-sm {
 	font-size: var(--text-sm);
+	min-height: var(--p-togglebutton-sm-min-height);
 }
 
 .p-togglebutton-lg {
 	font-size: var(--text-md);
+	min-height: var(--p-togglebutton-lg-min-height);
 }
 
 /* primevue-overrides.css - CSS-level component overrides */

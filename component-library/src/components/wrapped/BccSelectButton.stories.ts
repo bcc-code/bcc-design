@@ -25,6 +25,7 @@ const meta = {
 		disabled: { control: 'boolean' },
 		multiple: { control: 'boolean' },
 		invalid: { control: 'boolean' },
+		size: { control: 'select', options: ['small', 'default', 'large'] },
 	},
 } as Meta;
 
@@ -112,8 +113,27 @@ export const invalid: Story = {
 	}),
 };
 
-export const WithIcons: Story = {
+export const Sizes: Story = {
 	render: () => ({
+		components: { BccSelectButton },
+		setup() {
+			const small = ref('left');
+			const defaultSize = ref('left');
+			const large = ref('left');
+			return { small, defaultSize, large, options };
+		},
+		template: `
+			<div class="center gap-2">
+				<BccSelectButton v-model="small" :options="options" option-label="label" option-value="value" size="small" />
+				<BccSelectButton v-model="defaultSize" :options="options" option-label="label" option-value="value" />
+				<BccSelectButton v-model="large" :options="options" option-label="label" option-value="value" size="large" />
+			</div>
+		`,
+	}),
+};
+
+export const WithIcons: Story = {
+	render: args => ({
 		components: { BccSelectButton },
 		setup() {
 			const value = ref('left');
@@ -122,10 +142,10 @@ export const WithIcons: Story = {
 				{ value: 'center', icon: CloseIcon },
 				{ value: 'right', icon: InfoIcon },
 			];
-			return { value, options, CheckIcon, CloseIcon };
+			return { value, options, CheckIcon, CloseIcon, args };
 		},
 		template: `
-			<BccSelectButton v-model="value" :options="options" option-icon="icon" option-value="value" />
+			<BccSelectButton v-model="value" :options="options" option-icon="icon" option-value="value" v-bind="args" />
 		`,
 	}),
 };
