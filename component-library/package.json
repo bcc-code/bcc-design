@@ -37,8 +37,10 @@
   },
   "scripts": {
     "start": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build && pnpm run build:llms",
     "build": "run-p typecheck build:types build:vite",
+    "docs:ai": "storybook build && pnpm run build:llms",
+    "build:llms": "node scripts/generate-llms-files.mjs",
     "build:vite": "rimraf dist && vite build && pnpm run build:sfc-styles && pnpm run build:library-utilities && node scripts/build-archivo-font.mjs && node scripts/build-theme-css.mjs",
     "build:sfc-styles": "vite build --config vite.config.sfc-styles.ts && rimraf dist/sfc-styles.js",
     "build:library-utilities": "tailwindcss -i src/library-utilities-input.css -o dist/library-utilities.css --minify",

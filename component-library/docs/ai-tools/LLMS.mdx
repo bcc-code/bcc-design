@@ -1,0 +1,64 @@
+import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI Tools/LLMS.txt" />
+
+<Unstyled>
+<div className="font-archivo flex flex-col gap-12">
+
+    <div>
+    	<h1 className="heading-2xl text-default">LLMs.txt</h1>
+    	<p className="body-lg text-subtle mt-2">AI-ready documentation endpoints generated from the BCC Component Library Storybook docs.</p>
+    </div>
+
+    <div className="flex flex-col gap-4">
+    	<div className="py-3 overflow-hidden flex flex-col">
+    		<div className="border-default flex flex-col gap-2">
+    			<h2 className="heading-xl text-default">/llms.txt</h2>
+    			<p className="body-md text-subtle">A concise index of public Storybook documentation pages. Use this endpoint when an AI assistant needs a quick, high-signal entry point to the most relevant docs.</p>
+    		</div>
+    		<div className="py-3">
+    			<a
+    				className="inline-flex items-center rounded-md border border-default px-4 py-2 no-underline body-md font-semibold text-default hover:border-brand hover:text-brand-default transition-colors"
+    				href="/llms.txt"
+    				target="_top"
+    			>
+    				Open llms.txt
+    			</a>
+    		</div>
+    	</div>
+
+    	<div className="py-3 overflow-hidden flex flex-col">
+    		<div className="border-default flex flex-col gap-2">
+    			<h2 className="heading-xl text-default">/llms-full.txt</h2>
+    			<p className="body-md text-subtle">A complete export of all public Storybook docs pages. Use this file when AI tooling needs full documentation coverage instead of a summarized index.</p>
+    		</div>
+    		<div className="py-3">
+    			<a
+    				className="inline-flex items-center rounded-md border border-default px-4 py-2 no-underline body-md font-semibold text-default hover:border-brand hover:text-brand-default transition-colors"
+    				href="/llms-full.txt"
+    				target="_top"
+    			>
+    				Open llms-full.txt
+    			</a>
+    		</div>
+    	</div>
+
+    	<div className="py-3 overflow-hidden flex flex-col">
+    		<div className="border-default flex flex-col gap-2">
+    			<h2 className="heading-xl text-default">.md extension</h2>
+    			<p className="body-md text-subtle">Append <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">.md</code> to any public docs URL to get a Markdown version of that page. This is useful for ingestion in AI workflows and external documentation tooling.</p>
+    		</div>
+    		<div className="py-3">
+    			<a
+    				className="inline-flex items-center rounded-md border border-default px-4 py-2 no-underline body-md font-semibold text-default hover:border-brand hover:text-brand-default transition-colors"
+    				href="/docs/foundations-colors--docs.md"
+    				target="_top"
+    			>
+    				Open /docs/foundations-colors--docs.md
+    			</a>
+    		</div>
+    	</div>
+    </div>
+
+</div>
+</Unstyled>
