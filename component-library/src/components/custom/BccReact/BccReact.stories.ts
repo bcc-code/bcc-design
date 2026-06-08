@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import { ref } from 'vue';
 import BccReact from './BccReact.vue';
 import type { ReactInfo } from './types';
 
@@ -44,10 +45,10 @@ export const Default: Story = {
 	render: args => ({
 		components: { BccReact },
 		setup() {
-			const emojis = args.emojis.map(emoji => Object.assign({}, emoji));
+			const emojis = ref(args.emojis.map(emoji => Object.assign({}, emoji)));
 
 			function onToggle(id: string) {
-				const target = emojis.find(emoji => emoji.id === id);
+				const target = emojis.value.find(emoji => emoji.id === id);
 				if (!target) return;
 
 				if (target.selected) {
@@ -109,6 +110,6 @@ export const EmptyState: Story = {
 			{ id: 'heart', emoji: '❤️' },
 			{ id: 'fire', emoji: '🔥' },
 		],
-		placeholder: 'No reactions yet - add one!',
+		placeholder: 'Be the first to react',
 	},
 };

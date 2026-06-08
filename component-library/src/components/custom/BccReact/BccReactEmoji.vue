@@ -24,7 +24,7 @@ watch(
 			'animate-wiggle': animate,
 		}"
 	>
-		<span>{{ emoji }}</span>
-		<span v-if="count && count > 1" class="body-sm mx-1">{{ count }}</span>
+		<span class="bcc-react-emoji">{{ emoji }}</span>
+		<span v-if="count && count > 1" class="bcc-react-count">{{ count }}</span>
 	</button>
 </template>

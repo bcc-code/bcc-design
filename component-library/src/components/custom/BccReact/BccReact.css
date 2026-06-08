@@ -3,10 +3,10 @@
 		@apply relative flex w-full items-center overflow-visible;
 	}
 	.bcc-react-toggle {
-		@apply mr-1 flex shrink-0 cursor-pointer items-center justify-center rounded-full p-1 transition;
+		@apply flex shrink-0 cursor-pointer items-center justify-center rounded-full transition;
 	}
 	.bcc-react-list {
-		@apply hide-scrollbar flex flex-1 items-center gap-1 overflow-x-auto overflow-y-hidden rounded-full p-1;
+		@apply hide-scrollbar ml-2 flex flex-1 items-center gap-1 overflow-x-auto overflow-y-hidden rounded-full;
 	}
 	.bcc-react-empty {
 		@apply heading-xs flex items-center;
@@ -77,14 +77,17 @@
 	}
 
 	.bcc-react-emoji-list-item {
-		@apply ctx clickable center h-7 min-w-7 shrink-0 rounded-full p-1 text-lg leading-none drop-shadow transition-all hover:scale-105;
+		@apply clickable center flex h-8 min-w-7 shrink-0 gap-1 rounded-full px-2 py-1 drop-shadow transition-all hover:scale-105;
 		/* Default --not-selected */
-		@apply ctx-neutral-subtlest;
+		@apply bg-accent-gray-subtler-default text-default;
 	}
-	.bcc-react-emoji-list-item span {
-		@apply leading-none;
+	.bcc-react-emoji-list-item .bcc-react-count {
+		@apply text-xs leading-none font-medium;
+	}
+	.bcc-react-emoji-list-item .bcc-react-emoji {
+		@apply text-lg leading-none;
 	}
 	.bcc-react-emoji-list-item.selected {
-		@apply ctx-neutral-subtle;
+		@apply bg-accent-gray-boldest-default text-inverse;
 	}
 }

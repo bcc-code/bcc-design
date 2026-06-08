@@ -121,22 +121,21 @@ onMounted(() => {
 				:class="[top ? 'rounded-b-full' : 'rounded-t-full']"
 				@click="show = !show"
 			>
-				<AddReactionFillIcon v-if="show" class="w-6" />
-				<AddReactionIcon v-else class="w-6" />
+				<AddReactionFillIcon v-if="show" class="size-5" />
+				<AddReactionIcon v-else class="size-5" />
 			</button>
 
-			<div key="list" class="bcc-react-list">
-				<template v-if="activeEmojis.length">
-					<template v-for="emoji in activeEmojis" :key="emoji.id">
-						<keep-alive>
-							<BccReactEmoji v-bind="emoji" @click="selectEmoji(emoji)" />
-						</keep-alive>
-					</template>
+			<div v-if="activeEmojis.length" key="list" class="bcc-react-list">
+				<template v-for="emoji in activeEmojis" :key="emoji.id">
+					<keep-alive>
+						<BccReactEmoji v-bind="emoji" @click="selectEmoji(emoji)" />
+					</keep-alive>
 				</template>
-				<p v-else-if="props.placeholder" class="bcc-react-empty">
-					<KeyboardArrowLeftIcon class="mr-1 w-4" /> {{ props.placeholder }}
-				</p>
 			</div>
+			<p v-else-if="props.placeholder" class="bcc-react-empty">
+				<KeyboardArrowLeftIcon class="mx-1.5 size-6" />
+				<span>{{ props.placeholder }}</span>
+			</p>
 		</TransitionGroup>
 
 		<Transition name="bcc-scale-fast" @after-leave="showMore = false">
