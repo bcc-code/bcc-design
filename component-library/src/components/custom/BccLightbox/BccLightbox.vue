@@ -12,7 +12,6 @@ import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 import BccLightboxMedia from './BccLightboxMedia.vue';
 import { LightboxStore } from './state';
 
-const dialogRef = ref<HTMLElement | null>(null);
 const closeButtonRef = ref<HTMLButtonElement | null>(null);
 const mediaRef = ref<InstanceType<typeof BccLightboxMedia> | null>(null);
 
@@ -110,7 +109,6 @@ onUnmounted(() => {
 	<Teleport to="body">
 		<div
 			v-if="LightboxStore.state.visible && currentItem"
-			ref="dialogRef"
 			class="bcc-lightbox"
 			role="dialog"
 			aria-modal="true"

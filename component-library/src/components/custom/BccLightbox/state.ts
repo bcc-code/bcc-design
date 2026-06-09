@@ -19,11 +19,6 @@ let scrollLockCount = 0;
 let activeCallbacks: Pick<LightboxOpenOptions, 'onShow' | 'onHide'> = {};
 let mounted = false;
 
-const lightboxApi: LightboxApi = {
-	open: openLightbox,
-	close: closeLightbox,
-};
-
 function lockBodyScroll() {
 	if (scrollLockCount === 0) {
 		document.body.style.overflow = 'hidden';
@@ -117,6 +112,13 @@ export const LightboxStore = {
 };
 
 export function installBccLightbox(app: App) {
+	const lightboxApi: LightboxApi = {
+		open: openLightbox,
+		close: closeLightbox,
+		get isOpen() {
+			return state.visible;
+		},
+	};
 	app.provide(LIGHTBOX_KEY, lightboxApi);
 
 	if (mounted || typeof document === 'undefined') {

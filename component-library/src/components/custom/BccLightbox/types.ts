@@ -33,6 +33,7 @@ export type LightboxState = {
 export type LightboxApi = {
 	open: (options: LightboxOpenOptions) => void;
 	close: () => void;
+	readonly isOpen: boolean;
 };
 
 export const LIGHTBOX_KEY: InjectionKey<LightboxApi> = Symbol('bcc-lightbox');
