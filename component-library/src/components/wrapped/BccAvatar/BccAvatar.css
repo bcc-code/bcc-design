@@ -29,10 +29,12 @@
 	.bcc-avatar.xs {
 		@apply size-5 text-xs;
 		--p-icon-size: var(--icon-size-xs);
+		--p-avatar-group-offset: -8px;
 	}
 	.bcc-avatar.sm {
 		@apply size-6 text-xs;
 		--p-icon-size: var(--icon-size-xs);
+		--p-avatar-group-offset: -8px;
 	}
 	/* .bcc-avatar.md {
         same as default 
