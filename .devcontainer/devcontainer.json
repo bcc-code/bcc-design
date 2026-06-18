@@ -7,6 +7,10 @@
   "features": {
     "ghcr.io/devcontainers/features/node:2.0.0": {
       "pnpmVersion": "latest"
+    },
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
     }
   },
 
