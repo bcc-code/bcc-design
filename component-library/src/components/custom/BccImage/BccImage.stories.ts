@@ -7,6 +7,7 @@ const gallerySrcs = [
 	'https://primefaces.org/cdn/primevue/images/galleria/galleria2.jpg',
 	'https://primefaces.org/cdn/primevue/images/galleria/galleria3.jpg',
 ];
+const videoSrc = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4';
 
 const meta: Meta<typeof BccImage> = {
 	component: BccImage,
@@ -34,6 +35,13 @@ export const Default: Story = {
 		},
 		template: `<BccImage :src="imageSrc" alt="Landscape" width="250" />`,
 	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<BccImage src="${imageSrc}" alt="Landscape" width="250" />`,
+			},
+		},
+	},
 };
 
 export const Preview: Story = {
@@ -44,6 +52,13 @@ export const Preview: Story = {
 		},
 		template: `<BccImage :src="imageSrc" alt="Landscape" width="250" preview />`,
 	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<BccImage src="${imageSrc}" alt="Landscape" width="250" preview />`,
+			},
+		},
+	},
 };
 
 export const Gallery: Story = {
@@ -63,6 +78,24 @@ export const Gallery: Story = {
 			/>
 		`,
 	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<BccImage
+						src="${imageSrc}"
+						:imgs="[
+							'${gallerySrcs[0]}',
+							'${gallerySrcs[1]}',
+							'${gallerySrcs[2]}',
+						]"
+						alt="Landscape"
+						width="250"
+						preview
+						loop
+					/>`,
+			},
+		},
+	},
 };
 
 export const Video: Story = {
@@ -71,7 +104,7 @@ export const Video: Story = {
 		setup() {
 			return {
 				posterSrc: imageSrc,
-				videoSrc: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+				videoSrc: videoSrc,
 			};
 		},
 		template: `
@@ -84,4 +117,22 @@ export const Video: Story = {
 			/>
 		`,
 	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `<BccImage
+						src="${imageSrc}"
+						:imgs="[{ 
+							src: '${videoSrc}', 
+							type: 'video', 
+							poster: '${imageSrc}', 
+							title: 'Sample video' 
+						}]"
+						alt="Flower video"
+						width="320"
+						preview
+					/>`,
+			},
+		},
+	},
 };
