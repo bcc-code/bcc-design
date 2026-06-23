@@ -7,5 +7,5 @@
 		"types": ["Node"],
 		"strict": true
 	},
-	"include": ["vite.config.ts", "scripts/**/*.mjs"]
+	"include": ["vite.config.ts", "vite-plugin-component-attr.ts", "scripts/**/*.mjs"]
 }

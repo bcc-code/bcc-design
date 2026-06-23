@@ -46,6 +46,16 @@ const itemWidth = computed(() => {
 
 	return 'flex-1';
 });
+
+function itemBindings(item: BccAppNavigationItem) {
+	const { icon, key, component, ...rest } = item;
+
+	void icon;
+	void key;
+	void component;
+
+	return rest;
+}
 </script>
 
 <template>
@@ -54,10 +64,15 @@ const itemWidth = computed(() => {
 			<template v-for="item in items" :key="item.key">
 				<component
 					:is="item.component ?? linkComponent ?? 'a'"
-					v-bind="item"
+					v-bind="itemBindings(item)"
 					class="bcc-app-nav-item"
+					:data-key="item.key"
 					active-class="bcc-app-nav-item--active"
-					:class="{ 'bcc-app-nav-item--active': activeKey === item.key, [itemWidth]: true }"
+					:class="{
+						'bcc-app-nav-item--active': activeKey === item.key,
+						[itemWidth]: true,
+						[`bcc-app-nav-item-key-${item.key}`]: true,
+					}"
 					@click="emits('select', item)"
 				>
 					<div class="relative px-3">
