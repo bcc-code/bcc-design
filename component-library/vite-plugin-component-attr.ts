@@ -14,7 +14,10 @@ export function componentDataAttrPlugin(): Plugin {
 		transform(code, id) {
 			if (!id.endsWith('.vue') || !id.includes('/components/')) return null;
 
-			const componentName = path.basename(id, '.vue');
+			const componentName = path
+				.basename(id, '.vue')
+				.replace(/^Bcc/, '')
+				.replace(/([A-Z])/g, (_, c, offset) => (offset === 0 ? c.toLowerCase() : `-${c.toLowerCase()}`));
 			const { descriptor, errors } = parse(code);
 
 			if (errors.length || !descriptor.template?.ast) return null;
