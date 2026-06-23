@@ -34,6 +34,12 @@ export default defineConfig([
 				},
 			],
 			'vue/no-side-effects-in-computed-properties': 'warn',
+			'vue/block-order': [
+				'error',
+				{
+					order: ['script', 'template', 'style'],
+				},
+			],
 			'vue/multi-word-component-names': 'warn',
 			'vue/require-default-prop': 'off',
 			'vue/multiline-html-element-content-newline': [

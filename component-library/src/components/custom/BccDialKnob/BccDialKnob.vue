@@ -1,28 +1,3 @@
-<template>
-	<div
-		ref="knobContainer"
-		class="bcc-knob"
-		@mousedown="startDrag"
-		@touchstart="startDrag"
-		@mousemove="onDrag"
-		@touchmove="onDrag"
-		@mouseup="endDrag"
-		@touchend="endDrag"
-		@mouseleave="endDrag"
-	>
-		<canvas ref="canvasEl" class="object-fit w-full"></canvas>
-		<div class="bcc-knob-top-left">
-			<slot name="left" />
-		</div>
-		<div class="bcc-knob-top-right">
-			<slot name="right" />
-		</div>
-		<div class="bcc-knob-label">
-			<slot />
-		</div>
-	</div>
-</template>
-
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 
@@ -497,3 +472,28 @@ if (typeof window !== 'undefined' && window.matchMedia) {
 	});
 }
 </script>
+
+<template>
+	<div
+		ref="knobContainer"
+		class="bcc-knob"
+		@mousedown="startDrag"
+		@touchstart="startDrag"
+		@mousemove="onDrag"
+		@touchmove="onDrag"
+		@mouseup="endDrag"
+		@touchend="endDrag"
+		@mouseleave="endDrag"
+	>
+		<canvas ref="canvasEl" class="object-fit w-full"></canvas>
+		<div class="bcc-knob-top-left">
+			<slot name="left" />
+		</div>
+		<div class="bcc-knob-top-right">
+			<slot name="right" />
+		</div>
+		<div class="bcc-knob-label">
+			<slot />
+		</div>
+	</div>
+</template>
