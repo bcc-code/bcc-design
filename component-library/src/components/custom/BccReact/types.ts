@@ -16,4 +16,6 @@ export type ReactProps = {
 	top?: boolean;
 	/** Message shown when there are no reactions yet (e.g. "Be the first to react"). */
 	placeholder?: string;
+	/** Max active reactions visible at once; overflow scrolls horizontally when exceeded. */
+	max?: number;
 };

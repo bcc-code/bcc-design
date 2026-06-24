@@ -30,6 +30,7 @@ const meta: Meta<typeof BccReact> = {
 	argTypes: {
 		top: { control: 'boolean' },
 		placeholder: { control: 'text' },
+		max: { control: { type: 'number', min: 1 } },
 	},
 };
 
@@ -97,6 +98,39 @@ export const TopPositioned: Story = {
 		},
 		template: `
 			<div class="py-16">
+				<BccReact v-bind="args" :emojis="emojis" @toggle="onToggle" />
+			</div>
+		`,
+	}),
+};
+
+export const ScrollableReactions: Story = {
+	args: {
+		emojis: baseEmojis,
+		max: 4,
+	},
+	render: args => ({
+		components: { BccReact },
+		setup() {
+			const emojis = ref(args.emojis.map(emoji => Object.assign({}, emoji)));
+
+			function onToggle(id: string) {
+				const target = emojis.value.find(emoji => emoji.id === id);
+				if (!target) return;
+
+				if (target.selected) {
+					target.selected = false;
+					target.count = Math.max(0, (target.count ?? 0) - 1);
+				} else {
+					target.selected = true;
+					target.count = (target.count ?? 0) + 1;
+				}
+			}
+
+			return { args, emojis, onToggle };
+		},
+		template: `
+			<div class="max-w-md py-8">
 				<BccReact v-bind="args" :emojis="emojis" @toggle="onToggle" />
 			</div>
 		`,

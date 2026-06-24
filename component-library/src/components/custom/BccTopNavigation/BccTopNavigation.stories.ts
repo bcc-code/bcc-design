@@ -25,6 +25,7 @@ const meta: Meta = {
 		padded: { control: 'boolean' },
 		transparent: { control: 'boolean' },
 		white: { control: 'boolean' },
+		sunken: { control: 'boolean' },
 		fixed: { control: 'boolean' },
 		titleLeft: { control: 'boolean' },
 	},
@@ -128,6 +129,40 @@ export const WithRightAction: Story = {
 								</button>
 							</template>
 						</BccTopNavigation>
+					</template>`,
+			},
+		},
+	},
+};
+
+export const Sunken: Story = {
+	args: {
+		title: 'Sunken style',
+		subtitle: 'With sunken surface background and default text color',
+		sunken: true,
+		padded: true,
+	},
+	render: args => ({
+		components,
+		setup() {
+			return { args };
+		},
+		template: `
+			<div class="min-h-[200px] bg-surface-200 dark:bg-surface-800">
+				<BccTopNavigation v-bind="args" @back="() => {}" />
+			</div>
+		`,
+	}),
+	parameters: {
+		docs: {
+			description: {
+				story: 'Shows the sunken variant with padding and a surface background.',
+			},
+			source: {
+				code: `<template>
+						<div class="min-h-[200px] bg-surface-200 dark:bg-surface-800">
+							<BccTopNavigation title="Sunken style" subtitle="With sunken surface background and default text color" sunken padded @back="() => {}" />
+						</div>
 					</template>`,
 			},
 		},

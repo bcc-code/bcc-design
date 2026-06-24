@@ -33,6 +33,21 @@ const activeEmojis = computed(() => {
 	active.sort((a, b) => b.count! - a.count!);
 	return active;
 });
+const normalizedMax = computed(() => {
+	if (props.max == null || props.max <= 0) {
+		return null;
+	}
+
+	return Math.floor(props.max);
+});
+const isListScrollable = computed(() => normalizedMax.value != null && activeEmojis.value.length > normalizedMax.value);
+const listStyle = computed(() => {
+	if (!isListScrollable.value || normalizedMax.value == null) {
+		return undefined;
+	}
+
+	return { '--bcc-react-max-visible': String(normalizedMax.value) };
+});
 
 const unselectedEmojis = computed(() => props.emojis.filter(e => !e.selected));
 const dropdownNeeded = computed(() => unselectedEmojis.value.length > MAX_VISIBLE_EMOJIS);
@@ -125,7 +140,13 @@ onMounted(() => {
 				<AddReactionIcon v-else class="size-5" />
 			</button>
 
-			<div v-if="activeEmojis.length" key="list" class="bcc-react-list">
+			<div
+				v-if="activeEmojis.length"
+				key="list"
+				class="bcc-react-list"
+				:class="{ 'bcc-react-list--limited': isListScrollable }"
+				:style="listStyle"
+			>
 				<template v-for="emoji in activeEmojis" :key="emoji.id">
 					<keep-alive>
 						<BccReactEmoji v-bind="emoji" @click="selectEmoji(emoji)" />

@@ -19,6 +19,7 @@ const props = withDefaults(
 			padded?: boolean;
 			transparent?: boolean;
 			white?: boolean;
+			sunken?: boolean;
 			backTitle?: string;
 			force?: boolean;
 			titleLeft?: boolean;
@@ -49,7 +50,13 @@ const heading = computed((): { title: string; subtitle: string } => {
 		class="bcc-topbar pt-inset-top-1 top-0 z-30 w-full shrink-0 pb-1"
 		:class="[
 			{ relative, fixed, sticky: !relative && !fixed },
-			transparent ? '' : white ? 'bg-elevation-surface-default text-default' : 'bg-brand-800 text-white drop-shadow',
+			transparent
+				? ''
+				: sunken
+					? 'bg-elevation-surface-sunken-default text-default'
+					: white
+						? 'bg-elevation-surface-default text-default'
+						: 'bg-brand-800 text-white drop-shadow',
 		]"
 	>
 		<div class="center between min-h-12 w-full gap-2" :class="{ 'px-4 sm:px-6': padded || hideBack }">
