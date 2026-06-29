@@ -5,7 +5,7 @@
 	--p-tooltip-max-width: min(85vw, calc(var(--spacing) * 100));
 }
 
-.p-overlay-mask {
+.p-overlay-mask:has(.p-dialog) {
 	padding: 1rem;
 }
 
