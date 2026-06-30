@@ -5,7 +5,7 @@ This guide helps you migrate a Vue app from `@bcc-code/design-library-vue` to `@
 ## Overview
 
 - **Remove:** `@bcc-code/design-library-vue` as a direct dependency (you may still have it as a transitive dependency from e.g. `@bcc-code/vue-bcc-chat-ui`).
-- **Add:** `@bcc-code/component-library-vue` (e.g. `^0.6.0`).
+- **Add:** `@bcc-code/component-library-vue`
 - **Register:** the component library once in your app entry (see below).
 - **Replace:** imports and component usage per the mapping below; update types and styles as needed.
 
@@ -31,7 +31,7 @@ Replace design-library registration with the component library plugin:
 import { BccComponentLibrary } from '@bcc-code/component-library-vue';
 
 const app = createApp(App);
-BccComponentLibrary(app as any);
+app.use(BccComponentLibrary);
 ```
 
 The component library registers its components globally, so you don’t need to import each one in every file (though named imports are still used for type-checking and tree-shaking).
@@ -60,16 +60,16 @@ If you previously used `bccForbundetTheme` or `tailwindPlugin` from the design l
 
 ### Direct replacements
 
-| Design library | Component library | Notes |
-|----------------|--------------------|--------|
-| **BccAlert** | **BccMessage** | Use `severity` (e.g. `info`, `warn`, `error`, `secondary`), optional `icon`, `outlined`. |
-| **BccRange** | **BccSlider** | API may differ; check component-library props (e.g. `v-model` for value). |
-| **BccButton** | **BccButton** | Same name; check `variant` (e.g. `outlined`), `rounded`, `use-ctx`, `class="ctx-*"` for context. |
-| **BccTag** | **BccTag** | Use `context` (e.g. `"gray-subtler"`, `"brown-subtlest"`) or `BCC_CONTEXTS`; `clickable`, `size`, `:icon-right`. |
-| **BccTabs** | **BccTabs** | Tabs config uses `TabItem[]`: `{ title: string }` (and optional props). Use `#tab-1`, `#tab-2`, … for content. |
-| **BccModal** | **BccDialog** | Different API: use `v-model:visible`, `:header`, `#footer` for actions. Use `modal` for overlay behaviour. |
-| **BccCookieBanner** | **BccDrawer** | No dedicated cookie component; implement with `BccDrawer` (e.g. `v-model:visible`, header + footer with Accept/Decline). |
-| **BccGraphicPoster** | **BccGraphic** + local wrapper | Use **BccGraphic** for image/ratio/rounding; add a local component for `checked` overlay or `link` wrapper if needed. |
+| Design library       | Component library              | Notes                                                                                                                    |
+| -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| **BccAlert**         | **BccMessage**                 | Use `severity` (e.g. `info`, `warn`, `error`, `secondary`), optional `icon`, `outlined`.                                 |
+| **BccRange**         | **BccSlider**                  | API may differ; check component-library props (e.g. `v-model` for value).                                                |
+| **BccButton**        | **BccButton**                  | Same name; check `variant` (e.g. `outlined`), `rounded`, `use-ctx`, `class="ctx-*"` for context.                         |
+| **BccTag**           | **BccTag**                     | Use `context` (e.g. `"gray-subtler"`, `"brown-subtlest"`) or `BCC_CONTEXTS`; `clickable`, `size`, `:icon-right`.         |
+| **BccTabs**          | **BccTabs**                    | Tabs config uses `TabItem[]`: `{ title: string }` (and optional props). Use `#tab-1`, `#tab-2`, … for content.           |
+| **BccModal**         | **BccDialog**                  | Different API: use `v-model:visible`, `:header`, `#footer` for actions. Use `modal` for overlay behaviour.               |
+| **BccCookieBanner**  | **BccDrawer**                  | No dedicated cookie component; implement with `BccDrawer` (e.g. `v-model:visible`, header + footer with Accept/Decline). |
+| **BccGraphicPoster** | **BccGraphic** + local wrapper | Use **BccGraphic** for image/ratio/rounding; add a local component for `checked` overlay or `link` wrapper if needed.    |
 
 ### Same name, same package
 
@@ -108,12 +108,7 @@ import { BccButton, BccMessage } from '@bcc-code/component-library-vue';
 **After (BccDialog):**
 
 ```vue
-<BccDialog
-  v-model:visible="showCancel"
-  :header="$i18n.$t.some.title"
-  modal
-  :style="{ width: 'min(90vw, 24rem)' }"
->
+<BccDialog v-model:visible="showCancel" :header="$i18n.$t.some.title" modal :style="{ width: 'min(90vw, 24rem)' }">
   <p>Are you sure?</p>
   <template #footer>
     <BccButton rounded :label="$i18n.$t.form.ok" @click="handleOk" />
@@ -132,7 +127,7 @@ import { BccButton, BccMessage } from '@bcc-code/component-library-vue';
 
 ```ts
 import type { BccTabsGroup } from '@bcc-code/design-library-vue';
-const tabs: BccTabsGroup = [ { title: 'Details' }, { title: 'Participants' } ];
+const tabs: BccTabsGroup = [{ title: 'Details' }, { title: 'Participants' }];
 ```
 
 **After (TabItem):**
@@ -140,10 +135,7 @@ const tabs: BccTabsGroup = [ { title: 'Details' }, { title: 'Participants' } ];
 ```ts
 import { BccTabs, type TabItem } from '@bcc-code/component-library-vue';
 
-const tabs = computed<TabItem[]>(() => [
-  { title: $t.app.details },
-  { title: $t.activities.shifts.participants },
-]);
+const tabs = computed<TabItem[]>(() => [{ title: $t.app.details }, { title: $t.activities.shifts.participants }]);
 ```
 
 Template: bind `v-model` to the active index and use `#tab-1`, `#tab-2`, … for content:
@@ -157,11 +149,11 @@ Template: bind `v-model` to the active index and use `#tab-1`, `#tab-2`, … for
 
 ## 6. Types
 
-| Design library type | Replacement |
-|---------------------|-------------|
-| **VueComponent** | Use Vue’s `Component`: `import type { Component } from 'vue'`. For route meta `right`/`left` components, this project uses `VueComponent` from `@bcc-code/component-library-vue` in `shims-vue.d.ts`; you can switch to `Component` from `vue` if the library no longer exports `VueComponent`. |
-| **BccTabsGroup** | **TabItem[]** from `@bcc-code/component-library-vue`. |
-| **BccReactInfo** | **ReactInfo** from `@bcc-code/component-library-vue`. |
+| Design library type | Replacement                                                                                                                                                                                                                                                                                     |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **VueComponent**    | Use Vue’s `Component`: `import type { Component } from 'vue'`. For route meta `right`/`left` components, this project uses `VueComponent` from `@bcc-code/component-library-vue` in `shims-vue.d.ts`; you can switch to `Component` from `vue` if the library no longer exports `VueComponent`. |
+| **BccTabsGroup**    | **TabItem[]** from `@bcc-code/component-library-vue`.                                                                                                                                                                                                                                           |
+| **BccReactInfo**    | **ReactInfo** from `@bcc-code/component-library-vue`.                                                                                                                                                                                                                                           |
 
 Example:
 
@@ -185,10 +177,10 @@ Usage:
 
 ```vue
 <BccTag
-  :context="isActive ? BCC_CONTEXTS.teal.subtler : BCC_CONTEXTS.gray.subtler"
-  clickable
-  :text="label"
-  :icon-right="isActive ? CloseIcon : undefined"
+	:context="isActive ? BCC_CONTEXTS.teal.subtler : BCC_CONTEXTS.gray.subtler"
+	clickable
+	:text="label"
+	:icon-right="isActive ? CloseIcon : undefined"
 />
 ```
 
@@ -218,11 +210,11 @@ Until the component library provides equivalents, you can:
 2. **Entry:** In `main.ts` (or equivalent), replace design-library plugin with `BccComponentLibrary(app)`.
 3. **Styles:** Replace `@bcc-code/design-library-vue/tailwind/index.css` with `@bcc-code/component-library-vue/theme.css` in your main CSS. Adjust Tailwind config if you used design-library preset/plugin.
 4. **Imports:** Replace all `from '@bcc-code/design-library-vue'` with `from '@bcc-code/component-library-vue'` for components that exist in the component library.
-5. **Component renames/APIs:**  
-   - **BccAlert** → **BccMessage** (adjust `severity`/props).  
-   - **BccRange** → **BccSlider** (adjust props if needed).  
-   - **BccModal** → **BccDialog** (`v-model:visible`, `:header`, `#footer`).  
-   - **BccCookieBanner** → **BccDrawer** or custom UI.  
+5. **Component renames/APIs:**
+   - **BccAlert** → **BccMessage** (adjust `severity`/props).
+   - **BccRange** → **BccSlider** (adjust props if needed).
+   - **BccModal** → **BccDialog** (`v-model:visible`, `:header`, `#footer`).
+   - **BccCookieBanner** → **BccDrawer** or custom UI.
    - **BccGraphicPoster** → **BccGraphic** + optional local wrapper.
 6. **Types:** Replace **VueComponent** with **Component** from `vue`, **BccTabsGroup** with **TabItem[]**, **BccReactInfo** with **ReactInfo** from the component library.
 7. **Tabs:** Use **TabItem[]** and `#tab-1`, `#tab-2`, … with **BccTabs**.
