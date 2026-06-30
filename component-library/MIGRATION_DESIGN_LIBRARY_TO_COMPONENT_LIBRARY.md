@@ -207,7 +207,7 @@ Until the component library provides equivalents, you can:
 ## 10. Step-by-step checklist
 
 1. **Dependencies:** Remove `@bcc-code/design-library-vue`, add `@bcc-code/component-library-vue`.
-2. **Entry:** In `main.ts` (or equivalent), replace design-library plugin with `BccComponentLibrary(app)`.
+2. **Entry:** In `main.ts` (or equivalent), replace design-library plugin with `app.use(BccComponentLibrary)`.
 3. **Styles:** Replace `@bcc-code/design-library-vue/tailwind/index.css` with `@bcc-code/component-library-vue/theme.css` in your main CSS. Adjust Tailwind config if you used design-library preset/plugin.
 4. **Imports:** Replace all `from '@bcc-code/design-library-vue'` with `from '@bcc-code/component-library-vue'` for components that exist in the component library.
 5. **Component renames/APIs:**

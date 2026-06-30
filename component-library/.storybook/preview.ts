@@ -1,21 +1,15 @@
-import BccPreset from '@bcc-code/design-tokens/primevue';
 import type { Preview } from '@storybook/vue3-vite';
 import { setup } from '@storybook/vue3-vite';
-import PrimeVue from 'primevue/config';
-import ConfirmationService from 'primevue/confirmationservice';
-import FocusTrapDirective from 'primevue/focustrap';
-import ToastService from 'primevue/toastservice';
-import TooltipDirective from 'primevue/tooltip';
 import { onMounted, onUnmounted, ref } from 'vue';
 
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
-import { installBccLightbox } from '../src/components/custom/BccLightbox/state';
+import '../docs/assets/docs-markdown-actions.css';
 import { BccConfirmDialog, BccToast } from '../src/index';
+import BccComponentLibrary from '../src/setup';
 import '../src/style.css';
 import '../src/styles/archivo-font.css';
-import '../docs/assets/docs-markdown-actions.css';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* ── Color swatch copy popover (tippy) ── */
@@ -229,23 +223,7 @@ setup(app => {
 	).join('');
 	app.config.idPrefix = `sb-${random}-`;
 
-	app.use(PrimeVue, {
-		theme: {
-			preset: BccPreset,
-			options: {
-				darkModeSelector: '.dark',
-				cssLayer: {
-					name: 'primevue',
-					order: 'theme, base, primevue, tailwind',
-				},
-			},
-		},
-	});
-	app.use(ConfirmationService);
-	app.use(ToastService);
-	app.directive('tooltip', TooltipDirective);
-	app.directive('focus-trap', FocusTrapDirective);
-	installBccLightbox(app);
+	app.use(BccComponentLibrary);
 });
 
 const preview: Preview = {
