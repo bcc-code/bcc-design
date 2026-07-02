@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Container for action buttons and controls. [Read more on PrimeVue →](https://primevue.org/toolbar/)',
+					'Container for action buttons and controls. [Read more on PrimeVue →](https://v4.primevue.org/toolbar/)',
 			},
 		},
 	},

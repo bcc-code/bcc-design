@@ -11,7 +11,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component: 'Short hint on hover or focus. [Read more on PrimeVue →](https://primevue.org/tooltip/)',
+				component: 'Short hint on hover or focus. [Read more on PrimeVue →](https://v4.primevue.org/tooltip/)',
 			},
 		},
 	},

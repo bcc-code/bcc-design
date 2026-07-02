@@ -10,7 +10,7 @@ const meta: Meta<typeof BccToggle> = {
 		docs: {
 			description: {
 				component:
-					'Switch to toggle a boolean value. **Why wrapped:** Label support, optional check/cross icons in the handle, loading state, `wasToggled` for feedback, and `useCtx` for context-aware styling. [Read more on PrimeVue →](https://primevue.org/toggleswitch/)',
+					'Switch to toggle a boolean value. **Why wrapped:** Label support, optional check/cross icons in the handle, loading state, `wasToggled` for feedback, and `useCtx` for context-aware styling. [Read more on PrimeVue →](https://v4.primevue.org/toggleswitch/)',
 			},
 		},
 	},

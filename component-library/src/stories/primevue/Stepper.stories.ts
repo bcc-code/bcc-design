@@ -10,7 +10,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Wizard-like workflow guiding users through a multi-step progression. [Read more on PrimeVue →](https://primevue.org/stepper/)',
+					'Wizard-like workflow guiding users through a multi-step progression. [Read more on PrimeVue →](https://v4.primevue.org/stepper/)',
 			},
 		},
 	},

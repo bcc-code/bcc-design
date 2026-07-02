@@ -13,7 +13,7 @@ const meta: Meta = {
 		docs: {
 			description: {
 				component:
-					'Visually integrates a label with its form element. Use the variant prop for label position: over (default), in, or on. [Read more on PrimeVue →](https://primevue.org/floatlabel/)',
+					'Visually integrates a label with its form element. Use the variant prop for label position: over (default), in, or on. [Read more on PrimeVue →](https://v4.primevue.org/floatlabel/)',
 			},
 		},
 	},

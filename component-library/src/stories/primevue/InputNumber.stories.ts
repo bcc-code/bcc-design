@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Numeric input with optional spinner buttons. [Read more on PrimeVue →](https://primevue.org/inputnumber/)',
+					'Numeric input with optional spinner buttons. [Read more on PrimeVue →](https://v4.primevue.org/inputnumber/)',
 			},
 		},
 	},

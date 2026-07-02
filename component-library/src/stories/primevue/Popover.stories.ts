@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Overlay panel attached to a trigger element. [Read more on PrimeVue →](https://primevue.org/popover/)',
+					'Overlay panel attached to a trigger element. [Read more on PrimeVue →](https://v4.primevue.org/popover/)',
 			},
 		},
 	},

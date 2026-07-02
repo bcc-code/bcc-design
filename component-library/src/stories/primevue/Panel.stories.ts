@@ -8,7 +8,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Container with optional header and toggle. [Read more on PrimeVue →](https://primevue.org/panel/)',
+					'Container with optional header and toggle. [Read more on PrimeVue →](https://v4.primevue.org/panel/)',
 			},
 		},
 	},

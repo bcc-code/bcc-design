@@ -7,7 +7,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Content slider with optional indicators and navigation. [Read more on PrimeVue →](https://primevue.org/carousel/)',
+					'Content slider with optional indicators and navigation. [Read more on PrimeVue →](https://v4.primevue.org/carousel/)',
 			},
 		},
 	},

@@ -8,7 +8,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component: 'Rich text editor based on Quill. [Read more on PrimeVue →](https://primevue.org/editor/)',
+				component: 'Rich text editor based on Quill. [Read more on PrimeVue →](https://v4.primevue.org/editor/)',
 			},
 		},
 	},

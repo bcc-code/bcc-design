@@ -8,7 +8,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Visual separator between content sections. [Read more on PrimeVue →](https://primevue.org/divider/)',
+					'Visual separator between content sections. [Read more on PrimeVue →](https://v4.primevue.org/divider/)',
 			},
 		},
 	},

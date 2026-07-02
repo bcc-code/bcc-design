@@ -8,7 +8,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Placeholder while content is loading. [Read more on PrimeVue →](https://primevue.org/skeleton/)',
+					'Placeholder while content is loading. [Read more on PrimeVue →](https://v4.primevue.org/skeleton/)',
 			},
 		},
 	},

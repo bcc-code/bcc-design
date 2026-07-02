@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Checkbox for single or multiple selection. **Why wrapped:** Custom check/indeterminate icons from the design system, and built-in label with optional `labelLeft` placement. [Read more on PrimeVue →](https://primevue.org/checkbox/)',
+					'Checkbox for single or multiple selection. **Why wrapped:** Custom check/indeterminate icons from the design system, and built-in label with optional `labelLeft` placement. [Read more on PrimeVue →](https://v4.primevue.org/checkbox/)',
 			},
 		},
 	},

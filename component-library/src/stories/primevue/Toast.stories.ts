@@ -8,7 +8,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'A toast is a message that appears at the bottom of the screen to notify the user of a success, error, or warning. [Read more on PrimeVue →](https://primevue.org/toast/)',
+					'A toast is a message that appears at the bottom of the screen to notify the user of a success, error, or warning. [Read more on PrimeVue →](https://v4.primevue.org/toast/)',
 			},
 		},
 	},

@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Confirmation dialog triggered via `useConfirm()`. **BccConfirmDialog** is a wrapper that syncs the current confirmation options so you can use `<template #icon="{ confirmation }">` and pass icon **components** in `confirm.require({ icon: CheckIcon })`. The wrapper also supports `#message`, `#container`, `#accepticon`, `#rejecticon` with the same confirmation context. [Read more on PrimeVue →](https://primevue.org/confirmdialog/)',
+					'Confirmation dialog triggered via `useConfirm()`. **BccConfirmDialog** is a wrapper that syncs the current confirmation options so you can use `<template #icon="{ confirmation }">` and pass icon **components** in `confirm.require({ icon: CheckIcon })`. The wrapper also supports `#message`, `#container`, `#accepticon`, `#rejecticon` with the same confirmation context. [Read more on PrimeVue →](https://v4.primevue.org/confirmdialog/)',
 			},
 		},
 	},

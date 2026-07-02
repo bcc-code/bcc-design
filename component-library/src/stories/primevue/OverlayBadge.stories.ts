@@ -8,7 +8,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Badge overlay for another element (e.g. icons or buttons). [Read more on PrimeVue →](https://primevue.org/badge/)',
+					'Badge overlay for another element (e.g. icons or buttons). [Read more on PrimeVue →](https://v4.primevue.org/badge/)',
 			},
 		},
 	},

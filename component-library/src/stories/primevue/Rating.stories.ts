@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Star (or custom) rating input. [Read more on PrimeVue →](https://primevue.org/rating/)',
+					'Star (or custom) rating input. [Read more on PrimeVue →](https://v4.primevue.org/rating/)',
 			},
 		},
 	},

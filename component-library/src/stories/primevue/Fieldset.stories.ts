@@ -8,7 +8,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Grouped content with optional toggleable legend. [Read more on PrimeVue →](https://primevue.org/fieldset/)',
+					'Grouped content with optional toggleable legend. [Read more on PrimeVue →](https://v4.primevue.org/fieldset/)',
 			},
 		},
 	},

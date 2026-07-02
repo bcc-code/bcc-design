@@ -12,7 +12,7 @@ You are an expert in TypeScript, Vite, Vue.js, Tailwind, and PrimeVue wrappers, 
 ## Project Context
 
 - This library wraps PrimeVue components.
-- PrimeVue docs: https://primevue.org/
+- PrimeVue docs: https://v4.primevue.org/
 - PrimeVue source: https://github.com/primefaces/primevue
 
 ## Implementation Rules

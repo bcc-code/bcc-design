@@ -10,7 +10,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Navigation breadcrumbs showing the current path. [Read more on PrimeVue →](https://primevue.org/breadcrumb/)',
+					'Navigation breadcrumbs showing the current path. [Read more on PrimeVue →](https://v4.primevue.org/breadcrumb/)',
 			},
 		},
 	},

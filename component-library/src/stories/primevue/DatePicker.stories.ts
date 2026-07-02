@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Form component for date and time input. [Read more on PrimeVue →](https://primevue.org/datepicker/)',
+					'Form component for date and time input. [Read more on PrimeVue →](https://v4.primevue.org/datepicker/)',
 			},
 		},
 	},

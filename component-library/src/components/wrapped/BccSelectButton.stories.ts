@@ -16,7 +16,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Button group for selecting one or more options. [Read more on PrimeVue →](https://primevue.org/selectbutton/)',
+					'Button group for selecting one or more options. [Read more on PrimeVue →](https://v4.primevue.org/selectbutton/)',
 			},
 		},
 	},
@@ -48,7 +48,7 @@ export const Default: Story = {
 		docs: {
 			description: {
 				component:
-					'Button group for selecting one or more options. [Read more on PrimeVue →](https://primevue.org/selectbutton/)',
+					'Button group for selecting one or more options. [Read more on PrimeVue →](https://v4.primevue.org/selectbutton/)',
 			},
 			source: {
 				code: `

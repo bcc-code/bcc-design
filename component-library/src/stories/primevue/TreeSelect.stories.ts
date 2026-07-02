@@ -34,7 +34,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Dropdown to select from a tree structure. [Read more on PrimeVue →](https://primevue.org/treeselect/)',
+					'Dropdown to select from a tree structure. [Read more on PrimeVue →](https://v4.primevue.org/treeselect/)',
 			},
 		},
 	},

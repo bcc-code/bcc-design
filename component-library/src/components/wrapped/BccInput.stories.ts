@@ -11,7 +11,7 @@ const meta: Meta<typeof BccInput> = {
 		docs: {
 			description: {
 				component:
-					'Text or numeric input with optional icons. **Why wrapped:** Unified text/numeric input with left/right icon slots, loading state with spinner, and consistent icon sizing. [Read more on PrimeVue →](https://primevue.org/inputtext/)',
+					'Text or numeric input with optional icons. **Why wrapped:** Unified text/numeric input with left/right icon slots, loading state with spinner, and consistent icon sizing. [Read more on PrimeVue →](https://v4.primevue.org/inputtext/)',
 			},
 		},
 	},

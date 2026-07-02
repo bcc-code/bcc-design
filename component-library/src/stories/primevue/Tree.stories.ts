@@ -34,7 +34,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Hierarchical data as an expandable tree. [Read more on PrimeVue →](https://primevue.org/tree/)',
+					'Hierarchical data as an expandable tree. [Read more on PrimeVue →](https://v4.primevue.org/tree/)',
 			},
 		},
 	},

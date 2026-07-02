@@ -18,7 +18,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Overlay menu with a list of actions. **Why wrapped:** The item slot is overridden so `model[].icon` can be a Vue icon component (e.g. from `@bcc-code/icons-vue`). [Read more on PrimeVue →](https://primevue.org/menu/)',
+					'Overlay menu with a list of actions. **Why wrapped:** The item slot is overridden so `model[].icon` can be a Vue icon component (e.g. from `@bcc-code/icons-vue`). [Read more on PrimeVue →](https://v4.primevue.org/menu/)',
 			},
 		},
 	},

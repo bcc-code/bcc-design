@@ -16,7 +16,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component: 'Dropdown for single selection from a list. [Read more on PrimeVue →](https://primevue.org/select/)',
+				component: 'Dropdown for single selection from a list. [Read more on PrimeVue →](https://v4.primevue.org/select/)',
 			},
 		},
 	},

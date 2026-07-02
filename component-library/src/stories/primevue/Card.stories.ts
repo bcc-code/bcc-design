@@ -7,7 +7,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component: 'Container with optional header and footer. [Read more on PrimeVue →](https://primevue.org/card/)',
+				component: 'Container with optional header and footer. [Read more on PrimeVue →](https://v4.primevue.org/card/)',
 			},
 		},
 	},

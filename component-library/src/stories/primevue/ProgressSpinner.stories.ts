@@ -7,7 +7,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component: 'Circular loading indicator. [Read more on PrimeVue →](https://primevue.org/progressspinner/)',
+				component: 'Circular loading indicator. [Read more on PrimeVue →](https://v4.primevue.org/progressspinner/)',
 			},
 		},
 	},

@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Numeric input via a draggable slider. [Read more on PrimeVue →](https://primevue.org/slider/)',
+					'Numeric input via a draggable slider. [Read more on PrimeVue →](https://v4.primevue.org/slider/)',
 			},
 		},
 	},

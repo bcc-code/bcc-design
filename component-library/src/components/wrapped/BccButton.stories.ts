@@ -10,7 +10,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Button for actions and navigation. **Why wrapped:** Vue component icons (e.g. from `@bcc-code/icons-vue`) via `icon` and `iconRight`, plus `useCtx` for context-aware styling (e.g. `ctx-blue-subtler`). [Read more on PrimeVue →](https://primevue.org/button/)',
+					'Button for actions and navigation. **Why wrapped:** Vue component icons (e.g. from `@bcc-code/icons-vue`) via `icon` and `iconRight`, plus `useCtx` for context-aware styling (e.g. `ctx-blue-subtler`). [Read more on PrimeVue →](https://v4.primevue.org/button/)',
 			},
 		},
 	},

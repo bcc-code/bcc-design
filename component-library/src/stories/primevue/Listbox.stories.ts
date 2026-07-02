@@ -17,7 +17,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'List component for single or multiple selection. [Read more on PrimeVue →](https://primevue.org/listbox/)',
+					'List component for single or multiple selection. [Read more on PrimeVue →](https://v4.primevue.org/listbox/)',
 			},
 		},
 	},

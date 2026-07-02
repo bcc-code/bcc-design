@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Expandable panels to show and hide content. [Read more on PrimeVue →](https://primevue.org/accordion/)',
+					'Expandable panels to show and hide content. [Read more on PrimeVue →](https://v4.primevue.org/accordion/)',
 			},
 		},
 	},

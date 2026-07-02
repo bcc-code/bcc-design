@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Pagination controls for paged data. [Read more on PrimeVue →](https://primevue.org/paginator/)',
+					'Pagination controls for paged data. [Read more on PrimeVue →](https://v4.primevue.org/paginator/)',
 			},
 		},
 	},

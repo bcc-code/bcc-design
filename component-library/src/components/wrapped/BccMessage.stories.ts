@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Inline message or alert with severity styling. **Why wrapped:** Icons as Vue components (e.g. from `@bcc-code/icons-vue`), optional severity-based default icons, and `iconRight` support. [Read more on PrimeVue →](https://primevue.org/message/)',
+					'Inline message or alert with severity styling. **Why wrapped:** Icons as Vue components (e.g. from `@bcc-code/icons-vue`), optional severity-based default icons, and `iconRight` support. [Read more on PrimeVue →](https://v4.primevue.org/message/)',
 			},
 		},
 	},

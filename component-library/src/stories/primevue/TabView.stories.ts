@@ -8,7 +8,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Tabbed content panels. [Read more on PrimeVue →](https://primevue.org/tabview/)',
+					'Tabbed content panels. [Read more on PrimeVue →](https://v4.primevue.org/tabview/)',
 			},
 		},
 	},

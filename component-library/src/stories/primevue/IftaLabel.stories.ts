@@ -13,7 +13,7 @@ const meta: Meta = {
 		docs: {
 			description: {
 				component:
-					'Creates infield top-aligned labels: wrap an input and its label so the label sits above the field. When the form element is invalid, the label is highlighted. [Read more on PrimeVue →](https://primevue.org/iftalabel/)',
+					'Creates infield top-aligned labels: wrap an input and its label so the label sits above the field. When the form element is invalid, the label is highlighted. [Read more on PrimeVue →](https://v4.primevue.org/iftalabel/)',
 			},
 		},
 	},

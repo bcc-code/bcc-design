@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Small element for labels, tags or input tokens. [Read more on PrimeVue →](https://primevue.org/chip/)',
+					'Small element for labels, tags or input tokens. [Read more on PrimeVue →](https://v4.primevue.org/chip/)',
 			},
 		},
 	},

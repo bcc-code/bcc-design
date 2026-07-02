@@ -8,7 +8,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component: 'Modal dialog for focused user interaction. [Read more on PrimeVue →](https://primevue.org/dialog/)',
+				component: 'Modal dialog for focused user interaction. [Read more on PrimeVue →](https://v4.primevue.org/dialog/)',
 			},
 		},
 	},

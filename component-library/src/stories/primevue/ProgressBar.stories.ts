@@ -7,7 +7,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component: 'Progress indicator bar. [Read more on PrimeVue →](https://primevue.org/progressbar/)',
+				component: 'Progress indicator bar. [Read more on PrimeVue →](https://v4.primevue.org/progressbar/)',
 			},
 		},
 	},

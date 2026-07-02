@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Password input with optional visibility toggle. [Read more on PrimeVue →](https://primevue.org/password/)',
+					'Password input with optional visibility toggle. [Read more on PrimeVue →](https://v4.primevue.org/password/)',
 			},
 		},
 	},

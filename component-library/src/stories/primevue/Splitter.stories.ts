@@ -8,7 +8,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Resizable split panels. [Read more on PrimeVue →](https://primevue.org/splitter/)',
+					'Resizable split panels. [Read more on PrimeVue →](https://v4.primevue.org/splitter/)',
 			},
 		},
 	},

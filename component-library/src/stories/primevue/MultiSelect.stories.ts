@@ -16,7 +16,7 @@ const meta = {
 	parameters: {
 		docs: {
 			description: {
-				component: 'Dropdown to select multiple options. [Read more on PrimeVue →](https://primevue.org/multiselect/)',
+				component: 'Dropdown to select multiple options. [Read more on PrimeVue →](https://v4.primevue.org/multiselect/)',
 			},
 		},
 	},

@@ -10,7 +10,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Avatar for user initials, image, or icon. **Why wrapped:** BCC-specific sizing (xs–xxl), gender/child context colors, squared variant, bordered option, and icon as Vue component (default person icon when no image). [Read more on PrimeVue →](https://primevue.org/avatar/)',
+					'Avatar for user initials, image, or icon. **Why wrapped:** BCC-specific sizing (xs–xxl), gender/child context colors, squared variant, bordered option, and icon as Vue component (default person icon when no image). [Read more on PrimeVue →](https://v4.primevue.org/avatar/)',
 			},
 		},
 	},

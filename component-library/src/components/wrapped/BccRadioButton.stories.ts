@@ -10,7 +10,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Single selection from a set of options. [Read more on PrimeVue →](https://primevue.org/radiobutton/)',
+					'Single selection from a set of options. [Read more on PrimeVue →](https://v4.primevue.org/radiobutton/)',
 			},
 		},
 	},

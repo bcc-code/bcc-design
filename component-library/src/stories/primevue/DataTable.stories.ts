@@ -15,7 +15,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Table component with sorting, filtering and pagination. [Read more on PrimeVue →](https://primevue.org/datatable/)',
+					'Table component with sorting, filtering and pagination. [Read more on PrimeVue →](https://v4.primevue.org/datatable/)',
 			},
 		},
 	},

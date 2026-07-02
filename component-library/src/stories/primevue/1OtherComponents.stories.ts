@@ -50,7 +50,7 @@ const COMPONENTS_WITHOUT_STORIES: { name: string; slug: string; description: str
 	},
 ];
 
-const BASE_URL = 'https://primevue.org';
+const BASE_URL = 'https://v4.primevue.org';
 
 const meta = {
 	title: 'PrimeVue/AllOtherComponents',
@@ -58,7 +58,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Links to PrimeVue documentation for components that do not have local stories in this library. [Browse PrimeVue docs →](https://primevue.org)',
+					'Links to PrimeVue documentation for components that do not have local stories in this library. [Browse PrimeVue docs →](https://v4.primevue.org)',
 			},
 		},
 	},

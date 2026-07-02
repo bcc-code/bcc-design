@@ -26,7 +26,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Text input with suggestions from a list. [Read more on PrimeVue →](https://primevue.org/autocomplete/)',
+					'Text input with suggestions from a list. [Read more on PrimeVue →](https://v4.primevue.org/autocomplete/)',
 			},
 		},
 	},

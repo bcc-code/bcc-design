@@ -9,7 +9,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Multi-line text input with optional auto-resize. [Read more on PrimeVue →](https://primevue.org/textarea/)',
+					'Multi-line text input with optional auto-resize. [Read more on PrimeVue →](https://v4.primevue.org/textarea/)',
 			},
 		},
 	},

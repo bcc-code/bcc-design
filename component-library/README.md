@@ -1,6 +1,6 @@
 # @bcc-code/component-library-vue
 
-Vue 3 component library built on [PrimeVue](https://primevue.org/) and BCC design tokens. You **only** need this package—no separate Tailwind or PrimeVue install.
+Vue 3 component library built on [PrimeVue](https://v4.primevue.org/) and BCC design tokens. You **only** need this package—no separate Tailwind or PrimeVue install.
 
 ### [Storybook Link](https://components.bcc.no)
 
@@ -134,7 +134,6 @@ pnpm run build:vite   # Vite build only (includes theme.css)
 ```
 
 ### AI-ready docs outputs
-
 
 `pnpm run docs:ai` generates the public AI documentation artifacts into `storybook-static/`:
 

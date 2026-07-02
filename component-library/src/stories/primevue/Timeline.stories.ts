@@ -15,7 +15,7 @@ const meta = {
 		docs: {
 			description: {
 				component:
-					'Vertical or horizontal timeline display. [Read more on PrimeVue →](https://primevue.org/timeline/)',
+					'Vertical or horizontal timeline display. [Read more on PrimeVue →](https://v4.primevue.org/timeline/)',
 			},
 		},
 	},
