@@ -55,7 +55,10 @@
 		"typecheck": "vue-tsc --noEmit",
 		"lint": "eslint src/**/*.ts src/**/*.vue",
 		"lint:fix": "eslint --fix src/**/*.ts src/**/*.vue",
-		"test:unit": "vitest run",
+		"test:unit": "vitest run --project unit",
+		"test:unit:update": "vitest run --project unit -u",
+		"test:unit:watch": "vitest --project unit",
+		"test:storybook": "vitest run --project storybook",
 		"test:e2e": "playwright test",
 		"release-channel": "node ./scripts/release-channel.cjs",
 		"create-version": "node ./scripts/version.cjs"
