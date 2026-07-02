@@ -47,7 +47,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 
 <template>
 	<div
-		class="bcc-topbar pt-inset-top-1 top-0 z-30 w-full shrink-0 pb-1"
+		class="bcc-topbar pt-inset-top-1 top-0 z-30 w-full shrink-0 pb-1 select-none"
 		:class="[
 			{ relative, fixed, sticky: !relative && !fixed },
 			transparent

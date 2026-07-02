@@ -1,6 +1,6 @@
 @layer components {
 	.bcc-app-nav {
-		@apply bg-elevation-surface-default dark:border-brand-800 sticky inset-x-0 bottom-0 z-20 overflow-visible shadow-md sm:rounded-t-xl dark:border-t;
+		@apply bg-elevation-surface-default dark:border-brand-800 sticky inset-x-0 bottom-0 z-20 overflow-visible shadow-md select-none sm:rounded-t-xl dark:border-t;
 	}
 	.bcc-app-nav-container {
 		@apply center pb-inset-bottom-1 mx-auto max-w-lg pt-1;
@@ -11,7 +11,7 @@
 	}
 
 	.bcc-nav-item-icon {
-		@apply size-6 icon-subtlest;
+		@apply icon-subtlest size-6;
 	}
 
 	.bcc-nav-item-badge {
@@ -19,7 +19,7 @@
 	}
 
 	.bcc-nav-item-title {
-		@apply heading-xs text-center text-subtlest opacity-75;
+		@apply heading-xs text-subtlest text-center opacity-75;
 	}
 
 	.bcc-app-nav-item--active .bcc-nav-item-title {
