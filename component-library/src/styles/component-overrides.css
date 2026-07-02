@@ -109,6 +109,28 @@
 	min-height: var(--p-togglebutton-lg-min-height);
 }
 
+/**
+* By default stack toast messages
+**/
+.p-toast:not(.expanded) .p-toast-message {
+	margin-top: 2rem;
+	width: 100%;
+	position: relative;
+	z-index: 10;
+}
+.p-toast:not(.expanded) .p-toast-message:has(+ .p-toast-message) {
+	margin-top: 0.8rem;
+	width: 100%;
+	position: absolute;
+	transform: scale(0.9);
+	transition: all 0.5s ease;
+	z-index: 1;
+}
+.p-toast:not(.expanded) .p-toast-message:has(+ .p-toast-message + .p-toast-message) {
+	margin-top: 1.6rem;
+	transform: scale(0.8);
+}
+
 /* primevue-overrides.css - CSS-level component overrides */
 @layer custom {
 	.p-accordionheader {
