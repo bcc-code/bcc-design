@@ -20,8 +20,8 @@ importers:
         specifier: ^5.2.5
         version: 5.2.5(@primeuix/themes@2.0.3)
       '@bcc-code/icons-vue':
-        specifier: ^1.5.1
-        version: 1.5.1(vue@3.5.27(typescript@5.7.3))
+        specifier: ^1.5.3
+        version: 1.5.3(vue@3.5.27(typescript@5.7.3))
       '@primeuix/themes':
         specifier: ^2.0.3
         version: 2.0.3
@@ -207,8 +207,8 @@ packages:
     peerDependencies:
       '@primeuix/themes': ^2.0.0
 
-  '@bcc-code/icons-vue@1.5.1':
-    resolution: {integrity: sha512-9ZGFHvs+XQz8vR11UTHGzDxmjK901+ibs2E63VSBrB7cT0URUEHRsDVg0L9dDwYuYvBpLyqeGl/OwOzaVjgZCg==}
+  '@bcc-code/icons-vue@1.5.3':
+    resolution: {integrity: sha512-+TblS0n5D9lSVb1CCDRixxk5XQkomqmMU0VJbetGc5CYi1RKDGo6ga/JD8DLKIYQlC6c6O+t1t/bf3iUZAw10w==}
     peerDependencies:
       vue: '>= 3'
 
@@ -3780,7 +3780,7 @@ snapshots:
     dependencies:
       '@primeuix/themes': 2.0.3
 
-  '@bcc-code/icons-vue@1.5.1(vue@3.5.27(typescript@5.7.3))':
+  '@bcc-code/icons-vue@1.5.3(vue@3.5.27(typescript@5.7.3))':
     dependencies:
       vue: 3.5.27(typescript@5.7.3)
 
