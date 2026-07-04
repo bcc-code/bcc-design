@@ -5,10 +5,6 @@
 	--p-tooltip-max-width: min(85vw, calc(var(--spacing) * 100));
 }
 
-.p-overlay-mask:has(.p-dialog) {
-	padding: 1rem;
-}
-
 /**
 * GUTTER FIX
 * Primevue's dropwdown components are all missing the gap between input and dropdown
@@ -22,9 +18,23 @@
 	margin: var(--p-anchor-gutter) 0;
 }
 
+/**
+* Overlay
+**/
+
 /* This fix is to ensure overlay badge is contained within the size of the component it wraps */
 .p-overlaybadge {
 	display: inline-block;
+}
+
+/* Adds padding to dialog on mobile so it doesn't go edge to edge */
+.p-overlay-mask:has(.p-dialog) {
+	padding: 1rem;
+}
+/* Removes focus outline from the close button */
+.p-dialog-close-button:focus-visible {
+	outline: none;
+	box-shadow: none;
 }
 
 /**
