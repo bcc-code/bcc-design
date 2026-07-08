@@ -1,12 +1,12 @@
 @layer components {
 	.bcc-react {
-		@apply relative flex w-full items-center overflow-visible;
+		@apply center relative w-full overflow-visible;
 	}
 	.bcc-react-toggle {
 		@apply flex shrink-0 cursor-pointer items-center justify-center rounded-full transition;
 	}
 	.bcc-react-list {
-		@apply hide-scrollbar ml-2 flex h-10 flex-1 items-center gap-1.5 rounded-full;
+		@apply hide-scrollbar ml-2 flex h-10 max-w-fit flex-1 items-center gap-1.5 rounded-full;
 	}
 	.bcc-react-list--limited {
 		@apply min-w-0 overflow-x-auto;

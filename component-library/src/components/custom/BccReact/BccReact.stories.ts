@@ -129,9 +129,10 @@ export const ScrollableReactions: Story = {
 
 			return { args, emojis, onToggle };
 		},
-		template: `
+		template: `<div class="w-full center">
 			<div class="max-w-md py-8">
 				<BccReact v-bind="args" :emojis="emojis" @toggle="onToggle" />
+			</div>
 			</div>
 		`,
 	}),
