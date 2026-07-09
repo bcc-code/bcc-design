@@ -39,6 +39,10 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: component-library/pnpm-lock.yaml
 
+      - run: |
+          npm install -g npm@~11.10.0
+          npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
@@ -59,4 +63,4 @@ jobs:
       - name: Publish `@bcc-code/component-library-vue`
         run: |
           npm version 0.0.0-dev.${{ steps.vars.outputs.sha_short }} --force --no-git-tag-version
-          pnpm publish --no-git-checks --tag dev
+          npm publish --tag dev
