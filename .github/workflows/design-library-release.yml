@@ -42,7 +42,7 @@ jobs:
 
       - run: |
           npm install -g npm@~11.10.0
-          npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
+          npm install -g npm@11 # Required for trusted publishing (npm 11.5.1 or later)
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

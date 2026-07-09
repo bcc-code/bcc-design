@@ -6,7 +6,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write  # Required for OIDC
+  id-token: write # Required for OIDC
 
 env:
   CI: true
@@ -34,8 +34,8 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
           cache-dependency-path: icons/pnpm-lock.yaml
-      
-      - run: npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
+
+      - run: npm install -g npm@11 # Required for trusted publishing (npm 11.5.1 or later)
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
