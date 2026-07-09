@@ -35,6 +35,8 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: icons/pnpm-lock.yaml
       
+      - run: npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
@@ -48,10 +50,10 @@ jobs:
       - name: Publish `@bcc-code/icons`
         run: |
           npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
-          pnpm publish --no-git-checks --tag dev
+          npm publish --tag dev
 
       - name: Publish `@bcc-code/icons-vue`
         working-directory: icons/vue
         run: |
           npm version 0.0.0-dev.${{ env.sha_short }} --force --no-git-tag-version
-          pnpm publish --no-git-checks --tag dev
+          npm publish --tag dev
