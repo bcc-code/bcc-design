@@ -51,7 +51,9 @@ jobs:
           echo "RELEASE_CHANNEL=$(pnpm --silent run release-channel)" >> $GITHUB_ENV
 
       - name: Publish `@bcc-code/component-library-vue`
-        run: pnpm publish --no-git-checks --provenance --tag ${{ env.RELEASE_CHANNEL }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
+          pnpm publish --no-git-checks --provenance --tag ${{ env.RELEASE_CHANNEL }}
 
       - name: Resolve release metadata from tag
         id: release_vars
