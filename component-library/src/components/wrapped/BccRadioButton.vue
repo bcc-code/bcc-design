@@ -41,6 +41,7 @@ const radioButtonBindings = computed(() => {
 				size === 'large' ? 'body-lg' : 'body-md',
 				{ 'text-disabled': disabled },
 				{ '-order-1': labelLeft },
+				{ 'flex-1': fluid },
 				labelClass,
 			]"
 		>
