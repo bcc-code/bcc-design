@@ -2,6 +2,7 @@
 
 :root {
 	--p-toast-width: min(85vw, calc(var(--spacing) * 100));
+	--p-toast-close-icon-size: 1rem;
 	--p-tooltip-max-width: min(85vw, calc(var(--spacing) * 100));
 }
 
