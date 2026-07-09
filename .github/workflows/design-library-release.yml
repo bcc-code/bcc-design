@@ -40,10 +40,6 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: component-library/pnpm-lock.yaml
 
-      - run: |
-          npm install -g npm@~11.10.0
-          npm install -g npm@latest # Required for trusted publishing (npm 11.5.1 or later)
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
@@ -55,7 +51,7 @@ jobs:
           echo "RELEASE_CHANNEL=$(pnpm --silent run release-channel)" >> $GITHUB_ENV
 
       - name: Publish `@bcc-code/component-library-vue`
-        run: npm publish --tag ${{ env.RELEASE_CHANNEL }}
+        run: pnpm publish --no-git-checks --provenance --tag ${{ env.RELEASE_CHANNEL }}
 
       - name: Resolve release metadata from tag
         id: release_vars
