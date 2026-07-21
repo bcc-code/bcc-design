@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { BCC_CONTEXTS } from '@/contexts.js';
 import type { VueComponent } from '@/types';
 import { computed, type Component } from 'vue';
 import BccBadge from '../BccBadge/BccBadge.vue';
@@ -82,7 +81,7 @@ function itemBindings(item: BccAppNavigationItem) {
 								v-if="item.pin && item.pin > 0"
 								class="bcc-nav-item-badge"
 								size="sm"
-								:context="BCC_CONTEXTS.danger.bolder"
+								context="danger-bolder"
 								:value="String(item.pin)"
 							/>
 						</Transition>

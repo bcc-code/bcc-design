@@ -15,7 +15,7 @@
 	}
 
 	.bcc-nav-item-badge {
-		@apply absolute top-0 right-1;
+		@apply bg-accent-red-bolder-default! text-inverse! absolute top-0 right-1;
 	}
 
 	.bcc-nav-item-title {
