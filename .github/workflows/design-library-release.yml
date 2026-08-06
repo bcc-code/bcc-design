@@ -9,16 +9,15 @@ on:
       - component-library/**
       - .github/workflows/design-library-release.yml
 
-permissions:
-  contents: read
-  id-token: write # Required for OIDC
-
 env:
   CI: true
 
 jobs:
   main-build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required for OIDC
+      contents: read # Required for version bump commit and releases
     defaults:
       run:
         shell: bash
@@ -35,14 +34,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: "24"
           registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
           cache-dependency-path: component-library/pnpm-lock.yaml
-
-      - run: |
-          npm install -g npm@~11.10.0
-          npm install -g npm@11 # Required for trusted publishing (npm 11.5.1 or later)
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
