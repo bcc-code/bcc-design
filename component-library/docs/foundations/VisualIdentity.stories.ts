@@ -287,7 +287,7 @@ export const DoClearSpace: Story = {
 				<div class="flex items-center gap-1.5">
 					<img src="${base}bcc_logo_primary.svg" alt="BCC logo" class="h-8" />
 					<div class="w-px h-6 bg-neutral-300"></div>
-					<span class="text-sm font-medium text-subtle">Brunstad Christian Church</span>
+					<span class="label-sm text-subtle">Brunstad Christian Church</span>
 				</div>
 			</div>`,
 			"Don't crowd the logo — other elements must stay outside the clear space."

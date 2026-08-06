@@ -97,10 +97,10 @@ export const ExampleSmall: Story = {
 			<div class="bg-neutral-100 rounded-lg p-8 flex gap-6 items-center justify-center">
 				<div class="flex gap-2">
 					<div class="rounded-sm py-1 px-2 bg-brand-subtlest-default border border-brand">
-						<span class="text-sm font-medium text-brand-default">Design</span>
+						<span class="label-sm text-brand-default">Design</span>
 					</div>
 					<div class="bg-success-default border border-success rounded-sm py-1 px-2">
-						<span class="text-sm font-medium text-success">Published</span>
+						<span class="label-sm text-success">Published</span>
 					</div>
 				</div>
 				<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-3 flex items-center w-44">
@@ -119,12 +119,12 @@ export const ExampleMedium: Story = {
 	render: () => ({
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-8 flex gap-6 items-center justify-center">
-				<div class="text-inverse rounded-md px-4 py-1.5 text-sm font-medium bg-brand-bolder-default">Primary</div>
-				<div class="bg-elevation-surface-default border border-default rounded-md px-4 py-1.5 text-sm font-medium">Secondary</div>
+				<div class="text-inverse rounded-md px-4 py-1.5 label-sm bg-brand-bolder-default">Primary</div>
+				<div class="bg-elevation-surface-default border border-default rounded-md px-4 py-1.5 label-sm">Secondary</div>
 				<div class="bg-elevation-surface-default rounded-md border border-default p-3 text-sm text-subtle max-w-40" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">Tooltip with helpful context.</div>
 				<div class="flex flex-col rounded-sm border border-default overflow-hidden bg-elevation-surface-default" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
 					<div class="px-3 py-2 text-sm">Menu item</div>
-					<div class="px-3 py-2 text-sm font-medium bg-brand-subtlest-default text-brand-default">Selected</div>
+					<div class="px-3 py-2 label-sm bg-brand-subtlest-default text-brand-default">Selected</div>
 					<div class="px-3 py-2 text-sm">Menu item</div>
 				</div>
 			</div>
@@ -137,17 +137,17 @@ export const ExampleLarge: Story = {
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-8 flex gap-8 items-start justify-center">
 				<div class="bg-elevation-surface-default rounded-lg border border-default p-5 flex flex-col gap-3 w-56" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
-					<span class="text-sm font-medium">Confirm action</span>
+					<span class="label-sm">Confirm action</span>
 					<div class="w-full h-3 rounded-xs bg-neutral-200" />
 					<div class="w-3/4 h-3 rounded-xs bg-neutral-200" />
 					<div class="flex gap-2 justify-end mt-2">
-						<div class="rounded-md border border-default bg-elevation-surface-default px-3 py-1 text-sm font-medium text-subtle">Cancel</div>
-						<div class="rounded-md px-3 py-1 text-sm font-medium text-inverse bg-brand-bolder-default">Confirm</div>
+						<div class="rounded-md border border-default bg-elevation-surface-default px-3 py-1 label-sm text-subtle">Cancel</div>
+						<div class="rounded-md px-3 py-1 label-sm text-inverse bg-brand-bolder-default">Confirm</div>
 					</div>
 				</div>
 				<div class="bg-elevation-surface-default rounded-xl p-5 flex flex-col gap-2 w-56" style="box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)">
 					<div class="w-full h-16 rounded-sm bg-neutral-200" />
-					<span class="text-sm font-medium">Card title</span>
+					<span class="label-sm">Card title</span>
 					<div class="w-full h-3 rounded-xs bg-neutral-200" />
 					<div class="w-2/3 h-3 rounded-xs bg-neutral-200" />
 				</div>
@@ -169,7 +169,7 @@ export const ExampleFull: Story = {
 				<div class="rounded-full w-10 h-10 flex items-center justify-center bg-brand-bolder-default">
 					<span class="text-sm font-bold text-inverse">BN</span>
 				</div>
-				<div class="text-inverse rounded-full px-4 py-1.5 text-sm font-medium bg-brand-bolder-default">Rounded</div>
+				<div class="text-inverse rounded-full px-4 py-1.5 label-sm bg-brand-bolder-default">Rounded</div>
 				<div class="rounded-full px-3 py-1 flex items-center gap-1.5 bg-brand-subtlest-default border border-brand">
 					<span class="text-xs font-medium text-brand-default">Label</span>
 					<span class="text-xs leading-none text-brand-default">&#x2715;</span>

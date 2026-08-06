@@ -178,35 +178,35 @@ export const AspectRatios: Story = {
 		template: `
 			<div class="flex max-w-2xl flex-col gap-6">
 				<div>
-					<p class="mb-2 text-sm font-medium text-surface-500">Wide (16:9)</p>
+					<p class="mb-2 label-sm text-surface-500">Wide (16:9)</p>
 					<BccGraphic
 						ratio="wide"
 						bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"
 					/>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium text-surface-500">Square (1:1)</p>
+					<p class="mb-2 label-sm text-surface-500">Square (1:1)</p>
 					<BccGraphic
 						ratio="square"
 						bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"
 					/>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium text-surface-500">Portrait (3:4)</p>
+					<p class="mb-2 label-sm text-surface-500">Portrait (3:4)</p>
 					<BccGraphic
 						ratio="portrait"
 						bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"
 					/>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium text-surface-500">Custom ratio string (21/9)</p>
+					<p class="mb-2 label-sm text-surface-500">Custom ratio string (21/9)</p>
 					<BccGraphic
 						ratio="21/9"
 						bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"
 					/>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium text-surface-500">Custom ratio percentage (40%)</p>
+					<p class="mb-2 label-sm text-surface-500">Custom ratio percentage (40%)</p>
 					<BccGraphic
 						ratio="40%"
 						bannerSrc="https://event.bcc.no/wp-content/uploads/2023/10/Background-7.png"

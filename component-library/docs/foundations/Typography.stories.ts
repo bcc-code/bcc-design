@@ -55,6 +55,32 @@ export const HeadingScale: Story = {
 	}),
 };
 
+export const LabelScale: Story = {
+	render: () => ({
+		setup() {
+			const labels = [
+				{ token: 'label.3xl', tw: 'label-3xl', ...resolveTypoToken('font-size.3xl', 'line-height.5xl') },
+				{ token: 'label.2xl', tw: 'label-2xl', ...resolveTypoToken('font-size.2xl', 'line-height.3xl') },
+				{ token: 'label.xl', tw: 'label-xl', ...resolveTypoToken('font-size.xl', 'line-height.2xl') },
+				{ token: 'label.lg', tw: 'label-lg', ...resolveTypoToken('font-size.lg', 'line-height.xl') },
+				{ token: 'label.md', tw: 'label-md', ...resolveTypoToken('font-size.md', 'line-height.lg') },
+				{ token: 'label.sm', tw: 'label-sm', ...resolveTypoToken('font-size.sm', 'line-height.md') },
+				{ token: 'label.xs', tw: 'label-xs', ...resolveTypoToken('font-size.xs', 'line-height.sm') },
+			];
+			return { labels };
+		},
+		template: `
+			<div class="flex flex-col">
+				<div v-for="l in labels" :key="l.token" class="flex items-baseline gap-4 border-b border-default py-4">
+					<div class="w-40 shrink-0"><code class="${PILL}" :data-token="l.token" :data-tw="l.tw">{{ l.token }}</code></div>
+					<span class="flex-1" :class="l.tw">The quick brown fox</span>
+					<span class="body-md text-subtlest w-24 shrink-0 text-right">{{ l.size }} / {{ l.lh }}</span>
+				</div>
+			</div>
+		`,
+	}),
+};
+
 export const BodyScale: Story = {
 	render: () => ({
 		setup() {
@@ -143,11 +169,11 @@ export const TypographyInComponents: Story = {
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-8 flex gap-8 items-start justify-center">
 				<div class="bg-elevation-surface-default rounded-lg border border-default p-5 w-56 flex flex-col gap-3" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
-					<span class="text-sm font-medium">Delete project?</span>
+					<span class="label-sm">Delete project?</span>
 					<p class="text-sm text-subtle">This action cannot be undone. All data will be permanently removed.</p>
 					<div class="flex gap-2 justify-end mt-2">
-						<div class="rounded-md border border-default bg-elevation-surface-default px-3 py-1 text-sm font-medium text-subtle">Cancel</div>
-						<div class="rounded-md px-3 py-1 text-sm font-medium text-inverse bg-brand-bolder-default">Delete</div>
+						<div class="rounded-md border border-default bg-elevation-surface-default px-3 py-1 label-sm text-subtle">Cancel</div>
+						<div class="rounded-md px-3 py-1 label-sm text-inverse bg-brand-bolder-default">Delete</div>
 					</div>
 				</div>
 				<div class="flex flex-col gap-3 w-56">
@@ -162,7 +188,7 @@ export const TypographyInComponents: Story = {
 							<span class="text-sm text-success">Published</span>
 						</div>
 					</div>
-					<div class="text-inverse rounded-md px-4 py-1.5 text-sm font-medium text-center bg-brand-bolder-default">Save changes</div>
+					<div class="text-inverse rounded-md px-4 py-1.5 label-sm text-center bg-brand-bolder-default">Save changes</div>
 				</div>
 			</div>
 		`,

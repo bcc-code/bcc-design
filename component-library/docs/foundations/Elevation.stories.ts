@@ -212,12 +212,12 @@ export const ExampleRaised: Story = {
 			<div class="bg-neutral-100 rounded-lg p-8 flex gap-8 items-start justify-center">
 				<div class="bg-elevation-surface-raised-default rounded-xl p-5 w-52 flex flex-col gap-2" style="box-shadow: var(--elevation-shadow-raised)">
 					<div class="w-full h-12 rounded-sm bg-neutral-200" />
-					<span class="text-sm font-medium">Card title</span>
+					<span class="label-sm">Card title</span>
 					<div class="w-full h-3 rounded-xs bg-neutral-200" />
 				</div>
 				<div class="bg-elevation-surface-raised-default rounded-xl p-5 w-52 flex flex-col gap-2" style="box-shadow: var(--elevation-shadow-raised)">
 					<div class="w-full h-12 rounded-sm bg-neutral-200" />
-					<span class="text-sm font-medium">Another card</span>
+					<span class="label-sm">Another card</span>
 					<div class="w-full h-3 rounded-xs bg-neutral-200" />
 				</div>
 			</div>
@@ -230,17 +230,17 @@ export const ExampleOverlay: Story = {
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-8 flex gap-8 items-start justify-center">
 				<div class="bg-elevation-surface-overlay-default rounded-lg p-5 w-56 flex flex-col gap-3" style="box-shadow: var(--elevation-shadow-overlay)">
-					<span class="text-sm font-medium">Confirm action</span>
+					<span class="label-sm">Confirm action</span>
 					<div class="w-full h-3 rounded-xs bg-neutral-200" />
 					<div class="w-3/4 h-3 rounded-xs bg-neutral-200" />
 					<div class="flex gap-2 justify-end mt-2">
-						<div class="rounded-md border border-default bg-elevation-surface-default px-3 py-1 text-sm font-medium text-subtle">Cancel</div>
-						<div class="rounded-md px-3 py-1 text-sm font-medium text-inverse bg-brand-bolder-default">Confirm</div>
+						<div class="rounded-md border border-default bg-elevation-surface-default px-3 py-1 label-sm text-subtle">Cancel</div>
+						<div class="rounded-md px-3 py-1 label-sm text-inverse bg-brand-bolder-default">Confirm</div>
 					</div>
 				</div>
 				<div class="bg-elevation-surface-overlay-default rounded-sm w-44 flex flex-col overflow-hidden" style="box-shadow: var(--elevation-shadow-overlay)">
 					<div class="px-3 py-2 text-sm border-b border-default">Menu item</div>
-					<div class="px-3 py-2 text-sm font-medium bg-brand-subtlest-default text-brand-default">Selected</div>
+					<div class="px-3 py-2 label-sm bg-brand-subtlest-default text-brand-default">Selected</div>
 					<div class="px-3 py-2 text-sm">Menu item</div>
 				</div>
 			</div>

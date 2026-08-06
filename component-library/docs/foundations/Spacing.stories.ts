@@ -137,8 +137,8 @@ export const SpacingInCard: Story = {
 					</div>
 					<div class="mx-5 spacing-indicator" style="height: 8px"><span class="spacing-px">8</span></div>
 					<div class="px-5 flex gap-2">
-						<div class="rounded-md px-4 py-1.5 text-sm font-medium text-inverse bg-brand-bolder-default">Action</div>
-						<div class="rounded-md px-4 py-1.5 text-sm font-medium border border-default">Cancel</div>
+						<div class="rounded-md px-4 py-1.5 label-sm text-inverse bg-brand-bolder-default">Action</div>
+						<div class="rounded-md px-4 py-1.5 label-sm border border-default">Cancel</div>
 					</div>
 					<div class="spacing-indicator rounded-b-xl" style="height: 20px"><span class="spacing-px">20</span></div>
 				</div>
@@ -152,9 +152,9 @@ export const SpacingInButton: Story = {
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-8 pb-12 flex justify-center items-center">
 				<div class="flex items-center">
-					<div class="rounded-md px-4 py-1.5 text-sm font-medium text-inverse bg-brand-bolder-default">Primary</div>
+					<div class="rounded-md px-4 py-1.5 label-sm text-inverse bg-brand-bolder-default">Primary</div>
 					<div class="spacing-indicator" style="width: 8px; height: 36px"><span class="spacing-label-bottom">spacing-2</span></div>
-					<div class="rounded-md px-4 py-1.5 text-sm font-medium border border-default">Secondary</div>
+					<div class="rounded-md px-4 py-1.5 label-sm border border-default">Secondary</div>
 				</div>
 			</div>
 		`,
@@ -168,13 +168,13 @@ export const SpacingInForm: Story = {
 				<div class="bg-elevation-surface-overlay-default rounded-lg border border-default w-72 flex flex-col" style="box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)">
 					<div class="spacing-indicator rounded-t-lg" style="height: 16px"><span class="spacing-px">16</span><span class="spacing-label">spacing-4</span></div>
 					<div class="px-4 flex flex-col">
-						<span class="text-sm font-medium">Full name</span>
+						<span class="label-sm">Full name</span>
 						<div class="spacing-indicator" style="height: 8px"><span class="spacing-label">spacing-2</span></div>
 						<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-3 flex items-center">
 							<span class="text-sm text-subtlest">Enter your name</span>
 						</div>
 						<div class="spacing-indicator" style="height: 16px"><span class="spacing-px">16</span><span class="spacing-label">spacing-4</span></div>
-						<span class="text-sm font-medium">Email</span>
+						<span class="label-sm">Email</span>
 						<div class="spacing-indicator" style="height: 8px"><span class="spacing-label">spacing-2</span></div>
 						<div class="h-10 rounded-md border border-default bg-elevation-surface-default px-3 flex items-center">
 							<span class="text-sm text-subtlest">Enter your email</span>
@@ -182,8 +182,8 @@ export const SpacingInForm: Story = {
 					</div>
 					<div class="spacing-indicator" style="height: 16px"><span class="spacing-px">16</span></div>
 					<div class="px-4 flex gap-2 justify-end">
-						<div class="rounded-md px-4 py-1.5 text-sm font-medium border border-default">Cancel</div>
-						<div class="rounded-md px-4 py-1.5 text-sm font-medium text-inverse bg-brand-bolder-default">Submit</div>
+						<div class="rounded-md px-4 py-1.5 label-sm border border-default">Cancel</div>
+						<div class="rounded-md px-4 py-1.5 label-sm text-inverse bg-brand-bolder-default">Submit</div>
 					</div>
 					<div class="spacing-indicator rounded-b-lg" style="height: 16px"><span class="spacing-px">16</span></div>
 				</div>
@@ -268,21 +268,21 @@ export const DoSpacing: Story = {
 	render: () => ({
 		template: doDont(
 			`<div class="flex flex-col w-52 px-4">
-				<span class="text-sm font-medium">Label</span>
+				<span class="label-sm">Label</span>
 				<div class="spacing-indicator" style="height: 6px"><span class="spacing-label">spacing-1½</span></div>
 				<div class="h-8 rounded-md border border-default bg-elevation-surface-default" />
 				<div class="spacing-indicator" style="height: 16px"><span class="spacing-px">16</span><span class="spacing-label">spacing-4</span></div>
-				<span class="text-sm font-medium">Label</span>
+				<span class="label-sm">Label</span>
 				<div class="spacing-indicator" style="height: 6px"></div>
 				<div class="h-8 rounded-md border border-default bg-elevation-surface-default" />
 			</div>`,
 			'Use consistent spacing — tighter within groups, wider between.',
 			`<div class="flex flex-col w-52 px-4">
-				<span class="text-sm font-medium">Label</span>
+				<span class="label-sm">Label</span>
 				<div class="spacing-indicator spacing-indicator-danger" style="height: 2px"><span class="spacing-label">2px?</span></div>
 				<div class="h-8 rounded-md border border-default bg-elevation-surface-default" />
 				<div class="spacing-indicator spacing-indicator-danger" style="height: 32px"><span class="spacing-px">32</span><span class="spacing-label">32px?</span></div>
-				<span class="text-sm font-medium">Label</span>
+				<span class="label-sm">Label</span>
 				<div class="spacing-indicator spacing-indicator-danger" style="height: 4px"></div>
 				<div class="h-8 rounded-md border border-default bg-elevation-surface-default" />
 			</div>`,

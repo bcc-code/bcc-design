@@ -45,38 +45,38 @@ export const Center: Story = {
 		template: `
 			<div class="space-y-6">
 				<div>
-					<p class="mb-2 text-sm font-medium opacity-80">center (default)</p>
+					<p class="mb-2 label-sm opacity-80">center (default)</p>
 					<div class="center h-24 rounded-lg border border-dashed border-(--bcc-border-subtle)">
 						<span class="${boxClass}">Centered</span>
 					</div>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium opacity-80">center between</p>
+					<p class="mb-2 label-sm opacity-80">center between</p>
 					<div class="center between h-20 rounded-lg border border-dashed border-(--bcc-border-subtle) p-2">
 						<span class="${boxClass}">Left</span>
 						<span class="${boxClass}">Right</span>
 					</div>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium opacity-80">center top</p>
+					<p class="mb-2 label-sm opacity-80">center top</p>
 					<div class="center top h-24 rounded-lg border border-dashed border-(--bcc-border-subtle)">
 						<span class="${boxClass}">Aligned top</span>
 					</div>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium opacity-80">center bottom</p>
+					<p class="mb-2 label-sm opacity-80">center bottom</p>
 					<div class="center bottom h-24 rounded-lg border border-dashed border-(--bcc-border-subtle)">
 						<span class="${boxClass}">Aligned bottom</span>
 					</div>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium opacity-80">center right</p>
+					<p class="mb-2 label-sm opacity-80">center right</p>
 					<div class="center right h-20 rounded-lg border border-dashed border-(--bcc-border-subtle) p-2">
 						<span class="${boxClass}">Pushed right</span>
 					</div>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium opacity-80">center bottom right</p>
+					<p class="mb-2 label-sm opacity-80">center bottom right</p>
 					<div class="center bottom right h-20 gap-2 rounded-lg border border-dashed border-(--bcc-border-subtle) p-2">
 						
 						<span class="${boxClass}">Bottom right</span>
@@ -106,21 +106,21 @@ export const Col: Story = {
 		template: `
 			<div class="space-y-6">
 				<div>
-					<p class="mb-2 text-sm font-medium opacity-80">col (default)</p>
+					<p class="mb-2 label-sm opacity-80">col (default)</p>
 					<div class="col gap-2 rounded-lg border border-dashed border-(--bcc-border-subtle) p-2" style="min-height: 120px;">
 						<span class="${boxClass}">One</span>
 						<span class="${boxClass}">Two</span>
 					</div>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium opacity-80">col between</p>
+					<p class="mb-2 label-sm opacity-80">col between</p>
 					<div class="col between rounded-lg border border-dashed border-(--bcc-border-subtle) p-2" style="min-height: 160px;">
 						<span class="${boxClass}">Top</span>
 						<span class="${boxClass}">Bottom</span>
 					</div>
 				</div>
 				<div>
-					<p class="mb-2 text-sm font-medium opacity-80">col left</p>
+					<p class="mb-2 label-sm opacity-80">col left</p>
 					<div class="col left gap-2 rounded-lg border border-dashed border-(--bcc-border-subtle) p-2" style="min-height: 100px;">
 						<span class="${boxClass}">Left-aligned</span>
 					</div>

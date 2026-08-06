@@ -6,20 +6,26 @@ import * as TypographyStories from './Typography.stories';
 <Unstyled>
 <div className="font-archivo flex flex-col gap-12">
 
-  <div>
-    <h1 className="heading-2xl text-default">Typography</h1>
-    <p className="body-lg text-subtle mt-2">Typography creates hierarchy, improves readability, and reinforces the BCC brand. The system uses Archivo as its single typeface, with pre-configured text styles that pair font size, weight, and line height into ready-to-use tokens.</p>
-  </div>
+<div>
+	<h1 className="heading-2xl text-default">Typography</h1>
+	<p className="body-lg text-subtle mt-2">
+		Typography creates hierarchy, improves readability, and reinforces the BCC brand. The system uses Archivo as its
+		single typeface, with pre-configured text styles that pair font size, weight, and line height into ready-to-use
+		tokens.
+	</p>
+</div>
 
-  <div className="flex flex-col gap-8">
-    <div className="flex flex-col gap-4">
-      <h2 className="heading-xl text-default">Typeface</h2>
-      <p className="body-md text-subtle mt-1">Archivo is the single typeface used across all BCC product UI — headings, body text, and components.</p>
-      <Story of={TypographyStories.TypefaceShowcase} sourceState="none" />
-    </div>
-  </div>
+<div className="flex flex-col gap-8">
+	<div className="flex flex-col gap-4">
+		<h2 className="heading-xl text-default">Typeface</h2>
+		<p className="body-md text-subtle mt-1">
+			Archivo is the single typeface used across all BCC product UI — headings, body text, and components.
+		</p>
+		<Story of={TypographyStories.TypefaceShowcase} sourceState="none" />
+	</div>
+</div>
 
-  <hr className="border-default" />
+<hr className="border-default" />
 
   <div className="flex flex-col gap-8">
     <div className="flex flex-col gap-4">
@@ -28,6 +34,14 @@ import * as TypographyStories from './Typography.stories';
         <p className="body-md text-subtle mt-1">Headings use Archivo at weight 600 (semibold). Each token is a composite that sets font size, weight, line height, and family in one declaration. Use the token — not individual primitives.</p>
       </div>
       <Story of={TypographyStories.HeadingScale} sourceState="none" />
+    </div>
+
+    <div className="flex flex-col gap-4">
+      <div>
+        <h2 className="heading-xl text-default">Label scale</h2>
+        <p className="body-md text-subtle mt-1">Labels use Archivo at weight 500 (medium). Each token is a composite that sets font size, weight, line height, and family in one declaration. Use the token — not individual primitives.</p>
+      </div>
+      <Story of={TypographyStories.LabelScale} sourceState="none" />
     </div>
 
     <div className="flex flex-col gap-4">
@@ -45,9 +59,10 @@ import * as TypographyStories from './Typography.stories';
       </div>
       <Story of={TypographyStories.WeightTokens} sourceState="none" />
     </div>
+
   </div>
 
-  <hr className="border-default" />
+<hr className="border-default" />
 
   <div className="flex flex-col gap-8">
     <div className="flex flex-col gap-4">
@@ -59,9 +74,16 @@ import * as TypographyStories from './Typography.stories';
     </div>
 
     <Story of={TypographyStories.DoTypography} sourceState="none" />
+
   </div>
 
-  <p className="body-md text-subtlest">For the full token list, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-token-reference--docs">Token Reference</a>.</p>
+<p className="body-md text-subtlest">
+	For the full token list, see{' '}
+	<a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-token-reference--docs">
+		Token Reference
+	</a>
+	.
+</p>
 
 </div>
 </Unstyled>

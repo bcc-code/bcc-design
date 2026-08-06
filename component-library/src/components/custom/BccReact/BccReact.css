@@ -86,7 +86,7 @@
 		@apply bg-accent-gray-subtler-default text-default;
 	}
 	.bcc-react-emoji-list-item .bcc-react-count {
-		@apply text-xs leading-none font-medium;
+		@apply label-xs leading-none;
 	}
 	.bcc-react-emoji-list-item .bcc-react-emoji {
 		@apply text-lg leading-none;

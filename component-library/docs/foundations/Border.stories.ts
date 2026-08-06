@@ -61,7 +61,7 @@ export const ExampleDefault: Story = {
 			<div class="bg-neutral-100 rounded-lg p-8 flex gap-8 items-start justify-center">
 				<div class="bg-elevation-surface-default border border-default rounded-xl p-5 w-52 flex flex-col gap-2" style="box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)">
 					<div class="w-full h-12 rounded-sm bg-neutral-200" />
-					<span class="text-sm font-medium">Card title</span>
+					<span class="label-sm">Card title</span>
 					<div class="w-full h-3 rounded-xs bg-neutral-200" />
 				</div>
 				<div class="flex flex-col gap-3 w-52">
@@ -112,7 +112,7 @@ export const ExampleSelected: Story = {
 				</div>
 				<div class="flex flex-col bg-elevation-surface-default rounded-sm border border-default overflow-hidden w-52" style="box-shadow: 0 4px 16px rgba(0,0,0,0.08)">
 					<div class="px-3 py-2 text-sm text-subtle border-b border-default">Option A</div>
-					<div class="px-3 py-2 text-sm font-medium border-l-2 border-l-brand bg-brand-subtlest-default text-brand-default">Option B</div>
+					<div class="px-3 py-2 label-sm border-l-2 border-l-brand bg-brand-subtlest-default text-brand-default">Option B</div>
 					<div class="px-3 py-2 text-sm text-subtle border-b border-default">Option C</div>
 				</div>
 			</div>
@@ -127,7 +127,7 @@ export const ExampleFocused: Story = {
 				<div class="h-10 rounded-md bg-elevation-surface-default border-2 border-focused flex items-center px-3 w-48">
 					<span class="text-sm text-default">Focused input</span>
 				</div>
-				<div class="text-inverse rounded-md px-4 py-1.5 text-sm font-medium bg-brand-bolder-default" style="outline: 2px solid var(--color-border-focused); outline-offset: 2px;">
+				<div class="text-inverse rounded-md px-4 py-1.5 label-sm bg-brand-bolder-default" style="outline: 2px solid var(--color-border-focused); outline-offset: 2px;">
 					Focused button
 				</div>
 				<div class="h-10 rounded-md bg-elevation-surface-default border-2 border-focused flex items-center justify-between px-3 w-40">

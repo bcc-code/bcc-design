@@ -113,7 +113,7 @@ export const IconInComponents: Story = {
 		template: `
 			<div class="bg-neutral-100 rounded-lg p-8 flex gap-8 items-start justify-center">
 				<div class="flex flex-col items-center gap-2">
-					<div class="rounded-md px-4 py-1.5 text-sm font-medium text-inverse bg-brand-bolder-default flex items-center gap-1.5">
+					<div class="rounded-md px-4 py-1.5 label-sm text-inverse bg-brand-bolder-default flex items-center gap-1.5">
 						<span class="material-symbols-outlined text-lg">add</span>
 						Create
 					</div>
