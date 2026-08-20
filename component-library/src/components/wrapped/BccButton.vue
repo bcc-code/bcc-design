@@ -32,24 +32,16 @@ const buttonBindings = computed((): PrimeButtonProps => {
 <template>
 	<PrimeButton v-bind="buttonBindings" :class="{ useCtx }" class="shrink-0">
 		<template #icon>
-			<component
-				:is="icon"
-				class="shrink-0"
-				:class="[iconClass, { 'order-1': iconRight === true }, size === 'large' ? 'size-6' : 'size-5']"
-			/>
+			<component :is="icon" class="shrink-0" :class="[iconClass, { 'order-1': iconRight === true }, 'size-5']" />
 			<component
 				:is="iconRight"
 				v-if="typeof iconRight !== 'boolean'"
 				class="order-last shrink-0"
-				:class="[iconClass, size === 'large' ? 'size-6' : 'size-5']"
+				:class="[iconClass, 'size-5']"
 			/>
 		</template>
 		<template #loadingicon>
-			<component
-				:is="loadingIcon"
-				class="shrink-0"
-				:class="[iconClass, { 'order-1': iconRight === true }, size === 'large' ? 'size-6' : 'size-5']"
-			/>
+			<component :is="loadingIcon" class="shrink-0" :class="[iconClass, { 'order-1': iconRight === true }, 'size-5']" />
 		</template>
 		<slot />
 	</PrimeButton>
