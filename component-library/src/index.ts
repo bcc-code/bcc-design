@@ -64,6 +64,7 @@ export { default as BccConfig } from 'primevue/config';
 export { default as BccConfirmPopup } from 'primevue/confirmpopup';
 export { default as BccContextMenu } from 'primevue/contextmenu';
 export { default as BccDataTable } from 'primevue/datatable';
+export type { DataTableFilterMeta } from 'primevue/datatable';
 export { default as BccDataView } from 'primevue/dataview';
 export { default as BccDatePicker } from 'primevue/datepicker';
 export { default as BccDeferredContent } from 'primevue/deferredcontent';
@@ -75,6 +76,7 @@ export { default as BccDynamicDialog } from 'primevue/dynamicdialog';
 export { default as BccEditor } from 'primevue/editor';
 export { default as BccFieldset } from 'primevue/fieldset';
 export { default as BccFileUpload } from 'primevue/fileupload';
+export type { FileUploadSelectEvent } from 'primevue/fileupload';
 export { default as BccFloatLabel } from 'primevue/floatlabel';
 export { default as BccFluid } from 'primevue/fluid';
 export { default as BccFocusTrap } from 'primevue/focustrap';
@@ -148,8 +150,10 @@ export { default as BccToastService } from 'primevue/toastservice';
 export { default as BccToolbar } from 'primevue/toolbar';
 export { default as BccTooltip } from 'primevue/tooltip';
 export { default as BccTree } from 'primevue/tree';
+export type { TreeNode } from 'primevue/treenode';
 export { default as BccTreeSelect } from 'primevue/treeselect';
 export { default as BccTreeTable } from 'primevue/treetable';
+export type { TreeTableFilterMeta } from 'primevue/treetable';
 
 /* Composables */
 export { useDialog } from 'primevue/usedialog';
