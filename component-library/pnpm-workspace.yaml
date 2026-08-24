@@ -1,0 +1,9 @@
+overrides:
+  minimatch: '>=10.2.3'
+
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+
+patchedDependencies:
+  '@primevue/icons@4.5.5': patches/@primevue__icons@4.5.5.patch
