@@ -1,10 +1,10 @@
 diff --git a/angledoubledown/index.mjs b/angledoubledown/index.mjs
-index bfbd9bf374294bc96d129d747fdb5f22927c341e..2b1c1a529399876ece8797f030266eecbd8b4fea 100644
+index 225acffb33e1dba21165e635997f980a489e1d3f..2b1c1a529399876ece8797f030266eecbd8b4fea 100644
 --- a/angledoubledown/index.mjs
 +++ b/angledoubledown/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { KeyboardDoubleArrowDownIcon } from '@bcc-code/icons-vue';
  
@@ -40,12 +40,12 @@ index bfbd9bf374294bc96d129d747fdb5f22927c341e..2b1c1a529399876ece8797f030266eec
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/angledoubleleft/index.mjs b/angledoubleleft/index.mjs
-index 880e05e46eb2b326bf832fe513fd95e12ac30a1e..1771cd860fb3f58a61da0283a88d9d67e5fba021 100644
+index 58919d891be1f8ba9d37a081f3e7c972d08c347b..1771cd860fb3f58a61da0283a88d9d67e5fba021 100644
 --- a/angledoubleleft/index.mjs
 +++ b/angledoubleleft/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { KeyboardDoubleArrowLeftIcon } from '@bcc-code/icons-vue';
  
@@ -81,12 +81,12 @@ index 880e05e46eb2b326bf832fe513fd95e12ac30a1e..1771cd860fb3f58a61da0283a88d9d67
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/angledoubleright/index.mjs b/angledoubleright/index.mjs
-index 88d81869dd4f1c09a9158b44eca8fec0bc8225db..b7a87243907a22d2bb2ca12c0e19d96b7a8c27c6 100644
+index 08cad64a964c703129c30a5b4532c36df6f4b9c5..b7a87243907a22d2bb2ca12c0e19d96b7a8c27c6 100644
 --- a/angledoubleright/index.mjs
 +++ b/angledoubleright/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { KeyboardDoubleArrowRightIcon } from '@bcc-code/icons-vue';
  
@@ -122,12 +122,12 @@ index 88d81869dd4f1c09a9158b44eca8fec0bc8225db..b7a87243907a22d2bb2ca12c0e19d96b
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/angledoubleup/index.mjs b/angledoubleup/index.mjs
-index 06a1d6f0de04eddec2b8b7458bf31f1a698694b0..1f8701c02f501cbbc0973ee171cf08a1578927eb 100644
+index 7cabe1627c8b4148e5fe21e3e9141d1bddd098a4..1f8701c02f501cbbc0973ee171cf08a1578927eb 100644
 --- a/angledoubleup/index.mjs
 +++ b/angledoubleup/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { KeyboardDoubleArrowUpIcon } from '@bcc-code/icons-vue';
  
@@ -163,12 +163,12 @@ index 06a1d6f0de04eddec2b8b7458bf31f1a698694b0..1f8701c02f501cbbc0973ee171cf08a1
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/angledown/index.mjs b/angledown/index.mjs
-index 1675b46cedd45353ea791ec144e8460e1260b1ca..60b0b58c7c727ed6c77905500d9ef8958dccf6a5 100644
+index a77588505d653f009dc988f9663f30318e179a1b..60b0b58c7c727ed6c77905500d9ef8958dccf6a5 100644
 --- a/angledown/index.mjs
 +++ b/angledown/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { KeyboardArrowDownIcon } from '@bcc-code/icons-vue';
  
@@ -202,12 +202,12 @@ index 1675b46cedd45353ea791ec144e8460e1260b1ca..60b0b58c7c727ed6c77905500d9ef895
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/angleleft/index.mjs b/angleleft/index.mjs
-index e92ebf38b8b98f7f558c6e510c64394d290218e6..0854289de9d47f36a7b9ab6335ac345ee2e9c228 100644
+index 746954ac9fdd4b94e1966c4e475e127f68eaa354..0854289de9d47f36a7b9ab6335ac345ee2e9c228 100644
 --- a/angleleft/index.mjs
 +++ b/angleleft/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { KeyboardArrowLeftIcon } from '@bcc-code/icons-vue';
  
@@ -241,12 +241,12 @@ index e92ebf38b8b98f7f558c6e510c64394d290218e6..0854289de9d47f36a7b9ab6335ac345e
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/angleright/index.mjs b/angleright/index.mjs
-index 370016e20060037a37349ed86d88ef2edc73972d..afc0c74068b1ade70c6e97705f8db13f1f0845c0 100644
+index 8500db3cdf2c492160545674f3e170e971e4af3a..afc0c74068b1ade70c6e97705f8db13f1f0845c0 100644
 --- a/angleright/index.mjs
 +++ b/angleright/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { KeyboardArrowRightIcon } from '@bcc-code/icons-vue';
  
@@ -280,12 +280,12 @@ index 370016e20060037a37349ed86d88ef2edc73972d..afc0c74068b1ade70c6e97705f8db13f
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/angleup/index.mjs b/angleup/index.mjs
-index db60945ce0067ab76c6da06d4eb24f55a5c256e9..525f0f648b1a2a7a8ec5190a93e21ccb648ed4b2 100644
+index 274ff51fe7ad86bb02bc0fc7edd71418cb24d4f9..525f0f648b1a2a7a8ec5190a93e21ccb648ed4b2 100644
 --- a/angleup/index.mjs
 +++ b/angleup/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { KeyboardArrowUpIcon } from '@bcc-code/icons-vue';
  
@@ -319,12 +319,12 @@ index db60945ce0067ab76c6da06d4eb24f55a5c256e9..525f0f648b1a2a7a8ec5190a93e21ccb
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/arrowdown/index.mjs b/arrowdown/index.mjs
-index 3fcd3adb1d6bf61fa75a6ad39f6c519cef51637d..dd479407cda02d6e1d6a510fbedcf4d0863fe134 100644
+index 3e3acd0196a897f8b63b8e0d0ffddd614f505fe9..dd479407cda02d6e1d6a510fbedcf4d0863fe134 100644
 --- a/arrowdown/index.mjs
 +++ b/arrowdown/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { ArrowDownwardFillIcon } from '@bcc-code/icons-vue';
  
@@ -360,12 +360,12 @@ index 3fcd3adb1d6bf61fa75a6ad39f6c519cef51637d..dd479407cda02d6e1d6a510fbedcf4d0
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/arrowup/index.mjs b/arrowup/index.mjs
-index 3d3aeaf410210105290247c1c4fe13de95406e66..a0cd044ec788d902eb1c4f2fc24a9e80a51a2d6b 100644
+index 0f126c4ad51f6e56fccba1794c20b6f4d6b55699..a0cd044ec788d902eb1c4f2fc24a9e80a51a2d6b 100644
 --- a/arrowup/index.mjs
 +++ b/arrowup/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { ArrowUpwardFillIcon } from '@bcc-code/icons-vue';
  
@@ -401,12 +401,12 @@ index 3d3aeaf410210105290247c1c4fe13de95406e66..a0cd044ec788d902eb1c4f2fc24a9e80
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/ban/index.mjs b/ban/index.mjs
-index 313b6caa178926f95cec5ceeb2a1160b735312cf..0bc216eb26a2b3992c517f6ecbebde79220db8af 100644
+index 1d72e690d19f946729b505acfecb532ca97859d7..0bc216eb26a2b3992c517f6ecbebde79220db8af 100644
 --- a/ban/index.mjs
 +++ b/ban/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { BlockIcon } from '@bcc-code/icons-vue';
  
@@ -440,12 +440,12 @@ index 313b6caa178926f95cec5ceeb2a1160b735312cf..0bc216eb26a2b3992c517f6ecbebde79
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/bars/index.mjs b/bars/index.mjs
-index f89fc5aa931403062e3f6411e67c4cc26fa9519c..e1d7932a54dfd2314e919fb6214021559c040153 100644
+index 50f8ac0b7304b90f4d5d9e025412f52b2e9da845..e1d7932a54dfd2314e919fb6214021559c040153 100644
 --- a/bars/index.mjs
 +++ b/bars/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { MenuIcon } from '@bcc-code/icons-vue';
  
@@ -481,12 +481,12 @@ index f89fc5aa931403062e3f6411e67c4cc26fa9519c..e1d7932a54dfd2314e919fb621402155
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/calendar/index.mjs b/calendar/index.mjs
-index 84978accae7edf2b565f84439f2de0a2e93c56a7..949bb373050eaf5824becf951e7439a3cc78ea46 100644
+index b1f70d6dc6b542cc18439e482796aa1ae88e4dec..949bb373050eaf5824becf951e7439a3cc78ea46 100644
 --- a/calendar/index.mjs
 +++ b/calendar/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { CalendarTodayIcon } from '@bcc-code/icons-vue';
  
@@ -520,12 +520,12 @@ index 84978accae7edf2b565f84439f2de0a2e93c56a7..949bb373050eaf5824becf951e7439a3
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/check/index.mjs b/check/index.mjs
-index 39abae5f6a34c53f39c9f74583a0716da5d7ff14..af78ced2fcdfb78ef874211c853708543912789d 100644
+index bf9b0355a2c6e83513b4ca871d2e26d50b792ea1..af78ced2fcdfb78ef874211c853708543912789d 100644
 --- a/check/index.mjs
 +++ b/check/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { CheckIcon } from '@bcc-code/icons-vue';
  
@@ -559,7 +559,7 @@ index 39abae5f6a34c53f39c9f74583a0716da5d7ff14..af78ced2fcdfb78ef874211c85370854
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/chevrondown/ChevronDownIcon.vue b/chevrondown/ChevronDownIcon.vue
-index 5d2edb29977bba3eaafdee9da5c1422affce86a9..fec5d110230186a9ee9b8f55c1eda5784b9b66dc 100644
+index 5d2edb29977bba3eaafdee9da5c1422affce86a9..f9d648fa5b4579c26b39a08f804d554f9b0eee2b 100644
 --- a/chevrondown/ChevronDownIcon.vue
 +++ b/chevrondown/ChevronDownIcon.vue
 @@ -1,13 +1,9 @@
@@ -579,12 +579,12 @@ index 5d2edb29977bba3eaafdee9da5c1422affce86a9..fec5d110230186a9ee9b8f55c1eda578
  export default {
      name: 'ChevronDownIcon',
 diff --git a/chevrondown/index.mjs b/chevrondown/index.mjs
-index 3de2a8a6de578c1e6e55be48cdb1241ee5122d8c..6605be4971c240b63eda2b3288468e30c4365845 100644
+index fd647271b8f5a515dac938db96f38c2e1eccbef8..d7d9ee422661f4136764eae7e807925622ed6607 100644
 --- a/chevrondown/index.mjs
 +++ b/chevrondown/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { KeyboardArrowDownIcon } from '@bcc-code/icons-vue';
  
@@ -618,12 +618,12 @@ index 3de2a8a6de578c1e6e55be48cdb1241ee5122d8c..6605be4971c240b63eda2b3288468e30
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/chevronleft/index.mjs b/chevronleft/index.mjs
-index e6208a5195bc17e9b0fceceb27b68931304e259e..ea8992855993b78076eef1e68c55ba87bf9696eb 100644
+index a945725c77cab919662a3ffec734b52ce3880919..ea8992855993b78076eef1e68c55ba87bf9696eb 100644
 --- a/chevronleft/index.mjs
 +++ b/chevronleft/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { ChevronLeftIcon } from '@bcc-code/icons-vue';
  
@@ -657,12 +657,12 @@ index e6208a5195bc17e9b0fceceb27b68931304e259e..ea8992855993b78076eef1e68c55ba87
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/chevronright/index.mjs b/chevronright/index.mjs
-index fa3cd0c028b2f4dcfa88dee0d743ff46e583b422..c35b465f35ea29f0d3aa57853a1caa2e6130897c 100644
+index 57a999c7a8bd9b8ba2684eb4acdfc9caeb055ad2..c35b465f35ea29f0d3aa57853a1caa2e6130897c 100644
 --- a/chevronright/index.mjs
 +++ b/chevronright/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { ChevronRightIcon } from '@bcc-code/icons-vue';
  
@@ -696,12 +696,12 @@ index fa3cd0c028b2f4dcfa88dee0d743ff46e583b422..c35b465f35ea29f0d3aa57853a1caa2e
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/chevronup/index.mjs b/chevronup/index.mjs
-index 7c5f289556de49cd6570976858ba6a70054c190d..c1c1d07d32db8fe44d6cd90e94539b10eb9cd398 100644
+index 825f4b2ac42f9cc4326337032d9f1fa496058f00..b30c33b64ce66c0ba76ed40acc7871638007b1b3 100644
 --- a/chevronup/index.mjs
 +++ b/chevronup/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { KeyboardArrowUpIcon } from '@bcc-code/icons-vue';
  
@@ -735,12 +735,12 @@ index 7c5f289556de49cd6570976858ba6a70054c190d..c1c1d07d32db8fe44d6cd90e94539b10
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/exclamationtriangle/index.mjs b/exclamationtriangle/index.mjs
-index 7289c9ff0f1f90fec328dc086004848f98b1918d..155095234d8226b454ec87d793dc055836ca6779 100644
+index 5b70e66e64a48974e06315ff38be8e033820fe08..155095234d8226b454ec87d793dc055836ca6779 100644
 --- a/exclamationtriangle/index.mjs
 +++ b/exclamationtriangle/index.mjs
 @@ -1,37 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { WarningIcon } from '@bcc-code/icons-vue';
  
@@ -780,12 +780,12 @@ index 7289c9ff0f1f90fec328dc086004848f98b1918d..155095234d8226b454ec87d793dc0558
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/eye/index.mjs b/eye/index.mjs
-index e1d891a52511d833ebbdee1d4184d58cbf5d6ad0..21e69acdd160c97cf97f4cbc444a584f0988206b 100644
+index 254db8786190e11f6f34253f7ec698ca82631894..21e69acdd160c97cf97f4cbc444a584f0988206b 100644
 --- a/eye/index.mjs
 +++ b/eye/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { VisibilityIcon } from '@bcc-code/icons-vue';
  
@@ -821,12 +821,12 @@ index e1d891a52511d833ebbdee1d4184d58cbf5d6ad0..21e69acdd160c97cf97f4cbc444a584f
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/eyeslash/index.mjs b/eyeslash/index.mjs
-index 109a88731db481b3e258134ba0dba580734e92f3..360e6ba6895694e45d8e3e4318c06bf04e6022b7 100644
+index 11835a6c06d58fc8f5a8520a1866fc3f4645dc14..360e6ba6895694e45d8e3e4318c06bf04e6022b7 100644
 --- a/eyeslash/index.mjs
 +++ b/eyeslash/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { VisibilityOffIcon } from '@bcc-code/icons-vue';
  
@@ -862,12 +862,12 @@ index 109a88731db481b3e258134ba0dba580734e92f3..360e6ba6895694e45d8e3e4318c06bf0
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/filter/index.mjs b/filter/index.mjs
-index 29825da3524f5db1792e90bc24417786284a8f2c..15155a7eeae6f4b983b48a740b6142ddb63106a7 100644
+index f748dd7b1785bf5be3d21dcfe1dcd203756377e9..15155a7eeae6f4b983b48a740b6142ddb63106a7 100644
 --- a/filter/index.mjs
 +++ b/filter/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { FilterAltIcon } from '@bcc-code/icons-vue';
  
@@ -901,12 +901,12 @@ index 29825da3524f5db1792e90bc24417786284a8f2c..15155a7eeae6f4b983b48a740b6142dd
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/filterfill/index.mjs b/filterfill/index.mjs
-index 35622cf855df4801094be32580535ea9cb898f84..8f57949c91505d26d818631ba457551d2308cc69 100644
+index a5e2c329d16d8a8d5a570e04768ce24eb6ed80bd..8f57949c91505d26d818631ba457551d2308cc69 100644
 --- a/filterfill/index.mjs
 +++ b/filterfill/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { FilterAltFillIcon } from '@bcc-code/icons-vue';
  
@@ -940,12 +940,12 @@ index 35622cf855df4801094be32580535ea9cb898f84..8f57949c91505d26d818631ba457551d
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/filterslash/index.mjs b/filterslash/index.mjs
-index dc76d8ef5338146eed395de3df100d1e4c245d0e..cee541ea7d1b1251fd12312cb8de55c2381be474 100644
+index 712af21fda4d214acd235975f2577c006aed319d..cee541ea7d1b1251fd12312cb8de55c2381be474 100644
 --- a/filterslash/index.mjs
 +++ b/filterslash/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { FilterAltOffIcon } from '@bcc-code/icons-vue';
  
@@ -981,7 +981,7 @@ index dc76d8ef5338146eed395de3df100d1e4c245d0e..cee541ea7d1b1251fd12312cb8de55c2
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/index.mjs b/index.mjs
-index 02ae3e153cea65a8974385f4b2954d267c7eb017..b6a880501db0f6c6f38b4b8b9177da04c44096fd 100644
+index 02ae3e153cea65a8974385f4b2954d267c7eb017..597334885424e6f5665d46cdb158f2a478dda067 100644
 --- a/index.mjs
 +++ b/index.mjs
 @@ -1,73 +1,41 @@
@@ -1122,12 +1122,12 @@ index 02ae3e153cea65a8974385f4b2954d267c7eb017..b6a880501db0f6c6f38b4b8b9177da04
  export { default as WindowMaximizeIcon } from '@primevue/icons/windowmaximize';
  export * from '@primevue/icons/windowminimize';
 diff --git a/infocircle/index.mjs b/infocircle/index.mjs
-index d7d7585275d9475d3df848005ba14a065e0d6f90..5ad2df983b91ed59746145ee5f601900b3d89753 100644
+index 9273e17534c811fca762f59a339763e95720a8dc..5ad2df983b91ed59746145ee5f601900b3d89753 100644
 --- a/infocircle/index.mjs
 +++ b/infocircle/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { InfoIcon } from '@bcc-code/icons-vue';
  
@@ -1163,12 +1163,12 @@ index d7d7585275d9475d3df848005ba14a065e0d6f90..5ad2df983b91ed59746145ee5f601900
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/minus/index.mjs b/minus/index.mjs
-index 7f350456189505fc9af2f0fa3b487a40ad3c257b..ebe55bb889ab4e3c76d08fb7dadbd6e85eea05db 100644
+index 6cef1a48eecade90ba531286af84c7c60e3a9a22..ebe55bb889ab4e3c76d08fb7dadbd6e85eea05db 100644
 --- a/minus/index.mjs
 +++ b/minus/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { RemoveIcon } from '@bcc-code/icons-vue';
  
@@ -1202,12 +1202,12 @@ index 7f350456189505fc9af2f0fa3b487a40ad3c257b..ebe55bb889ab4e3c76d08fb7dadbd6e8
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/pencil/index.mjs b/pencil/index.mjs
-index 7d0b0dfc15eeaf5e833daf5a44e40cbe1f25a274..610932bf0ec3b0cb194fd4f016f49ae98aaaced8 100644
+index 2cca60d221d1b8b05f2da392165b299c8cc4e08f..610932bf0ec3b0cb194fd4f016f49ae98aaaced8 100644
 --- a/pencil/index.mjs
 +++ b/pencil/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { EditIcon } from '@bcc-code/icons-vue';
  
@@ -1241,12 +1241,12 @@ index 7d0b0dfc15eeaf5e833daf5a44e40cbe1f25a274..610932bf0ec3b0cb194fd4f016f49ae9
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/plus/index.mjs b/plus/index.mjs
-index 33fd48339688f82bdf20d9131d04fc5334105996..249d847c6ae7fdab38f1323943714284387f2a12 100644
+index 3cd89776711116a6f10a9448bbbce8a6e76740fd..249d847c6ae7fdab38f1323943714284387f2a12 100644
 --- a/plus/index.mjs
 +++ b/plus/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { AddIcon } from '@bcc-code/icons-vue';
  
@@ -1280,12 +1280,12 @@ index 33fd48339688f82bdf20d9131d04fc5334105996..249d847c6ae7fdab38f1323943714284
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/refresh/index.mjs b/refresh/index.mjs
-index 4dad5f9efb3b568a6e2a98c8e9be4b91f945119c..f2747d0a8e0a0694f3cdd3bd1bd0c86897a322e2 100644
+index c444710724c8da80fb984a3b91ecadc29bbd9dae..f2747d0a8e0a0694f3cdd3bd1bd0c86897a322e2 100644
 --- a/refresh/index.mjs
 +++ b/refresh/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { RefreshIcon } from '@bcc-code/icons-vue';
  
@@ -1321,12 +1321,12 @@ index 4dad5f9efb3b568a6e2a98c8e9be4b91f945119c..f2747d0a8e0a0694f3cdd3bd1bd0c868
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/search/index.mjs b/search/index.mjs
-index 3d071440cc10b0995d99269f4319fd10e835f916..915063d0a730617f7398bf6601da870b165efcec 100644
+index 6093e82e1d84aaa0e622ee79351972b661b41940..915063d0a730617f7398bf6601da870b165efcec 100644
 --- a/search/index.mjs
 +++ b/search/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { SearchIcon } from '@bcc-code/icons-vue';
  
@@ -1362,12 +1362,12 @@ index 3d071440cc10b0995d99269f4319fd10e835f916..915063d0a730617f7398bf6601da870b
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/searchminus/index.mjs b/searchminus/index.mjs
-index c5f41ab5977426ff6978bcfa80680254b253f69f..bd75cf956d76906d780ce216b8df47a24f70e28b 100644
+index 4a2ee0cd2a9b4bc15e7e775ff7369b8746891277..bd75cf956d76906d780ce216b8df47a24f70e28b 100644
 --- a/searchminus/index.mjs
 +++ b/searchminus/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { ZoomOutIcon } from '@bcc-code/icons-vue';
  
@@ -1403,12 +1403,12 @@ index c5f41ab5977426ff6978bcfa80680254b253f69f..bd75cf956d76906d780ce216b8df47a2
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/searchplus/index.mjs b/searchplus/index.mjs
-index 913aafd5826c11360edd37439f55459664d89f5b..50203c0ed2fb9b18cc13973cdb71230d75bf9e11 100644
+index 91995d19a2ebed7ae3cb9d4d2b93a87cbcc1998d..50203c0ed2fb9b18cc13973cdb71230d75bf9e11 100644
 --- a/searchplus/index.mjs
 +++ b/searchplus/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { ZoomInIcon } from '@bcc-code/icons-vue';
  
@@ -1444,12 +1444,12 @@ index 913aafd5826c11360edd37439f55459664d89f5b..50203c0ed2fb9b18cc13973cdb71230d
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/star/index.mjs b/star/index.mjs
-index 9c9e3c145e6abc41493cbc0fd47e444b2adca0b7..800ee54ec6fad398cc9c670de379fd59bb65db41 100644
+index 173af12ca462f60d3cd0973cb0a8bd983694f9c4..800ee54ec6fad398cc9c670de379fd59bb65db41 100644
 --- a/star/index.mjs
 +++ b/star/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { StarIcon } from '@bcc-code/icons-vue';
  
@@ -1483,12 +1483,12 @@ index 9c9e3c145e6abc41493cbc0fd47e444b2adca0b7..800ee54ec6fad398cc9c670de379fd59
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/starfill/index.mjs b/starfill/index.mjs
-index 23df8779ee8a25246c6e6af40f631887568c6c5d..c19f1be60e6c859743e7b488989089cdebfb7f2c 100644
+index 383c366e8537b407c86cf51f78f2429e41e12b0d..c19f1be60e6c859743e7b488989089cdebfb7f2c 100644
 --- a/starfill/index.mjs
 +++ b/starfill/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { StarFillIcon } from '@bcc-code/icons-vue';
  
@@ -1522,12 +1522,12 @@ index 23df8779ee8a25246c6e6af40f631887568c6c5d..c19f1be60e6c859743e7b488989089cd
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/thlarge/index.mjs b/thlarge/index.mjs
-index d6c32a22a6033af798699e3ed65585aa68e14065..4dbe13f5d9df04b959dccc537fb66ab399d2d5d7 100644
+index b411d967c8bb8c8915327fd9b84e76ac264a7cd5..4dbe13f5d9df04b959dccc537fb66ab399d2d5d7 100644
 --- a/thlarge/index.mjs
 +++ b/thlarge/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { GridViewIcon } from '@bcc-code/icons-vue';
  
@@ -1563,12 +1563,12 @@ index d6c32a22a6033af798699e3ed65585aa68e14065..4dbe13f5d9df04b959dccc537fb66ab3
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/times/index.mjs b/times/index.mjs
-index 89eecd5b2f950c605bae3070c4987ee01c565b42..cdcb13f68f51f70ecb9b2f0fea76c274c7e9462b 100644
+index 6c3d8b990e0a27b06de3aea0bcaad28b07b8a754..cdcb13f68f51f70ecb9b2f0fea76c274c7e9462b 100644
 --- a/times/index.mjs
 +++ b/times/index.mjs
 @@ -1,31 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { CloseIcon } from '@bcc-code/icons-vue';
  
@@ -1602,12 +1602,12 @@ index 89eecd5b2f950c605bae3070c4987ee01c565b42..cdcb13f68f51f70ecb9b2f0fea76c274
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/timescircle/index.mjs b/timescircle/index.mjs
-index f5599a1b0eff79fcda73f11cd9f663aa0046363a..075b3b3b117c1f701e136608d7bad6b16fee6a22 100644
+index 15c0f78b17cdbd0595c4650b4f2a0ab42a5736ae..075b3b3b117c1f701e136608d7bad6b16fee6a22 100644
 --- a/timescircle/index.mjs
 +++ b/timescircle/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { CancelIcon } from '@bcc-code/icons-vue';
  
@@ -1643,12 +1643,12 @@ index f5599a1b0eff79fcda73f11cd9f663aa0046363a..075b3b3b117c1f701e136608d7bad6b1
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/trash/index.mjs b/trash/index.mjs
-index 76795b2062faa9f0ba7f683012e5c40193daa310..d6d7a293f9e1c4405fc669198de5f49b5bbb8eb1 100644
+index 10ea51807c867cd1a1da95c2ced91ff6e625f13b..d6d7a293f9e1c4405fc669198de5f49b5bbb8eb1 100644
 --- a/trash/index.mjs
 +++ b/trash/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { DeleteIcon } from '@bcc-code/icons-vue';
  
@@ -1684,12 +1684,12 @@ index 76795b2062faa9f0ba7f683012e5c40193daa310..d6d7a293f9e1c4405fc669198de5f49b
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/undo/index.mjs b/undo/index.mjs
-index b51e61e4991c347997c08c6a01b58573e3208744..bc72a8fbce02fe78d043e87c46479ab45f7614f9 100644
+index 64357aa439a6594db7a872d645e9cbd66c56cddc..bc72a8fbce02fe78d043e87c46479ab45f7614f9 100644
 --- a/undo/index.mjs
 +++ b/undo/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { UndoIcon } from '@bcc-code/icons-vue';
  
@@ -1725,12 +1725,12 @@ index b51e61e4991c347997c08c6a01b58573e3208744..bc72a8fbce02fe78d043e87c46479ab4
  export { script as default };
 -//# sourceMappingURL=index.mjs.map
 diff --git a/upload/index.mjs b/upload/index.mjs
-index 8ee8752b6069c56daa1068d990d7291600aa3c7f..cd63f6eb866532318d92bb5dfcdd8c4d7454d775 100644
+index 6ece39020cad5a09f9240ddc7d48fa4ae51ffde5..cd63f6eb866532318d92bb5dfcdd8c4d7454d775 100644
 --- a/upload/index.mjs
 +++ b/upload/index.mjs
 @@ -1,33 +1,16 @@
  import BaseIcon from '@primevue/icons/baseicon';
--import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
+-import { openBlock, createElementBlock, mergeProps, createElementVNode } from 'vue';
 +import { h } from 'vue';
 +import { UploadIcon } from '@bcc-code/icons-vue';
  
