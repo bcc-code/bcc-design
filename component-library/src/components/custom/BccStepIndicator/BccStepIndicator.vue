@@ -41,12 +41,11 @@ const state = computed(() => ({
 			<div
 				v-for="(_step, index) in props.steps"
 				:key="index"
-				class="bg-ctx h-1.5 rounded-lg duration-300"
+				class="h-1.5 rounded-lg duration-300"
 				:class="[
-					index === currentStep ? 'w-6' : 'w-1.5',
+					index === currentStep ? 'bg-brand-bolder-default w-6' : 'bg-accent-gray-default w-1.5',
 					{
 						clickable,
-						'ctx-gray-subtle': index > (currentStep ?? -1),
 					},
 				]"
 				@click="clickable ? (currentStep = index) : null"
