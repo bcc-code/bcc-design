@@ -37,7 +37,7 @@ const state = computed(() => ({
 			</span>
 			<span v-if="!props.hideLabel" class="body-sm text-subtlest">{{ state.label }}</span>
 		</div>
-		<div class="center gap-2">
+		<div class="center gap-1">
 			<div
 				v-for="(_step, index) in props.steps"
 				:key="index"

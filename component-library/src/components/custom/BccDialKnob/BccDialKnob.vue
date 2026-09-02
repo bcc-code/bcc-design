@@ -208,7 +208,9 @@ function drawCanvas() {
 	if (!props.hideArrows) {
 		ctx.save();
 		ctx.strokeStyle = colors.arc;
-		ctx.lineWidth = 3;
+		ctx.lineWidth = 2;
+		ctx.lineJoin = 'round';
+		ctx.lineCap = 'round';
 
 		// Left arrow (anticlockwise)
 		ctx.beginPath();
@@ -217,14 +219,14 @@ function drawCanvas() {
 			center.value,
 			radius.value + 30,
 			toRad(-30), // Start from around 11 o'clock
-			toRad(-60), // End at top
+			toRad(-64), // End at top
 			true // Draw anticlockwise
 		);
 		// Arrow head at end of arc
-		const leftEnd = angleToCartesian(-60, radius.value + 30);
-		ctx.moveTo(leftEnd.x - 4, leftEnd.y - 16);
+		const leftEnd = angleToCartesian(-64, radius.value + 30);
+		ctx.moveTo(leftEnd.x - 3, leftEnd.y - 9);
 		ctx.lineTo(leftEnd.x - 1, leftEnd.y + 2);
-		ctx.lineTo(leftEnd.x + 16, leftEnd.y - 4);
+		ctx.lineTo(leftEnd.x + 9, leftEnd.y - 2);
 		ctx.stroke();
 
 		// Right arrow (clockwise)
@@ -234,14 +236,14 @@ function drawCanvas() {
 			center.value,
 			radius.value + 30,
 			toRad(30), // Start from around 1 o'clock
-			toRad(60), // End at top
+			toRad(64), // End at top
 			false // Draw clockwise
 		);
 		// Arrow head at end of arc
-		const rightEnd = angleToCartesian(60, radius.value + 30);
-		ctx.moveTo(rightEnd.x - 16, rightEnd.y - 4);
+		const rightEnd = angleToCartesian(64, radius.value + 30);
+		ctx.moveTo(rightEnd.x - 9, rightEnd.y - 2);
 		ctx.lineTo(rightEnd.x + 1, rightEnd.y + 2);
-		ctx.lineTo(rightEnd.x + 4, rightEnd.y - 16);
+		ctx.lineTo(rightEnd.x + 3, rightEnd.y - 9);
 		ctx.stroke();
 
 		ctx.restore();
