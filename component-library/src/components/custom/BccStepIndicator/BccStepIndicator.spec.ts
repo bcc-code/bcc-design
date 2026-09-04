@@ -11,7 +11,7 @@ describe('BccStepIndicator', () => {
 				steps: steps,
 			},
 		});
-		const indicators = wrapper.find('.bcc-step-indicator').findAll('div.bg-ctx');
+		const indicators = wrapper.find('.bcc-step-indicator').findAll('div.rounded-lg');
 		expect(indicators.length).toBe(steps.length);
 		expect(wrapper.text()).toContain('Step 2 of 3'); // Checking for the header text
 	});
@@ -26,7 +26,7 @@ describe('BccStepIndicator', () => {
 		});
 		expect(wrapper.find('.heading-sm text-default').exists()).toBe(false);
 
-		const indicators = wrapper.find('.bcc-step-indicator').findAll('div.bg-ctx');
+		const indicators = wrapper.find('.bcc-step-indicator').findAll('div.rounded-lg');
 		expect(indicators[0].classes()).toContain('w-6'); // active step is wider
 		expect(indicators[1].classes()).toContain('w-1.5'); // inactive step
 	});

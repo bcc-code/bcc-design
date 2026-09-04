@@ -77,7 +77,7 @@ export const AllSeverities: Story = {
 					severity,
 					summary: severity.charAt(0).toUpperCase() + severity.slice(1),
 					detail: `${severity} message`,
-					life: 30_000,
+					life: 3000,
 				});
 			};
 			return { show };
