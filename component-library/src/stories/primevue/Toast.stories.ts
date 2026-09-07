@@ -166,3 +166,115 @@ export const OnlyDetail: Story = {
 		},
 	},
 };
+
+export const MultilineDetail: Story = {
+	render: () => ({
+		components: { BccToast, BccButton },
+		setup() {
+			const toast = useToast();
+			const show = () => {
+				toast.add({
+					severity: 'info',
+					detail:
+						'This is a longer detail message that spans multiple lines.\nIt continues here on a second line.\nAnd wraps up on a third line.',
+					life: 3000,
+				});
+			};
+			return { show };
+		},
+		template: `
+			<div>
+				<BccButton label="Show toast" @click="show" />
+			</div>
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `
+					toast.add({
+						severity: 'info',
+						detail: 'This is a longer detail message that spans multiple lines.\\nIt continues here on a second line.\\nAnd wraps up on a third line.',
+						life: 3000,
+					});
+				`,
+			},
+		},
+	},
+};
+
+export const MultilineDetailWithSummary: Story = {
+	render: () => ({
+		components: { BccToast, BccButton },
+		setup() {
+			const toast = useToast();
+			const show = () => {
+				toast.add({
+					severity: 'info',
+					summary: 'Info',
+					detail:
+						'This is a longer detail message that spans multiple lines.\nIt continues here on a second line.\nAnd wraps up on a third line.',
+					life: 3000,
+				});
+			};
+			return { show };
+		},
+		template: `
+			<div>
+				<BccButton label="Show toast" @click="show" />
+			</div>
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `
+					toast.add({
+						severity: 'info',
+						summary: 'Info',
+						detail: 'This is a longer detail message that spans multiple lines.\\nIt continues here on a second line.\\nAnd wraps up on a third line.',
+						life: 3000,
+					});
+				`,
+			},
+		},
+	},
+};
+
+export const MultilineSummaryAndDetail: Story = {
+	render: () => ({
+		components: { BccToast, BccButton },
+		setup() {
+			const toast = useToast();
+			const show = () => {
+				toast.add({
+					severity: 'info',
+					summary: 'This is a longer summary\nthat also spans multiple lines',
+					detail:
+						'This is a longer detail message that spans multiple lines.\nIt continues here on a second line.\nAnd wraps up on a third line.',
+					life: 3000,
+				});
+			};
+			return { show };
+		},
+		template: `
+			<div>
+				<BccButton label="Show toast" @click="show" />
+			</div>
+		`,
+	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `
+					toast.add({
+						severity: 'info',
+						summary: 'This is a longer summary\\nthat also spans multiple lines',
+						detail: 'This is a longer detail message that spans multiple lines.\\nIt continues here on a second line.\\nAnd wraps up on a third line.',
+						life: 3000,
+					});
+				`,
+			},
+		},
+	},
+};
