@@ -68,6 +68,10 @@ function aliasToken(primitiveName) {
 /** Recursively set a value at a dotted path (e.g. "color.default.neutral/1000") into obj. */
 function setByPath(obj, path, value) {
 	const parts = path.split('.');
+	const forbidden = new Set(['__proto__', 'prototype', 'constructor']);
+	if (parts.some((part) => forbidden.has(part))) {
+		throw new Error(`Refusing unsafe path segment in "${path}"`);
+	}
 	let cur = obj;
 	for (let i = 0; i < parts.length - 1; i++) {
 		const p = parts[i];
