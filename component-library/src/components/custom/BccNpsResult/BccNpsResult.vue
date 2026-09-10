@@ -10,6 +10,8 @@ export type NpsResultProps = {
 	display?: string;
 	/** Secondary label shown under the main heading. */
 	underline?: string;
+	/** Title shown below the underline. */
+	title?: string;
 	/** When true, hides the heading and underline so only the gauge is shown. */
 	hideText?: boolean;
 	/** When true, the gauge needle animates to the score on mount/update. */
@@ -96,6 +98,7 @@ const degrees = computed(() => {
 		<div v-if="!hideText && size !== 'xs'" class="bcc-nps-result-labels">
 			<h3 class="bcc-nps-result-labels--heading">{{ display ?? score }}</h3>
 			<label class="bcc-nps-result-labels--label">{{ underline }}</label>
+			<span v-if="title" class="bcc-nps-result-labels--title">{{ title }}</span>
 		</div>
 	</div>
 </template>

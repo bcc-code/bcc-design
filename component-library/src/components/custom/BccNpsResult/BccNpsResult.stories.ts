@@ -13,6 +13,7 @@ const meta: Meta<typeof BccNpsResult> = {
 		},
 		display: { control: 'text', description: 'Custom text to show instead of score' },
 		underline: { control: 'text', description: 'Label below the score' },
+		title: { control: 'text', description: 'Title shown below the underline' },
 		hideText: { control: 'boolean' },
 		animated: { control: 'boolean' },
 	},
@@ -47,6 +48,21 @@ export const Sizes: Story = {
 				<BccNpsResult size="lg" underline="Lg" :score="100" />
 			</div>
 		`,
+	}),
+};
+
+export const WithTitle: Story = {
+	args: {
+		score: 30,
+		underline: 'Average Score',
+		title: 'Title',
+	},
+	render: args => ({
+		components: { BccNpsResult },
+		setup() {
+			return { args };
+		},
+		template: `<BccNpsResult v-bind="args" />`,
 	}),
 };
 
