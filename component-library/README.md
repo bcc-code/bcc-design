@@ -120,6 +120,17 @@ app.component('BccInput', BccInput);
 
 The library exports both **custom BCC components** (e.g. `BccBadge`, `BccFrame`, `BccReact`) and **wrapped PrimeVue components** (e.g. `BccButton`, `BccDialog`, `BccDataTable`). PrimeVue services (Toast, Confirm, Dialog) are configured by `BccComponentLibrary`; use the composables `useToast`, `useConfirm`, and `useDialog` from the library when you need them.
 
+## Bundle size
+
+The ES build is tree-shakeable: you pay for the components you import, not for the whole library. Importing a single small component adds a few kB on top of Vue; heavier components (`BccDataTable`, `BccEditor`, `BccDatePicker`) cost proportionally more because they carry their PrimeVue implementation and styles.
+
+Two things are needed on the consumer side:
+
+- Import from the package root and let your bundler shake it — `import { BccBadge } from '@bcc-code/component-library-vue'`. There is no need to deep-import individual files.
+- Build for production. Dev servers do not tree-shake, so `pnpm dev` will always look like the whole library is loaded.
+
+Styles are **not** tree-shaken: `style.css` (Option 2) always contains the rules for every component. If CSS size matters, use Option 1 (`theme.css` + Tailwind in your app), where Tailwind only emits the utilities you actually use.
+
 ---
 
 # Development
@@ -132,6 +143,18 @@ pnpm run docs:ai      # Build Storybook, then generate AI-ready docs outputs
 pnpm run build:llms   # Regenerate AI docs from an existing storybook-static/index.json
 pnpm run build:vite   # Vite build only (includes theme.css)
 ```
+
+### Build output shape (do not flatten it)
+
+`vite build` emits **one file per module** (`output.preserveModules`) rather than a single bundle, and `package.json` declares `"sideEffects": ["**/*.css"]`. Both are required for consumers to tree-shake the package, and either one alone does nothing — see [#369](https://github.com/bcc-code/bcc-design/issues/369).
+
+The reason a single bundle cannot be shaken: PrimeVue's per-component style modules call `BaseStyle.extend()` and the theme preset calls `definePreset()` at module top level. Concatenated into one file, those become impure top-level statements that a consumer's bundler must keep, which dragged ~785 kB of unused code into every consumer bundle.
+
+Consequences to keep in mind when touching the build:
+
+- Dependencies are bundled and re-rooted under `dist/vendor/<package>/...`. PrimeVue in particular **must not** be made external: the `@primevue/icons` patch that swaps in BCC icons only reaches consumers through our own build output.
+- `preserveModules` only supports the ES format, so the UMD bundle is built separately by `vite.config.umd.ts`.
+- `pnpm run test:bundle-size` bundles a probe app against `dist` and fails if importing one component costs more than 40 kB. It runs in CI after the build.
 
 ### AI-ready docs outputs
 

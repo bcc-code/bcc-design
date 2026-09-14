@@ -9,19 +9,22 @@
 		"access": "public"
 	},
 	"packageManager": "pnpm@11.23.0",
+	"sideEffects": [
+		"**/*.css"
+	],
 	"files": [
 		"dist",
 		"dist-types",
 		"dist-css"
 	],
 	"main": "./dist/component-library.umd.cjs",
-	"module": "./dist/component-library.js",
+	"module": "./dist/index.js",
 	"types": "./dist-types/index.d.ts",
 	"exports": {
 		".": {
 			"import": {
 				"types": "./dist-types/index.d.ts",
-				"default": "./dist/component-library.js"
+				"default": "./dist/index.js"
 			},
 			"require": {
 				"types": "./dist-types/index.d.ts",
@@ -42,7 +45,8 @@
 		"build": "concurrently --kill-others-on-fail \"pnpm run typecheck\" \"pnpm run build:types\" \"pnpm run build:vite\"",
 		"docs:ai": "storybook build && pnpm run build:llms",
 		"build:llms": "node scripts/generate-llms-files.mjs",
-		"build:vite": "rimraf dist && vite build && pnpm run build:sfc-styles && pnpm run build:library-utilities && node scripts/build-archivo-font.mjs && node scripts/build-theme-css.mjs",
+		"build:vite": "rimraf dist && vite build && pnpm run build:umd && pnpm run build:sfc-styles && pnpm run build:library-utilities && node scripts/build-archivo-font.mjs && node scripts/build-theme-css.mjs",
+		"build:umd": "vite build --config vite.config.umd.ts && rimraf dist/umd-styles.css",
 		"build:sfc-styles": "vite build --config vite.config.sfc-styles.ts && rimraf dist/sfc-styles.js",
 		"build:library-utilities": "tailwindcss -i src/library-utilities-input.css -o dist/library-utilities.css --minify",
 		"build:types": "rimraf dist-types && vue-tsc -p tsconfig.build.json",
@@ -52,6 +56,7 @@
 		"generate:context-css": "node scripts/generate-context-css.mjs",
 		"generate": "pnpm run generate:semantic && pnpm run generate:semantic-css && pnpm run generate:context-modes && pnpm run generate:context-css",
 		"sync:primevue-icon-patches": "node scripts/sync-primevue-icon-patches.mjs",
+		"test:bundle-size": "node scripts/check-bundle-size.mjs",
 		"typecheck": "vue-tsc --noEmit",
 		"lint": "eslint src/**/*.ts src/**/*.vue",
 		"lint:fix": "eslint --fix src/**/*.ts src/**/*.vue",

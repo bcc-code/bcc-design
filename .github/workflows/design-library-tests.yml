@@ -102,6 +102,12 @@ jobs:
         run: pnpm build
         working-directory: component-library
 
+      # Guards issue #369: a consumer importing one component must not pull in
+      # the whole library. See scripts/check-bundle-size.mjs.
+      - name: Check tree-shakeability
+        run: pnpm run test:bundle-size
+        working-directory: component-library
+
       - name: Resolve version
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
