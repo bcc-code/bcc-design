@@ -63,6 +63,21 @@ export const WithInitialValue: Story = {
 	}),
 };
 
+export const WithoutLabels: Story = {
+	args: {
+		leftLabel: '',
+		rightLabel: '',
+	},
+	render: args => ({
+		components: { BccNpsScore },
+		setup() {
+			const value = ref<number | null>(null);
+			return { args, value };
+		},
+		template: `<BccNpsScore v-bind="args" v-model="value" style="width: 320px" />`,
+	}),
+};
+
 export const Disabled: Story = {
 	args: {
 		max: 10,

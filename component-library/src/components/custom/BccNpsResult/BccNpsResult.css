@@ -33,10 +33,10 @@
 	}
 
 	.bcc-nps-result-labels--heading {
-		@apply text-[1.25em] leading-none font-semibold;
+		@apply leading-xl text-lg font-semibold;
 	}
 	.bcc-nps-result-labels--label {
-		@apply text-subtlest text-[0.75em];
+		@apply text-subtlest text-xs;
 	}
 	.bcc-nps-result-labels--title {
 		@apply heading-sm text-subtle mt-0.5;

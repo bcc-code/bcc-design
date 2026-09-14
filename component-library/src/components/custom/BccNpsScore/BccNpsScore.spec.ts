@@ -12,4 +12,15 @@ describe('BccNpsScore', () => {
 
 		expect(wrapper.html()).toMatchSnapshot();
 	});
+
+	it('does not render the heading when leftLabel and rightLabel are empty', () => {
+		const wrapper = mount(BccNpsScore, {
+			props: {
+				leftLabel: '',
+				rightLabel: '',
+			},
+		});
+
+		expect(wrapper.find('.bcc-nps-score--heading').exists()).toBe(false);
+	});
 });
