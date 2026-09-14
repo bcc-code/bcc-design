@@ -135,6 +135,23 @@ export const Fluid: Story = {
 	}),
 };
 
+export const ManyTabsScroll: Story = {
+	args: {
+		tabs: Array.from({ length: 20 }, (_, index) => ({ title: `Tab ${index + 1}` })),
+	},
+	render: args => ({
+		components: { BccTabs },
+		setup() {
+			return { args };
+		},
+		template: `
+			<BccTabs v-bind="args">
+				${args.tabs.map((_, index) => `<template #tab-${index + 1}>Content for tab ${index + 1}</template>`).join('\n\t\t\t\t')}
+			</BccTabs>
+		`,
+	}),
+};
+
 export const Bold: Story = {
 	args: {
 		tabs: simpleTabs,

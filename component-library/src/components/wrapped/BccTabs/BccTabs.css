@@ -1,24 +1,31 @@
 @layer components {
-    .bcc-tabs-fill.p-tabs {
-        height: 100%;
-        overflow: hidden;
-    }
-    .bcc-tabs-fill.p-tabs > .p-tablist {
-        flex-shrink: 0;
-    }
-    .bcc-tabs-fill.p-tabs > .p-tabpanels {
-        height: 100%;
-        overflow: hidden;
-        padding: 0;
-    }
-    .bcc-tabs-fill.p-tabs > .p-tabpanels > .p-tabpanel {
-        height: 100%;
-        overflow: auto;
-    }
-    .bcc-tabs-fluid.p-tabs {
-        width: 100%;
-    }
-    .p-tabs .p-tab {
-        @apply heading-sm;
-    }
+	.bcc-tabs-fill.p-tabs {
+		height: 100%;
+		overflow: hidden;
+	}
+	.bcc-tabs-fill.p-tabs > .p-tablist {
+		flex-shrink: 0;
+	}
+	.bcc-tabs-fill.p-tabs > .p-tabpanels {
+		height: 100%;
+		overflow: hidden;
+		padding: 0;
+	}
+	.bcc-tabs-fill.p-tabs > .p-tabpanels > .p-tabpanel {
+		height: 100%;
+		overflow: auto;
+	}
+	.bcc-tabs-fluid.p-tabs {
+		width: 100%;
+	}
+	.p-tabs .p-tab {
+		@apply heading-sm;
+	}
+
+	/* .p-tablist-content isn't a flex container by default, so it doesn't size itself around its 
+       .p-tablist-tab-list child, clipping the active tab's own border and the sliding ink-bar in 
+       the scrollable viewport. This can most likely be dropped once we upgrade to PrimeVue 5 */
+	.p-tablist-content {
+		display: flex;
+	}
 }
