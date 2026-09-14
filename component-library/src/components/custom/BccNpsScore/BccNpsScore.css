@@ -12,7 +12,7 @@
 	}
 
 	.bcc-nps-score--bar {
-		@apply pointer-events-none flex justify-evenly rounded-xl text-white;
+		@apply pointer-events-none flex justify-evenly rounded-lg text-white;
 		@apply bg-linear-to-r from-red-600 via-yellow-400 via-75% to-green-400;
 	}
 
@@ -48,9 +48,9 @@
 	}
 
 	.bcc-nps-score--number:first-child {
-		@apply rounded-l-xl pl-0.5;
+		@apply rounded-l-lg pl-0.5;
 	}
 	.bcc-nps-score--number:last-child {
-		@apply rounded-r-xl border-r-0 pr-0.5;
+		@apply rounded-r-lg border-r-0 pr-0.5;
 	}
 }
