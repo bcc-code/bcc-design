@@ -65,6 +65,7 @@ const range = computed(() => {
 <template>
 	<div class="bcc-nps-score">
 		<div
+			v-if="leftLabel || rightLabel"
 			class="bcc-nps-score--heading"
 			:class="labelPosition === 'top' ? 'order-1' : labelPosition === 'bottom' ? 'order-last' : ''"
 		>
