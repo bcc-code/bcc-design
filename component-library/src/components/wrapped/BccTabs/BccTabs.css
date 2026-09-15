@@ -22,10 +22,11 @@
 		@apply heading-sm;
 	}
 
-	/* .p-tablist-content isn't a flex container by default, so it doesn't size itself around its 
-       .p-tablist-tab-list child, clipping the active tab's own border and the sliding ink-bar in 
-       the scrollable viewport. This can most likely be dropped once we upgrade to PrimeVue 5 */
-	.p-tablist-content {
+	.p-tabs:not(.bcc-tabs-fluid) .p-tablist-content {
 		display: flex;
+	}
+	.p-tabs:not(.bcc-tabs-fluid) .p-tablist-tab-list {
+		flex-grow: 1;
+		flex-shrink: 0;
 	}
 }
