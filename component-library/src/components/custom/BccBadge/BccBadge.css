@@ -11,16 +11,24 @@
 		@apply ctx-gradient;
 	}
 	.bcc-badge.sm {
-		@apply size-4 text-xs;
+		@apply size-4;
+
+		font-size: var(--p-badge-sm-font-size);
 	}
 	.bcc-badge.md {
-		@apply size-5 text-xs;
+		@apply size-5;
+
+		font-size: var(--p-badge-font-size);
 	}
 	.bcc-badge.lg {
-		@apply size-6 text-sm;
+		@apply size-6;
+
+		font-size: var(--p-badge-lg-font-size);
 	}
 	.bcc-badge.xl {
-		@apply text-md size-8;
+		@apply size-8;
+
+		font-size: var(--p-badge-xl-font-size);
 	}
 
 	.bcc-badge .bcc-badge-icon {
