@@ -1,8 +1,9 @@
 @layer components {
 	.bcc-badge {
-		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none! font-bold! whitespace-nowrap;
-
+		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none! whitespace-nowrap;
 		@apply bg-ctx text-ctx;
+
+		font-weight: var(--p-badge-font-weight);
 	}
 	.bcc-badge span:empty {
 		display: none;
