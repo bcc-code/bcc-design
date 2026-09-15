@@ -1,12 +1,23 @@
 overrides:
   minimatch: '>=10.2.3'
 
+publicHoistPattern:
+  # Hoist Storybook and related deps so the preview iframe can resolve them.
+  - '*storybook*'
+  - '*@storybook*'
+  # Hoist BCC packages so they can be resolved when importing.
+  - '@bcc-code/icons-vue'
+  - '@bcc-code/design-tokens'
+
 allowBuilds:
   '@parcel/watcher': true
   esbuild: true
 
 patchedDependencies:
   '@primevue/icons@4.5.5': patches/@primevue__icons@4.5.5.patch
+
+engineStrict: true
+pmOnFail: error
 
 minimumReleaseAgeExclude:
   - '@bcc-code/*'
