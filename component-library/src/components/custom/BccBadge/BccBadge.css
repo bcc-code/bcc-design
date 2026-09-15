@@ -1,6 +1,6 @@
 @layer components {
 	.bcc-badge {
-		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none! font-medium! whitespace-nowrap;
+		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none! font-bold! whitespace-nowrap;
 
 		@apply bg-ctx text-ctx;
 	}
@@ -11,16 +11,16 @@
 		@apply ctx-gradient;
 	}
 	.bcc-badge.sm {
-		@apply heading-xs size-4;
+		@apply size-4 text-xs;
 	}
 	.bcc-badge.md {
-		@apply heading-sm size-5;
+		@apply size-5 text-xs;
 	}
 	.bcc-badge.lg {
-		@apply heading-md size-6;
+		@apply size-6 text-sm;
 	}
 	.bcc-badge.xl {
-		@apply heading-md size-8;
+		@apply text-md size-8;
 	}
 
 	.bcc-badge .bcc-badge-icon {
@@ -61,5 +61,9 @@
 
 	.bcc-badge.squared {
 		@apply rounded-sm;
+	}
+
+	.bcc-badge.ctx-danger-bolder {
+		@apply text-inverse;
 	}
 }
