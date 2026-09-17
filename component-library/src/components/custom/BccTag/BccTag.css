@@ -1,6 +1,6 @@
 @layer components {
 	.bcc-tag.bcc-badge {
-		@apply font-regular! w-auto;
+		@apply w-auto;
 	}
 	.bcc-tag.bcc-badge.md {
 		@apply body-md h-6 py-0.5;
