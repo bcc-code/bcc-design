@@ -1,6 +1,6 @@
 @layer components {
 	.bcc-badge {
-		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none! whitespace-nowrap;
+		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none whitespace-nowrap;
 		@apply bg-ctx text-ctx;
 
 		font-weight: var(--p-badge-font-weight);
@@ -43,7 +43,7 @@
 	}
 
 	.bcc-badge.bcc-badge-text {
-		@apply w-auto px-2;
+		@apply w-auto px-2 font-medium;
 	}
 	.bcc-badge-text.lg,
 	.bcc-badge-text.xl {
