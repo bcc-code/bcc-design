@@ -1,8 +1,9 @@
 @layer components {
 	.bcc-badge {
-		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none! font-medium! whitespace-nowrap;
-
+		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none whitespace-nowrap;
 		@apply bg-ctx text-ctx;
+
+		font-weight: var(--p-badge-font-weight);
 	}
 	.bcc-badge span:empty {
 		display: none;
@@ -11,16 +12,24 @@
 		@apply ctx-gradient;
 	}
 	.bcc-badge.sm {
-		@apply heading-xs size-4;
+		@apply size-4;
+
+		font-size: var(--p-badge-sm-font-size);
 	}
 	.bcc-badge.md {
-		@apply heading-sm size-5;
+		@apply size-5;
+
+		font-size: var(--p-badge-font-size);
 	}
 	.bcc-badge.lg {
-		@apply heading-md size-6;
+		@apply size-6;
+
+		font-size: var(--p-badge-lg-font-size);
 	}
 	.bcc-badge.xl {
-		@apply heading-md size-8;
+		@apply size-8;
+
+		font-size: var(--p-badge-xl-font-size);
 	}
 
 	.bcc-badge .bcc-badge-icon {
@@ -34,7 +43,7 @@
 	}
 
 	.bcc-badge.bcc-badge-text {
-		@apply w-auto px-2;
+		@apply w-auto px-2 font-medium;
 	}
 	.bcc-badge-text.lg,
 	.bcc-badge-text.xl {
@@ -61,5 +70,9 @@
 
 	.bcc-badge.squared {
 		@apply rounded-sm;
+	}
+
+	.bcc-badge.ctx-danger-bolder {
+		@apply text-inverse;
 	}
 }
