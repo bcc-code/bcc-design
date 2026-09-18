@@ -1,9 +1,7 @@
 @layer components {
 	.bcc-badge {
-		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none whitespace-nowrap;
+		@apply inline-flex shrink-0 items-center justify-center gap-1 rounded-full leading-none font-semibold whitespace-nowrap;
 		@apply bg-ctx text-ctx;
-
-		font-weight: var(--p-badge-font-weight);
 	}
 	.bcc-badge span:empty {
 		display: none;
@@ -12,24 +10,16 @@
 		@apply ctx-gradient;
 	}
 	.bcc-badge.sm {
-		@apply size-4;
-
-		font-size: var(--p-badge-sm-font-size);
+		@apply size-4 text-xs;
 	}
 	.bcc-badge.md {
-		@apply size-5;
-
-		font-size: var(--p-badge-font-size);
+		@apply size-5 text-xs;
 	}
 	.bcc-badge.lg {
-		@apply size-6;
-
-		font-size: var(--p-badge-lg-font-size);
+		@apply size-6 text-sm;
 	}
 	.bcc-badge.xl {
-		@apply size-8;
-
-		font-size: var(--p-badge-xl-font-size);
+		@apply text-md size-8;
 	}
 
 	.bcc-badge .bcc-badge-icon {
