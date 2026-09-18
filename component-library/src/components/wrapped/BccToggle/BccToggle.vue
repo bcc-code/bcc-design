@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<ToggleProps>(), {
 
 const modelValue = defineModel<boolean>({ required: true });
 
-const iconSize = 'size-4';
+const iconSize = 'size-3.5';
 </script>
 
 <template>
