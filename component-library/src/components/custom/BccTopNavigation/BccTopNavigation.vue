@@ -87,7 +87,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 
 				<div
 					:key="String(heading.title)"
-					class="col pointer-events-none flex-1 gap-(--space-negative-25) truncate"
+					class="col pointer-events-none flex-1 -space-y-0.5 truncate"
 					:class="titleLeft ? 'items-start text-left' : 'text-center'"
 				>
 					<h1 class="w-full truncate" :class="heading.title.length > 24 ? 'heading-sm' : 'heading-md'">
@@ -95,7 +95,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 							{{ heading.title }}
 						</slot>
 					</h1>
-					<h2 v-if="heading.subtitle" class="body-sm w-full truncate leading-none opacity-75">
+					<h2 v-if="heading.subtitle" class="body-md w-full truncate leading-none" :class="{ 'text-subtlest': white }">
 						<slot name="subtitle" :subtitle="heading.subtitle">
 							{{ heading.subtitle }}
 						</slot>
