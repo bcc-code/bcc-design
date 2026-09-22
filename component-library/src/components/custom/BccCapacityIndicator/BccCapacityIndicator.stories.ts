@@ -1,4 +1,5 @@
 import { BCC_CONTEXT_LIST } from '@/contexts';
+import { BlockIcon, CheckIcon, DoneAllIcon, PriorityHighIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
 import BccCapacityIndicator from './BccCapacityIndicator.vue';
@@ -13,6 +14,7 @@ const meta: Meta<typeof BccCapacityIndicator> = {
 		animationDuration: { control: 'number' },
 		squared: { control: 'boolean' },
 		colored: { control: 'boolean' },
+		borderless: { control: 'boolean' },
 		context: { control: 'select', options: BCC_CONTEXT_LIST.filter(ctx => ctx.includes('-subtle')) },
 	},
 };
@@ -68,6 +70,34 @@ export const Colored: Story = {
 		<BccCapacityIndicator colored :total="12" :used="6" />
 		<BccCapacityIndicator colored :total="12" :used="12" />
 		<BccCapacityIndicator colored :total="-1" :used="12" />
+	</div>
+		`,
+	}),
+};
+
+export const Icons: Story = {
+	render: () => ({
+		components: { BccCapacityIndicator },
+		setup() {
+			return { CheckIcon, DoneAllIcon, BlockIcon, PriorityHighIcon };
+		},
+		template: `
+	<div class="flex items-center space-x-4">
+		<BccCapacityIndicator squared colored context="green-subtlest" :icon="CheckIcon" :total="1" :used="1" size="xs"  />
+		<BccCapacityIndicator colored context="purple-subtlest" :icon="DoneAllIcon" :total="1" :used="1"  size="sm"/>
+		<BccCapacityIndicator squared colored context="red-subtlest" :icon="BlockIcon" :total="1" :used="1"  />
+		<BccCapacityIndicator colored context="brown-subtlest" :icon="PriorityHighIcon" :total="1" :used="1" size="lg" />
+	</div>
+		`,
+	}),
+};
+
+export const Borderless: Story = {
+	render: () => ({
+		components: { BccCapacityIndicator },
+		template: `
+	<div class="flex items-center space-x-4">
+		<BccCapacityIndicator borderless squared size="lg" context="blue-subtler" :total="30" :used="6" />
 	</div>
 		`,
 	}),
