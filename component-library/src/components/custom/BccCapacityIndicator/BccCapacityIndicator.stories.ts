@@ -84,9 +84,9 @@ export const Icons: Story = {
 		template: `
 	<div class="flex items-center space-x-4">
 		<BccCapacityIndicator squared colored context="green-subtlest" :icon="CheckIcon" :total="1" :used="1" size="xs"  />
-		<BccCapacityIndicator colored context="purple-subtlest" :icon="DoneAllIcon" :total="1" :used="1"  size="sm"/>
-		<BccCapacityIndicator squared colored context="red-subtlest" :icon="BlockIcon" :total="1" :used="1"  size="xs"/>
-		<BccCapacityIndicator colored context="brown-subtlest" :icon="PriorityHighIcon" :total="1" :used="1" size="lg" />
+		<BccCapacityIndicator colored context="purple-subtlest" :icon="DoneAllIcon" :total="3" :used="1"  size="sm"/>
+		<BccCapacityIndicator squared colored context="red-subtlest" :icon="BlockIcon" :total="2" :used="1"  size="xs"/>
+		<BccCapacityIndicator colored context="brown-subtlest" :icon="PriorityHighIcon" :total="4" :used="1" size="lg" />
 	</div>
 		`,
 	}),
