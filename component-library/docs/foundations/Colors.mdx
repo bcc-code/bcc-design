@@ -132,12 +132,11 @@ import * as ColorStories from './Colors.stories';
       </div>
 
       <div>
-        <h3 className="heading-lg text-default">The three ramps</h3>
-        <p className="body-md text-subtle mt-1">All three have to be set. Skip one and you get a half-rebranded UI, which is easy to miss because everything else changes.</p>
+        <h3 className="heading-lg text-default">The two ramps</h3>
+        <p className="body-md text-subtle mt-1">Both have to be set. Overriding only the first leaves the <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">ctx-brand-&#42;</code> contexts on the BCC teal while everything else changes.</p>
         <ul className="body-md text-subtle mt-2 pl-5 list-disc">
           <li><code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">--color-brand-100</code> to <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">--color-brand-1000</code> feeds the semantic brand tokens, and through them primary buttons, checkboxes and radio buttons, focus and selected states, links, and the <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">bg-brand-&#42;</code> / <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">text-brand-&#42;</code> utilities. One set of values covers both color schemes, because the semantic layer picks different steps in dark mode.</li>
           <li><code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">--color-default-bcc-100</code> to <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">--color-default-bcc-1000</code> feeds the <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">ctx-brand-&#42;</code> <a className="text-link-default hover:text-link-pressed" href="?path=/docs/styles-context--docs">context utilities</a>. This ramp is mode-aware — step 100 is always the step furthest from the text color — so the dark values are the same palette in reverse. The <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">bcc</code> in the name comes from the Figma token set it is generated from, not from a requirement to hold BCC colors.</li>
-          <li><code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">--p-color-brand-100</code> to <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">--p-color-brand-1000</code> feeds the PrimeVue-derived components — slider, rating, knob, data table, tree table, tree, editor, timeline, galleria, file upload — and the selection highlight in dropdowns and other overlays. PrimeVue keeps its own copy of the ramp, generated from the theme preset with the BCC values baked in, so it cannot see the first ramp; alias it step for step and both color schemes follow. This one is a stopgap: when the preset references the CSS variables instead of baking in values, it can be dropped.</li>
         </ul>
       </div>
     </div>
@@ -163,13 +162,6 @@ import * as ColorStories from './Colors.stories';
   --color-default-bcc-100: #172554;
   --color-default-bcc-800: #bfdbfe;
   --color-default-bcc-1000: #eff6ff;
-}
-
-:root {
-  /* PrimeVue's own copy of the ramp, aliased step for step */
-  --p-color-brand-100: var(--color-brand-100);
-  /* ... */
-  --p-color-brand-1000: var(--color-brand-1000);
 }
 ```
 

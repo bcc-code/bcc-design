@@ -86,7 +86,7 @@ You get the BCC theme and component styles only; no Tailwind utilities in your a
 
 ## Brand color
 
-The library uses the BCC teal as its brand color. An app outside the BCC profile can supply its own palette by redefining three ramps in its own CSS, after the library import. No configuration or build setup is needed — these are ordinary custom properties.
+The library uses the BCC teal as its brand color. An app outside the BCC profile can supply its own palette by redefining two ramps in its own CSS, after the library import. No configuration or build setup is needed — these are ordinary custom properties.
 
 ```css
 @import '@bcc-code/component-library-vue/theme.css';
@@ -136,36 +136,13 @@ The library uses the BCC teal as its brand color. An app outside the BCC profile
 	--color-default-bcc-900: #dbeafe;
 	--color-default-bcc-1000: #eff6ff;
 }
-
-/* Drives the PrimeVue-derived components and the selection highlight in
-   overlays. PrimeVue keeps its own copy of the ramp, generated from the theme
-   preset with the BCC values baked in, so point it at the ramp above. The steps
-   line up one to one, and dark mode follows on its own. */
-:root {
-	--p-color-brand-100: var(--color-brand-100);
-	--p-color-brand-200: var(--color-brand-200);
-	--p-color-brand-300: var(--color-brand-300);
-	--p-color-brand-400: var(--color-brand-400);
-	--p-color-brand-500: var(--color-brand-500);
-	--p-color-brand-600: var(--color-brand-600);
-	--p-color-brand-700: var(--color-brand-700);
-	--p-color-brand-800: var(--color-brand-800);
-	--p-color-brand-900: var(--color-brand-900);
-	--p-color-brand-1000: var(--color-brand-1000);
-}
 ```
 
 The blocks have to come after the library's CSS so they win the cascade. In Option 1 that means putting them below the `@import` in your main CSS file; in Option 2, in a stylesheet loaded after `style.css`. Both are verified to work.
 
 Naming note: `--color-default-bcc-*` keeps the `bcc` in its name because it is generated from the Figma token set, not because it has to hold BCC colors. Overriding it with your own palette is supported.
 
-Skip one and you get a half-rebranded UI: without the second, the `ctx-brand-*` contexts stay teal; without the third, so do the slider, rating, knob, data table, tree table, tree, editor, timeline, galleria and file upload, along with the selection highlight in dropdowns and other overlays. Everything else changes, which makes the omission easy to miss.
-
-### Why the third ramp
-
-The other two ramps are plain CSS custom properties the whole way down. `--p-color-brand-*` is different: it is generated from the PrimeVue theme preset in `@bcc-code/design-tokens`, which carries the BCC ramp as literal values, so it cannot see `--color-brand-*`. Most components read the semantic tokens and follow the first ramp on their own; the ones listed above read `--p-primary-*`, which resolves through `--p-color-brand-*` instead.
-
-Aliasing the ten steps as above covers them in both color schemes, because light and dark pick different steps of the same ramp. Treat it as a stopgap: once the preset references the CSS variables rather than baking in values, these ten lines become redundant and can be dropped without changing anything.
+Skipping the second ramp leaves `ctx-brand-*` teal while everything else changes, which is usually not what you want.
 
 ### Choosing values
 
