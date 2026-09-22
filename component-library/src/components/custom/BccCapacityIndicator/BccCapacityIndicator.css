@@ -47,4 +47,16 @@
 		@apply ctx-red-subtlest;
 		--bcc-capacity-indicator-background: var(--ctx-background);
 	}
+
+	.bcc-capacity-indicator .icon {
+		color: var(--bcc-capacity-indicator-text);
+	}
+
+	.bcc-capacity-indicator.borderless {
+		--bcc-capacity-indicator-background: var(--ctx-background);
+	}
+	.bcc-capacity-indicator.borderless .circle,
+	.bcc-capacity-indicator.borderless .circle-used {
+		stroke: none;
+	}
 }
