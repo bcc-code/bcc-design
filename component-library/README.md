@@ -84,6 +84,70 @@ import '@bcc-code/component-library-vue/style.css';
 
 You get the BCC theme and component styles only; no Tailwind utilities in your app.
 
+## Brand color
+
+The library uses the BCC teal as its brand color. An app outside the BCC profile can supply its own palette by redefining two ramps in its own CSS, after the library import. No configuration or build setup is needed — these are ordinary custom properties.
+
+```css
+@import '@bcc-code/component-library-vue/theme.css';
+
+/* Drives the semantic brand tokens: primary buttons, checkboxes and radio
+   buttons, focus and selected states, links, and the bg-brand-* / text-brand-*
+   Tailwind utilities. One set of values covers both color schemes — the
+   semantic layer picks different steps in dark mode. */
+:root {
+	--color-brand-100: #eff6ff;
+	--color-brand-200: #dbeafe;
+	--color-brand-300: #bfdbfe;
+	--color-brand-400: #93c5fd;
+	--color-brand-500: #60a5fa;
+	--color-brand-600: #3b82f6;
+	--color-brand-700: #2563eb;
+	--color-brand-800: #1d4ed8;
+	--color-brand-900: #1e40af;
+	--color-brand-1000: #172554;
+}
+
+/* Drives the ctx-brand-* context utilities. This ramp is mode-aware: step 100 is
+   always the step furthest from the text color, so the dark values are the same
+   palette in reverse. */
+:root {
+	--color-default-bcc-100: #eff6ff;
+	--color-default-bcc-200: #dbeafe;
+	--color-default-bcc-300: #bfdbfe;
+	--color-default-bcc-400: #93c5fd;
+	--color-default-bcc-500: #60a5fa;
+	--color-default-bcc-600: #3b82f6;
+	--color-default-bcc-700: #2563eb;
+	--color-default-bcc-800: #1d4ed8;
+	--color-default-bcc-900: #1e40af;
+	--color-default-bcc-1000: #172554;
+}
+
+.dark {
+	--color-default-bcc-100: #172554;
+	--color-default-bcc-200: #1e40af;
+	--color-default-bcc-300: #1d4ed8;
+	--color-default-bcc-400: #2563eb;
+	--color-default-bcc-500: #3b82f6;
+	--color-default-bcc-600: #60a5fa;
+	--color-default-bcc-700: #93c5fd;
+	--color-default-bcc-800: #bfdbfe;
+	--color-default-bcc-900: #dbeafe;
+	--color-default-bcc-1000: #eff6ff;
+}
+```
+
+The blocks have to come after the library's CSS so they win the cascade. In Option 1 that means putting them below the `@import` in your main CSS file; in Option 2, in a stylesheet loaded after `style.css`. Both are verified to work.
+
+Naming note: `--color-default-bcc-*` keeps the `bcc` in its name because it is generated from the Figma token set, not because it has to hold BCC colors. Overriding it with your own palette is supported.
+
+Skipping the second ramp leaves `ctx-brand-*` teal while everything else changes, which is usually not what you want.
+
+### Choosing values
+
+Step 800 carries small text and primary button backgrounds, so check it against the contrast requirements in the [Colors documentation](https://components.bcc.no/?path=/docs/foundations-colors--docs) — 4.5:1 against step 100 and against white. Supply a full light-to-dark range rather than ten shades of the same tone, since the mirrored dark ramp depends on it.
+
 # Components
 
 All components are namespaced with `Bcc`. Use them in templates or register them globally in your `main.ts`.

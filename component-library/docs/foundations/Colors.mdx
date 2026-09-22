@@ -122,6 +122,58 @@ import * as ColorStories from './Colors.stories';
     <Story of={ColorStories.DoAccentMixing} sourceState="none" />
   </div>
 
+  <hr className="border-default" />
+
+  <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
+      <div>
+        <h2 className="heading-xl text-default">Using your own brand palette</h2>
+        <p className="body-md text-subtle mt-1">Products outside the BCC visual identity can replace the brand color with their own. No configuration or build setup is needed — the brand color is reached through two ramps of ordinary custom properties, and an app redefines them in its own CSS after the library import.</p>
+      </div>
+
+      <div>
+        <h3 className="heading-lg text-default">The two ramps</h3>
+        <p className="body-md text-subtle mt-1">Both have to be set. Overriding only the first leaves the <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">ctx-brand-&#42;</code> contexts on the BCC teal while everything else changes.</p>
+        <ul className="body-md text-subtle mt-2 pl-5 list-disc">
+          <li><code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">--color-brand-100</code> to <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">--color-brand-1000</code> feeds the semantic brand tokens, and through them primary buttons, checkboxes and radio buttons, focus and selected states, links, and the <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">bg-brand-&#42;</code> / <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">text-brand-&#42;</code> utilities. One set of values covers both color schemes, because the semantic layer picks different steps in dark mode.</li>
+          <li><code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">--color-default-bcc-100</code> to <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">--color-default-bcc-1000</code> feeds the <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">ctx-brand-&#42;</code> <a className="text-link-default hover:text-link-pressed" href="?path=/docs/styles-context--docs">context utilities</a>. This ramp is mode-aware — step 100 is always the step furthest from the text color — so the dark values are the same palette in reverse. The <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">bcc</code> in the name comes from the Figma token set it is generated from, not from a requirement to hold BCC colors.</li>
+        </ul>
+      </div>
+    </div>
+
+
+```css
+@import '@bcc-code/component-library-vue/theme.css';
+
+:root {
+  --color-brand-100: #eff6ff;
+  /* ... */
+  --color-brand-800: #1d4ed8;
+  --color-brand-1000: #172554;
+
+  --color-default-bcc-100: #eff6ff;
+  /* ... */
+  --color-default-bcc-800: #1d4ed8;
+  --color-default-bcc-1000: #172554;
+}
+
+.dark {
+  /* the same palette, reversed */
+  --color-default-bcc-100: #172554;
+  --color-default-bcc-800: #bfdbfe;
+  --color-default-bcc-1000: #eff6ff;
+}
+```
+
+
+    <p className="body-md text-subtle">See the <a className="text-link-default hover:text-link-pressed" href="?path=/docs/readme--docs">Readme</a> for the full ten-step example and where to put it for each of the two styling options.</p>
+
+    <div>
+      <h3 className="heading-lg text-default">Choosing values</h3>
+      <p className="body-md text-subtle mt-1">Step 800 carries small text and primary button backgrounds, so check it against the contrast requirements above — 4.5:1 against step 100 and against white. Supply a full light-to-dark range rather than ten shades of the same tone, since the mirrored dark ramp depends on it.</p>
+    </div>
+  </div>
+
   <p className="body-md text-subtlest">For the full list of token values and hex codes, see <a className="text-link-default hover:text-link-pressed" href="?path=/docs/foundations-token-reference--docs">Token Reference</a>.</p>
 
 </div>
