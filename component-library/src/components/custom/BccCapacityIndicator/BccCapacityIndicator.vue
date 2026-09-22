@@ -46,8 +46,6 @@ const percentage = computed(() => {
 const { value: progress } = useAnimatedNumber(percentage, percentage.value, props.animationDuration);
 
 const dashArray = Math.PI * 18 * 2;
-
-const iconSize = (40 * 2) / 3;
 </script>
 
 <template>
@@ -90,9 +88,9 @@ const iconSize = (40 * 2) / 3;
 				class="circle-used"
 			/>
 		</template>
-		<foreignObject v-if="icon" :x="20 - iconSize / 2" :y="20 - iconSize / 2" :width="iconSize" :height="iconSize">
-			<component :is="icon" class="bcc-capacity-indicator-icon" />
-		</foreignObject>
+		<svg v-if="icon" :x="6" :y="6" :width="28" :height="28">
+			<component :is="icon" class="icon" />
+		</svg>
 		<template v-else>
 			<text
 				v-if="progress > -1"

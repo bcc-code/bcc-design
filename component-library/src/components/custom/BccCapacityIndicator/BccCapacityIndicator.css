@@ -48,9 +48,7 @@
 		--bcc-capacity-indicator-background: var(--ctx-background);
 	}
 
-	.bcc-capacity-indicator .bcc-capacity-indicator-icon {
-		width: 100%;
-		height: 100%;
+	.bcc-capacity-indicator .icon {
 		color: var(--bcc-capacity-indicator-text);
 	}
 
