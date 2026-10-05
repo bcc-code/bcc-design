@@ -536,7 +536,7 @@ export const SpaceTokens: Story = {
 				</div>
 				<div v-for="t in tokens" :key="t.token" class="flex items-center gap-4 border-b border-default py-3">
 					<div class="flex flex-col gap-1 flex-1">
-						<code class="${PILL}" :data-token="t.token" :data-tw="'spacing-' + t.token.replace('space.', '')" >{{ t.token }}</code>
+						<code class="${PILL}" :data-token="t.token">{{ t.token }}</code>
 					</div>
 					<div class="w-32 shrink-0 flex flex-col items-start gap-0.5 ml-auto">
 						<div class="spacing-indicator h-3" :style="{ width: t.px === '0px' ? '1px' : t.px }"></div>

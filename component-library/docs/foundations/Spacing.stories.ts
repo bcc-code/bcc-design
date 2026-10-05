@@ -2,8 +2,10 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { doDont, PILL } from './helpers';
 
 function sp(token: string, mult: number) {
+	const step = token.replace('space.', '').replace('½', '.5').replace(/^\./, '0.');
 	return {
 		token,
+		css: `calc(var(--spacing) * ${step})`,
 		mult: `${mult}x`,
 		rem: `${mult / 2}rem`,
 		px: `${(mult / 2) * 16}px`,
@@ -32,7 +34,7 @@ export const SpacingScale: Story = {
 				</div>
 				<div v-for="t in tokens" :key="t.token" class="flex items-center gap-4 border-b border-default py-3">
 					<div class="flex flex-col gap-1 flex-1">
-						<code class="${PILL}" :data-token="t.token" :data-tw="'spacing-' + t.token.replace('space.', '')">{{ t.token }}</code>
+						<code class="${PILL}" :data-token="t.token" :data-css="t.css">{{ t.token }}</code>
 					</div>
 					<span class="body-md text-subtlest w-14 shrink-0 text-right">{{ t.mult }}</span>
 					<span class="body-md text-subtlest w-20 shrink-0 text-right">{{ t.rem }}</span>
