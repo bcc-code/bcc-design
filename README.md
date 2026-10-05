@@ -6,7 +6,8 @@
 
 ## Links
 
-[Full documentation](https://developer.bcc.no/bcc-design)
+- [Component documentation (Storybook)](https://components.bcc.no)
+- [Developer documentation](https://developer.bcc.no/bcc-design)
 
 ## Contributing
 
@@ -16,14 +17,16 @@ Do you want to contribute to the libraries in this repository? Many parts of the
 
 ### Main packages
 
-- [design-library](./design-library/README.md) - CSS and Vue implementation of components, tokens and typography
-- [icons](./icons/README.md) - Icons based on Material Design, in SVG and Vue component formats
+- [component-library](./component-library/README.md) - `@bcc-code/component-library-vue`, a Vue 3 component library built on PrimeVue and BCC design tokens
+- [icons](./icons/README.md) - `@bcc-code/icons` and `@bcc-code/icons-vue`, icons based on Material Symbols in SVG and Vue component formats
+
+Each package is installed, built and released separately with pnpm, so run commands from inside the package folder.
 
 ### Other folders
 
-- `docs` folder is deployed with the common VuePress setup to [developer.bcc.no/bcc-design](https://developer.bcc.no/bcc-design/)
+- `docs` folder is deployed with the common VuePress setup to [developer.bcc.no/bcc-design](https://developer.bcc.no/bcc-design/) and points to the component documentation
+- `legacy-docs` folder contains documentation for the previous design library
 - `www` folder is used for design assets and is deployed to [design.bcc.no](https://design.bcc.no)
-- `infra` folder contains terraform scripts
 
 ## Infrastructure
 

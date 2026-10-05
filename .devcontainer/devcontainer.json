@@ -14,7 +14,7 @@
     }
   },
 
-  "postCreateCommand": "pnpm completion bash >> ~/.bashrc ; pnpm install",
+  "postCreateCommand": "cd component-library ; pnpm completion bash >> ~/.bashrc ; pnpm install",
 
   "customizations": {
     "vscode": {
