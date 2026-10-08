@@ -15,6 +15,11 @@ allowBuilds:
   # Only a version-check postinstall (pulled in by firebase-tools); not needed.
   protobufjs: false
 
+# Optional native regex engine for firebase-tools' local server (superstatic),
+# which falls back to RegExp without it. Not needed for deploys.
+ignoredOptionalDependencies:
+  - re2
+
 patchedDependencies:
   '@primevue/icons@4.5.5': patches/@primevue__icons@4.5.5.patch
 
