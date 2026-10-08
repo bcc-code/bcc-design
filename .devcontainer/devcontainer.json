@@ -14,7 +14,16 @@
     }
   },
 
-  "postCreateCommand": "cd component-library ; pnpm completion bash >> ~/.bashrc ; pnpm install",
+  "postCreateCommand": {
+    "pnpm": "cd component-library ; pnpm completion bash >> ~/.bashrc ; pnpm install",
+    "git-credentials": "git config --global credential.https://github.com.helper '${containerWorkspaceFolder}/.devcontainer/git-credential-env.sh'",
+    "shell-env": "grep -qs load-env.sh ~/.bashrc || echo \". '${containerWorkspaceFolder}/.devcontainer/load-env.sh' '${containerWorkspaceFolder}/.devcontainer/.env'\" >> ~/.bashrc"
+  },
+
+  // Token for git over HTTPS. Empty when unset on the host; .devcontainer/.env takes precedence.
+  "containerEnv": {
+    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
+  },
 
   "customizations": {
     "vscode": {
