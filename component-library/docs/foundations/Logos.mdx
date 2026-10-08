@@ -54,6 +54,9 @@ import * as LogoStories from './Logos.stories';
 <!-- SVG (recommended) -->
 <img src="https://design.bcc.no/logos/bcc_logo_primary.svg" alt="BCC" />
 
+<!-- SVG, white (for dark backgrounds) -->
+<img src="https://design.bcc.no/logos/bcc_logo_primary_white.svg" alt="BCC" />
+
 <!-- PNG with specific size and color -->
 <img src="https://design.bcc.no/logos/bcc_logo_primary_dark-green_72.png" alt="BCC" />
 ```
@@ -78,15 +81,19 @@ import * as LogoStories from './Logos.stories';
           <span className="body-md font-semibold flex-1">Pattern</span>
         </div>
         <div className="flex items-center px-4 py-3 border-b border-default">
-          <span className="body-md text-subtle flex-1">SVG</span>
-          <code className="text-xs text-default flex-1">{'{name}'}_logo.svg</code>
+          <span className="body-md text-subtle flex-1">SVG (dark green)</span>
+          <code className="text-xs text-default flex-1">{'{logo}.svg'}</code>
+        </div>
+        <div className="flex items-center px-4 py-3 border-b border-default">
+          <span className="body-md text-subtle flex-1">SVG (white)</span>
+          <code className="text-xs text-default flex-1">{'{logo}_white.svg'}</code>
         </div>
         <div className="flex items-center px-4 py-3">
           <span className="body-md text-subtle flex-1">PNG</span>
-          <code className="text-xs text-default flex-1">{'{name}'}_logo_{'{color}'}_{'{size}'}.png</code>
+          <code className="text-xs text-default flex-1">{'{logo}_{color}_{size}.png'}</code>
         </div>
       </div>
-      <p className="body-md text-subtlest">Colors: <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">dark-green</code>, <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">white</code>. Sizes: 32, 48, 64, 72px.</p>
+      <p className="body-md text-subtlest"><code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">{'{logo}'}</code> is the file base name, e.g. <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">bcc_logo_primary</code> or <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">bcc-media_logo</code>. PNG colors: <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">dark-green</code>, <code className="text-xs bg-neutral-100 border border-default rounded px-1 py-0.5">white</code>. Sizes: 32, 48, 64, 72px.</p>
     </div>
   </div>
 
