@@ -1,0 +1,38 @@
+name: Supply-chain security
+
+on:
+  pull_request:
+    branches: [main]
+    paths: &supply-chain-paths
+      - ".github/workflows/**"
+      - "**/action.yml"
+      - "**/action.yaml"
+      - "**/package.json"
+      - "**/package-lock.json"
+      - "**/pnpm-lock.yaml"
+      - "**/pnpm-workspace.yaml"
+      - "**/.npmrc"
+      - "**/yarn.lock"
+      - "**/bun.lock"
+      - "**/bun.lockb"
+      - "**/deno.lock"
+      - "**/Dockerfile"
+      - "**/Dockerfile.*"
+      - "**/*.Dockerfile"
+      - "**/.dockerignore"
+
+  push:
+    branches: [main]
+    paths: *supply-chain-paths
+
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  supply-chain:
+    permissions:
+      contents: read
+    uses: bcc-code/bcc-security-scan/.github/workflows/supply-chain-protections.yml@9d9fd26809455a4c554e572f7568f7856a5bec63 # v1.0.1
+    with:
+      fail-on-warn: true
