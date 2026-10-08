@@ -47,13 +47,7 @@ function logoGrid(title: string, logos: Logo[], cols: 2 | 3) {
 					.catch(() => {
 						/* clipboard access denied — ignore silently */
 					});
-			// Files not yet deployed to design.bcc.no fall back to the repo copy served by Storybook (www/logos).
-			const useLocal = (e: Event) => {
-				const img = e.target as HTMLImageElement;
-				const file = img.src.split('/').pop()!;
-				if (img.src.startsWith(base)) img.src = './logos/' + file;
-			};
-			return { title, logos, cols, variants, selected, variant, url, copied, copy, useLocal };
+			return { title, logos, cols, variants, selected, variant, url, copied, copy };
 		},
 		template: `
 			<div class="flex flex-col gap-4">
@@ -73,7 +67,7 @@ function logoGrid(title: string, logos: Logo[], cols: 2 | 3) {
 							<span class="material-symbols-outlined text-lg text-subtle">download</span>
 						</a>
 						<div class="p-5 flex items-center justify-center min-h-24 flex-1" :class="variant.dark ? 'bg-brand-bolder-default' : 'bg-neutral-100'">
-							<img :src="url(l)" :alt="l.name + ' logo'" @error="useLocal" class="max-w-full" :class="variant.suffix.endsWith('.svg') ? 'h-10' : ''" />
+							<img :src="url(l)" :alt="l.name + ' logo'" class="max-w-full" :class="variant.suffix.endsWith('.svg') ? 'h-10' : ''" />
 						</div>
 						<button type="button" class="flex items-center gap-2 px-3 py-1.5 border-t border-default bg-elevation-surface-default text-left cursor-pointer hover:bg-neutral-100 transition-colors" :title="'Copy ' + url(l)" @click="copy(url(l))">
 							<code class="text-xs text-subtle flex-1 min-w-0 truncate">{{ url(l) }}</code>

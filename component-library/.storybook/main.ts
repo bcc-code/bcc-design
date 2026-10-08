@@ -21,7 +21,7 @@ const config: StorybookConfig = {
 		},
 		...(process.env.NODE_ENV !== 'production' ? ['@storybook/addon-vitest'] : []),
 	],
-	staticDirs: ['../docs/assets', { from: '../../www/logos', to: '/logos' }],
+	staticDirs: ['../docs/assets'],
 	framework: {
 		name: '@storybook/vue3-vite',
 		options: {},
