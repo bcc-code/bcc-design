@@ -1,0 +1,12 @@
+# Supply-chain safeguards, required by .github/workflows/supply-chain-safeguards.yml.
+# Also applies to the `vue/` package, which is published from this folder.
+engineStrict: true
+pmOnFail: error
+packageManagerStrictVersion: true
+strictDepBuilds: true
+blockExoticSubdeps: true
+trustPolicy: no-downgrade
+
+# Only install package versions that have been public for at least seven days.
+minimumReleaseAge: 10080
+minimumReleaseAgeStrict: true

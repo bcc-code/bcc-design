@@ -12,12 +12,31 @@ publicHoistPattern:
 allowBuilds:
   '@parcel/watcher': true
   esbuild: true
+  # Only a version-check postinstall (pulled in by firebase-tools); not needed.
+  protobufjs: false
+
+# Optional native regex engine for firebase-tools' local server (superstatic),
+# which falls back to RegExp without it. Not needed for deploys.
+ignoredOptionalDependencies:
+  - re2
 
 patchedDependencies:
   '@primevue/icons@4.5.5': patches/@primevue__icons@4.5.5.patch
 
+# Supply-chain safeguards, required by .github/workflows/supply-chain-safeguards.yml.
 engineStrict: true
-pmOnFail: download
+pmOnFail: error
+packageManagerStrictVersion: true
+strictDepBuilds: true
+blockExoticSubdeps: true
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  # 6.x security backport (July 2023), published without provenance after 7.5.4
+  # had it. Required by firebase-tools (configstore > make-dir@3).
+  - 'semver@6.3.1'
 
+# Only install package versions that have been public for at least seven days.
+minimumReleaseAge: 10080
+minimumReleaseAgeStrict: true
 minimumReleaseAgeExclude:
   - '@bcc-code/*'

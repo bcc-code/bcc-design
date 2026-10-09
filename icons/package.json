@@ -4,6 +4,11 @@
     "homepage": "https://developer.bcc.no/bcc-design/icons",
     "version": "1.5.4",
     "license": "Apache-2.0",
+    "packageManager": "pnpm@11.23.0",
+    "engines": {
+        "npm": "disallow",
+        "pnpm": ">=11.0.0"
+    },
     "files": [
         "icons"
     ],

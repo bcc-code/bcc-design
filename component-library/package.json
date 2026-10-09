@@ -9,6 +9,10 @@
 		"access": "public"
 	},
 	"packageManager": "pnpm@11.23.0",
+	"engines": {
+		"npm": "disallow",
+		"pnpm": ">=11.0.0"
+	},
 	"sideEffects": [
 		"**/*.css"
 	],
@@ -42,6 +46,7 @@
 		"start": "concurrently \"pnpm run dev\" \"pnpm vitest\"",
 		"dev": "storybook dev -p 6006",
 		"build-storybook": "storybook build && pnpm run build:llms",
+		"deploy:hosting": "firebase deploy --only hosting",
 		"build": "concurrently --kill-others-on-fail \"pnpm run typecheck\" \"pnpm run build:types\" \"pnpm run build:vite\"",
 		"docs:ai": "storybook build && pnpm run build:llms",
 		"build:llms": "node scripts/generate-llms-files.mjs",
@@ -87,7 +92,7 @@
 		"@storybook/addon-vitest": "^10.4.6",
 		"@storybook/vue3-vite": "^10.4.6",
 		"@tailwindcss/cli": "^4.2.4",
-		"@types/node": "^22.19.8",
+		"@types/node": "^24.19.0",
 		"@vitejs/plugin-vue": "^6.0.4",
 		"@vitest/browser-playwright": "4.1.11",
 		"@vitest/coverage-v8": "4.1.11",
@@ -101,6 +106,7 @@
 		"eslint-plugin-prettier": "^5.5.6",
 		"eslint-plugin-storybook": "10.4.6",
 		"eslint-plugin-vue": "^10.9.2",
+		"firebase-tools": "^15.32.1",
 		"globals": "^17.3.0",
 		"http-server": "^14.1.1",
 		"jiti": "^2.6.1",

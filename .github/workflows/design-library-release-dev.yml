@@ -24,24 +24,20 @@ jobs:
         working-directory: component-library
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
         with:
           version: 11.23.0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
-          node-version: "22"
+          node-version: "24"
           registry-url: "https://registry.npmjs.org"
           cache: "pnpm"
           cache-dependency-path: component-library/pnpm-lock.yaml
-
-      - run: |
-          npm install -g npm@~11.10.0
-          npm install -g npm@11 # Required for trusted publishing (npm 11.5.1 or later)
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -51,7 +47,7 @@ jobs:
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
       - name: Restore cached build outputs
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
         with:
           fail-on-cache-miss: true
           path: |
@@ -62,5 +58,6 @@ jobs:
 
       - name: Publish `@bcc-code/component-library-vue`
         run: |
-          npm version 0.0.0-dev.${{ steps.vars.outputs.sha_short }} --force --no-git-tag-version
-          npm publish --tag dev
+          pnpm version 0.0.0-dev.${{ steps.vars.outputs.sha_short }} --no-git-tag-version --no-git-checks
+          pnpm pkg delete engines # pnpm-only engines guard this repo, not consumers
+          pnpm publish --tag dev --no-git-checks
