@@ -32,11 +32,7 @@ const SeverityIcons: Record<NonNullable<PrimeMessageProps['severity']>, Componen
 };
 
 const iconClass = computed(() => {
-	const classes = ['shrink-0', 'flex', 'items-center', 'self-start'];
-	if (props.size === 'small') classes.push('w-4');
-	else if (props.size === 'large') classes.push('w-6');
-	else classes.push('w-5');
-
+	const classes = ['flex', 'items-center'];
 	if (props.iconRight === true) classes.push('order-1');
 
 	return classes;
@@ -45,15 +41,20 @@ const iconClass = computed(() => {
 
 <template>
 	<PrimeMessage v-bind="messageBindings" :class="{ 'no-shadow': noShadow }">
-		<template v-if="icon || iconRight" #icon>
-			<component :is="icon === true ? SeverityIcons[severity || 'info'] : icon" :class="iconClass" />
-			<component :is="iconRight" v-if="iconRight && iconRight !== true" class="order-1" :class="iconClass" />
+		<template v-if="icon || iconRight" #icon="{ class: slotClass }">
+			<component :is="icon === true ? SeverityIcons[severity || 'info'] : icon" :class="[slotClass, iconClass]" />
+			<component
+				:is="iconRight"
+				v-if="iconRight && iconRight !== true"
+				class="order-1"
+				:class="[slotClass, iconClass]"
+			/>
 		</template>
 		<slot>
-			<h4 v-if="title || $slots.title" class="heading-sm leading-lg!">
+			<h4 v-if="title || $slots.title">
 				<slot name="title">{{ title }}</slot>
 			</h4>
-			<p v-if="message || $slots.message" class="body-md whitespace-pre-line">
+			<p v-if="message || $slots.message" class="font-normal whitespace-pre-line">
 				<slot name="message"> {{ message }}</slot>
 			</p>
 		</slot>
@@ -63,5 +64,21 @@ const iconClass = computed(() => {
 <style>
 .p-message.no-shadow {
 	box-shadow: none;
+}
+
+.p-message-content:has(.p-message-text > p) {
+	align-items: flex-start;
+}
+
+.p-message:not(.p-message-simple) .p-message-content {
+	min-height: calc(var(--spacing) * 10);
+}
+
+.p-message-sm:not(.p-message-simple) .p-message-content {
+	min-height: calc(var(--spacing) * 8);
+}
+
+.p-message-lg:not(.p-message-simple) .p-message-content {
+	min-height: calc(var(--spacing) * 12);
 }
 </style>

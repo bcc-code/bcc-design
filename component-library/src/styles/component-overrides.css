@@ -219,7 +219,7 @@
 	}
 
 	.p-message-text {
-		line-height: 1;
+		line-height: var(--leading-lg);
 		flex: 1 1 0;
 	}
 

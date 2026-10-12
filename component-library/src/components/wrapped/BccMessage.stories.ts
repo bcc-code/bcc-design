@@ -190,6 +190,10 @@ export const MessageSlotOnly: Story = {
 };
 
 export const Sizes: Story = {
+	args: {
+		closable: true,
+	},
+
 	render: () => ({
 		components: { BccMessage },
 		template: `
