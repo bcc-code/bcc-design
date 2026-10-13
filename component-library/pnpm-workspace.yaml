@@ -1,5 +1,11 @@
 overrides:
   minimatch: '>=10.2.3'
+  # concurrently@10.0.5 pins shell-quote@1.9.0. Remove once concurrently >=10.0.6 is installed.
+  shell-quote: '>=1.12.0'
+  # css-tree still resolves source-map-js@1.2.1.
+  source-map-js: '>=1.2.2'
+  # gaxios@6 (via firebase-tools) depends on uuid@^9; 11.x keeps the CommonJS v4 export it uses.
+  'uuid@<11.1.1': '^11.1.1'
 
 publicHoistPattern:
   # Hoist Storybook and related deps so the preview iframe can resolve them.
