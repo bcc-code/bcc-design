@@ -53,7 +53,11 @@ You are an expert in TypeScript, Vite, Vue.js, Tailwind, and PrimeVue wrappers, 
 - "Before" is the base branch (usually main) and "after" is your branch. Use the same story, args, viewport and theme for both so they can be compared.
 - Include every affected variant or state (for example sizes, severities or light and dark mode), not only the default.
 - Use Playwright with Chromium against `pnpm dev` (Storybook on port 6006) to capture them.
-- Add a "Screenshots" section to the PR description with the images labelled "Before" and "After". If you can't upload images to GitHub from the session, send the screenshots to the user and leave the labelled section in the PR description for them to paste into.
+- Post the screenshots in a PR comment, labelled "Before" and "After" (a two-column table works well). Sessions can't upload to GitHub's image attachments, so host the images in the repo instead:
+  - Commit them to the `pr-screenshots` branch under `<pr-number>/` (for example `427/message-before.png`). This branch only holds screenshots and is never merged. If it doesn't exist yet, create it as an orphan branch (`git switch --orphan pr-screenshots`).
+  - Never commit screenshots to the PR branch itself.
+  - Link them with `https://raw.githubusercontent.com/bcc-code/bcc-design/pr-screenshots/<pr-number>/<file>.png`.
+  - If you can't push or post the comment, send the screenshots to the user instead.
 - Skip this for changes with no visual effect, such as types, tests or refactors.
 
 ## Response Style
