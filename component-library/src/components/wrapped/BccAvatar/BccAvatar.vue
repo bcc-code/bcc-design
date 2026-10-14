@@ -26,6 +26,8 @@ const bindings = computed(() => {
 	void icon;
 	return rest;
 });
+
+const isCount = computed(() => /^\+\d/.test(props.label ?? ''));
 </script>
 
 <template>
@@ -33,7 +35,7 @@ const bindings = computed(() => {
 		v-bind="bindings"
 		class="bcc-avatar"
 		:shape="squared ? 'square' : 'circle'"
-		:class="[gender, size, { child, bordered, squared }]"
+		:class="[gender, size, { child, bordered, squared, count: isCount }]"
 	>
 		<template v-if="icon" #icon>
 			<component :is="typeof icon === 'boolean' ? PersonFillIcon : icon" class="p-icon" />
