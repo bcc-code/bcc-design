@@ -66,8 +66,14 @@ const iconClass = computed(() => {
 	box-shadow: none;
 }
 
-.p-message-content:has(.p-message-text > p) {
+.p-message-content {
+	flex-wrap: wrap;
+	align-content: center;
 	align-items: flex-start;
+}
+
+.p-message-text {
+	min-width: 0;
 }
 
 .p-message:not(.p-message-simple) .p-message-content {
