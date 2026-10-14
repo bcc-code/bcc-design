@@ -54,7 +54,7 @@ const iconClass = computed(() => {
 			<h4 v-if="title || $slots.title">
 				<slot name="title">{{ title }}</slot>
 			</h4>
-			<p v-if="message || $slots.message" class="font-normal whitespace-pre-line">
+			<p v-if="message || $slots.message" class="body-md whitespace-pre-line">
 				<slot name="message"> {{ message }}</slot>
 			</p>
 		</slot>
@@ -66,8 +66,14 @@ const iconClass = computed(() => {
 	box-shadow: none;
 }
 
-.p-message-content:has(.p-message-text > p) {
+.p-message-content {
+	flex-wrap: wrap;
+	align-content: center;
 	align-items: flex-start;
+}
+
+.p-message-text {
+	min-width: 0;
 }
 
 .p-message:not(.p-message-simple) .p-message-content {
