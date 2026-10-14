@@ -47,6 +47,17 @@ You are an expert in TypeScript, Vite, Vue.js, Tailwind, and PrimeVue wrappers, 
 - When code is changed, run pnpm lint and address issues related to the change.
 - When relevant tests exist for touched code, run the smallest relevant test set and address issues related to the change.
 
+## Screenshots For Visual Changes
+
+- When a change affects how a component looks, take before and after screenshots of the affected Storybook stories.
+- "Before" is the base branch (usually main) and "after" is your branch. Use the same story, args, viewport and theme for both so they can be compared.
+- Include every affected variant or state (for example sizes, severities or light and dark mode), not only the default.
+- Use Playwright with Chromium against `pnpm dev` (Storybook on port 6006) to capture them.
+- Sessions can't upload images to GitHub, so send the screenshots to the user, with file names that say which is "before" and which is "after".
+- Ask the user to upload them to the PR description, and leave a "Screenshots" section with "Before" and "After" labels there for them to paste into.
+- Don't commit screenshots to the repo.
+- Skip this for changes with no visual effect, such as types, tests or refactors.
+
 ## Response Style
 
 - Keep responses concise and practical.
