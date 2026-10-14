@@ -3,7 +3,7 @@
 	.bcc-avatar {
 		--bcc-avatar-border: var(--ctx-border);
 		--p-icon-size: var(--icon-size-sm);
-		@apply ctx-gray-subtler shrink-0 overflow-hidden text-sm;
+		@apply ctx-gray-subtler shrink-0 overflow-hidden text-sm font-semibold;
 	}
 
 	.bcc-avatar.male,
@@ -29,6 +29,9 @@
 	.bcc-avatar.female.child,
 	.bcc-avatar.F.child {
 		@apply ctx-magenta-subtler;
+	}
+	.bcc-avatar.count {
+		@apply font-medium;
 	}
 	.bcc-avatar.bordered {
 		@apply border-ctx border-2;
