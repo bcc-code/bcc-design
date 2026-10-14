@@ -1,10 +1,17 @@
 @layer components {
+	/* The default avatar uses the avatar tokens (text default on accent gray); gender variants use their context colors */
 	.bcc-avatar {
-		--p-avatar-background: var(--ctx-background);
-		--p-avatar-color: var(--ctx-text);
 		--bcc-avatar-border: var(--ctx-border);
 		--p-icon-size: var(--icon-size-sm);
 		@apply ctx-gray-subtler shrink-0 overflow-hidden text-sm;
+	}
+
+	.bcc-avatar.male,
+	.bcc-avatar.M,
+	.bcc-avatar.female,
+	.bcc-avatar.F {
+		--p-avatar-background: var(--ctx-background);
+		--p-avatar-color: var(--ctx-text);
 	}
 
 	.bcc-avatar.male,
