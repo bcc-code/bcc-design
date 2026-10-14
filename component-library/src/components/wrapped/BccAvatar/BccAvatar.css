@@ -3,7 +3,7 @@
 	.bcc-avatar {
 		--bcc-avatar-border: var(--ctx-border);
 		--p-icon-size: var(--icon-size-sm);
-		@apply ctx-gray-subtler shrink-0 overflow-hidden text-sm;
+		@apply ctx-gray-subtler shrink-0 overflow-hidden text-sm font-medium;
 	}
 
 	.bcc-avatar.male,
