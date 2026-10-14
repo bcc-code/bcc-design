@@ -54,7 +54,7 @@ const iconClass = computed(() => {
 			<h4 v-if="title || $slots.title">
 				<slot name="title">{{ title }}</slot>
 			</h4>
-			<p v-if="message || $slots.message" class="body-md whitespace-pre-line">
+			<p v-if="message || $slots.message" class="font-normal whitespace-pre-line">
 				<slot name="message"> {{ message }}</slot>
 			</p>
 		</slot>
