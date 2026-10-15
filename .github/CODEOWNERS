@@ -1,5 +1,5 @@
 # Default owners for everything not matched below (CI, docs, www, repo config).
-*                    @jasverix
+*                    @u12206050 @bogdaniculae
 
-/component-library/  @jasverix @covaci-edvin
-/icons/              @jasverix @covaci-edvin
+/component-library/  @u12206050 @bogdaniculae @jasverix
+/icons/              @u12206050 @bogdaniculae
