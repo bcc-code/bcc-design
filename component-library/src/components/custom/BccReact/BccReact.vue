@@ -136,8 +136,8 @@ onMounted(() => {
 				:class="[top ? 'rounded-b-full' : 'rounded-t-full']"
 				@click="show = !show"
 			>
-				<AddReactionFillIcon v-if="show" class="size-5" />
-				<AddReactionIcon v-else class="size-5" />
+				<AddReactionFillIcon v-if="show" class="size-6" />
+				<AddReactionIcon v-else class="size-6" />
 			</button>
 
 			<div
