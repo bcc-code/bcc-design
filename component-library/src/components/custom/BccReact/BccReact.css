@@ -82,7 +82,7 @@
 	}
 
 	.bcc-react-emoji-list-item {
-		@apply clickable center shadow-raised flex h-8 min-w-7 shrink-0 gap-1 rounded-full px-2 py-1 transition-all hover:scale-105;
+		@apply clickable center shadow-raised dark:border-default flex h-8 min-w-7 shrink-0 gap-1 rounded-full px-2 py-1 transition-all hover:scale-105 dark:border;
 		/* Default --not-selected */
 		@apply bg-accent-gray-subtler-default text-default;
 	}
