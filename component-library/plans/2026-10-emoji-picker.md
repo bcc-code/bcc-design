@@ -47,15 +47,19 @@ Alternatives rejected:
   Vue 3; the styling does not follow the design tokens.
 - **Keep the 36 reaction emojis**: what we have now; the PM wants more.
 
-Checked 2026-10-20 (`emojibase-data` 18.0.0, MIT):
+Pin `emojibase-data` to `~17.0.0` (Emoji 17, CLDR 48). Upgrade to 18 once Emoji 18 is
+common on our users' devices.
 
-- Size: `en/compact.json` is about 84 KB gzipped (574 KB raw), `nb/compact.json` about 80 KB
-  gzipped. Only the active locale's file is loaded. The full `data.json` (about 94 KB
-  gzipped) is not needed for the first version.
-- Maintenance: 18.0.0 was published 2026-10-16 with Emoji 18. Major releases have followed
-  each new Emoji version (16.0 in 12/2024, 17.0 in 11/2025).
-- 18.0.0 uses CLDR 49 *beta* data for labels and keywords. Emoji 18 characters may not
-  render on older systems, so filter the grid by what the platform supports.
+Checked 2026-10-20:
+
+- Size (17.0.0): `en/compact.json` is about 83 KB gzipped (571 KB raw, 1,949 emoji),
+  `nb/compact.json` about 79 KB gzipped. Only the active locale's file is loaded.
+- Maintenance: MIT. Major releases follow each new Emoji version (16.0 in 12/2024, 17.0 in
+  11/2025, 18.0 in 10/2026).
+- 18.0.0 was skipped for now: it adds Emoji 18 characters that older systems can't render,
+  and its labels come from CLDR 49 beta. It also drops the redundant `FE0F` from 152 emoji
+  (like 👍), so check that saved reactions and inserted emoji still match when upgrading.
+- Even on 17, filter the grid by what the platform can render.
 - No `ro` locale; fall back to `en` there.
 
 ## Component API (first version)
@@ -86,7 +90,7 @@ emojis, a built-in popover/trigger. Each can be added later without breaking the
 
 ## Steps
 
-1. **bcc-design** (`component-library/`): add `BccEmojiPicker` with `emojibase-data` as a
+1. **bcc-design** (`component-library/`): add `BccEmojiPicker` with `emojibase-data@~17.0.0` as a
    dependency, story, test; export it and its prop type from `src/components/custom/index.ts`.
    Release through the `design-library-*` create-version workflow.
 2. **bcc-chat** (`ui/`): bump `@bcc-code/component-library-vue`, render `BccEmojiPicker`
