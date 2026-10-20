@@ -1,6 +1,6 @@
 # Plan: full emoji picker in the chat, provided by the host app
 
-Status: proposal
+Status: in progress (bcc-design implemented)
 
 ClickUp: [Støtte emojis og scheduled meldinger på pc i chat](https://app.clickup.com/t/124kk1zbnj5) (DIGI-6074)
 
@@ -52,12 +52,19 @@ type EmojiPickerOpenOptions = {
 	onHide?: () => void;
 };
 
-export function openBccEmojiPicker(options: EmojiPickerOpenOptions): void;
-export function closeBccEmojiPicker(): void;
+export function openBccEmojiPicker(options: EmojiPickerOpenOptions): Promise<void>;
+export function closeBccEmojiPicker(): Promise<void>;
 ```
+
+- Calling `openBccEmojiPicker` again with the same `anchor` while it is open closes it, so it
+  can be a button's click handler. `<BccEmojiPicker @select>` is also exported for inline use.
+- Built on PrimeVue's `Popover`. PrimeVue components need the app's context, so `setup.ts`
+  remembers the app (`src/appContext.ts`) without importing the picker.
 
 - Mounts itself with `render()` on first use, like `BccLightbox/state.ts`, but is **not**
   installed in `setup.ts`, so apps that never call it don't bundle it.
+- Unsupported emojis are detected by drawing a test face per Emoji version (and 🇳🇴 for flags)
+  on a canvas: color emoji fonts ignore the fill color, a missing glyph does not.
 - The picker component and the emoji data load with dynamic `import()` on first open, so
   they stay out of the app's initial bundle.
 - Load the data with one explicit `import()` per supported locale (`en`, `nb`, `de`, `es`,

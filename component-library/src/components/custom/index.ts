@@ -2,12 +2,14 @@
  * Custom BCC components (not based on PrimeVue).
  * Add new custom components here and export them from this file.
  */
+export { closeBccEmojiPicker, openBccEmojiPicker } from './BccEmojiPicker/state';
 export { closeBccLightbox, openBccLightbox, useLightbox, usePinchPan } from './BccLightbox/composables';
 
 export { default as BccAppNavigation } from './BccAppNavigation/BccAppNavigation.vue';
 export { default as BccBadge } from './BccBadge/BccBadge.vue';
 export { default as BccCapacityIndicator } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export { default as BccDialKnob } from './BccDialKnob/BccDialKnob.vue';
+export { default as BccEmojiPicker } from './BccEmojiPicker/BccEmojiPicker.vue';
 export { default as BccFrame } from './BccFrame/BccFrame.vue';
 export { default as BccGraphic } from './BccGraphic/BccGraphic.vue';
 export { default as BccImage } from './BccImage/BccImage.vue';
@@ -25,6 +27,7 @@ export type { BccAppNavigationItem } from './BccAppNavigation/BccAppNavigation.v
 export type { BadgeProps } from './BccBadge/BccBadge.vue';
 export type { CapacityIndicatorProps } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export type { KnobProps, KnobSlots } from './BccDialKnob/BccDialKnob.vue';
+export type { EmojiGroup, EmojiItem, EmojiPickerOpenOptions, EmojiPickerProps } from './BccEmojiPicker/types';
 export type { FrameProps } from './BccFrame/BccFrame.vue';
 export type { GraphicProps } from './BccGraphic/BccGraphic.vue';
 export type { ImageProps } from './BccImage/BccImage.vue';

@@ -8,9 +8,12 @@ import TooltipDirective from 'primevue/tooltip';
 
 import type { App } from 'vue';
 
+import { setBccApp } from './appContext';
 import { installBccLightbox } from './components/custom/BccLightbox/state';
 
 export default function setup(app: App) {
+	setBccApp(app);
+
 	app.use(PrimeVue, {
 		theme: {
 			preset: BccPreset,
