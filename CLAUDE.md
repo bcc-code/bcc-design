@@ -36,6 +36,10 @@ The component library depends on `@bcc-code/icons-vue` from npm, not through a w
 
 Releases go through GitHub Actions, not local publishing. A `*-create-version` workflow (manual dispatch: major/minor/patch, release/beta channel) bumps the version. Publishing a GitHub release then triggers the npm publish. Don't run `npm publish` or bump versions by hand unless asked.
 
+## Language
+
+Write everything that ends up in the repository or on GitHub in English, even when the session is in Norwegian or another language. This covers documentation, plans and decision records, code comments, commit messages, branch names, PR titles and descriptions, and review replies. Reply to the user in the language of the session.
+
 ## Branch names
 
 Rename `claude/` branches that have a random or generated suffix **before the first push**. Never push the generated name to `origin`.
