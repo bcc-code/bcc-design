@@ -47,8 +47,16 @@ Alternatives rejected:
   Vue 3; the styling does not follow the design tokens.
 - **Keep the 36 reaction emojis**: what we have now; the PM wants more.
 
-To verify before implementing: the size of the `emojibase-data` chunk (compact data, one
-locale) and that the package versions used are maintained.
+Checked 2026-10-20 (`emojibase-data` 18.0.0, MIT):
+
+- Size: `en/compact.json` is about 84 KB gzipped (574 KB raw), `nb/compact.json` about 80 KB
+  gzipped. Only the active locale's file is loaded. The full `data.json` (about 94 KB
+  gzipped) is not needed for the first version.
+- Maintenance: 18.0.0 was published 2026-10-16 with Emoji 18. Major releases have followed
+  each new Emoji version (16.0 in 12/2024, 17.0 in 11/2025).
+- 18.0.0 uses CLDR 49 *beta* data for labels and keywords. Emoji 18 characters may not
+  render on older systems, so filter the grid by what the platform supports.
+- No `ro` locale; fall back to `en` there.
 
 ## Component API (first version)
 
