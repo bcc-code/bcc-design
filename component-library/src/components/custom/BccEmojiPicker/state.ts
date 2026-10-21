@@ -32,7 +32,9 @@ function mountPopover(): Promise<PopoverApi> {
  * picker is open closes it, so it can be used directly as a button's click handler.
  */
 export async function openBccEmojiPicker(options: EmojiPickerOpenOptions): Promise<void> {
+	if (options.signal?.aborted) return;
 	const api = await mountPopover();
+	if (options.signal?.aborted) return;
 	if (api.isOpenFor(options.anchor)) {
 		api.hide();
 		return;

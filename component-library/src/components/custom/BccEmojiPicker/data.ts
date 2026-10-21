@@ -32,6 +32,8 @@ export type EmojiPickerOpenOptions = EmojiPickerProps & {
 	onSelect: (emoji: string) => void;
 	/** Called when the picker closes. */
 	onHide?: () => void;
+	/** Aborting it closes the picker opened by this call, or stops it from opening if it is still loading. */
+	signal?: AbortSignal;
 };
 
 // One explicit import per locale: a template string would make bundlers emit every emojibase locale.

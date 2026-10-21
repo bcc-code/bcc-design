@@ -12,7 +12,9 @@ import { openBccEmojiPicker } from './state';
  *
  * - **`openBccEmojiPicker({ anchor, onSelect })`** opens it in a popover next to `anchor`. It stays
  *   open so several emojis can be picked, and closes on outside click or Escape. Calling it again
- *   with the same anchor closes it.
+ *   with the same anchor closes it. Pass an `AbortSignal` as `signal` to close it from code, for
+ *   example when the field it inserts into goes away; aborting only closes the picker opened with
+ *   that signal, and stops it from opening if it is still loading.
  * - **`<BccEmojiPicker @select>`** renders the panel inline.
  *
  * The picker and its data are loaded the first time it is shown, so apps that never use it don't
