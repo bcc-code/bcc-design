@@ -1,7 +1,7 @@
 import { LockIcon, MailIcon, NumbersIcon, PersonIcon, SearchIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { ref } from 'vue';
-import { BccFloatLabel } from '../../index';
+import { ref, useTemplateRef } from 'vue';
+import { BccButton, BccFloatLabel } from '../../index';
 import BccInput from './BccInput.vue';
 
 const meta: Meta<typeof BccInput> = {
@@ -209,6 +209,26 @@ export const FloatLabelInvalid: Story = {
 					<BccInput id="float-invalid" v-model="value" :invalid="!value" />
 					<label for="float-invalid">Username (required)</label>
 				</BccFloatLabel>
+			</div>
+		`,
+		}) as unknown as Story,
+};
+
+/** `insertAtCaret(text)` inserts text at the caret, replacing any selection, and updates `v-model`. It does nothing when `numeric`. */
+export const InsertAtCaret: Story = {
+	render: () =>
+		({
+			components: { BccInput, BccButton },
+			setup() {
+				const value = ref('Hello world');
+				// In an SFC, useTemplateRef('input') infers this type from the template.
+				const input = useTemplateRef<InstanceType<typeof BccInput>>('input');
+				return { value, input };
+			},
+			template: `
+			<div class="flex max-w-sm items-center gap-2">
+				<BccInput ref="input" v-model="value" />
+				<BccButton label="Insert 👋" severity="secondary" @mousedown.prevent @click="input?.insertAtCaret('👋')" />
 			</div>
 		`,
 		}) as unknown as Story,

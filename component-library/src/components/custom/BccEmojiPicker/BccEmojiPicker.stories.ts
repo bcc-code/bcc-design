@@ -1,8 +1,8 @@
 import { MoodIcon } from '@bcc-code/icons-vue';
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { ref } from 'vue';
+import { ref, useTemplateRef } from 'vue';
 
-import BccButton from '../../wrapped/BccButton.vue';
+import { BccButton, BccTextarea } from '../../../index';
 import BccEmojiPicker from './BccEmojiPicker.vue';
 import { openBccEmojiPicker } from './state';
 
@@ -60,34 +60,92 @@ export const Norwegian: Story = {
 		searchPlaceholder: 'Søk',
 		noResultsText: 'Fant ingen emojier',
 	},
+	parameters: {
+		docs: {
+			source: {
+				code: `
+					<script setup lang="ts">
+					import { ref } from 'vue';
+					import { BccEmojiPicker } from '@bcc-code/component-library-vue';
+
+					const picked = ref('');
+					</script>
+
+					<template>
+						<BccEmojiPicker
+							locale="nb"
+							search-placeholder="Søk"
+							no-results-text="Fant ingen emojier"
+							@select="picked += $event"
+						/>
+						<p>Valgt: {{ picked }}</p>
+					</template>
+					`,
+			},
+		},
+	},
 };
 
-/** `openBccEmojiPicker` inserts at the caret. The buttons in the picker don't take focus, so the caret stays in the field. */
+/** Pass `insertAtCaret` from `BccTextarea` or `BccInput` as `onSelect` to insert at the caret. The buttons in the picker don't take focus, so the caret stays in the field. */
 export const Popover: Story = {
 	render: () => ({
-		components: { BccButton },
+		components: { BccButton, BccTextarea },
 		setup() {
 			const text = ref('Hello ');
-			const input = ref<HTMLTextAreaElement | null>(null);
-
-			function insert(emoji: string) {
-				const field = input.value;
-				if (!field) return;
-				field.setRangeText(emoji, field.selectionStart, field.selectionEnd, 'end');
-				text.value = field.value;
-			}
+			// In an SFC, useTemplateRef('input') infers this type from the template.
+			const input = useTemplateRef<InstanceType<typeof BccTextarea>>('input');
 
 			function open(event: MouseEvent) {
-				openBccEmojiPicker({ anchor: event.currentTarget as HTMLElement, onSelect: insert });
+				openBccEmojiPicker({
+					anchor: event.currentTarget as HTMLElement,
+					onSelect: emoji => input.value?.insertAtCaret(emoji),
+				});
 			}
 
 			return { text, input, open, MoodIcon };
 		},
 		template: `
 			<div class="flex items-end gap-2">
-				<textarea ref="input" v-model="text" class="border-default body-md w-80 rounded-lg border p-2" rows="3" />
+				<BccTextarea ref="input" v-model="text" class="w-80" rows="3" />
 				<BccButton text rounded severity="secondary" :icon="MoodIcon" aria-label="Insert emoji" @mousedown.prevent @click="open" />
 			</div>
 		`,
 	}),
+	parameters: {
+		docs: {
+			source: {
+				code: `
+					<script setup lang="ts">
+					import { ref, useTemplateRef } from 'vue';
+					import { MoodIcon } from '@bcc-code/icons-vue';
+					import { BccButton, BccTextarea, openBccEmojiPicker } from '@bcc-code/component-library-vue';
+
+					const text = ref('Hello ');
+					const input = useTemplateRef('input');
+
+					function open(event: MouseEvent) {
+						openBccEmojiPicker({
+							anchor: event.currentTarget as HTMLElement,
+							onSelect: emoji => input.value?.insertAtCaret(emoji),
+						});
+					}
+					</script>
+
+					<template>
+						<BccTextarea ref="input" v-model="text" rows="3" />
+						<!-- mousedown.prevent keeps focus, and so the caret, in the textarea -->
+						<BccButton
+							text
+							rounded
+							severity="secondary"
+							:icon="MoodIcon"
+							aria-label="Insert emoji"
+							@mousedown.prevent
+							@click="open"
+						/>
+					</template>
+					`,
+			},
+		},
+	},
 };
