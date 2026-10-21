@@ -5,9 +5,8 @@
 	.bcc-react-toggle {
 		@apply flex shrink-0 cursor-pointer items-center justify-center rounded-full transition;
 	}
-	/* 32px row; the 2px padding, offset by a negative margin, keeps the pill shadows from being clipped */
 	.bcc-react-list {
-		@apply hide-scrollbar -my-0.5 ml-2 flex h-9 max-w-fit flex-1 items-center gap-1.5 rounded-full py-0.5;
+		@apply hide-scrollbar ml-2 flex max-w-fit flex-1 items-center gap-1.5 rounded-full py-0.5;
 	}
 	.bcc-react-list--limited {
 		@apply min-w-0 overflow-x-auto;
