@@ -1,6 +1,6 @@
-# Plan: full emoji picker in the chat, provided by the host app
+# Plan: shared emoji picker (`BccEmojiPicker`)
 
-Status: in progress (bcc-design implemented)
+Status: implemented ([bcc-code/bcc-design#433](https://github.com/bcc-code/bcc-design/pull/433))
 
 ClickUp: [Støtte emojis og scheduled meldinger på pc i chat](https://app.clickup.com/t/124kk1zbnj5) (DIGI-6074)
 
@@ -12,32 +12,20 @@ picker. [bcc-code/bcc-chat#532](https://github.com/bcc-code/bcc-chat/pull/532) a
 button to the chat composer. To keep the chat package small, it shows only the 36 reaction
 emojis (`ui/src/chat/reactions.ts`), with no search and no categories.
 
-The PM wants a normal emoji picker: every emoji, grouped in categories, with search. It must
-not make the chat package bigger, and it must not take space in the native app builds, where
-the system emoji keyboard is used.
+The PM wants a normal emoji picker: every emoji, grouped in categories, with search. Other
+places in the apps may want one too, so it belongs in the component library. Apps that don't
+use it must not pay for it in bundle size.
 
 ## Decision
 
-1. The component library gets a full emoji picker, opened from code with
-   `openBccEmojiPicker()`, the same way `openBccLightbox()` works.
-2. `BccChat` gets an optional `openEmojiPicker` prop. When it is set, the composer's emoji
-   button calls it; when it is not, the composer keeps the 36-emoji grid from #532.
-3. bcc-event-app passes `openEmojiPicker` to `BccChat` in the web build only.
+The component library gets a full emoji picker, opened from code with `openBccEmojiPicker()`
+(the same way `openBccLightbox()` works) or rendered inline with `<BccEmojiPicker>`.
 
-The chat package never imports the picker or the emoji data. The host app decides whether
-there is a full picker, and other places in the app can open the same picker.
+Using it in the chat is planned in bcc-chat: the chat gets an `openEmojiPicker` prop, and the
+host app passes `openBccEmojiPicker` to it in its web build only. The chat package then never
+imports the picker or its data.
 
-Alternatives rejected:
-
-- **Picker inside the chat package**: grows the chat package, and keeping it out of native
-  builds needs a separate entry point in the component library plus a module alias in
-  `vite_native.config.ts`. The strip-code markers don't reach code inside an npm package.
-- **Keep the 36 reaction emojis**: what we have now; the PM wants more.
-- **A Promise that returns one emoji**: closes the picker after each emoji. #532 keeps the
-  picker open so several emojis can be inserted, so the chat passes an `insert` callback
-  instead.
-
-## bcc-design: `openBccEmojiPicker`
+## `openBccEmojiPicker`
 
 In `component-library/src/components/custom/BccEmojiPicker/`:
 
@@ -60,7 +48,6 @@ export function closeBccEmojiPicker(): Promise<void>;
   can be a button's click handler. `<BccEmojiPicker @select>` is also exported for inline use.
 - Built on PrimeVue's `Popover`. PrimeVue components need the app's context, so `setup.ts`
   remembers the app (`src/appContext.ts`) without importing the picker.
-
 - Mounts itself with `render()` on first use, like `BccLightbox/state.ts`, but is **not**
   installed in `setup.ts`, so apps that never call it don't bundle it.
 - Unsupported emojis are detected by drawing a test face per Emoji version (and 🇳🇴 for flags)
@@ -108,64 +95,10 @@ Rejected libraries:
 - **`vue3-emoji-picker`, `emoji-mart`**: bundle all data eagerly or are poorly maintained for
   Vue 3; the styling does not follow the design tokens.
 
-## bcc-chat: `openEmojiPicker` prop
-
-New optional prop on `BccChat` (`ui/src/components/chat/BccChat.vue`), passed down to the
-composer:
-
-```ts
-openEmojiPicker?: (context: {
-	/** The composer's emoji button, for positioning. */
-	anchor: HTMLElement;
-	/** Inserts the emoji at the caret. Can be called several times. */
-	insert: (emoji: string) => void;
-}) => void;
-```
-
-- `MessageComposer` calls it from the emoji button, with `insertText` from
-  `useRichTextComposer` as `insert`.
-- Without the prop, `ComposerEmojiPopover` and its 36 emojis work as today, so other users of
-  the chat package see no change.
-- The emoji button stays hidden on touch devices (`useIsTouchUi`), with or without the prop.
-- Playwright: a test that the prop is called and `insert` puts the emoji at the caret. The
-  existing emoji test keeps covering the fallback.
-
-## bcc-event-app: pass the prop on web
-
-In `src/modules/Inbox/components/ChatRoom.vue` (the only `<BccChat>`), pass
-`:open-emoji-picker`. Its value comes from a small `.ts` module, wrapped in
-`START-PWA-ONLY` / `END-PWA-ONLY` so `rollup-plugin-strip-code` removes it from the native
-build. Strip-code only runs on `**/*.ts`, so the import must not be in the `.vue` file.
-
-```ts
-export let openEmojiPicker: OpenEmojiPicker | undefined;
-
-/* START-PWA-ONLY */
-import { openBccEmojiPicker } from '@bcc-code/component-library-vue';
-
-openEmojiPicker = ({ anchor, insert }) => openBccEmojiPicker({ anchor, onSelect: insert, locale: currentLocale() });
-/* END-PWA-ONLY */
-```
-
-The native build ends up with `openEmojiPicker` as `undefined` and no import of the picker. The markers are configured in `vite_native.config.ts` but no code uses them
-yet, so check the native build output once.
-
-## Steps and branches
-
-All three repos use the branch `feat/emoji-picker`.
-
-1. **bcc-design**: `openBccEmojiPicker` with `emojibase-data@~17.0.0`, story, test, exports
-   from `src/components/custom/index.ts`. Release through the `design-library-*`
-   create-version workflow.
-2. **bcc-chat**: `openEmojiPicker` prop and test. Release a new version of
-   `@bcc-code/vue-bcc-chat-ui`.
-3. **bcc-event-app**: bump both packages and pass the prop on web.
-
 ## Test by hand
 
-- Web app in desktop Chrome, Safari and Firefox: open the picker from the chat, search in
-  English and Norwegian, insert several emojis in the middle of formatted text and mentions.
+- Storybook (`Custom/Input/BccEmojiPicker`) in desktop Chrome, Safari and Firefox: search in
+  English and Norwegian, insert several emojis at the caret in the Popover story.
+- Windows: flags are hidden in Chrome, and no empty squares show up.
 - Network tab: the picker and the emoji data load only when the picker opens.
-- Native build: no emojibase files in the output. On an iPad with a trackpad, the emoji
-  button opens the 36-emoji fallback.
 - Dark mode.
