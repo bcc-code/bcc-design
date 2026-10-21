@@ -13,8 +13,13 @@ async function show(next: EmojiPickerOpenOptions) {
 		hide();
 		await nextTick();
 	}
+	// Once the popover module is loaded this runs inside the click that opened it. Popover binds its
+	// outside-click listener on document while that click is still bubbling, so it would close at
+	// once. Wait for the event to finish first.
+	await new Promise(resolve => setTimeout(resolve));
 	options.value = next;
-	popover.value?.show(new Event('click'), next.anchor);
+	// Popover treats clicks on `currentTarget` as its own, so clicking the anchor isn't an outside click.
+	popover.value?.show({ currentTarget: next.anchor } as unknown as Event, next.anchor);
 }
 
 function hide() {
