@@ -1,8 +1,9 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { flushPromises, mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
 import BccEmojiPicker from './BccEmojiPicker.vue';
+import * as data from './data';
 import { loadEmojiGroups, resolveEmojiLocale, searchEmojis } from './data';
 
 // Emoji 17 data still has the redundant variation selector on emojis like 👍.
@@ -56,5 +57,27 @@ describe('BccEmojiPicker', () => {
 
 		await input.setValue('zzzz');
 		expect(wrapper.text()).toContain('Nothing');
+	});
+
+	it('moves focus from the top row back to the search field with ArrowUp', async () => {
+		const wrapper = mount(BccEmojiPicker, { props: { locale: 'en' }, global, attachTo: document.body });
+		await flushPromises();
+		const first = wrapper.find('.bcc-emoji-picker-item');
+
+		(first.element as HTMLElement).focus();
+		await first.trigger('keydown', { key: 'ArrowUp' });
+
+		expect(document.activeElement).toBe(wrapper.find('input').element);
+		wrapper.unmount();
+	});
+
+	it('shows the error text when the data fails to load', async () => {
+		const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+		vi.spyOn(data, 'loadEmojiGroups').mockRejectedValueOnce(new Error('offline'));
+		const wrapper = mount(BccEmojiPicker, { props: { locale: 'en', errorText: 'Failed' }, global });
+		await flushPromises();
+
+		expect(wrapper.text()).toContain('Failed');
+		spy.mockRestore();
 	});
 });

@@ -15,9 +15,6 @@ const loaders: Record<string, () => Promise<LocaleData>> = {
 	pl: () => Promise.all([import('emojibase-data/pl/compact.json'), import('emojibase-data/pl/messages.json')]),
 };
 
-const COMPONENT_GROUP = 2;
-const FLAGS_GROUP = 9;
-
 /** A face from each recent Emoji version, newest first. Older versions are assumed to render. */
 const VERSION_TEST_EMOJIS: [version: number, emoji: string][] = [
 	[17, '🫪'],
@@ -67,7 +64,8 @@ async function buildGroups(locale: string): Promise<EmojiGroup[]> {
 	const showFlags = canRenderColor('🇳🇴');
 
 	const groups = messages.groups
-		.filter(group => group.order !== COMPONENT_GROUP && (showFlags || group.order !== FLAGS_GROUP))
+		// `component` holds the bare skin tone and hair modifiers, which aren't emojis on their own.
+		.filter(group => group.key !== 'component' && (showFlags || group.key !== 'flags'))
 		.map(group => ({ key: group.key, order: group.order, label: group.message, emojis: [] as EmojiItem[] }));
 	const byOrder = new Map(groups.map(group => [group.order, group]));
 

@@ -43,7 +43,8 @@ export default defineConfig({
 			formats: ['umd'],
 		},
 		rollupOptions: {
-			external: ['vue'],
+			// emojibase-data is loaded lazily per locale; inlining it would add ~4 MB of JSON to this one file.
+			external: ['vue', /^emojibase-data\//],
 			output: {
 				exports: 'named',
 				globals: {

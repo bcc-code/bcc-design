@@ -21,6 +21,8 @@ export type EmojiPickerProps = {
 	searchPlaceholder?: string;
 	/** Shown when a search has no results. */
 	noResultsText?: string;
+	/** Shown when the emoji data fails to load. */
+	errorText?: string;
 };
 
 export type EmojiPickerOpenOptions = EmojiPickerProps & {

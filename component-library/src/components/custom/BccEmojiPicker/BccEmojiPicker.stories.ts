@@ -25,6 +25,7 @@ const meta: Meta<typeof BccEmojiPicker> = {
 		locale: { control: 'select', options: ['en', 'nb', 'de', 'es', 'fr', 'nl', 'pl'] },
 		searchPlaceholder: { control: 'text' },
 		noResultsText: { control: 'text' },
+		errorText: { control: 'text' },
 	},
 };
 
@@ -59,6 +60,7 @@ export const Norwegian: Story = {
 		locale: 'nb',
 		searchPlaceholder: 'Søk',
 		noResultsText: 'Fant ingen emojier',
+		errorText: 'Kunne ikke laste emojier',
 	},
 	parameters: {
 		docs: {
@@ -76,6 +78,7 @@ export const Norwegian: Story = {
 							locale="nb"
 							search-placeholder="Søk"
 							no-results-text="Fant ingen emojier"
+							error-text="Kunne ikke laste emojier"
 							@select="picked += $event"
 						/>
 						<p>Valgt: {{ picked }}</p>

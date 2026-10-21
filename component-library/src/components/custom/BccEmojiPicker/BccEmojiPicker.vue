@@ -21,6 +21,7 @@ const props = withDefaults(defineProps<EmojiPickerProps>(), {
 	locale: 'en',
 	searchPlaceholder: 'Search',
 	noResultsText: 'No emojis found',
+	errorText: "Couldn't load emojis",
 });
 
 const emit = defineEmits<{
@@ -43,6 +44,8 @@ const groups = shallowRef<EmojiGroup[]>([]);
 const query = ref('');
 const activeGroup = ref<string>();
 const scroller = ref<HTMLElement | null>(null);
+const root = ref<HTMLElement | null>(null);
+const loadFailed = ref(false);
 
 const results = computed(() => searchEmojis(groups.value, query.value));
 const isSearching = computed(() => query.value.trim() !== '');
@@ -50,8 +53,17 @@ const isSearching = computed(() => query.value.trim() !== '');
 watch(
 	() => props.locale,
 	async locale => {
-		const loaded = await loadEmojiGroups(locale);
+		let loaded: EmojiGroup[];
+		try {
+			loaded = await loadEmojiGroups(locale);
+		} catch (error) {
+			if (locale !== props.locale) return;
+			console.error(error);
+			loadFailed.value = true;
+			return;
+		}
 		if (locale !== props.locale) return;
+		loadFailed.value = false;
 		groups.value = loaded;
 		activeGroup.value = loaded[0]?.key;
 	},
@@ -107,7 +119,13 @@ function onGridKeydown(event: KeyboardEvent) {
 		const rowTops = buttons
 			.map(button => button.offsetTop)
 			.filter(top => (down ? top > current.offsetTop : top < current.offsetTop));
-		if (!rowTops.length) return;
+		if (!rowTops.length) {
+			if (!down) {
+				event.preventDefault();
+				root.value?.querySelector('input')?.focus();
+			}
+			return;
+		}
 		const rowTop = down ? Math.min(...rowTops) : Math.max(...rowTops);
 		const row = buttons.filter(button => button.offsetTop === rowTop);
 		next = row.reduce((best, button) =>
@@ -127,7 +145,7 @@ watch(isSearching, async searching => {
 </script>
 
 <template>
-	<div class="bcc-emoji-picker">
+	<div ref="root" class="bcc-emoji-picker">
 		<div class="bcc-emoji-picker-search">
 			<BccInput
 				v-model="query"
@@ -175,6 +193,8 @@ watch(isSearching, async searching => {
 				</div>
 				<p v-if="!results.length" class="bcc-emoji-picker-empty">{{ noResultsText }}</p>
 			</template>
+
+			<p v-else-if="loadFailed" class="bcc-emoji-picker-empty">{{ errorText }}</p>
 
 			<template v-else>
 				<section v-for="group in groups" :key="group.key" :data-group="group.key">

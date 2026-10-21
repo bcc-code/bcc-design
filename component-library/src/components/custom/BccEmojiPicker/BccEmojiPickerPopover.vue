@@ -6,10 +6,14 @@ import BccEmojiPicker from './BccEmojiPicker.vue';
 import type { EmojiPickerOpenOptions } from './types';
 
 const popover = ref<InstanceType<typeof Popover> | null>(null);
+// `options` outlives the close so the picker stays rendered while the popover fades out.
 const options = shallowRef<EmojiPickerOpenOptions | null>(null);
+const isOpen = ref(false);
+// Remounts the picker on each open, so it starts with an empty search and retries failed loads.
+const openCount = ref(0);
 
 async function show(next: EmojiPickerOpenOptions) {
-	if (options.value) {
+	if (isOpen.value) {
 		hide();
 		await nextTick();
 	}
@@ -18,6 +22,8 @@ async function show(next: EmojiPickerOpenOptions) {
 	// once. Wait for the event to finish first.
 	await new Promise(resolve => setTimeout(resolve));
 	options.value = next;
+	isOpen.value = true;
+	openCount.value++;
 	// Popover treats clicks on `currentTarget` as its own, so clicking the anchor isn't an outside click.
 	popover.value?.show({ currentTarget: next.anchor } as unknown as Event, next.anchor);
 }
@@ -27,21 +33,22 @@ function hide() {
 }
 
 function onHide() {
-	const closed = options.value;
-	options.value = null;
-	closed?.onHide?.();
+	isOpen.value = false;
+	options.value?.onHide?.();
 }
 
-defineExpose({ show, hide, isOpenFor: (anchor: HTMLElement) => options.value?.anchor === anchor });
+defineExpose({ show, hide, isOpenFor: (anchor: HTMLElement) => isOpen.value && options.value?.anchor === anchor });
 </script>
 
 <template>
 	<Popover ref="popover" class="bcc-emoji-picker-popover" @hide="onHide">
 		<BccEmojiPicker
 			v-if="options"
+			:key="openCount"
 			:locale="options.locale"
 			:search-placeholder="options.searchPlaceholder"
 			:no-results-text="options.noResultsText"
+			:error-text="options.errorText"
 			@select="options.onSelect"
 		/>
 	</Popover>
