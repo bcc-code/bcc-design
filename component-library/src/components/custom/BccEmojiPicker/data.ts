@@ -46,7 +46,12 @@ const loaders = {
 } as const;
 
 export type Locale = keyof typeof loaders;
-export type LocaleWildcard = Locale | `${Locale}${'-' | '_'}${string}` | `${Uppercase<Locale>}${'-' | '_'}${string}`;
+
+type LocaleExt = Locale | 'no' | 'nn' | 'ro';
+export type LocaleWildcard =
+	| LocaleExt
+	| `${LocaleExt}${'-' | '_'}${string}`
+	| `${Uppercase<LocaleExt>}${'-' | '_'}${string}`;
 
 /** A face from each recent Emoji version, newest first. Older versions are assumed to render. */
 const VERSION_TEST_EMOJIS: [version: number, emoji: string][] = [
