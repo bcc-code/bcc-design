@@ -1,7 +1,7 @@
 import { createVNode, render, type ComponentPublicInstance } from 'vue';
 
 import { getBccAppContext } from '../../../appContext';
-import type { EmojiPickerOpenOptions } from './types';
+import type { EmojiPickerOpenOptions } from './data';
 
 type PopoverApi = ComponentPublicInstance & {
 	show: (options: EmojiPickerOpenOptions) => Promise<void>;

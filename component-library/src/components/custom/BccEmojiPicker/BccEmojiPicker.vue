@@ -14,8 +14,8 @@ import {
 import { computed, nextTick, ref, shallowRef, watch, type Component } from 'vue';
 
 import BccInput from '../../wrapped/BccInput.vue';
+import type { EmojiGroup, EmojiItem, EmojiPickerProps } from './data';
 import { loadEmojiGroups, searchEmojis } from './data';
-import type { EmojiGroup, EmojiItem, EmojiPickerProps } from './types';
 
 const props = withDefaults(defineProps<EmojiPickerProps>(), {
 	locale: 'en',

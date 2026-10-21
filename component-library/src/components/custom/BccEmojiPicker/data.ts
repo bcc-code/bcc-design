@@ -1,11 +1,41 @@
-import type { EmojiGroup, EmojiItem } from './types';
+export type EmojiItem = {
+	emoji: string;
+	/** Localised name, used as the button's accessible label. */
+	label: string;
+	/** Localised search keywords. */
+	tags: string[];
+};
 
-type RawEmoji = { group?: number; label: string; tags?: string[]; unicode: string; hexcode: string };
-type RawMessages = { groups: { key: string; message: string; order: number }[] };
-type LocaleData = [{ default: unknown }, { default: unknown }];
+export type EmojiGroup = {
+	/** Emojibase group key, e.g. `smileys-emotion`. */
+	key: string;
+	/** Localised group name. */
+	label: string;
+	emojis: EmojiItem[];
+};
+
+export type EmojiPickerProps = {
+	/** Locale for emoji names, search keywords and category names. Unsupported locales fall back to `en`. */
+	locale?: LocaleWildcard;
+	/** Placeholder for the search field. */
+	searchPlaceholder?: string;
+	/** Shown when a search has no results. */
+	noResultsText?: string;
+	/** Shown when the emoji data fails to load. */
+	errorText?: string;
+};
+
+export type EmojiPickerOpenOptions = EmojiPickerProps & {
+	/** Element the picker is positioned next to, usually the button that opened it. */
+	anchor: HTMLElement;
+	/** Called for each emoji the user picks. The picker stays open. */
+	onSelect: (emoji: string) => void;
+	/** Called when the picker closes. */
+	onHide?: () => void;
+};
 
 // One explicit import per locale: a template string would make bundlers emit every emojibase locale.
-const loaders: Record<string, () => Promise<LocaleData>> = {
+const loaders = {
 	en: () => Promise.all([import('emojibase-data/en/compact.json'), import('emojibase-data/en/messages.json')]),
 	nb: () => Promise.all([import('emojibase-data/nb/compact.json'), import('emojibase-data/nb/messages.json')]),
 	de: () => Promise.all([import('emojibase-data/de/compact.json'), import('emojibase-data/de/messages.json')]),
@@ -13,7 +43,10 @@ const loaders: Record<string, () => Promise<LocaleData>> = {
 	fr: () => Promise.all([import('emojibase-data/fr/compact.json'), import('emojibase-data/fr/messages.json')]),
 	nl: () => Promise.all([import('emojibase-data/nl/compact.json'), import('emojibase-data/nl/messages.json')]),
 	pl: () => Promise.all([import('emojibase-data/pl/compact.json'), import('emojibase-data/pl/messages.json')]),
-};
+} as const;
+
+export type Locale = keyof typeof loaders;
+export type LocaleWildcard = Locale | `${Locale}${'-' | '_'}${string}` | `${Uppercase<Locale>}${'-' | '_'}${string}`;
 
 /** A face from each recent Emoji version, newest first. Older versions are assumed to render. */
 const VERSION_TEST_EMOJIS: [version: number, emoji: string][] = [
@@ -26,16 +59,16 @@ const VERSION_TEST_EMOJIS: [version: number, emoji: string][] = [
 	[11, '🥰'],
 ];
 
-export function resolveEmojiLocale(locale?: string): string {
+export function resolveEmojiLocale(locale?: LocaleWildcard): Locale {
 	const language = locale?.toLowerCase().split(/[-_]/)[0] ?? 'en';
 	if (language === 'no' || language === 'nn') return 'nb';
-	return language in loaders ? language : 'en';
+	return language in loaders ? (language as Locale) : 'en';
 }
 
 const cache = new Map<string, Promise<EmojiGroup[]>>();
 
 /** Loads emojis grouped by category, without the ones this device can't render. */
-export function loadEmojiGroups(locale?: string): Promise<EmojiGroup[]> {
+export function loadEmojiGroups(locale?: LocaleWildcard): Promise<EmojiGroup[]> {
 	const key = resolveEmojiLocale(locale);
 	let groups = cache.get(key);
 	if (!groups) {
@@ -46,14 +79,14 @@ export function loadEmojiGroups(locale?: string): Promise<EmojiGroup[]> {
 	return groups;
 }
 
-async function buildGroups(locale: string): Promise<EmojiGroup[]> {
+async function buildGroups(locale: Locale): Promise<EmojiGroup[]> {
 	const [[emojiModule, messagesModule], versionsModule] = await Promise.all([
 		loaders[locale]!(),
 		import('emojibase-data/versions/emoji.json'),
 	]);
-	const emojis = emojiModule.default as RawEmoji[];
-	const messages = messagesModule.default as RawMessages;
-	const versions = versionsModule.default as Record<string, string[]>;
+	const emojis = emojiModule.default;
+	const messages = messagesModule.default;
+	const versions = versionsModule.default;
 
 	const maxVersion = detectMaxEmojiVersion();
 	const unsupported = new Set(

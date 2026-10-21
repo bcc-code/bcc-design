@@ -3,7 +3,7 @@ import Popover from 'primevue/popover';
 import { nextTick, ref, shallowRef } from 'vue';
 
 import BccEmojiPicker from './BccEmojiPicker.vue';
-import type { EmojiPickerOpenOptions } from './types';
+import type { EmojiPickerOpenOptions } from './data';
 
 const popover = ref<InstanceType<typeof Popover> | null>(null);
 // `options` outlives the close so the picker stays rendered while the popover fades out.

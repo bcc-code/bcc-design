@@ -27,7 +27,7 @@ export type { BccAppNavigationItem } from './BccAppNavigation/BccAppNavigation.v
 export type { BadgeProps } from './BccBadge/BccBadge.vue';
 export type { CapacityIndicatorProps } from './BccCapacityIndicator/BccCapacityIndicator.vue';
 export type { KnobProps, KnobSlots } from './BccDialKnob/BccDialKnob.vue';
-export type { EmojiGroup, EmojiItem, EmojiPickerOpenOptions, EmojiPickerProps } from './BccEmojiPicker/types';
+export type { EmojiGroup, EmojiItem, EmojiPickerOpenOptions, EmojiPickerProps } from './BccEmojiPicker/data';
 export type { FrameProps } from './BccFrame/BccFrame.vue';
 export type { GraphicProps } from './BccGraphic/BccGraphic.vue';
 export type { ImageProps } from './BccImage/BccImage.vue';
