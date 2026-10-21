@@ -1,0 +1,33 @@
+@layer components {
+	.bcc-emoji-picker {
+		@apply bg-elevation-surface-default flex w-80 max-w-full flex-col;
+	}
+	.bcc-emoji-picker-search {
+		@apply px-2 pt-2;
+	}
+	.bcc-emoji-picker-tabs {
+		@apply border-default flex justify-between border-b px-2 py-1;
+	}
+	.bcc-emoji-picker-tab {
+		@apply text-subtle hover:bg-elevation-surface-overlay-hovered flex size-8 cursor-pointer items-center justify-center rounded-md;
+	}
+	.bcc-emoji-picker-tab--active {
+		@apply text-default bg-elevation-surface-overlay-hovered;
+	}
+	/* `relative` makes the sections' offsetTop relative to the scroll container. */
+	.bcc-emoji-picker-scroll {
+		@apply relative h-72 overflow-y-auto px-2 pb-2;
+	}
+	.bcc-emoji-picker-group-label {
+		@apply label-sm text-subtle bg-elevation-surface-default sticky top-0 z-10 py-1.5 first-letter:uppercase;
+	}
+	.bcc-emoji-picker-grid {
+		@apply grid grid-cols-8;
+	}
+	.bcc-emoji-picker-item {
+		@apply hover:bg-elevation-surface-overlay-hovered focus-visible:bg-elevation-surface-overlay-hovered flex aspect-square cursor-pointer items-center justify-center rounded-md text-xl leading-none outline-none;
+	}
+	.bcc-emoji-picker-empty {
+		@apply body-sm text-subtle py-6 text-center;
+	}
+}

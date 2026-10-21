@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { ref } from 'vue';
-import { BccTextarea } from '../../index';
+import BccTextarea from './BccTextarea.vue';
 
 const meta = {
 	component: BccTextarea,
-	title: 'PrimeVue/BccTextarea',
+	title: 'Wrapped/BccTextarea',
 	parameters: {
 		docs: {
 			description: {
 				component:
-					'Multi-line text input with optional auto-resize. [Read more on PrimeVue →](https://v4.primevue.org/textarea/)',
+					'Multi-line text input with optional auto-resize. **Why wrapped:** Exposes `insertAtCaret(text)`, which inserts text (for example an emoji) at the caret and updates `v-model`. [Read more on PrimeVue →](https://v4.primevue.org/textarea/)',
 			},
 		},
 	},

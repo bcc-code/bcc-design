@@ -142,7 +142,6 @@ export { default as PrimevueTabs } from 'primevue/tabs';
 export { default as BccTabView } from 'primevue/tabview';
 export { default as BccTerminal } from 'primevue/terminal';
 export { default as BccTerminalService } from 'primevue/terminalservice';
-export { default as BccTextarea } from 'primevue/textarea';
 export { default as BccTieredMenu } from 'primevue/tieredmenu';
 export { default as BccTimeline } from 'primevue/timeline';
 export { default as BccToast } from 'primevue/toast';

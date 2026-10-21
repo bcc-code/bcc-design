@@ -5,7 +5,8 @@ import BccInputIcon from 'primevue/inputicon';
 import BccInputNumber, { type InputNumberProps } from 'primevue/inputnumber';
 import BccInputText, { type InputTextProps } from 'primevue/inputtext';
 import BccProgressSpinner from 'primevue/progressspinner';
-import { computed, useAttrs } from 'vue';
+import { computed, useAttrs, useTemplateRef } from 'vue';
+import { insertAtCaret as insertAtCaretOf } from './insertAtCaret';
 
 defineOptions({ inheritAttrs: false });
 
@@ -28,6 +29,21 @@ const inputBindings = computed((): InputTextProps => {
 	void iconRight;
 	return { ...rest, ...attrs } as InputTextProps;
 });
+
+export type InputMethods = {
+	/** Inserts text at the caret, replacing any selection, and updates v-model. Does nothing when `numeric`. */
+	insertAtCaret: (text: string) => void;
+};
+
+const input = useTemplateRef<{ $el: HTMLInputElement }>('input');
+
+const exposed: InputMethods = {
+	insertAtCaret: text => {
+		// InputNumber parses and formats its own input, so free text can't be inserted there.
+		if (!props.numeric && input.value) insertAtCaretOf(input.value.$el, text);
+	},
+};
+defineExpose(exposed);
 </script>
 
 <template>
@@ -35,7 +51,7 @@ const inputBindings = computed((): InputTextProps => {
 		<BccInputIcon v-if="icon && iconRight !== true">
 			<component :is="icon" class="size-full" />
 		</BccInputIcon>
-		<component :is="numeric ? BccInputNumber : BccInputText" class="w-full" v-bind="inputBindings" />
+		<component :is="numeric ? BccInputNumber : BccInputText" ref="input" class="w-full" v-bind="inputBindings" />
 		<BccInputIcon v-if="loading">
 			<BccProgressSpinner class="size-full" />
 		</BccInputIcon>
