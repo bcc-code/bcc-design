@@ -9,6 +9,9 @@ on:
       - icons/**
       - .github/workflows/icons-test-build.yml
 
+permissions:
+  contents: read
+
 env:
   CI: true
 
