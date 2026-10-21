@@ -21,6 +21,14 @@ async function show(next: EmojiPickerOpenOptions) {
 	// outside-click listener on document while that click is still bubbling, so it would close at
 	// once. Wait for the event to finish first.
 	await new Promise(resolve => setTimeout(resolve));
+	if (next.signal?.aborted) return;
+	next.signal?.addEventListener(
+		'abort',
+		() => {
+			if (isOpen.value && options.value === next) hide();
+		},
+		{ once: true }
+	);
 	options.value = next;
 	isOpen.value = true;
 	openCount.value++;

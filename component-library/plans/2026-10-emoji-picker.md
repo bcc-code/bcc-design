@@ -38,6 +38,8 @@ type EmojiPickerOpenOptions = {
 	/** Locale for names and search keywords. Falls back to `en`. */
 	locale?: string;
 	onHide?: () => void;
+	/** Aborting it closes the picker opened by this call, or stops it from opening if it is still loading. */
+	signal?: AbortSignal;
 };
 
 export function openBccEmojiPicker(options: EmojiPickerOpenOptions): Promise<void>;
@@ -46,6 +48,10 @@ export function closeBccEmojiPicker(): Promise<void>;
 
 - Calling `openBccEmojiPicker` again with the same `anchor` while it is open closes it, so it
   can be a button's click handler. `<BccEmojiPicker @select>` is also exported for inline use.
+- `signal` lets the caller close the picker it opened, for example when the chat composer it
+  inserts into resets or unmounts. It was added after the first release, for
+  [bcc-code/bcc-chat#537](https://github.com/bcc-code/bcc-chat/pull/537). It only closes the
+  picker if it still belongs to that call, unlike the global `closeBccEmojiPicker()`.
 - Built on PrimeVue's `Popover`. PrimeVue components need the app's context, so `setup.ts`
   remembers the app (`src/appContext.ts`) without importing the picker.
 - Mounts itself with `render()` on first use, like `BccLightbox/state.ts`, but is **not**
