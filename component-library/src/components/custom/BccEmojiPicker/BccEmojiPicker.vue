@@ -176,7 +176,7 @@ watch(isSearching, async searching => {
 		</div>
 
 		<div ref="scroller" class="bcc-emoji-picker-scroll" @scroll.passive="updateActiveGroup" @keydown="onGridKeydown">
-			<template v-if="isSearching">
+			<template v-if="isSearching && !loadFailed">
 				<div class="bcc-emoji-picker-grid">
 					<button
 						v-for="item in results"
