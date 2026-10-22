@@ -40,6 +40,10 @@ Releases go through GitHub Actions, not local publishing. A `*-create-version` w
 
 Write everything that ends up in the repository or on GitHub in English, even when the session is in Norwegian or another language. This covers documentation, plans and decision records, code comments, commit messages, branch names, PR titles and descriptions, and review replies. Reply to the user in the language of the session.
 
+## Merging pull requests
+
+Never merge a pull request. If asked to, tell the user to merge it on GitHub. Merging the base branch into a PR's branch is fine.
+
 ## Branch names
 
 Rename `claude/` branches that have a random or generated suffix **before the first push**. Never push the generated name to `origin`.
