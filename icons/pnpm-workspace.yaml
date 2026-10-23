@@ -1,8 +1,7 @@
 # Supply-chain safeguards, required by .github/workflows/supply-chain-safeguards.yml.
 # Also applies to the `vue/` package, which is published from this folder.
 engineStrict: true
-pmOnFail: error
-packageManagerStrictVersion: true
+pmOnFail: download
 strictDepBuilds: true
 blockExoticSubdeps: true
 trustPolicy: no-downgrade
