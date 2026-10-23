@@ -8,10 +8,16 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"packageManager": "pnpm@11.23.0",
 	"engines": {
 		"npm": "disallow",
 		"pnpm": ">=11.0.0"
+	},
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "11.23.0",
+			"onFail": "download"
+		}
 	},
 	"sideEffects": [
 		"**/*.css"
