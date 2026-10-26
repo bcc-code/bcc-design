@@ -1,4 +1,5 @@
 const { exec } = require('node:child_process');
+const { readFileSync } = require('node:fs');
 const { exit } = require('node:process');
 const currentVersion = require('../package.json').version;
 
@@ -24,16 +25,17 @@ if (versionParts && channel === 'release') {
 	increment = versionParts[1];
 }
 
-const command = `npm version ${
+const command = `pnpm version ${
 	channel === 'release' ? increment : `${update} --preid ${channel}`
 } --no-git-tag-version`;
 
-exec(command, (error, newVersion) => {
+exec(command, error => {
 	if (error) {
 		console.error(error);
 		exit(1);
 	}
-	const tagVersion = newVersion.replace('\n', '').trim();
+	// pnpm doesn't print the bare version, so read it back from package.json
+	const tagVersion = `v${JSON.parse(readFileSync(`${__dirname}/../package.json`, 'utf8')).version}`;
 	const tagName = `component-library-${tagVersion}`;
 	const tagMessage = whatsNew ? `component-library ${tagVersion}\n\n${whatsNew}` : `component-library ${tagVersion}`;
 	exec(
