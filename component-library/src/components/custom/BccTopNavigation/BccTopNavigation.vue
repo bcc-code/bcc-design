@@ -47,7 +47,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 
 <template>
 	<div
-		class="bcc-topbar pt-inset-top-1 top-0 z-30 w-full shrink-0 pb-1 select-none"
+		class="bcc-topbar pt-inset-top top-0 z-30 w-full shrink-0 select-none"
 		:class="[
 			{ relative, fixed, sticky: !relative && !fixed },
 			transparent
@@ -64,7 +64,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 				<template v-if="!hideBack">
 					<button
 						type="button"
-						class="btn-nav-back center shrink-0 gap-1 px-4 py-3"
+						class="btn-nav-back center ml-2 min-h-10 shrink-0 gap-1 px-2.5"
 						:aria-label="backTitle ? undefined : 'Back'"
 						@click="emit('back')"
 					>
@@ -95,7 +95,7 @@ const heading = computed((): { title: string; subtitle: string } => {
 							{{ heading.title }}
 						</slot>
 					</h1>
-					<h2 v-if="heading.subtitle" class="body-md w-full truncate leading-none" :class="{ 'text-subtlest': white }">
+					<h2 v-if="heading.subtitle" class="body-md w-full truncate" :class="{ 'text-subtlest': white }">
 						<slot name="subtitle" :subtitle="heading.subtitle">
 							{{ heading.subtitle }}
 						</slot>
