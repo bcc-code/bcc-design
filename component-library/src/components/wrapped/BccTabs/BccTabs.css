@@ -30,3 +30,19 @@
 		flex-shrink: 0;
 	}
 }
+
+/* After the primevue layer, so the dropdown and the hidden tab list win over its display rules. */
+@layer custom {
+	.bcc-tabs-mobile-select > .bcc-tabs-select {
+		display: none;
+	}
+	@media (width < 48rem) {
+		.bcc-tabs-mobile-select > .p-tablist {
+			display: none;
+		}
+		.bcc-tabs-mobile-select > .bcc-tabs-select {
+			display: flex;
+			margin-bottom: calc(var(--spacing) * 4);
+		}
+	}
+}

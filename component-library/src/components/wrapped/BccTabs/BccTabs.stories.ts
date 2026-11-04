@@ -171,3 +171,39 @@ export const Bold: Story = {
 		`,
 	}),
 };
+
+export const MobileSelect: Story = {
+	args: {
+		tabs: [
+			{ title: 'Requests', badge: { value: '2', context: BCC_CONTEXTS.brand.bold } },
+			{ title: 'All bookings' },
+			{ title: 'SMS log' },
+			{ title: 'Rooms' },
+			{ title: 'Closures' },
+			{ title: 'Map' },
+			{ title: 'Access' },
+		],
+		mobileSelect: true,
+		mobileSelectLabel: 'Choose view',
+	},
+	parameters: {
+		viewport: { defaultViewport: 'mobile1' },
+		docs: {
+			description: {
+				story:
+					'Below the `md` breakpoint the tab list becomes a dropdown, so a long row of tabs does not hide most of them behind the scroll arrows on a phone. Panels are unchanged.',
+			},
+		},
+	},
+	render: args => ({
+		components: { BccTabs },
+		setup() {
+			return { args };
+		},
+		template: `
+			<BccTabs v-bind="args">
+				${Array.from({ length: 7 }, (_, index) => `<template #tab-${index + 1}>Content for tab ${index + 1}</template>`).join('\n')}
+			</BccTabs>
+		`,
+	}),
+};
