@@ -40,9 +40,13 @@ Releases go through GitHub Actions, not local publishing. A `*-create-version` w
 
 Write everything that ends up in the repository or on GitHub in English, even when the session is in Norwegian or another language. This covers documentation, plans and decision records, code comments, commit messages, branch names, PR titles and descriptions, and review replies. Reply to the user in the language of the session.
 
+## Pull requests
+
+Open every new pull request as a draft, unless the user says it is ready for review. After opening a draft, give the user the link, tell them it is a draft, and ask them to say when it is ready for review; then mark it ready for review.
+
 ## Merging pull requests
 
-Never merge a pull request. If asked to, tell the user to merge it on GitHub. Merging the base branch into a PR's branch is fine.
+Never merge a draft pull request; if asked to, tell the user it is a draft and must be marked ready for review first. When the user asks to merge a PR that is ready for review, check that it is approved and has a clean merge state (no conflicts, required checks passing). If both hold, merge it. Otherwise ask before merging, naming what is missing, e.g. "Do you really want to merge the PR? It is not ready because it is not approved.", and merge only if the user confirms. Merging the base branch into a PR's branch is fine.
 
 ## Branch names
 
