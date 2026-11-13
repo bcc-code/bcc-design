@@ -59,11 +59,12 @@ jobs:
         run: |
           TAG_NAME="${{ github.ref_name }}"
           RELEASE_DESCRIPTION="$(git tag -l --format='%(contents)' "$TAG_NAME" | sed '1,/^$/d')"
+          DELIMITER="EOF_$(openssl rand -hex 16)"
           {
             echo "TAG_NAME=$TAG_NAME"
-            echo "RELEASE_DESCRIPTION<<EOF"
+            echo "RELEASE_DESCRIPTION<<$DELIMITER"
             echo "$RELEASE_DESCRIPTION"
-            echo "EOF"
+            echo "$DELIMITER"
           } >> $GITHUB_OUTPUT
         working-directory: .
 

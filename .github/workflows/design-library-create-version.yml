@@ -58,7 +58,11 @@ jobs:
           git config --global user.email "84040471+bcc-bot@users.noreply.github.com"
 
       - name: Version new ${{ github.event.inputs.version }} version
-        run: pnpm run create-version "${{ github.event.inputs.version }}" "${{ github.event.inputs.channel }}" "${{ github.event.inputs.whats_new }}"
+        env:
+          VERSION: ${{ github.event.inputs.version }}
+          CHANNEL: ${{ github.event.inputs.channel }}
+          WHATS_NEW: ${{ github.event.inputs.whats_new }}
+        run: node ./scripts/version.cjs "$VERSION" "$CHANNEL" "$WHATS_NEW"
         working-directory: component-library
 
       - name: Push

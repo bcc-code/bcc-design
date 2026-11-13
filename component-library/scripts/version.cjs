@@ -1,4 +1,4 @@
-const { exec } = require('node:child_process');
+const { exec, execFileSync } = require('node:child_process');
 const { readFileSync } = require('node:fs');
 const { exit } = require('node:process');
 const currentVersion = require('../package.json').version;
@@ -38,16 +38,13 @@ exec(command, error => {
 	const tagVersion = `v${JSON.parse(readFileSync(`${__dirname}/../package.json`, 'utf8')).version}`;
 	const tagName = `component-library-${tagVersion}`;
 	const tagMessage = whatsNew ? `component-library ${tagVersion}\n\n${whatsNew}` : `component-library ${tagVersion}`;
-	exec(
-		`git add . && git commit -m "component-library ${tagVersion}" && git tag -am ${JSON.stringify(
-			tagMessage
-		)} "${tagName}"`,
-		err => {
-			if (err) {
-				console.error(err);
-				exit(1);
-			}
-			console.log(`Tagged new version component-library-${tagVersion}`);
-		}
-	);
+	try {
+		execFileSync('git', ['add', '.']);
+		execFileSync('git', ['commit', '-m', `component-library ${tagVersion}`]);
+		execFileSync('git', ['tag', '-a', '-m', tagMessage, tagName]);
+	} catch (err) {
+		console.error(err);
+		exit(1);
+	}
+	console.log(`Tagged new version component-library-${tagVersion}`);
 });
