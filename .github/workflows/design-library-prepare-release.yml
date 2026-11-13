@@ -33,10 +33,11 @@ jobs:
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_OUTPUT
 
           RELEASE_DESCRIPTION="$(git tag -l --format='%(contents)' "$TAG_NAME" | sed '1,/^$/d')"
+          DELIMITER="EOF_$(openssl rand -hex 16)"
           {
-            echo "RELEASE_DESCRIPTION<<EOF"
+            echo "RELEASE_DESCRIPTION<<$DELIMITER"
             echo "$RELEASE_DESCRIPTION"
-            echo "EOF"
+            echo "$DELIMITER"
           } >> $GITHUB_OUTPUT
 
       - name: Create Release
