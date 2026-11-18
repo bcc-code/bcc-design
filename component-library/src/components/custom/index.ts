@@ -34,7 +34,7 @@ export type { ImageProps } from './BccImage/BccImage.vue';
 export type { LightboxApi, LightboxItem, LightboxItemInput, LightboxOpenOptions } from './BccLightbox/types';
 export type { NpsResultProps } from './BccNpsResult/BccNpsResult.vue';
 export type { NpsScoreProps } from './BccNpsScore/BccNpsScore.vue';
-export type { ReactInfo, ReactProps } from './BccReact/types';
+export type { ReactAlign, ReactInfo, ReactProps } from './BccReact/types';
 export type { StepIndicatorProps } from './BccStepIndicator/BccStepIndicator.vue';
 export type { TagProps } from './BccTag/BccTag.vue';
 export type { TopNavigationProps } from './BccTopNavigation/BccTopNavigation.vue';
