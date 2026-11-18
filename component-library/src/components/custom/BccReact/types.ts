@@ -18,4 +18,11 @@ export type ReactProps = {
 	placeholder?: string;
 	/** Max active reactions visible at once; overflow scrolls horizontally when exceeded. */
 	max?: number;
+	/**
+	 * Horizontal alignment of the reaction picker. `left` lines its left edge up with the component and opens it to
+	 * the right, `right` lines its right edge up and opens it to the left. `center` centers it on the component.
+	 */
+	align?: ReactAlign;
 };
+
+export type ReactAlign = 'left' | 'center' | 'right';

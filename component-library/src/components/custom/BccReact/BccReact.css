@@ -17,12 +17,23 @@
 	}
 
 	.bcc-react-selector-container {
-		@apply absolute z-50 h-9;
-		@apply top-9 origin-top-left;
+		@apply absolute top-9 z-50 h-9 origin-top;
+	}
+	.bcc-react-selector-container--left {
+		@apply left-0 origin-top-left;
+	}
+	.bcc-react-selector-container--right {
+		@apply right-0 origin-top-right;
 	}
 
 	.bcc-react-selector-container--top {
-		@apply -top-10 origin-bottom-left;
+		@apply -top-10 origin-bottom;
+	}
+	.bcc-react-selector-container--top.bcc-react-selector-container--left {
+		@apply origin-bottom-left;
+	}
+	.bcc-react-selector-container--top.bcc-react-selector-container--right {
+		@apply origin-bottom-right;
 	}
 
 	.bcc-react-selector {

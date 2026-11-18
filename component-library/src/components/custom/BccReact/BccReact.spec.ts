@@ -46,4 +46,16 @@ describe('BccReact', () => {
 		expect(list.classes()).toContain('bcc-react-list--limited');
 		expect(list.attributes('style')).toContain('--bcc-react-max-visible: 3');
 	});
+
+	it('aligns the picker with the align prop', async () => {
+		const emojis = [{ id: 'thumbsup', emoji: '👍' }];
+
+		const centered = mount(BccReact, { props: { emojis } });
+		await centered.get('.bcc-react-toggle').trigger('click');
+		expect(centered.get('.bcc-react-selector-container').classes()).toContain('bcc-react-selector-container--center');
+
+		const right = mount(BccReact, { props: { emojis, align: 'right' } });
+		await right.get('.bcc-react-toggle').trigger('click');
+		expect(right.get('.bcc-react-selector-container').classes()).toContain('bcc-react-selector-container--right');
+	});
 });

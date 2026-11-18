@@ -31,6 +31,7 @@ const meta: Meta<typeof BccReact> = {
 		top: { control: 'boolean' },
 		placeholder: { control: 'text' },
 		max: { control: { type: 'number', min: 1 } },
+		align: { control: 'inline-radio', options: ['left', 'center', 'right'] },
 	},
 };
 
@@ -133,6 +134,39 @@ export const ScrollableReactions: Story = {
 			<div class="max-w-md py-8">
 				<BccReact v-bind="args" :emojis="emojis" @toggle="onToggle" />
 			</div>
+			</div>
+		`,
+	}),
+};
+
+export const Alignment: Story = {
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'Use `align` when the component only takes up the width of its content, for example at the left or right edge of a card. The default, `center`, centers the picker on the component and can overflow a narrow one.',
+			},
+		},
+	},
+	args: {
+		emojis: [
+			{ id: 'thumbs-up', emoji: '👍', count: 2, selected: true },
+			...baseEmojis.slice(1).map(emoji => ({ ...emoji, count: 0 })),
+		],
+	},
+	render: args => ({
+		components: { BccReact },
+		setup() {
+			return { args };
+		},
+		template: `
+			<div class="flex justify-between gap-4 py-16">
+				<div class="w-max">
+					<BccReact v-bind="args" align="left" />
+				</div>
+				<div class="w-max">
+					<BccReact v-bind="args" align="right" />
+				</div>
 			</div>
 		`,
 	}),

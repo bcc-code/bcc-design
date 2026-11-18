@@ -13,6 +13,7 @@ const props = withDefaults(defineProps<ReactProps>(), {
 	emojis: () => [],
 	top: false,
 	placeholder: 'Be the first to react 😉',
+	align: 'center',
 });
 const emit = defineEmits<{
 	(e: 'toggle', id: string): void;
@@ -164,7 +165,7 @@ onMounted(() => {
 				v-if="show"
 				key="selector"
 				class="bcc-react-selector-container"
-				:class="{ 'bcc-react-selector-container--top': props.top }"
+				:class="[`bcc-react-selector-container--${props.align}`, { 'bcc-react-selector-container--top': props.top }]"
 			>
 				<div ref="selector" class="bcc-react-selector">
 					<div class="bcc-react-selector-emojis-container">
